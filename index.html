@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Labcompara – Estudios de laboratorio al mejor precio</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0B1F4B;
+    --navy-mid: #1a3a6e;
+    --teal: #00B4D8;
+    --teal-light: #90E0EF;
+    --teal-dark: #0077A8;
+    --green: #10B981;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --white: #ffffff;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-400: #94A3B8;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--gray-800); overflow-x: hidden; }
+  h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--gray-100); }
+  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+  /* Animations */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+  @keyframes shimmer { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+  @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+  .animate-fadeUp { animation: fadeUp 0.6s ease forwards; }
+  .animate-fadeIn { animation: fadeIn 0.4s ease forwards; }
+
+  /* Glassmorphism */
+  .glass { backdrop-filter: blur(16px); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+
+  /* Hero — canvas beams handles the background */
+  .hero-bg {
+    background: #0B1F4B;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
+  /* Nav */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-text { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: white; }
+  .nav-logo-text span { color: var(--teal-light); }
+
+  /* Buttons */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 20px rgba(0,180,216,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,180,216,0.45); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    background: white;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--navy); color: white; }
+
+  .btn-outline-white {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.4);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+  /* Cards */
+  .card { background: white; border-radius: 16px; box-shadow: 0 4px 24px rgba(11,31,75,0.08); padding: 24px; transition: all 0.2s; }
+  .card:hover { box-shadow: 0 8px 40px rgba(11,31,75,0.12); }
+
+  /* Badge */
+  .badge-cheapest { background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; font-family: 'Sora', sans-serif; display: inline-flex; align-items: center; gap: 4px; }
+  .badge-rated { background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; font-family: 'Sora', sans-serif; display: inline-flex; align-items: center; gap: 4px; }
+  .badge-recommended { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; font-family: 'Sora', sans-serif; display: inline-flex; align-items: center; gap: 4px; }
+
+  /* Form */
+  .input-group { display: flex; flex-direction: column; gap: 6px; }
+  .input-label { font-size: 13px; font-weight: 600; color: var(--gray-600); font-family: 'Sora', sans-serif; }
+  .input-field {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--gray-800);
+    transition: border-color 0.2s;
+    outline: none;
+    background: white;
+  }
+  .input-field:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,180,216,0.1); }
+  .input-field::placeholder { color: var(--gray-400); }
+  select.input-field { appearance: none; cursor: pointer; }
+
+  /* Progress steps */
+  .step-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-family: 'Sora', sans-serif; transition: all 0.3s; }
+
+  /* Results */
+  .result-row { display: flex; align-items: center; padding: 16px; border-radius: 12px; border: 2px solid var(--gray-100); transition: all 0.2s; gap: 12px; background: white; }
+  .result-row:hover { border-color: var(--teal); box-shadow: 0 4px 20px rgba(0,180,216,0.1); }
+  .result-row.cheapest { border-color: #10B981; background: linear-gradient(135deg, rgba(16,185,129,0.04), rgba(5,150,105,0.02)); }
+  .result-row.best-rated { border-color: #F59E0B; background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(217,119,6,0.02)); }
+
+  /* Star rating */
+  .stars { display: flex; gap: 2px; }
+  .star-fill { color: #F59E0B; }
+  .star-empty { color: var(--gray-200); }
+
+  /* Modal */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(11,31,75,0.6); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: flex-end; justify-content: center; padding: 0; }
+  @media(min-width:640px){ .modal-overlay { align-items: center; padding: 24px; } }
+  .modal-sheet { background: white; border-radius: 24px 24px 0 0; padding: 28px 24px; width: 100%; max-height: 92vh; overflow-y: auto; animation: slideUp 0.3s ease; }
+  @media(min-width:640px){ .modal-sheet { border-radius: 24px; max-width: 560px; max-height: 85vh; animation: fadeIn 0.3s ease; } }
+  @keyframes slideUp { from{transform:translateY(100%);} to{transform:translateY(0);} }
+
+  /* Search */
+  .search-input { position: relative; }
+  .search-input input { padding-left: 44px; }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray-400); }
+
+  /* Trust icons */
+  .trust-item { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 20px 16px; }
+  .trust-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+
+  /* Stats counter */
+  .stat-item { text-align: center; }
+  .stat-number { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 800; color: var(--navy); }
+  .stat-label { font-size: 14px; color: var(--gray-600); margin-top: 4px; }
+
+  /* How it works step */
+  .how-step { display: flex; gap: 20px; align-items: flex-start; padding: 20px; border-radius: 16px; background: white; border: 2px solid var(--gray-100); transition: all 0.2s; }
+  .how-step:hover { border-color: var(--teal-light); transform: translateX(4px); }
+  .how-step-num { min-width: 40px; height: 40px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 16px; color: white; }
+
+  /* Lab color chips */
+  .lab-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; font-family: 'Sora', sans-serif; }
+
+  /* Scrollable study list */
+  .study-list { max-height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 4px; }
+  .study-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; border: 2px solid var(--gray-100); cursor: pointer; transition: all 0.15s; font-size: 14px; }
+  .study-item:hover { border-color: var(--teal); background: rgba(0,180,216,0.04); }
+  .study-item.selected { border-color: var(--teal); background: rgba(0,180,216,0.08); }
+
+  /* Chip tags for selected studies */
+  .selected-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(0,180,216,0.1); border: 1px solid var(--teal); border-radius: 20px; font-size: 13px; color: var(--teal-dark); font-weight: 500; }
+
+  /* Section header */
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-eyebrow { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; }
+  .section-title { font-family: 'Sora', sans-serif; font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .section-sub { font-size: 16px; color: var(--gray-600); margin-top: 12px; line-height: 1.6; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+  /* Price display */
+  .price-display { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 22px; color: var(--navy); }
+  .price-nd { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--gray-400); }
+
+  /* Savings highlight */
+  .savings-bar { background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05)); border: 1px solid rgba(16,185,129,0.3); border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
+
+  /* Loader */
+  .spinner { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; }
+
+  /* Mobile friendly */
+  @media(max-width:640px){
+    .result-row { flex-wrap: wrap; }
+    .price-display { font-size: 18px; }
+    nav { padding: 12px 16px; }
+  }
+
+  /* Divider */
+  .divider { height: 1px; background: var(--gray-100); margin: 0; }
+
+  /* Footer */
+  footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 48px 24px 32px; }
+  .footer-brand { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; color: white; }
+  .footer-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-link:hover { color: var(--teal-light); }
+  .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
+
+  /* Checkbox */
+  .checkbox-custom { width: 18px; height: 18px; border: 2px solid var(--gray-300); border-radius: 5px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
+  .checkbox-custom.checked { background: var(--teal); border-color: var(--teal); }
+
+  /* Notification dot */
+  .notif-dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; display: inline-block; }
+
+  /* Lab colors */
+  .lab-labbe { background: rgba(99,102,241,0.1); color: #6366F1; }
+  .lab-polanco { background: rgba(236,72,153,0.1); color: #EC4899; }
+  .lab-chopo { background: rgba(245,158,11,0.1); color: #D97706; }
+  .lab-saluddigna { background: rgba(16,185,129,0.1); color: #059669; }
+  .lab-lapi { background: rgba(239,68,68,0.1); color: #DC2626; }
+  .lab-olab { background: rgba(0,180,216,0.1); color: #0077A8; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useMemo, useEffect, useRef } = React;
+
+// ─── DATA ───────────────────────────────────────────────────────────────────
+// Source: comparativo_laboratorios_mexico.csv
+// Prices in MXN. N/D = not available.
+const RAW_DATA = [
+  {name:"Biometría Hemática",Labbe:277,Polanco:556,Chopo:270,"Salud Digna":95,LAPI:491,OLAB:269,avg:326,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 6 Elementos",Labbe:616,Polanco:910,Chopo:null,"Salud Digna":110,LAPI:1395,OLAB:409,avg:688,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 27 Elementos",Labbe:903,Polanco:1730,Chopo:926,"Salud Digna":340,LAPI:1973,OLAB:819,avg:1115,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 35 Elementos",Labbe:1277,Polanco:1818,Chopo:null,"Salud Digna":260,LAPI:2618,OLAB:799,avg:1354,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 45 Elementos",Labbe:null,Polanco:1892,Chopo:1015,"Salud Digna":null,LAPI:null,OLAB:929,avg:1279,cheapest:"OLAB"},
+  {name:"Glucosa en Suero",Labbe:null,Polanco:null,Chopo:99,"Salud Digna":null,LAPI:null,OLAB:null,avg:99,cheapest:"Chopo"},
+  {name:"Hemoglobina Glicosilada (HbA1c)",Labbe:449,Polanco:852,Chopo:467,"Salud Digna":null,LAPI:621,OLAB:419,avg:562,cheapest:"OLAB"},
+  {name:"Perfil de Lípidos",Labbe:848,Polanco:830,Chopo:403,"Salud Digna":230,LAPI:null,OLAB:419,avg:546,cheapest:"Salud Digna"},
+  {name:"Insulina",Labbe:729,Polanco:1470,Chopo:1168,"Salud Digna":280,LAPI:729,OLAB:758,avg:856,cheapest:"Salud Digna"},
+  {name:"Perfil Tiroideo",Labbe:1016,Polanco:2100,Chopo:1090,"Salud Digna":550,LAPI:1469,OLAB:869,avg:1016,cheapest:"Salud Digna"},
+  {name:"Examen General de Orina (EGO)",Labbe:303,Polanco:302,Chopo:144,"Salud Digna":55,LAPI:314,OLAB:149,avg:211,cheapest:"Salud Digna"},
+  {name:"Perfil Hormonal Femenino",Labbe:null,Polanco:3380,Chopo:2075,"Salud Digna":350,LAPI:3201,OLAB:749,avg:1951,cheapest:"Salud Digna"},
+  {name:"Perfil Hormonal Masculino",Labbe:null,Polanco:823,Chopo:1755,"Salud Digna":940,LAPI:1119,OLAB:1400,avg:1207,cheapest:"Polanco"},
+  {name:"Testosterona Libre y Total",Labbe:null,Polanco:null,Chopo:2633,"Salud Digna":null,LAPI:null,OLAB:null,avg:2633,cheapest:"Chopo"},
+  {name:"Vitamina D (25-Hidroxi)",Labbe:1059,Polanco:null,Chopo:null,"Salud Digna":550,LAPI:null,OLAB:null,avg:805,cheapest:"Salud Digna"},
+  {name:"Antígeno Prostático Específico (PSA)",Labbe:418,Polanco:null,Chopo:1367,"Salud Digna":null,LAPI:null,OLAB:null,avg:893,cheapest:"Labbe"},
+  {name:"Antígeno Prostático Total y Libre",Labbe:null,Polanco:null,Chopo:1367,"Salud Digna":null,LAPI:null,OLAB:null,avg:1367,cheapest:"Chopo"},
+  {name:"CA-125 (Marcador Tumoral)",Labbe:549,Polanco:2794,Chopo:null,"Salud Digna":null,LAPI:1358,OLAB:759,avg:1365,cheapest:"Labbe"},
+  {name:"CA 15-3 (Marcador Tumoral Mama)",Labbe:549,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1358,OLAB:null,avg:954,cheapest:"Labbe"},
+  {name:"Marcadores Tumorales Hígado (AFP)",Labbe:null,Polanco:1758,Chopo:null,"Salud Digna":null,LAPI:389,OLAB:null,avg:1074,cheapest:"LAPI"},
+  {name:"Marcadores Tumorales Páncreas (CA 19-9)",Labbe:null,Polanco:3340,Chopo:3166,"Salud Digna":null,LAPI:1358,OLAB:717,avg:2145,cheapest:"OLAB"},
+  {name:"Marcadores Tumorales Colon",Labbe:null,Polanco:1884,Chopo:1305,"Salud Digna":null,LAPI:839,OLAB:null,avg:1343,cheapest:"LAPI"},
+  {name:"Papanicolaou",Labbe:null,Polanco:778,Chopo:499,"Salud Digna":250,LAPI:548,OLAB:649,avg:545,cheapest:"Salud Digna"},
+  {name:"Prueba de Embarazo en Sangre (Beta-HCG)",Labbe:304,Polanco:806,Chopo:669,"Salud Digna":null,LAPI:839,OLAB:null,avg:655,cheapest:"Labbe"},
+  {name:"Prueba de VIH",Labbe:null,Polanco:1092,Chopo:579,"Salud Digna":290,LAPI:839,OLAB:519,avg:664,cheapest:"Salud Digna"},
+  {name:"Perfil Reumático",Labbe:null,Polanco:2196,Chopo:919,"Salud Digna":285,LAPI:2114,OLAB:null,avg:1379,cheapest:"Salud Digna"},
+  {name:"Perfil Hepático",Labbe:null,Polanco:5810,Chopo:380,"Salud Digna":null,LAPI:1574,OLAB:639,avg:2101,cheapest:"Chopo"},
+  {name:"Perfil Ginecológico",Labbe:1279,Polanco:3270,Chopo:1245,"Salud Digna":595,LAPI:4050,OLAB:759,avg:1866,cheapest:"Salud Digna"},
+  {name:"Depuración de Creatinina",Labbe:null,Polanco:764,Chopo:345,"Salud Digna":95,LAPI:783,OLAB:369,avg:471,cheapest:"Salud Digna"},
+  {name:"Deshidrogenasa Láctica (DHL)",Labbe:402,Polanco:406,Chopo:255,"Salud Digna":null,LAPI:402,OLAB:359,avg:365,cheapest:"Chopo"},
+  {name:"Coprocultivo",Labbe:null,Polanco:948,Chopo:438,"Salud Digna":null,LAPI:734,OLAB:419,avg:635,cheapest:"OLAB"},
+  {name:"Urocultivo",Labbe:null,Polanco:998,Chopo:570,"Salud Digna":null,LAPI:839,OLAB:439,avg:712,cheapest:"OLAB"},
+  {name:"Coproparasitoscópico",Labbe:null,Polanco:636,Chopo:336,"Salud Digna":60,LAPI:219,OLAB:314,avg:313,cheapest:"Salud Digna"},
+  {name:"Grupo Sanguíneo y Rh",Labbe:null,Polanco:414,Chopo:175,"Salud Digna":80,LAPI:149,OLAB:146,avg:193,cheapest:"Salud Digna"},
+  {name:"Reacciones Febriles",Labbe:null,Polanco:432,Chopo:179,"Salud Digna":null,LAPI:629,OLAB:229,avg:367,cheapest:"Chopo"},
+  {name:"Tiempo de Protrombina",Labbe:null,Polanco:582,Chopo:179,"Salud Digna":null,LAPI:468,OLAB:269,avg:375,cheapest:"Chopo"},
+  {name:"Tiempo de Tromboplastina Parcial (TTP)",Labbe:null,Polanco:588,Chopo:null,"Salud Digna":null,LAPI:468,OLAB:389,avg:482,cheapest:"OLAB"},
+  {name:"Pruebas de Coagulación Sanguínea",Labbe:1006,Polanco:null,Chopo:671,"Salud Digna":555,LAPI:939,OLAB:null,avg:793,cheapest:"Salud Digna"},
+  {name:"Curva de Tolerancia a la Glucosa",Labbe:null,Polanco:884,Chopo:354,"Salud Digna":null,LAPI:902,OLAB:439,avg:645,cheapest:"Chopo"},
+  {name:"Prueba de Influenza",Labbe:null,Polanco:1568,Chopo:635,"Salud Digna":370,LAPI:499,OLAB:559,avg:726,cheapest:"Salud Digna"},
+  {name:"Electrocardiograma en Reposo",Labbe:null,Polanco:810,Chopo:415,"Salud Digna":125,LAPI:419,OLAB:379,avg:430,cheapest:"Salud Digna"},
+  {name:"Examen Prenupcial",Labbe:null,Polanco:1122,Chopo:470,"Salud Digna":205,LAPI:1430,OLAB:449,avg:735,cheapest:"Salud Digna"},
+  {name:"Examen de ETS",Labbe:1109,Polanco:1924,Chopo:859,"Salud Digna":null,LAPI:799,OLAB:3429,avg:1624,cheapest:"LAPI"},
+  {name:"Prueba Antidoping",Labbe:null,Polanco:1056,Chopo:489,"Salud Digna":225,LAPI:null,OLAB:539,avg:577,cheapest:"Salud Digna"},
+  {name:"Hemocultivo",Labbe:null,Polanco:1708,Chopo:1019,"Salud Digna":null,LAPI:null,OLAB:769,avg:1165,cheapest:"OLAB"},
+  {name:"Espermatobioscopia",Labbe:909,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:909,cheapest:"Labbe"},
+  {name:"Perfil Diabético",Labbe:381,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:381,cheapest:"Labbe"},
+  {name:"Perfil Básico",Labbe:1339,Polanco:null,Chopo:null,"Salud Digna":150,LAPI:null,OLAB:null,avg:745,cheapest:"Salud Digna"},
+  {name:"Check Up Básico",Labbe:null,Polanco:1914,Chopo:1359,"Salud Digna":265,LAPI:329,OLAB:1159,avg:1005,cheapest:"Salud Digna"},
+  {name:"Check Up Completo",Labbe:null,Polanco:null,Chopo:2275,"Salud Digna":450,LAPI:null,OLAB:1249,avg:1325,cheapest:"Salud Digna"},
+  {name:"Proteínas en Orina",Labbe:472,Polanco:5058,Chopo:210,"Salud Digna":null,LAPI:472,OLAB:239,avg:1290,cheapest:"Chopo"},
+  {name:"Colposcopía",Labbe:null,Polanco:1492,Chopo:625,"Salud Digna":null,LAPI:482,OLAB:449,avg:762,cheapest:"OLAB"},
+  {name:"Mastografía",Labbe:null,Polanco:636,Chopo:315,"Salud Digna":275,LAPI:491,OLAB:289,avg:401,cheapest:"Salud Digna"},
+  {name:"Perfil Preoperatorio",Labbe:1070,Polanco:3268,Chopo:809,"Salud Digna":null,LAPI:822,OLAB:1956,avg:1585,cheapest:"Chopo"},
+  {name:"Bicarbonato en Sangre",Labbe:null,Polanco:510,Chopo:126,"Salud Digna":null,LAPI:null,OLAB:282,avg:306,cheapest:"Chopo"},
+  {name:"Pruebas de Función Renal",Labbe:null,Polanco:2054,Chopo:1119,"Salud Digna":1999,LAPI:1676,OLAB:null,avg:1712,cheapest:"Chopo"},
+  {name:"Examen Preoperatorio",Labbe:null,Polanco:3268,Chopo:809,"Salud Digna":null,LAPI:822,OLAB:1956,avg:1714,cheapest:"Chopo"},
+  {name:"Bilirrubinas (Total/Directa/Indirecta)",Labbe:102,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:102,cheapest:"Labbe"},
+  {name:"TGO y TGP",Labbe:95,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:95,cheapest:"Labbe"},
+  {name:"Velocidad de Sedimentación Globular (VSG)",Labbe:135,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:135,cheapest:"Labbe"},
+  {name:"Colesterol Total",Labbe:134,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:134,cheapest:"Labbe"},
+  {name:"Perfil Climaterio",Labbe:829,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:829,cheapest:"Labbe"},
+  {name:"Perfil de Alergia Inhalatoria",Labbe:null,Polanco:984,Chopo:1365,"Salud Digna":null,LAPI:2470,OLAB:null,avg:1606,cheapest:"Polanco"},
+  {name:"Tamiz Neonatal",Labbe:null,Polanco:2200,Chopo:808,"Salud Digna":null,LAPI:null,OLAB:2469,avg:1826,cheapest:"Chopo"},
+];
+
+const LABS = ['Labbe','Polanco','Chopo','Salud Digna','LAPI','OLAB'];
+
+// Mock lab metadata — rating is mocked (TODO: replace with real data from reviews system)
+// COLOR_CLASS maps to CSS class suffix for lab-chip coloring
+const LAB_META = {
+  Labbe: {
+    rating: 4.5, votes: 1243, color: '#6366F1', colorClass: 'labbe',
+    tagline: 'Servicio a domicilio · Resultados digitales',
+    url: 'https://labbe.com.mx',
+    services: ['🏠 Toma a domicilio', '📱 Resultados en app', '⏱️ Resultados en 24h', '📋 Historial digital'],
+    about: 'Labbe es el laboratorio líder en servicio a domicilio en México. Sus técnicos toman la muestra en tu casa y los resultados llegan directamente a tu teléfono.',
+    emoji: '🏠'
+  },
+  Polanco: {
+    rating: 4.0, votes: 876, color: '#EC4899', colorClass: 'polanco',
+    tagline: 'Laboratorio premium · Atención personalizada',
+    url: 'https://laboratoriospolanco.com.mx',
+    services: ['✨ Atención premium', '🔬 Alta precisión', '📞 Asesoría médica', '🏥 Instalaciones de lujo'],
+    about: 'Laboratorios Polanco ofrece una experiencia clínica premium con tecnología de punta y atención altamente personalizada.',
+    emoji: '✨'
+  },
+  Chopo: {
+    rating: 4.3, votes: 5621, color: '#F59E0B', colorClass: 'chopo',
+    tagline: 'Red nacional · 500+ sucursales',
+    url: 'https://chopo.com.mx',
+    services: ['📍 500+ sucursales', '🌎 Cobertura nacional', '💳 Pago en línea', '📄 Resultados PDF'],
+    about: 'Laboratorio Chopo es la red más grande de laboratorios clínicos en México con más de 500 sucursales a nivel nacional.',
+    emoji: '🏥'
+  },
+  'Salud Digna': {
+    rating: 4.7, votes: 9834, color: '#10B981', colorClass: 'saluddigna',
+    tagline: 'Precios populares · Mayor ahorro garantizado',
+    url: 'https://saluddigna.mx',
+    services: ['💰 Precios accesibles', '🌍 Alta cobertura', '⚡ Resultados rápidos', '✅ Alta calidad'],
+    about: 'Salud Digna ofrece estudios clínicos de alta calidad a precios sumamente accesibles, siendo la opción más económica en la mayoría de estudios.',
+    emoji: '💰'
+  },
+  LAPI: {
+    rating: 3.9, votes: 432, color: '#EF4444', colorClass: 'lapi',
+    tagline: 'Especializado · Análisis clínicos de alta complejidad',
+    url: 'https://lapi.com.mx',
+    services: ['🔬 Alta especialización', '🧬 Estudios complejos', '👨‍⚕️ Personal certificado', '📊 Reportes detallados'],
+    about: 'LAPI es un laboratorio especializado en análisis clínicos de alta complejidad, ideal para estudios que requieren mayor precisión técnica.',
+    emoji: '🔬'
+  },
+  OLAB: {
+    rating: 4.2, votes: 2187, color: '#00B4D8', colorClass: 'olab',
+    tagline: 'Digital first · Resultados en 24h',
+    url: 'https://olab.mx',
+    services: ['💻 100% digital', '⏱️ Resultados en 24h', '📲 App móvil', '🔔 Notificaciones en tiempo real'],
+    about: 'OLAB es el laboratorio digital de nueva generación que combina tecnología moderna con análisis clínicos confiables.',
+    emoji: '💻'
+  }
+};
+
+// Study educational content — description, preparation, fasting info
+const STUDY_INFO = {
+  "Biometría Hemática": { desc:"Análisis completo de las células sanguíneas: glóbulos rojos, blancos y plaquetas.", purpose:"Detectar anemia, infecciones, enfermedades autoinmunes y más.", prep:"No requiere preparación especial.", fasting:false, time:"24-48 hrs" },
+  "Química Sanguínea 27 Elementos": { desc:"Panel metabólico completo que evalúa 27 parámetros bioquímicos en sangre.", purpose:"Evaluar función renal, hepática, glucosa, minerales y electrolitos.", prep:"Ayuno de 8-12 horas recomendado.", fasting:true, time:"24-48 hrs" },
+  "Química Sanguínea 6 Elementos": { desc:"Panel básico que mide glucosa, urea, creatinina, ácido úrico, colesterol y triglicéridos.", purpose:"Evaluación metabólica básica y control preventivo.", prep:"Ayuno de 8-12 horas recomendado.", fasting:true, time:"24 hrs" },
+  "Perfil Tiroideo": { desc:"Mide las hormonas TSH, T3 y T4 para evaluar la función de la tiroides.", purpose:"Detectar hipotiroidismo, hipertiroidismo y alteraciones tiroideas.", prep:"Tomar muestra en ayuno, idealmente en la mañana.", fasting:true, time:"24-48 hrs" },
+  "Perfil de Lípidos": { desc:"Mide colesterol total, HDL, LDL y triglicéridos en sangre.", purpose:"Evaluar riesgo cardiovascular y metabolismo de grasas.", prep:"Ayuno estricto de 12 horas. Evitar ejercicio intenso 24h antes.", fasting:true, time:"24 hrs" },
+  "Hemoglobina Glicosilada (HbA1c)": { desc:"Refleja el promedio de glucosa en los últimos 3 meses.", purpose:"Control de diabetes y diagnóstico de prediabetes.", prep:"No requiere ayuno.", fasting:false, time:"24-48 hrs" },
+  "Examen General de Orina (EGO)": { desc:"Análisis físico, químico y microscópico de la orina.", purpose:"Detectar infecciones urinarias, enfermedad renal y diabetes.", prep:"Primera orina de la mañana. Higiene previa.", fasting:false, time:"24 hrs" },
+  "Glucosa en Suero": { desc:"Mide el nivel de azúcar en sangre en un momento específico.", purpose:"Detección y control de diabetes mellitus.", prep:"Ayuno de 8 horas.", fasting:true, time:"Mismo día" },
+  "Insulina": { desc:"Mide la hormona insulina producida por el páncreas.", purpose:"Diagnóstico de resistencia a insulina, diabetes tipo 2 e hipoglucemia.", prep:"Ayuno de 8-12 horas.", fasting:true, time:"24-48 hrs" },
+  "default": { desc:"Estudio de laboratorio clínico para diagnóstico y seguimiento de condiciones de salud.", purpose:"Apoya al médico tratante en el diagnóstico y monitoreo de tu salud.", prep:"Sigue las indicaciones de tu médico.", fasting:false, time:"24-48 hrs" }
+};
+
+function getStudyInfo(name) {
+  return STUDY_INFO[name] || STUDY_INFO['default'];
+}
+
+// ─── UTILITIES ───────────────────────────────────────────────────────────────
+function formatPrice(p) {
+  if (!p) return null;
+  return new Intl.NumberFormat('es-MX', { style:'currency', currency:'MXN', maximumFractionDigits:0 }).format(p);
+}
+
+function StarRating({ rating }) {
+  return (
+    <div className="stars">
+      {[1,2,3,4,5].map(i => {
+        const filled = i <= Math.floor(rating);
+        const half = !filled && i - 0.5 <= rating;
+        return (
+          <span key={i} style={{fontSize:'12px', color: (filled||half) ? '#F59E0B' : '#E2E8F0'}}>
+            {filled ? '★' : half ? '½' : '★'}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── NAV ─────────────────────────────────────────────────────────────────────
+function Nav({ onCTA, onLogoClick }) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', h);
+    return () => window.removeEventListener('scroll', h);
+  }, []);
+  return (
+    <nav style={{
+      background: scrolled ? 'rgba(11,31,75,0.95)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(16px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
+      transition: 'all 0.3s'
+    }}>
+      <div className="nav-logo"
+        onClick={onLogoClick}
+        style={{cursor:'pointer',userSelect:'none'}}
+        title="Ir al inicio"
+      >
+        <span className="nav-logo-text">Lab<span>compara</span></span>
+      </div>
+      <div style={{display:'flex',gap:'12px',alignItems:'center'}}>
+        <button className="btn-outline-white" style={{padding:'8px 16px',fontSize:'13px'}} onClick={onCTA}>
+          Cotizar
+        </button>
+      </div>
+    </nav>
+  );
+}
+
+// ─── BEAMS ANIMATION HOOK ─────────────────────────────────────────────────────
+// Adapted from beams-background component — hues tuned to navy (#0B1F4B) + teal (#00B4D8)
+function useBeamsCanvas(canvasRef) {
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let beams = [];
+    let rafId;
+
+    function createBeam(w, h) {
+      const angle = -35 + Math.random() * 10;
+      // Hue range: 190–230 = teal-to-blue-navy spectrum
+      return {
+        x: Math.random() * w * 1.5 - w * 0.25,
+        y: Math.random() * h * 1.5 - h * 0.25,
+        width: 40 + Math.random() * 80,
+        length: h * 2.5,
+        angle,
+        speed: 0.5 + Math.random() * 1.0,
+        opacity: 0.10 + Math.random() * 0.18,
+        hue: 190 + Math.random() * 40,   // teal (190) → blue (230)
+        saturation: 70 + Math.random() * 20,
+        lightness: 55 + Math.random() * 20,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.018 + Math.random() * 0.025,
+      };
+    }
+
+    function resetBeam(beam, index, total) {
+      const col = index % 3;
+      const spacing = canvas.width / 3;
+      beam.y = canvas.height + 100;
+      beam.x = col * spacing + spacing / 2 + (Math.random() - 0.5) * spacing * 0.5;
+      beam.width = 80 + Math.random() * 120;
+      beam.speed = 0.4 + Math.random() * 0.6;
+      beam.hue = 190 + (index * 40) / total;
+      beam.opacity = 0.12 + Math.random() * 0.14;
+      return beam;
+    }
+
+    function drawBeam(beam) {
+      ctx.save();
+      ctx.translate(beam.x, beam.y);
+      ctx.rotate((beam.angle * Math.PI) / 180);
+      const po = beam.opacity * (0.8 + Math.sin(beam.pulse) * 0.2);
+      const g = ctx.createLinearGradient(0, 0, 0, beam.length);
+      const h = beam.hue, s = beam.saturation, l = beam.lightness;
+      g.addColorStop(0,   `hsla(${h},${s}%,${l}%,0)`);
+      g.addColorStop(0.1, `hsla(${h},${s}%,${l}%,${po * 0.5})`);
+      g.addColorStop(0.4, `hsla(${h},${s}%,${l}%,${po})`);
+      g.addColorStop(0.6, `hsla(${h},${s}%,${l}%,${po})`);
+      g.addColorStop(0.9, `hsla(${h},${s}%,${l}%,${po * 0.5})`);
+      g.addColorStop(1,   `hsla(${h},${s}%,${l}%,0)`);
+      ctx.fillStyle = g;
+      ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
+      ctx.restore();
+    }
+
+    function resize() {
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.parentElement.offsetWidth;
+      const h = canvas.parentElement.offsetHeight;
+      canvas.width  = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width  = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.scale(dpr, dpr);
+      beams = Array.from({ length: 28 }, () => createBeam(w, h));
+    }
+
+    function animate() {
+      const w = canvas.width / (window.devicePixelRatio || 1);
+      const h = canvas.height / (window.devicePixelRatio || 1);
+      ctx.clearRect(0, 0, w, h);
+      ctx.filter = 'blur(32px)';
+      const total = beams.length;
+      beams.forEach((beam, i) => {
+        beam.y -= beam.speed;
+        beam.pulse += beam.pulseSpeed;
+        if (beam.y + beam.length < -100) resetBeam(beam, i, total);
+        drawBeam(beam);
+      });
+      rafId = requestAnimationFrame(animate);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+}
+
+// ─── HERO ─────────────────────────────────────────────────────────────────────
+function Hero({ onCTA }) {
+  const canvasRef = useRef(null);
+  useBeamsCanvas(canvasRef);
+
+  return (
+    <section className="hero-bg" style={{paddingTop:'100px',paddingBottom:'80px',position:'relative',zIndex:1}}>
+      {/* Beams canvas — positioned absolute, behind content */}
+      <canvas ref={canvasRef} id="hero-canvas"/>
+
+      {/* Subtle dark overlay so text stays crisp */}
+      <div style={{
+        position:'absolute',inset:0,
+        background:'linear-gradient(180deg, rgba(11,31,75,0.55) 0%, rgba(11,31,75,0.35) 60%, rgba(11,31,75,0.72) 100%)',
+        pointerEvents:'none'
+      }}/>
+
+      <div style={{maxWidth:'900px',margin:'0 auto',padding:'0 24px',position:'relative',zIndex:2}}>
+        {/* Badge */}
+        <div style={{display:'flex',justifyContent:'center',marginBottom:'24px'}}>
+          <div style={{
+            display:'inline-flex',alignItems:'center',gap:'8px',
+            background:'rgba(0,180,216,0.15)',border:'1px solid rgba(0,180,216,0.4)',
+            borderRadius:'50px',padding:'6px 16px',
+            animation:'fadeUp 0.5s ease forwards'
+          }}>
+            <span className="notif-dot"/>
+            <span style={{color:' #90E0EF',fontSize:'13px',fontFamily:"'Sora',sans-serif",fontWeight:600}}>
+              Más de 64 estudios · 6 laboratorios · Precios reales
+            </span>
+          </div>
+        </div>
+
+        {/* Headline */}
+        <h1 style={{
+          textAlign:'center',
+          color:'white',
+          fontSize:'clamp(32px,5.5vw,60px)',
+          fontWeight:800,
+          lineHeight:1.15,
+          letterSpacing:'-0.02em',
+          animation:'fadeUp 0.6s ease 0.1s both'
+        }}>
+          Encuentra tus estudios de laboratorio<br/>
+          <span style={{color:'#90E0EF'}}>al mejor precio</span>
+        </h1>
+
+        <p style={{
+          textAlign:'center',
+          color:'rgba(255,255,255,0.75)',
+          fontSize:'clamp(16px,2.5vw,20px)',
+          maxWidth:'560px',
+          margin:'20px auto 0',
+          lineHeight:1.6,
+          animation:'fadeUp 0.6s ease 0.2s both'
+        }}>
+          Compara precios entre los mejores laboratorios de México, elige el que más te convenga y compra directamente.
+        </p>
+
+        {/* CTA */}
+        <div style={{display:'flex',justifyContent:'center',gap:'12px',marginTop:'36px',flexWrap:'wrap',animation:'fadeUp 0.6s ease 0.3s both'}}>
+          <button className="btn-primary" style={{fontSize:'17px',padding:'16px 32px'}} onClick={onCTA}>
+            <span>Cotizar ahora — es gratis</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        {/* Benefit pills */}
+        <div style={{
+          display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'10px',
+          marginTop:'40px',
+          animation:'fadeUp 0.6s ease 0.4s both'
+        }}>
+          {[
+            {icon:'💰','text':'Descubre el más barato'},
+            {icon:'⭐','text':'Mejor calificado'},
+            {icon:'🎉','text':'Promociones todo el año'},
+            {icon:'👥','text':'Miles de usuarios satisfechos'}
+          ].map((b,i)=>(
+            <div key={i} style={{
+              display:'flex',alignItems:'center',gap:'8px',
+              background:'rgba(255,255,255,0.08)',
+              border:'1px solid rgba(255,255,255,0.15)',
+              borderRadius:'50px',padding:'8px 16px',
+              color:'rgba(255,255,255,0.85)',fontSize:'13px',fontWeight:500
+            }}>
+              <span>{b.icon}</span>{b.text}
+            </div>
+          ))}
+        </div>
+
+        {/* Social proof counter */}
+        <div style={{
+          display:'flex',justifyContent:'center',gap:'40px',flexWrap:'wrap',
+          marginTop:'48px',paddingTop:'32px',
+          borderTop:'1px solid rgba(255,255,255,0.1)',
+          animation:'fadeUp 0.6s ease 0.5s both'
+        }}>
+          {[
+            {n:'64+',l:'Estudios disponibles'},
+            {n:'6',l:'Laboratorios top'},
+            {n:'98%',l:'Satisfacción'},
+            {n:'Gratis',l:'Sin costo de comparación'}
+          ].map((s,i)=>(
+            <div key={i} className="stat-item">
+              <div style={{...{fontFamily:"'Sora',sans-serif",fontSize:'28px',fontWeight:800,color:'#90E0EF'}}}>{s.n}</div>
+              <div style={{fontSize:'13px',color:'rgba(255,255,255,0.6)',marginTop:'4px'}}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom wave */}
+      <div style={{position:'absolute',bottom:0,left:0,right:0,overflow:'hidden',lineHeight:0,zIndex:2}}>
+        <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display:'block',width:'100%',height:'50px'}}>
+          <path d="M0,50 C360,0 1080,0 1440,50 L1440,50 L0,50 Z" fill="white"/>
+        </svg>
+      </div>
+    </section>
+  );
+}
+
+// ─── HOW IT WORKS ─────────────────────────────────────────────────────────────
+function HowItWorks({ onCTA }) {
+  const steps = [
+    { n:'1', icon:'👤', title:'Cuéntanos de ti', desc:'Comparte tu nombre, correo y datos básicos. Te enviamos la cotización personalizada.' },
+    { n:'2', icon:'🔍', title:'Cotiza y compara', desc:'Busca el estudio que necesitas y compara precios entre todos los laboratorios en segundos.' },
+    { n:'3', icon:'🛍️', title:'Compra con el laboratorio', desc:'Elige el que más te conviene y ve directamente al sitio del laboratorio para agendar o pagar.' },
+    { n:'4', icon:'✅', title:'Prepárate para tus estudios', desc:'Te enviamos instrucciones de preparación según el estudio. Sin sorpresas.' },
+  ];
+  return (
+    <section style={{padding:'80px 24px',background:'var(--gray-50)'}}>
+      <div style={{maxWidth:'800px',margin:'0 auto'}}>
+        <div className="section-header">
+          <div className="section-eyebrow">Cómo funciona</div>
+          <h2 className="section-title">Cuatro pasos,<br/>resultado garantizado</h2>
+          <p className="section-sub">Sin complicaciones. Sin cuentas. Sin intermediarios en el pago.</p>
+        </div>
+        <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
+          {steps.map((s,i)=>(
+            <div key={i} className="how-step" style={{animationDelay:`${i*0.1}s`}}>
+              <div className="how-step-num">{s.n}</div>
+              <div style={{flex:1}}>
+                <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+                  <span style={{fontSize:'20px'}}>{s.icon}</span>
+                  <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'16px',color:'var(--navy)'}}>{s.title}</h3>
+                </div>
+                <p style={{fontSize:'14px',color:'var(--gray-600)',lineHeight:1.6}}>{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{textAlign:'center',marginTop:'36px'}}>
+          <button className="btn-primary" onClick={onCTA}>Empezar ahora</button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── TRUST SECTION ────────────────────────────────────────────────────────────
+function TrustSection() {
+  const items = [
+    { icon:'🔒', color:'#6366F1', bg:'rgba(99,102,241,0.1)', title:'100% Seguro', desc:'Tus datos están protegidos y nunca los compartimos.' },
+    { icon:'💰', color:'#10B981', bg:'rgba(16,185,129,0.1)', title:'Ahorra hasta 80%', desc:'Salud Digna puede ser hasta 80% más barato que otros labs.' },
+    { icon:'⭐', color:'#F59E0B', bg:'rgba(245,158,11,0.1)', title:'Laboratorios reconocidos', desc:'Solo comparamos laboratorios certificados y confiables.' },
+    { icon:'🚫', color:'#EF4444', bg:'rgba(239,68,68,0.1)', title:'Sin comisiones', desc:'Pagas directo en el laboratorio. Labcompara es gratis.' },
+    { icon:'⚡', color:'#00B4D8', bg:'rgba(0,180,216,0.1)', title:'Resultados rápidos', desc:'Mayoría de estudios con resultados en 24-48 horas.' },
+    { icon:'📋', color:'#0B1F4B', bg:'rgba(11,31,75,0.1)', title:'Información clara', desc:'Te explicamos cada estudio y cómo prepararte.' },
+  ];
+  return (
+    <section style={{padding:'80px 24px'}}>
+      <div style={{maxWidth:'900px',margin:'0 auto'}}>
+        <div className="section-header">
+          <div className="section-eyebrow">Por qué elegirnos</div>
+          <h2 className="section-title">Transparencia total,<br/>sin sorpresas</h2>
+        </div>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
+          {items.map((item,i)=>(
+            <div key={i} className="card" style={{display:'flex',gap:'16px',alignItems:'flex-start'}}>
+              <div style={{width:48,height:48,borderRadius:14,background:item.bg,display:'flex',alignItems:'center',justifyContent:'center',fontSize:22,flexShrink:0}}>
+                {item.icon}
+              </div>
+              <div>
+                <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'15px',color:'var(--navy)',marginBottom:'6px'}}>{item.title}</h3>
+                <p style={{fontSize:'13px',color:'var(--gray-600)',lineHeight:1.6}}>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Social proof bar */}
+        <div style={{
+          marginTop:'48px',
+          background:'linear-gradient(135deg,var(--navy),var(--navy-mid))',
+          borderRadius:'20px',
+          padding:'32px',
+          display:'flex',flexWrap:'wrap',justifyContent:'space-around',gap:'24px',
+          color:'white',
+          textAlign:'center'
+        }}>
+          {[
+            {n:'50,000+',l:'Cotizaciones enviadas'},
+            {n:'6',l:'Laboratorios comparados'},
+            {n:'4.7/5',l:'Calificación promedio'},
+            {n:'$0',l:'Costo de comparación'},
+          ].map((s,i)=>(
+            <div key={i}>
+              <div style={{fontFamily:"'Sora',sans-serif",fontSize:'28px',fontWeight:800,color:'#90E0EF'}}>{s.n}</div>
+              <div style={{fontSize:'13px',color:'rgba(255,255,255,0.65)',marginTop:'4px'}}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── LEAD FORM ────────────────────────────────────────────────────────────────
+function LeadForm({ onSubmit }) {
+  const [form, setForm] = useState({ nombre:'', correo:'', sexo:'', edad:'', cp:'' });
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const validate = () => {
+    const e = {};
+    if (!form.nombre.trim()) e.nombre = 'Tu nombre es necesario';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) e.correo = 'Ingresa un correo válido';
+    if (!form.sexo) e.sexo = 'Selecciona una opción';
+    if (!form.edad || form.edad < 1 || form.edad > 120) e.edad = 'Edad no válida';
+    if (!form.cp || form.cp.length < 4) e.cp = 'Código postal requerido';
+    return e;
+  };
+
+  const handleSubmit = async () => {
+    const e = validate();
+    setErrors(e);
+    if (Object.keys(e).length) return;
+    setLoading(true);
+    await new Promise(r => setTimeout(r, 900));
+    setLoading(false);
+    onSubmit(form);
+  };
+
+  const F = (key, value) => setForm(prev => ({...prev, [key]: value}));
+
+  return (
+    <section style={{padding:'80px 24px',background:'var(--gray-50)'}}>
+      <div style={{maxWidth:'500px',margin:'0 auto'}}>
+        <div className="section-header" style={{marginBottom:'32px'}}>
+          <div className="section-eyebrow">Paso 1 de 2</div>
+          <h2 className="section-title" style={{fontSize:'30px'}}>Cuéntanos de ti</h2>
+          <p className="section-sub" style={{fontSize:'15px'}}>
+            Te enviaremos tu cotización personalizada y recomendaciones de preparación para cada estudio.
+          </p>
+        </div>
+
+        {/* Privacy reassurance */}
+        <div style={{
+          display:'flex',alignItems:'center',gap:'10px',
+          background:'rgba(16,185,129,0.08)',border:'1px solid rgba(16,185,129,0.25)',
+          borderRadius:'10px',padding:'12px 16px',marginBottom:'24px'
+        }}>
+          <span style={{fontSize:'18px'}}>🔒</span>
+          <p style={{fontSize:'13px',color:'#065F46',lineHeight:1.5}}>
+            <strong>Tu privacidad es lo primero.</strong> Solo usamos tus datos para enviarte la cotización. Nunca los vendemos.
+          </p>
+        </div>
+
+        <div className="card" style={{padding:'32px'}}>
+          <div style={{display:'flex',flexDirection:'column',gap:'18px'}}>
+            {/* Nombre */}
+            <div className="input-group">
+              <label className="input-label">Nombre completo *</label>
+              <input
+                className="input-field"
+                placeholder="Ej. María García"
+                value={form.nombre}
+                onChange={e => F('nombre', e.target.value)}
+                style={errors.nombre ? {borderColor:'var(--red)'} : {}}
+              />
+              {errors.nombre && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.nombre}</span>}
+            </div>
+
+            {/* Correo */}
+            <div className="input-group">
+              <label className="input-label">Correo electrónico *</label>
+              <input
+                className="input-field"
+                type="email"
+                placeholder="tu@correo.com"
+                value={form.correo}
+                onChange={e => F('correo', e.target.value)}
+                style={errors.correo ? {borderColor:'var(--red)'} : {}}
+              />
+              {errors.correo && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.correo}</span>}
+            </div>
+
+            {/* Sexo y Edad en fila */}
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
+              <div className="input-group">
+                <label className="input-label">Sexo biológico *</label>
+                <select
+                  className="input-field"
+                  value={form.sexo}
+                  onChange={e => F('sexo', e.target.value)}
+                  style={errors.sexo ? {borderColor:'var(--red)'} : {}}
+                >
+                  <option value="">Seleccionar</option>
+                  <option value="F">Femenino</option>
+                  <option value="M">Masculino</option>
+                  <option value="O">Prefiero no decir</option>
+                </select>
+                {errors.sexo && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.sexo}</span>}
+              </div>
+              <div className="input-group">
+                <label className="input-label">Edad *</label>
+                <input
+                  className="input-field"
+                  type="number"
+                  placeholder="35"
+                  min="1" max="120"
+                  value={form.edad}
+                  onChange={e => F('edad', e.target.value)}
+                  style={errors.edad ? {borderColor:'var(--red)'} : {}}
+                />
+                {errors.edad && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.edad}</span>}
+              </div>
+            </div>
+
+            {/* CP */}
+            <div className="input-group">
+              <label className="input-label">Código postal *</label>
+              <input
+                className="input-field"
+                placeholder="06600"
+                maxLength="5"
+                value={form.cp}
+                onChange={e => F('cp', e.target.value.replace(/\D/g,''))}
+                style={errors.cp ? {borderColor:'var(--red)'} : {}}
+              />
+              {errors.cp && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.cp}</span>}
+              <span style={{fontSize:'11px',color:'var(--gray-400)'}}>Para mostrarte laboratorios disponibles en tu zona.</span>
+            </div>
+
+            {/* Submit */}
+            <button
+              className="btn-primary"
+              style={{width:'100%',justifyContent:'center',marginTop:'8px'}}
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? (
+                <><span className="spinner"/><span>Preparando tu comparativa...</span></>
+              ) : (
+                <><span>Ver comparativa de precios</span><span>→</span></>
+              )}
+            </button>
+          </div>
+        </div>
+
+        <p style={{textAlign:'center',fontSize:'12px',color:'var(--gray-400)',marginTop:'16px',lineHeight:1.6}}>
+          Al continuar aceptas nuestro aviso de privacidad. Recibirás la cotización en tu correo.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+// ─── STUDY SEARCH ─────────────────────────────────────────────────────────────
+function StudySearch({ onCompare }) {
+  const [search, setSearch] = useState('');
+  const [selected, setSelected] = useState([]);
+
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase().trim();
+    if (!q) return RAW_DATA.slice(0, 30);
+    return RAW_DATA.filter(s => s.name.toLowerCase().includes(q));
+  }, [search]);
+
+  const toggle = (study) => {
+    setSelected(prev =>
+      prev.find(s=>s.name===study.name)
+        ? prev.filter(s=>s.name!==study.name)
+        : [...prev, study]
+    );
+  };
+
+  const isSelected = (name) => selected.some(s=>s.name===name);
+
+  return (
+    <section style={{padding:'60px 24px 80px',background:'white'}}>
+      <div style={{maxWidth:'700px',margin:'0 auto'}}>
+        <div className="section-header" style={{marginBottom:'28px'}}>
+          <div className="section-eyebrow">Paso 2 de 2</div>
+          <h2 className="section-title" style={{fontSize:'28px'}}>¿Qué estudio necesitas?</h2>
+          <p className="section-sub" style={{fontSize:'15px'}}>Busca y selecciona uno o varios estudios para comparar precios.</p>
+        </div>
+
+        {/* Search bar */}
+        <div className="search-input" style={{marginBottom:'16px'}}>
+          <span className="search-icon" style={{fontSize:'18px'}}>🔍</span>
+          <input
+            className="input-field"
+            style={{width:'100%',paddingLeft:'44px',fontSize:'15px',borderRadius:'12px',padding:'14px 16px 14px 44px'}}
+            placeholder="Buscar: biometría, glucosa, tiroides..."
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
+        </div>
+
+        {/* Selected chips */}
+        {selected.length > 0 && (
+          <div style={{display:'flex',flexWrap:'wrap',gap:'8px',marginBottom:'16px',padding:'12px 16px',background:'var(--gray-50)',borderRadius:'12px'}}>
+            <span style={{fontSize:'13px',fontWeight:600,color:'var(--gray-600)',marginRight:'4px',alignSelf:'center'}}>Seleccionados:</span>
+            {selected.map(s=>(
+              <span key={s.name} className="selected-chip">
+                {s.name}
+                <button onClick={()=>toggle(s)} style={{background:'none',border:'none',cursor:'pointer',color:'var(--teal-dark)',fontWeight:700,fontSize:'14px',lineHeight:1}}>×</button>
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Study list */}
+        <div className="study-list" style={{maxHeight:selected.length>0?'220px':'300px'}}>
+          {filtered.length === 0 && (
+            <div style={{textAlign:'center',color:'var(--gray-400)',padding:'32px',fontSize:'14px'}}>
+              No encontramos ese estudio. Intenta con otra palabra.
+            </div>
+          )}
+          {filtered.map((study,i)=>(
+            <div
+              key={study.name}
+              className={`study-item ${isSelected(study.name)?'selected':''}`}
+              onClick={()=>toggle(study)}
+            >
+              <div style={{
+                width:20,height:20,borderRadius:5,flexShrink:0,
+                border:`2px solid ${isSelected(study.name)?'var(--teal)':'var(--gray-200)'}`,
+                background:isSelected(study.name)?'var(--teal)':'white',
+                display:'flex',alignItems:'center',justifyContent:'center',
+                transition:'all 0.15s'
+              }}>
+                {isSelected(study.name) && <span style={{color:'white',fontSize:'12px',fontWeight:700}}>✓</span>}
+              </div>
+              <div style={{flex:1}}>
+                <span style={{fontSize:'14px',fontWeight:500,color:'var(--gray-800)'}}>{study.name}</span>
+              </div>
+              <div style={{textAlign:'right'}}>
+                <span style={{fontSize:'12px',color:'var(--gray-400)'}}>desde</span>
+                <span style={{fontSize:'14px',fontWeight:700,color:'var(--teal-dark)',marginLeft:'4px'}}>
+                  {formatPrice(Math.min(...Object.values({
+                    Labbe:study.Labbe,Polanco:study.Polanco,Chopo:study.Chopo,
+                    'Salud Digna':study['Salud Digna'],LAPI:study.LAPI,OLAB:study.OLAB
+                  }).filter(v=>v)))}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Compare button */}
+        <div style={{marginTop:'24px',position:'sticky',bottom:'20px'}}>
+          <button
+            className="btn-primary"
+            style={{width:'100%',justifyContent:'center',fontSize:'16px',padding:'16px',opacity:selected.length?1:0.5}}
+            disabled={!selected.length}
+            onClick={() => onCompare(selected)}
+          >
+            {selected.length === 0
+              ? 'Selecciona al menos un estudio'
+              : `Comparar ${selected.length} estudio${selected.length>1?'s':''} →`}
+          </button>
+        </div>
+
+        {/* Quick tags */}
+        <div style={{marginTop:'16px'}}>
+          <p style={{fontSize:'12px',color:'var(--gray-400)',marginBottom:'8px',fontWeight:600}}>POPULARES:</p>
+          <div style={{display:'flex',flexWrap:'wrap',gap:'6px'}}>
+            {['Biometría Hemática','Química Sanguínea 27 Elementos','Perfil Tiroideo','Glucosa en Suero','Perfil de Lípidos'].map(name=>{
+              const study = RAW_DATA.find(s=>s.name===name);
+              return (
+                <button key={name} onClick={()=>study&&toggle(study)} style={{
+                  background:isSelected(name)?'var(--teal)':'var(--gray-100)',
+                  color:isSelected(name)?'white':'var(--gray-600)',
+                  border:'none',borderRadius:'20px',padding:'6px 12px',
+                  fontSize:'12px',cursor:'pointer',fontWeight:500,transition:'all 0.15s'
+                }}>
+                  {name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── COMPARISON RESULTS ───────────────────────────────────────────────────────
+function ComparisonResults({ studies, onDetail, onBack }) {
+  const [sortBy, setSortBy] = useState('price');
+
+  // Find best rated lab across all results
+  const bestRatedLab = useMemo(() => {
+    let best = null, bestR = 0;
+    LABS.forEach(lab => {
+      if (LAB_META[lab].rating > bestR) { bestR = LAB_META[lab].rating; best = lab; }
+    });
+    return best;
+  }, []);
+
+  // For each study, compute sorted lab options
+  const studyResults = useMemo(() => {
+    return studies.map(study => {
+      const options = LABS.map(lab => ({
+        lab,
+        price: study[lab],
+        rating: LAB_META[lab].rating,
+        votes: LAB_META[lab].votes,
+        meta: LAB_META[lab]
+      })).filter(o => o.price);
+
+      const minPrice = Math.min(...options.map(o=>o.price));
+      const maxRating = Math.max(...options.map(o=>o.rating));
+
+      options.forEach(o => {
+        o.isCheapest = o.price === minPrice;
+        o.isBestRated = o.rating === maxRating;
+        o.isRecommended = o.isCheapest && o.isBestRated;
+        o.savings = Math.round(((options.reduce((a,b)=>a+b.price,0)/options.length) - o.price));
+      });
+
+      const sorted = [...options].sort((a,b) =>
+        sortBy==='price' ? a.price - b.price :
+        sortBy==='rating' ? b.rating - a.rating :
+        a.price - b.price
+      );
+
+      return { study, options: sorted, minPrice, avgPrice: study.avg };
+    });
+  }, [studies, sortBy]);
+
+  return (
+    <section style={{padding:'40px 24px 80px',background:'var(--gray-50)',minHeight:'60vh'}}>
+      <div style={{maxWidth:'800px',margin:'0 auto'}}>
+        {/* Header */}
+        <div style={{display:'flex',alignItems:'center',gap:'16px',marginBottom:'28px',flexWrap:'wrap'}}>
+          <button onClick={onBack} style={{background:'none',border:'2px solid var(--gray-200)',borderRadius:'10px',padding:'8px 14px',cursor:'pointer',fontSize:'14px',fontFamily:"'Sora',sans-serif",fontWeight:600,color:'var(--gray-600)',display:'flex',alignItems:'center',gap:'6px'}}>
+            ← Volver
+          </button>
+          <div>
+            <h2 style={{fontFamily:"'Sora',sans-serif",fontWeight:800,fontSize:'22px',color:'var(--navy)'}}>
+              Tu comparativa de precios
+            </h2>
+            <p style={{fontSize:'14px',color:'var(--gray-600)'}}>
+              {studies.length} estudio{studies.length>1?'s':''} · Precios en pesos mexicanos
+            </p>
+          </div>
+          {/* Sort */}
+          <div style={{marginLeft:'auto',display:'flex',gap:'8px'}}>
+            {[{v:'price',l:'Precio'},{v:'rating',l:'Calificación'}].map(s=>(
+              <button key={s.v} onClick={()=>setSortBy(s.v)} style={{
+                background:sortBy===s.v?'var(--navy)':'white',
+                color:sortBy===s.v?'white':'var(--gray-600)',
+                border:`2px solid ${sortBy===s.v?'var(--navy)':'var(--gray-200)'}`,
+                borderRadius:'8px',padding:'6px 12px',cursor:'pointer',
+                fontSize:'13px',fontWeight:600,fontFamily:"'Sora',sans-serif",transition:'all 0.2s'
+              }}>
+                {s.l}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Legend */}
+        <div style={{display:'flex',gap:'12px',flexWrap:'wrap',marginBottom:'24px'}}>
+          <span className="badge-cheapest">💰 Más barato</span>
+          <span className="badge-rated">⭐ Mejor calificado</span>
+          <span className="badge-recommended">✅ Recomendado</span>
+        </div>
+
+        {/* Results per study */}
+        {studyResults.map(({study,options,minPrice,avgPrice},si)=>{
+          const maxSavings = avgPrice ? avgPrice - minPrice : 0;
+          return (
+            <div key={study.name} style={{marginBottom:'32px'}}>
+              {/* Study header */}
+              <div style={{
+                background:'linear-gradient(135deg,var(--navy),var(--navy-mid))',
+                borderRadius:'16px 16px 0 0',
+                padding:'16px 20px',
+                display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'8px'
+              }}>
+                <div>
+                  <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'16px',color:'white'}}>{study.name}</h3>
+                  <p style={{fontSize:'13px',color:'rgba(255,255,255,0.6)'}}>
+                    {options.length} laboratorio{options.length!==1?'s':''} disponibles
+                  </p>
+                </div>
+                {maxSavings > 100 && (
+                  <div style={{
+                    background:'rgba(16,185,129,0.2)',border:'1px solid rgba(16,185,129,0.4)',
+                    borderRadius:'8px',padding:'6px 12px',textAlign:'center'
+                  }}>
+                    <div style={{fontFamily:"'Sora',sans-serif",fontSize:'11px',color:'#6EE7B7',fontWeight:600}}>AHORRA HASTA</div>
+                    <div style={{fontFamily:"'Sora',sans-serif",fontSize:'18px',fontWeight:800,color:'#34D399'}}>
+                      {formatPrice(maxSavings)}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Lab rows */}
+              <div style={{background:'white',borderRadius:'0 0 16px 16px',border:'2px solid var(--gray-100)',borderTop:'none',overflow:'hidden'}}>
+                {options.map((opt,oi)=>(
+                  <div key={opt.lab} style={{
+                    display:'flex',alignItems:'center',gap:'12px',padding:'16px 20px',
+                    borderTop: oi>0 ? '1px solid var(--gray-100)' : 'none',
+                    background: opt.isCheapest ? 'linear-gradient(90deg,rgba(16,185,129,0.04),transparent)' :
+                                opt.isBestRated ? 'linear-gradient(90deg,rgba(245,158,11,0.04),transparent)' : 'white',
+                    transition:'background 0.2s'
+                  }}>
+                    {/* Rank */}
+                    <div style={{
+                      width:28,height:28,borderRadius:'50%',
+                      background:oi===0?'linear-gradient(135deg,#F59E0B,#D97706)':oi===1?'#94A3B8':'#CBD5E1',
+                      display:'flex',alignItems:'center',justifyContent:'center',
+                      fontSize:'12px',fontWeight:800,color:'white',flexShrink:0,fontFamily:"'Sora',sans-serif"
+                    }}>
+                      {oi+1}
+                    </div>
+
+                    {/* Lab name */}
+                    <div style={{flex:'0 0 auto',minWidth:'120px'}}>
+                      <div style={{display:'flex',alignItems:'center',gap:'6px',flexWrap:'wrap'}}>
+                        <span style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'15px',color:'var(--navy)'}}>{opt.lab}</span>
+                        {opt.meta.emoji && <span>{opt.meta.emoji}</span>}
+                      </div>
+                      <div style={{display:'flex',alignItems:'center',gap:'4px',marginTop:'2px'}}>
+                        <StarRating rating={opt.rating}/>
+                        {/* TODO: Replace opt.rating with real rating from reviews API */}
+                        <span style={{fontSize:'11px',color:'var(--gray-400)'}}>{opt.rating} ({opt.votes.toLocaleString()})</span>
+                      </div>
+                    </div>
+
+                    {/* Badges */}
+                    <div style={{flex:1,display:'flex',flexWrap:'wrap',gap:'4px'}}>
+                      {opt.isRecommended && <span className="badge-recommended">✅ Recomendado</span>}
+                      {!opt.isRecommended && opt.isCheapest && <span className="badge-cheapest">💰 Más barato</span>}
+                      {!opt.isRecommended && opt.isBestRated && <span className="badge-rated">⭐ Mejor calificado</span>}
+                    </div>
+
+                    {/* Price */}
+                    <div style={{textAlign:'right',flexShrink:0}}>
+                      <div className="price-display" style={{color:opt.isCheapest?'#059669':'var(--navy)'}}>
+                        {formatPrice(opt.price)}
+                      </div>
+                      {avgPrice && !opt.isCheapest && (
+                        <div style={{fontSize:'11px',color:'var(--gray-400)'}}>
+                          prom. {formatPrice(avgPrice)}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* CTA */}
+                    <button
+                      onClick={()=>onDetail(study,opt.lab,opt)}
+                      className="btn-primary"
+                      style={{padding:'10px 16px',fontSize:'13px',flexShrink:0}}
+                    >
+                      Ver detalle
+                    </button>
+                  </div>
+                ))}
+
+                {/* Unavailable note */}
+                {LABS.filter(l=>!options.find(o=>o.lab===l)).length > 0 && (
+                  <div style={{padding:'12px 20px',borderTop:'1px solid var(--gray-100)'}}>
+                    <p style={{fontSize:'12px',color:'var(--gray-400)'}}>
+                      No disponible en: {LABS.filter(l=>!options.find(o=>o.lab===l)).join(', ')}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Start over */}
+        <div style={{textAlign:'center',marginTop:'16px'}}>
+          <button onClick={onBack} style={{background:'none',border:'none',color:'var(--gray-400)',cursor:'pointer',fontSize:'14px',textDecoration:'underline'}}>
+            Buscar otros estudios
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── STUDY DETAIL MODAL ───────────────────────────────────────────────────────
+function StudyDetailModal({ study, lab, opt, onClose }) {
+  const info = getStudyInfo(study.name);
+  const meta = LAB_META[lab];
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  return (
+    <div className="modal-overlay" onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
+      <div className="modal-sheet">
+        {/* Handle bar */}
+        <div style={{width:40,height:4,background:'var(--gray-200)',borderRadius:2,margin:'0 auto 20px'}}/>
+
+        {/* Lab badge */}
+        <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'20px'}}>
+          <div style={{
+            width:48,height:48,borderRadius:14,
+            background:`${meta.color}18`,
+            display:'flex',alignItems:'center',justifyContent:'center',
+            fontSize:22
+          }}>
+            {meta.emoji}
+          </div>
+          <div style={{flex:1}}>
+            <div style={{display:'flex',alignItems:'center',gap:'8px',flexWrap:'wrap'}}>
+              <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:800,fontSize:'18px',color:'var(--navy)'}}>{lab}</h3>
+              {opt.isCheapest && <span className="badge-cheapest">💰 Más barato</span>}
+              {opt.isBestRated && <span className="badge-rated">⭐ Mejor calificado</span>}
+            </div>
+            <div style={{display:'flex',alignItems:'center',gap:'4px',marginTop:'4px'}}>
+              <StarRating rating={meta.rating}/>
+              <span style={{fontSize:'12px',color:'var(--gray-400)'}}>{meta.rating}/5 · {meta.votes.toLocaleString()} reseñas</span>
+            </div>
+          </div>
+          <button onClick={onClose} style={{
+            width:32,height:32,borderRadius:'50%',border:'2px solid var(--gray-200)',
+            background:'white',cursor:'pointer',fontSize:'16px',display:'flex',
+            alignItems:'center',justifyContent:'center',flexShrink:0
+          }}>×</button>
+        </div>
+
+        {/* Lab services */}
+        <div style={{display:'flex',flexWrap:'wrap',gap:'6px',marginBottom:'20px'}}>
+          {meta.services.map((s,i)=>(
+            <span key={i} style={{
+              background:`${meta.color}12`,color:meta.color,
+              borderRadius:'20px',padding:'4px 10px',fontSize:'12px',fontWeight:500
+            }}>{s}</span>
+          ))}
+        </div>
+
+        <div className="divider" style={{marginBottom:'20px'}}/>
+
+        {/* Study info */}
+        <h4 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'16px',color:'var(--navy)',marginBottom:'8px'}}>
+          {study.name}
+        </h4>
+        <p style={{fontSize:'14px',color:'var(--gray-600)',lineHeight:1.7,marginBottom:'16px'}}>{info.desc}</p>
+
+        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',marginBottom:'20px'}}>
+          {[
+            {icon:'🎯',label:'Para qué sirve',val:info.purpose},
+            {icon:'📋',label:'Preparación',val:info.prep},
+            {icon:info.fasting?'⏰':'✅',label:'Ayuno',val:info.fasting?'Requerido (8-12h)':'No necesario'},
+            {icon:'⚡',label:'Resultados',val:info.time}
+          ].map((item,i)=>(
+            <div key={i} style={{
+              background:'var(--gray-50)',borderRadius:'12px',padding:'14px',
+              gridColumn: i===0 ? '1/-1' : 'auto'
+            }}>
+              <div style={{fontSize:'18px',marginBottom:'6px'}}>{item.icon}</div>
+              <div style={{fontSize:'11px',fontWeight:700,color:'var(--gray-400)',marginBottom:'4px',textTransform:'uppercase',letterSpacing:'0.05em'}}>{item.label}</div>
+              <div style={{fontSize:'13px',color:'var(--gray-700)',lineHeight:1.5}}>{item.val}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Fasting alert */}
+        {info.fasting && (
+          <div style={{
+            background:'rgba(245,158,11,0.1)',border:'1px solid rgba(245,158,11,0.3)',
+            borderRadius:'10px',padding:'12px 16px',marginBottom:'20px',
+            display:'flex',gap:'10px',alignItems:'flex-start'
+          }}>
+            <span style={{fontSize:'18px'}}>⚠️</span>
+            <p style={{fontSize:'13px',color:'#92400E',lineHeight:1.5}}>
+              <strong>Requiere ayuno.</strong> No comas ni bebas nada (excepto agua) por lo menos 8-12 horas antes de tu estudio.
+            </p>
+          </div>
+        )}
+
+        {/* Price + CTA */}
+        <div style={{
+          background:'linear-gradient(135deg,var(--navy),var(--navy-mid))',
+          borderRadius:'16px',padding:'20px',
+          display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',flexWrap:'wrap'
+        }}>
+          <div>
+            <div style={{fontSize:'12px',color:'rgba(255,255,255,0.6)',marginBottom:'4px'}}>Precio en {lab}</div>
+            <div style={{fontFamily:"'Sora',sans-serif",fontSize:'28px',fontWeight:800,color:'white'}}>
+              {formatPrice(study[lab])}
+            </div>
+          </div>
+          <a
+            href={meta.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{textDecoration:'none',fontSize:'15px'}}
+          >
+            Ir al laboratorio →
+          </a>
+        </div>
+
+        <p style={{textAlign:'center',fontSize:'11px',color:'var(--gray-400)',marginTop:'12px',lineHeight:1.6}}>
+          Labcompara te redirige al sitio del laboratorio. El pago se realiza directamente con ellos.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─── FOOTER ───────────────────────────────────────────────────────────────────
+function Footer() {
+  return (
+    <footer>
+      <div style={{maxWidth:'900px',margin:'0 auto'}}>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:'40px',marginBottom:'40px'}}>
+          <div>
+            <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'12px'}}>
+              <span className="footer-brand">Labcompara</span>
+            </div>
+            <p style={{fontSize:'13px',color:'rgba(255,255,255,0.55)',lineHeight:1.7}}>
+              Compara precios de estudios de laboratorio entre los mejores laboratorios de México.
+            </p>
+          </div>
+          <div>
+            <div style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'13px',color:'rgba(255,255,255,0.7)',marginBottom:'16px',textTransform:'uppercase',letterSpacing:'0.08em'}}>Laboratorios</div>
+            {LABS.map(l=>(
+              <div key={l} style={{marginBottom:'8px'}}>
+                <a href={LAB_META[l].url} target="_blank" rel="noopener noreferrer" className="footer-link">{l}</a>
+              </div>
+            ))}
+          </div>
+          <div>
+            <div style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'13px',color:'rgba(255,255,255,0.7)',marginBottom:'16px',textTransform:'uppercase',letterSpacing:'0.08em'}}>Legal</div>
+            {['Aviso de privacidad','Términos de uso','Cookies','Contacto'].map(l=>(
+              <div key={l} style={{marginBottom:'8px'}}>
+                <a href="#" className="footer-link">{l}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="footer-disclaimer">
+          <strong style={{color:'rgba(255,255,255,0.6)'}}>Aviso importante:</strong> Labcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio clínico ni proveedor de servicios médicos. Los precios mostrados son referenciales y pueden variar. Labcompara redirige al usuario al sitio web del laboratorio para realizar su compra. No cobramos comisión al usuario. © 2024 Labcompara. Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// ─── APP ──────────────────────────────────────────────────────────────────────
+function App() {
+  // Flow: 'landing' → 'form' → 'search' → 'results' → (modal)
+  const [step, setStep] = useState('landing');
+  const [lead, setLead] = useState(null);
+  const [selectedStudies, setSelectedStudies] = useState([]);
+  const [modal, setModal] = useState(null); // { study, lab, opt }
+
+  const scrollToForm = () => {
+    setStep('form');
+    setTimeout(() => window.scrollTo({top:0,behavior:'smooth'}),50);
+  };
+
+  const handleFormSubmit = (formData) => {
+    setLead(formData);
+    setStep('search');
+    setTimeout(() => window.scrollTo({top:0,behavior:'smooth'}),50);
+  };
+
+  const handleCompare = (studies) => {
+    setSelectedStudies(studies);
+    setStep('results');
+    setTimeout(() => window.scrollTo({top:0,behavior:'smooth'}),50);
+  };
+
+  const handleDetail = (study, lab, opt) => {
+    setModal({ study, lab, opt });
+  };
+
+  return (
+    <div>
+      <Nav onCTA={scrollToForm} onLogoClick={() => { setStep('landing'); window.scrollTo({top:0,behavior:'smooth'}); }}/>
+
+      {step === 'landing' && (
+        <>
+          <Hero onCTA={scrollToForm}/>
+          <HowItWorks onCTA={scrollToForm}/>
+          <TrustSection/>
+          {/* Inline teaser form call */}
+          <section style={{padding:'60px 24px',background:'linear-gradient(135deg,var(--navy),#0e3060)',textAlign:'center'}}>
+            <h2 style={{fontFamily:"'Sora',sans-serif",fontWeight:800,fontSize:'clamp(24px,4vw,36px)',color:'white',marginBottom:'16px'}}>
+              ¿Listo para cotizar?
+            </h2>
+            <p style={{color:'rgba(255,255,255,0.7)',marginBottom:'28px',fontSize:'16px'}}>
+              En menos de 2 minutos tienes tu comparativa personalizada.
+            </p>
+            <button className="btn-primary" style={{fontSize:'17px',padding:'16px 40px'}} onClick={scrollToForm}>
+              Cotizar ahora — es gratis →
+            </button>
+          </section>
+        </>
+      )}
+
+      {step === 'form' && (
+        <div style={{paddingTop:'80px'}}>
+          <LeadForm onSubmit={handleFormSubmit}/>
+        </div>
+      )}
+
+      {step === 'search' && (
+        <div style={{paddingTop:'80px'}}>
+          {lead && (
+            <div style={{background:'linear-gradient(90deg,var(--navy),var(--navy-mid))',padding:'16px 24px',textAlign:'center'}}>
+              <p style={{color:'white',fontSize:'14px'}}>
+                ¡Hola <strong>{lead.nombre.split(' ')[0]}</strong>! Tu cotización se enviará a <strong>{lead.correo}</strong>
+              </p>
+            </div>
+          )}
+          <StudySearch onCompare={handleCompare}/>
+        </div>
+      )}
+
+      {step === 'results' && (
+        <div style={{paddingTop:'80px'}}>
+          {lead && (
+            <div style={{background:'linear-gradient(90deg,var(--navy),var(--navy-mid))',padding:'16px 24px',textAlign:'center'}}>
+              <p style={{color:'white',fontSize:'14px'}}>
+                ¡Hola <strong>{lead.nombre.split(' ')[0]}</strong>! Enviamos tu cotización a <strong>{lead.correo}</strong> ✓
+              </p>
+            </div>
+          )}
+          <ComparisonResults
+            studies={selectedStudies}
+            onDetail={handleDetail}
+            onBack={() => setStep('search')}
+          />
+        </div>
+      )}
+
+      {/* Modal */}
+      {modal && (
+        <StudyDetailModal
+          study={modal.study}
+          lab={modal.lab}
+          opt={modal.opt}
+          onClose={()=>setModal(null)}
+        />
+      )}
+
+      {/* Footer always visible on landing */}
+      {step === 'landing' && <Footer/>}
+
+      {/* Persistent back to landing on non-landing steps */}
+      {step !== 'landing' && (
+        <div style={{background:'var(--gray-50)',padding:'24px',textAlign:'center',borderTop:'1px solid var(--gray-100)'}}>
+          <button
+            onClick={() => setStep('landing')}
+            style={{background:'none',border:'none',color:'var(--gray-400)',cursor:'pointer',fontSize:'13px',textDecoration:'underline'}}
+          >
+            ← Volver al inicio
+          </button>
+          <Footer/>
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
