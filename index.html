@@ -7,6 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -255,6 +256,23 @@
 
 <script type="text/babel">
 const { useState, useMemo, useEffect, useRef } = React;
+
+// ─── SUPABASE CLIENT ─────────────────────────────────────────────────────────
+const SUPABASE_URL = 'https://tgpoilgjqudfjlzfxbwp.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRncG9pbGdqcXVkZmpsemZ4YndwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MDAzNjcsImV4cCI6MjA4OTM3NjM2N30.TBt-DxunQCYysUBg5JORju7T_J0HW9Fd1qPYCKlm4yQ';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function saveLead(formData) {
+  const { error } = await supabase.from('leads').insert([{
+    nombre:        formData.nombre,
+    correo:        formData.correo,
+    sexo:          formData.sexo,
+    edad:          parseInt(formData.edad),
+    codigo_postal: formData.cp,
+  }]);
+  if (error) console.error('Supabase insert error:', error.message);
+  return !error;
+}
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 // Source: comparativo_laboratorios_mexico.csv
@@ -789,7 +807,7 @@ function LeadForm({ onSubmit }) {
     setErrors(e);
     if (Object.keys(e).length) return;
     setLoading(true);
-    await new Promise(r => setTimeout(r, 900));
+    await saveLead(form);   // ← persiste en Supabase
     setLoading(false);
     onSubmit(form);
   };
