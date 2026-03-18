@@ -264,14 +264,14 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function saveLead(formData) {
-  const { error } = await supabase.from('leads').insert([{
-    nombre:        formData.nombre,
-    correo:        formData.correo,
-    sexo:          formData.sexo,
-    edad:          parseInt(formData.edad),
-    codigo_postal: formData.cp,
-  }]);
-  if (error) console.error('Supabase insert error:', error.message);
+  const { error } = await supabase.rpc('insert_lead', {
+    p_nombre:        formData.nombre,
+    p_correo:        formData.correo,
+    p_sexo:          formData.sexo,
+    p_edad:          parseInt(formData.edad),
+    p_codigo_postal: formData.cp,
+  });
+  if (error) console.error('Supabase error:', error.message);
   return !error;
 }
 
