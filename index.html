@@ -3,290 +3,427 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Labcompara – Estudios de laboratorio al mejor precio en México</title>
-<meta name="description" content="Compara precios de estudios de laboratorio en México entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco. Biometría, química sanguínea, glucosa y más. Gratis."/>
+<title>Labcompara &#x2013; Estudios de laboratorio al mejor precio en M&#xe9;xico</title>
+<meta name="description" content="Compara precios de estudios de laboratorio en M&#xe9;xico entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco. Biomet&#xed;a, qu&#xed;mica sangu&#xed;nea, glucosa y m&#xe1;s. Gratis."/>
 <link rel="canonical" href="https://robertpq-clivi.github.io/Labcompara/"/>
-<meta property="og:title" content="Labcompara – Compara estudios de laboratorio en México"/>
-<meta property="og:description" content="Compara precios de estudios clínicos entre los mejores laboratorios de México en segundos. Gratis, sin registro."/>
+<meta property="og:title" content="Labcompara &#x2013; Compara estudios de laboratorio en M&#xe9;xico"/>
+<meta property="og:description" content="Compara precios de estudios cl&#xed;nicos entre los mejores laboratorios de M&#xe9;xico en segundos. Gratis, sin registro."/>
 <meta property="og:url" content="https://robertpq-clivi.github.io/Labcompara/"/>
 <meta property="og:type" content="website"/>
 <meta name="robots" content="index, follow"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Labcompara","url":"https://robertpq-clivi.github.io/Labcompara/","description":"Comparador de precios de estudios de laboratorio clínico en México","potentialAction":{"@type":"SearchAction","target":"https://robertpq-clivi.github.io/Labcompara/","query-input":"required name=search_term_string"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Labcompara","url":"https://robertpq-clivi.github.io/Labcompara/","description":"Comparador de precios de estudios de laboratorio en México","areaServed":"México"}</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F9EC;</text></svg>"/>
+<!-- Non-blocking Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"/></noscript>
+<!-- Supabase async - not render-blocking -->
+<script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onload="initSupabase()"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Labcompara","url":"https://robertpq-clivi.github.io/Labcompara/","description":"Comparador de precios de estudios de laboratorio cl&#xed;nico en M&#xe9;xico"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Labcompara","url":"https://robertpq-clivi.github.io/Labcompara/","areaServed":"M&#xe9;xico"}</script>
 <style>
-  :root {
-    --navy: #0B1F4B;
-    --navy-mid: #1a3a6e;
-    --teal: #00B4D8;
-    --teal-light: #90E0EF;
-    --teal-dark: #0077A8;
-    --green: #10B981;
-    --amber: #F59E0B;
-    --red: #EF4444;
-    --white: #ffffff;
-    --gray-50: #F8FAFC;
-    --gray-100: #F1F5F9;
-    --gray-200: #E2E8F0;
-    --gray-400: #94A3B8;
-    --gray-600: #475569;
-    --gray-800: #1E293B;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--gray-800); overflow-x: hidden; }
-  h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--gray-100); }
-  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
-
-  /* Animations */
-  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
-  @keyframes shimmer { 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
-  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
-  @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-
-  .animate-fadeUp { animation: fadeUp 0.6s ease forwards; }
-  .animate-fadeIn { animation: fadeIn 0.4s ease forwards; }
-
-  /* Glassmorphism */
-  .glass { backdrop-filter: blur(16px); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
-
-  /* Hero — canvas beams handles the background */
-  .hero-bg {
-    background: #0B1F4B;
-    position: relative;
-    overflow: hidden;
-  }
-  #hero-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    filter: blur(18px);
-    pointer-events: none;
-  }
-
-  /* Nav */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { display: flex; align-items: center; gap: 10px; }
-  .nav-logo-icon { width: 36px; height: 36px; background: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-  .nav-logo-text { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: white; }
-  .nav-logo-text span { color: var(--teal-light); }
-
-  /* Buttons */
-  .btn-primary {
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 20px rgba(0,180,216,0.35);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,180,216,0.45); }
-  .btn-primary:active { transform: translateY(0); }
-
-  .btn-secondary {
-    background: white;
-    color: var(--navy);
-    border: 2px solid var(--navy);
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-secondary:hover { background: var(--navy); color: white; }
-
-  .btn-outline-white {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255,255,255,0.4);
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
-
-  /* Cards */
-  .card { background: white; border-radius: 16px; box-shadow: 0 4px 24px rgba(11,31,75,0.08); padding: 24px; transition: all 0.2s; }
-  .card:hover { box-shadow: 0 8px 40px rgba(11,31,75,0.12); }
-
-  /* Badge */
-  .badge-cheapest { background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; font-family: 'Sora', sans-serif; display: inline-flex; align-items: center; gap: 4px; }
-  .badge-rated { background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; font-family: 'Sora', sans-serif; display: inline-flex; align-items: center; gap: 4px; }
-  .badge-recommended { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; font-family: 'Sora', sans-serif; display: inline-flex; align-items: center; gap: 4px; }
-
-  /* Form */
-  .input-group { display: flex; flex-direction: column; gap: 6px; }
-  .input-label { font-size: 13px; font-weight: 600; color: var(--gray-600); font-family: 'Sora', sans-serif; }
-  .input-field {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid var(--gray-200);
-    border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    color: var(--gray-800);
-    transition: border-color 0.2s;
-    outline: none;
-    background: white;
-  }
-  .input-field:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,180,216,0.1); }
-  .input-field::placeholder { color: var(--gray-400); }
-  select.input-field { appearance: none; cursor: pointer; }
-
-  /* Progress steps */
-  .step-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-family: 'Sora', sans-serif; transition: all 0.3s; }
-
-  /* Results */
-  .result-row { display: flex; align-items: center; padding: 16px; border-radius: 12px; border: 2px solid var(--gray-100); transition: all 0.2s; gap: 12px; background: white; }
-  .result-row:hover { border-color: var(--teal); box-shadow: 0 4px 20px rgba(0,180,216,0.1); }
-  .result-row.cheapest { border-color: #10B981; background: linear-gradient(135deg, rgba(16,185,129,0.04), rgba(5,150,105,0.02)); }
-  .result-row.best-rated { border-color: #F59E0B; background: linear-gradient(135deg, rgba(245,158,11,0.04), rgba(217,119,6,0.02)); }
-
-  /* Star rating */
-  .stars { display: flex; gap: 2px; }
-  .star-fill { color: #F59E0B; }
-  .star-empty { color: var(--gray-200); }
-
-  /* Modal */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(11,31,75,0.6); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: flex-end; justify-content: center; padding: 0; }
-  @media(min-width:640px){ .modal-overlay { align-items: center; padding: 24px; } }
-  .modal-sheet { background: white; border-radius: 24px 24px 0 0; padding: 28px 24px; width: 100%; max-height: 92vh; overflow-y: auto; animation: slideUp 0.3s ease; }
-  @media(min-width:640px){ .modal-sheet { border-radius: 24px; max-width: 560px; max-height: 85vh; animation: fadeIn 0.3s ease; } }
-  @keyframes slideUp { from{transform:translateY(100%);} to{transform:translateY(0);} }
-
-  /* Search */
-  .search-input { position: relative; }
-  .search-input input { padding-left: 44px; }
-  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray-400); }
-
-  /* Trust icons */
-  .trust-item { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 20px 16px; }
-  .trust-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-
-  /* Stats counter */
-  .stat-item { text-align: center; }
-  .stat-number { font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 800; color: var(--navy); }
-  .stat-label { font-size: 14px; color: var(--gray-600); margin-top: 4px; }
-
-  /* How it works step */
-  .how-step { display: flex; gap: 20px; align-items: flex-start; padding: 20px; border-radius: 16px; background: white; border: 2px solid var(--gray-100); transition: all 0.2s; }
-  .how-step:hover { border-color: var(--teal-light); transform: translateX(4px); }
-  .how-step-num { min-width: 40px; height: 40px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 16px; color: white; }
-
-  /* Lab color chips */
-  .lab-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; font-family: 'Sora', sans-serif; }
-
-  /* Scrollable study list */
-  .study-list { max-height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 4px; }
-  .study-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; border: 2px solid var(--gray-100); cursor: pointer; transition: all 0.15s; font-size: 14px; }
-  .study-item:hover { border-color: var(--teal); background: rgba(0,180,216,0.04); }
-  .study-item.selected { border-color: var(--teal); background: rgba(0,180,216,0.08); }
-
-  /* Chip tags for selected studies */
-  .selected-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(0,180,216,0.1); border: 1px solid var(--teal); border-radius: 20px; font-size: 13px; color: var(--teal-dark); font-weight: 500; }
-
-  /* Section header */
-  .section-header { text-align: center; margin-bottom: 48px; }
-  .section-eyebrow { font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; }
-  .section-title { font-family: 'Sora', sans-serif; font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: var(--navy); line-height: 1.2; }
-  .section-sub { font-size: 16px; color: var(--gray-600); margin-top: 12px; line-height: 1.6; max-width: 520px; margin-left: auto; margin-right: auto; }
-
-  /* Price display */
-  .price-display { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 22px; color: var(--navy); }
-  .price-nd { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--gray-400); }
-
-  /* Savings highlight */
-  .savings-bar { background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05)); border: 1px solid rgba(16,185,129,0.3); border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; }
-
-  /* Loader */
-  .spinner { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; }
-
-  /* Mobile friendly */
-  @media(max-width:640px){
-    .result-row { flex-wrap: wrap; }
-    .price-display { font-size: 18px; }
-    nav { padding: 12px 16px; }
-  }
-
-  /* Divider */
-  .divider { height: 1px; background: var(--gray-100); margin: 0; }
-
-  /* Footer */
-  footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 48px 24px 32px; }
-  .footer-brand { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; color: white; }
-  .footer-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: color 0.2s; }
-  .footer-link:hover { color: var(--teal-light); }
-  .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; }
-
-  /* Checkbox */
-  .checkbox-custom { width: 18px; height: 18px; border: 2px solid var(--gray-300); border-radius: 5px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
-  .checkbox-custom.checked { background: var(--teal); border-color: var(--teal); }
-
-  /* Notification dot */
-  .notif-dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; display: inline-block; }
-
-  /* Lab colors */
-  .lab-labbe { background: rgba(99,102,241,0.1); color: #6366F1; }
-  .lab-polanco { background: rgba(236,72,153,0.1); color: #EC4899; }
-  .lab-chopo { background: rgba(245,158,11,0.1); color: #D97706; }
-  .lab-saluddigna { background: rgba(16,185,129,0.1); color: #059669; }
-  .lab-lapi { background: rgba(239,68,68,0.1); color: #DC2626; }
-  .lab-olab { background: rgba(0,180,216,0.1); color: #0077A8; }
+:root{--navy:#0B1F4B;--navy-mid:#1a3a6e;--teal:#00B4D8;--teal-light:#90E0EF;--teal-dark:#0077A8;--green:#10B981;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-600:#475569;--gray-800:#1E293B;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#fff;color:var(--gray-800);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Sora',system-ui,sans-serif;}
+button{cursor:pointer;font-family:inherit;}
+a{color:var(--teal-dark);text-decoration:none;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--gray-100);}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:3px;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .3s;}
+nav.scrolled{background:rgba(11,31,75,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1);}
+.nav-logo{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:white;cursor:pointer;user-select:none;}
+.nav-logo span{color:var(--teal-light);}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.nav-link{color:rgba(255,255,255,.8);font-size:13px;font-weight:600;font-family:'Sora',sans-serif;text-decoration:none;}
+.nav-link:hover{color:var(--teal-light);}
+/* SECTIONS */
+.section{display:none;}.section.active{display:block;}
+/* HERO */
+#sec-hero{min-height:100vh;background:#0B1F4B;position:relative;overflow:hidden;}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,75,.55) 0%,rgba(11,31,75,.3) 60%,rgba(11,31,75,.75) 100%);pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:130px 24px 60px;text-align:center;}
+.badge-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,180,216,.15);border:1px solid rgba(0,180,216,.4);border-radius:50px;padding:6px 16px;margin-bottom:24px;}
+.badge-dot{width:8px;height:8px;background:#10B981;border-radius:50%;display:inline-block;}
+.badge-text{color:#90E0EF;font-size:13px;font-family:'Sora',sans-serif;font-weight:600;}
+.hero-h1{color:white;font-size:clamp(30px,5.5vw,56px);font-weight:800;line-height:1.15;letter-spacing:-.02em;}
+.hero-h1 span{color:#90E0EF;}
+.hero-sub{color:rgba(255,255,255,.76);font-size:clamp(16px,2.5vw,19px);max-width:560px;margin:18px auto 0;line-height:1.65;}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:36px;}
+.pill{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:50px;padding:8px 16px;color:rgba(255,255,255,.85);font-size:13px;}
+.hero-stats{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);}
+.stat-n{font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:#90E0EF;}
+.stat-l{font-size:13px;color:rgba(255,255,255,.6);margin-top:3px;}
+/* BUTTONS */
+.btn-primary{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;border:none;padding:14px 30px;border-radius:12px;font-family:'Sora',sans-serif;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,180,216,.35);transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,180,216,.45);}
+.btn-nav{background:var(--teal);color:white;border:none;padding:8px 18px;border-radius:10px;font-family:'Sora',sans-serif;font-weight:600;font-size:13px;transition:opacity .2s;}
+.btn-nav:hover{opacity:.85;}
+/* HOW IT WORKS */
+.sec-inner{max-width:820px;margin:0 auto;padding:70px 24px;}
+.sec-eyebrow{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px;text-align:center;}
+.sec-title{font-family:'Sora',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--navy);line-height:1.2;text-align:center;}
+.sec-sub{font-size:16px;color:var(--gray-600);margin-top:12px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto;text-align:center;}
+.bg-gray{background:var(--gray-50);}
+.how-list{margin:36px 0 0;display:flex;flex-direction:column;gap:12px;}
+.how-step{display:flex;gap:18px;align-items:flex-start;padding:20px;background:white;border:2px solid var(--gray-100);border-radius:16px;transition:border-color .2s,transform .2s;}
+.how-step:hover{border-color:var(--teal-light);transform:translateX(4px);}
+.how-num{min-width:40px;height:40px;background:linear-gradient(135deg,var(--teal),var(--teal-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;color:white;flex-shrink:0;}
+.how-step-body h3{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--navy);margin-bottom:5px;}
+.how-step-body p{font-size:14px;color:var(--gray-600);line-height:1.6;}
+/* TRUST */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:36px;}
+.trust-card{background:white;border-radius:16px;box-shadow:0 4px 24px rgba(11,31,75,.07);padding:22px;display:flex;gap:14px;align-items:flex-start;}
+.trust-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.trust-card h3{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--navy);margin-bottom:5px;}
+.trust-card p{font-size:13px;color:var(--gray-600);line-height:1.6;}
+.proof-bar{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:20px;padding:30px;display:flex;flex-wrap:wrap;justify-content:space-around;gap:20px;margin-top:40px;}
+.proof-n{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:#90E0EF;}
+.proof-l{font-size:13px;color:rgba(255,255,255,.6);margin-top:3px;}
+/* PROMO */
+.promo{background:linear-gradient(135deg,var(--navy),#0e3060);padding:56px 24px;text-align:center;}
+.promo h2{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(22px,4vw,34px);color:white;margin-bottom:14px;}
+.promo p{color:rgba(255,255,255,.72);margin-bottom:26px;font-size:16px;}
+/* WAVE */
+.wave{overflow:hidden;line-height:0;}
+.wave svg{display:block;width:100%;}
+/* FORM */
+#sec-form{padding-top:80px;}
+.top-bar{background:linear-gradient(90deg,var(--navy),var(--navy-mid));padding:12px 24px;text-align:center;font-size:14px;color:white;}
+.top-bar b{color:#90E0EF;}
+.form-wrap{max-width:500px;margin:0 auto;padding:40px 24px 80px;}
+.step-label{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);text-align:center;margin-bottom:8px;}
+.form-h{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:var(--navy);text-align:center;margin-bottom:8px;}
+.form-p{font-size:15px;color:var(--gray-600);text-align:center;margin-bottom:24px;line-height:1.6;}
+.privacy-box{display:flex;align-items:flex-start;gap:10px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:12px 15px;margin-bottom:20px;}
+.privacy-box p{font-size:13px;color:#065F46;line-height:1.5;margin:0;}
+.form-card{background:white;border-radius:16px;box-shadow:0 4px 24px rgba(11,31,75,.08);padding:28px;}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
+.field label{font-size:13px;font-weight:600;color:var(--gray-600);font-family:'Sora',sans-serif;}
+.field input,.field select{width:100%;padding:11px 14px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;color:var(--gray-800);outline:none;transition:border-color .2s;background:white;-webkit-appearance:none;}
+.field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,180,216,.1);}
+.field input.err,.field select.err{border-color:#EF4444;}
+.err-msg{font-size:12px;color:#EF4444;min-height:16px;}
+.hint{font-size:11px;color:var(--gray-400);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.btn-full{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.form-note{text-align:center;font-size:12px;color:var(--gray-400);margin-top:12px;line-height:1.6;}
+.spinner{width:17px;height:17px;border:2px solid rgba(255,255,255,.3);border-top-color:white;border-radius:50%;display:inline-block;animation:spin .8s linear infinite;}
+/* SEARCH */
+#sec-search{padding-top:80px;}
+.search-wrap{max-width:700px;margin:0 auto;padding:36px 24px 80px;}
+.search-box{position:relative;margin-bottom:12px;}
+.search-box span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;}
+.search-box input{width:100%;padding:13px 16px 13px 44px;border:2px solid var(--gray-200);border-radius:12px;font-size:15px;outline:none;color:var(--gray-800);font-family:inherit;}
+.search-box input:focus{border-color:var(--teal);}
+.chips-wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:var(--gray-50);border-radius:10px;margin-bottom:12px;align-items:center;}
+.chip-lbl{font-size:13px;font-weight:600;color:var(--gray-600);}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(0,180,216,.1);border:1px solid var(--teal);border-radius:20px;font-size:13px;color:var(--teal-dark);font-weight:500;}
+.chip-x{background:none;border:none;color:var(--teal-dark);font-weight:700;font-size:13px;line-height:1;padding:0 2px;}
+.study-list{max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.study-item{display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:10px;border:2px solid var(--gray-100);cursor:pointer;transition:border-color .15s;font-size:14px;}
+.study-item:hover{border-color:var(--teal);background:rgba(0,180,216,.03);}
+.study-item.sel{border-color:var(--teal);background:rgba(0,180,216,.07);}
+.study-cb{width:19px;height:19px;border-radius:5px;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:white;transition:all .15s;}
+.study-cb.on{background:var(--teal);border-color:var(--teal);}
+.study-name{flex:1;}
+.study-from{font-size:11px;color:var(--gray-400);}
+.study-price{font-size:13px;font-weight:700;color:var(--teal-dark);}
+.btn-compare{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;position:sticky;bottom:16px;}
+.quick-wrap{margin-top:14px;}
+.quick-lbl{font-size:12px;color:var(--gray-400);font-weight:600;margin-bottom:7px;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{border:none;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:500;transition:all .15s;cursor:pointer;}
+.tag.off{background:var(--gray-100);color:var(--gray-600);}
+.tag.on{background:var(--teal);color:white;}
+/* RESULTS */
+#sec-results{padding-top:80px;background:var(--gray-50);min-height:60vh;}
+.results-wrap{max-width:820px;margin:0 auto;padding:30px 24px 80px;}
+.results-top{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;}
+.btn-back{background:white;border:2px solid var(--gray-200);border-radius:10px;padding:8px 14px;font-size:14px;font-family:'Sora',sans-serif;font-weight:600;color:var(--gray-600);transition:all .2s;}
+.btn-back:hover{border-color:var(--teal);color:var(--teal-dark);}
+.results-title{font-family:'Sora',sans-serif;font-weight:800;font-size:21px;color:var(--navy);}
+.results-sub-t{font-size:13px;color:var(--gray-600);}
+.sort-btns{margin-left:auto;display:flex;gap:6px;}
+.sort-btn{padding:6px 12px;border-radius:8px;font-size:13px;font-weight:600;font-family:'Sora',sans-serif;border:2px solid var(--gray-200);background:white;color:var(--gray-600);transition:all .2s;}
+.sort-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.bc{background:linear-gradient(135deg,#10B981,#059669);color:white;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;}
+.br{background:linear-gradient(135deg,#F59E0B,#D97706);color:white;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;}
+.brec{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;}
+.study-block{margin-bottom:28px;}
+.study-hdr{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:16px 16px 0 0;padding:15px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.study-hdr-name{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:white;}
+.study-hdr-sub{font-size:13px;color:rgba(255,255,255,.6);}
+.savings{background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);border-radius:8px;padding:5px 12px;text-align:center;}
+.savings-lbl{font-family:'Sora',sans-serif;font-size:10px;color:#6EE7B7;font-weight:600;}
+.savings-val{font-family:'Sora',sans-serif;font-size:17px;font-weight:800;color:#34D399;}
+.lab-rows{background:white;border-radius:0 0 16px 16px;border:2px solid var(--gray-100);border-top:none;overflow:hidden;}
+.lab-row{display:flex;align-items:center;gap:10px;padding:13px 16px;transition:background .15s;}
+.lab-row+.lab-row{border-top:1px solid var(--gray-100);}
+.lab-row.cheap{background:linear-gradient(90deg,rgba(16,185,129,.04),transparent);}
+.lab-row.rated{background:linear-gradient(90deg,rgba(245,158,11,.04),transparent);}
+.rank-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white;flex-shrink:0;font-family:'Sora',sans-serif;}
+.lab-info{min-width:100px;flex-shrink:0;}
+.lab-name{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--navy);}
+.lab-stars{display:flex;align-items:center;margin-top:1px;}
+.lstar{font-size:11px;}
+.lrating{font-size:10px;color:var(--gray-400);margin-left:3px;}
+.lab-badges{flex:1;display:flex;flex-wrap:wrap;gap:4px;}
+.lab-price{text-align:right;flex-shrink:0;}
+.price-val{font-family:'Sora',sans-serif;font-weight:800;font-size:19px;}
+.price-avg{font-size:10px;color:var(--gray-400);}
+.btn-detail{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;border:none;padding:8px 14px;border-radius:9px;font-family:'Sora',sans-serif;font-weight:600;font-size:12px;flex-shrink:0;transition:transform .15s;}
+.btn-detail:hover{transform:translateY(-1px);}
+.nd-note{padding:10px 16px;border-top:1px solid var(--gray-100);font-size:12px;color:var(--gray-400);}
+.back-link-wrap{text-align:center;margin-top:12px;}
+.back-link{background:none;border:none;color:var(--gray-400);font-size:14px;text-decoration:underline;cursor:pointer;}
+/* MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(11,31,75,.6);backdrop-filter:blur(4px);z-index:200;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;}
+.modal-ov.open{opacity:1;pointer-events:all;}
+.modal-sheet{background:white;border-radius:24px 24px 0 0;padding:24px 20px;width:100%;max-height:92vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s ease;}
+.modal-ov.open .modal-sheet{transform:translateY(0);}
+.modal-handle{width:40px;height:4px;background:var(--gray-200);border-radius:2px;margin:0 auto 16px;}
+.mlab-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.mlab-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;}
+.mlab-name{font-family:'Sora',sans-serif;font-weight:800;font-size:17px;color:var(--navy);}
+.mclose{width:30px;height:30px;border-radius:50%;border:2px solid var(--gray-200);background:white;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto;}
+.msvcs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.msvc{border-radius:20px;padding:3px 9px;font-size:12px;font-weight:500;}
+.mdivider{height:1px;background:var(--gray-100);margin:14px 0;}
+.mstudy-name{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--navy);margin-bottom:7px;}
+.mdesc{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:14px;}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
+.minfo{background:var(--gray-50);border-radius:12px;padding:12px;}
+.minfo.full{grid-column:1/-1;}
+.minfo-icon{font-size:17px;margin-bottom:4px;}
+.minfo-label{font-size:10px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+.minfo-val{font-size:13px;color:var(--gray-700);line-height:1.5;}
+.fasting-alert{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:11px 13px;margin-bottom:16px;display:flex;gap:9px;}
+.fasting-text{font-size:13px;color:#92400E;line-height:1.5;}
+.mcta-row{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:14px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.mprice-label{font-size:11px;color:rgba(255,255,255,.6);margin-bottom:3px;}
+.mprice-val{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:white;}
+.mgo{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;padding:11px 22px;border-radius:11px;font-family:'Sora',sans-serif;font-weight:700;font-size:14px;text-decoration:none;display:inline-block;}
+.mdisc{text-align:center;font-size:11px;color:var(--gray-400);margin-top:9px;line-height:1.6;}
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px;}
+.footer-inner{max-width:900px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:36px;margin-bottom:36px;}
+.footer-brand{font-family:'Sora',sans-serif;font-weight:700;font-size:17px;color:white;margin-bottom:9px;}
+.footer-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;}
+.footer-col-h{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.footer-a{display:block;color:rgba(255,255,255,.5);font-size:13px;text-decoration:none;margin-bottom:7px;transition:color .2s;}
+.footer-a:hover{color:var(--teal-light);}
+.footer-disc{font-size:11px;color:rgba(255,255,255,.35);line-height:1.7;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.anim{animation:fadeUp .6s ease both;}
+/* RESPONSIVE */
+@media(min-width:640px){
+  .modal-ov{align-items:center;padding:24px;}
+  .modal-sheet{border-radius:24px;max-width:560px;max-height:85vh;transform:translateY(16px);}
+  .modal-ov.open .modal-sheet{transform:translateY(0);}
+}
+@media(max-width:600px){
+  .nav-link{display:none;}
+  nav{padding:12px 16px;}
+  .hero-stats{gap:20px;}
+  .lab-row{flex-wrap:wrap;}
+  .price-val{font-size:16px;}
+}
 </style>
 </head>
 <body>
-<div id="root"></div>
 
-<script type="text/babel">
-const { useState, useMemo, useEffect, useRef } = React;
+<nav id="main-nav">
+  <span class="nav-logo" id="nav-logo">Lab<span>compara</span></span>
+  <div class="nav-right">
+    <a href="pages/estudios-de-laboratorio.html" class="nav-link">Estudios</a>
+    <a href="pages/laboratorio-cerca-de-mi.html" class="nav-link">Laboratorios</a>
+    <a href="blog/index.html" class="nav-link">Blog</a>
+    <button class="btn-nav" id="nav-cta">Cotizar</button>
+  </div>
+</nav>
 
-// ─── SUPABASE CLIENT ─────────────────────────────────────────────────────────
-const SUPABASE_URL = 'https://tgpoilgjqudfjlzfxbwp.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRncG9pbGdqcXVkZmpsemZ4YndwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MDAzNjcsImV4cCI6MjA4OTM3NjM2N30.TBt-DxunQCYysUBg5JORju7T_J0HW9Fd1qPYCKlm4yQ';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+<!-- HERO SECTION -->
+<section id="sec-hero" class="section active">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="badge-pill anim"><span class="badge-dot"></span><span class="badge-text">M&#xe1;s de 64 estudios &middot; 6 laboratorios &middot; Precios reales</span></div>
+    <h1 class="hero-h1 anim" style="animation-delay:.1s">Encuentra tus estudios de laboratorio<br/><span>al mejor precio</span></h1>
+    <p class="hero-sub anim" style="animation-delay:.2s">Compara precios entre los mejores laboratorios de M&#xe9;xico, elige el que m&#xe1;s te convenga y compra directamente.</p>
+    <div style="margin-top:32px;" class="anim" style="animation-delay:.3s">
+      <button class="btn-primary" id="hero-cta" style="font-size:17px;padding:16px 34px;">Cotizar ahora &#x2014; es gratis <span>&#x2192;</span></button>
+    </div>
+    <div class="hero-pills anim" style="animation-delay:.4s">
+      <div class="pill">&#x1F4B0; Descubre el m&#xe1;s barato</div>
+      <div class="pill">&#x2B50; Mejor calificado</div>
+      <div class="pill">&#x1F389; Promociones todo el a&#xf1;o</div>
+      <div class="pill">&#x1F465; Miles de usuarios satisfechos</div>
+    </div>
+    <div class="hero-stats anim" style="animation-delay:.5s">
+      <div><div class="stat-n">64+</div><div class="stat-l">Estudios disponibles</div></div>
+      <div><div class="stat-n">6</div><div class="stat-l">Laboratorios top</div></div>
+      <div><div class="stat-n">98%</div><div class="stat-l">Satisfacci&#xf3;n</div></div>
+      <div><div class="stat-n">Gratis</div><div class="stat-l">Sin costo de comparaci&#xf3;n</div></div>
+    </div>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="50"><path d="M0,50 C360,0 1080,0 1440,50 L1440,50 L0,50 Z" fill="white"/></svg></div>
 
-async function saveLead(formData) {
-  const { error } = await supabase.rpc('insert_lead', {
-    p_nombre:        formData.nombre,
-    p_correo:        formData.correo,
-    p_sexo:          formData.sexo,
-    p_edad:          parseInt(formData.edad),
-    p_codigo_postal: formData.cp,
-  });
-  if (error) console.error('Supabase error:', error.message);
-  return !error;
-}
+  <!-- HOW IT WORKS -->
+  <div class="bg-gray">
+    <div class="sec-inner">
+      <div class="sec-eyebrow">C&#xf3;mo funciona</div>
+      <h2 class="sec-title">Cuatro pasos, resultado garantizado</h2>
+      <p class="sec-sub">Sin complicaciones. Sin cuentas. Sin intermediarios en el pago.</p>
+      <div class="how-list">
+        <div class="how-step"><div class="how-num">1</div><div class="how-step-body"><h3>&#x1F464; Cu&#xe9;ntanos de ti</h3><p>Comparte tu nombre, correo y datos b&#xe1;sicos. Te enviamos la cotizaci&#xf3;n personalizada.</p></div></div>
+        <div class="how-step"><div class="how-num">2</div><div class="how-step-body"><h3>&#x1F50D; Cotiza y compara</h3><p>Busca el estudio que necesitas y compara precios entre todos los laboratorios en segundos.</p></div></div>
+        <div class="how-step"><div class="how-num">3</div><div class="how-step-body"><h3>&#x1F6CD;&#xfe0f; Compra con el laboratorio</h3><p>Elige el que m&#xe1;s te conviene y ve directamente al sitio del laboratorio para agendar o pagar.</p></div></div>
+        <div class="how-step"><div class="how-num">4</div><div class="how-step-body"><h3>&#x2705; Prep&#xe1;rate para tus estudios</h3><p>Te enviamos instrucciones de preparaci&#xf3;n seg&#xfa;n el estudio. Sin sorpresas.</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;"><button class="btn-primary" id="how-cta">Empezar ahora</button></div>
+    </div>
+  </div>
 
-// ─── DATA ───────────────────────────────────────────────────────────────────
-// Source: comparativo_laboratorios_mexico.csv
-// Prices in MXN. N/D = not available.
+  <!-- TRUST -->
+  <div class="sec-inner" style="padding-top:70px;padding-bottom:70px;max-width:900px;">
+    <div class="sec-eyebrow">Por qu&#xe9; elegirnos</div>
+    <h2 class="sec-title">Transparencia total, sin sorpresas</h2>
+    <div class="trust-grid">
+      <div class="trust-card"><div class="trust-icon" style="background:rgba(99,102,241,.1);">&#x1F512;</div><div><h3>100% Seguro</h3><p>Tus datos est&#xe1;n protegidos y nunca los compartimos.</p></div></div>
+      <div class="trust-card"><div class="trust-icon" style="background:rgba(16,185,129,.1);">&#x1F4B0;</div><div><h3>Ahorra hasta 80%</h3><p>Salud Digna puede ser hasta 80% m&#xe1;s barato que otros labs.</p></div></div>
+      <div class="trust-card"><div class="trust-icon" style="background:rgba(245,158,11,.1);">&#x2B50;</div><div><h3>Laboratorios reconocidos</h3><p>Solo comparamos laboratorios certificados y confiables.</p></div></div>
+      <div class="trust-card"><div class="trust-icon" style="background:rgba(239,68,68,.1);">&#x1F6AB;</div><div><h3>Sin comisiones</h3><p>Pagas directo en el laboratorio. Labcompara es gratis.</p></div></div>
+      <div class="trust-card"><div class="trust-icon" style="background:rgba(0,180,216,.1);">&#x26A1;</div><div><h3>Resultados r&#xe1;pidos</h3><p>Mayor&#xed;a de estudios con resultados en 24-48 horas.</p></div></div>
+      <div class="trust-card"><div class="trust-icon" style="background:rgba(11,31,75,.1);">&#x1F4CB;</div><div><h3>Informaci&#xf3;n clara</h3><p>Te explicamos cada estudio y c&#xf3;mo prepararte.</p></div></div>
+    </div>
+    <div class="proof-bar">
+      <div style="text-align:center;"><div class="proof-n">50,000+</div><div class="proof-l">Cotizaciones enviadas</div></div>
+      <div style="text-align:center;"><div class="proof-n">6</div><div class="proof-l">Laboratorios comparados</div></div>
+      <div style="text-align:center;"><div class="proof-n">4.7/5</div><div class="proof-l">Calificaci&#xf3;n promedio</div></div>
+      <div style="text-align:center;"><div class="proof-n">$0</div><div class="proof-l">Costo de comparaci&#xf3;n</div></div>
+    </div>
+  </div>
+
+  <!-- PROMO CTA -->
+  <div class="promo">
+    <h2>&#xbf;Listo para cotizar?</h2>
+    <p>En menos de 2 minutos tienes tu comparativa personalizada.</p>
+    <button class="btn-primary" id="promo-cta" style="font-size:17px;padding:16px 40px;">Cotizar ahora &#x2014; es gratis &#x2192;</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div><div class="footer-brand">Labcompara</div><p class="footer-desc">Compara precios de estudios de laboratorio entre los mejores laboratorios de M&#xe9;xico.</p></div>
+        <div>
+          <div class="footer-col-h">Laboratorios</div>
+          <a href="https://labbe.com.mx" target="_blank" rel="noopener" class="footer-a">Labbe</a>
+          <a href="https://chopo.com.mx" target="_blank" rel="noopener" class="footer-a">Chopo</a>
+          <a href="https://saluddigna.mx" target="_blank" rel="noopener" class="footer-a">Salud Digna</a>
+          <a href="https://olab.mx" target="_blank" rel="noopener" class="footer-a">OLAB</a>
+          <a href="https://lapi.com.mx" target="_blank" rel="noopener" class="footer-a">LAPI</a>
+          <a href="pages/laboratorio-cerca-de-mi.html" class="footer-a">Lab. M&#xe9;dico Polanco</a>
+        </div>
+        <div>
+          <div class="footer-col-h">Explora</div>
+          <a href="pages/estudios-de-laboratorio.html" class="footer-a">Estudios de laboratorio</a>
+          <a href="pages/analisis-clinicos.html" class="footer-a">An&#xe1;lisis cl&#xed;nicos</a>
+          <a href="pages/examenes-de-sangre.html" class="footer-a">Ex&#xe1;menes de sangre</a>
+          <a href="blog/index.html" class="footer-a">Blog</a>
+        </div>
+        <div>
+          <div class="footer-col-h">Legal</div>
+          <a href="#" class="footer-a">Privacidad</a>
+          <a href="#" class="footer-a">T&#xe9;rminos</a>
+          <a href="#" class="footer-a">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-disc">Labcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio cl&#xed;nico. Los precios son referenciales. &copy; 2024 Labcompara.</div>
+    </div>
+  </footer>
+</section>
+
+<!-- FORM SECTION -->
+<section id="sec-form" class="section">
+  <div class="top-bar" id="form-bar" style="display:none;"><b id="form-name"></b> &#x2014; Tu cotizaci&#xf3;n se enviar&#xe1; a <b id="form-email"></b></div>
+  <div class="form-wrap">
+    <div class="step-label">Paso 1 de 2</div>
+    <h1 class="form-h">Cu&#xe9;ntanos de ti</h1>
+    <p class="form-p">Te enviaremos tu cotizaci&#xf3;n personalizada y recomendaciones de preparaci&#xf3;n.</p>
+    <div class="privacy-box"><span>&#x1F512;</span><p><strong>Tu privacidad es lo primero.</strong> Solo usamos tus datos para enviarte la cotizaci&#xf3;n.</p></div>
+    <div class="form-card">
+      <div class="field"><label for="f-nombre">Nombre completo *</label><input id="f-nombre" type="text" placeholder="Ej. Mar&#xed;a Garc&#xed;a" autocomplete="name"/><span class="err-msg" id="err-nombre"></span></div>
+      <div class="field"><label for="f-correo">Correo electr&#xf3;nico *</label><input id="f-correo" type="email" placeholder="tu@correo.com" autocomplete="email"/><span class="err-msg" id="err-correo"></span></div>
+      <div class="row2">
+        <div class="field"><label for="f-sexo">Sexo biol&#xf3;gico *</label><select id="f-sexo"><option value="">Seleccionar</option><option value="F">Femenino</option><option value="M">Masculino</option><option value="O">Prefiero no decir</option></select><span class="err-msg" id="err-sexo"></span></div>
+        <div class="field"><label for="f-edad">Edad *</label><input id="f-edad" type="number" placeholder="35" min="1" max="120"/><span class="err-msg" id="err-edad"></span></div>
+      </div>
+      <div class="field"><label for="f-cp">C&#xf3;digo postal *</label><input id="f-cp" type="text" placeholder="06600" maxlength="5" inputmode="numeric"/><span class="err-msg" id="err-cp"></span><span class="hint">Para mostrarte laboratorios en tu zona.</span></div>
+      <button class="btn-primary btn-full" id="form-submit">Ver comparativa de precios <span>&#x2192;</span></button>
+    </div>
+    <p class="form-note">Al continuar aceptas nuestro aviso de privacidad.</p>
+  </div>
+</section>
+
+<!-- SEARCH SECTION -->
+<section id="sec-search" class="section">
+  <div class="top-bar" id="search-bar" style="display:none;">&#x1F44B; &#x48;ola <b id="search-name"></b> &#x2014; Tu cotizaci&#xf3;n se enviar&#xe1; a <b id="search-email"></b></div>
+  <div class="search-wrap" style="padding-top:40px;">
+    <div class="step-label">Paso 2 de 2</div>
+    <h1 class="form-h">&#xbf;Qu&#xe9; estudio necesitas?</h1>
+    <p class="form-p">Busca y selecciona uno o varios estudios para comparar precios.</p>
+    <div class="search-box"><span>&#x1F50D;</span><input id="search-input" type="text" placeholder="Buscar: biomet&#xed;a, glucosa, tiroides&#x2026;" autocomplete="off"/></div>
+    <div class="chips-wrap" id="chips-wrap" style="display:none;"><span class="chip-lbl">Seleccionados:</span><span id="chips-inner"></span></div>
+    <div class="study-list" id="study-list"></div>
+    <button class="btn-primary btn-compare" id="compare-btn" disabled style="opacity:.5;">Selecciona al menos un estudio</button>
+    <div class="quick-wrap"><div class="quick-lbl">POPULARES:</div><div class="tags" id="quick-tags"></div></div>
+  </div>
+</section>
+
+<!-- RESULTS SECTION -->
+<section id="sec-results" class="section" style="background:var(--gray-50);">
+  <div class="top-bar" id="results-bar" style="display:none;">&#x1F44B; &#x48;ola <b id="results-name"></b> &#x2014; Enviamos tu cotizaci&#xf3;n a <b id="results-email"></b> &#x2713;</div>
+  <div class="results-wrap">
+    <div class="results-top">
+      <button class="btn-back" id="results-back">&#x2190; Volver</button>
+      <div><div class="results-title">Tu comparativa de precios</div><div class="results-sub-t" id="results-sub"></div></div>
+      <div class="sort-btns"><button class="sort-btn active" id="sort-price">Precio</button><button class="sort-btn" id="sort-rating">Calificaci&#xf3;n</button></div>
+    </div>
+    <div class="legend"><span class="bc">&#x1F4B0; M&#xe1;s barato</span><span class="br">&#x2B50; Mejor calificado</span><span class="brec">&#x2705; Recomendado</span></div>
+    <div id="results-container"></div>
+    <div class="back-link-wrap"><button class="back-link" id="new-search">Buscar otros estudios</button></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="mlab-row">
+      <div class="mlab-icon" id="m-icon"></div>
+      <div style="flex:1;"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><div class="mlab-name" id="m-name"></div><div id="m-badges"></div></div><div id="m-stars" style="margin-top:3px;font-size:11px;color:var(--gray-400);display:flex;align-items:center;gap:2px;"></div></div>
+      <button class="mclose" id="m-close">&#x00D7;</button>
+    </div>
+    <div class="msvcs" id="m-svcs"></div>
+    <div class="mdivider"></div>
+    <div class="mstudy-name" id="m-study"></div>
+    <div class="mdesc" id="m-desc"></div>
+    <div class="mgrid" id="m-grid"></div>
+    <div class="fasting-alert" id="m-fasting" style="display:none;"><span>&#x26A0;&#xfe0f;</span><p class="fasting-text"><strong>Requiere ayuno.</strong> No comas ni bebas nada (excepto agua) al menos 8-12 horas antes.</p></div>
+    <div class="mcta-row"><div><div class="mprice-label" id="m-price-label"></div><div class="mprice-val" id="m-price"></div></div><a href="#" id="m-go" target="_blank" rel="noopener noreferrer" class="mgo">Ir al laboratorio &#x2192;</a></div>
+    <p class="mdisc">Labcompara te redirige al sitio del laboratorio. El pago se realiza directamente con ellos.</p>
+  </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
 const RAW_DATA = [
   {name:"Biometría Hemática",Labbe:277,Polanco:556,Chopo:270,"Salud Digna":95,LAPI:491,OLAB:269,avg:326,cheapest:"Salud Digna"},
   {name:"Química Sanguínea 6 Elementos",Labbe:616,Polanco:910,Chopo:null,"Salud Digna":110,LAPI:1395,OLAB:409,avg:688,cheapest:"Salud Digna"},
@@ -356,8 +493,6 @@ const RAW_DATA = [
 
 const LABS = ['Labbe','Polanco','Chopo','Salud Digna','LAPI','OLAB'];
 
-// Mock lab metadata — rating is mocked (TODO: replace with real data from reviews system)
-// COLOR_CLASS maps to CSS class suffix for lab-chip coloring
 const LAB_META = {
   Labbe: {
     rating: 4.5, votes: 1243, color: '#6366F1', colorClass: 'labbe',
@@ -409,7 +544,6 @@ const LAB_META = {
   }
 };
 
-// Study educational content — description, preparation, fasting info
 const STUDY_INFO = {
   "Biometría Hemática": { desc:"Análisis completo de las células sanguíneas: glóbulos rojos, blancos y plaquetas.", purpose:"Detectar anemia, infecciones, enfermedades autoinmunes y más.", prep:"No requiere preparación especial.", fasting:false, time:"24-48 hrs" },
   "Química Sanguínea 27 Elementos": { desc:"Panel metabólico completo que evalúa 27 parámetros bioquímicos en sangre.", purpose:"Evaluar función renal, hepática, glucosa, minerales y electrolitos.", prep:"Ayuno de 8-12 horas recomendado.", fasting:true, time:"24-48 hrs" },
@@ -423,1148 +557,189 @@ const STUDY_INFO = {
   "default": { desc:"Estudio de laboratorio clínico para diagnóstico y seguimiento de condiciones de salud.", purpose:"Apoya al médico tratante en el diagnóstico y monitoreo de tu salud.", prep:"Sigue las indicaciones de tu médico.", fasting:false, time:"24-48 hrs" }
 };
 
-function getStudyInfo(name) {
-  return STUDY_INFO[name] || STUDY_INFO['default'];
+// ── STATE ─────────────────────────────────────────────────────────────────
+let lead = null;
+let selected = [];
+let sortBy = 'price';
+let supaClient = null;
+
+// ── UTILS ─────────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const fmtP = p => p ? new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(p) : null;
+const sInfo = n => STUDY_INFO[n] || STUDY_INFO['default'];
+const minP = s => { const v=LABS.map(l=>s[l]).filter(v=>v); return v.length?Math.min(...v):null; };
+const stars = r => [1,2,3,4,5].map(i=>`<span style="color:${i<=Math.floor(r)?'#F59E0B':'#E2E8F0'};font-size:11px;">&#x2605;</span>`).join('');
+
+function showSec(id){ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+function goHome(){ lead=null; selected=[]; showSec('sec-hero'); }
+function goForm(){ showSec('sec-form'); }
+function goSearch(){
+  showSec('sec-search');
+  if(lead){
+    $('search-bar').style.display='block';
+    $('search-name').textContent=lead.nombre.split(' ')[0];
+    $('search-email').textContent=lead.correo;
+  }
+  renderList(''); renderChips(); renderCompBtn(); renderTags();
+}
+function goResults(){
+  showSec('sec-results');
+  if(lead){
+    $('results-bar').style.display='block';
+    $('results-name').textContent=lead.nombre.split(' ')[0];
+    $('results-email').textContent=lead.correo;
+  }
+  renderResults();
 }
 
-// ─── UTILITIES ───────────────────────────────────────────────────────────────
-function formatPrice(p) {
-  if (!p) return null;
-  return new Intl.NumberFormat('es-MX', { style:'currency', currency:'MXN', maximumFractionDigits:0 }).format(p);
+// ── BEAMS CANVAS ──────────────────────────────────────────────────────────
+(function(){
+  const cv=$('hero-canvas'), cx=cv.getContext('2d');
+  let beams=[], raf;
+  function mk(w,h){return{x:Math.random()*w*1.5-w*.25,y:Math.random()*h*1.5-h*.25,width:40+Math.random()*80,length:h*2.5,angle:-35+Math.random()*10,speed:.5+Math.random()*1,opacity:.1+Math.random()*.18,hue:190+Math.random()*40,sat:70+Math.random()*20,lig:55+Math.random()*20,pulse:Math.random()*Math.PI*2,pSpeed:.018+Math.random()*.025};}
+  function rst(b,i,tot,w,h){const c=i%3,sp=w/3;b.y=h+100;b.x=c*sp+sp/2+(Math.random()-.5)*sp*.5;b.width=80+Math.random()*120;b.speed=.4+Math.random()*.6;b.hue=190+(i*40)/tot;b.opacity=.12+Math.random()*.14;}
+  function drw(b){cx.save();cx.translate(b.x,b.y);cx.rotate(b.angle*Math.PI/180);const po=b.opacity*(0.8+Math.sin(b.pulse)*.2),g=cx.createLinearGradient(0,0,0,b.length),hs=`hsla(${b.hue},${b.sat}%,${b.lig}%,`;g.addColorStop(0,hs+"0)");g.addColorStop(.1,hs+(po*.5)+")");g.addColorStop(.4,hs+po+")");g.addColorStop(.6,hs+po+")");g.addColorStop(.9,hs+(po*.5)+")");g.addColorStop(1,hs+"0)");cx.fillStyle=g;cx.fillRect(-b.width/2,0,b.width,b.length);cx.restore();}
+  function resize(){const dpr=devicePixelRatio||1,w=cv.parentElement.offsetWidth,h=cv.parentElement.offsetHeight;cv.width=w*dpr;cv.height=h*dpr;cv.style.width=w+"px";cv.style.height=h+"px";cx.scale(dpr,dpr);beams=Array.from({length:26},()=>mk(w,h));}
+  function tick(){const w=cv.width/(devicePixelRatio||1),h=cv.height/(devicePixelRatio||1);cx.clearRect(0,0,w,h);cx.filter="blur(30px)";const tot=beams.length;beams.forEach((b,i)=>{b.y-=b.speed;b.pulse+=b.pSpeed;if(b.y+b.length<-100)rst(b,i,tot,w,h);drw(b);});raf=requestAnimationFrame(tick);}
+  resize();window.addEventListener('resize',resize,{passive:true});tick();
+})();
+
+// ── NAV ───────────────────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>$('main-nav').classList.toggle('scrolled',scrollY>20),{passive:true});
+$('nav-logo').onclick=goHome;
+$('nav-cta').onclick=goForm;
+$('hero-cta').onclick=goForm;
+$('how-cta').onclick=goForm;
+$('promo-cta').onclick=goForm;
+
+// ── SUPABASE ──────────────────────────────────────────────────────────────
+function initSupabase(){
+  if(window.supabase) supaClient=window.supabase.createClient('https://tgpoilgjqudfjlzfxbwp.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRncG9pbGdqcXVkZmpsemZ4YndwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MDAzNjcsImV4cCI6MjA4OTM3NjM2N30.TBt-DxunQCYysUBg5JORju7T_J0HW9Fd1qPYCKlm4yQ');
+}
+async function saveLead(l){
+  if(!supaClient)return;
+  try{await supaClient.rpc('insert_lead',{p_nombre:l.nombre,p_correo:l.correo,p_sexo:l.sexo,p_edad:parseInt(l.edad),p_codigo_postal:l.cp});}
+  catch(e){console.warn('Lead:',e.message);}
 }
 
-function StarRating({ rating }) {
-  return (
-    <div className="stars">
-      {[1,2,3,4,5].map(i => {
-        const filled = i <= Math.floor(rating);
-        const half = !filled && i - 0.5 <= rating;
-        return (
-          <span key={i} style={{fontSize:'12px', color: (filled||half) ? '#F59E0B' : '#E2E8F0'}}>
-            {filled ? '★' : half ? '½' : '★'}
-          </span>
-        );
-      })}
-    </div>
-  );
+// ── FORM ──────────────────────────────────────────────────────────────────
+function setErr(f,msg){$(f).textContent=msg;const inp=$('f-'+f.replace('err-',''));if(inp)inp.classList.toggle('err',!!msg);}
+['nombre','correo','sexo','edad','cp'].forEach(f=>{const el=$('f-'+f);if(el)el.addEventListener('input',()=>setErr('err-'+f,''));});
+
+$('form-submit').onclick=async function(){
+  const n=$('f-nombre').value.trim(),c=$('f-correo').value.trim(),s=$('f-sexo').value,e=$('f-edad').value,cp=$('f-cp').value.trim();
+  let ok=true;
+  if(!n){setErr('err-nombre','Tu nombre es necesario');ok=false;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c)){setErr('err-correo','Ingresa un correo v&#xe1;lido');ok=false;}
+  if(!s){setErr('err-sexo','Selecciona una opci&#xf3;n');ok=false;}
+  if(!e||e<1||e>120){setErr('err-edad','Edad no v&#xe1;lida');ok=false;}
+  if(!cp||cp.length<4){setErr('err-cp','C&#xf3;digo postal requerido');ok=false;}
+  if(!ok)return;
+  this.disabled=true;this.innerHTML='<span class="spinner"></span> Preparando&#x2026;';
+  lead={nombre:n,correo:c,sexo:s,edad:e,cp};
+  await saveLead(lead);
+  this.disabled=false;this.innerHTML='Ver comparativa de precios &#x2192;';
+  goSearch();
+};
+
+// ── SEARCH ────────────────────────────────────────────────────────────────
+function renderList(q){
+  const fil=q?RAW_DATA.filter(s=>s.name.toLowerCase().includes(q.toLowerCase())):RAW_DATA.slice(0,30);
+  const list=$('study-list');
+  if(!fil.length){list.innerHTML='<div style="text-align:center;color:var(--gray-400);padding:24px;font-size:14px;">No encontramos ese estudio.</div>';return;}
+  list.innerHTML=fil.map(s=>{
+    const sel=selected.includes(s.name),mp=minP(s);
+    return`<div class="study-item${sel?' sel':''}" data-n="${s.name}"><div class="study-cb${sel?' on':''}">${sel?'&#x2713;':''}</div><div class="study-name">${s.name}</div>${mp?`<div style="text-align:right"><div class="study-from">desde</div><div class="study-price">${fmtP(mp)}</div></div>`:''}</div>`;
+  }).join('');
+  list.querySelectorAll('.study-item').forEach(el=>el.onclick=()=>toggle(el.dataset.n));
 }
 
-// ─── NAV ─────────────────────────────────────────────────────────────────────
-function Nav({ onCTA, onLogoClick }) {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', h);
-    return () => window.removeEventListener('scroll', h);
-  }, []);
-  return (
-    <nav style={{
-      background: scrolled ? 'rgba(11,31,75,0.95)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(16px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.1)' : 'none',
-      transition: 'all 0.3s'
-    }}>
-      <div className="nav-logo"
-        onClick={onLogoClick}
-        style={{cursor:'pointer',userSelect:'none'}}
-        title="Ir al inicio"
-      >
-        <span className="nav-logo-text">Lab<span>compara</span></span>
-      </div>
-      <div style={{display:'flex',gap:'12px',alignItems:'center'}}>
-        <a href="pages/estudios-de-laboratorio.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Estudios</a>
-        <a href="pages/laboratorio-cerca-de-mi.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Laboratorios</a>
-        <a href="pages/index.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Guías</a>
-        <a href="blog/index.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Blog</a>
-        <button className="btn-outline-white" style={{padding:'8px 16px',fontSize:'13px'}} onClick={onCTA}>
-          Cotizar
-        </button>
-      </div>
-    </nav>
-  );
+function toggle(name){selected.includes(name)?selected=selected.filter(n=>n!==name):selected.push(name);renderList($('search-input').value);renderChips();renderCompBtn();renderTags();}
+
+function renderChips(){
+  const wrap=$('chips-wrap'),inner=$('chips-inner');
+  if(!selected.length){wrap.style.display='none';return;}
+  wrap.style.display='flex';
+  inner.innerHTML=selected.map(n=>`<span class="chip">${n}<button class="chip-x" data-n="${n}">&#x00D7;</button></span>`).join('');
+  inner.querySelectorAll('.chip-x').forEach(b=>b.onclick=e=>{e.stopPropagation();toggle(b.dataset.n);});
 }
 
-// ─── BEAMS ANIMATION HOOK ─────────────────────────────────────────────────────
-// Adapted from beams-background component — hues tuned to navy (#0B1F4B) + teal (#00B4D8)
-function useBeamsCanvas(canvasRef) {
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+function renderCompBtn(){
+  const btn=$('compare-btn'),n=selected.length;
+  btn.disabled=!n;btn.style.opacity=n?'1':'.5';
+  btn.innerHTML=n?`Comparar ${n} estudio${n>1?'s':''} &#x2192;`:'Selecciona al menos un estudio';
+}
 
-    let beams = [];
-    let rafId;
+const POPULAR=['Biomet&#xed;a Hem&#xe1;tica','Qu&#xed;mica Sangu&#xed;nea 27 Elementos','Perfil Tiroideo','Glucosa en Suero','Perfil de L&#xed;pidos'];
+const POPULAR_REAL=['Biometría Hemática','Química Sanguínea 27 Elementos','Perfil Tiroideo','Glucosa en Suero','Perfil de Lípidos'];
+function renderTags(){
+  $('quick-tags').innerHTML=POPULAR_REAL.map(n=>`<button class="tag${selected.includes(n)?' on':' off'}" data-n="${n}">${n}</button>`).join('');
+  $('quick-tags').querySelectorAll('.tag').forEach(b=>b.onclick=()=>toggle(b.dataset.n));
+}
 
-    function createBeam(w, h) {
-      const angle = -35 + Math.random() * 10;
-      // Hue range: 190–230 = teal-to-blue-navy spectrum
-      return {
-        x: Math.random() * w * 1.5 - w * 0.25,
-        y: Math.random() * h * 1.5 - h * 0.25,
-        width: 40 + Math.random() * 80,
-        length: h * 2.5,
-        angle,
-        speed: 0.5 + Math.random() * 1.0,
-        opacity: 0.10 + Math.random() * 0.18,
-        hue: 190 + Math.random() * 40,   // teal (190) → blue (230)
-        saturation: 70 + Math.random() * 20,
-        lightness: 55 + Math.random() * 20,
-        pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: 0.018 + Math.random() * 0.025,
-      };
-    }
+$('search-input').addEventListener('input',e=>renderList(e.target.value));
+$('compare-btn').onclick=()=>{if(selected.length)goResults();};
 
-    function resetBeam(beam, index, total) {
-      const col = index % 3;
-      const spacing = canvas.width / 3;
-      beam.y = canvas.height + 100;
-      beam.x = col * spacing + spacing / 2 + (Math.random() - 0.5) * spacing * 0.5;
-      beam.width = 80 + Math.random() * 120;
-      beam.speed = 0.4 + Math.random() * 0.6;
-      beam.hue = 190 + (index * 40) / total;
-      beam.opacity = 0.12 + Math.random() * 0.14;
-      return beam;
-    }
-
-    function drawBeam(beam) {
-      ctx.save();
-      ctx.translate(beam.x, beam.y);
-      ctx.rotate((beam.angle * Math.PI) / 180);
-      const po = beam.opacity * (0.8 + Math.sin(beam.pulse) * 0.2);
-      const g = ctx.createLinearGradient(0, 0, 0, beam.length);
-      const h = beam.hue, s = beam.saturation, l = beam.lightness;
-      g.addColorStop(0,   `hsla(${h},${s}%,${l}%,0)`);
-      g.addColorStop(0.1, `hsla(${h},${s}%,${l}%,${po * 0.5})`);
-      g.addColorStop(0.4, `hsla(${h},${s}%,${l}%,${po})`);
-      g.addColorStop(0.6, `hsla(${h},${s}%,${l}%,${po})`);
-      g.addColorStop(0.9, `hsla(${h},${s}%,${l}%,${po * 0.5})`);
-      g.addColorStop(1,   `hsla(${h},${s}%,${l}%,0)`);
-      ctx.fillStyle = g;
-      ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
-      ctx.restore();
-    }
-
-    function resize() {
-      const dpr = window.devicePixelRatio || 1;
-      const w = canvas.parentElement.offsetWidth;
-      const h = canvas.parentElement.offsetHeight;
-      canvas.width  = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width  = w + 'px';
-      canvas.style.height = h + 'px';
-      ctx.scale(dpr, dpr);
-      beams = Array.from({ length: 28 }, () => createBeam(w, h));
-    }
-
-    function animate() {
-      const w = canvas.width / (window.devicePixelRatio || 1);
-      const h = canvas.height / (window.devicePixelRatio || 1);
-      ctx.clearRect(0, 0, w, h);
-      ctx.filter = 'blur(32px)';
-      const total = beams.length;
-      beams.forEach((beam, i) => {
-        beam.y -= beam.speed;
-        beam.pulse += beam.pulseSpeed;
-        if (beam.y + beam.length < -100) resetBeam(beam, i, total);
-        drawBeam(beam);
-      });
-      rafId = requestAnimationFrame(animate);
-    }
-
-    resize();
-    window.addEventListener('resize', resize);
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(rafId);
+// ── RESULTS ───────────────────────────────────────────────────────────────
+function renderResults(){
+  const studies=RAW_DATA.filter(s=>selected.includes(s.name));
+  $('results-sub').textContent=`${studies.length} estudio${studies.length!==1?'s':''} · Precios en pesos mexicanos`;
+  const cont=$('results-container');
+  cont.innerHTML=studies.map(study=>{
+    const opts=LABS.map(lab=>({lab,price:study[lab],rating:LAB_META[lab].rating,votes:LAB_META[lab].votes,meta:LAB_META[lab]})).filter(o=>o.price);
+    if(!opts.length)return'';
+    const minPrice2=Math.min(...opts.map(o=>o.price)),maxRating=Math.max(...opts.map(o=>o.rating));
+    opts.forEach(o=>{o.cheap=o.price===minPrice2;o.best=o.rating===maxRating;o.rec=o.cheap&&o.best;});
+    const sorted=[...opts].sort((a,b)=>sortBy==='price'?a.price-b.price:b.rating-a.rating);
+    const maxSav=study.avg?study.avg-minPrice2:0;
+    const rows=sorted.map((o,i)=>{
+      const rc=i===0?'linear-gradient(135deg,#F59E0B,#D97706)':i===1?'#94A3B8':'#CBD5E1';
+      const cls=o.cheap?'cheap':o.best?'rated':'';
+      const bdg=o.rec?'<span class="brec">&#x2705; Recomendado</span>':(o.cheap?'<span class="bc">&#x1F4B0; M&#xe1;s barato</span>':'')+(o.best?'<span class="br">&#x2B50; Mejor calificado</span>':'');
+      return`<div class="lab-row ${cls}"><div class="rank-dot" style="background:${rc};">${i+1}</div><div class="lab-info"><div class="lab-name">${o.lab} ${o.meta.emoji}</div><div class="lab-stars">${stars(o.rating)}<span class="lrating">${o.rating} (${o.votes.toLocaleString()})</span></div></div><div class="lab-badges">${bdg}</div><div class="lab-price"><div class="price-val" style="color:${o.cheap?'#059669':'var(--navy)'};">${fmtP(o.price)}</div>${study.avg&&!o.cheap?`<div class="price-avg">prom. ${fmtP(study.avg)}</div>`:''}</div><button class="btn-detail" data-s="${study.name}" data-l="${o.lab}">Ver detalle</button></div>`;
+    }).join('');
+    const unavail=LABS.filter(l=>!opts.find(o=>o.lab===l));
+    return`<div class="study-block"><div class="study-hdr"><div><div class="study-hdr-name">${study.name}</div><div class="study-hdr-sub">${opts.length} laboratorio${opts.length!==1?'s':''} disponibles</div></div>${maxSav>100?`<div class="savings"><div class="savings-lbl">AHORRA HASTA</div><div class="savings-val">${fmtP(maxSav)}</div></div>`:''}</div><div class="lab-rows">${rows}${unavail.length?`<div class="nd-note">No disponible en: ${unavail.join(', ')}</div>`:''}</div></div>`;
+  }).join('');
+  cont.querySelectorAll('.btn-detail').forEach(btn=>{
+    btn.onclick=()=>{
+      const study=RAW_DATA.find(s=>s.name===btn.dataset.s),lab=btn.dataset.l;
+      const opts2=LABS.map(l=>({lab:l,price:study[l],rating:LAB_META[l].rating})).filter(o=>o.price);
+      const mp2=Math.min(...opts2.map(o=>o.price)),mr2=Math.max(...opts2.map(o=>o.rating));
+      const opt=opts2.find(o=>o.lab===lab);
+      opt.cheap=opt.price===mp2;opt.best=opt.rating===mr2;opt.rec=opt.cheap&&opt.best;
+      openModal(study,lab,opt);
     };
-  }, []);
+  });
 }
 
-// ─── HERO ─────────────────────────────────────────────────────────────────────
-function Hero({ onCTA }) {
-  const canvasRef = useRef(null);
-  useBeamsCanvas(canvasRef);
+$('sort-price').onclick=()=>{sortBy='price';$('sort-price').classList.add('active');$('sort-rating').classList.remove('active');renderResults();};
+$('sort-rating').onclick=()=>{sortBy='rating';$('sort-rating').classList.add('active');$('sort-price').classList.remove('active');renderResults();};
+$('results-back').onclick=()=>{showSec('sec-search');goSearch();};
+$('new-search').onclick=()=>{showSec('sec-search');goSearch();};
 
-  return (
-    <section className="hero-bg" style={{paddingTop:'100px',paddingBottom:'80px',position:'relative',zIndex:1}}>
-      {/* Beams canvas — positioned absolute, behind content */}
-      <canvas ref={canvasRef} id="hero-canvas"/>
-
-      {/* Subtle dark overlay so text stays crisp */}
-      <div style={{
-        position:'absolute',inset:0,
-        background:'linear-gradient(180deg, rgba(11,31,75,0.55) 0%, rgba(11,31,75,0.35) 60%, rgba(11,31,75,0.72) 100%)',
-        pointerEvents:'none'
-      }}/>
-
-      <div style={{maxWidth:'900px',margin:'0 auto',padding:'0 24px',position:'relative',zIndex:2}}>
-        {/* Badge */}
-        <div style={{display:'flex',justifyContent:'center',marginBottom:'24px'}}>
-          <div style={{
-            display:'inline-flex',alignItems:'center',gap:'8px',
-            background:'rgba(0,180,216,0.15)',border:'1px solid rgba(0,180,216,0.4)',
-            borderRadius:'50px',padding:'6px 16px',
-            animation:'fadeUp 0.5s ease forwards'
-          }}>
-            <span className="notif-dot"/>
-            <span style={{color:' #90E0EF',fontSize:'13px',fontFamily:"'Sora',sans-serif",fontWeight:600}}>
-              Más de 64 estudios · 6 laboratorios · Precios reales
-            </span>
-          </div>
-        </div>
-
-        {/* Headline */}
-        <h1 style={{
-          textAlign:'center',
-          color:'white',
-          fontSize:'clamp(32px,5.5vw,60px)',
-          fontWeight:800,
-          lineHeight:1.15,
-          letterSpacing:'-0.02em',
-          animation:'fadeUp 0.6s ease 0.1s both'
-        }}>
-          Encuentra tus estudios de laboratorio<br/>
-          <span style={{color:'#90E0EF'}}>al mejor precio</span>
-        </h1>
-
-        <p style={{
-          textAlign:'center',
-          color:'rgba(255,255,255,0.75)',
-          fontSize:'clamp(16px,2.5vw,20px)',
-          maxWidth:'560px',
-          margin:'20px auto 0',
-          lineHeight:1.6,
-          animation:'fadeUp 0.6s ease 0.2s both'
-        }}>
-          Compara precios entre los mejores laboratorios de México, elige el que más te convenga y compra directamente.
-        </p>
-
-        {/* CTA */}
-        <div style={{display:'flex',justifyContent:'center',gap:'12px',marginTop:'36px',flexWrap:'wrap',animation:'fadeUp 0.6s ease 0.3s both'}}>
-          <button className="btn-primary" style={{fontSize:'17px',padding:'16px 32px'}} onClick={onCTA}>
-            <span>Cotizar ahora — es gratis</span>
-            <span>→</span>
-          </button>
-        </div>
-
-        {/* Benefit pills */}
-        <div style={{
-          display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'10px',
-          marginTop:'40px',
-          animation:'fadeUp 0.6s ease 0.4s both'
-        }}>
-          {[
-            {icon:'💰','text':'Descubre el más barato'},
-            {icon:'⭐','text':'Mejor calificado'},
-            {icon:'🎉','text':'Promociones todo el año'},
-            {icon:'👥','text':'Miles de usuarios satisfechos'}
-          ].map((b,i)=>(
-            <div key={i} style={{
-              display:'flex',alignItems:'center',gap:'8px',
-              background:'rgba(255,255,255,0.08)',
-              border:'1px solid rgba(255,255,255,0.15)',
-              borderRadius:'50px',padding:'8px 16px',
-              color:'rgba(255,255,255,0.85)',fontSize:'13px',fontWeight:500
-            }}>
-              <span>{b.icon}</span>{b.text}
-            </div>
-          ))}
-        </div>
-
-        {/* Social proof counter */}
-        <div style={{
-          display:'flex',justifyContent:'center',gap:'40px',flexWrap:'wrap',
-          marginTop:'48px',paddingTop:'32px',
-          borderTop:'1px solid rgba(255,255,255,0.1)',
-          animation:'fadeUp 0.6s ease 0.5s both'
-        }}>
-          {[
-            {n:'64+',l:'Estudios disponibles'},
-            {n:'6',l:'Laboratorios top'},
-            {n:'98%',l:'Satisfacción'},
-            {n:'Gratis',l:'Sin costo de comparación'}
-          ].map((s,i)=>(
-            <div key={i} className="stat-item">
-              <div style={{...{fontFamily:"'Sora',sans-serif",fontSize:'28px',fontWeight:800,color:'#90E0EF'}}}>{s.n}</div>
-              <div style={{fontSize:'13px',color:'rgba(255,255,255,0.6)',marginTop:'4px'}}>{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom wave */}
-      <div style={{position:'absolute',bottom:0,left:0,right:0,overflow:'hidden',lineHeight:0,zIndex:2}}>
-        <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{display:'block',width:'100%',height:'50px'}}>
-          <path d="M0,50 C360,0 1080,0 1440,50 L1440,50 L0,50 Z" fill="white"/>
-        </svg>
-      </div>
-    </section>
-  );
+// ── MODAL ─────────────────────────────────────────────────────────────────
+function openModal(study,labName,opt){
+  const meta=LAB_META[labName],info=sInfo(study.name);
+  $('m-icon').style.background=meta.bg;$('m-icon').textContent=meta.emoji;
+  $('m-name').textContent=labName;
+  $('m-badges').innerHTML=(opt.rec?'<span class="brec">&#x2705; Recomendado</span>':'')+(!opt.rec&&opt.cheap?'<span class="bc">&#x1F4B0; M&#xe1;s barato</span>':'')+(!opt.rec&&opt.best?'<span class="br">&#x2B50; Mejor calificado</span>':'');
+  $('m-stars').innerHTML=stars(meta.rating)+`<span style="margin-left:3px;">${meta.rating}/5 &middot; ${meta.votes.toLocaleString()} rese&ntilde;as</span>`;
+  $('m-svcs').innerHTML=meta.services.map(s=>`<span class="msvc" style="background:${meta.bg};color:${meta.color};">${s}</span>`).join('');
+  $('m-study').textContent=study.name;
+  $('m-desc').textContent=info.desc;
+  $('m-grid').innerHTML=`<div class="minfo full"><div class="minfo-icon">&#x1F3AF;</div><div class="minfo-label">Para qu&#xe9; sirve</div><div class="minfo-val">${info.purpose}</div></div><div class="minfo"><div class="minfo-icon">&#x1F4CB;</div><div class="minfo-label">Preparaci&#xf3;n</div><div class="minfo-val">${info.prep}</div></div><div class="minfo"><div class="minfo-icon">${info.fasting?'&#x23F0;':'&#x2705;'}</div><div class="minfo-label">Ayuno</div><div class="minfo-val">${info.fasting?'Requerido (8-12h)':'No necesario'}</div></div><div class="minfo"><div class="minfo-icon">&#x26A1;</div><div class="minfo-label">Resultados</div><div class="minfo-val">${info.time}</div></div>`;
+  $('m-fasting').style.display=info.fasting?'flex':'none';
+  $('m-price-label').textContent=`Precio en ${labName}`;
+  $('m-price').textContent=fmtP(study[labName]);
+  $('m-go').href=meta.url;
+  $('modal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-
-// ─── HOW IT WORKS ─────────────────────────────────────────────────────────────
-function HowItWorks({ onCTA }) {
-  const steps = [
-    { n:'1', icon:'👤', title:'Cuéntanos de ti', desc:'Comparte tu nombre, correo y datos básicos. Te enviamos la cotización personalizada.' },
-    { n:'2', icon:'🔍', title:'Cotiza y compara', desc:'Busca el estudio que necesitas y compara precios entre todos los laboratorios en segundos.' },
-    { n:'3', icon:'🛍️', title:'Compra con el laboratorio', desc:'Elige el que más te conviene y ve directamente al sitio del laboratorio para agendar o pagar.' },
-    { n:'4', icon:'✅', title:'Prepárate para tus estudios', desc:'Te enviamos instrucciones de preparación según el estudio. Sin sorpresas.' },
-  ];
-  return (
-    <section style={{padding:'80px 24px',background:'var(--gray-50)'}}>
-      <div style={{maxWidth:'800px',margin:'0 auto'}}>
-        <div className="section-header">
-          <div className="section-eyebrow">Cómo funciona</div>
-          <h2 className="section-title">Cuatro pasos,<br/>resultado garantizado</h2>
-          <p className="section-sub">Sin complicaciones. Sin cuentas. Sin intermediarios en el pago.</p>
-        </div>
-        <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
-          {steps.map((s,i)=>(
-            <div key={i} className="how-step" style={{animationDelay:`${i*0.1}s`}}>
-              <div className="how-step-num">{s.n}</div>
-              <div style={{flex:1}}>
-                <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
-                  <span style={{fontSize:'20px'}}>{s.icon}</span>
-                  <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'16px',color:'var(--navy)'}}>{s.title}</h3>
-                </div>
-                <p style={{fontSize:'14px',color:'var(--gray-600)',lineHeight:1.6}}>{s.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{textAlign:'center',marginTop:'36px'}}>
-          <button className="btn-primary" onClick={onCTA}>Empezar ahora</button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── TRUST SECTION ────────────────────────────────────────────────────────────
-function TrustSection() {
-  const items = [
-    { icon:'🔒', color:'#6366F1', bg:'rgba(99,102,241,0.1)', title:'100% Seguro', desc:'Tus datos están protegidos y nunca los compartimos.' },
-    { icon:'💰', color:'#10B981', bg:'rgba(16,185,129,0.1)', title:'Ahorra hasta 80%', desc:'Salud Digna puede ser hasta 80% más barato que otros labs.' },
-    { icon:'⭐', color:'#F59E0B', bg:'rgba(245,158,11,0.1)', title:'Laboratorios reconocidos', desc:'Solo comparamos laboratorios certificados y confiables.' },
-    { icon:'🚫', color:'#EF4444', bg:'rgba(239,68,68,0.1)', title:'Sin comisiones', desc:'Pagas directo en el laboratorio. Labcompara es gratis.' },
-    { icon:'⚡', color:'#00B4D8', bg:'rgba(0,180,216,0.1)', title:'Resultados rápidos', desc:'Mayoría de estudios con resultados en 24-48 horas.' },
-    { icon:'📋', color:'#0B1F4B', bg:'rgba(11,31,75,0.1)', title:'Información clara', desc:'Te explicamos cada estudio y cómo prepararte.' },
-  ];
-  return (
-    <section style={{padding:'80px 24px'}}>
-      <div style={{maxWidth:'900px',margin:'0 auto'}}>
-        <div className="section-header">
-          <div className="section-eyebrow">Por qué elegirnos</div>
-          <h2 className="section-title">Transparencia total,<br/>sin sorpresas</h2>
-        </div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'20px'}}>
-          {items.map((item,i)=>(
-            <div key={i} className="card" style={{display:'flex',gap:'16px',alignItems:'flex-start'}}>
-              <div style={{width:48,height:48,borderRadius:14,background:item.bg,display:'flex',alignItems:'center',justifyContent:'center',fontSize:22,flexShrink:0}}>
-                {item.icon}
-              </div>
-              <div>
-                <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'15px',color:'var(--navy)',marginBottom:'6px'}}>{item.title}</h3>
-                <p style={{fontSize:'13px',color:'var(--gray-600)',lineHeight:1.6}}>{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Social proof bar */}
-        <div style={{
-          marginTop:'48px',
-          background:'linear-gradient(135deg,var(--navy),var(--navy-mid))',
-          borderRadius:'20px',
-          padding:'32px',
-          display:'flex',flexWrap:'wrap',justifyContent:'space-around',gap:'24px',
-          color:'white',
-          textAlign:'center'
-        }}>
-          {[
-            {n:'50,000+',l:'Cotizaciones enviadas'},
-            {n:'6',l:'Laboratorios comparados'},
-            {n:'4.7/5',l:'Calificación promedio'},
-            {n:'$0',l:'Costo de comparación'},
-          ].map((s,i)=>(
-            <div key={i}>
-              <div style={{fontFamily:"'Sora',sans-serif",fontSize:'28px',fontWeight:800,color:'#90E0EF'}}>{s.n}</div>
-              <div style={{fontSize:'13px',color:'rgba(255,255,255,0.65)',marginTop:'4px'}}>{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── LEAD FORM ────────────────────────────────────────────────────────────────
-function LeadForm({ onSubmit }) {
-  const [form, setForm] = useState({ nombre:'', correo:'', sexo:'', edad:'', cp:'' });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  const validate = () => {
-    const e = {};
-    if (!form.nombre.trim()) e.nombre = 'Tu nombre es necesario';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) e.correo = 'Ingresa un correo válido';
-    if (!form.sexo) e.sexo = 'Selecciona una opción';
-    if (!form.edad || form.edad < 1 || form.edad > 120) e.edad = 'Edad no válida';
-    if (!form.cp || form.cp.length < 4) e.cp = 'Código postal requerido';
-    return e;
-  };
-
-  const handleSubmit = async () => {
-    const e = validate();
-    setErrors(e);
-    if (Object.keys(e).length) return;
-    setLoading(true);
-    await saveLead(form);   // ← persiste en Supabase
-    setLoading(false);
-    onSubmit(form);
-  };
-
-  const F = (key, value) => setForm(prev => ({...prev, [key]: value}));
-
-  return (
-    <section style={{padding:'80px 24px',background:'var(--gray-50)'}}>
-      <div style={{maxWidth:'500px',margin:'0 auto'}}>
-        <div className="section-header" style={{marginBottom:'32px'}}>
-          <div className="section-eyebrow">Paso 1 de 2</div>
-          <h2 className="section-title" style={{fontSize:'30px'}}>Cuéntanos de ti</h2>
-          <p className="section-sub" style={{fontSize:'15px'}}>
-            Te enviaremos tu cotización personalizada y recomendaciones de preparación para cada estudio.
-          </p>
-        </div>
-
-        {/* Privacy reassurance */}
-        <div style={{
-          display:'flex',alignItems:'center',gap:'10px',
-          background:'rgba(16,185,129,0.08)',border:'1px solid rgba(16,185,129,0.25)',
-          borderRadius:'10px',padding:'12px 16px',marginBottom:'24px'
-        }}>
-          <span style={{fontSize:'18px'}}>🔒</span>
-          <p style={{fontSize:'13px',color:'#065F46',lineHeight:1.5}}>
-            <strong>Tu privacidad es lo primero.</strong> Solo usamos tus datos para enviarte la cotización. Nunca los vendemos.
-          </p>
-        </div>
-
-        <div className="card" style={{padding:'32px'}}>
-          <div style={{display:'flex',flexDirection:'column',gap:'18px'}}>
-            {/* Nombre */}
-            <div className="input-group">
-              <label className="input-label">Nombre completo *</label>
-              <input
-                className="input-field"
-                placeholder="Ej. María García"
-                value={form.nombre}
-                onChange={e => F('nombre', e.target.value)}
-                style={errors.nombre ? {borderColor:'var(--red)'} : {}}
-              />
-              {errors.nombre && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.nombre}</span>}
-            </div>
-
-            {/* Correo */}
-            <div className="input-group">
-              <label className="input-label">Correo electrónico *</label>
-              <input
-                className="input-field"
-                type="email"
-                placeholder="tu@correo.com"
-                value={form.correo}
-                onChange={e => F('correo', e.target.value)}
-                style={errors.correo ? {borderColor:'var(--red)'} : {}}
-              />
-              {errors.correo && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.correo}</span>}
-            </div>
-
-            {/* Sexo y Edad en fila */}
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
-              <div className="input-group">
-                <label className="input-label">Sexo biológico *</label>
-                <select
-                  className="input-field"
-                  value={form.sexo}
-                  onChange={e => F('sexo', e.target.value)}
-                  style={errors.sexo ? {borderColor:'var(--red)'} : {}}
-                >
-                  <option value="">Seleccionar</option>
-                  <option value="F">Femenino</option>
-                  <option value="M">Masculino</option>
-                  <option value="O">Prefiero no decir</option>
-                </select>
-                {errors.sexo && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.sexo}</span>}
-              </div>
-              <div className="input-group">
-                <label className="input-label">Edad *</label>
-                <input
-                  className="input-field"
-                  type="number"
-                  placeholder="35"
-                  min="1" max="120"
-                  value={form.edad}
-                  onChange={e => F('edad', e.target.value)}
-                  style={errors.edad ? {borderColor:'var(--red)'} : {}}
-                />
-                {errors.edad && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.edad}</span>}
-              </div>
-            </div>
-
-            {/* CP */}
-            <div className="input-group">
-              <label className="input-label">Código postal *</label>
-              <input
-                className="input-field"
-                placeholder="06600"
-                maxLength="5"
-                value={form.cp}
-                onChange={e => F('cp', e.target.value.replace(/\D/g,''))}
-                style={errors.cp ? {borderColor:'var(--red)'} : {}}
-              />
-              {errors.cp && <span style={{fontSize:'12px',color:'var(--red)'}}>{errors.cp}</span>}
-              <span style={{fontSize:'11px',color:'var(--gray-400)'}}>Para mostrarte laboratorios disponibles en tu zona.</span>
-            </div>
-
-            {/* Submit */}
-            <button
-              className="btn-primary"
-              style={{width:'100%',justifyContent:'center',marginTop:'8px'}}
-              onClick={handleSubmit}
-              disabled={loading}
-            >
-              {loading ? (
-                <><span className="spinner"/><span>Preparando tu comparativa...</span></>
-              ) : (
-                <><span>Ver comparativa de precios</span><span>→</span></>
-              )}
-            </button>
-          </div>
-        </div>
-
-        <p style={{textAlign:'center',fontSize:'12px',color:'var(--gray-400)',marginTop:'16px',lineHeight:1.6}}>
-          Al continuar aceptas nuestro aviso de privacidad. Recibirás la cotización en tu correo.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-// ─── STUDY SEARCH ─────────────────────────────────────────────────────────────
-function StudySearch({ onCompare }) {
-  const [search, setSearch] = useState('');
-  const [selected, setSelected] = useState([]);
-
-  const filtered = useMemo(() => {
-    const q = search.toLowerCase().trim();
-    if (!q) return RAW_DATA.slice(0, 30);
-    return RAW_DATA.filter(s => s.name.toLowerCase().includes(q));
-  }, [search]);
-
-  const toggle = (study) => {
-    setSelected(prev =>
-      prev.find(s=>s.name===study.name)
-        ? prev.filter(s=>s.name!==study.name)
-        : [...prev, study]
-    );
-  };
-
-  const isSelected = (name) => selected.some(s=>s.name===name);
-
-  return (
-    <section style={{padding:'60px 24px 80px',background:'white'}}>
-      <div style={{maxWidth:'700px',margin:'0 auto'}}>
-        <div className="section-header" style={{marginBottom:'28px'}}>
-          <div className="section-eyebrow">Paso 2 de 2</div>
-          <h2 className="section-title" style={{fontSize:'28px'}}>¿Qué estudio necesitas?</h2>
-          <p className="section-sub" style={{fontSize:'15px'}}>Busca y selecciona uno o varios estudios para comparar precios.</p>
-        </div>
-
-        {/* Search bar */}
-        <div className="search-input" style={{marginBottom:'16px'}}>
-          <span className="search-icon" style={{fontSize:'18px'}}>🔍</span>
-          <input
-            className="input-field"
-            style={{width:'100%',paddingLeft:'44px',fontSize:'15px',borderRadius:'12px',padding:'14px 16px 14px 44px'}}
-            placeholder="Buscar: biometría, glucosa, tiroides..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-        </div>
-
-        {/* Selected chips */}
-        {selected.length > 0 && (
-          <div style={{display:'flex',flexWrap:'wrap',gap:'8px',marginBottom:'16px',padding:'12px 16px',background:'var(--gray-50)',borderRadius:'12px'}}>
-            <span style={{fontSize:'13px',fontWeight:600,color:'var(--gray-600)',marginRight:'4px',alignSelf:'center'}}>Seleccionados:</span>
-            {selected.map(s=>(
-              <span key={s.name} className="selected-chip">
-                {s.name}
-                <button onClick={()=>toggle(s)} style={{background:'none',border:'none',cursor:'pointer',color:'var(--teal-dark)',fontWeight:700,fontSize:'14px',lineHeight:1}}>×</button>
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Study list */}
-        <div className="study-list" style={{maxHeight:selected.length>0?'220px':'300px'}}>
-          {filtered.length === 0 && (
-            <div style={{textAlign:'center',color:'var(--gray-400)',padding:'32px',fontSize:'14px'}}>
-              No encontramos ese estudio. Intenta con otra palabra.
-            </div>
-          )}
-          {filtered.map((study,i)=>(
-            <div
-              key={study.name}
-              className={`study-item ${isSelected(study.name)?'selected':''}`}
-              onClick={()=>toggle(study)}
-            >
-              <div style={{
-                width:20,height:20,borderRadius:5,flexShrink:0,
-                border:`2px solid ${isSelected(study.name)?'var(--teal)':'var(--gray-200)'}`,
-                background:isSelected(study.name)?'var(--teal)':'white',
-                display:'flex',alignItems:'center',justifyContent:'center',
-                transition:'all 0.15s'
-              }}>
-                {isSelected(study.name) && <span style={{color:'white',fontSize:'12px',fontWeight:700}}>✓</span>}
-              </div>
-              <div style={{flex:1}}>
-                <span style={{fontSize:'14px',fontWeight:500,color:'var(--gray-800)'}}>{study.name}</span>
-              </div>
-              <div style={{textAlign:'right'}}>
-                <span style={{fontSize:'12px',color:'var(--gray-400)'}}>desde</span>
-                <span style={{fontSize:'14px',fontWeight:700,color:'var(--teal-dark)',marginLeft:'4px'}}>
-                  {formatPrice(Math.min(...Object.values({
-                    Labbe:study.Labbe,Polanco:study.Polanco,Chopo:study.Chopo,
-                    'Salud Digna':study['Salud Digna'],LAPI:study.LAPI,OLAB:study.OLAB
-                  }).filter(v=>v)))}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Compare button */}
-        <div style={{marginTop:'24px',position:'sticky',bottom:'20px'}}>
-          <button
-            className="btn-primary"
-            style={{width:'100%',justifyContent:'center',fontSize:'16px',padding:'16px',opacity:selected.length?1:0.5}}
-            disabled={!selected.length}
-            onClick={() => onCompare(selected)}
-          >
-            {selected.length === 0
-              ? 'Selecciona al menos un estudio'
-              : `Comparar ${selected.length} estudio${selected.length>1?'s':''} →`}
-          </button>
-        </div>
-
-        {/* Quick tags */}
-        <div style={{marginTop:'16px'}}>
-          <p style={{fontSize:'12px',color:'var(--gray-400)',marginBottom:'8px',fontWeight:600}}>POPULARES:</p>
-          <div style={{display:'flex',flexWrap:'wrap',gap:'6px'}}>
-            {['Biometría Hemática','Química Sanguínea 27 Elementos','Perfil Tiroideo','Glucosa en Suero','Perfil de Lípidos'].map(name=>{
-              const study = RAW_DATA.find(s=>s.name===name);
-              return (
-                <button key={name} onClick={()=>study&&toggle(study)} style={{
-                  background:isSelected(name)?'var(--teal)':'var(--gray-100)',
-                  color:isSelected(name)?'white':'var(--gray-600)',
-                  border:'none',borderRadius:'20px',padding:'6px 12px',
-                  fontSize:'12px',cursor:'pointer',fontWeight:500,transition:'all 0.15s'
-                }}>
-                  {name}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── COMPARISON RESULTS ───────────────────────────────────────────────────────
-function ComparisonResults({ studies, onDetail, onBack }) {
-  const [sortBy, setSortBy] = useState('price');
-
-  // Find best rated lab across all results
-  const bestRatedLab = useMemo(() => {
-    let best = null, bestR = 0;
-    LABS.forEach(lab => {
-      if (LAB_META[lab].rating > bestR) { bestR = LAB_META[lab].rating; best = lab; }
-    });
-    return best;
-  }, []);
-
-  // For each study, compute sorted lab options
-  const studyResults = useMemo(() => {
-    return studies.map(study => {
-      const options = LABS.map(lab => ({
-        lab,
-        price: study[lab],
-        rating: LAB_META[lab].rating,
-        votes: LAB_META[lab].votes,
-        meta: LAB_META[lab]
-      })).filter(o => o.price);
-
-      const minPrice = Math.min(...options.map(o=>o.price));
-      const maxRating = Math.max(...options.map(o=>o.rating));
-
-      options.forEach(o => {
-        o.isCheapest = o.price === minPrice;
-        o.isBestRated = o.rating === maxRating;
-        o.isRecommended = o.isCheapest && o.isBestRated;
-        o.savings = Math.round(((options.reduce((a,b)=>a+b.price,0)/options.length) - o.price));
-      });
-
-      const sorted = [...options].sort((a,b) =>
-        sortBy==='price' ? a.price - b.price :
-        sortBy==='rating' ? b.rating - a.rating :
-        a.price - b.price
-      );
-
-      return { study, options: sorted, minPrice, avgPrice: study.avg };
-    });
-  }, [studies, sortBy]);
-
-  return (
-    <section style={{padding:'40px 24px 80px',background:'var(--gray-50)',minHeight:'60vh'}}>
-      <div style={{maxWidth:'800px',margin:'0 auto'}}>
-        {/* Header */}
-        <div style={{display:'flex',alignItems:'center',gap:'16px',marginBottom:'28px',flexWrap:'wrap'}}>
-          <button onClick={onBack} style={{background:'none',border:'2px solid var(--gray-200)',borderRadius:'10px',padding:'8px 14px',cursor:'pointer',fontSize:'14px',fontFamily:"'Sora',sans-serif",fontWeight:600,color:'var(--gray-600)',display:'flex',alignItems:'center',gap:'6px'}}>
-            ← Volver
-          </button>
-          <div>
-            <h2 style={{fontFamily:"'Sora',sans-serif",fontWeight:800,fontSize:'22px',color:'var(--navy)'}}>
-              Tu comparativa de precios
-            </h2>
-            <p style={{fontSize:'14px',color:'var(--gray-600)'}}>
-              {studies.length} estudio{studies.length>1?'s':''} · Precios en pesos mexicanos
-            </p>
-          </div>
-          {/* Sort */}
-          <div style={{marginLeft:'auto',display:'flex',gap:'8px'}}>
-            {[{v:'price',l:'Precio'},{v:'rating',l:'Calificación'}].map(s=>(
-              <button key={s.v} onClick={()=>setSortBy(s.v)} style={{
-                background:sortBy===s.v?'var(--navy)':'white',
-                color:sortBy===s.v?'white':'var(--gray-600)',
-                border:`2px solid ${sortBy===s.v?'var(--navy)':'var(--gray-200)'}`,
-                borderRadius:'8px',padding:'6px 12px',cursor:'pointer',
-                fontSize:'13px',fontWeight:600,fontFamily:"'Sora',sans-serif",transition:'all 0.2s'
-              }}>
-                {s.l}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Legend */}
-        <div style={{display:'flex',gap:'12px',flexWrap:'wrap',marginBottom:'24px'}}>
-          <span className="badge-cheapest">💰 Más barato</span>
-          <span className="badge-rated">⭐ Mejor calificado</span>
-          <span className="badge-recommended">✅ Recomendado</span>
-        </div>
-
-        {/* Results per study */}
-        {studyResults.map(({study,options,minPrice,avgPrice},si)=>{
-          const maxSavings = avgPrice ? avgPrice - minPrice : 0;
-          return (
-            <div key={study.name} style={{marginBottom:'32px'}}>
-              {/* Study header */}
-              <div style={{
-                background:'linear-gradient(135deg,var(--navy),var(--navy-mid))',
-                borderRadius:'16px 16px 0 0',
-                padding:'16px 20px',
-                display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'8px'
-              }}>
-                <div>
-                  <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'16px',color:'white'}}>{study.name}</h3>
-                  <p style={{fontSize:'13px',color:'rgba(255,255,255,0.6)'}}>
-                    {options.length} laboratorio{options.length!==1?'s':''} disponibles
-                  </p>
-                </div>
-                {maxSavings > 100 && (
-                  <div style={{
-                    background:'rgba(16,185,129,0.2)',border:'1px solid rgba(16,185,129,0.4)',
-                    borderRadius:'8px',padding:'6px 12px',textAlign:'center'
-                  }}>
-                    <div style={{fontFamily:"'Sora',sans-serif",fontSize:'11px',color:'#6EE7B7',fontWeight:600}}>AHORRA HASTA</div>
-                    <div style={{fontFamily:"'Sora',sans-serif",fontSize:'18px',fontWeight:800,color:'#34D399'}}>
-                      {formatPrice(maxSavings)}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Lab rows */}
-              <div style={{background:'white',borderRadius:'0 0 16px 16px',border:'2px solid var(--gray-100)',borderTop:'none',overflow:'hidden'}}>
-                {options.map((opt,oi)=>(
-                  <div key={opt.lab} style={{
-                    display:'flex',alignItems:'center',gap:'12px',padding:'16px 20px',
-                    borderTop: oi>0 ? '1px solid var(--gray-100)' : 'none',
-                    background: opt.isCheapest ? 'linear-gradient(90deg,rgba(16,185,129,0.04),transparent)' :
-                                opt.isBestRated ? 'linear-gradient(90deg,rgba(245,158,11,0.04),transparent)' : 'white',
-                    transition:'background 0.2s'
-                  }}>
-                    {/* Rank */}
-                    <div style={{
-                      width:28,height:28,borderRadius:'50%',
-                      background:oi===0?'linear-gradient(135deg,#F59E0B,#D97706)':oi===1?'#94A3B8':'#CBD5E1',
-                      display:'flex',alignItems:'center',justifyContent:'center',
-                      fontSize:'12px',fontWeight:800,color:'white',flexShrink:0,fontFamily:"'Sora',sans-serif"
-                    }}>
-                      {oi+1}
-                    </div>
-
-                    {/* Lab name */}
-                    <div style={{flex:'0 0 auto',minWidth:'120px'}}>
-                      <div style={{display:'flex',alignItems:'center',gap:'6px',flexWrap:'wrap'}}>
-                        <span style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'15px',color:'var(--navy)'}}>{opt.lab}</span>
-                        {opt.meta.emoji && <span>{opt.meta.emoji}</span>}
-                      </div>
-                      <div style={{display:'flex',alignItems:'center',gap:'4px',marginTop:'2px'}}>
-                        <StarRating rating={opt.rating}/>
-                        {/* TODO: Replace opt.rating with real rating from reviews API */}
-                        <span style={{fontSize:'11px',color:'var(--gray-400)'}}>{opt.rating} ({opt.votes.toLocaleString()})</span>
-                      </div>
-                    </div>
-
-                    {/* Badges */}
-                    <div style={{flex:1,display:'flex',flexWrap:'wrap',gap:'4px'}}>
-                      {opt.isRecommended && <span className="badge-recommended">✅ Recomendado</span>}
-                      {!opt.isRecommended && opt.isCheapest && <span className="badge-cheapest">💰 Más barato</span>}
-                      {!opt.isRecommended && opt.isBestRated && <span className="badge-rated">⭐ Mejor calificado</span>}
-                    </div>
-
-                    {/* Price */}
-                    <div style={{textAlign:'right',flexShrink:0}}>
-                      <div className="price-display" style={{color:opt.isCheapest?'#059669':'var(--navy)'}}>
-                        {formatPrice(opt.price)}
-                      </div>
-                      {avgPrice && !opt.isCheapest && (
-                        <div style={{fontSize:'11px',color:'var(--gray-400)'}}>
-                          prom. {formatPrice(avgPrice)}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* CTA */}
-                    <button
-                      onClick={()=>onDetail(study,opt.lab,opt)}
-                      className="btn-primary"
-                      style={{padding:'10px 16px',fontSize:'13px',flexShrink:0}}
-                    >
-                      Ver detalle
-                    </button>
-                  </div>
-                ))}
-
-                {/* Unavailable note */}
-                {LABS.filter(l=>!options.find(o=>o.lab===l)).length > 0 && (
-                  <div style={{padding:'12px 20px',borderTop:'1px solid var(--gray-100)'}}>
-                    <p style={{fontSize:'12px',color:'var(--gray-400)'}}>
-                      No disponible en: {LABS.filter(l=>!options.find(o=>o.lab===l)).join(', ')}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-
-        {/* Start over */}
-        <div style={{textAlign:'center',marginTop:'16px'}}>
-          <button onClick={onBack} style={{background:'none',border:'none',color:'var(--gray-400)',cursor:'pointer',fontSize:'14px',textDecoration:'underline'}}>
-            Buscar otros estudios
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── STUDY DETAIL MODAL ───────────────────────────────────────────────────────
-function StudyDetailModal({ study, lab, opt, onClose }) {
-  const info = getStudyInfo(study.name);
-  const meta = LAB_META[lab];
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
-  }, []);
-
-  return (
-    <div className="modal-overlay" onClick={e=>{ if(e.target===e.currentTarget) onClose(); }}>
-      <div className="modal-sheet">
-        {/* Handle bar */}
-        <div style={{width:40,height:4,background:'var(--gray-200)',borderRadius:2,margin:'0 auto 20px'}}/>
-
-        {/* Lab badge */}
-        <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'20px'}}>
-          <div style={{
-            width:48,height:48,borderRadius:14,
-            background:`${meta.color}18`,
-            display:'flex',alignItems:'center',justifyContent:'center',
-            fontSize:22
-          }}>
-            {meta.emoji}
-          </div>
-          <div style={{flex:1}}>
-            <div style={{display:'flex',alignItems:'center',gap:'8px',flexWrap:'wrap'}}>
-              <h3 style={{fontFamily:"'Sora',sans-serif",fontWeight:800,fontSize:'18px',color:'var(--navy)'}}>{lab}</h3>
-              {opt.isCheapest && <span className="badge-cheapest">💰 Más barato</span>}
-              {opt.isBestRated && <span className="badge-rated">⭐ Mejor calificado</span>}
-            </div>
-            <div style={{display:'flex',alignItems:'center',gap:'4px',marginTop:'4px'}}>
-              <StarRating rating={meta.rating}/>
-              <span style={{fontSize:'12px',color:'var(--gray-400)'}}>{meta.rating}/5 · {meta.votes.toLocaleString()} reseñas</span>
-            </div>
-          </div>
-          <button onClick={onClose} style={{
-            width:32,height:32,borderRadius:'50%',border:'2px solid var(--gray-200)',
-            background:'white',cursor:'pointer',fontSize:'16px',display:'flex',
-            alignItems:'center',justifyContent:'center',flexShrink:0
-          }}>×</button>
-        </div>
-
-        {/* Lab services */}
-        <div style={{display:'flex',flexWrap:'wrap',gap:'6px',marginBottom:'20px'}}>
-          {meta.services.map((s,i)=>(
-            <span key={i} style={{
-              background:`${meta.color}12`,color:meta.color,
-              borderRadius:'20px',padding:'4px 10px',fontSize:'12px',fontWeight:500
-            }}>{s}</span>
-          ))}
-        </div>
-
-        <div className="divider" style={{marginBottom:'20px'}}/>
-
-        {/* Study info */}
-        <h4 style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'16px',color:'var(--navy)',marginBottom:'8px'}}>
-          {study.name}
-        </h4>
-        <p style={{fontSize:'14px',color:'var(--gray-600)',lineHeight:1.7,marginBottom:'16px'}}>{info.desc}</p>
-
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',marginBottom:'20px'}}>
-          {[
-            {icon:'🎯',label:'Para qué sirve',val:info.purpose},
-            {icon:'📋',label:'Preparación',val:info.prep},
-            {icon:info.fasting?'⏰':'✅',label:'Ayuno',val:info.fasting?'Requerido (8-12h)':'No necesario'},
-            {icon:'⚡',label:'Resultados',val:info.time}
-          ].map((item,i)=>(
-            <div key={i} style={{
-              background:'var(--gray-50)',borderRadius:'12px',padding:'14px',
-              gridColumn: i===0 ? '1/-1' : 'auto'
-            }}>
-              <div style={{fontSize:'18px',marginBottom:'6px'}}>{item.icon}</div>
-              <div style={{fontSize:'11px',fontWeight:700,color:'var(--gray-400)',marginBottom:'4px',textTransform:'uppercase',letterSpacing:'0.05em'}}>{item.label}</div>
-              <div style={{fontSize:'13px',color:'var(--gray-700)',lineHeight:1.5}}>{item.val}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Fasting alert */}
-        {info.fasting && (
-          <div style={{
-            background:'rgba(245,158,11,0.1)',border:'1px solid rgba(245,158,11,0.3)',
-            borderRadius:'10px',padding:'12px 16px',marginBottom:'20px',
-            display:'flex',gap:'10px',alignItems:'flex-start'
-          }}>
-            <span style={{fontSize:'18px'}}>⚠️</span>
-            <p style={{fontSize:'13px',color:'#92400E',lineHeight:1.5}}>
-              <strong>Requiere ayuno.</strong> No comas ni bebas nada (excepto agua) por lo menos 8-12 horas antes de tu estudio.
-            </p>
-          </div>
-        )}
-
-        {/* Price + CTA */}
-        <div style={{
-          background:'linear-gradient(135deg,var(--navy),var(--navy-mid))',
-          borderRadius:'16px',padding:'20px',
-          display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',flexWrap:'wrap'
-        }}>
-          <div>
-            <div style={{fontSize:'12px',color:'rgba(255,255,255,0.6)',marginBottom:'4px'}}>Precio en {lab}</div>
-            <div style={{fontFamily:"'Sora',sans-serif",fontSize:'28px',fontWeight:800,color:'white'}}>
-              {formatPrice(study[lab])}
-            </div>
-          </div>
-          <a
-            href={meta.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            style={{textDecoration:'none',fontSize:'15px'}}
-          >
-            Ir al laboratorio →
-          </a>
-        </div>
-
-        <p style={{textAlign:'center',fontSize:'11px',color:'var(--gray-400)',marginTop:'12px',lineHeight:1.6}}>
-          Labcompara te redirige al sitio del laboratorio. El pago se realiza directamente con ellos.
-        </p>
-      </div>
-    </div>
-  );
-}
-
-// ─── FOOTER ───────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer>
-      <div style={{maxWidth:'900px',margin:'0 auto'}}>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:'40px',marginBottom:'40px'}}>
-          <div>
-            <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'12px'}}>
-              <span className="footer-brand">Labcompara</span>
-            </div>
-            <p style={{fontSize:'13px',color:'rgba(255,255,255,0.55)',lineHeight:1.7}}>
-              Compara precios de estudios de laboratorio entre los mejores laboratorios de México.
-            </p>
-          </div>
-          <div>
-            <div style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'13px',color:'rgba(255,255,255,0.7)',marginBottom:'16px',textTransform:'uppercase',letterSpacing:'0.08em'}}>Laboratorios</div>
-            {LABS.map(l=>(
-              <div key={l} style={{marginBottom:'8px'}}>
-                <a href={LAB_META[l].url} target="_blank" rel="noopener noreferrer" className="footer-link">{l}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            <div style={{fontFamily:"'Sora',sans-serif",fontWeight:700,fontSize:'13px',color:'rgba(255,255,255,0.7)',marginBottom:'16px',textTransform:'uppercase',letterSpacing:'0.08em'}}>Legal</div>
-            {['Aviso de privacidad','Términos de uso','Cookies','Contacto'].map(l=>(
-              <div key={l} style={{marginBottom:'8px'}}>
-                <a href="#" className="footer-link">{l}</a>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="footer-disclaimer">
-          <strong style={{color:'rgba(255,255,255,0.6)'}}>Aviso importante:</strong> Labcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio clínico ni proveedor de servicios médicos. Los precios mostrados son referenciales y pueden variar. Labcompara redirige al usuario al sitio web del laboratorio para realizar su compra. No cobramos comisión al usuario. © 2024 Labcompara. Todos los derechos reservados.
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-// ─── APP ──────────────────────────────────────────────────────────────────────
-function App() {
-  // Flow: 'landing' → 'form' → 'search' → 'results' → (modal)
-  const [step, setStep] = useState('landing');
-  const [lead, setLead] = useState(null);
-  const [selectedStudies, setSelectedStudies] = useState([]);
-  const [modal, setModal] = useState(null); // { study, lab, opt }
-
-  const scrollToForm = () => {
-    setStep('form');
-    setTimeout(() => window.scrollTo({top:0,behavior:'smooth'}),50);
-  };
-
-  const handleFormSubmit = (formData) => {
-    setLead(formData);
-    setStep('search');
-    setTimeout(() => window.scrollTo({top:0,behavior:'smooth'}),50);
-  };
-
-  const handleCompare = (studies) => {
-    setSelectedStudies(studies);
-    setStep('results');
-    setTimeout(() => window.scrollTo({top:0,behavior:'smooth'}),50);
-  };
-
-  const handleDetail = (study, lab, opt) => {
-    setModal({ study, lab, opt });
-  };
-
-  return (
-    <div>
-      <Nav onCTA={scrollToForm} onLogoClick={() => { setStep('landing'); window.scrollTo({top:0,behavior:'smooth'}); }}/>
-
-      {step === 'landing' && (
-        <>
-          <Hero onCTA={scrollToForm}/>
-          <HowItWorks onCTA={scrollToForm}/>
-          <TrustSection/>
-          {/* Inline teaser form call */}
-          <section style={{padding:'60px 24px',background:'linear-gradient(135deg,var(--navy),#0e3060)',textAlign:'center'}}>
-            <h2 style={{fontFamily:"'Sora',sans-serif",fontWeight:800,fontSize:'clamp(24px,4vw,36px)',color:'white',marginBottom:'16px'}}>
-              ¿Listo para cotizar?
-            </h2>
-            <p style={{color:'rgba(255,255,255,0.7)',marginBottom:'28px',fontSize:'16px'}}>
-              En menos de 2 minutos tienes tu comparativa personalizada.
-            </p>
-            <button className="btn-primary" style={{fontSize:'17px',padding:'16px 40px'}} onClick={scrollToForm}>
-              Cotizar ahora — es gratis →
-            </button>
-          </section>
-        </>
-      )}
-
-      {step === 'form' && (
-        <div style={{paddingTop:'80px'}}>
-          <LeadForm onSubmit={handleFormSubmit}/>
-        </div>
-      )}
-
-      {step === 'search' && (
-        <div style={{paddingTop:'80px'}}>
-          {lead && (
-            <div style={{background:'linear-gradient(90deg,var(--navy),var(--navy-mid))',padding:'16px 24px',textAlign:'center'}}>
-              <p style={{color:'white',fontSize:'14px'}}>
-                ¡Hola <strong>{lead.nombre.split(' ')[0]}</strong>! Tu cotización se enviará a <strong>{lead.correo}</strong>
-              </p>
-            </div>
-          )}
-          <StudySearch onCompare={handleCompare}/>
-        </div>
-      )}
-
-      {step === 'results' && (
-        <div style={{paddingTop:'80px'}}>
-          {lead && (
-            <div style={{background:'linear-gradient(90deg,var(--navy),var(--navy-mid))',padding:'16px 24px',textAlign:'center'}}>
-              <p style={{color:'white',fontSize:'14px'}}>
-                ¡Hola <strong>{lead.nombre.split(' ')[0]}</strong>! Enviamos tu cotización a <strong>{lead.correo}</strong> ✓
-              </p>
-            </div>
-          )}
-          <ComparisonResults
-            studies={selectedStudies}
-            onDetail={handleDetail}
-            onBack={() => setStep('search')}
-          />
-        </div>
-      )}
-
-      {/* Modal */}
-      {modal && (
-        <StudyDetailModal
-          study={modal.study}
-          lab={modal.lab}
-          opt={modal.opt}
-          onClose={()=>setModal(null)}
-        />
-      )}
-
-      {/* Footer always visible on landing */}
-      {step === 'landing' && <Footer/>}
-
-      {/* Persistent back to landing on non-landing steps */}
-      {step !== 'landing' && (
-        <div style={{background:'var(--gray-50)',padding:'24px',textAlign:'center',borderTop:'1px solid var(--gray-100)'}}>
-          <button
-            onClick={() => setStep('landing')}
-            style={{background:'none',border:'none',color:'var(--gray-400)',cursor:'pointer',fontSize:'13px',textDecoration:'underline'}}
-          >
-            ← Volver al inicio
-          </button>
-          <Footer/>
-        </div>
-      )}
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+function closeModal(){$('modal').classList.remove('open');document.body.style.overflow='';}
+$('m-close').onclick=closeModal;
+$('modal').onclick=e=>{if(e.target===$('modal'))closeModal();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
 </body>
 </html>
