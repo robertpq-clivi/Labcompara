@@ -238,6 +238,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
 </head>
 <body>
 
+<a href="#main-content" style="position:absolute;left:-9999px;top:0;z-index:9999;padding:8px 16px;background:var(--teal);color:white;font-family:'Sora',sans-serif;font-weight:600;border-radius:0 0 8px 0;" onfocus="this.style.left='0';" onblur="this.style.left='-9999px';">Saltar al contenido</a>
 <nav id="main-nav">
   <span class="nav-logo" id="nav-logo">Lab<span>compara</span></span>
   <div class="nav-right">
@@ -249,6 +250,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
 </nav>
 
 <!-- HERO SECTION -->
+<main id="main-content">
 <section id="sec-hero" class="section active">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -793,5 +795,6 @@ $('m-close').onclick=closeModal;
 $('modal').onclick=e=>{if(e.target===$('modal'))closeModal();};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
+</main>
 </body>
 </html>
