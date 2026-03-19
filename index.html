@@ -521,7 +521,7 @@ const RAW_DATA = [
   {name:"Tamiz Neonatal",Labbe:null,Polanco:2200,Chopo:808,"Salud Digna":null,LAPI:null,OLAB:2469,avg:1826,cheapest:"Chopo"},
 ];
 
-const LABS = ['Labbe','Laboratorio M&#xe9;dico Polanco','Chopo','Salud Digna','LAPI','OLAB'];
+const LABS = ['Labbe','Polanco','Chopo','Salud Digna','LAPI','OLAB'];
 
 const LAB_META = {
   Labbe: {
@@ -538,7 +538,8 @@ const LAB_META = {
     url: 'https://laboratoriospolanco.com.mx',
     services: ['✨ Atención premium', '🔬 Alta precisión', '📞 Asesoría médica', '🏥 Instalaciones de lujo'],
     about: 'Laboratorios Polanco ofrece una experiencia clínica premium con tecnología de punta y atención altamente personalizada.',
-    emoji: '✨'
+    emoji: '✨',
+    displayName: 'Laboratorio Médico Polanco'
   },
   Chopo: {
     rating: 4.3, votes: 5621, color: '#F59E0B', colorClass: 'chopo',
@@ -778,7 +779,7 @@ function renderResults(){
       const rc=i===0?'linear-gradient(135deg,#F59E0B,#D97706)':i===1?'#94A3B8':'#CBD5E1';
       const cls=o.cheap?'cheap':o.best?'rated':'';
       const bdg=o.rec?'<span class="brec">&#x2705; Recomendado</span>':(o.cheap?'<span class="bc">&#x1F4B0; M&#xe1;s barato</span>':'')+(o.best?'<span class="br">&#x2B50; Mejor calificado</span>':'');
-      return`<div class="lab-row ${cls}"><div class="rank-dot" style="background:${rc};">${i+1}</div><div class="lab-info"><div class="lab-name">${o.lab} ${o.meta.emoji}</div><div class="lab-stars">${stars(o.rating)}<span class="lrating">${o.rating} (${o.votes.toLocaleString()})</span></div></div><div class="lab-badges">${bdg}</div><div class="lab-price"><div class="price-val" style="color:${o.cheap?'#059669':'var(--navy)'};">${fmtP(o.price)}</div>${study.avg&&!o.cheap?`<div class="price-avg">prom. ${fmtP(study.avg)}</div>`:''}</div><button class="btn-detail" data-s="${study.name}" data-l="${o.lab}">Ver detalle</button></div>`;
+      return`<div class="lab-row ${cls}"><div class="rank-dot" style="background:${rc};">${i+1}</div><div class="lab-info"><div class="lab-name">${o.meta.displayName||o.lab} ${o.meta.emoji}</div><div class="lab-stars">${stars(o.rating)}<span class="lrating">${o.rating} (${o.votes.toLocaleString()})</span></div></div><div class="lab-badges">${bdg}</div><div class="lab-price"><div class="price-val" style="color:${o.cheap?'#059669':'var(--navy)'};">${fmtP(o.price)}</div>${study.avg&&!o.cheap?`<div class="price-avg">prom. ${fmtP(study.avg)}</div>`:''}</div><button class="btn-detail" data-s="${study.name}" data-l="${o.lab}">Ver detalle</button></div>`;
     }).join('');
     const unavail=LABS.filter(l=>!opts.find(o=>o.lab===l));
     return`<div class="study-block"><div class="study-hdr"><div><div class="study-hdr-name">${study.name}</div><div class="study-hdr-sub">${opts.length} laboratorio${opts.length!==1?'s':''} disponibles</div></div>${maxSav>100?`<div class="savings"><div class="savings-lbl">AHORRA HASTA</div><div class="savings-val">${fmtP(maxSav)}</div></div>`:''}</div><div class="lab-rows">${rows}${unavail.length?`<div class="nd-note">No disponible en: ${unavail.join(', ')}</div>`:''}</div></div>`;
@@ -804,7 +805,7 @@ $('new-search').onclick=()=>{showSec('sec-search');goSearch();};
 function openModal(study,labName,opt){
   const meta=LAB_META[labName],info=sInfo(study.name);
   $('m-icon').style.background=meta.bg;$('m-icon').textContent=meta.emoji;
-  $('m-name').textContent=labName;
+  $('m-name').textContent=meta.displayName||labName;
   $('m-badges').innerHTML=(opt.rec?'<span class="brec">&#x2705; Recomendado</span>':'')+(!opt.rec&&opt.cheap?'<span class="bc">&#x1F4B0; M&#xe1;s barato</span>':'')+(!opt.rec&&opt.best?'<span class="br">&#x2B50; Mejor calificado</span>':'');
   $('m-stars').innerHTML=stars(meta.rating)+`<span style="margin-left:3px;">${meta.rating}/5 &middot; ${meta.votes.toLocaleString()} rese&ntilde;as</span>`;
   $('m-svcs').innerHTML=meta.services.map(s=>`<span class="msvc" style="background:${meta.bg};color:${meta.color};">${s}</span>`).join('');
