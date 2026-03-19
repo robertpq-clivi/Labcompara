@@ -16,7 +16,7 @@ const path = require('path');
 // ── CONFIG ───────────────────────────────────────────────────────────────────
 const BASE_URL  = 'https://labcompara.com';
 const TODAY     = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const PUBLIC_DIR = path.join(__dirname, '..'); // Sitemaps at repo root → served at domain root
 
 // ── CORE PAGES ────────────────────────────────────────────────────────────────
 // changefreq: weekly | priority: 1.0 homepage / 0.9 core
@@ -83,7 +83,7 @@ function buildSitemapIndex() {
   const sitemaps = ['sitemap-core.xml', 'sitemap-estudios.xml'];
   const entries  = sitemaps.map(name => [
     '  <sitemap>',
-    `    <loc>${BASE_URL}/public/${name}</loc>`,
+    `    <loc>${BASE_URL}/${name}</loc>`,
     `    <lastmod>${TODAY}</lastmod>`,
     '  </sitemap>',
   ].join('\n'));
@@ -107,7 +107,7 @@ function write(filename, content) {
 console.log('\n🗺️  Labcompara Sitemap Generator');
 console.log(`   BASE_URL : ${BASE_URL}`);
 console.log(`   lastmod  : ${TODAY}`);
-console.log(`   Output   : public/\n`);
+console.log(`   Output   : repo root/\n`);
 
 if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
 

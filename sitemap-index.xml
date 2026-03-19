@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://labcompara.com/public/sitemap-core.xml</loc>
+    <loc>https://labcompara.com/sitemap-core.xml</loc>
     <lastmod>2026-03-19</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://labcompara.com/public/sitemap-estudios.xml</loc>
+    <loc>https://labcompara.com/sitemap-estudios.xml</loc>
     <lastmod>2026-03-19</lastmod>
   </sitemap>
 </sitemapindex>
