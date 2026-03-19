@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Labcompara &#x2013; Estudios de laboratorio al mejor precio en M&#xe9;xico</title>
-<meta name="description" content="Compara precios de estudios de laboratorio en M&#xe9;xico entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco. Biomet&#xed;a, qu&#xed;mica sangu&#xed;nea, glucosa y m&#xe1;s. Gratis."/>
+<meta name="description" content="Compara precios de estudios de laboratorio en M&#xe9;xico entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Laboratorio M&#xe9;dico Polanco. Biomet&#xed;a, qu&#xed;mica sangu&#xed;nea, glucosa y m&#xe1;s. Gratis."/>
 <link rel="canonical" href="https://robertpq-clivi.github.io/Labcompara/"/>
 <meta property="og:title" content="Labcompara &#x2013; Compara estudios de laboratorio en M&#xe9;xico"/>
 <meta property="og:description" content="Compara precios de estudios cl&#xed;nicos entre los mejores laboratorios de M&#xe9;xico en segundos. Gratis, sin registro."/>
@@ -234,6 +234,17 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
   .lab-row{flex-wrap:wrap;}
   .price-val{font-size:16px;}
 }
+
+/* LABS BAR */
+.labs-bar{background:white;padding:40px 24px;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);}
+.labs-bar-inner{max-width:900px;margin:0 auto;}
+.labs-bar-label{text-align:center;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);margin-bottom:28px;}
+.labs-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;}
+.lab-logo-pill{display:flex;align-items:center;gap:9px;padding:12px 20px;border-radius:50px;border:1.5px solid var(--gray-200);transition:all .2s;background:white;}
+.lab-logo-pill:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(0,180,216,.12);transform:translateY(-2px);}
+.lab-logo-emoji{font-size:20px;line-height:1;}
+.lab-logo-name{font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);}
+.lab-logo-tag{font-size:11px;color:var(--gray-400);margin-top:1px;}
 </style>
 </head>
 <body>
@@ -292,10 +303,26 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
     </div>
   </div>
 
+  <!-- LABS BAR -->
+  <div style="background:white;padding:44px 24px;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);">
+    <div style="max-width:900px;margin:0 auto;">
+      <p style="text-align:center;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:28px;">Laboratorios que comparamos</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;">
+        <div class="lab-pill" style="display:flex;align-items:center;gap:8px;background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:50px;padding:10px 18px;cursor:default;transition:all .2s;" onmouseover="this.style.borderColor='#6366F1';this.style.background='rgba(99,102,241,.05)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.background='var(--gray-50)'"><span style="font-size:18px;">🏠</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);">Labbe</span><span style="font-size:10px;background:rgba(99,102,241,.1);color:#6366F1;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;">A domicilio</span></div>
+        <div class="lab-pill" style="display:flex;align-items:center;gap:8px;background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:50px;padding:10px 18px;cursor:default;transition:all .2s;" onmouseover="this.style.borderColor='#F59E0B';this.style.background='rgba(245,158,11,.05)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.background='var(--gray-50)'"><span style="font-size:18px;">🏥</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);">Chopo</span><span style="font-size:10px;background:rgba(245,158,11,.1);color:#D97706;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;">500+ sucursales</span></div>
+        <div class="lab-pill" style="display:flex;align-items:center;gap:8px;background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.3);border-radius:50px;padding:10px 18px;cursor:default;transition:all .2s;" onmouseover="this.style.borderColor='#10B981';this.style.background='rgba(16,185,129,.1)'" onmouseout="this.style.borderColor='rgba(16,185,129,.3)';this.style.background='rgba(16,185,129,.06)'"><span style="font-size:18px;">💰</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);">Salud Digna</span><span style="font-size:10px;background:rgba(16,185,129,.15);color:#059669;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;">Más económico</span></div>
+        <div class="lab-pill" style="display:flex;align-items:center;gap:8px;background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:50px;padding:10px 18px;cursor:default;transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)';this.style.background='rgba(0,180,216,.05)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.background='var(--gray-50)'"><span style="font-size:18px;">💻</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);">OLAB</span><span style="font-size:10px;background:rgba(0,180,216,.1);color:#0077A8;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;">100% digital</span></div>
+        <div class="lab-pill" style="display:flex;align-items:center;gap:8px;background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:50px;padding:10px 18px;cursor:default;transition:all .2s;" onmouseover="this.style.borderColor='#EF4444';this.style.background='rgba(239,68,68,.05)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.background='var(--gray-50)'"><span style="font-size:18px;">🔬</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);">LAPI</span><span style="font-size:10px;background:rgba(239,68,68,.1);color:#DC2626;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;">Especializado</span></div>
+        <div class="lab-pill" style="display:flex;align-items:center;gap:8px;background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:50px;padding:10px 18px;cursor:default;transition:all .2s;" onmouseover="this.style.borderColor='#EC4899';this.style.background='rgba(236,72,153,.05)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.background='var(--gray-50)'"><span style="font-size:18px;">✨</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--navy);">Lab. Médico Polanco</span><span style="font-size:10px;background:rgba(236,72,153,.1);color:#EC4899;padding:2px 8px;border-radius:10px;font-weight:700;font-family:'Sora',sans-serif;white-space:nowrap;">Premium</span></div>
+      </div>
+    </div>
+  </div>
+
   <!-- TRUST -->
-  <div class="sec-inner" style="padding-top:70px;padding-bottom:70px;max-width:900px;">
-    <div class="sec-eyebrow">Por qu&#xe9; elegirnos</div>
-    <h2 class="sec-title">Transparencia total, sin sorpresas</h2>
+  <div style="background:white;">
+  <div class="sec-inner" style="padding-top:70px;padding-bottom:70px;max-width:900px;background:white;">
+    <div class="sec-eyebrow" style="color:var(--teal-dark);">Por qu&#xe9; elegirnos</div>
+    <h2 class="sec-title" style="color:var(--navy);">Transparencia total, sin sorpresas</h2>
     <div class="trust-grid">
       <div class="trust-card"><div class="trust-icon" style="background:rgba(99,102,241,.1);">&#x1F512;</div><div><h3>100% Seguro</h3><p>Tus datos est&#xe1;n protegidos y nunca los compartimos.</p></div></div>
       <div class="trust-card"><div class="trust-icon" style="background:rgba(16,185,129,.1);">&#x1F4B0;</div><div><h3>Ahorra hasta 80%</h3><p>Salud Digna puede ser hasta 80% m&#xe1;s barato que otros labs.</p></div></div>
@@ -311,6 +338,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
       <div style="text-align:center;"><div class="proof-n">$0</div><div class="proof-l">Costo de comparaci&#xf3;n</div></div>
     </div>
   </div>
+  </div><!-- /trust white bg -->
 
   <!-- PROMO CTA -->
   <div class="promo">
@@ -331,7 +359,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
           <a href="https://saluddigna.mx" target="_blank" rel="noopener" class="footer-a">Salud Digna</a>
           <a href="https://olab.mx" target="_blank" rel="noopener" class="footer-a">OLAB</a>
           <a href="https://lapi.com.mx" target="_blank" rel="noopener" class="footer-a">LAPI</a>
-          <a href="pages/laboratorio-cerca-de-mi.html" class="footer-a">Lab. M&#xe9;dico Polanco</a>
+          <a href="pages/laboratorio-cerca-de-mi.html" class="footer-a">Laboratorio M&#xe9;dico Polanco</a>
         </div>
         <div>
           <div class="footer-col-h">Explora</div>
@@ -439,7 +467,7 @@ const RAW_DATA = [
   {name:"Perfil Tiroideo",Labbe:1016,Polanco:2100,Chopo:1090,"Salud Digna":550,LAPI:1469,OLAB:869,avg:1016,cheapest:"Salud Digna"},
   {name:"Examen General de Orina (EGO)",Labbe:303,Polanco:302,Chopo:144,"Salud Digna":55,LAPI:314,OLAB:149,avg:211,cheapest:"Salud Digna"},
   {name:"Perfil Hormonal Femenino",Labbe:null,Polanco:3380,Chopo:2075,"Salud Digna":350,LAPI:3201,OLAB:749,avg:1951,cheapest:"Salud Digna"},
-  {name:"Perfil Hormonal Masculino",Labbe:null,Polanco:823,Chopo:1755,"Salud Digna":940,LAPI:1119,OLAB:1400,avg:1207,cheapest:"Polanco"},
+  {name:"Perfil Hormonal Masculino",Labbe:null,Polanco:823,Chopo:1755,"Salud Digna":940,LAPI:1119,OLAB:1400,avg:1207,cheapest:"Laboratorio M&#xe9;dico Polanco"},
   {name:"Testosterona Libre y Total",Labbe:null,Polanco:null,Chopo:2633,"Salud Digna":null,LAPI:null,OLAB:null,avg:2633,cheapest:"Chopo"},
   {name:"Vitamina D (25-Hidroxi)",Labbe:1059,Polanco:null,Chopo:null,"Salud Digna":550,LAPI:null,OLAB:null,avg:805,cheapest:"Salud Digna"},
   {name:"Antígeno Prostático Específico (PSA)",Labbe:418,Polanco:null,Chopo:1367,"Salud Digna":null,LAPI:null,OLAB:null,avg:893,cheapest:"Labbe"},
@@ -489,11 +517,11 @@ const RAW_DATA = [
   {name:"Velocidad de Sedimentación Globular (VSG)",Labbe:135,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:135,cheapest:"Labbe"},
   {name:"Colesterol Total",Labbe:134,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:134,cheapest:"Labbe"},
   {name:"Perfil Climaterio",Labbe:829,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:829,cheapest:"Labbe"},
-  {name:"Perfil de Alergia Inhalatoria",Labbe:null,Polanco:984,Chopo:1365,"Salud Digna":null,LAPI:2470,OLAB:null,avg:1606,cheapest:"Polanco"},
+  {name:"Perfil de Alergia Inhalatoria",Labbe:null,Polanco:984,Chopo:1365,"Salud Digna":null,LAPI:2470,OLAB:null,avg:1606,cheapest:"Laboratorio M&#xe9;dico Polanco"},
   {name:"Tamiz Neonatal",Labbe:null,Polanco:2200,Chopo:808,"Salud Digna":null,LAPI:null,OLAB:2469,avg:1826,cheapest:"Chopo"},
 ];
 
-const LABS = ['Labbe','Polanco','Chopo','Salud Digna','LAPI','OLAB'];
+const LABS = ['Labbe','Laboratorio M&#xe9;dico Polanco','Chopo','Salud Digna','LAPI','OLAB'];
 
 const LAB_META = {
   Labbe: {
