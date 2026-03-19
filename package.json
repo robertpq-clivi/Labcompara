@@ -1,0 +1,12 @@
+{
+  "name": "labcompara",
+  "version": "1.0.0",
+  "description": "Comparador de precios de estudios de laboratorio en México",
+  "scripts": {
+    "generate:sitemaps": "node scripts/generate-sitemaps.js",
+    "predeploy": "npm run generate:sitemaps"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
