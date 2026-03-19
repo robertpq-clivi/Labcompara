@@ -41,7 +41,7 @@ nav.scrolled{background:rgba(11,31,75,.96);backdrop-filter:blur(16px);border-bot
 .section{display:none;}.section.active{display:block;}
 /* HERO */
 #sec-hero{min-height:100vh;background:#0B1F4B;position:relative;overflow:hidden;}
-#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:blur(28px);will-change:transform;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,75,.55) 0%,rgba(11,31,75,.3) 60%,rgba(11,31,75,.75) 100%);pointer-events:none;}
 .hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:130px 24px 60px;text-align:center;}
 .badge-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,180,216,.15);border:1px solid rgba(0,180,216,.4);border-radius:50px;padding:6px 16px;margin-bottom:24px;}
@@ -593,15 +593,67 @@ function goResults(){
 }
 
 // ── BEAMS CANVAS ──────────────────────────────────────────────────────────
+// ── BEAMS ANIMATION (OffscreenCanvas Worker) ──────────────────────────
+// Runs 100% off the main thread. Falls back to CSS gradient if unsupported.
 (function(){
-  const cv=$('hero-canvas'), cx=cv.getContext('2d');
-  let beams=[], raf;
-  function mk(w,h){return{x:Math.random()*w*1.5-w*.25,y:Math.random()*h*1.5-h*.25,width:40+Math.random()*80,length:h*2.5,angle:-35+Math.random()*10,speed:.5+Math.random()*1,opacity:.1+Math.random()*.18,hue:190+Math.random()*40,sat:70+Math.random()*20,lig:55+Math.random()*20,pulse:Math.random()*Math.PI*2,pSpeed:.018+Math.random()*.025};}
-  function rst(b,i,tot,w,h){const c=i%3,sp=w/3;b.y=h+100;b.x=c*sp+sp/2+(Math.random()-.5)*sp*.5;b.width=80+Math.random()*120;b.speed=.4+Math.random()*.6;b.hue=190+(i*40)/tot;b.opacity=.12+Math.random()*.14;}
-  function drw(b){cx.save();cx.translate(b.x,b.y);cx.rotate(b.angle*Math.PI/180);const po=b.opacity*(0.8+Math.sin(b.pulse)*.2),g=cx.createLinearGradient(0,0,0,b.length),hs=`hsla(${b.hue},${b.sat}%,${b.lig}%,`;g.addColorStop(0,hs+"0)");g.addColorStop(.1,hs+(po*.5)+")");g.addColorStop(.4,hs+po+")");g.addColorStop(.6,hs+po+")");g.addColorStop(.9,hs+(po*.5)+")");g.addColorStop(1,hs+"0)");cx.fillStyle=g;cx.fillRect(-b.width/2,0,b.width,b.length);cx.restore();}
-  function resize(){const dpr=devicePixelRatio||1,w=cv.parentElement.offsetWidth,h=cv.parentElement.offsetHeight;cv.width=w*dpr;cv.height=h*dpr;cv.style.width=w+"px";cv.style.height=h+"px";cx.scale(dpr,dpr);beams=Array.from({length:26},()=>mk(w,h));}
-  function tick(){const w=cv.width/(devicePixelRatio||1),h=cv.height/(devicePixelRatio||1);cx.clearRect(0,0,w,h);cx.filter="blur(30px)";const tot=beams.length;beams.forEach((b,i)=>{b.y-=b.speed;b.pulse+=b.pSpeed;if(b.y+b.length<-100)rst(b,i,tot,w,h);drw(b);});raf=requestAnimationFrame(tick);}
-  resize();window.addEventListener('resize',resize,{passive:true});tick();
+  const cv = $('hero-canvas');
+  if (!cv) return;
+
+  // CSS-only fallback for browsers without OffscreenCanvas or Workers
+  const supportsWorker = typeof Worker !== 'undefined';
+  const supportsOffscreen = typeof OffscreenCanvas !== 'undefined' && typeof cv.transferControlToOffscreen === 'function';
+
+  if (!supportsWorker || !supportsOffscreen) {
+    // Fallback: lightweight main-thread version, throttled, no ctx.filter
+    const ctx = cv.getContext('2d');
+    let beams = [], raf, lastT = 0;
+    function mk(w,h){return{x:Math.random()*w*1.5-w*.25,y:Math.random()*h*1.5-h*.25,width:50+Math.random()*70,length:h*2.5,angle:-35+Math.random()*10,speed:.4+Math.random()*.7,opacity:.1+Math.random()*.16,hue:190+Math.random()*40,sat:70+Math.random()*20,lig:55+Math.random()*20,pulse:Math.random()*Math.PI*2,pSpeed:.016+Math.random()*.02};}
+    function resize(){const dpr=Math.min(devicePixelRatio||1,2),w=cv.parentElement.offsetWidth,h=cv.parentElement.offsetHeight;cv.width=w*dpr;cv.height=h*dpr;cv.style.width=w+'px';cv.style.height=h+'px';ctx.scale(dpr,dpr);beams=Array.from({length:12},()=>mk(w,h));}
+    function tick(t){raf=requestAnimationFrame(tick);if(t-lastT<40)return;lastT=t;const w=cv.width/(Math.min(devicePixelRatio||1,2)),h=cv.height/(Math.min(devicePixelRatio||1,2));ctx.clearRect(0,0,w,h);const tot=beams.length;beams.forEach((b,i)=>{b.y-=b.speed;b.pulse+=b.pSpeed;if(b.y+b.length<-100){const c=i%3,sp=w/3;b.y=h+100;b.x=c*sp+sp/2+(Math.random()-.5)*sp*.5;b.width=70+Math.random()*100;b.speed=.4+Math.random()*.5;b.hue=190+(i*40)/tot;b.opacity=.1+Math.random()*.13;}const g=ctx.createLinearGradient(0,0,0,b.length),po=b.opacity*(0.8+Math.sin(b.pulse)*.2),hs='hsla('+b.hue+','+b.sat+'%,'+b.lig+'%,';g.addColorStop(0,hs+'0)');g.addColorStop(.1,hs+(po*.5)+')');g.addColorStop(.4,hs+po+')');g.addColorStop(.6,hs+po+')');g.addColorStop(.9,hs+(po*.5)+')');g.addColorStop(1,hs+'0)');ctx.save();ctx.translate(b.x,b.y);ctx.rotate(b.angle*Math.PI/180);ctx.fillStyle=g;ctx.fillRect(-b.width/2,0,b.width,b.length);ctx.restore();});}
+    resize();
+    window.addEventListener('resize',resize,{passive:true});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);}else{raf=requestAnimationFrame(tick);}});
+    raf=requestAnimationFrame(tick);
+    return;
+  }
+
+  // OffscreenCanvas path — zero main thread cost
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const w = cv.parentElement.offsetWidth;
+  const h = cv.parentElement.offsetHeight;
+  cv.width  = w * dpr;
+  cv.height = h * dpr;
+  cv.style.width  = w + 'px';
+  cv.style.height = h + 'px';
+
+  const offscreen = cv.transferControlToOffscreen();
+  const worker = new Worker('beams-worker.js');
+  worker.postMessage({ type: 'init', canvas: offscreen, dpr, w: w * dpr, h: h * dpr }, [offscreen]);
+
+  // Pause when tab hidden — saves CPU/battery
+  document.addEventListener('visibilitychange', () => {
+    worker.postMessage({ type: document.hidden ? 'pause' : 'resume' });
+  });
+
+  // Pause when hero scrolls out of view
+  const heroEl = $('sec-hero');
+  if (heroEl && typeof IntersectionObserver !== 'undefined') {
+    new IntersectionObserver(entries => {
+      worker.postMessage({ type: entries[0].isIntersecting ? 'resume' : 'pause' });
+    }, { threshold: 0.05 }).observe(heroEl);
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const nw = cv.parentElement.offsetWidth;
+      const nh = cv.parentElement.offsetHeight;
+      worker.postMessage({ type: 'resize', w: nw * dpr, h: nh * dpr });
+      cv.style.width  = nw + 'px';
+      cv.style.height = nh + 'px';
+    }, 200);
+  }, { passive: true });
 })();
 
 // ── NAV ───────────────────────────────────────────────────────────────────
