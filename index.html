@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Labcompara – Estudios de laboratorio al mejor precio</title>
+<title>Labcompara – Estudios de laboratorio al mejor precio en México</title>
+<meta name="description" content="Compara precios de estudios de laboratorio en México entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco. Biometría, química sanguínea, glucosa y más. Gratis."/>
+<link rel="canonical" href="https://robertpq-clivi.github.io/Labcompara/"/>
+<meta property="og:title" content="Labcompara – Compara estudios de laboratorio en México"/>
+<meta property="og:description" content="Compara precios de estudios clínicos entre los mejores laboratorios de México en segundos. Gratis, sin registro."/>
+<meta property="og:url" content="https://robertpq-clivi.github.io/Labcompara/"/>
+<meta property="og:type" content="website"/>
+<meta name="robots" content="index, follow"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Labcompara","url":"https://robertpq-clivi.github.io/Labcompara/","description":"Comparador de precios de estudios de laboratorio clínico en México","potentialAction":{"@type":"SearchAction","target":"https://robertpq-clivi.github.io/Labcompara/","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Labcompara","url":"https://robertpq-clivi.github.io/Labcompara/","description":"Comparador de precios de estudios de laboratorio en México","areaServed":"México"}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -463,6 +472,8 @@ function Nav({ onCTA, onLogoClick }) {
         <span className="nav-logo-text">Lab<span>compara</span></span>
       </div>
       <div style={{display:'flex',gap:'12px',alignItems:'center'}}>
+        <a href="pages/estudios-de-laboratorio.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Estudios</a>
+        <a href="pages/laboratorio-cerca-de-mi.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Laboratorios</a>
         <a href="blog/index.html" style={{color:'rgba(255,255,255,0.8)',fontFamily:"'Sora',sans-serif",fontWeight:600,fontSize:'13px',textDecoration:'none'}}>Blog</a>
         <button className="btn-outline-white" style={{padding:'8px 16px',fontSize:'13px'}} onClick={onCTA}>
           Cotizar
