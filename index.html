@@ -364,11 +364,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
         <div><div class="footer-brand">Labcompara</div><p class="footer-desc">Compara precios de estudios de laboratorio entre los mejores laboratorios de M&#xe9;xico.</p></div>
         <div>
           <div class="footer-col-h">Laboratorios</div>
-          <a href="https://labbe.com.mx" target="_blank" rel="noopener" class="footer-a">Labbe</a>
-          <a href="https://chopo.com.mx" target="_blank" rel="noopener" class="footer-a">Chopo</a>
-          <a href="https://saluddigna.mx" target="_blank" rel="noopener" class="footer-a">Salud Digna</a>
-          <a href="https://olab.mx" target="_blank" rel="noopener" class="footer-a">OLAB</a>
-          <a href="https://lapi.com.mx" target="_blank" rel="noopener" class="footer-a">LAPI</a>
+          <a href="https://labbe.com.mx" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'Labbe'})">Labbe</a>
+          <a href="https://chopo.com.mx" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'Chopo'})">Chopo</a>
+          <a href="https://saluddigna.mx" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'Salud Digna'})">Salud Digna</a>
+          <a href="https://olab.mx" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'OLAB'})">OLAB</a>
+          <a href="https://lapi.com.mx" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'LAPI'})">LAPI</a>
           <a href="pages/laboratorio-cerca-de-mi.html" class="footer-a">Laboratorio M&#xe9;dico Polanco</a>
         </div>
         <div>
@@ -826,6 +826,19 @@ function openModal(study,labName,opt){
   $('m-price-label').textContent=`Precio en ${labName}`;
   $('m-price').textContent=fmtP(study[labName]);
   $('m-go').href=meta.url;
+
+  // GA4: track "Ir al laboratorio" clicks — measure traffic sent to each lab
+  $('m-go').onclick = function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'click_ir_al_laboratorio', {
+        lab_name:    labName,
+        study_name:  study.name,
+        price_mxn:   study[labName] || 0,
+        destination: meta.url,
+      });
+    }
+  };
+
   $('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
