@@ -1,0 +1,5 @@
+# labcompara.com — robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://labcompara.com/sitemap-index.xml
