@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Dónde puedo hacerme la biometría hemática en CDMX?","acceptedAnswer":{"@type":"Answer","text":"En laboratorios como Salud Digna, Chopo, OLAB, Labbe, LAPI y Laboratorio M&#xe9;dico Polanco, todos con presencia en la Ciudad de México."}},{"@type":"Question","name":"¿Cuál es el laboratorio más barato para biometría en CDMX?","acceptedAnswer":{"@type":"Answer","text":"Salud Digna tiene precios referenciales desde $95 MXN para la biometría hemática."}},{"@type":"Question","name":"¿Necesito cita?","acceptedAnswer":{"@type":"Answer","text":"Depende del laboratorio. Algunos como Salud Digna atienden sin cita. Otros pueden requerirla, especialmente para servicios a domicilio."}},{"@type":"Question","name":"¿Cuánto tiempo tardan los resultados en CDMX?","acceptedAnswer":{"@type":"Answer","text":"Entre 24 y 48 horas en la mayoría de los laboratorios. Algunos ofrecen resultados el mismo día con costo adicional."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Precio de Biometría Hemática en CDMX 2024 | Labcompara","description":"Compara el precio de la biometría hemática en la Ciudad de México. Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco. Desde $95 MXN.",

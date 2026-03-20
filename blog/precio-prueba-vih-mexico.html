@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuánto cuesta la prueba de VIH en México?","acceptedAnswer":{"@type":"Answer","text":"Desde $290 MXN con Salud Digna. En otros laboratorios el precio puede superar los $1,000 MXN."}},{"@type":"Question","name":"¿Es confidencial la prueba de VIH en laboratorios privados?","acceptedAnswer":{"@type":"Answer","text":"Sí, los resultados son confidenciales. También existen centros de salud que la realizan de forma gratuita y anónima."}},{"@type":"Question","name":"¿Qué tipo de prueba realizan los laboratorios privados?","acceptedAnswer":{"@type":"Answer","text":"Generalmente se hace una prueba de cuarta generación (detecta anticuerpos y antígeno p24) con alta sensibilidad."}},{"@type":"Question","name":"¿Cuándo es el mejor momento para hacerse la prueba?","acceptedAnswer":{"@type":"Answer","text":"La prueba es más confiable 4 semanas después de una posible exposición. Para resultados definitivos, se recomienda a las 8-12 semanas."}},{"@type":"Question","name":"¿Necesito ayuno?","acceptedAnswer":{"@type":"Answer","text":"No, la prueba de VIH no requiere ayuno."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Precio de la Prueba de VIH en México | Labcompara","description":"Compara el precio de la prueba de VIH en laboratorios de México. Desde $290 MXN con Salud Digna. Confidencial y confiable.",

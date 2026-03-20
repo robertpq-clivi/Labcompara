@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuál es más barato, Chopo o LAPI?","acceptedAnswer":{"@type":"Answer","text":"En la mayoría de los estudios, Chopo tiene precios menores que LAPI. Por ejemplo, biometría: Chopo $270 vs LAPI $491 MXN."}},{"@type":"Question","name":"¿LAPI es mejor que Chopo en calidad?","acceptedAnswer":{"@type":"Answer","text":"LAPI se especializa en análisis de alta complejidad y puede ser más adecuado para estudios especializados. Chopo es más completo para estudios de rutina."}},{"@type":"Question","name":"¿Chopo tiene más sucursales que LAPI?","acceptedAnswer":{"@type":"Answer","text":"Sí, Chopo tiene más de 500 sucursales en México, lo que lo hace más accesible geográficamente."}},{"@type":"Question","name":"¿Cuándo conviene LAPI sobre Chopo?","acceptedAnswer":{"@type":"Answer","text":"Para estudios especializados o de alta complejidad donde LAPI tiene mayor experiencia."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Chopo vs LAPI: Comparativa de Precios 2024 | Labcompara","description":"Comparamos Laboratorio Chopo vs LAPI en precios, servicios y especialización. ¿Cuál te conviene más para tus estudios clínicos en México?",

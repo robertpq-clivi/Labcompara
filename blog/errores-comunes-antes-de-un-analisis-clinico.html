@@ -95,6 +95,14 @@ footer a{color:rgba(255,255,255,.5);margin:0 8px;text-decoration:none;}
 footer a:hover{color:var(--teal-light);}
 .footer-disclaimer{font-size:11px;opacity:.4;margin-top:20px;line-height:1.6;}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué pasa si cometí un error antes del estudio?","acceptedAnswer":{"@type":"Answer","text":"Infórmalo al técnico antes de que tomen la muestra. Dependiendo del error, pueden decidir tomar la muestra de todas formas o pedirte que regreses con las condiciones correctas."}},{"@type":"Question","name":"¿El estrés puede afectar los resultados de laboratorio?","acceptedAnswer":{"@type":"Answer","text":"Sí. El estrés agudo puede elevar temporalmente la glucosa, cortisol y ciertas células blancas. Si pasaste una noche muy estresante, puede ser mejor reprogramar tu cita."}},{"@type":"Question","name":"¿Puedo tomar mis pastillas para la presión antes del estudio?","acceptedAnswer":{"@type":"Answer","text":"Consulta con tu médico. En general, no se recomienda suspender medicamentos para la presión. Sin embargo, algunos pueden afectar ciertos resultados de laboratorio."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Errores Comunes Antes de un Análisis Clínico en México | Labcompara","description":"Los errores más frecuentes antes de ir al laboratorio que pueden invalidar tus resultados. Evítalos con esta guía práctica para México.",

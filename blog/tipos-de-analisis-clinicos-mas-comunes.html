@@ -95,6 +95,14 @@ footer a{color:rgba(255,255,255,.5);margin:0 8px;text-decoration:none;}
 footer a:hover{color:var(--teal-light);}
 .footer-disclaimer{font-size:11px;opacity:.4;margin-top:20px;line-height:1.6;}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuál es el análisis clínico más barato?","acceptedAnswer":{"@type":"Answer","text":"El examen general de orina (EGO) tiene uno de los precios más bajos, desde $55 MXN en Salud Digna."}},{"@type":"Question","name":"¿Los marcadores tumorales confirman cáncer?","acceptedAnswer":{"@type":"Answer","text":"No. Los marcadores tumorales son una herramienta de apoyo, no un diagnóstico definitivo. Un valor elevado requiere estudios adicionales e interpretación médica."}},{"@type":"Question","name":"¿Qué análisis se hacen en un check up básico?","acceptedAnswer":{"@type":"Answer","text":"Generalmente: biometría hemática, glucosa, EGO y perfil de lípidos. Algunos incluyen química sanguínea completa."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Tipos de Análisis Clínicos más Comunes en México | Labcompara","description":"Conoce los tipos de análisis clínicos más solicitados en México: hematología, química clínica, uroanálisis, microbiología, endocrinología y más.",

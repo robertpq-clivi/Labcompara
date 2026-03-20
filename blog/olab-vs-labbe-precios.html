@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuál es más barato, OLAB o Labbe?","acceptedAnswer":{"@type":"Answer","text":"Depende del estudio. En biometría hemática, OLAB ($269) y Labbe ($277) tienen precios muy similares. En HbA1c, OLAB ($419) es más barato que Labbe ($449)."}},{"@type":"Question","name":"¿Labbe va a domicilio?","acceptedAnswer":{"@type":"Answer","text":"Sí, Labbe es el laboratorio líder en servicio de toma de muestras a domicilio en México."}},{"@type":"Question","name":"¿OLAB es 100% digital?","acceptedAnswer":{"@type":"Answer","text":"Sí, OLAB opera principalmente de forma digital con entrega de resultados en app."}},{"@type":"Question","name":"¿Puedo confiar en ambos laboratorios?","acceptedAnswer":{"@type":"Answer","text":"Sí, ambos son laboratorios certificados con buenas calificaciones de usuarios."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"OLAB vs Labbe: Comparativa de Precios y Servicios | Labcompara","description":"¿OLAB o Labbe? Comparamos precios, servicios, cobertura y experiencia del usuario entre estos dos laboratorios modernos de México.",

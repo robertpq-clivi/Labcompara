@@ -95,6 +95,14 @@ footer a{color:rgba(255,255,255,.5);margin:0 8px;text-decoration:none;}
 footer a:hover{color:var(--teal-light);}
 .footer-disclaimer{font-size:11px;opacity:.4;margin-top:20px;line-height:1.6;}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Los precios de laboratorio en México incluyen IVA?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de los servicios médicos en México están exentos de IVA. Los precios mostrados generalmente son el precio final."}},{"@type":"Question","name":"¿Puedo negociar el precio en un laboratorio privado?","acceptedAnswer":{"@type":"Answer","text":"En laboratorios de cadena como Salud Digna y Chopo, los precios son fijos. Algunos laboratorios independientes pueden tener más flexibilidad."}},{"@type":"Question","name":"¿Existen descuentos para adultos mayores o estudiantes?","acceptedAnswer":{"@type":"Answer","text":"Algunos laboratorios tienen convenios o descuentos especiales. Salud Digna y algunos módulos de Chopo pueden tener precios preferenciales en ciertas promociones."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"¿Cuánto Cuestan los Estudios Médicos de Laboratorio en México? | Labcompara","description":"Guía de precios de estudios médicos de laboratorio en México 2024. Compara biometría, química sanguínea, hormonales y más entre los principales laboratorios.",

@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuánto cuesta un check up completo en México?","acceptedAnswer":{"@type":"Answer","text":"El precio varía según qué estudios incluya. En Salud Digna puede costar desde $450 MXN. En otros laboratorios el precio sube considerablemente."}},{"@type":"Question","name":"¿Qué incluye un check up completo?","acceptedAnswer":{"@type":"Answer","text":"Generalmente biometría hemática, química sanguínea, perfil de lípidos, examen general de orina, glucosa y en algunos casos electrocardiograma."}},{"@type":"Question","name":"¿Con qué frecuencia se recomienda un check up?","acceptedAnswer":{"@type":"Answer","text":"Se recomienda al menos una vez al año para adultos. Si tienes factores de riesgo, puede ser más frecuente según tu médico."}},{"@type":"Question","name":"¿Necesito ayuno para el check up?","acceptedAnswer":{"@type":"Answer","text":"Sí, la mayoría de los estudios incluidos en un check up requieren ayuno de 8 a 12 horas."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Precio del Check Up Completo en México 2024 | Labcompara","description":"¿Cuánto cuesta un check up completo en México? Compara precios entre Salud Digna, Chopo, OLAB y más. Desde $450 MXN.",

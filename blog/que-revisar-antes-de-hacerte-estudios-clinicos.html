@@ -95,6 +95,14 @@ footer a{color:rgba(255,255,255,.5);margin:0 8px;text-decoration:none;}
 footer a:hover{color:var(--teal-light);}
 .footer-disclaimer{font-size:11px;opacity:.4;margin-top:20px;line-height:1.6;}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué pasa si no hago el ayuno correctamente?","acceptedAnswer":{"@type":"Answer","text":"Informa al laboratorio antes de la toma. Algunos estudios pueden tomarse de todas formas; para otros puede ser necesario regresar con el ayuno completo."}},{"@type":"Question","name":"¿Puedo tomar café durante el ayuno?","acceptedAnswer":{"@type":"Answer","text":"No. El café (incluso sin azúcar) puede afectar los resultados de glucosa y otros parámetros. Solo se permite agua simple."}},{"@type":"Question","name":"¿Debo llevar ropa especial al laboratorio?","acceptedAnswer":{"@type":"Answer","text":"Usa ropa de manga corta o fácil de subir para facilitar la extracción de sangre del brazo."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"¿Qué Revisar Antes de Hacerte Estudios Clínicos? | Labcompara","description":"Lista de verificación antes de ir al laboratorio: ayuno, medicamentos, horario, precios y más. Guía práctica para estudios clínicos en México.",

@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuánto cuesta el examen de vitamina D?","acceptedAnswer":{"@type":"Answer","text":"Desde $550 MXN con Salud Digna. Con Labbe cuesta $1,059 MXN. Es uno de los estudios con mayor variación de precio entre laboratorios."}},{"@type":"Question","name":"¿Para qué sirve medir la vitamina D?","acceptedAnswer":{"@type":"Answer","text":"Detecta deficiencia de vitamina D, que puede afectar la salud ósea, el sistema inmune y el estado de ánimo."}},{"@type":"Question","name":"¿Necesito ayuno?","acceptedAnswer":{"@type":"Answer","text":"No se requiere ayuno para este estudio."}},{"@type":"Question","name":"¿Cuál es el nivel óptimo de vitamina D?","acceptedAnswer":{"@type":"Answer","text":"Se considera óptimo entre 30 y 100 ng/mL. Menos de 20 ng/mL indica deficiencia. Consulta con tu médico los valores de referencia."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Precio del Examen de Vitamina D en México | Labcompara","description":"Compara el precio del examen de Vitamina D (25-Hidroxi) en México. Desde $550 MXN con Salud Digna. Labbe y más laboratorios.",

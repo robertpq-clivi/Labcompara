@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuál es el laboratorio más barato en CDMX?","acceptedAnswer":{"@type":"Answer","text":"Salud Digna es el más económico en la mayoría de los estudios, con precios desde $55 MXN para el EGO y $95 MXN para biometría."}},{"@type":"Question","name":"¿Salud Digna es confiable?","acceptedAnswer":{"@type":"Answer","text":"Sí. Salud Digna es una organización con certificación y gran volumen de atención. Sus precios bajos no comprometen la calidad del análisis."}},{"@type":"Question","name":"¿Chopo es más barato que LAPI?","acceptedAnswer":{"@type":"Answer","text":"En la mayoría de los estudios, Chopo tiene precios menores que LAPI, aunque Salud Digna supera a ambos en economía."}},{"@type":"Question","name":"¿OLAB es económico?","acceptedAnswer":{"@type":"Answer","text":"OLAB ofrece precios intermedios, con la ventaja de ser 100% digital. Sus precios son menores que Polanco y LAPI pero mayores que Salud Digna."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Laboratorio más barato en CDMX 2024 | Labcompara","description":"¿Cuál es el laboratorio de análisis clínicos más barato en la Ciudad de México? Comparativa completa entre Salud Digna, Chopo, OLAB, Labbe y más.",

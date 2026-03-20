@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué incluye un examen de sangre completo?","acceptedAnswer":{"@type":"Answer","text":"Generalmente biometría hemática + química sanguínea, que evalúan células sanguíneas, glucosa, función renal, hepática y perfil lipídico."}},{"@type":"Question","name":"¿Cuánto cuesta un examen de sangre completo?","acceptedAnswer":{"@type":"Answer","text":"Depende del paquete. Un check up básico puede costar desde $265 MXN con Salud Digna. Compara en Labcompara."}},{"@type":"Question","name":"¿Necesito ayuno?","acceptedAnswer":{"@type":"Answer","text":"Sí, se recomienda ayuno de 8 a 12 horas para la mayoría de los parámetros incluidos."}},{"@type":"Question","name":"¿Con qué frecuencia debo hacerme un examen de sangre completo?","acceptedAnswer":{"@type":"Answer","text":"Una vez al año como mínimo para adultos sanos. Más frecuente si tienes condiciones crónicas o factores de riesgo."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Precio del Examen de Sangre Completo en México | Labcompara","description":"¿Cuánto cuesta un examen de sangre completo en México? Compara precios de biometría + química sanguínea entre los principales laboratorios.",

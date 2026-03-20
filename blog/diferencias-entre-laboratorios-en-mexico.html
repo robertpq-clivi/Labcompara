@@ -95,6 +95,14 @@ footer a{color:rgba(255,255,255,.5);margin:0 8px;text-decoration:none;}
 footer a:hover{color:var(--teal-light);}
 .footer-disclaimer{font-size:11px;opacity:.4;margin-top:20px;line-height:1.6;}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Hay diferencia en la calidad de los resultados entre laboratorios?","acceptedAnswer":{"@type":"Answer","text":"Para estudios de rutina, los resultados de un laboratorio certificado deben ser equivalentes en precisión. Las diferencias principales están en el precio, servicio y experiencia del paciente."}},{"@type":"Question","name":"¿Puedo comparar resultados de diferentes laboratorios?","acceptedAnswer":{"@type":"Answer","text":"Los valores de referencia pueden variar ligeramente entre laboratorios según el equipo utilizado. Es importante usar los valores de referencia específicos de cada laboratorio al interpretar resultados."}},{"@type":"Question","name":"¿Por qué Salud Digna es tan barato?","acceptedAnswer":{"@type":"Answer","text":"Salud Digna opera con un modelo de alto volumen que le permite reducir costos operativos y trasladar ese ahorro al precio del estudio."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Diferencias entre Laboratorios Clínicos en México | Labcompara","description":"¿En qué se diferencian Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco? Comparamos precio, servicio, cobertura y especialización de cada laboratorio.",

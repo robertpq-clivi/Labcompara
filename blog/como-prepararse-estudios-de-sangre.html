@@ -85,6 +85,14 @@ footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Sora',sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
 </style>
+<script>
+  // Prevent GitHub Pages subdomain from being indexed — canonical is labcompara.com
+  if (location.hostname.includes('github.io')) {
+    var m = document.createElement('meta');
+    m.name = 'robots'; m.content = 'noindex, nofollow';
+    document.head.appendChild(m);
+  }
+</script>
 </head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuántas horas de ayuno necesito para un examen de sangre?","acceptedAnswer":{"@type":"Answer","text":"Depende del estudio. Para glucosa y lípidos: 8-12 horas. Para biometría hemática: no es estrictamente necesario. Tu médico o laboratorio te indicará el ayuno específico."}},{"@type":"Question","name":"¿Puedo tomar agua durante el ayuno?","acceptedAnswer":{"@type":"Answer","text":"Sí, se permite tomar agua simple durante el ayuno. El agua no afecta los resultados de la mayoría de los estudios."}},{"@type":"Question","name":"¿Puedo tomar mis medicamentos antes de los estudios?","acceptedAnswer":{"@type":"Answer","text":"Consulta con tu médico. Algunos medicamentos pueden interferir con los resultados. No suspendas medicamentos sin indicación médica."}},{"@type":"Question","name":"¿Qué pasa si no hice el ayuno correcto?","acceptedAnswer":{"@type":"Answer","text":"Infórmalo al laboratorio antes de tomar la muestra. Algunos estudios pueden realizarse de todas formas; otros necesitan que regreses con el ayuno completo."}},{"@type":"Question","name":"¿A qué hora conviene ir al laboratorio?","acceptedAnswer":{"@type":"Answer","text":"Lo ideal es ir temprano en la mañana, especialmente si hay ayuno. Así aprovechas el ayuno nocturno y los niveles hormonales son más estables."}}]}</script><script type="application/ld+json">{
   "@context":"https://schema.org","@type":"Article",
   "headline":"Cómo Prepararse para Estudios de Sangre: Guía Completa | Labcompara","description":"Guía completa sobre cómo prepararse para estudios de sangre en México. Ayuno, medicamentos, hidratación y todo lo que necesitas saber antes de ir al laboratorio.",
