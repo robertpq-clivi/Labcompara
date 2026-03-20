@@ -7,7 +7,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-Q7ZMHHCW6X');
+  gtag('config', 'G-Q7ZMHHCW6X', { debug_mode: true });
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -840,17 +840,18 @@ $('m-close').onclick=closeModal;
 $('modal').onclick=e=>{if(e.target===$('modal'))closeModal();};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-// GA4: single persistent listener for "Ir al laboratorio" button
-// Uses transport: 'beacon' so the event fires even as the tab navigates away
+// GA4: "Ir al laboratorio" click tracking
 document.getElementById('m-go').addEventListener('click', function() {
-  if (typeof gtag === 'undefined') return;
-  gtag('event', 'click_ir_al_laboratorio', {
-    lab_name:    this.dataset.labName   || '',
-    study_name:  this.dataset.studyName || '',
-    price_mxn:   Number(this.dataset.price) || 0,
+  var params = {
+    lab_name:   this.dataset.labName   || '',
+    study_name: this.dataset.studyName || '',
+    price_mxn:  Number(this.dataset.price) || 0,
     destination: this.href,
-    transport_type: 'beacon',
-  });
+  };
+  console.log('[Labcompara GA4]', 'click_ir_al_laboratorio', params);
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'click_ir_al_laboratorio', params);
+  }
 });
 </script>
 </main>
