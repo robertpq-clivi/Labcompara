@@ -1,5 +1,5 @@
 /**
- * Labcompara — Captura de leads en Google Sheets
+ * Medcompara — Captura de leads en Google Sheets
  * ===============================================
  * Mismo patrón que glpcompara-apps-script-v5.gs: una hoja de cálculo con el
  * script publicado como aplicación web que recibe POSTs del formulario.

@@ -1,5 +1,5 @@
 /**
- * Labcompara — Normalización y emparejamiento de nombres de estudio
+ * Medcompara — Normalización y emparejamiento de nombres de estudio
  * ------------------------------------------------------------------
  * Cada laboratorio nombra el mismo estudio distinto:
  *   "Biometría Hemática" · "BIOMETRIA HEMATICA" · "Biometria Hematica (BH)"
@@ -312,7 +312,7 @@ function similitud(a, b) {
 }
 
 /**
- * Alias manuales: nombre canónico de Labcompara → variantes vistas en los labs.
+ * Alias manuales: nombre canónico de Medcompara → variantes vistas en los labs.
  * Solo hace falta declarar lo que la normalización no resuelve sola.
  */
 const ALIASES = {
@@ -340,7 +340,7 @@ function indiceAlias() {
 
 /**
  * Empareja los scrapes de un lab contra la lista canónica.
- * @param {string[]} canonicos  nombres canónicos de Labcompara
+ * @param {string[]} canonicos  nombres canónicos de Medcompara
  * @param {{nombre:string,precio:number}[]} filas  resultados del scraper
  * @param {number} umbral  similitud mínima para aceptar (0..1)
  * @returns {{ mapeo: Map<string, object>, sinMatch: object[] }}

@@ -1,5 +1,5 @@
 {
-  "name": "labcompara",
+  "name": "medcompara",
   "version": "1.0.0",
   "description": "Comparador de precios de estudios de laboratorio en México, con scan automático semanal",
   "scripts": {

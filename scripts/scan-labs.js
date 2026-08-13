@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Scanner de precios
+ * Medcompara — Scanner de precios
  * --------------------------------
  * Recorre los 6 laboratorios, extrae el catálogo con precios, lo empareja
  * contra los estudios de index.html y escribe:
@@ -17,7 +17,7 @@
  *   node scripts/scan-labs.js --apply         # además reescribe RAW_DATA en index.html
  *
  * Es el mismo pipeline que corre semanalmente en Apps Script
- * (scripts/labcompara-apps-script.gs); esta versión sirve para backfill,
+ * (scripts/medcompara-apps-script.gs); esta versión sirve para backfill,
  * depuración y para validar un adaptador antes de publicarlo.
  */
 
@@ -173,7 +173,7 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   fs.mkdirSync(SCAN_DIR, { recursive: true });
   const publicados = leerRawData();
   const canonicos = publicados.map((e) => e.name);
-  console.log(`Labcompara · scan de precios`);
+  console.log(`Medcompara · scan de precios`);
   console.log(`${canonicos.length} estudios publicados · ${LABS.length} laboratorios`);
   if (OFFLINE) {
     console.log('modo offline: se reusa data/scan/\n');
@@ -328,7 +328,7 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   lineas.push('_Los exactos y por alias son seguros. Estos son inferidos y conviene validarlos:',
     'lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._', '');
   if (porSimilitud.length) {
-    lineas.push('| Lab | Estudio de Labcompara | Encontrado en el lab | Score | Precio |', '|---|---|---|---:|---:|');
+    lineas.push('| Lab | Estudio de Medcompara | Encontrado en el lab | Score | Precio |', '|---|---|---|---:|---:|');
     for (const s of porSimilitud.sort((a, b) => a.score - b.score)) {
       lineas.push(`| ${s.lab} | ${s.canon} | ${s.encontrado} | ${s.score} | ${s.precio} |`);
     }

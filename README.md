@@ -1,4 +1,4 @@
-# Labcompara 🧬
+# Medcompara 🧬
 
 Comparador de precios de salud en México. Dos verticales en un dominio:
 
@@ -68,7 +68,7 @@ scripts/
   verticales/farmacias.js         4 adaptadores de farmacia + 2 curados
   expandir-catalogo.js            amplía RAW_DATA con lo descubierto
   test-match.js  test-farmacias.js  test-feed.js
-  labcompara-apps-script.gs       captura de leads (Sheets)
+  medcompara-apps-script.gs       captura de leads (Sheets)
   generate-sitemaps.js            sitemaps
 blog/  pages/                     contenido SEO
 ```

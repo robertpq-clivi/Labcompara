@@ -1,6 +1,6 @@
 # Automatización de precios
 
-Cómo Labcompara mantiene los precios al día sin que nadie los capture a mano.
+Cómo Medcompara mantiene los precios al día sin que nadie los capture a mano.
 
 ---
 
@@ -36,12 +36,12 @@ deploy los publique.
                  │  git commit + push  → GitHub Pages redeploya
                  ▼
   ┌────────────────────────────────────┐
-  │ labcompara.com                     │
+  │ medcompara.com.mx                     │
   └────────────────────────────────────┘
 ```
 
 El Apps Script sigue existiendo pero **solo para leads**
-([`scripts/labcompara-apps-script.gs`](../scripts/labcompara-apps-script.gs)),
+([`scripts/medcompara-apps-script.gs`](../scripts/medcompara-apps-script.gs)),
 igual que en GLPcompara. Los precios no pasan por Sheets.
 
 ### El proxy solo se usa cuando hace falta
@@ -112,7 +112,7 @@ Detalles que cuestan tiempo redescubrir:
 `olab.com.mx/robots.txt` bloquea por nombre a los crawlers de IA —ClaudeBot,
 GPTBot, CCBot, Google-Extended, Bytespider, meta-externalagent— mientras que
 `User-agent: *` es `Allow: /` con `Content-Signal: search=yes, use=reference`.
-LabcomparaBot cae bajo `*`.
+MedcomparaBot cae bajo `*`.
 
 El adaptador se escribió sin poder validarlo (el entorno donde se programó cae
 bajo el bloqueo por nombre), y la primera corrida real desde GitHub Actions lo
@@ -130,12 +130,12 @@ mismo estudio a distinto precio, no un error de extracción.
 ## 3. Puesta en marcha
 
 **Falta un paso, y solo lo puedes hacer tú:** agregar el secret con la clave de
-Zyte al repo de Labcompara. GitHub no deja leer el valor de un secret existente,
+Zyte al repo de Medcompara. GitHub no deja leer el valor de un secret existente,
 así que no se puede copiar desde GLPcompara por API.
 
 ```bash
 # la misma clave que ya usa GLPcompara
-gh secret set SCRAPER_API_KEY -R robertpq-clivi/Labcompara
+gh secret set SCRAPER_API_KEY -R robertpq-clivi/Medcompara
 ```
 
 O en la web: **Settings → Secrets and variables → Actions → New repository
@@ -151,10 +151,10 @@ Lo que se pierde es OLAB y la red de seguridad si alguno empieza a bloquear.
 ### Disparar una corrida a mano
 
 ```bash
-gh workflow run scrape-prices.yml -R robertpq-clivi/Labcompara
-gh workflow run scrape-prices.yml -R robertpq-clivi/Labcompara -f dry_run=true    # sin commitear
-gh workflow run scrape-prices.yml -R robertpq-clivi/Labcompara -f labs=Labbe,LAPI # solo algunos
-gh run watch -R robertpq-clivi/Labcompara
+gh workflow run scrape-prices.yml -R robertpq-clivi/Medcompara
+gh workflow run scrape-prices.yml -R robertpq-clivi/Medcompara -f dry_run=true    # sin commitear
+gh workflow run scrape-prices.yml -R robertpq-clivi/Medcompara -f labs=Labbe,LAPI # solo algunos
+gh run watch -R robertpq-clivi/Medcompara
 ```
 
 El resumen de cada corrida (cobertura por lab, cambios sospechosos) queda en la
@@ -164,7 +164,7 @@ pestaña **Summary** del run, y el catálogo crudo como artifact por 30 días.
 
 Solo para el formulario, sin precios:
 Hoja nueva → Extensiones → Apps Script → pegar
-[`scripts/labcompara-apps-script.gs`](../scripts/labcompara-apps-script.gs) →
+[`scripts/medcompara-apps-script.gs`](../scripts/medcompara-apps-script.gs) →
 Implementar como aplicación web (ejecutar como **Yo**, acceso **Cualquier
 persona**).
 
@@ -248,7 +248,7 @@ Escribe:
 - `data/reporte.md` — cobertura por lab y lista de cambios de precio
 
 Los adaptadores viven en `scripts/lib/labs.js` y el emparejador en
-`scripts/lib/match.js`. **`labcompara-apps-script.gs` es un espejo de ambos**:
+`scripts/lib/match.js`. **`medcompara-apps-script.gs` es un espejo de ambos**:
 si cambias un selector en uno, cámbialo en el otro.
 
 ## 5.1 Tests
@@ -304,7 +304,7 @@ laboratorio, dejando a uno con un precio 8× más caro.
    - `modo: 'catalogo'` → implementa `urls(ctx)` y `parse(html, url)`
 3. Prueba con `node scripts/scan-labs.js --labs=NuevoLab --limit=20` y revisa
    `data/scan/nuevolab.json` a ojo: nombres legibles y precios plausibles.
-4. Replica el adaptador en `labcompara-apps-script.gs` → `LABS`.
+4. Replica el adaptador en `medcompara-apps-script.gs` → `LABS`.
 5. Agrega el id a `LAB_IDS` en ambos archivos y a `LABS` / `LAB_META` en
    `index.html`.
 

@@ -1,5 +1,5 @@
 /**
- * Labcompara — Serie histórica de precios
+ * Medcompara — Serie histórica de precios
  * ----------------------------------------
  * Mismo formato que `data/price-history.json` de GLPcompara, para que los dos
  * comparadores se puedan graficar con el mismo código:

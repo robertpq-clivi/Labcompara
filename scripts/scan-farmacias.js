@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Scanner de precios de medicamentos GLP-1
+ * Medcompara — Scanner de precios de medicamentos GLP-1
  * ------------------------------------------------------
  * Equivalente de scan-labs.js para la vertical de farmacias. Comparte con él
  * el transporte (lib/http.js con escalada a Zyte), el parseo de precios y el
@@ -59,7 +59,7 @@ const ctxPara = (ad) => {
   const { catalogo, adaptadores, columnas, curados, urlFarmacia } = V;
   const familias = Object.keys(catalogo.families);
 
-  console.log('Labcompara · scan de medicamentos GLP-1');
+  console.log('Medcompara · scan de medicamentos GLP-1');
   console.log(`${catalogo.products.length} presentaciones · ${familias.length} familias · ${columnas.length} fuentes`);
   if (!DRY) {
     const chk = await http.verificarProxy();

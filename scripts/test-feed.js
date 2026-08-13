@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Test del cargador de precios de index.html
+ * Medcompara — Test del cargador de precios de index.html
  * --------------------------------------------------------
  * `cargarPrecios()` es la pieza que decide si el sitio muestra precios frescos
  * o el snapshot embebido. Si falla mal, el comparador se queda a medias sin

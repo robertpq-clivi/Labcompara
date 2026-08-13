@@ -1,5 +1,5 @@
 /**
- * Labcompara — Transporte HTTP con escalada a Zyte
+ * Medcompara — Transporte HTTP con escalada a Zyte
  * -------------------------------------------------
  * Mismo proveedor que GLPcompara: Zyte (`api.zyte.com/v1/extract`), con la
  * misma variable de entorno `SCRAPER_API_KEY` y el mismo secret de GitHub.
@@ -25,7 +25,7 @@
 
 'use strict';
 
-const UA = 'LabcomparaBot/1.0 (+https://labcompara.com; comparador de precios)';
+const UA = 'MedcomparaBot/1.0 (+https://medcompara.com.mx; comparador de precios)';
 /**
  * Algunos WAF rechazan cualquier User-Agent que no parezca navegador aunque el
  * endpoint sea público — el /graphql de Farmacias del Ahorro es el caso. Para

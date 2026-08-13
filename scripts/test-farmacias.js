@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Test del emparejador de medicamentos
+ * Medcompara — Test del emparejador de medicamentos
  * --------------------------------------------------
  * En la vertical de laboratorio, equivocarse de estudio cuesta cientos de pesos.
  * Aquí cuesta miles: "Mounjaro 2.5 mg" y "Mounjaro 15 mg" son la misma caja con

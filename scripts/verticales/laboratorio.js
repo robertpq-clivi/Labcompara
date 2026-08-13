@@ -1,5 +1,5 @@
 /**
- * Labcompara — Adaptadores de laboratorio
+ * Medcompara — Adaptadores de laboratorio
  * ----------------------------------------
  * Cada adaptador expone { id, nombre, modo, scan(ctx) } y devuelve una lista de:
  *   { nombre, precio, precioLista, url, sku }
@@ -10,7 +10,7 @@
  *
  * Los adaptadores NO hacen fetch directo: reciben `ctx.get(url)` y `ctx.getJSON(url)`
  * para que el runner controle concurrencia, reintentos y User-Agent. El mismo
- * contrato lo reimplementa scripts/labcompara-apps-script.gs sobre UrlFetchApp.
+ * contrato lo reimplementa scripts/medcompara-apps-script.gs sobre UrlFetchApp.
  */
 
 'use strict';
@@ -197,7 +197,7 @@ const lapi = {
  * respaldo a patrones de precio comunes.
  *
  * olab.com.mx/robots.txt bloquea por nombre a los crawlers de IA (ClaudeBot,
- * GPTBot, CCBot, …) pero deja `User-agent: * → Allow: /`. LabcomparaBot cae
+ * GPTBot, CCBot, …) pero deja `User-agent: * → Allow: /`. MedcomparaBot cae
  * bajo `*`, y la corrida del 13/08/2026 desde GitHub Actions lo confirmó:
  * 6,043 fichas en el sitemap, 2,077 con precio, sin necesidad de proxy.
  *

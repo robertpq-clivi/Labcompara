@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Test del emparejador de nombres de estudio
+ * Medcompara — Test del emparejador de nombres de estudio
  * --------------------------------------------------------
  * Emparejar mal no rompe nada visiblemente: publica un precio equivocado y se
  * ve igual de normal que uno correcto. Por eso cada caso de aquí es un fallo
@@ -118,7 +118,7 @@ const canonicos = ['Biometría Hemática', 'Perfil Tiroideo'];
 const { mapeo, sinMatch } = emparejar(canonicos, [
   { nombre: 'BIOMETRIA HEMATICA', precio: 115 },
   { nombre: 'Perfil Tiroideo II', precio: 811 },
-  { nombre: 'ESTUDIO QUE NO EXISTE EN LABCOMPARA', precio: 999 },
+  { nombre: 'ESTUDIO QUE NO EXISTE EN MEDCOMPARA', precio: 999 },
 ]);
 
 // Gana el mejor parecido, no el precio más bajo: un match exacto caro debe

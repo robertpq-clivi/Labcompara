@@ -1,5 +1,5 @@
 /**
- * Labcompara — Parseo de precios y HTML
+ * Medcompara — Parseo de precios y HTML
  * --------------------------------------
  * Helpers que usan las dos verticales. Vivían dentro del módulo de laboratorio;
  * al portar las farmacias quedó claro que no tienen nada de específico de un

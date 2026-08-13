@@ -1,5 +1,5 @@
 /**
- * Labcompara — Adaptadores de farmacia (vertical GLP-1)
+ * Medcompara — Adaptadores de farmacia (vertical GLP-1)
  * ------------------------------------------------------
  * Portado de scraper/scrape.py de GLPcompara para que las dos verticales
  * compartan transporte (lib/http.js con Zyte), parseo de precios, historial y

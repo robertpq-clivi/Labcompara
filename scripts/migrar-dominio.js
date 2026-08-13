@@ -53,6 +53,10 @@ function reescribir(texto) {
   t = t.split(MARCA_DE).join(MARCA_A);
   // marca partida entre etiquetas: Lab<span>compara</span>
   t = t.split(`${PREFIJO_DE}<span>${RESTO}`).join(`${PREFIJO_A}<span>${RESTO}`);
+  // Y en minúsculas: nombre del paquete, del bot de commits y del archivo
+  // labcompara-apps-script.gs, que además se renombra más abajo. Sin esto
+  // quedan enlaces rotos hacia un archivo que ya no existe.
+  t = t.split(MARCA_DE.toLowerCase()).join(MARCA_A.toLowerCase());
   return t.split(CENTINELA).join('utm_source=glpcompara');
 }
 
@@ -81,11 +85,13 @@ let ocurrencias = 0;
 
 for (const f of archivos()) {
   const antes = fs.readFileSync(f, 'utf8');
-  if (!antes.includes(DE) && !antes.includes(MARCA_DE)) continue;
+  // El filtro debe mirar las tres formas, o descarta el archivo antes de
+  // llegar al reemplazo: así se quedaron atrás package.json ("labcompara") y
+  // las referencias al .gs renombrado.
+  if (!antes.includes(DE) && !antes.includes(MARCA_DE) && !antes.includes(MARCA_DE.toLowerCase())) continue;
   const despues = reescribir(antes);
   if (despues === antes) continue;
-  const n = (antes.match(new RegExp(DE.replace(/\./g, '\\.'), 'g')) || []).length +
-            (antes.match(new RegExp(MARCA_DE, 'g')) || []).length;
+  const n = (antes.match(new RegExp(MARCA_DE, 'gi')) || []).length;
   ocurrencias += n;
   tocados.push({ f: path.relative(ROOT, f), n });
   if (APPLY) fs.writeFileSync(f, despues);

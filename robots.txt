@@ -1,5 +1,5 @@
-# labcompara.com — robots.txt
+# medcompara.com.mx — robots.txt
 User-agent: *
 Allow: /
 
-Sitemap: https://labcompara.com/sitemap-index.xml
+Sitemap: https://medcompara.com.mx/sitemap-index.xml

@@ -82,7 +82,7 @@ jobs:
       - name: Commitear precios actualizados
         if: ${{ !inputs.dry_run }}
         run: |
-          git config user.name  "labcompara-bot"
+          git config user.name  "medcompara-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data/ index.html
           if git diff --staged --quiet; then

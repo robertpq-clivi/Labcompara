@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Ampliación del catálogo de estudios
+ * Medcompara — Ampliación del catálogo de estudios
  * -------------------------------------------------
  * El scan semanal refresca los precios de los estudios que YA están publicados;
  * nunca inventa filas nuevas (a propósito: consolidar y descubrir son
@@ -118,7 +118,7 @@ const catalogo = publicados.concat(filasNuevas);
 const porNumLabs = {};
 for (const g of nuevos) porNumLabs[g.labs] = (porNumLabs[g.labs] || 0) + 1;
 
-console.log('Labcompara · ampliación de catálogo');
+console.log('Medcompara · ampliación de catálogo');
 console.log(`  nombres agrupados   : ${Object.values(porLab).reduce((n, r) => n + r.length, 0).toLocaleString('es-MX')}`);
 console.log(`  umbral              : ${MIN_LABS}+ laboratorios`);
 console.log(`  estudios publicados : ${publicados.length}`);

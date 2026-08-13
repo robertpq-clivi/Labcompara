@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Labcompara — Sitemap Generator
+ * Medcompara — Sitemap Generator
  * Generates: sitemap-core.xml, sitemap-estudios.xml, sitemap-blog.xml, sitemap-index.xml
  *
  * Usage:
@@ -14,7 +14,7 @@ const fs   = require('fs');
 const path = require('path');
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
-const BASE_URL  = 'https://labcompara.com';
+const BASE_URL  = 'https://medcompara.com.mx';
 const TODAY     = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 const PUBLIC_DIR = path.join(__dirname, '..'); // Sitemaps at repo root → served at domain root
 
@@ -119,7 +119,7 @@ function write(filename, content) {
 }
 
 // ── GENERATE ──────────────────────────────────────────────────────────────────
-console.log('\n🗺️  Labcompara Sitemap Generator');
+console.log('\n🗺️  Medcompara Sitemap Generator');
 console.log(`   BASE_URL : ${BASE_URL}`);
 console.log(`   lastmod  : ${TODAY}`);
 console.log(`   Output   : repo root/\n`);

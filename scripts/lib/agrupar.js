@@ -1,8 +1,8 @@
 /**
- * Labcompara — Agrupador de estudios entre laboratorios
+ * Medcompara — Agrupador de estudios entre laboratorios
  * ------------------------------------------------------
  * El emparejador de match.js resuelve "¿este nombre de lab es este estudio de
- * Labcompara?" — necesita una lista canónica previa. Aquí el problema es el
+ * Medcompara?" — necesita una lista canónica previa. Aquí el problema es el
  * inverso y más difícil: **descubrir** qué estudios existen, agrupando 8,265
  * nombres de seis laboratorios sin lista de referencia.
  *

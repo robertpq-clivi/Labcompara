@@ -1,5 +1,5 @@
 /**
- * Labcompara — Reescritura de RAW_DATA dentro de index.html
+ * Medcompara — Reescritura de RAW_DATA dentro de index.html
  * ----------------------------------------------------------
  * index.html es un solo archivo sin build: los estudios viven en un literal
  * `const RAW_DATA = [ … ];`. Este módulo reemplaza ese bloque conservando el
