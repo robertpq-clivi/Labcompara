@@ -21,6 +21,18 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"Comparador de precios de medicamentos","url":"https://medcompara.com.mx/medicinas","inLanguage":"es-MX","isPartOf":{"@type":"WebSite","name":"Medcompara","url":"https://medcompara.com.mx/"}}
 </script>
+<!-- Google tag (gtag.js) — las dos propiedades del sitio: la que venía de
+     labcompara y la que venía de glpcompara. Se manda a ambas mientras se
+     decide cuál queda como la del dominio, para no partir el histórico. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7ZMHHCW6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q7ZMHHCW6X');
+  gtag('config', 'G-P034DVL01J');
+</script>
+<script src="/assets/track.js" defer></script>
 <style>
 /* ===========================================================================
    Medcompara — Comparador de medicamentos de farmacia
@@ -568,27 +580,43 @@ $('form-submit').onclick = async function(){
   irBusqueda();
 };
 
-// Misma hoja que la vertical GLP-1: los leads de las tres caen en el mismo
-// lugar y se distinguen por "vertical".
-const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxKB4HJnpIxH2e-CLvr74ZsC1YSDon_It_khHS70Ha_P2QqSvo7Ul3Fj9S19MRsxstn/exec';
-function sheetLog(tipo, data){
-  if(!SHEET_WEBHOOK) return;
-  try{
-    fetch(SHEET_WEBHOOK, {
-      method:'POST',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},  // text/plain evita el preflight CORS
-      body: JSON.stringify(Object.assign({tipo, origen:'medcompara.com.mx', vertical:'medicinas'}, data)),
-    });
-  }catch(e){ console.warn('sheetLog:', e.message); }
+// ── REGISTRO ───────────────────────────────────────────────────────────────
+// La entrega la hace /assets/track.js, compartido con las otras dos
+// verticales: sendBeacon para que el click a la farmacia sobreviva a la
+// navegación, y cola en localStorage para lo que no se pueda entregar.
+const traza = (tipo, datos) => (window.MC ? MC.log(tipo, datos) : null);
+async function guardarLead(l){
+  if(window.MC) MC.identidad({nombre:l.nombre, correo:l.correo});
+  traza('lead', {cp:l.cp});
+  if(window.MC) MC.ga('generate_lead', {});
 }
-async function guardarLead(l){ sheetLog('lead', {nombre:l.nombre, correo:l.correo, cp:l.cp}); }
 function trackFarmacia(p){
-  if(typeof gtag !== 'undefined') gtag('event','click_ir_a_la_farmacia', p);
-  sheetLog('click', {nombre:lead?lead.nombre:'', correo:lead?lead.correo:'', farmacia:p.pharmacy_name||'', medicamento:p.medicamento||'', precio:p.price_mxn||''});
+  traza('click', {farmacia:p.pharmacy_name||'', medicamento:p.medicamento||'', precio:p.price_mxn||'', destino:p.destination||''});
+  if(window.MC) MC.ga('click_ir_a_la_farmacia', p);
 }
 function trackComparar(medicamento, presentaciones){
-  if(typeof gtag !== 'undefined') gtag('event','ver_comparativa', {medicamento, dosis:presentaciones});
-  sheetLog('comparacion', {nombre:lead?lead.nombre:'', correo:lead?lead.correo:'', medicamento, dosis:presentaciones});
+  traza('comparacion', {medicamento, dosis:presentaciones});
+  if(window.MC) MC.ga('ver_comparativa', {medicamento, dosis:presentaciones});
+}
+/**
+ * Qué escribe la gente en el buscador.
+ *
+ * Se espera a que deje de teclear: sin eso, "omeprazol" mandaría nueve
+ * eventos, uno por letra, y la hoja diría que lo más buscado es "o".
+ * Las consultas con cero resultados se registran igual —son las más
+ * valiosas: es demanda que hoy no cubrimos—.
+ */
+let tBusqueda = null, ultimaBusqueda = '';
+function trackBusqueda(consulta, resultados){
+  clearTimeout(tBusqueda);
+  const q = String(consulta||'').trim();
+  if(q.length < 3) return;
+  tBusqueda = setTimeout(() => {
+    if(q === ultimaBusqueda) return;
+    ultimaBusqueda = q;
+    traza('busqueda', {consulta:q, resultados});
+    if(window.MC) MC.ga('search', {search_term:q, resultados});
+  }, 900);
 }
 
 // ── PASO 2: MEDICAMENTO ────────────────────────────────────────────────────
@@ -617,7 +645,7 @@ function renderMedGrid(q){
   if(!MEDS.length){ grid.innerHTML = '<div class="vacio">Cargando medicamentos…</div>'; return; }
   if(!lista.length){
     grid.innerHTML = `<div class="vacio">No encontramos "${esc(q)}" con al menos dos farmacias que tengan la misma caja.<br/>Puede que solo una lo venda, o que cada una maneje una presentación distinta.</div>`;
-    return;
+    return 0;
   }
   grid.innerHTML = lista.map(m => {
     const n = m.filas.length;
@@ -632,10 +660,12 @@ function renderMedGrid(q){
     </div>`;
   }).join('');
   grid.querySelectorAll('.study-item').forEach(el => el.onclick = () => elegirMed(el.dataset.med));
+  return lista.length;
 }
 
 $('buscar').addEventListener('input', e => {
-  renderMedGrid(e.target.value);
+  const n = renderMedGrid(e.target.value);
+  trackBusqueda(e.target.value, n);
   // La búsqueda queda en la URL para que se pueda compartir o volver a ella.
   // replaceState y no pushState: escribir letra por letra no debe llenar el
   // historial de entradas que hay que atravesar con el botón de regresar.
@@ -649,6 +679,10 @@ function elegirMed(nombre){
   medSel = MEDS.find(m => m.nombre === nombre);
   if(!medSel) return;
   selected = [];
+  // Más fiable que el texto tecleado: aquí ya sabemos qué medicamento es, sin
+  // erratas ni búsquedas a medio escribir.
+  traza('seleccion', {medicamento:medSel.nombre, categoria:medSel.categoria||'', presentaciones:medSel.filas.length});
+  if(window.MC) MC.ga('select_item', {item_name:medSel.nombre, item_category:medSel.categoria||''});
   // "Dosis en caso de que haya más de una": con una sola presentación el paso
   // sería una pantalla con un único botón, así que se salta.
   if(medSel.filas.length === 1){

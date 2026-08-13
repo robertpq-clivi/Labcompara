@@ -39,6 +39,7 @@ ev.forEach(function(e){window.addEventListener(e,load,{passive:true,once:true});
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"/></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Medcompara","alternateName":["GLP compara","GLP Compara","Medcompara M&#xe9;xico"],"url":"https://medcompara.com.mx/","description":"Comparador de precios de medicamentos GLP-1 en M&#xe9;xico","inLanguage":"es-MX","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://medcompara.com.mx/blog/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Medcompara","alternateName":"GLP compara","url":"https://medcompara.com.mx/","logo":"https://medcompara.com.mx/favicon.png","areaServed":"M&#xe9;xico","description":"Comparador gratuito de precios de medicamentos GLP-1 (Ozempic, Mounjaro, Wegovy, Rybelsus) en M&#xe9;xico"}</script>
+<script src="/assets/track.js" defer></script>
 <style>
 :root{--navy:#0B1F4B;--navy-mid:#1a3a6e;--teal:#00B4D8;--teal-light:#90E0EF;--teal-dark:#0077A8;--green:#10B981;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-600:#475569;--gray-800:#1E293B;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -582,19 +583,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div>
           <div class="footer-col-h">Precios</div>
-          <a href="/blog/ozempic-precio-mexico.html" class="footer-a">Precio de Ozempic</a>
-          <a href="/blog/mounjaro-precio-mexico.html" class="footer-a">Precio de Mounjaro</a>
-          <a href="/blog/wegovy-precio-mexico.html" class="footer-a">Precio de Wegovy</a>
-          <a href="/blog/precio-tirzepatida-mexico.html" class="footer-a">Precio de la tirzepatida</a>
-          <a href="/blog/precio-semaglutida-mexico.html" class="footer-a">Precio de la semaglutida</a>
+          <a href="/blog/ozempic-precio-mexico" class="footer-a">Precio de Ozempic</a>
+          <a href="/blog/mounjaro-precio-mexico" class="footer-a">Precio de Mounjaro</a>
+          <a href="/blog/wegovy-precio-mexico" class="footer-a">Precio de Wegovy</a>
+          <a href="/blog/precio-tirzepatida-mexico" class="footer-a">Precio de la tirzepatida</a>
+          <a href="/blog/precio-semaglutida-mexico" class="footer-a">Precio de la semaglutida</a>
         </div>
         <div>
           <div class="footer-col-h">Gu&#xed;as</div>
-          <a href="/blog/semaglutida-vs-tirzepatida.html" class="footer-a">Semaglutida vs Tirzepatida</a>
-          <a href="/blog/mounjaro-vs-ozempic.html" class="footer-a">Ozempic vs Mounjaro</a>
-          <a href="/blog/que-es-ozempic-para-que-sirve.html" class="footer-a">&#xbf;Qu&#xe9; es la semaglutida?</a>
-          <a href="/blog/como-funciona-glp1-para-controlar-el-apetito.html" class="footer-a">&#xbf;C&#xf3;mo funcionan los GLP-1?</a>
-          <a href="/blog/index.html" class="footer-a">Blog</a>
+          <a href="/blog/semaglutida-vs-tirzepatida" class="footer-a">Semaglutida vs Tirzepatida</a>
+          <a href="/blog/mounjaro-vs-ozempic" class="footer-a">Ozempic vs Mounjaro</a>
+          <a href="/blog/que-es-ozempic-para-que-sirve" class="footer-a">&#xbf;Qu&#xe9; es la semaglutida?</a>
+          <a href="/blog/como-funciona-glp1-para-controlar-el-apetito" class="footer-a">&#xbf;C&#xf3;mo funcionan los GLP-1?</a>
+          <a href="/blog" class="footer-a">Blog</a>
         </div>
         <div>
           <div class="footer-col-h">Legal</div>
@@ -1057,12 +1058,18 @@ $('promo-cta').onclick=goForm;
 const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxKB4HJnpIxH2e-CLvr74ZsC1YSDon_It_khHS70Ha_P2QqSvo7Ul3Fj9S19MRsxstn/exec';
 // Envía un registro a la hoja (enruta por "tipo": lead | comparacion | click).
 function sheetLog(tipo, data){
+  // La entrega la hace /assets/track.js: sendBeacon en vez de fetch, porque el
+  // click a la farmacia ocurre justo cuando el navegador abandona la página y
+  // ahí un fetch normal se aborta a media vuelta. El respaldo de abajo solo
+  // corre si el módulo compartido no cargó.
+  if(window.MC) return MC.log(tipo, data);
   if(!SHEET_WEBHOOK) return;
   try{
     fetch(SHEET_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // text/plain evita el preflight CORS
-      body: JSON.stringify(Object.assign({ tipo: tipo, origen: 'medcompara.com.mx' }, data))
+      body: JSON.stringify(Object.assign({ tipo: tipo, vertical: 'glp1', origen: 'medcompara.com.mx' }, data)),
+      keepalive: true,
     });
   }catch(e){ console.warn('sheetLog:', e.message); }
 }
@@ -1072,6 +1079,7 @@ async function saveLead(l){
 // Click "Ir a la farmacia": GA4 + hoja (pestaña Clicks).
 function trackPharmaClick(p){
   if(typeof gtag!=='undefined') gtag('event','click_ir_a_la_farmacia', p);
+  if(window.MC) MC.identidad({nombre:lead?lead.nombre:'', correo:lead?lead.correo:''});
   sheetLog('click', { nombre: lead?lead.nombre:'', correo: lead?lead.correo:'', farmacia: p.pharmacy_name||'', medicamento: p.medicamento||'', precio: p.price_mxn||'' });
 }
 // Ver comparativa: GA4 + hoja (pestaña Comparaciones).
@@ -1459,6 +1467,9 @@ document.getElementById('m-go').addEventListener('click', function() {
   setTimeout(maybeOpen, 12000);
   document.addEventListener('mouseout', function ei(e){ if(e.clientY<=0){ document.removeEventListener('mouseout',ei); maybeOpen(); } });
 })();
+
+if (window.MC) MC.init({vertical:'glp1'});
+else addEventListener('DOMContentLoaded', () => { if (window.MC) MC.init({vertical:'glp1'}); });
 </script>
 </main>
 </body>

@@ -7,7 +7,7 @@
     "predeploy": "npm run generate:sitemaps",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
-    "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-medicinas.js && node scripts/test-feed.js",
+    "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-medicinas.js && node scripts/test-captura.js && node scripts/test-feed.js",
     "expandir": "node scripts/expandir-catalogo.js",
     "expandir:apply": "node scripts/expandir-catalogo.js --apply",
     "scan:labs": "node scripts/scan-labs.js",

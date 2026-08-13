@@ -224,6 +224,18 @@ footer{padding:44px 0 52px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
   *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;}
 }
 </style>
+<!-- Google tag (gtag.js) — el landing es la puerta de entrada del sitio y no
+     tenía medición: no se sabía cuánta gente llega ni a qué vertical entra.
+     Se manda a las dos propiedades mientras se decide cuál queda. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7ZMHHCW6X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q7ZMHHCW6X');
+  gtag('config', 'G-P034DVL01J');
+</script>
+<script src="/assets/track.js" defer></script>
 </head>
 <body>
 
@@ -413,5 +425,18 @@ footer{padding:44px 0 52px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
   </div>
 </section>
 
+<script>
+// Qué comparador elige la gente al llegar. Es la única pregunta que el landing
+// puede responder, y hasta ahora no la respondía.
+addEventListener('DOMContentLoaded', function(){
+  if (window.MC) MC.init({vertical:'landing'});
+  document.querySelectorAll('a.card').forEach(function(a){
+    a.addEventListener('click', function(){
+      var t = (a.querySelector('h2') || {}).textContent || a.getAttribute('href');
+      if (window.MC) { MC.log('seleccion', {medicamento: t.trim(), categoria: 'comparador'}); MC.ga('select_item', {item_name: t.trim()}); }
+    });
+  });
+});
+</script>
 </body>
 </html>

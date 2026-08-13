@@ -30,6 +30,7 @@
 <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onload="initSupabase()"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Medcompara","url":"https://medcompara.com.mx/","description":"Comparador de precios de estudios de laboratorio cl&#xed;nico en M&#xe9;xico"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Medcompara","url":"https://medcompara.com.mx/","areaServed":"M&#xe9;xico"}</script>
+<script src="/assets/track.js" defer></script>
 <style>
 :root{--navy:#0B1F4B;--navy-mid:#1a3a6e;--teal:#00B4D8;--teal-light:#90E0EF;--teal-dark:#0077A8;--green:#10B981;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;--gray-600:#475569;--gray-800:#1E293B;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -370,14 +371,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
           <a href="https://salud-digna.org/" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'Salud Digna'})">Salud Digna</a>
           <a href="https://olab.com.mx/" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'OLAB'})">OLAB</a>
           <a href="https://lapi.com.mx/" target="_blank" rel="noopener" class="footer-a" onclick="typeof gtag!=='undefined'&&gtag('event','click_footer_lab',{lab_name:'LAPI'})">LAPI</a>
-          <a href="pages/laboratorio-cerca-de-mi.html" class="footer-a">Laboratorio M&#xe9;dico Polanco</a>
+          <a href="/laboratorio-cerca-de-mi" class="footer-a">Laboratorio M&#xe9;dico Polanco</a>
         </div>
         <div>
           <div class="footer-col-h">Explora</div>
-          <a href="pages/estudios-de-laboratorio.html" class="footer-a">Estudios de laboratorio</a>
-          <a href="pages/analisis-clinicos.html" class="footer-a">An&#xe1;lisis cl&#xed;nicos</a>
-          <a href="pages/examenes-de-sangre.html" class="footer-a">Ex&#xe1;menes de sangre</a>
-          <a href="blog/index.html" class="footer-a">Blog</a>
+          <a href="/estudios-de-laboratorio" class="footer-a">Estudios de laboratorio</a>
+          <a href="/analisis-clinicos" class="footer-a">An&#xe1;lisis cl&#xed;nicos</a>
+          <a href="/examenes-de-sangre" class="footer-a">Ex&#xe1;menes de sangre</a>
+          <a href="/blog" class="footer-a">Blog</a>
         </div>
         <div>
           <div class="footer-col-h">Legal</div>
@@ -1457,14 +1458,23 @@ document.getElementById('m-go').addEventListener('click', function() {
     price_mxn:  Number(this.dataset.price) || 0,
     destination: this.href,
   };
-  console.log('[Medcompara GA4]', 'click_ir_al_laboratorio', params);
   if (typeof gtag !== 'undefined') {
     gtag('event', 'click_ir_al_laboratorio', params);
   }
+  // Hasta ahora este click solo existía en GA4. En la hoja —que es donde se
+  // revisa a diario qué laboratorio se está llevando el tráfico— no quedaba
+  // ningún rastro.
+  if (window.MC) MC.log('click', {
+    laboratorio: params.lab_name, estudio: params.study_name,
+    precio: params.price_mxn, destino: params.destination,
+  });
 });
 
 // Arranca con el snapshot embebido ya renderizable y refresca en segundo plano
 // con el feed del scan semanal.
+if (window.MC) MC.init({vertical:'laboratorio'});
+else addEventListener('DOMContentLoaded', () => { if (window.MC) MC.init({vertical:'laboratorio'}); });
+
 cargarPrecios();
 </script>
 </main>
