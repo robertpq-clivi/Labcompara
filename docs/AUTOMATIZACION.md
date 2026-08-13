@@ -308,8 +308,38 @@ laboratorio, dejando a uno con un precio 8× más caro.
 
 ## 5.3 La vertical de farmacia general
 
-Los 100 principios activos más buscados en México, en cinco farmacias:
+Los 200 principios activos más buscados en México, en cinco farmacias:
 **Ahorro, Benavides, Guadalajara, San Pablo y Prixz**.
+
+La lista sale de un Google Sheet que **crece** —empezó en 100 y ya va en 200—,
+así que el catálogo se regenera con un comando en vez de editarse a mano:
+
+```bash
+npm run catalogo:medicinas          # reporta qué cambiaría, sin escribir
+npm run catalogo:medicinas:apply    # lo aplica
+```
+
+Lee `data/medicinas/hoja-origen.csv` (el export tal cual de la hoja) y escribe
+`scripts/verticales/medicinas-catalogo.json`. El trabajo no es parsear el CSV
+sino que la columna del principio activo mezcla cinco cosas bajo la misma
+forma, y confundirlas hace que la farmacia devuelva otra cosa o nada:
+
+| En la hoja | Qué es | Qué se hace |
+|---|---|---|
+| `Etoricoxib (Arcoxia)` | activo + marca | la marca se guarda como sinónimo |
+| `Valproato de sodio / Ácido valproico` | dos nombres del mismo fármaco | uno se publica, el otro es sinónimo |
+| `Finasterida / Dutasterida` | dos fármacos distintos | se separan en dos entradas |
+| `Levodopa con Carbidopa` | un producto con dos activos | se exigen los dos en el título |
+| `Dexametasona oftálmica` | el mismo activo por otra vía | la vía va en la búsqueda, no en el activo |
+
+Las tres primeras tienen la misma forma de texto —`A / B` o `A (B)`— y
+significan cosas distintas, así que van en una tabla explícita dentro del
+script. Adivinar ahí sería adivinar en silencio.
+
+Guardar las marcas comerciales no es cosmético: media farmacia titula sus
+productos por marca y no por activo, y sin el sinónimo la caja de marca nunca
+se emparejaría con su genérica — que es justo la comparación que la página
+existe para mostrar.
 
 ```bash
 npm run scan:medicinas

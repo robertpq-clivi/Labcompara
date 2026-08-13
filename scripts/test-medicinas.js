@@ -67,6 +67,63 @@ for (const [titulo, sust, porque] of [
   check(r.clave === null, `${porque.padEnd(15)} ${titulo.slice(0, 50)}`, r.clave || '');
 }
 
+// ── la marca comercial cuenta como el activo ────────────────────────────────
+// Media farmacia titula por marca. Sin esto, la caja de marca y la genérica
+// —que es toda la comparación— quedarían en filas distintas.
+console.log('\nMarcas comerciales:');
+const DIMEN = { nombre: 'Dimenhidrinato', tambien: 'Dramamine', raiz: 'dimenhidrinato' };
+check(leer('Dramamine 50 mg Con 12 Tabletas', DIMEN).clave === 'dimenhidrinato|50mg|tabletas|12',
+  'Dramamine → dimenhidrinato', leer('Dramamine 50 mg Con 12 Tabletas', DIMEN).clave || 'rechazado');
+check(leer('Dimenhidrinato 50 mg 12 tabletas', DIMEN).clave === leer('Dramamine 50 mg Con 12 Tabletas', DIMEN).clave,
+  'marca y genérico comparten llave');
+// La marca no debe abrir la puerta a cualquier cosa que la mencione.
+check(leer('Dramamine 50 mg Con 12 Tabletas', { nombre: 'Loratadina', raiz: 'loratadina' }).clave === null,
+  'la marca de otro activo no cuela');
+
+// ── combinados que SÍ son lo que se buscó ───────────────────────────────────
+// "Vildagliptina/Metformina" se descarta porque se buscaba metformina sola.
+// Amoxicilina con clavulánico es lo contrario: la combinación es el producto,
+// y exigir los dos activos es lo que impide que se cuele la amoxicilina sola,
+// que cuesta la tercera parte.
+console.log('\nCombinados declarados:');
+const AMOXI = {
+  nombre: 'Amoxicilina con Ác. Clavulánico',
+  activos: ['Amoxicilina', 'Ácido clavulánico'],
+  raices: ['amoxicilina', 'clavulan'],
+};
+for (const [titulo, esperada] of [
+  ['Amoxicilina con Ácido Clavulánico 875/125 mg Con 14 Tabletas', 'amoxicilina+acido clavulanico|875/125mg|tabletas|14'],
+  ['Amoxicilina/Clavulanato de Potasio 875 mg / 125 mg 14 tabletas', 'amoxicilina+acido clavulanico|875/125mg|tabletas|14'],
+]) {
+  const r = leer(titulo, AMOXI);
+  check(r.clave === esperada, `${titulo.slice(0, 48)}`, r.clave || 'rechazado');
+}
+check(leer('Amoxicilina 500 mg Con 12 Cápsulas', AMOXI).clave === null,
+  'la amoxicilina sola no pasa por el combinado');
+// Y al revés: buscando el activo simple, el combinado se sigue descartando.
+check(leer('Amoxicilina con Ácido Clavulánico 875/125 mg 14 Tabletas', 'Amoxicilina').clave === null,
+  'el combinado no pasa por el activo simple');
+// Dos dosis distintas del mismo combinado no son la misma caja.
+check(leer('Amoxicilina con Ácido Clavulánico 875/125 mg 14 Tabletas', AMOXI).clave
+   !== leer('Amoxicilina con Ácido Clavulánico 500/125 mg 14 Tabletas', AMOXI).clave,
+  '875/125 y 500/125 son filas distintas');
+
+// ── los ml de un inyectable no son una unidad de comparación ────────────────
+// Los ml de una pluma precargada son el volumen del dispositivo. Compararlos
+// contra los de un frasco ámpula es el mismo error que ya costó una corrección
+// en la vertical de GLP-1; aquí se corta antes de que pueda repetirse.
+console.log('\nInyectables y líquidos:');
+for (const [titulo, sust, debe] of [
+  ['Mounjaro Tirzepatida 2.5 mg / 0.5 ml Pluma Precargada', 'Tirzepatida', null],
+  ['Insulina Glargina 100 UI 3 ml Cartucho', 'Insulina Glargina', null],
+  ['Ceftriaxona 1 g Solución Inyectable Frasco Ámpula 10 ml', 'Ceftriaxona', null],
+]) {
+  const r = leer(titulo, sust);
+  check(r.clave === debe, `sin llave: ${titulo.slice(0, 46)}`, r.clave || '');
+}
+const jarabe = leer('Paracetamol 100 mg Suspensión Infantil Frasco 15 ml', 'Paracetamol');
+check(jarabe.clave === 'paracetamol|100mg|líquido|15ml', 'la suspensión oral sí se compara por ml', jarabe.clave || 'rechazado');
+
 // ── la llave se lee de vuelta ───────────────────────────────────────────────
 console.log('\nEtiqueta legible:');
 check(etiqueta('omeprazol|20mg|cápsulas|14') === 'Omeprazol 20mg · 14 cápsulas', '"Omeprazol 20mg · 14 cápsulas"');
@@ -75,8 +132,21 @@ check(etiqueta('paracetamol|100mg|líquido|15ml') === 'Paracetamol 100mg · 15ml
 // ── el catálogo y las farmacias están bien formados ─────────────────────────
 console.log('\nIntegridad:');
 const meds = V.catalogo.medicamentos;
-check(meds.length === 100, `${meds.length} medicamentos en el catálogo`);
+// No se afirma un número: la hoja crece —empezó en 100 y ya va en 200— y un
+// número a mano solo dice cuándo se actualizó el test. Lo que sí tiene que ser
+// cierto es que el catálogo esté al día con la hoja de la que sale: si alguien
+// agrega renglones y olvida reconstruirlo, aquí se ve.
+const hoja = require('fs').readFileSync(
+  require('path').join(__dirname, '..', 'data', 'medicinas', 'hoja-origen.csv'), 'utf8');
+const ranksHoja = new Set([...hoja.matchAll(/(?:^|")(\d{1,3}),[A-ZÁÉÍÓÚÑ]/gm)].map((m) => Number(m[1])));
+const ranksCat = new Set(meds.map((m) => m.rank));
+const sinConstruir = [...ranksHoja].filter((r) => !ranksCat.has(r));
+check(sinConstruir.length === 0,
+  `${meds.length} medicamentos, al día con los ${ranksHoja.size} renglones de la hoja`,
+  `faltan los rangos ${sinConstruir.join(',')} — corre construir-catalogo-medicinas.js --apply`);
 check(meds.every((m) => m.nombre && m.query && m.rank), 'todos con nombre, query y rank');
+// Sin raíz no hay forma de reconocer el activo dentro de un título.
+check(meds.every((m) => m.raiz || (m.raices && m.raices.length)), 'todos con raíz para reconocer el activo');
 check(new Set(meds.map((m) => m.nombre)).size === meds.length, 'sin nombres duplicados');
 check(V.adaptadores.every((x) => x.id && typeof x.buscar === 'function'), 'todo adaptador expone buscar()');
 // YZA no debe reaparecer: su robots.txt prohíbe todo rastreo.

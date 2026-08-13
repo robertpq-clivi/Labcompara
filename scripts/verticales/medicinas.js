@@ -1,7 +1,7 @@
 /**
  * Medcompara — Adaptadores de farmacia para medicamentos generales
  * ------------------------------------------------------------------
- * Tercera vertical: los 100 principios activos más buscados en México.
+ * Tercera vertical: los 200 principios activos más buscados en México.
  *
  * Reusa cuatro adaptadores de la vertical GLP-1 —Ahorro, Benavides, Guadalajara
  * y San Pablo, que ya saben buscar en cada plataforma— y suma Prixz. Se dejan

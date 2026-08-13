@@ -104,7 +104,11 @@ const ctxPara = (ad) => {
       (crudo[med.nombre] = crudo[med.nombre] || {})[ad.id] = items;
 
       for (const it of items) {
-        const p = leer(it.titulo, med.nombre);
+        // Se pasa la entrada completa, no solo el nombre: trae la raíz con la
+        // que reconocer el activo, las marcas comerciales con las que media
+        // farmacia titula sus productos, y —si el producto es un combinado—
+        // los dos activos que el título tiene que mencionar.
+        const p = leer(it.titulo, med);
         if (!p.clave) {
           if (p.combinado) descartes.combinados++;
           else if (p.motivo) descartes.otraSustancia++;

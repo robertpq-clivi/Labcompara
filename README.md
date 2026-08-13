@@ -6,7 +6,7 @@ Comparador de precios de salud en México. Tres verticales en un dominio:
 |---|---|---|
 | `/laboratorio` | **620 estudios** de laboratorio | Labbe, Polanco, Chopo, Salud Digna, LAPI, OLAB |
 | `/medicamentos` | **16 presentaciones** GLP-1 | Clivi, Ahorro, Benavides, Guadalajara, San Pablo, Revert |
-| `/medicinas` | **100 medicamentos** de farmacia | Ahorro, Benavides, Guadalajara, San Pablo, Prixz |
+| `/medicinas` | **200 medicamentos** de farmacia | Ahorro, Benavides, Guadalajara, San Pablo, Prixz |
 
 `/` es el landing de Medcompara y dirige a las tres. GLPcompara se consolidó
 aquí en agosto de 2026; glpcompara.com.mx redirige con 301 en todas sus rutas.
@@ -20,7 +20,7 @@ farmacia: comparar "el más barato" de cada una no compararía nada.
 
 ## Características
 
-- 620 estudios de laboratorio + 16 medicamentos GLP-1 + 100 medicinas de farmacia
+- 620 estudios de laboratorio + 16 medicamentos GLP-1 + 200 medicinas de farmacia
 - **Precios actualizados solos cada 7 días** ([cómo funciona](docs/AUTOMATIZACION.md))
 - Formulario de captura de leads
 - Badges de "Más barato" y "Mejor calificado"
@@ -83,7 +83,8 @@ scripts/
   verticales/laboratorio.js       6 adaptadores de laboratorio
   verticales/farmacias.js         4 adaptadores de farmacia + 2 curados
   verticales/medicinas.js         5 adaptadores de farmacia general
-  verticales/medicinas-catalogo.json  los 100 principios activos más buscados
+  verticales/medicinas-catalogo.json  los 200 principios activos más buscados
+  construir-catalogo-medicinas.js  regenera ese catálogo desde la hoja
   expandir-catalogo.js            amplía RAW_DATA con lo descubierto
   test-match.js  test-farmacias.js  test-medicinas.js  test-feed.js
   medcompara-apps-script.gs       captura de leads (Sheets)

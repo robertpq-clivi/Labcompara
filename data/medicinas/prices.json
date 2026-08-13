@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T20:50:03.639Z",
+  "generated_at": "2026-08-13T21:12:39.718Z",
   "currency": "MXN",
   "fuentes": [
     "Ahorro",
@@ -151,6 +151,62 @@
       "porUnidad": 1
     },
     {
+      "medicamento": "Ibuprofeno",
+      "rank": 3,
+      "categoria": "Antiinflamatorio / Analgésico",
+      "clave": "ibuprofeno|200mg|tabletas|12",
+      "etiqueta": "Ibuprofeno 200mg · 12 tabletas",
+      "mg": 200,
+      "forma": "tabletas",
+      "piezas": 12,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 42,
+          "titulo": "Ibuprofeno 200 mg Oral 12 Tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/ibuprofeno-200-mg-oral-12-grageas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 41,
+          "titulo": "Ibuprofeno 200 Mg Con 12 Tabletas",
+          "url": "https://prixz.com/c/ibuprofeno-200-mg-con-12-tabletas/"
+        }
+      },
+      "min": 41,
+      "max": 42,
+      "ahorro": 1,
+      "masBarata": "Prixz",
+      "porUnidad": 3.42
+    },
+    {
+      "medicamento": "Ibuprofeno",
+      "rank": 3,
+      "categoria": "Antiinflamatorio / Analgésico",
+      "clave": "ibuprofeno|800mg|tabletas|10",
+      "etiqueta": "Ibuprofeno 800mg · 10 tabletas",
+      "mg": 800,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 163,
+          "titulo": "Ibuprofeno 800 mg Oral 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/ibuprofeno-800-mg-oral-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 35,
+          "titulo": "Ibuprofeno 800 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/ibuprofeno-800-mg-con-10-tabletas/"
+        }
+      },
+      "min": 35,
+      "max": 163,
+      "ahorro": 128,
+      "masBarata": "Prixz",
+      "porUnidad": 3.5
+    },
+    {
       "medicamento": "Metformina",
       "rank": 4,
       "categoria": "Antidiabético",
@@ -233,6 +289,2004 @@
       "ahorro": 240,
       "masBarata": "Ahorro",
       "porUnidad": 5.1
+    },
+    {
+      "medicamento": "Ketorolaco",
+      "rank": 5,
+      "categoria": "Analgésico agudo",
+      "clave": "ketorolaco|10mg|tabletas|10",
+      "etiqueta": "Ketorolaco 10mg · 10 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 33,
+          "titulo": "Ketorolaco 10 mg Oral 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/ketorolaco-10-mg-oral-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 9,
+          "titulo": "Ketorolaco 10 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/ketorolaco-10-mg-con-10-tabletas/"
+        }
+      },
+      "min": 9,
+      "max": 33,
+      "ahorro": 24,
+      "masBarata": "Prixz",
+      "porUnidad": 0.9
+    },
+    {
+      "medicamento": "Ketorolaco",
+      "rank": 5,
+      "categoria": "Analgésico agudo",
+      "clave": "ketorolaco|30mg|ampolletas|3",
+      "etiqueta": "Ketorolaco 30mg · 3 ampolletas",
+      "mg": 30,
+      "forma": "ampolletas",
+      "piezas": 3,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 73,
+          "titulo": "Ketorolaco 30 mg Im/Iv 3 ampolleta Marca del Ahorro",
+          "url": "https://www.fahorro.com/ketorolaco-30-mg-im-iv-3-ampolleta-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 28,
+          "titulo": "Ketorolaco 30 Mg Con 3 Ampolletas Solución Inyectable",
+          "url": "https://prixz.com/c/ketorolaco-3-ampolleta-30-mg/"
+        }
+      },
+      "min": 28,
+      "max": 73,
+      "ahorro": 45,
+      "masBarata": "Prixz",
+      "porUnidad": 9.33
+    },
+    {
+      "medicamento": "Ketorolaco",
+      "rank": 5,
+      "categoria": "Analgésico agudo",
+      "clave": "ketorolaco|30mg|tabletas|6",
+      "etiqueta": "Ketorolaco 30mg · 6 tabletas",
+      "mg": 30,
+      "forma": "tabletas",
+      "piezas": 6,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 56,
+          "titulo": "Ketorolaco 30 mg Oral 6 tabletas Sublingual Marca del Ahorro",
+          "url": "https://www.fahorro.com/ketorolaco-30-mg-oral-6-tabletas-sublingual-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 25,
+          "titulo": "Ketorolaco 30 Mg Con 6 Tabletas Sublinguales",
+          "url": "https://prixz.com/c/ketorolaco-30-mg-con-6-tabletas-sublinguales-2/"
+        }
+      },
+      "min": 25,
+      "max": 56,
+      "ahorro": 31,
+      "masBarata": "Prixz",
+      "porUnidad": 4.17
+    },
+    {
+      "medicamento": "Amoxicilina",
+      "rank": 7,
+      "categoria": "Antibiótico",
+      "clave": "amoxicilina|250mg|líquido|75ml",
+      "etiqueta": "Amoxicilina 250mg · 75ml",
+      "mg": 250,
+      "forma": "suspensión",
+      "piezas": null,
+      "ml": 75,
+      "precios": {
+        "Ahorro": {
+          "precio": 56,
+          "titulo": "Amoxicilina 250 mg Oral 75 ml Suspensión Marca del Ahorro",
+          "url": "https://www.fahorro.com/amoxicilina-250-mg-oral-75-ml-suspension-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 197,
+          "titulo": "Penamox Amoxicilina 250 Mg Suspensión Pediátrica Con 75 Ml",
+          "url": "https://prixz.com/c/penamox-250-mg-5ml-oral-pediatrico-75-ml-suspension/"
+        }
+      },
+      "min": 56,
+      "max": 197,
+      "ahorro": 141,
+      "masBarata": "Ahorro",
+      "porUnidad": 0.75
+    },
+    {
+      "medicamento": "Amoxicilina",
+      "rank": 7,
+      "categoria": "Antibiótico",
+      "clave": "amoxicilina|500mg|líquido|75ml",
+      "etiqueta": "Amoxicilina 500mg · 75ml",
+      "mg": 500,
+      "forma": "suspensión",
+      "piezas": null,
+      "ml": 75,
+      "precios": {
+        "Ahorro": {
+          "precio": 106,
+          "titulo": "Amoxicilina 500 mg Suspensión 75 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/amoxicilina-500-mg-suspension-75-ml-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 26,
+          "titulo": "Amoxicilina 500 Mg/75 Ml Suspensión",
+          "url": "https://prixz.com/c/amoxicilina-500-mg-75-ml-suspension/"
+        }
+      },
+      "min": 26,
+      "max": 106,
+      "ahorro": 80,
+      "masBarata": "Prixz",
+      "porUnidad": 0.35
+    },
+    {
+      "medicamento": "Amoxicilina",
+      "rank": 7,
+      "categoria": "Antibiótico",
+      "clave": "amoxicilina|500mg|cápsulas|12",
+      "etiqueta": "Amoxicilina 500mg · 12 cápsulas",
+      "mg": 500,
+      "forma": "cápsulas",
+      "piezas": 12,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 102,
+          "titulo": "Amoxicilina 500 mg Oral 12 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/amoxicilina-500-mg-oral-12-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 26,
+          "titulo": "Acroxil Amoxicilina 500 Mg Con 12 Cápsulas",
+          "url": "https://prixz.com/c/acroxil-12-capsulas-500-mg/"
+        }
+      },
+      "min": 26,
+      "max": 102,
+      "ahorro": 76,
+      "masBarata": "Prixz",
+      "porUnidad": 2.17
+    },
+    {
+      "medicamento": "Clonazepam",
+      "rank": 8,
+      "categoria": "Ansiolítico (Venta controlada)",
+      "clave": "clonazepam|2mg|tabletas|30",
+      "etiqueta": "Clonazepam 2mg · 30 tabletas",
+      "mg": 2,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 83,
+          "titulo": "Clonazepam Medley 2 mg 30 tabletas ",
+          "url": "https://www.fahorro.com/g-clonazepam-medley-2-mg-30-tabletas-c2.html"
+        },
+        "Prixz": {
+          "precio": 71,
+          "titulo": "Clonazepam 2 Mg Con 30 Tabletas (Medley)",
+          "url": "https://prixz.com/c/clonazepam-2-mg-con-30-tabletas-medley/"
+        }
+      },
+      "min": 71,
+      "max": 83,
+      "ahorro": 12,
+      "masBarata": "Prixz",
+      "porUnidad": 2.37
+    },
+    {
+      "medicamento": "Clonazepam",
+      "rank": 8,
+      "categoria": "Ansiolítico (Venta controlada)",
+      "clave": "clonazepam|2.5mg|líquido|10ml",
+      "etiqueta": "Clonazepam 2.5mg · 10ml",
+      "mg": 2.5,
+      "forma": null,
+      "piezas": null,
+      "ml": 10,
+      "precios": {
+        "Ahorro": {
+          "precio": 143,
+          "titulo": "Clonazepam 2.5 mg Solución 10 ml",
+          "url": "https://www.fahorro.com/clonazepam-2-5-mg-solucion-10-ml.html"
+        },
+        "Prixz": {
+          "precio": 89,
+          "titulo": "Clonazepam Gotas 2.5 mg / ml con 10 Ml",
+          "url": "https://prixz.com/c/tempus-pharma-clonazepam-2-5-mg-ml-con-10-ml-solucion/"
+        }
+      },
+      "min": 89,
+      "max": 143,
+      "ahorro": 54,
+      "masBarata": "Prixz",
+      "porUnidad": 8.9
+    },
+    {
+      "medicamento": "Naproxeno",
+      "rank": 9,
+      "categoria": "Antiinflamatorio",
+      "clave": "naproxeno|250mg|tabletas|30",
+      "etiqueta": "Naproxeno 250mg · 30 tabletas",
+      "mg": 250,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 71,
+          "titulo": "Naproxeno 250 mg Oral 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/naproxeno-250-mg-oral-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 25,
+          "titulo": "Naproxeno 250 Mg Con 30 Tabletas (Amsa)",
+          "url": "https://prixz.com/c/naproxeno-250-mg-con-30-tabletas-amsa/"
+        }
+      },
+      "min": 25,
+      "max": 71,
+      "ahorro": 46,
+      "masBarata": "Prixz",
+      "porUnidad": 0.83
+    },
+    {
+      "medicamento": "Naproxeno",
+      "rank": 9,
+      "categoria": "Antiinflamatorio",
+      "clave": "naproxeno|500mg|tabletas|45",
+      "etiqueta": "Naproxeno 500mg · 45 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 45,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 136,
+          "titulo": "Naproxeno 500 mg Oral 45 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/naproxeno-500-mg-oral-45-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 75,
+          "titulo": "Naproxeno 500 Mg Con 45 Tabletas",
+          "url": "https://prixz.com/c/naproxeno-45-tabletas-500-mg/"
+        }
+      },
+      "min": 75,
+      "max": 136,
+      "ahorro": 61,
+      "masBarata": "Prixz",
+      "porUnidad": 1.67
+    },
+    {
+      "medicamento": "Naproxeno",
+      "rank": 9,
+      "categoria": "Antiinflamatorio",
+      "clave": "naproxeno|550mg|tabletas|12",
+      "etiqueta": "Naproxeno 550mg · 12 tabletas",
+      "mg": 550,
+      "forma": "tabletas",
+      "piezas": 12,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 59,
+          "titulo": "Naproxeno 550 mg Oral 12 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/naproxeno-550-mg-oral-12-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 58,
+          "titulo": "Naproxeno Sódico 550 Mg Con 12 Tabletas (Psicofarma)",
+          "url": "https://prixz.com/c/naproxeno-sodico-550-mg-con-12-tabletas-psicofarma/"
+        }
+      },
+      "min": 58,
+      "max": 59,
+      "ahorro": 1,
+      "masBarata": "Prixz",
+      "porUnidad": 4.83
+    },
+    {
+      "medicamento": "Diclofenaco",
+      "rank": 11,
+      "categoria": "Antiinflamatorio",
+      "clave": "diclofenaco|75mg|líquido|3ml",
+      "etiqueta": "Diclofenaco 75mg · 3ml",
+      "mg": 75,
+      "forma": null,
+      "piezas": null,
+      "ml": 3,
+      "precios": {
+        "Benavides": {
+          "precio": 886,
+          "titulo": "75 mg / 3 ml Diclofenaco",
+          "url": "https://www.benavides.com.mx/voltaren-75-mg-3-ml-diclofenaco-5-ud-ampolletas"
+        },
+        "Ahorro": {
+          "precio": 100,
+          "titulo": "Diclofenaco 75 mg 2X3 ml ampolleta Marca del Ahorro",
+          "url": "https://www.fahorro.com/diclofenaco-75-mg-2x3-ml-ampolleta-marca-del-ahorro.html"
+        }
+      },
+      "min": 100,
+      "max": 886,
+      "ahorro": 786,
+      "masBarata": "Ahorro",
+      "porUnidad": 33.33
+    },
+    {
+      "medicamento": "Diclofenaco",
+      "rank": 11,
+      "categoria": "Antiinflamatorio",
+      "clave": "diclofenaco|100mg|tabletas|20",
+      "etiqueta": "Diclofenaco 100mg · 20 tabletas",
+      "mg": 100,
+      "forma": "tabletas",
+      "piezas": 20,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 52,
+          "titulo": "Diclofenaco 100 mg Oral 20 grageas Marca del Ahorro",
+          "url": "https://www.fahorro.com/diclofenaco-100-mg-oral-20-grageas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 30,
+          "titulo": "Diclofenaco 100 Mg Con 20 Tabletas",
+          "url": "https://prixz.com/c/diclofenaco-100mg-20-tabletas/"
+        }
+      },
+      "min": 30,
+      "max": 52,
+      "ahorro": 22,
+      "masBarata": "Prixz",
+      "porUnidad": 1.5
+    },
+    {
+      "medicamento": "Diclofenaco",
+      "rank": 11,
+      "categoria": "Antiinflamatorio",
+      "clave": "diclofenaco|100mg|tabletas|50",
+      "etiqueta": "Diclofenaco 100mg · 50 tabletas",
+      "mg": 100,
+      "forma": "tabletas",
+      "piezas": 50,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 114,
+          "titulo": "Diclofenaco 100 mg Oral 50 grageas Marca del Ahorro",
+          "url": "https://www.fahorro.com/diclofenaco-100-mg-oral-50-grageas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 40,
+          "titulo": "Diclofenaco 100 Mg Con 50 Tabletas",
+          "url": "https://prixz.com/c/ariflam-macro-50-tabletas-100-mg/"
+        }
+      },
+      "min": 40,
+      "max": 114,
+      "ahorro": 74,
+      "masBarata": "Prixz",
+      "porUnidad": 0.8
+    },
+    {
+      "medicamento": "Loratadina",
+      "rank": 12,
+      "categoria": "Antihistamínico",
+      "clave": "loratadina|10mg|tabletas|10",
+      "etiqueta": "Loratadina 10mg · 10 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 40,
+          "titulo": "Loratadina 10 mg con 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/loratadina-10-mg-con-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 20,
+          "titulo": "Loratadina 10 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/loratadina-10-mg-con-10-tabletas/"
+        }
+      },
+      "min": 20,
+      "max": 40,
+      "ahorro": 20,
+      "masBarata": "Prixz",
+      "porUnidad": 2
+    },
+    {
+      "medicamento": "Loratadina",
+      "rank": 12,
+      "categoria": "Antihistamínico",
+      "clave": "loratadina|10mg|tabletas|20",
+      "etiqueta": "Loratadina 10mg · 20 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 20,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 50,
+          "titulo": "Loratadina 10 mg con 20 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/loratadina-10-mg-con-20-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 20,
+          "titulo": "Loratadina 10 Mg Con 20 Tabletas",
+          "url": "https://prixz.com/c/loratadina-10-mg-con-20-tabletas/"
+        }
+      },
+      "min": 20,
+      "max": 50,
+      "ahorro": 30,
+      "masBarata": "Prixz",
+      "porUnidad": 1
+    },
+    {
+      "medicamento": "Loratadina",
+      "rank": 12,
+      "categoria": "Antihistamínico",
+      "clave": "loratadina|100mg|líquido|100ml",
+      "etiqueta": "Loratadina 100mg · 100ml",
+      "mg": 100,
+      "forma": null,
+      "piezas": null,
+      "ml": 100,
+      "precios": {
+        "Benavides": {
+          "precio": 376,
+          "titulo": "100 mg Loratadina/100 ml Solución Pediátrico",
+          "url": "https://www.benavides.com.mx/dimegan-100-mg-loratadina100-ml-solucion-pediatrico-30-ml"
+        },
+        "Ahorro": {
+          "precio": 65,
+          "titulo": "Loratadina 100 mg / 100 ml con 60 ml - Jarabe Marca del Ahorro",
+          "url": "https://www.fahorro.com/loratadina-100-mg-100-ml-con-60-ml-jarabe-marca-del-ahorro.html"
+        }
+      },
+      "min": 65,
+      "max": 376,
+      "ahorro": 311,
+      "masBarata": "Ahorro",
+      "porUnidad": 0.65
+    },
+    {
+      "medicamento": "Azitromicina",
+      "rank": 15,
+      "categoria": "Antibiótico",
+      "clave": "azitromicina|200mg|líquido|5ml",
+      "etiqueta": "Azitromicina 200mg · 5ml",
+      "mg": 200,
+      "forma": null,
+      "piezas": null,
+      "ml": 5,
+      "precios": {
+        "Benavides": {
+          "precio": 398,
+          "titulo": "200 mg / 5 ml Azitromicina",
+          "url": "https://www.benavides.com.mx/koptin-200-mg-5-ml-azitromicina-225-ml-suspension"
+        },
+        "Ahorro": {
+          "precio": 212,
+          "titulo": "Azitromicina 200 mg / 5 ml Oral 15 ml Suspensión Marca del Ahorro",
+          "url": "https://www.fahorro.com/azitromicina-200-mg-5-ml-oral-15-ml-suspension-marca-del-ahorro.html"
+        }
+      },
+      "min": 212,
+      "max": 398,
+      "ahorro": 186,
+      "masBarata": "Ahorro",
+      "porUnidad": 42.4
+    },
+    {
+      "medicamento": "Azitromicina",
+      "rank": 15,
+      "categoria": "Antibiótico",
+      "clave": "azitromicina|500mg|tabletas|3",
+      "etiqueta": "Azitromicina 500mg · 3 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 3,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 162,
+          "titulo": "Azitromicina 500 mg Oral 3 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/azitromicina-500-mg-oral-3-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 32,
+          "titulo": "Zertalin Azitromicina 500 Mg Con 3 Tabletas",
+          "url": "https://prixz.com/c/zertalin-3-tabletas-500-mg/"
+        }
+      },
+      "min": 32,
+      "max": 162,
+      "ahorro": 130,
+      "masBarata": "Prixz",
+      "porUnidad": 10.67
+    },
+    {
+      "medicamento": "Dexametasona",
+      "rank": 16,
+      "categoria": "Corticoide antiinflamatorio",
+      "clave": "dexametasona|8mg|líquido|2ml",
+      "etiqueta": "Dexametasona 8mg · 2ml",
+      "mg": 8,
+      "forma": "inyectable",
+      "piezas": null,
+      "ml": 2,
+      "precios": {
+        "Benavides": {
+          "precio": 24,
+          "titulo": "8 mg Dexametasona/2 ml Solución Inyectable",
+          "url": "https://www.benavides.com.mx/farmacias-benavides-8-mg-dexametasona2-ml-solucion-inyectable-1-ampolleta"
+        },
+        "Ahorro": {
+          "precio": 25,
+          "titulo": "Dexametasona 8 mg/2 ml ampolletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/dexametasona-8-mg-2-ml-ampolletas-marca-del-ahorro.html"
+        }
+      },
+      "min": 24,
+      "max": 25,
+      "ahorro": 1,
+      "masBarata": "Benavides",
+      "porUnidad": 12
+    },
+    {
+      "medicamento": "Alprazolam",
+      "rank": 17,
+      "categoria": "Ansiolítico (Venta controlada)",
+      "clave": "alprazolam|0.25mg|tabletas|30",
+      "etiqueta": "Alprazolam 0.25mg · 30 tabletas",
+      "mg": 0.25,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 163,
+          "titulo": "Alprazolam 0.25 mg 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/alprazolam-0-25-mg-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 119,
+          "titulo": "Alprazolam 0.25 mg 30 tabletas – TEMPUS",
+          "url": "https://prixz.com/c/alprazolam-25mg-tabletas-con-30/"
+        }
+      },
+      "min": 119,
+      "max": 163,
+      "ahorro": 44,
+      "masBarata": "Prixz",
+      "porUnidad": 3.97
+    },
+    {
+      "medicamento": "Butilhioscina",
+      "rank": 18,
+      "categoria": "Antiespasmódico / Cólicos",
+      "clave": "butilhioscina|20mg|ampolletas|3",
+      "etiqueta": "Butilhioscina 20mg · 3 ampolletas",
+      "mg": 20,
+      "forma": "ampolletas",
+      "piezas": 3,
+      "ml": 1,
+      "precios": {
+        "Ahorro": {
+          "precio": 96,
+          "titulo": "Butilhioscina 20 mg/ 1 ml 3 Ampolletas Marca Del Ahorro",
+          "url": "https://www.fahorro.com/butilhioscina-20-mg-1-ml-3-ampolletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 32,
+          "titulo": "Butilhioscina 20 Mg/Ml Con 3 Ampolletas",
+          "url": "https://prixz.com/c/butilhioscina-20-mg-ml-con-3-ampolletas/"
+        }
+      },
+      "min": 32,
+      "max": 96,
+      "ahorro": 64,
+      "masBarata": "Prixz",
+      "porUnidad": 10.67
+    },
+    {
+      "medicamento": "Pregabalina",
+      "rank": 20,
+      "categoria": "Dolor neuropático / Ansiedad",
+      "clave": "pregabalina|75mg|cápsulas|14",
+      "etiqueta": "Pregabalina 75mg · 14 cápsulas",
+      "mg": 75,
+      "forma": "cápsulas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 248,
+          "titulo": "Pregabalina 75 mg Oral 14 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/pregabalina-75-mg-oral-14-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 45,
+          "titulo": "Pregabalina 75 Mg Con 14 Cápsulas",
+          "url": "https://prixz.com/c/pregabalina-75-mg-con-14-capsulas/"
+        }
+      },
+      "min": 45,
+      "max": 248,
+      "ahorro": 203,
+      "masBarata": "Prixz",
+      "porUnidad": 3.21
+    },
+    {
+      "medicamento": "Pregabalina",
+      "rank": 20,
+      "categoria": "Dolor neuropático / Ansiedad",
+      "clave": "pregabalina|75mg|cápsulas|28",
+      "etiqueta": "Pregabalina 75mg · 28 cápsulas",
+      "mg": 75,
+      "forma": "cápsulas",
+      "piezas": 28,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 382,
+          "titulo": "Pregabalina 75 mg Oral 28 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/pregabalina-75-mg-oral-28-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 75,
+          "titulo": "Pregabalina 75 Mg Con 28 Cápsulas",
+          "url": "https://prixz.com/c/salucom-pregabalina-75-mg-con-28-capsulas/"
+        }
+      },
+      "min": 75,
+      "max": 382,
+      "ahorro": 307,
+      "masBarata": "Prixz",
+      "porUnidad": 2.68
+    },
+    {
+      "medicamento": "Pregabalina",
+      "rank": 20,
+      "categoria": "Dolor neuropático / Ansiedad",
+      "clave": "pregabalina|150mg|cápsulas|14",
+      "etiqueta": "Pregabalina 150mg · 14 cápsulas",
+      "mg": 150,
+      "forma": "cápsulas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 288,
+          "titulo": "Pregabalina 150 mg Oral 14 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/pregabalina-150-mg-oral-14-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 65,
+          "titulo": "Pregabalina 150 Mg Con 14 Cápsulas (Amsa)",
+          "url": "https://prixz.com/c/pregabalina-150-mg-con-14-capsulas-amsa/"
+        }
+      },
+      "min": 65,
+      "max": 288,
+      "ahorro": 223,
+      "masBarata": "Prixz",
+      "porUnidad": 4.64
+    },
+    {
+      "medicamento": "Pregabalina",
+      "rank": 20,
+      "categoria": "Dolor neuropático / Ansiedad",
+      "clave": "pregabalina|150mg|cápsulas|28",
+      "etiqueta": "Pregabalina 150mg · 28 cápsulas",
+      "mg": 150,
+      "forma": "cápsulas",
+      "piezas": 28,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 434,
+          "titulo": "Pregabalina 150 mg/28 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/pregabalina-150-mg-28-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 100,
+          "titulo": "Pregabalina 150 Mg Con 28 Cápsulas",
+          "url": "https://prixz.com/c/pregabalina-150-mg-con-28-capsulas/"
+        }
+      },
+      "min": 100,
+      "max": 434,
+      "ahorro": 334,
+      "masBarata": "Prixz",
+      "porUnidad": 3.57
+    },
+    {
+      "medicamento": "Atorvastatina",
+      "rank": 22,
+      "categoria": "Control de Colesterol",
+      "clave": "atorvastatina|10mg|tabletas|30",
+      "etiqueta": "Atorvastatina 10mg · 30 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 161,
+          "titulo": "Atorvastatina 10 mg Oral 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/atorvastatina-10-mg-oral-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 195,
+          "titulo": "Atorvastatina 10 Mg Con 30 Tabletas Duopack",
+          "url": "https://prixz.com/c/atorvastatina-11-30-tabletas-10mg/"
+        }
+      },
+      "min": 161,
+      "max": 195,
+      "ahorro": 34,
+      "masBarata": "Ahorro",
+      "porUnidad": 5.37
+    },
+    {
+      "medicamento": "Atorvastatina",
+      "rank": 22,
+      "categoria": "Control de Colesterol",
+      "clave": "atorvastatina|20mg|tabletas|30",
+      "etiqueta": "Atorvastatina 20mg · 30 tabletas",
+      "mg": 20,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 264,
+          "titulo": "Atorvastatina 20 mg Oral 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/atorvastatina-20-mg-oral-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 293,
+          "titulo": "Atorvastatina 20 Mg Con 30 Tabletas Duopack",
+          "url": "https://prixz.com/c/atorvastatina-30-tabletas-20-mg-2/"
+        }
+      },
+      "min": 264,
+      "max": 293,
+      "ahorro": 29,
+      "masBarata": "Ahorro",
+      "porUnidad": 8.8
+    },
+    {
+      "medicamento": "Ciprofloxacino",
+      "rank": 23,
+      "categoria": "Antibiótico",
+      "clave": "ciprofloxacino|3mg|líquido|5ml",
+      "etiqueta": "Ciprofloxacino 3mg · 5ml",
+      "mg": 3,
+      "forma": null,
+      "piezas": null,
+      "ml": 5,
+      "precios": {
+        "Ahorro": {
+          "precio": 189,
+          "titulo": "Ciprofloxacino 3 mg Oftálmico 5 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/ciprofloxacino-3-mg-oftalmico-5-ml-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 71,
+          "titulo": "Ciprofloxacino 3 Mg Con 5 Ml De Solución Oftálmica",
+          "url": "https://prixz.com/c/ciprofloxacino-1-gotero-3mg-5-ml/"
+        }
+      },
+      "min": 71,
+      "max": 189,
+      "ahorro": 118,
+      "masBarata": "Prixz",
+      "porUnidad": 14.2
+    },
+    {
+      "medicamento": "Ciprofloxacino",
+      "rank": 23,
+      "categoria": "Antibiótico",
+      "clave": "ciprofloxacino|500mg|tabletas|12",
+      "etiqueta": "Ciprofloxacino 500mg · 12 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 12,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 242,
+          "titulo": "Ciprofloxacino 500 mg Oral 12 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/ciprofloxacino-500-mg-oral-12-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 22,
+          "titulo": "Ciprofloxacino 500 Mg Con 12 Tabletas (Ultra)",
+          "url": "https://prixz.com/c/ciprofloxacino-500-mg-con-12-tabletas-ultra/"
+        }
+      },
+      "min": 22,
+      "max": 242,
+      "ahorro": 220,
+      "masBarata": "Prixz",
+      "porUnidad": 1.83
+    },
+    {
+      "medicamento": "Ciprofloxacino",
+      "rank": 23,
+      "categoria": "Antibiótico",
+      "clave": "ciprofloxacino|500mg|tabletas|14",
+      "etiqueta": "Ciprofloxacino 500mg · 14 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 239,
+          "titulo": "Ciprofloxacino 500 mg 14 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/ciprofloxacino-500-mg-14-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 85,
+          "titulo": "Ciprofloxacino 500 Mg Con 14 Tabletas (Amsa)",
+          "url": "https://prixz.com/c/ciprofloxacino-500-mg-con-14-tabletas-amsa/"
+        }
+      },
+      "min": 85,
+      "max": 239,
+      "ahorro": 154,
+      "masBarata": "Prixz",
+      "porUnidad": 6.07
+    },
+    {
+      "medicamento": "Fluconazol",
+      "rank": 24,
+      "categoria": "Antifúngico (Hongos)",
+      "clave": "fluconazol|150mg|cápsulas|1",
+      "etiqueta": "Fluconazol 150mg · 1 cápsulas",
+      "mg": 150,
+      "forma": "cápsulas",
+      "piezas": 1,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 67,
+          "titulo": "Fluconazol 150 mg/1 Capsula Marca del Ahorro",
+          "url": "https://www.fahorro.com/fluconazol-150-mg-1-capsula-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 30,
+          "titulo": "Fluconazol 150 Mg Con 1 Cápsula",
+          "url": "https://prixz.com/c/salucom-fluconazol-150-mg-con-1-capsula/"
+        }
+      },
+      "min": 30,
+      "max": 67,
+      "ahorro": 37,
+      "masBarata": "Prixz",
+      "porUnidad": 30
+    },
+    {
+      "medicamento": "Tramadol",
+      "rank": 26,
+      "categoria": "Analgésico moderado a severo",
+      "clave": "tramadol|100mg|líquido|2ml",
+      "etiqueta": "Tramadol 100mg · 2ml",
+      "mg": 100,
+      "forma": null,
+      "piezas": null,
+      "ml": 2,
+      "precios": {
+        "Benavides": {
+          "precio": 202,
+          "titulo": "100 mg / 2 ml Tramadol",
+          "url": "https://www.benavides.com.mx/farmacias-benavides-100-mg-2-ml-tramadol-5-ud-ampolletas"
+        },
+        "Ahorro": {
+          "precio": 204,
+          "titulo": "Tramadol 100 mg 5X2 ml ampolleta Marca del Ahorro",
+          "url": "https://www.fahorro.com/tramadol-100-mg-5x2-ml-ampolleta-marca-del-ahorro.html"
+        }
+      },
+      "min": 202,
+      "max": 204,
+      "ahorro": 2,
+      "masBarata": "Benavides",
+      "porUnidad": 101
+    },
+    {
+      "medicamento": "Salbutamol",
+      "rank": 28,
+      "categoria": "Broncodilatador / Asma",
+      "clave": "salbutamol|5mg|líquido|10ml",
+      "etiqueta": "Salbutamol 5mg · 10ml",
+      "mg": 5,
+      "forma": null,
+      "piezas": null,
+      "ml": 10,
+      "precios": {
+        "Ahorro": {
+          "precio": 120,
+          "titulo": "Salbutamol 5 mg Solución Frasco 10 mL",
+          "url": "https://www.fahorro.com/salbutamol-5-mg-solucion-frasco-10-ml.html"
+        },
+        "Prixz": {
+          "precio": 39,
+          "titulo": "Salbutamol 5 Mg/Ml Solución Con 10 Ml",
+          "url": "https://prixz.com/c/salucom-salbutamol-5-mg-ml-solucion-con-10-ml/"
+        }
+      },
+      "min": 39,
+      "max": 120,
+      "ahorro": 81,
+      "masBarata": "Prixz",
+      "porUnidad": 3.9
+    },
+    {
+      "medicamento": "Levotiroxina",
+      "rank": 32,
+      "categoria": "Hormona tiroidea",
+      "clave": "levotiroxina|0.1mg|tabletas|100",
+      "etiqueta": "Levotiroxina 0.1mg · 100 tabletas",
+      "mg": 0.1,
+      "forma": "tabletas",
+      "piezas": 100,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 120,
+          "titulo": "Levotiroxina 100 mcg Oral 100 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/levotiroxina-100-mcg-oral-100-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 65,
+          "titulo": "Levotiroxina 100 Mcg Con 100 Tabletas",
+          "url": "https://prixz.com/c/levotiroxina-100-mcg-con-100-tabletas/"
+        }
+      },
+      "min": 65,
+      "max": 120,
+      "ahorro": 55,
+      "masBarata": "Prixz",
+      "porUnidad": 0.65
+    },
+    {
+      "medicamento": "Telmisartán",
+      "rank": 33,
+      "categoria": "Antihipertensivo",
+      "clave": "telmisartan|80mg|tabletas|28",
+      "etiqueta": "Telmisartan 80mg · 28 tabletas",
+      "mg": 80,
+      "forma": "tabletas",
+      "piezas": 28,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 626,
+          "titulo": "Telmisartan 80 mg Oral 28 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/telmisartan-80-mg-oral-28-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 160,
+          "titulo": "Telmisartán 80 Mg Con 28 Tabletas",
+          "url": "https://prixz.com/c/telmisartan-80-mg-con-28-tabletas/"
+        }
+      },
+      "min": 160,
+      "max": 626,
+      "ahorro": 466,
+      "masBarata": "Prixz",
+      "porUnidad": 5.71
+    },
+    {
+      "medicamento": "Metamizol",
+      "rank": 34,
+      "categoria": "Analgésico / Antipirético",
+      "clave": "metamizol|1000mg|ampolletas|3",
+      "etiqueta": "Metamizol 1000mg · 3 ampolletas",
+      "mg": 1000,
+      "forma": "ampolletas",
+      "piezas": 3,
+      "ml": 2,
+      "precios": {
+        "Ahorro": {
+          "precio": 55,
+          "titulo": "Metamizol Sodico 1 g 3 ampolletas de 2 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/metamizol-sodico-1-g-3-ampolletas-de-2-ml-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 20,
+          "titulo": "Metamizol Sódico 1 G Solución Inyectable Con 3 Ampolletas (Amsa)",
+          "url": "https://prixz.com/c/metamizol-sodico-1-g-solucion-inyectable-con-3-ampolletas-amsa/"
+        }
+      },
+      "min": 20,
+      "max": 55,
+      "ahorro": 35,
+      "masBarata": "Prixz",
+      "porUnidad": 6.67
+    },
+    {
+      "medicamento": "Ceftriaxona",
+      "rank": 38,
+      "categoria": "Antibiótico inyectable",
+      "clave": "ceftriaxona|500mg|líquido|2ml",
+      "etiqueta": "Ceftriaxona 500mg · 2ml",
+      "mg": 500,
+      "forma": null,
+      "piezas": null,
+      "ml": 2,
+      "precios": {
+        "Ahorro": {
+          "precio": 80,
+          "titulo": "Ceftriaxona 500 mg 2 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/ceftriaxona-500-mg-2-ml-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 22,
+          "titulo": "Amcef Im Ceftriaxona 500 Mg Solución Inyectable 2Ml",
+          "url": "https://prixz.com/c/amcef-i-m-1-frasco-con-ampula-500mg-2-ml/"
+        }
+      },
+      "min": 22,
+      "max": 80,
+      "ahorro": 58,
+      "masBarata": "Prixz",
+      "porUnidad": 11
+    },
+    {
+      "medicamento": "Ceftriaxona",
+      "rank": 38,
+      "categoria": "Antibiótico inyectable",
+      "clave": "ceftriaxona|1000mg|líquido|3.5ml",
+      "etiqueta": "Ceftriaxona 1000mg · 3.5ml",
+      "mg": 1000,
+      "forma": null,
+      "piezas": null,
+      "ml": 3.5,
+      "precios": {
+        "Ahorro": {
+          "precio": 93,
+          "titulo": "Ceftriaxona 1 g 3.5 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/ceftriaxona-1-g-3-5-ml-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 22,
+          "titulo": "Amcef Im Ceftriaxona 1 G Solución Inyectable Con 3.5 Ml",
+          "url": "https://prixz.com/c/amcef-im-1-g-solucion-inyectable-3-5ml/"
+        }
+      },
+      "min": 22,
+      "max": 93,
+      "ahorro": 71,
+      "masBarata": "Prixz",
+      "porUnidad": 6.29
+    },
+    {
+      "medicamento": "Ceftriaxona",
+      "rank": 38,
+      "categoria": "Antibiótico inyectable",
+      "clave": "ceftriaxona|1000mg|líquido|10ml",
+      "etiqueta": "Ceftriaxona 1000mg · 10ml",
+      "mg": 1000,
+      "forma": null,
+      "piezas": null,
+      "ml": 10,
+      "precios": {
+        "Ahorro": {
+          "precio": 409,
+          "titulo": "Ceftriaxona 1 g Iv 10 ml Fa Marca del Ahorro",
+          "url": "https://www.fahorro.com/ceftriaxona-1-g-iv-10-ml-fa-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 27,
+          "titulo": "Amcef Ceftriaxona 1 G Solución Inyectable 10 Ml",
+          "url": "https://prixz.com/c/amcef-i-v-1-frasco-con-ampula-1g-10-ml/"
+        }
+      },
+      "min": 27,
+      "max": 409,
+      "ahorro": 382,
+      "masBarata": "Prixz",
+      "porUnidad": 2.7
+    },
+    {
+      "medicamento": "Cetirizina",
+      "rank": 39,
+      "categoria": "Antihistamínico",
+      "clave": "cetirizina|10mg|tabletas|10",
+      "etiqueta": "Cetirizina 10mg · 10 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 91,
+          "titulo": "Cetirizina 10 mg Oral 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/cetirizina-10-mg-oral-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 26,
+          "titulo": "Cetirizina 10 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/cetirizina-10-tabletas-10-mg/"
+        }
+      },
+      "min": 26,
+      "max": 91,
+      "ahorro": 65,
+      "masBarata": "Prixz",
+      "porUnidad": 2.6
+    },
+    {
+      "medicamento": "Escitalopram",
+      "rank": 40,
+      "categoria": "Antidepresivo",
+      "clave": "escitalopram|10mg|tabletas|14",
+      "etiqueta": "Escitalopram 10mg · 14 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 179,
+          "titulo": "Escitalopram 10 mg Oral 14 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/escitalopram-10-mg-oral-14-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 60,
+          "titulo": "Escitalopram 10 Mg Con 14 Tabletas",
+          "url": "https://prixz.com/c/salucom-escitalopram-10-mg-con-14-tabletas/"
+        }
+      },
+      "min": 60,
+      "max": 179,
+      "ahorro": 119,
+      "masBarata": "Prixz",
+      "porUnidad": 4.29
+    },
+    {
+      "medicamento": "Metoclopramida",
+      "rank": 50,
+      "categoria": "Antiemético / Reflujo",
+      "clave": "metoclopramida|10mg|ampolletas|6",
+      "etiqueta": "Metoclopramida 10mg · 6 ampolletas",
+      "mg": 10,
+      "forma": "ampolletas",
+      "piezas": 6,
+      "ml": 2,
+      "precios": {
+        "Ahorro": {
+          "precio": 78,
+          "titulo": "Metoclopramida 10 mg/ 2 ml Inyectable 6 Ampolletas Marca Del Ahorro",
+          "url": "https://www.fahorro.com/metoclopramida-10-mg-2-ml-inyectable-6-ampolletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 25,
+          "titulo": "Metoclopramida 10 Mg/2 Ml Con 6 Ampolletas",
+          "url": "https://prixz.com/c/metoclopramida-10-mg-2-ml-con-6-ampolletas/"
+        }
+      },
+      "min": 25,
+      "max": 78,
+      "ahorro": 53,
+      "masBarata": "Prixz",
+      "porUnidad": 4.17
+    },
+    {
+      "medicamento": "Cefalexina",
+      "rank": 51,
+      "categoria": "Antibiótico",
+      "clave": "cefalexina|250mg|líquido|5ml",
+      "etiqueta": "Cefalexina 250mg · 5ml",
+      "mg": 250,
+      "forma": null,
+      "piezas": null,
+      "ml": 5,
+      "precios": {
+        "Benavides": {
+          "precio": 207,
+          "titulo": "250 mg / 5 ml Cefalexina",
+          "url": "https://www.benavides.com.mx/farmacias-benavides-250-mg-5-ml-cefalexina-100-ml-suspension"
+        },
+        "Ahorro": {
+          "precio": 207,
+          "titulo": "Cefalexina 250 mg/5 ml Oral 100 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/cefalexina-250-mg-5-ml-oral-100-ml-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 925,
+          "titulo": "Keflex Cefalexina 250 Mg / 5 Ml Suspensión Con 100 Ml",
+          "url": "https://prixz.com/c/keflex-250-mg-5-ml-suspension-con-100-ml/"
+        }
+      },
+      "min": 207,
+      "max": 925,
+      "ahorro": 718,
+      "masBarata": "Benavides",
+      "porUnidad": 41.4
+    },
+    {
+      "medicamento": "Cefalexina",
+      "rank": 51,
+      "categoria": "Antibiótico",
+      "clave": "cefalexina|500mg|cápsulas|12",
+      "etiqueta": "Cefalexina 500mg · 12 cápsulas",
+      "mg": 500,
+      "forma": "cápsulas",
+      "piezas": 12,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 152,
+          "titulo": "Cefalexina 500 mg 12 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/cefalexina-500-mg-12-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 33,
+          "titulo": "Cefalver Cefalexina 500 Mg Con 12 Cápsulas",
+          "url": "https://prixz.com/c/cefalver-500-mg-con-12-capsulas/"
+        }
+      },
+      "min": 33,
+      "max": 152,
+      "ahorro": 119,
+      "masBarata": "Prixz",
+      "porUnidad": 2.75
+    },
+    {
+      "medicamento": "Cefalexina",
+      "rank": 51,
+      "categoria": "Antibiótico",
+      "clave": "cefalexina|500mg|cápsulas|20",
+      "etiqueta": "Cefalexina 500mg · 20 cápsulas",
+      "mg": 500,
+      "forma": "cápsulas",
+      "piezas": 20,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 253,
+          "titulo": "Cefalexina 500 mg Oral 20 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/cefalexina-500-mg-oral-20-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 75,
+          "titulo": "Cefalexina 500 Mg Con 20 Cápsulas",
+          "url": "https://prixz.com/c/salucom-cefalexina-500-mg-con-20-capsulas/"
+        }
+      },
+      "min": 75,
+      "max": 253,
+      "ahorro": 178,
+      "masBarata": "Prixz",
+      "porUnidad": 3.75
+    },
+    {
+      "medicamento": "Clindamicina",
+      "rank": 52,
+      "categoria": "Antibiótico",
+      "clave": "clindamicina|300mg|líquido|2ml",
+      "etiqueta": "Clindamicina 300mg · 2ml",
+      "mg": 300,
+      "forma": "ampolletas",
+      "piezas": null,
+      "ml": 2,
+      "precios": {
+        "Ahorro": {
+          "precio": 133,
+          "titulo": "Clindamicina 300 mg 2 ml ampolleta Marca del Ahorro",
+          "url": "https://www.fahorro.com/clindamicina-300-mg-2-ml-ampolleta-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 279,
+          "titulo": "Dalacin Clindamicina C 300 Mg Solución Inyectable 2 Ml",
+          "url": "https://prixz.com/c/dalacin-c-300mg-ampolleta-2ml/"
+        }
+      },
+      "min": 133,
+      "max": 279,
+      "ahorro": 146,
+      "masBarata": "Ahorro",
+      "porUnidad": 66.5
+    },
+    {
+      "medicamento": "Clindamicina",
+      "rank": 52,
+      "categoria": "Antibiótico",
+      "clave": "clindamicina|300mg|cápsulas|16",
+      "etiqueta": "Clindamicina 300mg · 16 cápsulas",
+      "mg": 300,
+      "forma": "cápsulas",
+      "piezas": 16,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 118,
+          "titulo": "Clindamicina 300 mg Oral 16 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/clindamicina-300-mg-oral-16-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 33,
+          "titulo": "Clindamicina 300 Mg Con16 Cápsulas (Ultra)",
+          "url": "https://prixz.com/c/clindamicina-300-mg-con16-capsulas-ultra/"
+        }
+      },
+      "min": 33,
+      "max": 118,
+      "ahorro": 85,
+      "masBarata": "Prixz",
+      "porUnidad": 2.06
+    },
+    {
+      "medicamento": "Clindamicina",
+      "rank": 52,
+      "categoria": "Antibiótico",
+      "clave": "clindamicina|600mg|líquido|4ml",
+      "etiqueta": "Clindamicina 600mg · 4ml",
+      "mg": 600,
+      "forma": "inyectable",
+      "piezas": null,
+      "ml": 4,
+      "precios": {
+        "Benavides": {
+          "precio": 464,
+          "titulo": "600 mg Clindamicina/4 ml Solución Inyectable",
+          "url": "https://www.benavides.com.mx/dalacin-c-600-mg-clindamicina-4-ml-ampolletas"
+        },
+        "Ahorro": {
+          "precio": 135,
+          "titulo": "Clindamicina 600 mg/4 ml Im/Iv Solución inyectable Marca del Ahorro",
+          "url": "https://www.fahorro.com/clindamicina-600-mg-4-ml-im-iv-solucion-inyectable-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 21,
+          "titulo": "Clindamicina 600 Mg/4 Ml Ampolleta",
+          "url": "https://prixz.com/c/clindamicina-600-mg-4-ml-ampolleta/"
+        }
+      },
+      "min": 21,
+      "max": 464,
+      "ahorro": 443,
+      "masBarata": "Prixz",
+      "porUnidad": 5.25
+    },
+    {
+      "medicamento": "Ambroxol",
+      "rank": 53,
+      "categoria": "Mucolítico",
+      "clave": "ambroxol|300mg|líquido|100ml",
+      "etiqueta": "Ambroxol 300mg · 100ml",
+      "mg": 300,
+      "forma": null,
+      "piezas": null,
+      "ml": 100,
+      "precios": {
+        "Benavides": {
+          "precio": 182,
+          "titulo": "300 mg / 100 ml Ambroxol",
+          "url": "https://www.benavides.com.mx/mucovibrol-300-mg-100-ml-ambroxol-120-ml-solucion"
+        },
+        "Ahorro": {
+          "precio": 38,
+          "titulo": "Ambroxol 300 mg/100 ml Solución 120 ml Marca del Ahorro",
+          "url": "https://www.fahorro.com/ambroxol-300-mg-100-ml-solucion-120-ml-marca-del-ahorro.html"
+        }
+      },
+      "min": 38,
+      "max": 182,
+      "ahorro": 144,
+      "masBarata": "Ahorro",
+      "porUnidad": 0.38
+    },
+    {
+      "medicamento": "Gabapentina",
+      "rank": 56,
+      "categoria": "Dolor neuropático",
+      "clave": "gabapentina|300mg|cápsulas|15",
+      "etiqueta": "Gabapentina 300mg · 15 cápsulas",
+      "mg": 300,
+      "forma": "cápsulas",
+      "piezas": 15,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 123,
+          "titulo": "Gabapentina 300 mg/15 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/gabapentina-300-mg-15-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 60,
+          "titulo": "Gabapentina 300 Mg Con 15 Cápsulas",
+          "url": "https://prixz.com/c/salucom-gabapentina-300-mg-con-15-capsulas/"
+        }
+      },
+      "min": 60,
+      "max": 123,
+      "ahorro": 63,
+      "masBarata": "Prixz",
+      "porUnidad": 4
+    },
+    {
+      "medicamento": "Gabapentina",
+      "rank": 56,
+      "categoria": "Dolor neuropático",
+      "clave": "gabapentina|300mg|cápsulas|30",
+      "etiqueta": "Gabapentina 300mg · 30 cápsulas",
+      "mg": 300,
+      "forma": "cápsulas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 164,
+          "titulo": "Gabapentina 300 mg Oral 30 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/gabapentina-300-mg-oral-30-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 110,
+          "titulo": "Gabapentina 300 Mg Con 30 Cápsulas",
+          "url": "https://prixz.com/c/gabapentina-300-mg-con-30-capsulas/"
+        }
+      },
+      "min": 110,
+      "max": 164,
+      "ahorro": 54,
+      "masBarata": "Prixz",
+      "porUnidad": 3.67
+    },
+    {
+      "medicamento": "Quetiapina",
+      "rank": 57,
+      "categoria": "Antipsicótico / Insomnio",
+      "clave": "quetiapina|25mg|tabletas|30",
+      "etiqueta": "Quetiapina 25mg · 30 tabletas",
+      "mg": 25,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 295,
+          "titulo": "Quetiapina 25 mg 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/quetiapina-25-mg-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 151,
+          "titulo": "Quetiapina 25 mg con 30 Tabletas",
+          "url": "https://prixz.com/c/tempus-pharma-quetiapina-25-mg-con-30-tabletas/"
+        }
+      },
+      "min": 151,
+      "max": 295,
+      "ahorro": 144,
+      "masBarata": "Prixz",
+      "porUnidad": 5.03
+    },
+    {
+      "medicamento": "Nitazoxanida",
+      "rank": 58,
+      "categoria": "Antiparasitario",
+      "clave": "nitazoxanida|100mg|líquido|5ml",
+      "etiqueta": "Nitazoxanida 100mg · 5ml",
+      "mg": 100,
+      "forma": "suspensión",
+      "piezas": null,
+      "ml": 5,
+      "precios": {
+        "Benavides": {
+          "precio": 137,
+          "titulo": "100 mg Nitazoxanida/5 ml Suspensión",
+          "url": "https://www.benavides.com.mx/generico-de-marca-100-mg-nitazoxanida-5-ml-suspension-60-ml"
+        },
+        "Prixz": {
+          "precio": 240,
+          "titulo": "Daxon 100 Mg / 5 Ml – Frasco Con Polvo Para Suspensión 30 Ml (Nitazoxanida)",
+          "url": "https://prixz.com/c/daxon-suspension-1-fco-30-ml/"
+        }
+      },
+      "min": 137,
+      "max": 240,
+      "ahorro": 103,
+      "masBarata": "Benavides",
+      "porUnidad": 27.4
+    },
+    {
+      "medicamento": "Nitrofurantoína",
+      "rank": 63,
+      "categoria": "Antibiótico urinario",
+      "clave": "nitrofurantoina|100mg|cápsulas|40",
+      "etiqueta": "Nitrofurantoina 100mg · 40 cápsulas",
+      "mg": 100,
+      "forma": "cápsulas",
+      "piezas": 40,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 135,
+          "titulo": "Nitrofurantoina 100 mg Oral 40 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/nitrofurantoina-100-mg-oral-40-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 54,
+          "titulo": "Terfhicid Nitrofurantoina 100 Mg Con 40 Cápsulas",
+          "url": "https://prixz.com/c/terfhicid-40-capsulas-100-mg/"
+        }
+      },
+      "min": 54,
+      "max": 135,
+      "ahorro": 81,
+      "masBarata": "Prixz",
+      "porUnidad": 1.35
+    },
+    {
+      "medicamento": "Furosemida",
+      "rank": 68,
+      "categoria": "Diurético",
+      "clave": "furosemida|40mg|tabletas|20",
+      "etiqueta": "Furosemida 40mg · 20 tabletas",
+      "mg": 40,
+      "forma": "tabletas",
+      "piezas": 20,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 36,
+          "titulo": "Furosemida 40 mg Oral 20 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/furosemida-40-mg-oral-20-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 35,
+          "titulo": "Furosemida 40 Mg Con 20 Tabletas",
+          "url": "https://prixz.com/c/furosemida-20-tabletas-40mg/"
+        }
+      },
+      "min": 35,
+      "max": 36,
+      "ahorro": 1,
+      "masBarata": "Prixz",
+      "porUnidad": 1.75
+    },
+    {
+      "medicamento": "Levofloxacino",
+      "rank": 72,
+      "categoria": "Antibiótico",
+      "clave": "levofloxacino|500mg|tabletas|7",
+      "etiqueta": "Levofloxacino 500mg · 7 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 7,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 158,
+          "titulo": "Levofloxacino 500 mg Oral 7 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/levofloxacino-500-mg-oral-7-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 85,
+          "titulo": "Levofloxacino 500 Mg Con 7 Tabletas",
+          "url": "https://prixz.com/c/levofloxacino-500-mg-con-7-tabletas/"
+        }
+      },
+      "min": 85,
+      "max": 158,
+      "ahorro": 73,
+      "masBarata": "Prixz",
+      "porUnidad": 12.14
+    },
+    {
+      "medicamento": "Levofloxacino",
+      "rank": 72,
+      "categoria": "Antibiótico",
+      "clave": "levofloxacino|750mg|tabletas|7",
+      "etiqueta": "Levofloxacino 750mg · 7 tabletas",
+      "mg": 750,
+      "forma": "tabletas",
+      "piezas": 7,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 409,
+          "titulo": "Levofloxacino 750 mg Oral 7 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/levofloxacino-750-mg-oral-7-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 150,
+          "titulo": "Levofloxacino 750 Mg Con 7 Tabletas",
+          "url": "https://prixz.com/c/levofloxacino-750-mg-con-7-tabletas/"
+        }
+      },
+      "min": 150,
+      "max": 409,
+      "ahorro": 259,
+      "masBarata": "Prixz",
+      "porUnidad": 21.43
+    },
+    {
+      "medicamento": "Doxiciclina",
+      "rank": 73,
+      "categoria": "Antibiótico",
+      "clave": "doxiciclina|100mg|cápsulas|10",
+      "etiqueta": "Doxiciclina 100mg · 10 cápsulas",
+      "mg": 100,
+      "forma": "cápsulas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 113,
+          "titulo": "Doxiciclina 100 mg Oral 10 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/doxiciclina-100-mg-oral-10-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 27,
+          "titulo": "Kenciclen Doxiciclina 100 Mg Con 10 Cápsulas",
+          "url": "https://prixz.com/c/kenciclen-10-capsulas-100-mg/"
+        }
+      },
+      "min": 27,
+      "max": 113,
+      "ahorro": 86,
+      "masBarata": "Prixz",
+      "porUnidad": 2.7
+    },
+    {
+      "medicamento": "Doxiciclina",
+      "rank": 73,
+      "categoria": "Antibiótico",
+      "clave": "doxiciclina|100mg|cápsulas|28",
+      "etiqueta": "Doxiciclina 100mg · 28 cápsulas",
+      "mg": 100,
+      "forma": "cápsulas",
+      "piezas": 28,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 236,
+          "titulo": "Doxiciclina 100 mg 28 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/doxiciclina-100-mg-28-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 581,
+          "titulo": "Lievricin-D Doxiciclina 100 Mg Con 28 Cápsulas",
+          "url": "https://prixz.com/c/lievricind-28-capsulas-100mg/"
+        }
+      },
+      "min": 236,
+      "max": 581,
+      "ahorro": 345,
+      "masBarata": "Ahorro",
+      "porUnidad": 8.43
+    },
+    {
+      "medicamento": "Clonixinato de lisina",
+      "rank": 76,
+      "categoria": "Analgésico",
+      "clave": "clonixinato de lisina|125mg|tabletas|10",
+      "etiqueta": "Clonixinato de lisina 125mg · 10 tabletas",
+      "mg": 125,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 118,
+          "titulo": "Clonixinato de Lisina 125 mg 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/clonixinato-de-lisina-125-mg-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 388,
+          "titulo": "Dorixina 125 Mg – Caja Con 10 Comprimidos (Clonixinato De Lisina)",
+          "url": "https://prixz.com/c/dorixina-10-comprimidos-125-mg/"
+        }
+      },
+      "min": 118,
+      "max": 388,
+      "ahorro": 270,
+      "masBarata": "Ahorro",
+      "porUnidad": 11.8
+    },
+    {
+      "medicamento": "Celecoxib",
+      "rank": 77,
+      "categoria": "Antiinflamatorio selectivo",
+      "clave": "celecoxib|200mg|cápsulas|10",
+      "etiqueta": "Celecoxib 200mg · 10 cápsulas",
+      "mg": 200,
+      "forma": "cápsulas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 457,
+          "titulo": "Celecoxib 200 mg Oral 10 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/celecoxib-200-mg-oral-10-capsulas-marcadelahorro.html"
+        },
+        "Prixz": {
+          "precio": 78,
+          "titulo": "Celecoxib 200 Mg Con 10 Cápsulas (Ultra)",
+          "url": "https://prixz.com/c/celecoxib-200-mg-con-10-capsulas-ultra/"
+        }
+      },
+      "min": 78,
+      "max": 457,
+      "ahorro": 379,
+      "masBarata": "Prixz",
+      "porUnidad": 7.8
+    },
+    {
+      "medicamento": "Celecoxib",
+      "rank": 77,
+      "categoria": "Antiinflamatorio selectivo",
+      "clave": "celecoxib|200mg|cápsulas|30",
+      "etiqueta": "Celecoxib 200mg · 30 cápsulas",
+      "mg": 200,
+      "forma": "cápsulas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 933,
+          "titulo": "Celecoxib 200 mg 30 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/celecoxib-200-mg-30-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 121,
+          "titulo": "Celecoxib 200 Mg Con 30 Cápsulas (Ultra)",
+          "url": "https://prixz.com/c/celecoxib-200-mg-con-30-capsulas-ultra/"
+        }
+      },
+      "min": 121,
+      "max": 933,
+      "ahorro": 812,
+      "masBarata": "Prixz",
+      "porUnidad": 4.03
+    },
+    {
+      "medicamento": "Clopidogrel",
+      "rank": 81,
+      "categoria": "Antiagregante plaquetario",
+      "clave": "clopidogrel|75mg|tabletas|14",
+      "etiqueta": "Clopidogrel 75mg · 14 tabletas",
+      "mg": 75,
+      "forma": "tabletas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 415,
+          "titulo": "Clopidogrel 75 mg Oral 14 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/clopidogrel-75-mg-oral-14-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 498,
+          "titulo": "Agreless 75 Mg – Caja Con 14 Tabletas (Clopidogrel)",
+          "url": "https://prixz.com/c/agreless-clopidogrel-75-mg-con-14-tabletas/"
+        }
+      },
+      "min": 415,
+      "max": 498,
+      "ahorro": 83,
+      "masBarata": "Ahorro",
+      "porUnidad": 29.64
+    },
+    {
+      "medicamento": "Clopidogrel",
+      "rank": 81,
+      "categoria": "Antiagregante plaquetario",
+      "clave": "clopidogrel|75mg|tabletas|28",
+      "etiqueta": "Clopidogrel 75mg · 28 tabletas",
+      "mg": 75,
+      "forma": "tabletas",
+      "piezas": 28,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 828,
+          "titulo": "Clopidogrel 75 mg Oral 28 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/clopidogrel-75-mg-oral-28-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 98,
+          "titulo": "Clopidogrel 75 Mg Con 28 Tabletas",
+          "url": "https://prixz.com/c/clopidogrel-75-mg-con-28-tabletas/"
+        }
+      },
+      "min": 98,
+      "max": 828,
+      "ahorro": 730,
+      "masBarata": "Prixz",
+      "porUnidad": 3.5
+    },
+    {
+      "medicamento": "Claritromicina",
+      "rank": 85,
+      "categoria": "Antibiótico",
+      "clave": "claritromicina|500mg|tabletas|10",
+      "etiqueta": "Claritromicina 500mg · 10 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 236,
+          "titulo": "Claritromicina 500 mg Oral 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/claritromicina-500-mg-oral-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 57,
+          "titulo": "Doycur Claritromicina 500 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/doycur-10-tabletas-500mg/"
+        }
+      },
+      "min": 57,
+      "max": 236,
+      "ahorro": 179,
+      "masBarata": "Prixz",
+      "porUnidad": 5.7
+    },
+    {
+      "medicamento": "Oseltamivir",
+      "rank": 86,
+      "categoria": "Antiviral (Influenza estacional)",
+      "clave": "oseltamivir|75mg|cápsulas|10",
+      "etiqueta": "Oseltamivir 75mg · 10 cápsulas",
+      "mg": 75,
+      "forma": "cápsulas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 386,
+          "titulo": "Oseltamivir 75 mg Oral 10 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/oseltamivir-75-mg-oral-10-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 166,
+          "titulo": "Oseltamivir 75 Mg Con 10 Cápsulas",
+          "url": "https://prixz.com/c/oseltamivir-10-capsulas-75-mg/"
+        }
+      },
+      "min": 166,
+      "max": 386,
+      "ahorro": 220,
+      "masBarata": "Prixz",
+      "porUnidad": 16.6
+    },
+    {
+      "medicamento": "Benzonatato",
+      "rank": 87,
+      "categoria": "Antitusivo",
+      "clave": "benzonatato|100mg|cápsulas|20",
+      "etiqueta": "Benzonatato 100mg · 20 cápsulas",
+      "mg": 100,
+      "forma": "cápsulas",
+      "piezas": 20,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 61,
+          "titulo": "Benzonatato 100 mg con 20 cápsulas",
+          "url": "https://www.fahorro.com/benzonatato-100-mg-con-20-capsulas.html"
+        },
+        "Prixz": {
+          "precio": 32,
+          "titulo": "Benzonatato 100 Mg Con 20 Cápsulas (Alpharma)",
+          "url": "https://prixz.com/c/benzonatato-100-mg-con-20-capsulas-alpharma/"
+        }
+      },
+      "min": 32,
+      "max": 61,
+      "ahorro": 29,
+      "masBarata": "Prixz",
+      "porUnidad": 1.6
+    },
+    {
+      "medicamento": "Olanzapina",
+      "rank": 89,
+      "categoria": "Antipsicótico",
+      "clave": "olanzapina|10mg|tabletas|14",
+      "etiqueta": "Olanzapina 10mg · 14 tabletas",
+      "mg": 10,
+      "forma": "tabletas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 610,
+          "titulo": "Olanzapina 10 mg Oral 14 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/olanzapina-10-mg-oral-14-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 82,
+          "titulo": "Olanzapina 10 Mg Con 14 Tabletas (Psicofarma)",
+          "url": "https://prixz.com/c/olanzapina-10-mg-con-14-tabletas-psicofarma/"
+        }
+      },
+      "min": 82,
+      "max": 610,
+      "ahorro": 528,
+      "masBarata": "Prixz",
+      "porUnidad": 5.86
+    },
+    {
+      "medicamento": "Ketoprofeno",
+      "rank": 91,
+      "categoria": "Antiinflamatorio",
+      "clave": "ketoprofeno|100mg|cápsulas|15",
+      "etiqueta": "Ketoprofeno 100mg · 15 cápsulas",
+      "mg": 100,
+      "forma": "cápsulas",
+      "piezas": 15,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 140,
+          "titulo": "Ketoprofeno 100 mg Oral 15 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/ketoprofeno-100-mg-oral-15-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 40,
+          "titulo": "Ketoprofeno 100 Mg Con 15 Cápsulas",
+          "url": "https://prixz.com/c/salucom-ketoprofeno-100-mg-con-15-capsulas/"
+        }
+      },
+      "min": 40,
+      "max": 140,
+      "ahorro": 100,
+      "masBarata": "Prixz",
+      "porUnidad": 2.67
+    },
+    {
+      "medicamento": "Piroxicam",
+      "rank": 93,
+      "categoria": "Antiinflamatorio",
+      "clave": "piroxicam|20mg|tabletas|20",
+      "etiqueta": "Piroxicam 20mg · 20 tabletas",
+      "mg": 20,
+      "forma": "tabletas",
+      "piezas": 20,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 82,
+          "titulo": "Piroxicam 20 mg Oral 20 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/piroxicam-20-mg-oral-20-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 11,
+          "titulo": "Piroxicam 20 Mg Con 20 Tabletas (Avivia)",
+          "url": "https://prixz.com/c/piroxicam-20-mg-con-20-tabletas-avivia/"
+        }
+      },
+      "min": 11,
+      "max": 82,
+      "ahorro": 71,
+      "masBarata": "Prixz",
+      "porUnidad": 0.55
     }
   ]
 }

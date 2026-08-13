@@ -12,7 +12,9 @@
     "expandir:apply": "node scripts/expandir-catalogo.js --apply",
     "scan:labs": "node scripts/scan-labs.js",
     "scan:farmacias": "node scripts/scan-farmacias.js",
-    "scan:medicinas": "node scripts/scan-medicinas.js"
+    "scan:medicinas": "node scripts/scan-medicinas.js",
+    "catalogo:medicinas": "node scripts/construir-catalogo-medicinas.js",
+    "catalogo:medicinas:apply": "node scripts/construir-catalogo-medicinas.js --apply"
   },
   "engines": {
     "node": ">=16"
