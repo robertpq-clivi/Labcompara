@@ -4,6 +4,18 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/aviso-de-privacidad",
+      "destination": "/pages/aviso-de-privacidad"
+    },
+    {
+      "source": "/farmacias",
+      "destination": "/pages/farmacias"
+    },
+    {
+      "source": "/medicamentos",
+      "destination": "/pages/medicamentos"
+    },
+    {
       "source": "/analisis-clinicos",
       "destination": "/pages/analisis-clinicos"
     },
