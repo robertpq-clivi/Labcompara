@@ -8,4 +8,8 @@
     <loc>https://labcompara.com/sitemap-estudios.xml</loc>
     <lastmod>2026-08-13</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://labcompara.com/sitemap-blog.xml</loc>
+    <lastmod>2026-08-13</lastmod>
+  </sitemap>
 </sitemapindex>

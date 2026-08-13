@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Labcompara — Sitemap Generator
- * Generates: public/sitemap-core.xml, public/sitemap-estudios.xml, public/sitemap-index.xml
+ * Generates: sitemap-core.xml, sitemap-estudios.xml, sitemap-blog.xml, sitemap-index.xml
  *
  * Usage:
  *   node scripts/generate-sitemaps.js
@@ -58,6 +58,19 @@ const ESTUDIOS_PAGES = [
   { path: '/blog/cuanto-cuesta-un-check-up-en-mexico'        },
 ].map(p => ({ ...p, priority: '0.8', changefreq: 'monthly' }));
 
+// ── BLOG ──────────────────────────────────────────────────────────────────────
+// Se lee del directorio en vez de mantener una lista a mano: la versión anterior
+// declaraba 30 URLs mientras el blog tenía 48 posts, así que 47 de ellos nunca
+// se le enviaron a Google.
+const BLOG_DIR = path.join(__dirname, '..', 'blog');
+const BLOG_PAGES = fs.existsSync(BLOG_DIR)
+  ? fs.readdirSync(BLOG_DIR)
+      .filter(f => f.endsWith('.html') && f !== 'index.html')
+      .sort()
+      .map(f => ({ path: '/blog/' + f.replace(/\.html$/, ''), priority: '0.7', changefreq: 'monthly' }))
+  : [];
+
+
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function urlEntry({ path: p, priority, changefreq }) {
   return [
@@ -80,7 +93,7 @@ function buildSitemap(pages) {
 }
 
 function buildSitemapIndex() {
-  const sitemaps = ['sitemap-core.xml', 'sitemap-estudios.xml'];
+  const sitemaps = ['sitemap-core.xml', 'sitemap-estudios.xml', 'sitemap-blog.xml'];
   const entries  = sitemaps.map(name => [
     '  <sitemap>',
     `    <loc>${BASE_URL}/${name}</loc>`,
@@ -113,6 +126,7 @@ if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
 
 write('sitemap-core.xml',     buildSitemap(CORE_PAGES));
 write('sitemap-estudios.xml', buildSitemap(ESTUDIOS_PAGES));
+write('sitemap-blog.xml', buildSitemap(BLOG_PAGES));
 write('sitemap-index.xml',    buildSitemapIndex());
 
 console.log(`\n✅ Done — ${CORE_PAGES.length} core pages, ${ESTUDIOS_PAGES.length} estudio pages\n`);
