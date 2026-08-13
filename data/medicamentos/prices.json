@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T17:56:21.344Z",
+  "generated_at": "2026-08-13T18:03:27.147Z",
   "currency": "MXN",
   "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
@@ -15,7 +15,7 @@
           "title": "Ozempic 0.25 mg - 0.5 mg/dosis 1 Pluma con 6 Agujas"
         },
         "Guadalajara": {
-          "price": 5901,
+          "price": 3149,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/ozempic-1.34mg-ml-solucion-inyectable-pluma-precargada--1.5-ml.-1340883.html",
           "title": "Ozempic 1.34mg/ml Solución Inyectable Pluma Precargada, 1.5 ml."
         },
@@ -33,7 +33,7 @@
       "Clivi": 5499,
       "Ahorro": 3096,
       "Benavides": 4274,
-      "Guadalajara": 5901,
+      "Guadalajara": 3149,
       "SanPablo": 3096,
       "Revert": null
     },
@@ -85,7 +85,7 @@
           "title": "Mounjaro Kwikpen 2.5Mg/0.6Ml 3 ml"
         },
         "Guadalajara": {
-          "price": 9186,
+          "price": 3770,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-2.5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460706.html",
           "title": "Mounjaro KwikPen 2.5mg/0.6ml Solución Inyectable Pluma Precargada, 2.4 ml."
         },
@@ -108,7 +108,7 @@
       "Clivi": 5499,
       "Ahorro": 6250,
       "Benavides": 5867,
-      "Guadalajara": 9186,
+      "Guadalajara": 3770,
       "SanPablo": 6295,
       "Revert": 3649
     },
@@ -125,7 +125,7 @@
           "title": "Mounjaro Kwikpen 5Mg/0.6Ml 3 ml"
         },
         "Guadalajara": {
-          "price": 9186,
+          "price": 4775,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
           "title": "Mounjaro KwikPen 5mg/0.6ml Solución Inyectable Pluma Precargada, 2.4 ml."
         },
@@ -148,7 +148,7 @@
       "Clivi": 6499,
       "Ahorro": 6500,
       "Benavides": 5973,
-      "Guadalajara": 9186,
+      "Guadalajara": 4775,
       "SanPablo": 5983,
       "Revert": 4849
     },
@@ -165,7 +165,7 @@
           "title": "Mounjaro Kwikpen 7.5Mg/0.6Ml 3 ml"
         },
         "Guadalajara": {
-          "price": 11964,
+          "price": 6500,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-7.5mg-0.6ml-en-pluma-precargada-solucion-inyectable--2.4-ml.-1460722.html",
           "title": "Mounjaro KwikPen 7.5mg/0.6ml en Pluma Precargada Solución Inyectable, 2.4 ml."
         },
@@ -188,7 +188,7 @@
       "Clivi": 7499,
       "Ahorro": 8500,
       "Benavides": 7821,
-      "Guadalajara": 11964,
+      "Guadalajara": 6500,
       "SanPablo": 7880,
       "Revert": 6349
     },
@@ -205,7 +205,7 @@
           "title": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml"
         },
         "Guadalajara": {
-          "price": 11964,
+          "price": 6255,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-10mg-0.6ml-en-pluma-precargada-solucion-inyectable--2.4-ml.-1460730.html",
           "title": "Mounjaro KwikPen 10mg/0.6ml en Pluma Precargada Solución Inyectable, 2.4 ml."
         },
@@ -228,7 +228,7 @@
       "Clivi": 7499,
       "Ahorro": 8500,
       "Benavides": 7819,
-      "Guadalajara": 11964,
+      "Guadalajara": 6255,
       "SanPablo": 7838,
       "Revert": 6349
     },
@@ -245,7 +245,7 @@
           "title": "Mounjaro Kwikpen 12.5Mg/0.6Ml 3 ml"
         },
         "Guadalajara": {
-          "price": 14358,
+          "price": 7750,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-12.5mg-0.6ml-en-pluma-precargada-solucion-inyectable--2.4-ml.-1460749.html",
           "title": "Mounjaro KwikPen 12.5mg/0.6ml en Pluma Precargada Solución Inyectable, 2.4 ml."
         },
@@ -268,7 +268,7 @@
       "Clivi": 9999,
       "Ahorro": 10500,
       "Benavides": 9688,
-      "Guadalajara": 14358,
+      "Guadalajara": 7750,
       "SanPablo": 10730,
       "Revert": 8499
     },
@@ -285,7 +285,7 @@
           "title": "Mounjaro 15mg /0.6ml"
         },
         "Guadalajara": {
-          "price": 14358,
+          "price": 7750,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-15mg-0.6ml-en-pluma-precargada-solucion-inyectable--2.4-ml.-1460757.html",
           "title": "Mounjaro KwikPen 15mg/0.6ml en Pluma Precargada Solución Inyectable, 2.4 ml."
         },
@@ -308,7 +308,7 @@
       "Clivi": 9999,
       "Ahorro": 10500,
       "Benavides": 9688,
-      "Guadalajara": 14358,
+      "Guadalajara": 7750,
       "SanPablo": 8608,
       "Revert": 9999
     },
@@ -325,7 +325,7 @@
           "title": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma"
         },
         "Guadalajara": {
-          "price": 4851,
+          "price": 2385,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html",
           "title": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
@@ -348,7 +348,7 @@
       "Clivi": 4299,
       "Ahorro": 2384,
       "Benavides": 3177,
-      "Guadalajara": 4851,
+      "Guadalajara": 2385,
       "SanPablo": 3178,
       "Revert": 2299
     },
@@ -365,7 +365,7 @@
           "title": "WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma"
         },
         "Guadalajara": {
-          "price": 5901,
+          "price": 2900,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.5mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447726.html",
           "title": "Wegovy 0.5mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
@@ -388,7 +388,7 @@
       "Clivi": 4999,
       "Ahorro": 2900,
       "Benavides": 3864,
-      "Guadalajara": 5901,
+      "Guadalajara": 2900,
       "SanPablo": 3864,
       "Revert": 2899
     },
@@ -405,7 +405,7 @@
           "title": "WEGOVY FlexTouch 3ml (1.0mg) 1 Pluma"
         },
         "Guadalajara": {
-          "price": 8005,
+          "price": 3940,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447823.html",
           "title": "Wegovy 1mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
@@ -428,7 +428,7 @@
       "Clivi": 5499,
       "Ahorro": 3934,
       "Benavides": 5244,
-      "Guadalajara": 8005,
+      "Guadalajara": 3940,
       "SanPablo": 5244,
       "Revert": 3899
     },
@@ -445,7 +445,7 @@
           "title": "WEGOVY FlexTouch 3ml (1.7mg) 1 Pluma"
         },
         "Guadalajara": {
-          "price": 10206,
+          "price": 4650,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1.7mg-dosis-2.27mg-ml-solucion-inyectable--1-pluma-precargada.-1448510.html",
           "title": "Wegovy 1.7mg/Dosis 2.27mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
@@ -468,7 +468,7 @@
       "Clivi": 6999,
       "Ahorro": 4650,
       "Benavides": 6643,
-      "Guadalajara": 10206,
+      "Guadalajara": 4650,
       "SanPablo": 6643,
       "Revert": 4599
     },
@@ -485,7 +485,7 @@
           "title": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma"
         },
         "Guadalajara": {
-          "price": 12488,
+          "price": 4900,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-2.4mg-dosis-3.2mg-ml-solucion-inyectable--1-pluma-precargada.-1448528.html",
           "title": "Wegovy 2.4mg/Dosis 3.2mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
@@ -508,7 +508,7 @@
       "Clivi": 6999,
       "Ahorro": 4900,
       "Benavides": 8163,
-      "Guadalajara": 12488,
+      "Guadalajara": 4900,
       "SanPablo": 8164,
       "Revert": 4899
     },
@@ -525,7 +525,7 @@
           "title": "Rybelsus 3 mg 30 tabletas"
         },
         "Guadalajara": {
-          "price": 3273,
+          "price": 2172,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/rybelsus-3-mg--30-tabletas.-1377663.html",
           "title": "Rybelsus 3 mg, 30 Tabletas."
         },
@@ -543,7 +543,7 @@
       "Clivi": 1999,
       "Ahorro": 2403,
       "Benavides": 2351,
-      "Guadalajara": 3273,
+      "Guadalajara": 2172,
       "SanPablo": 2153,
       "Revert": null
     },
@@ -560,7 +560,7 @@
           "title": "Rybelsus 7 mg 30 tabletas"
         },
         "Guadalajara": {
-          "price": 5455,
+          "price": 2975,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/rybelsus-7-mg--30-tabletas.-1377655.html",
           "title": "Rybelsus 7 mg, 30 Tabletas."
         },
@@ -578,7 +578,7 @@
       "Clivi": 3999,
       "Ahorro": 2993,
       "Benavides": 3906,
-      "Guadalajara": 5455,
+      "Guadalajara": 2975,
       "SanPablo": 2808,
       "Revert": null
     },
@@ -595,7 +595,7 @@
           "title": "Rybelsus 14 mg 30 Tabs"
         },
         "Guadalajara": {
-          "price": 6117,
+          "price": 3335,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/rybelsus-14-mg--30-tabletas.-1388690.html",
           "title": "Rybelsus 14 mg, 30 Tabletas."
         },
@@ -613,7 +613,7 @@
       "Clivi": 3999,
       "Ahorro": 3354,
       "Benavides": 4379,
-      "Guadalajara": 6117,
+      "Guadalajara": 3335,
       "SanPablo": 3148,
       "Revert": null
     }
