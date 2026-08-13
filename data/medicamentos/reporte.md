@@ -5,6 +5,6 @@
 | Clivi | 16/16 | — | — |
 | Ahorro | 16/16 | 19 | 0 |
 | Benavides | 16/16 | 18 | 0 |
-| Guadalajara | 1/16 | — | — |
-| SanPablo | 7/16 | — | — |
+| Guadalajara | 16/16 | 68 | 0 |
+| SanPablo | 16/16 | 28 | 0 |
 | Revert | 11/16 | — | — |
