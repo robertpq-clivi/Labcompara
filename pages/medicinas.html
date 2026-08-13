@@ -402,12 +402,16 @@ function render(q){
       // pueden estar ofreciendo cosas distintas —el genérico de una contra el
       // Dimefor de otra— y sin decirlo la diferencia de precio parece un abuso
       // cuando en realidad son dos productos.
-      const quien = v.marca || 'genérico';
+      //
+      // `null` es "lo leímos y no tiene marca"; `undefined` es un feed anterior
+      // a que se leyera la marca. No es lo mismo, y llamarle genérico a un
+      // Dimefor porque el dato falta sería peor que no decir nada.
+      const quien = v.marca === undefined ? '' : (v.marca || 'genérico');
       return `<a class="farm${best?' best':''}" href="${v.url}" target="_blank" rel="noopener nofollow" title="${v.titulo.replace(/"/g,'&quot;')}">
         ${best?'<span class="farm-tag">más barata</span>':''}
         <div class="farm-name">${f}</div>
         <div class="farm-price">${money(v.precio)}</div>
-        <div class="farm-unit">${quien}${unidad?' · '+unidad:''}</div>
+        <div class="farm-unit">${[quien, unidad].filter(Boolean).join(' · ')}</div>
       </a>`;
     }).join('');
 
