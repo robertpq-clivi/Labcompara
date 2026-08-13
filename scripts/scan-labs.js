@@ -189,6 +189,17 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   }
 
   const objetivo = LABS.filter((l) => !SOLO.length || SOLO.includes(l.id));
+  // Un --labs con un nombre mal escrito no debe escanear nada en silencio y
+  // salir verde: en un disparo manual eso se lee como "corrió bien".
+  if (SOLO.length && !objetivo.length) {
+    console.error(`--labs=${SOLO.join(',')} no coincide con ningún laboratorio.`);
+    console.error(`Disponibles: ${LABS.map((l) => l.id).join(' · ')}`);
+    process.exit(1);
+  }
+  if (SOLO.length) {
+    const desconocidos = SOLO.filter((id) => !LABS.some((l) => l.id === id));
+    if (desconocidos.length) console.log(`⚠️  ignorados (no existen): ${desconocidos.join(', ')}\n`);
+  }
   const resultados = {};
   const meta = {};
 
