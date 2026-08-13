@@ -1,0 +1,23 @@
+{
+  "_comment": "Curated Clivi prices (membership plan incl. seguimiento médico, consulta, estudios y plan de alimentación). Clivi has no per-dose public pages, so these are maintained manually. Keyed by canonical product name. Edit here to update.",
+  "url": "https://www.clivi.com.mx/",
+  "note": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación",
+  "prices": {
+    "Ozempic 0.25/0.5 mg (1 pluma)": 5499,
+    "Ozempic 1 mg (1 pluma)": 5499,
+    "Mounjaro 2.5 mg (1 pluma)": 5499,
+    "Mounjaro 5 mg (1 pluma)": 6499,
+    "Mounjaro 7.5 mg (1 pluma)": 7499,
+    "Mounjaro 10 mg (1 pluma)": 7499,
+    "Mounjaro 12.5 mg (1 pluma)": 9999,
+    "Mounjaro 15 mg (1 pluma)": 9999,
+    "Wegovy 0.25 mg (caja mensual)": 4299,
+    "Wegovy 0.5 mg (caja mensual)": 4999,
+    "Wegovy 1 mg (caja mensual)": 5499,
+    "Wegovy 1.7 mg (caja mensual)": 6999,
+    "Wegovy 2.4 mg (caja mensual)": 6999,
+    "Rybelsus 3 mg (30 tabletas)": 1999,
+    "Rybelsus 7 mg (30 tabletas)": 3999,
+    "Rybelsus 14 mg (30 tabletas)": 3999
+  }
+}

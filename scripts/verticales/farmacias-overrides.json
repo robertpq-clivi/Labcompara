@@ -1,0 +1,28 @@
+{
+  "_comment": "Manual price fills, applied AFTER scraping and taking precedence. With Zyte live, Guadalajara & San Pablo auto-scrape; only the cells Zyte can't parse (missing SKU in results, or titles without a parseable dose) are kept here. Revert is never scraped (curated). Shape: source -> {canonical product name: price MXN}.",
+  "Guadalajara": {
+    "Ozempic 1 mg (1 pluma)": 4280
+  },
+  "SanPablo": {
+    "Ozempic 0.25/0.5 mg (1 pluma)": 3096,
+    "Ozempic 1 mg (1 pluma)": 4198,
+    "Mounjaro 5 mg (1 pluma)": 5983,
+    "Mounjaro 15 mg (1 pluma)": 8608,
+    "Rybelsus 3 mg (30 tabletas)": 2153,
+    "Rybelsus 7 mg (30 tabletas)": 2808,
+    "Rybelsus 14 mg (30 tabletas)": 3148
+  },
+  "Revert": {
+    "Mounjaro 2.5 mg (1 pluma)": 3649,
+    "Mounjaro 5 mg (1 pluma)": 4849,
+    "Mounjaro 7.5 mg (1 pluma)": 6349,
+    "Mounjaro 10 mg (1 pluma)": 6349,
+    "Mounjaro 12.5 mg (1 pluma)": 8499,
+    "Mounjaro 15 mg (1 pluma)": 9999,
+    "Wegovy 0.25 mg (caja mensual)": 2299,
+    "Wegovy 0.5 mg (caja mensual)": 2899,
+    "Wegovy 1 mg (caja mensual)": 3899,
+    "Wegovy 1.7 mg (caja mensual)": 4599,
+    "Wegovy 2.4 mg (caja mensual)": 4899
+  }
+}

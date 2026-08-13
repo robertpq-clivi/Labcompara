@@ -26,6 +26,13 @@
 'use strict';
 
 const UA = 'LabcomparaBot/1.0 (+https://labcompara.com; comparador de precios)';
+/**
+ * Algunos WAF rechazan cualquier User-Agent que no parezca navegador aunque el
+ * endpoint sea público — el /graphql de Farmacias del Ahorro es el caso. Para
+ * esos se usa este UA en vez de ocultar quiénes somos en todo el scan.
+ */
+const UA_NAVEGADOR = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+  '(KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 const TIMEOUT_DIRECTO_MS = 25000;
 const TIMEOUT_PROXY_MS = 90000;   // Zyte renderiza y reintenta: necesita más aire
 
@@ -62,14 +69,21 @@ function crearCliente(opts = {}) {
   const log = opts.log || (() => {});
   const stats = { directo: 0, proxy: 0, escaladas: 0, fallos: 0 };
 
-  async function directo(url) {
+  async function directo(url, o = {}) {
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), TIMEOUT_DIRECTO_MS);
     try {
       const res = await fetch(url, {
+        method: o.body ? 'POST' : 'GET',
         redirect: 'follow',
         signal: ctrl.signal,
-        headers: { 'User-Agent': UA, 'Accept-Language': 'es-MX,es;q=0.9' },
+        body: o.body,
+        headers: {
+          'User-Agent': o.navegador ? UA_NAVEGADOR : UA,
+          'Accept-Language': 'es-MX,es;q=0.9',
+          ...(o.body ? { 'Content-Type': 'application/json' } : {}),
+          ...(o.headers || {}),
+        },
       });
       const cuerpo = await res.text();
       return { status: res.status, cuerpo };
@@ -120,7 +134,7 @@ function crearCliente(opts = {}) {
     let ultimoErr = null, ultimoStatus = 0, ultimoCuerpo = '';
     for (let i = 0; i <= reintentos; i++) {
       try {
-        const { status, cuerpo } = await directo(url);
+        const { status, cuerpo } = await directo(url, o);
         if (status === 200) { stats.directo++; return cuerpo; }
         ultimoStatus = status; ultimoCuerpo = cuerpo; ultimoErr = null;
         // 404/410 son respuestas legítimas del sitio: no hay nada que escalar.
@@ -167,6 +181,13 @@ function crearCliente(opts = {}) {
   return {
     get: (url, o) => pedir(url, o),
     getJSON: async (url, o) => JSON.parse(await pedir(url, o)),
+    /**
+     * POST con cuerpo JSON. No escala a Zyte: su endpoint /extract solo hace
+     * GET, así que un POST bloqueado falla y se reporta en vez de fingir que
+     * hay una alternativa.
+     */
+    postJSON: async (url, cuerpo, o = {}) =>
+      JSON.parse(await pedir(url, { ...o, body: JSON.stringify(cuerpo), reintentos: o.reintentos ?? 1 })),
     stats: () => ({ ...stats }),
     tieneProxy: () => !!clave,
     verificarProxy,

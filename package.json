@@ -5,12 +5,13 @@
   "scripts": {
     "generate:sitemaps": "node scripts/generate-sitemaps.js",
     "predeploy": "npm run generate:sitemaps",
-    "scan": "node scripts/scan-labs.js",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
-    "test": "node scripts/test-match.js && node scripts/test-feed.js",
+    "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-feed.js",
     "expandir": "node scripts/expandir-catalogo.js",
-    "expandir:apply": "node scripts/expandir-catalogo.js --apply"
+    "expandir:apply": "node scripts/expandir-catalogo.js --apply",
+    "scan:labs": "node scripts/scan-labs.js",
+    "scan:farmacias": "node scripts/scan-farmacias.js"
   },
   "engines": {
     "node": ">=16"

@@ -1,0 +1,27 @@
+{
+  "_comment": "Canonical catalog for GLPcompara. 'name' must match RAW_DATA names in index.html exactly. 'family' drives the search query per source; 'match' tokens (all must appear, case-insensitive) identify the right product variant within that family's results. Tune 'match' tokens against data/prices_raw.json as needed.",
+  "families": {
+    "Ozempic":  { "query": "ozempic" },
+    "Mounjaro": { "query": "mounjaro" },
+    "Wegovy":   { "query": "wegovy" },
+    "Rybelsus": { "query": "rybelsus" }
+  },
+  "products": [
+    { "name": "Ozempic 0.25/0.5 mg (1 pluma)", "family": "Ozempic",  "match_any": ["0.25", "0.5 mg", "1.34 mg", "inicio"], "exclude": ["1 mg", "2 mg"] },
+    { "name": "Ozempic 1 mg (1 pluma)",         "family": "Ozempic",  "match_all": ["1 mg"], "exclude": ["0.5", "2 mg", "1.34"] },
+    { "name": "Mounjaro 2.5 mg (1 pluma)",      "family": "Mounjaro", "match_all": ["2.5 mg"] },
+    { "name": "Mounjaro 5 mg (1 pluma)",        "family": "Mounjaro", "match_all": ["5 mg"], "exclude": ["2.5", "7.5", "12.5", "15 mg"] },
+    { "name": "Mounjaro 7.5 mg (1 pluma)",      "family": "Mounjaro", "match_all": ["7.5 mg"] },
+    { "name": "Mounjaro 10 mg (1 pluma)",       "family": "Mounjaro", "match_all": ["10 mg"] },
+    { "name": "Mounjaro 12.5 mg (1 pluma)",     "family": "Mounjaro", "match_all": ["12.5 mg"] },
+    { "name": "Mounjaro 15 mg (1 pluma)",       "family": "Mounjaro", "match_all": ["15 mg"] },
+    { "name": "Wegovy 0.25 mg (caja mensual)",  "family": "Wegovy",   "match_all": ["0.25 mg"] },
+    { "name": "Wegovy 0.5 mg (caja mensual)",   "family": "Wegovy",   "match_all": ["0.5 mg"], "exclude": ["0.25"] },
+    { "name": "Wegovy 1 mg (caja mensual)",     "family": "Wegovy",   "match_any": ["1.0 mg", "1 mg"], "exclude": ["0.25", "0.5 mg", "1.7", "2.4"] },
+    { "name": "Wegovy 1.7 mg (caja mensual)",   "family": "Wegovy",   "match_all": ["1.7 mg"] },
+    { "name": "Wegovy 2.4 mg (caja mensual)",   "family": "Wegovy",   "match_all": ["2.4 mg"] },
+    { "name": "Rybelsus 3 mg (30 tabletas)",    "family": "Rybelsus", "match_all": ["3 mg"], "exclude": ["7 mg", "14 mg", "10 tab"], "min_price": 1500 },
+    { "name": "Rybelsus 7 mg (30 tabletas)",    "family": "Rybelsus", "match_all": ["7 mg"], "exclude": ["10 tab"] },
+    { "name": "Rybelsus 14 mg (30 tabletas)",   "family": "Rybelsus", "match_all": ["14 mg"], "exclude": ["10 tab"] }
+  ]
+}

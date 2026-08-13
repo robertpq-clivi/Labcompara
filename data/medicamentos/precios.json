@@ -1,0 +1,509 @@
+{
+  "generado": "2026-08-13T17:35:43.505Z",
+  "currency": "MXN",
+  "fuentes": [
+    "Clivi",
+    "Ahorro",
+    "Benavides",
+    "Guadalajara",
+    "SanPablo",
+    "Revert"
+  ],
+  "precios": {
+    "Ozempic 0.25/0.5 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 4274,
+          "url": "https://www.benavides.com.mx/ozempic-134-mgml-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "1.34 mg/ml Semaglutida Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 3096,
+          "url": "https://www.fahorro.com/ozempic-0-25mg-0-5-mg-w-nf-6-pz.html",
+          "title": "Ozempic 0.25 mg - 0.5 mg/dosis 1 Pluma con 6 Agujas"
+        },
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "SanPablo": {
+          "price": 3096,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 5499,
+      "Ahorro": 3096,
+      "Benavides": 4274,
+      "Guadalajara": null,
+      "SanPablo": 3096,
+      "Revert": null
+    },
+    "Ozempic 1 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 5789,
+          "url": "https://www.benavides.com.mx/ozempic-1-mg-semaglutida-1-jeringa-prellenada",
+          "title": "1 mg Semaglutida"
+        },
+        "Ahorro": {
+          "price": 4198,
+          "url": "https://www.fahorro.com/ozempic-1-mg-nf-4-pz.html",
+          "title": "Ozempic 1 mg/dosis 1 Pluma con 4 Agujas"
+        },
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Guadalajara": {
+          "price": 4280,
+          "url": "https://www.farmaciasguadalajara.com/",
+          "title": "Precio verificado manualmente"
+        },
+        "SanPablo": {
+          "price": 4198,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 5499,
+      "Ahorro": 4198,
+      "Benavides": 5789,
+      "Guadalajara": 4280,
+      "SanPablo": 4198,
+      "Revert": null
+    },
+    "Mounjaro 2.5 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 5867,
+          "url": "https://www.benavides.com.mx/mounjaro-2-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+          "title": "2.5 mg Tirzepatida/0.6 ml Solución"
+        },
+        "Ahorro": {
+          "price": 1694,
+          "url": "https://www.fahorro.com/mounjaro-2-5-mg-0-5-ml.html",
+          "title": "Mounjaro 2.5 mg/0.5 ml 1 Frasco"
+        },
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 3649,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 5499,
+      "Ahorro": 1694,
+      "Benavides": 5867,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 3649
+    },
+    "Mounjaro 5 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 5973,
+          "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+          "title": "5 mg Tirzepatida/0.6 ml Solución"
+        },
+        "Ahorro": {
+          "price": 1694,
+          "url": "https://www.fahorro.com/mounjaro-5-mg-0-5-ml.html",
+          "title": "Mounjaro 5 mg/0.5 ml 1 Frasco"
+        },
+        "Clivi": {
+          "price": 6499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "SanPablo": {
+          "price": 5983,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        },
+        "Revert": {
+          "price": 4849,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 6499,
+      "Ahorro": 1694,
+      "Benavides": 5973,
+      "Guadalajara": null,
+      "SanPablo": 5983,
+      "Revert": 4849
+    },
+    "Mounjaro 7.5 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 7821,
+          "url": "https://www.benavides.com.mx/mounjaro-7-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+          "title": "7.5 mg Tirzepatida/0.6 ml Solución"
+        },
+        "Ahorro": {
+          "price": 8500,
+          "url": "https://www.fahorro.com/mounjaro-kwikpen-7-5mg-0-6ml-3-ml.html",
+          "title": "Mounjaro Kwikpen 7.5Mg/0.6Ml 3 ml"
+        },
+        "Clivi": {
+          "price": 7499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 6349,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 7499,
+      "Ahorro": 8500,
+      "Benavides": 7821,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 6349
+    },
+    "Mounjaro 10 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 7819,
+          "url": "https://www.benavides.com.mx/mounjaro-10-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
+          "title": "10 mg Tirzepatida/0.6 ml Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 8500,
+          "url": "https://www.fahorro.com/mounjaro-kwikpen-10mg-0-6ml-3-ml.html",
+          "title": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml"
+        },
+        "Clivi": {
+          "price": 7499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 6349,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 7499,
+      "Ahorro": 8500,
+      "Benavides": 7819,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 6349
+    },
+    "Mounjaro 12.5 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 9688,
+          "url": "https://www.benavides.com.mx/mounjaro-12-5-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
+          "title": "12.5 mg Tirzepatida/0.6 ml Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 10500,
+          "url": "https://www.fahorro.com/mounjaro-kwikpen-12-5mg-0-6ml-3-ml.html",
+          "title": "Mounjaro Kwikpen 12.5Mg/0.6Ml 3 ml"
+        },
+        "Clivi": {
+          "price": 9999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 8499,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 9999,
+      "Ahorro": 10500,
+      "Benavides": 9688,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 8499
+    },
+    "Mounjaro 15 mg (1 pluma)": {
+      "sources": {
+        "Benavides": {
+          "price": 9688,
+          "url": "https://www.benavides.com.mx/mounjaro-15-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
+          "title": "15 mg Tirzepatida/0.6 ml Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 10500,
+          "url": "https://www.fahorro.com/mounjaro-15mg-0-6ml.html",
+          "title": "Mounjaro 15mg /0.6ml"
+        },
+        "Clivi": {
+          "price": 9999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "SanPablo": {
+          "price": 8608,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        },
+        "Revert": {
+          "price": 9999,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 9999,
+      "Ahorro": 10500,
+      "Benavides": 9688,
+      "Guadalajara": null,
+      "SanPablo": 8608,
+      "Revert": 9999
+    },
+    "Wegovy 0.25 mg (caja mensual)": {
+      "sources": {
+        "Benavides": {
+          "price": 3177,
+          "url": "https://www.benavides.com.mx/wegovy-0-25-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "0.25 mg Semaglutida Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 2384,
+          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-25mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma"
+        },
+        "Clivi": {
+          "price": 4299,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 2299,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 4299,
+      "Ahorro": 2384,
+      "Benavides": 3177,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 2299
+    },
+    "Wegovy 0.5 mg (caja mensual)": {
+      "sources": {
+        "Benavides": {
+          "price": 3864,
+          "url": "https://www.benavides.com.mx/wegovy-0-5-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "0.5 mg Semaglutida Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 2900,
+          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-5mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma"
+        },
+        "Clivi": {
+          "price": 4999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 2899,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 4999,
+      "Ahorro": 2900,
+      "Benavides": 3864,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 2899
+    },
+    "Wegovy 1 mg (caja mensual)": {
+      "sources": {
+        "Benavides": {
+          "price": 5244,
+          "url": "https://www.benavides.com.mx/wegovy-1-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "1 mg Semaglutida Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 3934,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-0mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 3ml (1.0mg) 1 Pluma"
+        },
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 3899,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 5499,
+      "Ahorro": 3934,
+      "Benavides": 5244,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 3899
+    },
+    "Wegovy 1.7 mg (caja mensual)": {
+      "sources": {
+        "Benavides": {
+          "price": 6643,
+          "url": "https://www.benavides.com.mx/wegovy-1-7-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "1.7 mg Semaglutida Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 4650,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-7mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 3ml (1.7mg) 1 Pluma"
+        },
+        "Clivi": {
+          "price": 6999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 4599,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 6999,
+      "Ahorro": 4650,
+      "Benavides": 6643,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 4599
+    },
+    "Wegovy 2.4 mg (caja mensual)": {
+      "sources": {
+        "Benavides": {
+          "price": 8163,
+          "url": "https://www.benavides.com.mx/wegovy-2-4-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "2.4 mg Semaglutida Solución Inyectable"
+        },
+        "Ahorro": {
+          "price": 4900,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-2-4mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma"
+        },
+        "Clivi": {
+          "price": 6999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 4899,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 6999,
+      "Ahorro": 4900,
+      "Benavides": 8163,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 4899
+    },
+    "Rybelsus 3 mg (30 tabletas)": {
+      "sources": {
+        "Benavides": {
+          "price": 2351,
+          "url": "https://www.benavides.com.mx/rybelsus-3-mg-semaglutida-30-tabletas",
+          "title": "3 mg Semaglutida"
+        },
+        "Ahorro": {
+          "price": 2403,
+          "url": "https://www.fahorro.com/rybelsus-3-mg-30-tabletas.html",
+          "title": "Rybelsus 3 mg 30 tabletas"
+        },
+        "Clivi": {
+          "price": 1999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "SanPablo": {
+          "price": 2153,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 1999,
+      "Ahorro": 2403,
+      "Benavides": 2351,
+      "Guadalajara": null,
+      "SanPablo": 2153,
+      "Revert": null
+    },
+    "Rybelsus 7 mg (30 tabletas)": {
+      "sources": {
+        "Benavides": {
+          "price": 3906,
+          "url": "https://www.benavides.com.mx/rybelsus-7-mg-semaglutida-30-tabletas",
+          "title": "7 mg Semaglutida"
+        },
+        "Ahorro": {
+          "price": 2993,
+          "url": "https://www.fahorro.com/rybelsus-7-mg-30-tabletas.html",
+          "title": "Rybelsus 7 mg 30 tabletas"
+        },
+        "Clivi": {
+          "price": 3999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "SanPablo": {
+          "price": 2808,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 3999,
+      "Ahorro": 2993,
+      "Benavides": 3906,
+      "Guadalajara": null,
+      "SanPablo": 2808,
+      "Revert": null
+    },
+    "Rybelsus 14 mg (30 tabletas)": {
+      "sources": {
+        "Benavides": {
+          "price": 4379,
+          "url": "https://www.benavides.com.mx/rybelsus-14-mg-semaglutida-30-tabletas",
+          "title": "14 mg Semaglutida"
+        },
+        "Ahorro": {
+          "price": 3354,
+          "url": "https://www.fahorro.com/rybelsus-14-mg-30-tabletas.html",
+          "title": "Rybelsus 14 mg 30 Tabs"
+        },
+        "Clivi": {
+          "price": 3999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "SanPablo": {
+          "price": 3148,
+          "url": "https://www.farmaciasanpablo.com.mx/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 3999,
+      "Ahorro": 3354,
+      "Benavides": 4379,
+      "Guadalajara": null,
+      "SanPablo": 3148,
+      "Revert": null
+    }
+  }
+}

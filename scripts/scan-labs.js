@@ -25,7 +25,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { LABS } = require('./lib/labs');
+const { LABS } = require('./verticales/laboratorio');
 const { emparejar } = require('./lib/match');
 const { crearCliente } = require('./lib/http');
 const { actualizarHistorial } = require('./lib/history');
