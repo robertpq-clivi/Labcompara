@@ -1,12 +1,18 @@
 # Labcompara 🧬
 
-Comparador de precios de estudios de laboratorio en México.
+Comparador de precios de salud en México. Dos verticales en un dominio:
 
-Compara precios entre Labbe, Polanco, Chopo, Salud Digna, LAPI y OLAB en un solo lugar.
+| Ruta | Qué compara | Fuentes |
+|---|---|---|
+| `/` | **620 estudios** de laboratorio | Labbe, Polanco, Chopo, Salud Digna, LAPI, OLAB |
+| `/medicamentos` | **16 presentaciones** GLP-1 | Clivi, Ahorro, Benavides, Guadalajara, San Pablo, Revert |
+
+GLPcompara se consolidó aquí en agosto de 2026; glpcompara.com.mx redirige con
+301 en todas sus rutas.
 
 ## Características
 
-- **620 estudios** comparados entre 6 laboratorios (90 con los seis precios)
+- 620 estudios de laboratorio + 16 medicamentos GLP-1
 - **Precios actualizados solos cada 7 días** ([cómo funciona](docs/AUTOMATIZACION.md))
 - Formulario de captura de leads
 - Badges de "Más barato" y "Mejor calificado"
@@ -28,7 +34,8 @@ comparador y commitea el resultado. Misma infraestructura que GLPcompara:
 cron + **Zyte** como proveedor anti-bloqueo (`SCRAPER_API_KEY`).
 
 ```bash
-npm run scan            # escanea los labs y regenera data/precios.json
+npm run scan:labs       # laboratorios → data/precios.json
+npm run scan:farmacias  # medicamentos → data/medicamentos/prices.json
 npm run scan:offline    # reusa data/scan/, sin pedir nada a los sitios
 npm run scan:apply      # además reescribe RAW_DATA en index.html
 npm test                # emparejador + cargador del feed
@@ -50,14 +57,17 @@ data/reporte.md                   qué cambió en el último scan
 .github/workflows/
   scrape-prices.yml               el cron de 7 días
 scripts/
-  scan-labs.js                    orquestador del scan
-  lib/labs.js                     un adaptador por laboratorio
-  lib/http.js                     transporte directo con escalada a Zyte
-  lib/match.js                    emparejamiento de nombres de estudio
-  lib/history.js                  serie temporal
+  scan-labs.js                    orquestador de la vertical de laboratorio
+  scan-farmacias.js               orquestador de la vertical de medicamentos
+  lib/http.js         compartido  transporte con escalada a Zyte
+  lib/precio.js       compartido  parseo de precios, HTML, JSON-LD
+  lib/history.js      compartido  serie temporal
+  lib/match.js                    emparejamiento difuso (laboratorio)
   lib/agrupar.js                  descubre estudios agrupando entre labs
+  verticales/laboratorio.js       6 adaptadores de laboratorio
+  verticales/farmacias.js         4 adaptadores de farmacia + 2 curados
   expandir-catalogo.js            amplía RAW_DATA con lo descubierto
-  test-match.js  test-feed.js     tests
+  test-match.js  test-farmacias.js  test-feed.js
   labcompara-apps-script.gs       captura de leads (Sheets)
   generate-sitemaps.js            sitemaps
 blog/  pages/                     contenido SEO
