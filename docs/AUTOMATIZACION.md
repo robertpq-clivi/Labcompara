@@ -396,6 +396,48 @@ más barata: es la que el cliente puede ir a comprar. Genérico y marca original
 sí se comparan entre sí; esa diferencia es justo la que la página existe para
 mostrar.
 
+### Dos comparaciones, no una
+
+Comparar por principio activo responde *"¿dónde está más barato el omeprazol de
+20 mg?"*. No responde *"¿dónde está más barata mi Tempra?"* — y para un
+medicamento conocido esa es la pregunta que la gente hace: la marca es como lo
+conocen. Así que se publican filas de los dos tipos, marcadas con `tipo`:
+
+| `tipo` | Qué compara | Ejemplo |
+|---|---|---|
+| `sustancia` | lo más barato de cada farmacia con esa caja | Metformina 850mg · 30 tabletas → Ahorro $153 (genérico) · Prixz $393 (Dimefor) |
+| `marca` | la misma marca entre farmacias | Dimefor 850mg · 30 tabletas → Ahorro $397 · Prixz $393 |
+
+La fila de sustancia por sí sola engaña: $153 contra $393 parece un abuso
+cuando en realidad son dos productos distintos. Por eso cada precio lleva
+ahora su marca, y por eso existe la fila de marca al lado.
+
+Una fila de marca que repite exactamente la de su sustancia no se publica:
+pasa cuando esa caja solo existe de esa marca, y las dos dirían lo mismo.
+
+### Por qué hacen falta dos pasadas
+
+Buscar "paracetamol" hace que cada farmacia devuelva sobre todo **su propia
+línea**: Ahorro contesta con Marca del Ahorro, Prixz con genéricos. Midiéndolo
+sobre los 100 primeros: de todas las marcas encontradas, exactamente **una**
+aparecía en dos farmacias. Sin una segunda pasada la comparación por marca no
+existe.
+
+La pasada 2 toma las marcas que sí aparecieron y las pregunta en las farmacias
+donde no salieron. Un detalle que la hace funcionar: Prixz titula "Tempra 160
+Mg 30 Tabletas" **sin decir paracetamol**, así que el lector normal lo
+rechazaría. Cuando se pregunta explícitamente por una marca, esa marca vale
+como evidencia del activo — y no es un supuesto, porque una marca solo llega a
+la pasada 2 si en la pasada 1 apareció en un título que sí nombraba el activo.
+
+La marca se exige como palabra completa, no como prefijo: "Temprafen" es
+ibuprofeno y con prefijo se habría colado como Tempra.
+
+```bash
+node scripts/scan-medicinas.js --sin-marcas        # solo la pasada 1
+node scripts/scan-medicinas.js --max-marcas=100    # acota la pasada 2
+```
+
 ### La página
 
 `pages/medicinas.html` es la única de las tres que **no** lleva los datos

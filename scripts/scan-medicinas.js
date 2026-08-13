@@ -48,6 +48,11 @@ const arg = (n, d) => {
 const SOLO = (arg('meds', '') || '').split(',').map((s) => s.trim()).filter(Boolean);
 const LIMITE = Number(arg('limit', '0')) || 0;
 const DRY = argv.includes('--dry');
+// La segunda pasada —preguntar por las marcas halladas en las farmacias donde
+// no salieron— es lo que hace que exista la comparación por marca, y también
+// lo que más requests cuesta. Se puede apagar y se puede acotar.
+const SIN_MARCAS = argv.includes('--sin-marcas');
+const MAX_MARCAS = Number(arg('max-marcas', '400')) || 400;
 // Guadalajara y San Pablo solo responden por proxy, que no existe en local:
 // este filtro permite validar el resto sin esperar sus timeouts.
 const FUENTES = (arg('fuentes', '') || '').split(',').map((s) => s.trim()).filter(Boolean);
@@ -87,28 +92,53 @@ const ctxPara = (ad) => {
 
   /** presentaciones[clave] = { med, clave, precios:{farmacia:{precio,titulo,url}} } */
   const presentaciones = new Map();
+  /**
+   * Lo mismo, pero con la marca dentro de la llave.
+   *
+   * Comparar por principio activo responde "¿dónde está más barato el
+   * omeprazol de 20 mg?". No responde "¿dónde está más barata mi Tempra?", y
+   * para los medicamentos muy conocidos esa es la pregunta que la gente hace:
+   * la marca es como conocen el medicamento. Son dos comparaciones distintas y
+   * las dos son útiles, así que se publican las dos.
+   */
+  const porMarca = new Map();
   const descartes = { combinados: 0, sinDosis: 0, sinPiezas: 0, otraSustancia: 0 };
 
-  for (const med of meds) {
-    for (const ad of adaptadores) {
-      const ctx = ctxPara(ad);
-      let items = [];
-      try {
-        items = await ad.buscar(ctx, med.query);
-        meta[ad.id].hallados += items.length;
-      } catch (e) {
-        meta[ad.id].errores++;
-        await dormir(PAUSA_MS);
-        continue;
-      }
-      (crudo[med.nombre] = crudo[med.nombre] || {})[ad.id] = items;
+  /** Marcas vistas: marcasDe[medicamento] = Map(marca → Set(farmacias)) */
+  const marcasDe = {};
+
+  /**
+   * Una consulta a una farmacia, y lo que se hace con lo que devuelve.
+   *
+   * Está aparte porque se llama dos veces con intenciones distintas: primero
+   * buscando el principio activo, después buscando marcas concretas.
+   */
+  async function consultar(med, ad, consulta, marcaBuscada) {
+    // Cuando se pregunta por una marca, esa marca vale como evidencia del
+    // principio activo para esta consulta. No es un supuesto: la marca solo
+    // llega aquí si en la pasada 1 apareció en un título que SÍ nombraba el
+    // activo. Sin esto, "Tempra 160 Mg 30 Tabletas" —que no dice paracetamol
+    // por ningún lado— quedaría fuera, y con él media comparación por marca.
+    const conMarca = marcaBuscada ? { ...med, sinonimos: [marcaBuscada] } : med;
+    const ctx = ctxPara(ad);
+    let items = [];
+    try {
+      items = await ad.buscar(ctx, consulta);
+      meta[ad.id].hallados += items.length;
+    } catch (e) {
+      meta[ad.id].errores++;
+      await dormir(PAUSA_MS);
+      return;
+    }
+    const bolsa = (crudo[med.nombre] = crudo[med.nombre] || {});
+    bolsa[ad.id] = (bolsa[ad.id] || []).concat(items);
 
       for (const it of items) {
         // Se pasa la entrada completa, no solo el nombre: trae la raíz con la
         // que reconocer el activo, las marcas comerciales con las que media
         // farmacia titula sus productos, y —si el producto es un combinado—
         // los dos activos que el título tiene que mencionar.
-        const p = leer(it.titulo, med);
+        const p = leer(it.titulo, conMarca);
         if (!p.clave) {
           if (p.combinado) descartes.combinados++;
           else if (p.motivo) descartes.otraSustancia++;
@@ -117,29 +147,94 @@ const ctxPara = (ad) => {
           continue;
         }
         meta[ad.id].conLlave++;
-        const g = presentaciones.get(p.clave) || {
+        const base = () => ({
           medicamento: med.nombre, rank: med.rank, categoria: med.categoria,
-          clave: p.clave, etiqueta: etiqueta(p.clave),
           mg: p.mg, forma: p.forma, piezas: p.piezas, ml: p.ml,
           precios: {},
-        };
-        // Entre variantes de la MISMA caja (distintas marcas de genérico) se
-        // publica la más barata: es la que el cliente puede comprar.
-        const prev = g.precios[ad.id];
-        if (!prev || it.precio < prev.precio) {
-          g.precios[ad.id] = { precio: it.precio, titulo: it.titulo, url: it.url };
-        }
+        });
+        const oferta = { precio: it.precio, titulo: it.titulo, url: it.url, marca: p.marca };
+
+        // Fila por principio activo: entre variantes de la MISMA caja se
+        // publica la más barata, sea de marca o genérica. Es la que el cliente
+        // puede ir a comprar.
+        const g = presentaciones.get(p.clave)
+          || Object.assign(base(), { tipo: 'sustancia', clave: p.clave, etiqueta: etiqueta(p.clave) });
+        if (!g.precios[ad.id] || it.precio < g.precios[ad.id].precio) g.precios[ad.id] = oferta;
         presentaciones.set(p.clave, g);
+
+        // Fila por marca: la misma caja de la misma marca en cada farmacia.
+        if (p.marca) {
+          const cm = `${p.clave}|marca:${p.marca.toLowerCase()}`;
+          const gm = porMarca.get(cm) || Object.assign(base(), {
+            tipo: 'marca', clave: cm, marca: p.marca,
+            // "Tempra 500mg · 20 tabletas" en vez de "Paracetamol 500mg · …":
+            // así se lee como lo que el cliente fue a buscar.
+            etiqueta: etiqueta(p.clave).replace(/^[^\s]+/, p.marca),
+          });
+          if (!gm.precios[ad.id] || it.precio < gm.precios[ad.id].precio) gm.precios[ad.id] = oferta;
+          porMarca.set(cm, gm);
+
+          const vistas = (marcasDe[med.nombre] = marcasDe[med.nombre] || new Map());
+          if (!vistas.has(p.marca)) vistas.set(p.marca, new Set());
+          vistas.get(p.marca).add(ad.id);
+        }
       }
-      await dormir(PAUSA_MS);
+    await dormir(PAUSA_MS);
+  }
+
+  // ── pasada 1: por principio activo, y por las marcas que la hoja ya trae ──
+  for (const med of meds) {
+    // "Buscapina", "Aspirina", "Dramamine": la hoja las anota entre paréntesis
+    // y son justamente los medicamentos que nadie pide por su principio activo.
+    const consultas = [med.query, ...(med.tambien || '').split(/\s*[/,]\s*/).filter(Boolean)];
+    for (const ad of adaptadores) {
+      for (const q of consultas) await consultar(med, ad, q);
     }
     process.stdout.write(`  ${String(med.rank).padStart(3)}. ${med.nombre.padEnd(24)} ${presentaciones.size} presentaciones acumuladas\n`);
   }
 
+  // ── pasada 2: las marcas que aparecieron, buscadas donde faltan ───────────
+  //
+  // Buscar "paracetamol" hace que cada farmacia devuelva sobre todo su propia
+  // línea: Ahorro contesta con Marca del Ahorro y Prixz con genéricos, así que
+  // las marcas casi nunca coinciden y no hay nada que comparar. Preguntando por
+  // "Tempra" en las cinco, sí. Solo se pregunta donde esa marca aún no salió.
+  const pendientes = [];
+  for (const med of meds) {
+    for (const [m, donde] of marcasDe[med.nombre] || []) {
+      const faltan = adaptadores.filter((ad) => !donde.has(ad.id));
+      if (faltan.length) pendientes.push({ med, marca: m, faltan, vista: donde.size });
+    }
+  }
+  // Las vistas en más farmacias primero: son las que tienen más probabilidad de
+  // completar una comparación, que es lo único que se publica.
+  pendientes.sort((a, b) => b.vista - a.vista);
+  const aBuscar = SIN_MARCAS ? [] : pendientes.slice(0, MAX_MARCAS);
+  if (aBuscar.length) {
+    const omitidas = pendientes.length - aBuscar.length;
+    console.log(`\n  ${aBuscar.length} marcas por confirmar en las farmacias donde no salieron${omitidas ? ` (${omitidas} omitidas por el tope de ${MAX_MARCAS})` : ''}`);
+    let i = 0;
+    for (const p of aBuscar) {
+      for (const ad of p.faltan) await consultar(p.med, ad, p.marca, p.marca);
+      if (++i % 20 === 0) process.stdout.write(`  ${i}/${aBuscar.length} marcas · ${porMarca.size} presentaciones de marca\n`);
+    }
+  }
+
   // ── solo se publica lo que de verdad se puede comparar ──────────────────
-  const comparables = [...presentaciones.values()]
-    .filter((g) => Object.keys(g.precios).length >= MIN_FARMACIAS)
-    .sort((a, b) => a.rank - b.rank || a.mg - b.mg || (a.piezas || 0) - (b.piezas || 0));
+  const conDos = (g) => Object.keys(g.precios).length >= MIN_FARMACIAS;
+  const porSustancia = [...presentaciones.values()].filter(conDos);
+
+  // Una fila de marca sobra cuando repite exactamente la de su sustancia: pasa
+  // cuando esa caja solo existe de esa marca, y entonces las dos dirían lo
+  // mismo con distinto nombre. La de sustancia ya trae la marca en cada precio.
+  const huella = (g) => Object.entries(g.precios).sort()
+    .map(([f, v]) => `${f}:${v.precio}`).join('|');
+  const huellas = new Set(porSustancia.map(huella));
+  const marcas = [...porMarca.values()].filter((g) => conDos(g) && !huellas.has(huella(g)));
+
+  const comparables = [...porSustancia, ...marcas]
+    .sort((a, b) => a.rank - b.rank || a.mg - b.mg || (a.piezas || 0) - (b.piezas || 0)
+      || (a.tipo === b.tipo ? 0 : a.tipo === 'sustancia' ? -1 : 1));
 
   for (const g of comparables) {
     const vals = Object.values(g.precios).map((p) => p.precio);
@@ -157,11 +252,19 @@ const ctxPara = (ad) => {
     const m = meta[c];
     console.log(`  ${c.padEnd(13)}${String(m.hallados).padStart(5)} productos · ${String(m.conLlave).padStart(5)} con presentación legible · ${m.errores} errores`);
   }
-  console.log(`  presentaciones distintas : ${presentaciones.size}`);
-  console.log(`  comparables (${MIN_FARMACIAS}+ farmacias): ${comparables.length}`);
+  console.log(`  presentaciones distintas : ${presentaciones.size} por sustancia · ${porMarca.size} por marca`);
+  console.log(`  comparables (${MIN_FARMACIAS}+ farmacias): ${porSustancia.length} por sustancia · ${marcas.length} por marca`);
   console.log(`  descartes: ${descartes.combinados} combinados · ${descartes.sinDosis} sin dosis · ${descartes.sinPiezas} sin piezas · ${descartes.otraSustancia} otra sustancia`);
   const st = http.stats();
   console.log(`  requests: ${st.directo} directos · ${st.proxy} por ${http.proveedor}`);
+
+  if (marcas.length) {
+    console.log('\n  Comparaciones por marca:');
+    for (const g of marcas.slice(0, 10)) {
+      const detalle = Object.entries(g.precios).map(([f, v]) => `${f} $${v.precio}`).join(' · ');
+      console.log(`    ${g.etiqueta.padEnd(38)} ${detalle}`);
+    }
+  }
 
   if (DRY) { console.log('\n(--dry: nada escrito)'); return; }
 
@@ -181,7 +284,8 @@ const ctxPara = (ad) => {
   const hist = actualizarHistorial(path.join(OUT, 'price-history.json'), matriz, columnas, generado);
 
   const L = [`# Medicamentos de farmacia — ${generado.slice(0, 10)}`, '',
-    `${comparables.length} presentaciones comparables de ${meds.length} principios activos.`, '',
+    `${comparables.length} presentaciones comparables de ${meds.length} principios activos:`,
+    `${porSustancia.length} por principio activo y ${marcas.length} por marca.`, '',
     '| Farmacia | Productos | Con presentación legible | Presentaciones publicadas | Errores |', '|---|---:|---:|---:|---:|'];
   for (const c of columnas) {
     const m = meta[c];
@@ -191,6 +295,18 @@ const ctxPara = (ad) => {
     '| Presentación | Más barata | Más cara | Diferencia |', '|---|---:|---:|---:|');
   for (const g of [...comparables].sort((a, b) => b.ahorro - a.ahorro).slice(0, 20)) {
     L.push(`| ${g.etiqueta} | $${g.min} (${g.masBarata}) | $${g.max} | $${g.ahorro} |`);
+  }
+  if (marcas.length) {
+    // Mismo producto, misma marca, misma caja: la comparación más limpia que
+    // hay, y la que revisa mejor si el scan está sano —dos precios muy
+    // distintos para la misma marca casi siempre son un error de lectura—.
+    L.push('', '## Misma marca en dos o más farmacias', '',
+      '| Marca y caja | Precios | Diferencia |', '|---|---|---:|');
+    for (const g of [...marcas].sort((a, b) => b.ahorro - a.ahorro).slice(0, 25)) {
+      const det = Object.entries(g.precios).sort((a, b) => a[1].precio - b[1].precio)
+        .map(([f, v]) => `${f} $${v.precio}`).join(' · ');
+      L.push(`| ${g.etiqueta} | ${det} | $${g.ahorro} |`);
+    }
   }
   fs.writeFileSync(path.join(OUT, 'reporte.md'), L.join('\n') + '\n');
 

@@ -115,6 +115,51 @@ const LIQUIDO_A_GRANEL = /\b(jarabe|suspensi[oó]n|soluci[oó]n\s+(?:oral|[oó]t
 const DISPOSITIVO = /\b(pluma|kwikpen|flexpen|solostar|pen\b|cartucho|jeringa|autoinyector|frasco\s*[aá]mpula|vial|[aá]mpula|inyectable)\b/i;
 
 /**
+ * Palabras que aparecen en los títulos y no son marca: formas, vías, unidades,
+ * envases, público al que va dirigido y el relleno de cada farmacia.
+ */
+const NO_ES_MARCA = new Set([
+  'caja', 'con', 'del', 'oral', 'para', 'sin', 'por', 'sabor', 'pack', 'duopack',
+  'tabletas', 'tableta', 'capsulas', 'capsula', 'comprimidos', 'comprimido',
+  'grageas', 'sobres', 'sobre', 'ampolletas', 'ampolleta', 'ampula', 'frasco',
+  'jarabe', 'suspension', 'solucion', 'gotas', 'crema', 'unguento', 'pomada',
+  'ovulos', 'supositorios', 'parches', 'spray', 'aerosol', 'inyectable', 'polvo',
+  'adultos', 'adulto', 'infantil', 'pediatrica', 'pediatrico', 'ninos', 'junior',
+  'masticables', 'recubiertas', 'liberacion', 'prolongada', 'retard', 'forte',
+  'marca', 'generico', 'medicamento', 'tratamiento', 'unidades', 'piezas',
+  'hrs', 'horas', 'mg', 'ml', 'gr', 'mcg', 'ui',
+]);
+
+/**
+ * Marca comercial del producto, o `null` si es genérico.
+ *
+ * Se toma la primera palabra "de verdad" del título: la primera que no sea un
+ * número, una unidad, una forma farmacéutica ni el principio activo. Las
+ * farmacias titulan igual —"Tempra 500 mg Adultos Paracetamol caja 20
+ * tabletas", "Dimefor 850 Mg Caja Con 30 Tabletas (Metformina)"—: la marca va
+ * al frente y el activo después. Cuando lo primero que aparece es el activo,
+ * no hay marca que reportar y el producto es genérico.
+ *
+ * La marca de farmacia ("Marca del Ahorro") cuenta como genérico, que es lo que
+ * es: su propia línea de sustitutos.
+ */
+function marca(titulo, med) {
+  const entrada = typeof med === 'string' ? { nombre: med } : (med || {});
+  const raices = entrada.raices || [entrada.raiz || raizDe(entrada.nombre || '')];
+  // El paréntesis final suele traer el activo —"(Metformina)"— y nunca la marca.
+  const t = limpiar(String(titulo || '').replace(/\([^)]*\)\s*$/, ''));
+  for (const palabra of t.split(/[^a-z0-9áéíóúñ]+/i)) {
+    if (palabra.length < 3) continue;                      // "g", "mg", ruido
+    if (/^\d/.test(palabra)) continue;                     // dosis y cantidades
+    if (NO_ES_MARCA.has(palabra)) continue;
+    if (raices.some((r) => r && palabra.startsWith(r))) return null;  // es el activo
+    if (otrosActivos().some((a) => palabra.startsWith(a.split(' ')[0]))) return null;
+    return palabra.charAt(0).toUpperCase() + palabra.slice(1);
+  }
+  return null;
+}
+
+/**
  * Raíz con la que se reconoce un activo dentro de un título: la palabra más
  * larga de su nombre. El catálogo la trae calculada; para una sustancia suelta
  * (los tests, o una llamada a mano) se deriva aquí.
@@ -132,7 +177,17 @@ function raizDe(nombre) {
  * impide que "Esomeprazol 40 mg" pase por omeprazol: son moléculas distintas
  * con precios distintos.
  */
-const tieneRaiz = (tl, r) => new RegExp('\\b' + r.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(tl);
+const escapar = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const tieneRaiz = (tl, r) => new RegExp('\\b' + escapar(r)).test(tl);
+
+/**
+ * Una marca, en cambio, se busca completa.
+ *
+ * Un nombre químico se deforma al final —clavulánico, clavulanato— pero una
+ * marca se escribe tal cual, y con prefijo "Tempra" se comería "Temprafen",
+ * que es otro medicamento con otro principio activo.
+ */
+const tieneMarca = (tl, m) => new RegExp('\\b' + escapar(limpiar(m)) + '\\b').test(tl);
 
 /**
  * Lee la presentación de un título de producto.
@@ -162,11 +217,13 @@ function leer(titulo, med) {
     }
   } else if (sl) {
     const r = entrada.raiz || raizDe(entrada.nombre);
-    // Media farmacia titula por marca y no por activo. Sin esto, "Dramamine
-    // 50 mg 12 tabletas" no se emparejaría con su genérico, que es justo la
+    // Media farmacia titula por marca y no por activo: "Tempra 160 Mg 30
+    // Tabletas" no dice paracetamol en ninguna parte. Sin aceptar la marca,
+    // esas cajas no se emparejarían con su genérico, que es justo la
     // comparación que la página existe para mostrar.
-    const marcas = (entrada.tambien || '').split(/\s*[/,]\s*/).filter(Boolean).map(raizDe);
-    if (!tieneRaiz(tl, r) && !marcas.some((m) => tieneRaiz(tl, m))) {
+    const marcas = [...(entrada.tambien || '').split(/\s*[/,]\s*/), ...(entrada.sinonimos || [])]
+      .map((s) => String(s).trim()).filter(Boolean);
+    if (!tieneRaiz(tl, r) && !marcas.some((m) => tieneMarca(tl, m))) {
       return { ...vacio, motivo: 'no menciona la sustancia' };
     }
   }
@@ -209,7 +266,7 @@ function leer(titulo, med) {
       clave = `${canon}|${dosis}mg|líquido|${ml}ml`;
     }
   }
-  return { mg, forma: f, piezas: n, ml, combinado, clave };
+  return { mg, forma: f, piezas: n, ml, combinado, clave, marca: clave ? marca(t, entrada) : null };
 }
 
 /** Etiqueta legible de una llave, para mostrar en la tabla. */
@@ -220,4 +277,4 @@ function etiqueta(clave) {
   return f === 'líquido' ? `${nombre} ${mg} · ${n}` : `${nombre} ${mg} · ${n} ${f}`;
 }
 
-module.exports = { leer, etiqueta, dosisMg, piezas, forma, mililitros, limpiar };
+module.exports = { leer, etiqueta, marca, dosisMg, piezas, forma, mililitros, limpiar };

@@ -15,7 +15,7 @@
 
 'use strict';
 
-const { leer, etiqueta } = require('./lib/presentacion');
+const { leer, etiqueta, marca } = require('./lib/presentacion');
 const V = require('./verticales/medicinas');
 
 let fallos = 0;
@@ -44,8 +44,8 @@ check(a === b && a !== null, 'dos farmacias, misma caja → misma llave');
 
 // El genérico y la marca original SÍ son comparables: misma caja, distinto precio.
 const gen = leer('Metformina 850 mg Oral 30 tabletas Marca del Ahorro', 'Metformina').clave;
-const marca = leer('Dimefor 850 Mg – Caja Con 30 Tabletas (Metformina)', 'Metformina').clave;
-check(gen === marca, 'genérico y marca original comparten llave');
+const deMarca = leer('Dimefor 850 Mg – Caja Con 30 Tabletas (Metformina)', 'Metformina').clave;
+check(gen === deMarca, 'genérico y marca original comparten llave');
 
 // ── NO se publica: no es el medicamento que se buscó ────────────────────────
 console.log('\nProductos que NO son el medicamento buscado:');
@@ -79,6 +79,40 @@ check(leer('Dimenhidrinato 50 mg 12 tabletas', DIMEN).clave === leer('Dramamine 
 // La marca no debe abrir la puerta a cualquier cosa que la mencione.
 check(leer('Dramamine 50 mg Con 12 Tabletas', { nombre: 'Loratadina', raiz: 'loratadina' }).clave === null,
   'la marca de otro activo no cuela');
+
+// ── la marca del producto ───────────────────────────────────────────────────
+// Comparar por principio activo no responde "¿dónde está más barata mi
+// Tempra?", que para un medicamento conocido es LA pregunta. Para eso hay que
+// poder leer la marca del título, y distinguirla del activo y del relleno.
+console.log('\nMarca del producto:');
+const PARA = { nombre: 'Paracetamol', raiz: 'paracetamol' };
+for (const [titulo, med, esperada] of [
+  ['Tempra 500 mg Adultos Paracetamol caja 20 tabletas', PARA, 'Tempra'],
+  ['Dimefor 850 Mg – Caja Con 30 Tabletas (Metformina)', 'Metformina', 'Dimefor'],
+  ['Tylenol Analgésico Paracetamol 500mg 20 Tabletas', PARA, 'Tylenol'],
+  ['Inhibitron Twit 20 mg Oral 30 Caps', 'Omeprazol', 'Inhibitron'],
+  // El activo al frente significa genérico, y la marca propia de la farmacia
+  // es exactamente eso: su línea de sustitutos.
+  ['Paracetamol 500 mg Oral 20 tabletas Marca del Ahorro', PARA, null],
+  ['Omeprazol 20 Mg Con 14 Cápsulas', 'Omeprazol', null],
+  // Benavides pone la dosis primero; los números no son marca.
+  ['500 mg Paracetamol', PARA, null],
+  // "g" y "mg" tampoco, aunque vayan al principio.
+  ['g Paracetamol 500 mg 10 tabletas Kendrick', PARA, null],
+]) {
+  const r = marca(titulo, med);
+  check(r === esperada, `${(esperada || '—genérico—').padEnd(12)} ${titulo.slice(0, 48)}`, String(r));
+}
+
+// La marca se acepta como evidencia del activo solo si es la palabra completa:
+// "Temprafen" es ibuprofeno, no un Tempra más largo.
+const CON_TEMPRA = { ...PARA, sinonimos: ['Tempra'] };
+check(leer('Tempra 160 Mg 30 Tabletas Masticables', CON_TEMPRA).clave === 'paracetamol|160mg|tabletas|30',
+  'un título que solo dice la marca sí se lee');
+check(leer('Temprafen 400 Mg Con 10 Cápsulas', CON_TEMPRA).clave === null,
+  'Temprafen no pasa por Tempra');
+check(leer('Tempra 160 Mg 30 Tabletas Masticables', PARA).clave === null,
+  'sin haber preguntado por la marca, no se asume');
 
 // ── combinados que SÍ son lo que se buscó ───────────────────────────────────
 // "Vildagliptina/Metformina" se descarta porque se buscaba metformina sola.

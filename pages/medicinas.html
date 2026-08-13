@@ -113,6 +113,8 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Sora',sans-serif;}
 .pres-name{font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:var(--navy);margin:0;}
 .pres-meta{font-size:13px;color:var(--gray-400);margin:4px 0 0;}
 .pres-save{flex:none;text-align:right;}
+.pres.de-marca{border-left:3px solid var(--teal);}
+.tag-marca{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:999px;background:#ECFEFF;box-shadow:inset 0 0 0 1px #A5F3FC;font-size:11px;font-weight:700;color:var(--teal-dark);}
 .rx{display:inline-flex;align-items:center;gap:5px;margin-top:7px;padding:3px 9px;border-radius:999px;background:#FFFBEB;box-shadow:inset 0 0 0 1px #FDE68A;font-size:11.5px;font-weight:600;color:#92400E;font-family:'Sora',sans-serif;}
 .rx.ctrl{background:#FEF2F2;box-shadow:inset 0 0 0 1px #FECACA;color:#991B1B;}
 .pres-save b{display:block;font-family:'Sora',sans-serif;font-weight:800;font-size:19px;color:var(--green);line-height:1.1;}
@@ -204,11 +206,16 @@ footer a:hover{color:var(--teal-light);}
       Solo mostramos filas donde <strong>dos o más farmacias tienen exactamente la misma caja</strong>
       —misma dosis, misma presentación y mismo número de piezas—. Comparar una caja de 7 contra una
       de 120 no diría nada útil. Los combinados con otro principio activo se excluyen.
+      <br/><br/>
+      Hay dos tipos de fila. Las de <strong>principio activo</strong> toman lo más barato de cada
+      farmacia, que puede ser el genérico de una contra la marca de otra —debajo de cada precio dice
+      cuál es—. Las marcadas <span class="tag-marca" style="margin:0">misma marca</span> comparan el
+      mismo producto de la misma marca entre farmacias. Puedes buscar por cualquiera de los dos.
     </div>
 
     <div class="search-box">
       <span aria-hidden="true">🔍</span>
-      <input id="buscar" type="text" placeholder="Paracetamol, omeprazol, metformina…" autocomplete="off" aria-label="Buscar medicamento"/>
+      <input id="buscar" type="text" placeholder="Paracetamol, Tempra, omeprazol, Dimefor…" autocomplete="off" aria-label="Buscar medicamento por principio activo o marca"/>
     </div>
     <div class="chips" id="chips"></div>
 
@@ -367,13 +374,17 @@ function pintarChips(){
 
 function render(q){
   const t = norm(q);
+  // La marca entra en la búsqueda igual que el principio activo: nadie pide
+  // "ácido acetilsalicílico", pide Aspirina.
   const lista = t
-    ? PRES.filter(p => norm(p.medicamento).includes(t) || norm(p.etiqueta).includes(t) || norm(p.categoria||'').includes(t))
+    ? PRES.filter(p => norm(p.medicamento).includes(t) || norm(p.etiqueta).includes(t)
+        || norm(p.marca||'').includes(t) || norm(p.categoria||'').includes(t)
+        || Object.values(p.precios).some(v => norm(v.marca||'').includes(t)))
     : PRES.slice(0, 40);
 
   $('sub-comparador').textContent = t
     ? `${lista.length} presentación${lista.length===1?'':'es'} de "${q}"`
-    : `${PRES.length} presentaciones comparables. Busca por principio activo o elige uno de abajo.`;
+    : `${PRES.length} presentaciones comparables. Busca por principio activo o por marca.`;
 
   if(!lista.length){
     $('resultados').innerHTML = `<div class="vacio">No encontramos "${q}" con al menos dos farmacias que tengan la misma caja.<br/>
@@ -387,20 +398,27 @@ function render(q){
       const best = v.precio === p.min;
       const unidad = p.piezas ? `${porPieza(v.precio/p.piezas)} por pieza`
                    : p.ml    ? `${porPieza(v.precio/p.ml)} por ml` : '';
+      // Qué marca es cada precio. En una fila por sustancia las farmacias
+      // pueden estar ofreciendo cosas distintas —el genérico de una contra el
+      // Dimefor de otra— y sin decirlo la diferencia de precio parece un abuso
+      // cuando en realidad son dos productos.
+      const quien = v.marca || 'genérico';
       return `<a class="farm${best?' best':''}" href="${v.url}" target="_blank" rel="noopener nofollow" title="${v.titulo.replace(/"/g,'&quot;')}">
         ${best?'<span class="farm-tag">más barata</span>':''}
         <div class="farm-name">${f}</div>
         <div class="farm-price">${money(v.precio)}</div>
-        ${unidad?`<div class="farm-unit">${unidad}</div>`:''}
+        <div class="farm-unit">${quien}${unidad?' · '+unidad:''}</div>
       </a>`;
     }).join('');
 
     const rx = receta(p);
-    return `<article class="pres">
+    const marcas = new Set(Object.values(p.precios).map(v => v.marca || 'genérico'));
+    return `<article class="pres${p.tipo==='marca'?' de-marca':''}">
       <div class="pres-top">
         <div>
-          <h3 class="pres-name">${p.etiqueta}</h3>
-          <p class="pres-meta">${p.categoria||''} · en ${Object.keys(p.precios).length} de ${FUENTES.length} farmacias</p>
+          <h3 class="pres-name">${p.etiqueta}${p.tipo==='marca'?' <span class="tag-marca">misma marca</span>':''}</h3>
+          <p class="pres-meta">${p.categoria||''} · en ${Object.keys(p.precios).length} de ${FUENTES.length} farmacias${
+            p.tipo!=='marca' && marcas.size>1 ? ' · presentaciones de distinta marca' : ''}</p>
           ${rx?`<span class="rx ${rx.clase}">℞ ${rx.txt}</span>`:''}
         </div>
         ${p.ahorro>0?`<div class="pres-save"><b>Ahorras ${money(p.ahorro)}</b><span>entre la más cara y la más barata</span></div>`:''}
