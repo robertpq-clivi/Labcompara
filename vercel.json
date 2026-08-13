@@ -62,5 +62,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?labcompara\\.com"
+        }
+      ],
+      "destination": "https://medcompara.com.mx/$1",
+      "permanent": true
+    }
   ]
 }
