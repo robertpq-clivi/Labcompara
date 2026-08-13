@@ -3,20 +3,52 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/analisis-clinicos", "destination": "/pages/analisis-clinicos.html" },
-    { "source": "/estudios-clinicos", "destination": "/pages/estudios-clinicos.html" },
-    { "source": "/estudios-de-laboratorio", "destination": "/pages/estudios-de-laboratorio.html" },
-    { "source": "/examenes-de-sangre", "destination": "/pages/examenes-de-sangre.html" },
-    { "source": "/laboratorio-cerca-de-mi", "destination": "/pages/laboratorio-cerca-de-mi.html" },
-    { "source": "/laboratorio-clinico", "destination": "/pages/laboratorio-clinico.html" },
-    { "source": "/laboratorio-de-analisis-clinicos", "destination": "/pages/laboratorio-de-analisis-clinicos.html" },
-    { "source": "/laboratorio-medico", "destination": "/pages/laboratorio-medico.html" },
-    { "source": "/pruebas-de-laboratorio", "destination": "/pages/pruebas-de-laboratorio.html" }
+    {
+      "source": "/analisis-clinicos",
+      "destination": "/pages/analisis-clinicos"
+    },
+    {
+      "source": "/estudios-clinicos",
+      "destination": "/pages/estudios-clinicos"
+    },
+    {
+      "source": "/estudios-de-laboratorio",
+      "destination": "/pages/estudios-de-laboratorio"
+    },
+    {
+      "source": "/examenes-de-sangre",
+      "destination": "/pages/examenes-de-sangre"
+    },
+    {
+      "source": "/laboratorio-cerca-de-mi",
+      "destination": "/pages/laboratorio-cerca-de-mi"
+    },
+    {
+      "source": "/laboratorio-clinico",
+      "destination": "/pages/laboratorio-clinico"
+    },
+    {
+      "source": "/laboratorio-de-analisis-clinicos",
+      "destination": "/pages/laboratorio-de-analisis-clinicos"
+    },
+    {
+      "source": "/laboratorio-medico",
+      "destination": "/pages/laboratorio-medico"
+    },
+    {
+      "source": "/pruebas-de-laboratorio",
+      "destination": "/pages/pruebas-de-laboratorio"
+    }
   ],
   "headers": [
     {
       "source": "/data/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
     }
   ]
 }
