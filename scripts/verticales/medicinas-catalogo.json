@@ -1,0 +1,713 @@
+{
+  "fuente": "Top 100 medicamentos más buscados en México (hoja de cálculo del equipo)",
+  "nota": "query es el principio activo con el que se busca en cada farmacia; rank es su posición por volumen de búsqueda.",
+  "medicamentos": [
+    {
+      "rank": 1,
+      "nombre": "Paracetamol",
+      "query": "paracetamol",
+      "categoria": "Analgésico / Antipirético",
+      "busquedas": "300,000 - 500,000"
+    },
+    {
+      "rank": 2,
+      "nombre": "Omeprazol",
+      "query": "omeprazol",
+      "categoria": "Antiácido / Protector gástrico",
+      "busquedas": "250,000 - 400,000"
+    },
+    {
+      "rank": 3,
+      "nombre": "Ibuprofeno",
+      "query": "ibuprofeno",
+      "categoria": "Antiinflamatorio / Analgésico",
+      "busquedas": "200,000 - 350,000"
+    },
+    {
+      "rank": 4,
+      "nombre": "Metformina",
+      "query": "metformina",
+      "categoria": "Antidiabético",
+      "busquedas": "200,000 - 350,000"
+    },
+    {
+      "rank": 5,
+      "nombre": "Ketorolaco",
+      "query": "ketorolaco",
+      "categoria": "Analgésico agudo",
+      "busquedas": "150,000 - 250,000"
+    },
+    {
+      "rank": 6,
+      "nombre": "Semaglutida",
+      "query": "semaglutida",
+      "tambien": "Ozempic / Rybelsus",
+      "categoria": "Antidiabético / Control de peso",
+      "busquedas": "150,000 - 300,000"
+    },
+    {
+      "rank": 7,
+      "nombre": "Amoxicilina",
+      "query": "amoxicilina",
+      "categoria": "Antibiótico",
+      "busquedas": "120,000 - 220,000"
+    },
+    {
+      "rank": 8,
+      "nombre": "Clonazepam",
+      "query": "clonazepam",
+      "categoria": "Ansiolítico (Venta controlada)",
+      "busquedas": "120,000 - 220,000"
+    },
+    {
+      "rank": 9,
+      "nombre": "Naproxeno",
+      "query": "naproxeno",
+      "categoria": "Antiinflamatorio",
+      "busquedas": "100,000 - 200,000"
+    },
+    {
+      "rank": 10,
+      "nombre": "Losartán",
+      "query": "losartán",
+      "categoria": "Antihipertensivo",
+      "busquedas": "100,000 - 180,000"
+    },
+    {
+      "rank": 11,
+      "nombre": "Diclofenaco",
+      "query": "diclofenaco",
+      "categoria": "Antiinflamatorio",
+      "busquedas": "100,000 - 180,000"
+    },
+    {
+      "rank": 12,
+      "nombre": "Loratadina",
+      "query": "loratadina",
+      "categoria": "Antihistamínico",
+      "busquedas": "100,000 - 180,000"
+    },
+    {
+      "rank": 13,
+      "nombre": "Sildenafilo",
+      "query": "sildenafilo",
+      "categoria": "Disfunción eréctil",
+      "busquedas": "100,000 - 180,000"
+    },
+    {
+      "rank": 14,
+      "nombre": "Levonorgestrel",
+      "query": "levonorgestrel",
+      "categoria": "Pastilla del día siguiente",
+      "busquedas": "110,000 - 200,000"
+    },
+    {
+      "rank": 15,
+      "nombre": "Azitromicina",
+      "query": "azitromicina",
+      "categoria": "Antibiótico",
+      "busquedas": "90,000 - 160,000"
+    },
+    {
+      "rank": 16,
+      "nombre": "Dexametasona",
+      "query": "dexametasona",
+      "categoria": "Corticoide antiinflamatorio",
+      "busquedas": "90,000 - 150,000"
+    },
+    {
+      "rank": 17,
+      "nombre": "Alprazolam",
+      "query": "alprazolam",
+      "categoria": "Ansiolítico (Venta controlada)",
+      "busquedas": "90,000 - 160,000"
+    },
+    {
+      "rank": 18,
+      "nombre": "Butilhioscina",
+      "query": "butilhioscina",
+      "tambien": "Buscapina",
+      "categoria": "Antiespasmódico / Cólicos",
+      "busquedas": "80,000 - 140,000"
+    },
+    {
+      "rank": 19,
+      "nombre": "Sertralina",
+      "query": "sertralina",
+      "categoria": "Antidepresivo",
+      "busquedas": "80,000 - 150,000"
+    },
+    {
+      "rank": 20,
+      "nombre": "Pregabalina",
+      "query": "pregabalina",
+      "categoria": "Dolor neuropático / Ansiedad",
+      "busquedas": "80,000 - 150,000"
+    },
+    {
+      "rank": 21,
+      "nombre": "Ácido acetilsalicílico",
+      "query": "ácido acetilsalicílico",
+      "tambien": "Aspirina",
+      "categoria": "Analgésico / Antiagregante",
+      "busquedas": "80,000 - 150,000"
+    },
+    {
+      "rank": 22,
+      "nombre": "Atorvastatina",
+      "query": "atorvastatina",
+      "categoria": "Control de Colesterol",
+      "busquedas": "70,000 - 120,000"
+    },
+    {
+      "rank": 23,
+      "nombre": "Ciprofloxacino",
+      "query": "ciprofloxacino",
+      "categoria": "Antibiótico",
+      "busquedas": "70,000 - 130,000"
+    },
+    {
+      "rank": 24,
+      "nombre": "Fluconazol",
+      "query": "fluconazol",
+      "categoria": "Antifúngico (Hongos)",
+      "busquedas": "70,000 - 130,000"
+    },
+    {
+      "rank": 25,
+      "nombre": "Tadalafilo",
+      "query": "tadalafilo",
+      "categoria": "Disfunción eréctil / Próstata",
+      "busquedas": "70,000 - 130,000"
+    },
+    {
+      "rank": 26,
+      "nombre": "Tramadol",
+      "query": "tramadol",
+      "categoria": "Analgésico moderado a severo",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 27,
+      "nombre": "Amoxicilina con Ác. Clavulánico",
+      "query": "amoxicilina con ác. clavulánico",
+      "categoria": "Antibiótico",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 28,
+      "nombre": "Salbutamol",
+      "query": "salbutamol",
+      "categoria": "Broncodilatador / Asma",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 29,
+      "nombre": "Fluoxetina",
+      "query": "fluoxetina",
+      "categoria": "Antidepresivo",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 30,
+      "nombre": "Clotrimazol",
+      "query": "clotrimazol",
+      "categoria": "Antifúngico",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 31,
+      "nombre": "Albendazol",
+      "query": "albendazol",
+      "categoria": "Antiparasitario",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 32,
+      "nombre": "Levotiroxina",
+      "query": "levotiroxina",
+      "categoria": "Hormona tiroidea",
+      "busquedas": "60,000 - 110,000"
+    },
+    {
+      "rank": 33,
+      "nombre": "Telmisartán",
+      "query": "telmisartán",
+      "categoria": "Antihipertensivo",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 34,
+      "nombre": "Metamizol",
+      "query": "metamizol",
+      "tambien": "Dipirona",
+      "categoria": "Analgésico / Antipirético",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 35,
+      "nombre": "Empagliflozina",
+      "query": "empagliflozina",
+      "tambien": "Jardianz",
+      "categoria": "Antidiabético",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 36,
+      "nombre": "Orlistat",
+      "query": "orlistat",
+      "categoria": "Control de peso",
+      "busquedas": "50,000 - 100,000"
+    },
+    {
+      "rank": 37,
+      "nombre": "Loperamida",
+      "query": "loperamida",
+      "categoria": "Antidiarreico",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 38,
+      "nombre": "Ceftriaxona",
+      "query": "ceftriaxona",
+      "categoria": "Antibiótico inyectable",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 39,
+      "nombre": "Cetirizina",
+      "query": "cetirizina",
+      "categoria": "Antihistamínico",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 40,
+      "nombre": "Escitalopram",
+      "query": "escitalopram",
+      "categoria": "Antidepresivo",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 41,
+      "nombre": "Ketoconazol",
+      "query": "ketoconazol",
+      "categoria": "Antifúngico",
+      "busquedas": "50,000 - 90,000"
+    },
+    {
+      "rank": 42,
+      "nombre": "Ivermectina",
+      "query": "ivermectina",
+      "categoria": "Antiparasitario",
+      "busquedas": "50,000 - 100,000"
+    },
+    {
+      "rank": 43,
+      "nombre": "Meloxicam",
+      "query": "meloxicam",
+      "categoria": "Antiinflamatorio articular",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 44,
+      "nombre": "Enalapril",
+      "query": "enalapril",
+      "categoria": "Antihipertensivo",
+      "busquedas": "40,000 - 70,000"
+    },
+    {
+      "rank": 45,
+      "nombre": "Metoprolol",
+      "query": "metoprolol",
+      "categoria": "Antihipertensivo / Arritmias",
+      "busquedas": "40,000 - 75,000"
+    },
+    {
+      "rank": 46,
+      "nombre": "Rosuvastatina",
+      "query": "rosuvastatina",
+      "categoria": "Control de Colesterol",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 47,
+      "nombre": "Liraglutida",
+      "query": "liraglutida",
+      "tambien": "Saxenda",
+      "categoria": "Control de peso",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 48,
+      "nombre": "Pantoprazol",
+      "query": "pantoprazol",
+      "categoria": "Protector gástrico",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 49,
+      "nombre": "Subsalicilato de bismuto",
+      "query": "subsalicilato de bismuto",
+      "categoria": "Antiácido / Indigestión",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 50,
+      "nombre": "Metoclopramida",
+      "query": "metoclopramida",
+      "categoria": "Antiemético / Reflujo",
+      "busquedas": "40,000 - 75,000"
+    },
+    {
+      "rank": 51,
+      "nombre": "Cefalexina",
+      "query": "cefalexina",
+      "categoria": "Antibiótico",
+      "busquedas": "40,000 - 75,000"
+    },
+    {
+      "rank": 52,
+      "nombre": "Clindamicina",
+      "query": "clindamicina",
+      "categoria": "Antibiótico",
+      "busquedas": "45,000 - 85,000"
+    },
+    {
+      "rank": 53,
+      "nombre": "Ambroxol",
+      "query": "ambroxol",
+      "categoria": "Mucolítico",
+      "busquedas": "45,000 - 85,000"
+    },
+    {
+      "rank": 54,
+      "nombre": "Montelukast",
+      "query": "montelukast",
+      "categoria": "Asma / Rinitis alérgica",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 55,
+      "nombre": "Clorfenamina",
+      "query": "clorfenamina",
+      "categoria": "Antihistamínico",
+      "busquedas": "40,000 - 75,000"
+    },
+    {
+      "rank": 56,
+      "nombre": "Gabapentina",
+      "query": "gabapentina",
+      "categoria": "Dolor neuropático",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 57,
+      "nombre": "Quetiapina",
+      "query": "quetiapina",
+      "categoria": "Antipsicótico / Insomnio",
+      "busquedas": "40,000 - 75,000"
+    },
+    {
+      "rank": 58,
+      "nombre": "Nitazoxanida",
+      "query": "nitazoxanida",
+      "categoria": "Antiparasitario",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 59,
+      "nombre": "Finasterida / Dutasterida",
+      "query": "finasterida / dutasterida",
+      "categoria": "Caída de cabello / Próstata",
+      "busquedas": "40,000 - 80,000"
+    },
+    {
+      "rank": 60,
+      "nombre": "Diosmina con Hesperidina",
+      "query": "diosmina con hesperidina",
+      "categoria": "Várices / Insuficiencia venosa",
+      "busquedas": "35,000 - 70,000"
+    },
+    {
+      "rank": 61,
+      "nombre": "Esomeprazol",
+      "query": "esomeprazol",
+      "categoria": "Protector gástrico",
+      "busquedas": "35,000 - 70,000"
+    },
+    {
+      "rank": 62,
+      "nombre": "Trimetoprima / Sulfametoxazol",
+      "query": "trimetoprima / sulfametoxazol",
+      "categoria": "Antibiótico urinario/respiratorio",
+      "busquedas": "35,000 - 70,000"
+    },
+    {
+      "rank": 63,
+      "nombre": "Nitrofurantoína",
+      "query": "nitrofurantoína",
+      "categoria": "Antibiótico urinario",
+      "busquedas": "35,000 - 70,000"
+    },
+    {
+      "rank": 64,
+      "nombre": "Desloratadina",
+      "query": "desloratadina",
+      "categoria": "Antihistamínico",
+      "busquedas": "35,000 - 70,000"
+    },
+    {
+      "rank": 65,
+      "nombre": "Terbinafina",
+      "query": "terbinafina",
+      "categoria": "Antifúngico (Uñas/Piel)",
+      "busquedas": "35,000 - 70,000"
+    },
+    {
+      "rank": 66,
+      "nombre": "Captopril",
+      "query": "captopril",
+      "categoria": "Antihipertensivo",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 67,
+      "nombre": "Amlodipino",
+      "query": "amlodipino",
+      "categoria": "Antihipertensivo",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 68,
+      "nombre": "Furosemida",
+      "query": "furosemida",
+      "categoria": "Diurético",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 69,
+      "nombre": "Glibenclamida",
+      "query": "glibenclamida",
+      "categoria": "Antidiabético",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 70,
+      "nombre": "Linagliptina",
+      "query": "linagliptina",
+      "tambien": "Trayenta",
+      "categoria": "Antidiabético",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 71,
+      "nombre": "Simeticona",
+      "query": "simeticona",
+      "categoria": "Antiflatulento",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 72,
+      "nombre": "Levofloxacino",
+      "query": "levofloxacino",
+      "categoria": "Antibiótico",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 73,
+      "nombre": "Doxiciclina",
+      "query": "doxiciclina",
+      "categoria": "Antibiótico",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 74,
+      "nombre": "Dextrometorfano",
+      "query": "dextrometorfano",
+      "categoria": "Antitusivo (Tos seca)",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 75,
+      "nombre": "Fluticasona",
+      "query": "fluticasona",
+      "categoria": "Corticoide nasal",
+      "busquedas": "30,000 - 60,000"
+    },
+    {
+      "rank": 76,
+      "nombre": "Clonixinato de lisina",
+      "query": "clonixinato de lisina",
+      "categoria": "Analgésico",
+      "busquedas": "20,000 - 45,000"
+    },
+    {
+      "rank": 77,
+      "nombre": "Celecoxib",
+      "query": "celecoxib",
+      "categoria": "Antiinflamatorio selectivo",
+      "busquedas": "20,000 - 40,000"
+    },
+    {
+      "rank": 78,
+      "nombre": "Simvastatina",
+      "query": "simvastatina",
+      "categoria": "Control de Colesterol",
+      "busquedas": "20,000 - 45,000"
+    },
+    {
+      "rank": 79,
+      "nombre": "Hidroclorotiazida",
+      "query": "hidroclorotiazida",
+      "categoria": "Diurético",
+      "busquedas": "20,000 - 40,000"
+    },
+    {
+      "rank": 80,
+      "nombre": "Espironolactona",
+      "query": "espironolactona",
+      "categoria": "Diurético",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 81,
+      "nombre": "Clopidogrel",
+      "query": "clopidogrel",
+      "categoria": "Antiagregante plaquetario",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 82,
+      "nombre": "Sitagliptina",
+      "query": "sitagliptina",
+      "categoria": "Antidiabético",
+      "busquedas": "20,000 - 40,000"
+    },
+    {
+      "rank": 83,
+      "nombre": "Insulina Glargina",
+      "query": "insulina glargina",
+      "categoria": "Diabetes (Insulina)",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 84,
+      "nombre": "Senósidos A-B",
+      "query": "senósidos a-b",
+      "categoria": "Laxante",
+      "busquedas": "20,000 - 40,000"
+    },
+    {
+      "rank": 85,
+      "nombre": "Claritromicina",
+      "query": "claritromicina",
+      "categoria": "Antibiótico",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 86,
+      "nombre": "Oseltamivir",
+      "query": "oseltamivir",
+      "categoria": "Antiviral (Influenza estacional)",
+      "busquedas": "20,000 - 60,000"
+    },
+    {
+      "rank": 87,
+      "nombre": "Benzonatato",
+      "query": "benzonatato",
+      "categoria": "Antitusivo",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 88,
+      "nombre": "Oximetazolina",
+      "query": "oximetazolina",
+      "categoria": "Descongestionante nasal",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 89,
+      "nombre": "Olanzapina",
+      "query": "olanzapina",
+      "categoria": "Antipsicótico",
+      "busquedas": "20,000 - 40,000"
+    },
+    {
+      "rank": 90,
+      "nombre": "Etinilestradiol / Desogestrel",
+      "query": "etinilestradiol / desogestrel",
+      "categoria": "Anticonceptivo oral",
+      "busquedas": "25,000 - 50,000"
+    },
+    {
+      "rank": 91,
+      "nombre": "Ketoprofeno",
+      "query": "ketoprofeno",
+      "categoria": "Antiinflamatorio",
+      "busquedas": "15,000 - 30,000"
+    },
+    {
+      "rank": 92,
+      "nombre": "Indometacina",
+      "query": "indometacina",
+      "categoria": "Antiinflamatorio / Gota",
+      "busquedas": "15,000 - 25,000"
+    },
+    {
+      "rank": 93,
+      "nombre": "Piroxicam",
+      "query": "piroxicam",
+      "categoria": "Antiinflamatorio",
+      "busquedas": "10,000 - 25,000"
+    },
+    {
+      "rank": 94,
+      "nombre": "Pravastatina",
+      "query": "pravastatina",
+      "categoria": "Control de Colesterol",
+      "busquedas": "15,000 - 35,000"
+    },
+    {
+      "rank": 95,
+      "nombre": "Famotidina",
+      "query": "famotidina",
+      "categoria": "Antiácido",
+      "busquedas": "15,000 - 30,000"
+    },
+    {
+      "rank": 96,
+      "nombre": "Domperidona",
+      "query": "domperidona",
+      "categoria": "Procinético gástrico",
+      "busquedas": "15,000 - 30,000"
+    },
+    {
+      "rank": 97,
+      "nombre": "Lactulosa",
+      "query": "lactulosa",
+      "categoria": "Laxante",
+      "busquedas": "15,000 - 35,000"
+    },
+    {
+      "rank": 98,
+      "nombre": "Pioglitazona",
+      "query": "pioglitazona",
+      "categoria": "Antidiabético",
+      "busquedas": "10,000 - 20,000"
+    },
+    {
+      "rank": 99,
+      "nombre": "Mupirocina",
+      "query": "mupirocina",
+      "categoria": "Antibiótico tópico",
+      "busquedas": "15,000 - 35,000"
+    },
+    {
+      "rank": 100,
+      "nombre": "Donepecilo",
+      "query": "donepecilo",
+      "categoria": "Tratamiento de Alzheimer/Demencia",
+      "busquedas": "10,000 - 25,000"
+    }
+  ]
+}

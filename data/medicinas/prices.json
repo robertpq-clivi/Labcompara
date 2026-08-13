@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-08-13T20:50:03.639Z",
+  "currency": "MXN",
+  "fuentes": [
+    "Ahorro",
+    "Benavides",
+    "Guadalajara",
+    "SanPablo",
+    "Prixz"
+  ],
+  "nota": "Solo se publican presentaciones idénticas (misma dosis, forma y número de piezas) presentes en 2 o más farmacias.",
+  "presentaciones": [
+    {
+      "medicamento": "Paracetamol",
+      "rank": 1,
+      "categoria": "Analgésico / Antipirético",
+      "clave": "paracetamol|500mg|tabletas|10",
+      "etiqueta": "Paracetamol 500mg · 10 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 15,
+          "titulo": "g Paracetamol 500 mg 10 tabletas Kendrick",
+          "url": "https://www.fahorro.com/g-paracetamol-500-mg-10-tabletas-kendrick.html"
+        },
+        "Prixz": {
+          "precio": 8,
+          "titulo": "Paracetamol 500 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/paracetamol-500-mg-con-10-tabletas-3/"
+        }
+      },
+      "min": 8,
+      "max": 15,
+      "ahorro": 7,
+      "masBarata": "Prixz",
+      "porUnidad": 0.8
+    },
+    {
+      "medicamento": "Paracetamol",
+      "rank": 1,
+      "categoria": "Analgésico / Antipirético",
+      "clave": "paracetamol|750mg|tabletas|10",
+      "etiqueta": "Paracetamol 750mg · 10 tabletas",
+      "mg": 750,
+      "forma": "tabletas",
+      "piezas": 10,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 33,
+          "titulo": "Paracetamol 750 mg Oral 10 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/paracetamol-750-mg-oral-10-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 12,
+          "titulo": "Paracetamol 750 Mg Con 10 Tabletas",
+          "url": "https://prixz.com/c/paracetamol-750-mg-con-14-tabletas/"
+        }
+      },
+      "min": 12,
+      "max": 33,
+      "ahorro": 21,
+      "masBarata": "Prixz",
+      "porUnidad": 1.2
+    },
+    {
+      "medicamento": "Omeprazol",
+      "rank": 2,
+      "categoria": "Antiácido / Protector gástrico",
+      "clave": "omeprazol|20mg|cápsulas|14",
+      "etiqueta": "Omeprazol 20mg · 14 cápsulas",
+      "mg": 20,
+      "forma": "cápsulas",
+      "piezas": 14,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 88,
+          "titulo": "Omeprazol 20 mg Oral 14 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/omeprazol-20-mg-oral-14-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 13,
+          "titulo": "Omeprazol 20 Mg Con 14 Cápsulas",
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-14-capsulas-3/"
+        }
+      },
+      "min": 13,
+      "max": 88,
+      "ahorro": 75,
+      "masBarata": "Prixz",
+      "porUnidad": 0.93
+    },
+    {
+      "medicamento": "Omeprazol",
+      "rank": 2,
+      "categoria": "Antiácido / Protector gástrico",
+      "clave": "omeprazol|20mg|cápsulas|30",
+      "etiqueta": "Omeprazol 20mg · 30 cápsulas",
+      "mg": 20,
+      "forma": "cápsulas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 149,
+          "titulo": "Omeprazol 20 mg Oral 30 cápsulas 2 Cajas Marca del Ahorro",
+          "url": "https://www.fahorro.com/omeprazol-20-mg-oral-30-capsulas-2-cajas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 40,
+          "titulo": "Omeprazol 20 Mg Con 30 Cápsulas",
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-30-capsulas/"
+        }
+      },
+      "min": 40,
+      "max": 149,
+      "ahorro": 109,
+      "masBarata": "Prixz",
+      "porUnidad": 1.33
+    },
+    {
+      "medicamento": "Omeprazol",
+      "rank": 2,
+      "categoria": "Antiácido / Protector gástrico",
+      "clave": "omeprazol|20mg|cápsulas|120",
+      "etiqueta": "Omeprazol 20mg · 120 cápsulas",
+      "mg": 20,
+      "forma": "cápsulas",
+      "piezas": 120,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 161,
+          "titulo": "Omeprazol 20 mg Oral 120 cápsulas Marca del Ahorro",
+          "url": "https://www.fahorro.com/omeprazol-20mg-oral-120-capsulas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 120,
+          "titulo": "Omeprazol 20 Mg Con 120 Cápsulas Pack 4X3",
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-120-capsulas-pack-4x3/"
+        }
+      },
+      "min": 120,
+      "max": 161,
+      "ahorro": 41,
+      "masBarata": "Prixz",
+      "porUnidad": 1
+    },
+    {
+      "medicamento": "Metformina",
+      "rank": 4,
+      "categoria": "Antidiabético",
+      "clave": "metformina|500mg|tabletas|30",
+      "etiqueta": "Metformina 500mg · 30 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 118,
+          "titulo": "Metformina 500 mg Liberación Porlongada 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/metformina-500-mg-liberacion-porlongada-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 229,
+          "titulo": "Dimefor 500 Mg – Caja Con 30 Tabletas (Metformina)",
+          "url": "https://prixz.com/c/dimefor-500-mg-oral-30-tabletas-2/"
+        }
+      },
+      "min": 118,
+      "max": 229,
+      "ahorro": 111,
+      "masBarata": "Ahorro",
+      "porUnidad": 3.93
+    },
+    {
+      "medicamento": "Metformina",
+      "rank": 4,
+      "categoria": "Antidiabético",
+      "clave": "metformina|500mg|tabletas|60",
+      "etiqueta": "Metformina 500mg · 60 tabletas",
+      "mg": 500,
+      "forma": "tabletas",
+      "piezas": 60,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 147,
+          "titulo": "Metformina 500 mg Oral 60 tabletas 2Piezas Marca del Ahorro",
+          "url": "https://www.fahorro.com/metformina-500-mg-oral-60-tabletas-2piezas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 273,
+          "titulo": "Dimefor 500 Mg – Caja Con 60 Tabletas (Metformina)",
+          "url": "https://prixz.com/c/dimefort-tabletas500-mg-con-6-2/"
+        }
+      },
+      "min": 147,
+      "max": 273,
+      "ahorro": 126,
+      "masBarata": "Ahorro",
+      "porUnidad": 2.45
+    },
+    {
+      "medicamento": "Metformina",
+      "rank": 4,
+      "categoria": "Antidiabético",
+      "clave": "metformina|850mg|tabletas|30",
+      "etiqueta": "Metformina 850mg · 30 tabletas",
+      "mg": 850,
+      "forma": "tabletas",
+      "piezas": 30,
+      "ml": null,
+      "precios": {
+        "Ahorro": {
+          "precio": 153,
+          "titulo": "Metformina 850 mg Oral 30 tabletas Marca del Ahorro",
+          "url": "https://www.fahorro.com/metformina-850-mg-oral-30-tabletas-marca-del-ahorro.html"
+        },
+        "Prixz": {
+          "precio": 393,
+          "titulo": "Dimefor 850 Mg – Caja Con 30 Tabletas (Metformina)",
+          "url": "https://prixz.com/c/dimefor-30-tabletas-850-mg/"
+        }
+      },
+      "min": 153,
+      "max": 393,
+      "ahorro": 240,
+      "masBarata": "Ahorro",
+      "porUnidad": 5.1
+    }
+  ]
+}

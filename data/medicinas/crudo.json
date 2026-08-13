@@ -1,0 +1,929 @@
+{
+  "generado": "2026-08-13T20:50:03.639Z",
+  "crudo": {
+    "Paracetamol": {
+      "Benavides": [
+        {
+          "titulo": "325 mg / 37.5 mg Paracetamol + Tramadol",
+          "precio": 335,
+          "url": "https://www.benavides.com.mx/ogmatin-325-mg-375-mg-paracetamol-tramadol-10-ud-tabletas"
+        },
+        {
+          "titulo": "100 mg Paracetamol/1 ml Solución",
+          "precio": 139,
+          "url": "https://www.benavides.com.mx/febraxito-100-mg-1-ml-paracetamol-30-ml-gotas"
+        },
+        {
+          "titulo": "325 mg / 37.5 mg Paracetamol + Tramadol",
+          "precio": 392,
+          "url": "https://www.benavides.com.mx/ogmatin-325-mg-375-mg-paracetamol-tramadol-20-ud-tabletas"
+        },
+        {
+          "titulo": "100 mg Naproxeno Sódico/200 mg Paracetamol Infantil",
+          "precio": 139,
+          "url": "https://www.benavides.com.mx/febrax-infantil-100-mg-200-mg-naproxeno-paracetamol-5-ud-supositorio"
+        },
+        {
+          "titulo": "Paracetamol",
+          "precio": 918,
+          "url": "https://www.benavides.com.mx/perfalgan-paracetamol-1-ud-frasco-ampula"
+        },
+        {
+          "titulo": "Paracetamol",
+          "precio": 223,
+          "url": "https://www.benavides.com.mx/perfalgan-paracetamol-1gr-10mgml-solucion-inye"
+        },
+        {
+          "titulo": "275 mg Naproxeno Sódico/300 mg Paracetamol",
+          "precio": 214,
+          "url": "https://www.benavides.com.mx/febrax-275-mg-300-mg-naproxeno-paracetamol-15-ud-tabletas"
+        },
+        {
+          "titulo": "750 mg Paracetamol",
+          "precio": 565,
+          "url": "https://www.benavides.com.mx/tylex-750-mg-paracetamol-40-tabletas"
+        },
+        {
+          "titulo": "500 mg Paracetamol",
+          "precio": 125,
+          "url": "https://www.benavides.com.mx/tylenol-500-mg-paracetamol-20-tabletas"
+        },
+        {
+          "titulo": "500 mg Paracetamol",
+          "precio": 49,
+          "url": "https://www.benavides.com.mx/mejoral-500-500-mg-paracetamol-12-tabletas"
+        },
+        {
+          "titulo": "125 mg Naproxeno Sódico/100 mg Paracetamol/5 ml Suspensión",
+          "precio": 197,
+          "url": "https://www.benavides.com.mx/febrax-125-mg-100-mg-naproxeno-paracetamol-100-ml-suspension"
+        },
+        {
+          "titulo": "500 mg Paracetamol",
+          "precio": 72,
+          "url": "https://www.benavides.com.mx/tylenol-500-mg-paracetamol-10-tabletas"
+        }
+      ],
+      "Ahorro": [
+        {
+          "titulo": "Tempra 500 mg Adultos Paracetamol caja 10 tabletas",
+          "precio": 74,
+          "url": "https://www.fahorro.com/tempra-500-mg-adultos-paracetamol-caja-10-tabletas.html"
+        },
+        {
+          "titulo": "Tempra 500 mg Adultos Paracetamol caja 20 tabletas",
+          "precio": 129,
+          "url": "https://www.fahorro.com/tempra-500-mg-adultos-paracetamol-caja-20-tabletas.html"
+        },
+        {
+          "titulo": "Tempra Infantil Paracetamol 160 mg Caja 30 tabletas Masticables",
+          "precio": 248,
+          "url": "https://www.fahorro.com/tempra-infantil-paracetamol-160-mg-caja-30-tabletas-masticables.html"
+        },
+        {
+          "titulo": "Paracetamol 300 mg 6 Supositorios Marca del Ahorro",
+          "precio": 114,
+          "url": "https://www.fahorro.com/paracetamol-300-mg-6-supositorios-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Tempra Solución Pediátrica Gotas Paracetamol sabor Uva 30 ml",
+          "precio": 189,
+          "url": "https://www.fahorro.com/tempra-solucion-pediatrica-gotas-paracetamol-sabor-uva-30-ml.html"
+        },
+        {
+          "titulo": "Tempra Forte Adultos Paracetamol 650 mg caja 24 tabletas",
+          "precio": 161,
+          "url": "https://www.fahorro.com/tempra-forte-adultos-paracetamol-650-mg-caja-24-tabletas.html"
+        },
+        {
+          "titulo": "Tempra Infantil Paracetamol 80 mg caja 30 tabletas Masticables",
+          "precio": 150,
+          "url": "https://www.fahorro.com/tempra-infantil-paracetamol-80-mg-caja-30-tabletas-masticables.html"
+        },
+        {
+          "titulo": "Diclofenaco/Paracetamol 50/500 mg 10 tabletas Marca del Ahorro",
+          "precio": 95,
+          "url": "https://www.fahorro.com/diclofenaco-paracetamol-50-500-mg-10-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Paracetamol 500 mg Oral 20 tabletas Marca del Ahorro",
+          "precio": 31,
+          "url": "https://www.fahorro.com/paracetamol-500-mg-oral-20-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Tramadol-Paracetamol 37.5 mg/325 mg 40 tabletas Marca del Ahorro",
+          "precio": 430,
+          "url": "https://www.fahorro.com/tramadol-paracetamol-37-5-mg-325-mg-40-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Paracetamol / Tramadol 325/37.5 mg 20 tabletas Marca del Ahorro",
+          "precio": 241,
+          "url": "https://www.fahorro.com/paracetamol-tramadol-325-37-5-mg-20-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Clorfenamina Fenilefrina Guaifenesina Paracetamol Infantil Solución Frasco 120 ml Marca del Ahorro",
+          "precio": 38,
+          "url": "https://www.fahorro.com/clorfenamina-fenilefrina-guaifenesina-paracetamol-solucion-frasco-120-ml-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Tempra Jarabe Infantil Paracetamol sabor Fresa 3.2g frasco 120 ml",
+          "precio": 208,
+          "url": "https://www.fahorro.com/tempra-jarabe-infantil-paracetamol-sabor-fresa-3-2g-frasco-120-ml.html"
+        },
+        {
+          "titulo": "g Paracetamol 500 mg 10 tabletas Kendrick",
+          "precio": 15,
+          "url": "https://www.fahorro.com/g-paracetamol-500-mg-10-tabletas-kendrick.html"
+        },
+        {
+          "titulo": "Paracetamol 500 mg 3 Pack 60 tabletas Marca del Ahorro",
+          "precio": 82,
+          "url": "https://www.fahorro.com/paracetamol-500-mg-3-pack-60-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Tempra Forte Paracetamol 650mg con 24+12  Tabs",
+          "precio": 225,
+          "url": "https://www.fahorro.com/tempra-forte-650-mg-36-tabs.html"
+        },
+        {
+          "titulo": "Naproxeno Paracetamol 2.5/2 g Solución 100 ml Marca del Ahorro",
+          "precio": 97,
+          "url": "https://www.fahorro.com/naproxeno-paracetamol-2-5-2-g-solucion-100-ml-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Tylenol Analgésico Paracetamol 500mg 20 Tabletas",
+          "precio": 118,
+          "url": "https://www.fahorro.com/tylenol-analgesico-20-tabletas.html"
+        },
+        {
+          "titulo": "Ketoprofeno/Paracetamol 100/300 mg 12 tabletas Marca del Ahorro",
+          "precio": 63,
+          "url": "https://www.fahorro.com/ketoprofeno-paracetamol-100-300-mg-12-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Paracetamol 750 mg Oral 20 tabletas Marca del Ahorro",
+          "precio": 48,
+          "url": "https://www.fahorro.com/paracetamol-750-mg-oral-20-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Paracetamol 750 mg Oral 10 tabletas Marca del Ahorro",
+          "precio": 33,
+          "url": "https://www.fahorro.com/paracetamol-750-mg-oral-10-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Saridon Paracetamol para el Dolor de Cabeza Caja con 20 Tabletas 500 mg",
+          "precio": 77,
+          "url": "https://www.fahorro.com/saridon-analgesico-20-comprimidos.html"
+        },
+        {
+          "titulo": "Desenfriol D Antigripal Paracetamol Caja con 24 Tabletas 500 mg",
+          "precio": 67,
+          "url": "https://www.fahorro.com/desenfriol-d-antigripal-paracetamol-500-mg-24-tabletas.html"
+        },
+        {
+          "titulo": "Desenfriol D Antigripal Paracetamol Caja con 12 Tabletas 500 mg",
+          "precio": 39,
+          "url": "https://www.fahorro.com/desenfriol-d-antigripal-paracetamol-500-mg-12-tabletas.html"
+        },
+        {
+          "titulo": "Mejoralito Paracetamol 30 tabletas Masticables",
+          "precio": 81,
+          "url": "https://www.fahorro.com/mejoralito-paracetamol-30-tabletas-masticables.html"
+        },
+        {
+          "titulo": "Tylenol Analgésico Paracetamol 500mg 10 Tabletas",
+          "precio": 68,
+          "url": "https://www.fahorro.com/tylenol-analgesico-10-tabletas.html"
+        },
+        {
+          "titulo": "Saridon Paracetamol para el Dolor de Cabeza Caja con 10 Tabletas 500 mg",
+          "precio": 53,
+          "url": "https://www.fahorro.com/saridon-analgesico-10-comprimidos.html"
+        },
+        {
+          "titulo": "Naproxeno/Paracetamol 100/200 mg Supositorios Marca del Ahorro",
+          "precio": 74,
+          "url": "https://www.fahorro.com/naproxeno-paracetamol-100-200-mg-supositorios-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Mejoral 500 Paracetamol 12 tabletas",
+          "precio": 36,
+          "url": "https://www.fahorro.com/mejoral-500-paracetamol-12-tabletas.html"
+        },
+        {
+          "titulo": "Sedalmerck Analgésico con Paracetamol Blister con 20 tabletas",
+          "precio": 116,
+          "url": "https://www.fahorro.com/sedalmerck-20-tabletas.html"
+        }
+      ],
+      "Prixz": [
+        {
+          "titulo": "Paracetamol 500 Mg Con 10 Tabletas",
+          "precio": 8,
+          "url": "https://prixz.com/c/paracetamol-500-mg-con-10-tabletas-3/"
+        },
+        {
+          "titulo": "Paracetamol 500 Mg Con 10 Tabletas",
+          "precio": 11,
+          "url": "https://prixz.com/c/paracetamol-500-mg-con-10-tabletas-2/"
+        },
+        {
+          "titulo": "Paracetamol 500 Mg Con 10 Tabletas",
+          "precio": 11,
+          "url": "https://prixz.com/c/paracetamol-500-mg-con-10-tabletas/"
+        },
+        {
+          "titulo": "Amantadina, Clorfenamina, Paracetamol 50/3/500 Mg Con 24 Cápsulas",
+          "precio": 30,
+          "url": "https://prixz.com/c/amantadina-clorfenamina-paracetamol-50-3-500-mg-con-24-capsulas/"
+        },
+        {
+          "titulo": "Paracetamol 500 Mg Con 10 Tabletas",
+          "precio": 8,
+          "url": "https://prixz.com/c/portem-500-mg-con-10-tabletas/"
+        },
+        {
+          "titulo": "Tempra 24 Horas Paracetamol 400 Mg Con 12 Tabletas",
+          "precio": 82,
+          "url": "https://prixz.com/c/tempra-24-horas-paracetamol-400-mg-con-12-tabletas/"
+        },
+        {
+          "titulo": "Quimofeina Paracetamol Cafeína 500 Mg / 50 Mg Con 20 Tabletas",
+          "precio": 28,
+          "url": "https://prixz.com/c/quimofeina-paracetamol-cafeina-500-mg-50-mg-con-20-tabletas/"
+        },
+        {
+          "titulo": "Tempire-Pfc Paracetamol Cafeina 500 Mg / 50 Mg Con 24 Comprimidos",
+          "precio": 37,
+          "url": "https://prixz.com/c/tempire-pfc-paracetamol-cafeina-500-mg-50-mg-con-24-comprimidos/"
+        },
+        {
+          "titulo": "Brunadol Naproxeno Paracetamol 125 Mg / 100 Mg / 5 Ml Suspensión Con 100 Ml",
+          "precio": 45,
+          "url": "https://prixz.com/c/brunadol-naproxeno-paracetamol-125-mg-100-mg-5-ml-suspension-con-100-ml/"
+        },
+        {
+          "titulo": "Acciogen Ibuprofeno 200 Mg / Paracetamol 500 Mg Con 20 Tabletas",
+          "precio": 308,
+          "url": "https://prixz.com/c/acciogen-ibuprofeno-200-mg-paracetamol-500-mg-con-20-tabletas/"
+        },
+        {
+          "titulo": "Acciogen Ibuprofeno Paracetamol Suspensión Con 120 Ml",
+          "precio": 241,
+          "url": "https://prixz.com/c/acciogen-ibuprofeno-paracetamol-suspension-con-120-ml/"
+        },
+        {
+          "titulo": "Paracetamol 750 Mg Con 10 Tabletas",
+          "precio": 12,
+          "url": "https://prixz.com/c/paracetamol-750-mg-con-14-tabletas/"
+        },
+        {
+          "titulo": "Neoseverin Naproxeno Sódico Paracetamol 25 Mg / 20 Mg Con 100 Ml",
+          "precio": 182,
+          "url": "https://prixz.com/c/neoseverin-naproxeno-sodico-paracetamol-25-mg-20-mg-con-100-ml/"
+        },
+        {
+          "titulo": "Neoseverin Naproxeno Sódico Paracetamol 275 Mg / 300 Mg Con 14 Tabletas",
+          "precio": 213,
+          "url": "https://prixz.com/c/neoseverin-naproxeno-sodico-paracetamol-275-mg-300-mg-con-14-tabletas/"
+        },
+        {
+          "titulo": "Paracetamol, Ácido Acetilsalicílico, Cafeína 250/250/65 Mg Con 24 Tabletas",
+          "precio": 53,
+          "url": "https://prixz.com/c/paracetamol-acet-caf-24-tabletas-250-250-65mg/"
+        },
+        {
+          "titulo": "Paracetamol, Cafeína, Fenilefrina, Clorfenamina 500/25/5/4 Mg Con 10 Tabletas",
+          "precio": 20,
+          "url": "https://prixz.com/c/paracetamol-cafeina-fenilefrina-clorfenamina-500-25-5-4-mg-con-10-tabletas/"
+        },
+        {
+          "titulo": "Naproxeno, Paracetamol 275/300 Mg Con 15 Tabletas",
+          "precio": 26,
+          "url": "https://prixz.com/c/naproxeno-paracetamol-15-tabletas-275-300-mg/"
+        },
+        {
+          "titulo": "Febrax Niños 25 Mg / 20 Mg – Frasco 100 Ml (Naproxeno Y Paracetamol)",
+          "precio": 195,
+          "url": "https://prixz.com/c/febrax-suspension-1-fco-125-100mg-100-ml/"
+        },
+        {
+          "titulo": "Febrax Niños 100 Mg / 200 Mg – Caja Con 5 Supositorios (Naproxeno Y Paracetamol)",
+          "precio": 136,
+          "url": "https://prixz.com/c/febrax-supositorios-1cja-con-5-100-200-mg/"
+        },
+        {
+          "titulo": "Febrax 275 Mg / 300 Mg – Caja Con 15 Tabletas (Naproxeno Y Paracetamol)",
+          "precio": 184,
+          "url": "https://prixz.com/c/febrax-15-tabletas-275-300-mg/"
+        },
+        {
+          "titulo": "Aliren 60 Ml – Gotas Pediátricas (Amantadina, Paracetamol Y Clorfenamina)",
+          "precio": 85,
+          "url": "https://prixz.com/c/aliren-60-ml-jarabe-frasco-clorhidrato-de-amantadina-0-5-g/"
+        },
+        {
+          "titulo": "Aliren 50 Mg – Caja Con 24 Cápsulas (Amantadina, Paracetamol Y Clorfenamina)",
+          "precio": 108,
+          "url": "https://prixz.com/c/aliren-24-capsulas-caja-clorhidrato-de-amantadina-50-mg/"
+        }
+      ]
+    },
+    "Omeprazol": {
+      "Benavides": [
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 169,
+          "url": "https://www.benavides.com.mx/farmacias-benavides-20-mg-omeprazol-120-capsulas"
+        },
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 364,
+          "url": "https://www.benavides.com.mx/ulsen-20-mg-omeprazol-7-ud-capsulas"
+        },
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 85,
+          "url": "https://www.benavides.com.mx/farmacias-benavides-20-mg-omeprazol-14-capsulas"
+        },
+        {
+          "titulo": "40 mg Omeprazol",
+          "precio": 77,
+          "url": "https://www.benavides.com.mx/farmacias-benavides-40-mg-omeprazol-1-ud-ampolleta"
+        },
+        {
+          "titulo": "20 mg Omeprazol Duopack",
+          "precio": 366,
+          "url": "https://www.benavides.com.mx/inhibitron-20-mg-omeprazol-duopack-28-capsulas"
+        },
+        {
+          "titulo": "40 mg Omeprazol Duopack",
+          "precio": 446,
+          "url": "https://www.benavides.com.mx/inhibitron-f-40-mg-omeprazol-duopack-14-capsulas"
+        },
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 165,
+          "url": "https://www.benavides.com.mx/genoprazol-20-mg-omeprazol-49-capsulas"
+        },
+        {
+          "titulo": "20 mg Omeprazol DuoPack",
+          "precio": 252,
+          "url": "https://www.benavides.com.mx/inhibitron-20-mg-omeprazol-duopack-14-capsulas"
+        },
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 110,
+          "url": "https://www.benavides.com.mx/genoprazol-20-mg-omeprazol-14-ud-capsulas"
+        },
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 525,
+          "url": "https://www.benavides.com.mx/ulsen-20-mg-omeprazol-14-ud-capsulas"
+        },
+        {
+          "titulo": "40 mg Omeprazol Solución Inyectable",
+          "precio": 352,
+          "url": "https://www.benavides.com.mx/inhibitron-40-mg-omeprazol-solucion-inyectable-1-frasco-ampula"
+        },
+        {
+          "titulo": "20 mg Omeprazol",
+          "precio": 119,
+          "url": "https://www.benavides.com.mx/losec-a-20-mg-omeprazol-14-ud-capsulas"
+        }
+      ],
+      "Ahorro": [
+        {
+          "titulo": "Omeprazol 20 mg Oral 14 cápsulas Marca del Ahorro",
+          "precio": 88,
+          "url": "https://www.fahorro.com/omeprazol-20-mg-oral-14-capsulas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Omeprazol 20 mg Oral 120 cápsulas Marca del Ahorro",
+          "precio": 161,
+          "url": "https://www.fahorro.com/omeprazol-20mg-oral-120-capsulas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Omeprazol 20 mg Oral 7 cápsulas Marca del Ahorro",
+          "precio": 54,
+          "url": "https://www.fahorro.com/omeprazol-20-mg-oral-7-capsulas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Omeprazol Solución inyectable 40 mg/10 ml Marca del Ahorro",
+          "precio": 78,
+          "url": "https://www.fahorro.com/omeprazol-solucion-inyectable-40-mg-10-ml-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Omeprazol 20 mg Oral 30 cápsulas 2 Cajas Marca del Ahorro",
+          "precio": 149,
+          "url": "https://www.fahorro.com/omeprazol-20-mg-oral-30-capsulas-2-cajas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Inhibitron Twit 20 mg Oral 30 Caps",
+          "precio": 448,
+          "url": "https://www.fahorro.com/inhibitron-twit-20-mg-oral-30-caps.html"
+        },
+        {
+          "titulo": "Inhibitron Infusión 40 mg Solución Inyectable 1 Frasco",
+          "precio": 293,
+          "url": "https://www.fahorro.com/inhibitron-infusion-40-mg-solucion-inyectable-1-frasco.html"
+        },
+        {
+          "titulo": "Ulsen 20 mg Oral 21 Caps",
+          "precio": 407,
+          "url": "https://www.fahorro.com/ulsen-20-mg-oral-21-caps.html"
+        },
+        {
+          "titulo": "Inhibitron 20 mg Oral 28 Caps Duopack",
+          "precio": 320,
+          "url": "https://www.fahorro.com/inhibitron-20-mg-oral-28-caps-duopack.html"
+        },
+        {
+          "titulo": "Ulsen 20 mg Oral 14 Caps",
+          "precio": 459,
+          "url": "https://www.fahorro.com/ulsen-20-mg-oral-14-caps.html"
+        },
+        {
+          "titulo": "Inhibitron F 40 mg Oral 30 Caps Duopack",
+          "precio": 519,
+          "url": "https://www.fahorro.com/inhibitron-f-40-mg-oral-30-caps-duopack.html"
+        },
+        {
+          "titulo": "Inhibitron 20 mg Oral 14 Caps",
+          "precio": 229,
+          "url": "https://www.fahorro.com/inhibitron-20-mg-oral-14-caps.html"
+        },
+        {
+          "titulo": "Inhibitron 20 mg Oral 14 Caps",
+          "precio": 304,
+          "url": "https://www.fahorro.com/inhibitron20mgoral14caps.html"
+        },
+        {
+          "titulo": "Ulsen 20 mg Oral 7 Caps",
+          "precio": 305,
+          "url": "https://www.fahorro.com/ulsen-20-mg-oral-7-caps.html"
+        },
+        {
+          "titulo": "Ulsen PCS 40 mg Oral 14 Tabs",
+          "precio": 490,
+          "url": "https://www.fahorro.com/ulsen-pcs-40-mg-oral-14-tabs.html"
+        },
+        {
+          "titulo": "Inhibitron 40 mg Solución Inyectable Frasco 10 ml ",
+          "precio": 293,
+          "url": "https://www.fahorro.com/inhibitron-40-mg-solucion-inyectable-frasco-10-ml.html"
+        },
+        {
+          "titulo": "Ulsen 40 mg Solución Inyectable 1 Frasco",
+          "precio": 411,
+          "url": "https://www.fahorro.com/ulsen-40-mg-solucion-inyectable-1-frasco.html"
+        },
+        {
+          "titulo": "Inhibitron Twit 40 mg/ 1100 mg oral 30 Caps",
+          "precio": 616,
+          "url": "https://www.fahorro.com/inhibitron-twit-40-mg-1100-mg-oral-30-caps.html"
+        },
+        {
+          "titulo": "Inhibitron F 40 mg Oral 14 Caps Duopack",
+          "precio": 390,
+          "url": "https://www.fahorro.com/inhibitron-f-40-mg-oral-14-caps-duopack.html"
+        },
+        {
+          "titulo": "Genoprazol 49 Caps",
+          "precio": 97,
+          "url": "https://www.fahorro.com/genoprazol-49-caps.html"
+        },
+        {
+          "titulo": "Genoprazol 20 mg 2 Pack 14 Caps",
+          "precio": 65,
+          "url": "https://www.fahorro.com/genoprazol-20-mg-2-pack-14-caps.html"
+        },
+        {
+          "titulo": "Losec A 20 mg 14 Caps",
+          "precio": 108,
+          "url": "https://www.fahorro.com/losec-a-20-mg-14-capsulas.html"
+        }
+      ],
+      "Prixz": [
+        {
+          "titulo": "Omeprazol 20 Mg Con 14 Cápsulas",
+          "precio": 13,
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-14-capsulas-3/"
+        },
+        {
+          "titulo": "Omeprazol 20 Mg Con 14 Cápsulas",
+          "precio": 13,
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-14-capsulas/"
+        },
+        {
+          "titulo": "Omeprazol 20 Mg Con 120 Cápsulas Pack 4X3",
+          "precio": 120,
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-120-capsulas-pack-4x3/"
+        },
+        {
+          "titulo": "Esomeprazol 40 Mg Con 28 Tabletas",
+          "precio": 653,
+          "url": "https://prixz.com/c/esomeprazol-40-mg-con-28-tabletas/"
+        },
+        {
+          "titulo": "Omeprazol 40 Mg Con 1 Ampolleta De 10 Ml",
+          "precio": 63,
+          "url": "https://prixz.com/c/omeprazol-40-mg-con-1-ampolleta-de-10-ml/"
+        },
+        {
+          "titulo": "Amably 24 Hrs 20 Mg – Frasco Con 30 Cápsulas (Esomeprazol)",
+          "precio": 533,
+          "url": "https://prixz.com/c/amably-24-hrs-esomeprazol-20-mg-con-30-capsulas/"
+        },
+        {
+          "titulo": "Omeprazol 20 Mg Con 60 Cápsulas",
+          "precio": 75,
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-60-capsulas/"
+        },
+        {
+          "titulo": "Omeprazol 20 Mg Con 30 Cápsulas",
+          "precio": 40,
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-30-capsulas/"
+        },
+        {
+          "titulo": "Omeprazol 20 Mg Con 14 Cápsulas",
+          "precio": 25,
+          "url": "https://prixz.com/c/omeprazol-20-mg-con-14-capsulas-2/"
+        },
+        {
+          "titulo": "Omeprazol 20 Mg Con 60 Cápsulas Duopack",
+          "precio": 479,
+          "url": "https://prixz.com/c/generico-omeprazol-20-mg-con-60-capsulas-duopack/"
+        },
+        {
+          "titulo": "Omeprazol, Bicarbonato De Sodio 20/1100 Mg Con 30 Cápsulas",
+          "precio": 596,
+          "url": "https://prixz.com/c/omeprazol-bicarbo-30-capsulas-20mg-1100-mg/"
+        },
+        {
+          "titulo": "Omeprazol 40 Mg Con 1 Solución Inyectable",
+          "precio": 46,
+          "url": "https://prixz.com/c/omeprazol-1-frasco-con-ampula-40mg-10-ml/"
+        },
+        {
+          "titulo": "Esomeprazol 40 Mg Con 28 Tabletas",
+          "precio": 235,
+          "url": "https://prixz.com/c/esomeprazol-28-tabletas-40-mg/"
+        },
+        {
+          "titulo": "Amably 40 Mg – Frasco Con 14 Cápsulas (Esomeprazol)",
+          "precio": 591,
+          "url": "https://prixz.com/c/amably-40mg-capsula-14/"
+        },
+        {
+          "titulo": "Amably 40 Mg – Frasco Con 30 Cápsulas (Esomeprazol)",
+          "precio": 955,
+          "url": "https://prixz.com/c/amably-30-capsulas-caja-esomeprazol-40-0-mg/"
+        }
+      ]
+    },
+    "Metformina": {
+      "Benavides": [
+        {
+          "titulo": "1000 mg Metformina",
+          "precio": 463,
+          "url": "https://www.benavides.com.mx/dimefor-xr-1000-mg-metformina-30-tabletas"
+        },
+        {
+          "titulo": "500 mg Metformina",
+          "precio": 499,
+          "url": "https://www.benavides.com.mx/dimefor-500-mg-metformina-60-ud-tabletas"
+        },
+        {
+          "titulo": "500 mg Metformina",
+          "precio": 397,
+          "url": "https://www.benavides.com.mx/dimefor-xr-500-mg-metformina-30-ud-tabletas"
+        },
+        {
+          "titulo": "850 mg Metformina",
+          "precio": 424,
+          "url": "https://www.benavides.com.mx/dimefor-850-mg-metformina-30-ud-tabletas"
+        },
+        {
+          "titulo": "500 mg Metformina",
+          "precio": 323,
+          "url": "https://www.benavides.com.mx/dimefor-500-mg-metformina-30-ud-tabletas"
+        },
+        {
+          "titulo": "750 mg Metformina",
+          "precio": 501,
+          "url": "https://www.benavides.com.mx/dimefor-xr-750-mg-metformina-30-ud-tabletas"
+        },
+        {
+          "titulo": "1000 mg Metformina",
+          "precio": 899,
+          "url": "https://www.benavides.com.mx/predial-1000-mg-metformina-40-ud-tabletas"
+        },
+        {
+          "titulo": "500 mg Metformina",
+          "precio": 472,
+          "url": "https://www.benavides.com.mx/predial-500-mg-metformina-60-ud-tabletas"
+        },
+        {
+          "titulo": "500 mg Metformina",
+          "precio": 700,
+          "url": "https://www.benavides.com.mx/dabex-500-mg-metformina-60-tabletas"
+        },
+        {
+          "titulo": "750 mg Metformina",
+          "precio": 562,
+          "url": "https://www.benavides.com.mx/predial-750-mg-metformina-30-ud-tabletas"
+        },
+        {
+          "titulo": "850 mg Metformina",
+          "precio": 257,
+          "url": "https://www.benavides.com.mx/ifor-850-mg-metformina-30-ud-tabletas"
+        },
+        {
+          "titulo": "850 mg Metformina",
+          "precio": 132,
+          "url": "https://www.benavides.com.mx/farmacias-benavides-850-mg-metformina-60-tabletas"
+        }
+      ],
+      "Ahorro": [
+        {
+          "titulo": "Insogen Plus 513/125 mg Clorpropamida y Metformina 40 tabletas",
+          "precio": 340,
+          "url": "https://www.fahorro.com/insogen-plus-513-125-mg-clorpropamida-y-metformina-40-tabletas.html"
+        },
+        {
+          "titulo": "Insogen Plus 513/125 mg Clorpropamida y Metformina 80 tabletas",
+          "precio": 574,
+          "url": "https://www.fahorro.com/insogen-plus-513-125-mg-clorpropamida-y-metformina-80-tabletas.html"
+        },
+        {
+          "titulo": "Sitagliptina, Metformina 50 mg/ 850 mg Oral 56 Comprimidos Marca del Ahorro",
+          "precio": 909,
+          "url": "https://www.fahorro.com/sitagliptina-metformina-50-mg-850-mg-oral-56-comprimidos-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Vildagliptina/Metformina 50/1000 mg 30 Comprimidos Marca del Ahorro",
+          "precio": 305,
+          "url": "https://www.fahorro.com/vildagliptina-metformina-50-1000-mg-30-comprimidos-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Sitagliptina/Metformina 50 mg/ 850mg Oral 28 Tabs Marca del Ahorro",
+          "precio": 332,
+          "url": "https://www.fahorro.com/sitagliptina-metformina-50-mg-850mg-oral-28-tabs-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Vildagliptina Metformina 50 mg/ 850 mg 30 Comprimidos Marca del Ahorro",
+          "precio": 295,
+          "url": "https://www.fahorro.com/vildagliptina-metformina-50-mg-850-mg-30-comprimidos-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Sitagliptina/Metformina 50 mg/ 850mg Oral 56 Tabs Marca del Ahorro",
+          "precio": 652,
+          "url": "https://www.fahorro.com/sitagliptina-metformina-50-mg-850mg-oral-56-tabs-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 500 mg Oral 60 tabletas 2Piezas Marca del Ahorro",
+          "precio": 147,
+          "url": "https://www.fahorro.com/metformina-500-mg-oral-60-tabletas-2piezas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 1000 mg 40 tabletas Marca del Ahorro",
+          "precio": 114,
+          "url": "https://www.fahorro.com/metformina-1000-mg-40-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 850 mg 60 tabletas Marca del Ahorro",
+          "precio": 116,
+          "url": "https://www.fahorro.com/metformina-850-mg-60-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 500 mg Oral 60 tabletas Marca del Ahorro",
+          "precio": 177,
+          "url": "https://www.fahorro.com/metformina-500-mg-oral-60-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina LP 750 mg 30 Tabs Marca del Ahorro",
+          "precio": 120,
+          "url": "https://www.fahorro.com/metformina-lp-750-mg-30-tabs-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina Glibenclamida 1000 5 mg 40 tabletas Marca del Ahorro",
+          "precio": 144,
+          "url": "https://www.fahorro.com/metformina-glibenclamida-1000-5-mg-40-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina/Glibenclamida 500/5 mg 60 tabletas Marca del Ahorro",
+          "precio": 88,
+          "url": "https://www.fahorro.com/metformina-glibenclamida-500-5-mg-60-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 850 mg Oral 60 tabletas Marca del Ahorro",
+          "precio": 252,
+          "url": "https://www.fahorro.com/metformina-850-mg-oral-60-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 500 mg Liberación Porlongada 30 tabletas Marca del Ahorro",
+          "precio": 118,
+          "url": "https://www.fahorro.com/metformina-500-mg-liberacion-porlongada-30-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 500 mg Liberación Prolongada 60 tabletas Marca del Ahorro",
+          "precio": 169,
+          "url": "https://www.fahorro.com/metformina-500-mg-liberacion-prolongada-60-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina 850 mg Oral 30 tabletas Marca del Ahorro",
+          "precio": 153,
+          "url": "https://www.fahorro.com/metformina-850-mg-oral-30-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina Glibenclamida 500 mg 2.5 mg 40 tabletas Marca del Ahorro",
+          "precio": 134,
+          "url": "https://www.fahorro.com/metformina-glibenclamida-500-mg-2-5-mg-40-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Metformina Glibenclamida 500 mg 5 mg con 40 tabletas Marca del Ahorro",
+          "precio": 65,
+          "url": "https://www.fahorro.com/metformina-glibenclamida-500-mg-5-mg-con-40-tabletas-marca-del-ahorro.html"
+        },
+        {
+          "titulo": "Argliptin-D 50mg/ 850 mg 28 Tabs",
+          "precio": 625,
+          "url": "https://www.fahorro.com/argliptin-d-50mg-850-mg-28-tabs.html"
+        },
+        {
+          "titulo": "Saari 50mg/850mg Oral 56 Tabs",
+          "precio": 1274,
+          "url": "https://www.fahorro.com/saari-50mg-850mg-oral-56-tabs.html"
+        },
+        {
+          "titulo": "Saari 50mg/850mg Oral 28 Tabs",
+          "precio": 679,
+          "url": "https://www.fahorro.com/saari-50mg-850mg-oral-28-tabs.html"
+        },
+        {
+          "titulo": "Xiglif-M 10 mg/1 g Oral 14 Tabs",
+          "precio": 529,
+          "url": "https://www.fahorro.com/xiglif-m-10-mg-1-g-oral-14-tabs.html"
+        },
+        {
+          "titulo": "Saari 50mg/1000mg Oral 56 Tabs",
+          "precio": 1283,
+          "url": "https://www.fahorro.com/saari-50mg-1000mg-oral-56-tabs.html"
+        },
+        {
+          "titulo": "Xiglif-M 10 mg/1 g Oral 28 Tabs",
+          "precio": 775,
+          "url": "https://www.fahorro.com/xiglif-m-10-mg-1-g-oral-28-tabs.html"
+        },
+        {
+          "titulo": "Metcolgrass LP 500 mg 60 Tabs",
+          "precio": 296,
+          "url": "https://www.fahorro.com/metcolgrass-lp-500-mg-60-tabs.html"
+        },
+        {
+          "titulo": "Metcolgrass LP 500 mg 30 Tabs",
+          "precio": 218,
+          "url": "https://www.fahorro.com/metcolgrass-lp-500-mg-30-tabs.html"
+        },
+        {
+          "titulo": "Xigduo Xr 1000 mg 28 Tabs",
+          "precio": 931,
+          "url": "https://www.fahorro.com/xigduo-xr-1000-mg-28-tabletas.html"
+        },
+        {
+          "titulo": "Dimefor 850 mg - Caja con 30 tabletas",
+          "precio": 397,
+          "url": "https://www.fahorro.com/dimefor-850-mg-oral-30-tabletas.html"
+        }
+      ],
+      "Prixz": [
+        {
+          "titulo": "Dimefor 1000 Mg – Caja Con 60 Tabletas (Metformina)",
+          "precio": 753,
+          "url": "https://prixz.com/c/dimefor-1000-mg-con-60-tabletas/"
+        },
+        {
+          "titulo": "Linagliptina Metformina 2.5 Mg/850 Mg Con 60 Tabletas",
+          "precio": 1415,
+          "url": "https://prixz.com/c/linagliptina-metformina-2-5-mg-850-mg-con-60-tabletas/"
+        },
+        {
+          "titulo": "Siptatinmet R Lp Sitagliptina Metformina 50 Mg / 1000 Mg Con 56 Tabletas",
+          "precio": 1089,
+          "url": "https://prixz.com/c/siptatinmet-r-lp-sitagliptina-metformina-50-mg-1000-mg-con-56-tabletas/"
+        },
+        {
+          "titulo": "Siptatinmet R Lp Sitagliptina Metformina 100 Mg / 1000 Mg Con 14 Tabletas",
+          "precio": 491,
+          "url": "https://prixz.com/c/siptatinmet-r-lp-sitagliptina-metformina-100-mg-1000-mg-con-14-tabletas/"
+        },
+        {
+          "titulo": "Incresina Duo Alogliptina Metformina 12.5 Mg / 850 Mg Con 56 Tabletas",
+          "precio": 1660,
+          "url": "https://prixz.com/c/incresina-duo-alogliptina-metformina-12-5-mg-850-mg-con-56-tabletas/"
+        },
+        {
+          "titulo": "Incresina Duo Alogliptina Metformina 12.5 Mg / 500 Mg Con 56 Tabletas",
+          "precio": 1665,
+          "url": "https://prixz.com/c/incresina-duo-alogliptina-metformina-12-5-mg-500-mg-con-56-tabletas/"
+        },
+        {
+          "titulo": "Vilzermet Vildagliptina Metformina 50 Mg / 850 Mg Con 60 Comprimidos",
+          "precio": 963,
+          "url": "https://prixz.com/c/vilzermet-vildagliptina-metformina-50-mg-850-mg-con-60-comprimidos/"
+        },
+        {
+          "titulo": "Vilzermet Vildagliptina Metformina 50 Mg / 1000 Mg Con 30 Comprimidos",
+          "precio": 536,
+          "url": "https://prixz.com/c/vilzermet-vildagliptina-metformina-50-mg-1000-mg-con-30-comprimidos/"
+        },
+        {
+          "titulo": "Vilzermet Vildagliptina Metformina 50 Mg / 850 Mg Con 30 Comprimidos",
+          "precio": 542,
+          "url": "https://prixz.com/c/vilzermet-vildagliptina-metformina-50-mg-850-mg-con-30-comprimidos/"
+        },
+        {
+          "titulo": "Vilzermet Vildagliptina Metformina 50 Mg / 500 Mg Con 30 Comprimidos",
+          "precio": 536,
+          "url": "https://prixz.com/c/vilzermet-vildagliptina-metformina-50-mg-500-mg-con-30-comprimidos/"
+        },
+        {
+          "titulo": "Vildagliptina Metformina 50 Mg / 850 Mg Con 30 Comprimidos",
+          "precio": 712,
+          "url": "https://prixz.com/c/vildagliptina-metformina-50-mg-850-mg-con-30-comprimidos/"
+        },
+        {
+          "titulo": "Vildagliptina, Metformina 50/850 Mg Con 60 Comprimidos",
+          "precio": 393,
+          "url": "https://prixz.com/c/vildagliptina-metformina-50-850-mg-con-60-comprimidos/"
+        },
+        {
+          "titulo": "Vildagliptina, Metformina 50/850 Mg Con 30 Comprimidos",
+          "precio": 334,
+          "url": "https://prixz.com/c/vildagliptina-metformina-50-850-mg-con-30-comprimidos/"
+        },
+        {
+          "titulo": "Vildagliptina, Metformina 50/1000 Mg Con 30 Comprimidos",
+          "precio": 351,
+          "url": "https://prixz.com/c/vildagliptina-metformina-50-1000-mg-con-30-comprimidos/"
+        },
+        {
+          "titulo": "Metformina 750 Mg Con 30 Tabletas",
+          "precio": 105,
+          "url": "https://prixz.com/c/metformina-lp-30-tabletas-750-mg/"
+        },
+        {
+          "titulo": "Dimefor 500 Mg – Caja Con 60 Tabletas (Metformina)",
+          "precio": 273,
+          "url": "https://prixz.com/c/dimefort-tabletas500-mg-con-6-2/"
+        },
+        {
+          "titulo": "Dimefor Xr 750 Mg – Caja Con 60 Tabletas De Liberación Prolongada (Metformina)",
+          "precio": 829,
+          "url": "https://prixz.com/c/dimefor-xr-750mg-tabletas-60/"
+        },
+        {
+          "titulo": "Dimefor Xr 750 Mg – Caja Con 30 Tabletas (Metformina)",
+          "precio": 454,
+          "url": "https://prixz.com/c/dimefor-xr-750mg-tabletas-30/"
+        },
+        {
+          "titulo": "Dimefor Xr 500 Mg – Caja Con 60 Tabletas De Liberación Prolongada (Metformina)",
+          "precio": 524,
+          "url": "https://prixz.com/c/dimefor-xr-500mg-tabletas-60/"
+        },
+        {
+          "titulo": "Dimefor Xr 1000 Mg – Caja Con 30 Tabletas De Liberación Prolongada (Metformina)",
+          "precio": 433,
+          "url": "https://prixz.com/c/dimefor-xr-1000mg-tabletas-30/"
+        },
+        {
+          "titulo": "Dimefor G 500 Mg / 5 Mg – Caja Con 60 Tabletas (Metformina Y Glibenclamida)",
+          "precio": 802,
+          "url": "https://prixz.com/c/dimefor-g-60-tabletas-500-5-mg/"
+        },
+        {
+          "titulo": "Dimefor G 850 Mg / 2.5Mg – Caja Con 30 Tabletas (Metformina Y Glibenclamida)",
+          "precio": 463,
+          "url": "https://prixz.com/c/dimefor-g-502-5-mg-oral-30-tabletas/"
+        },
+        {
+          "titulo": "Dimefor G 500 Mg / 2.5Mg – Caja Con 60 Tabletas (Metformina Y Glibenclamida)",
+          "precio": 815,
+          "url": "https://prixz.com/c/dimefor-g-502-5-mg-con-60-tabletasrecub/"
+        },
+        {
+          "titulo": "Dimefor 500 Mg – Caja Con 30 Tabletas (Metformina)",
+          "precio": 229,
+          "url": "https://prixz.com/c/dimefor-500-mg-oral-30-tabletas-2/"
+        },
+        {
+          "titulo": "Dimefor 850 Mg – Caja Con 30 Tabletas (Metformina)",
+          "precio": 393,
+          "url": "https://prixz.com/c/dimefor-30-tabletas-850-mg/"
+        }
+      ]
+    }
+  }
+}
