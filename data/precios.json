@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-13T15:31:28.220Z",
+  "generado": "2026-08-13T15:52:05.789Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -51,13 +51,17 @@
       "verificado": true
     },
     "OLAB": {
-      "ok": false,
-      "error": "sin scan previo en data/scan/olab.json"
+      "ok": true,
+      "estudios": 2077,
+      "errores": 0,
+      "urls": 0,
+      "ms": 0,
+      "verificado": true
     }
   },
   "cobertura": {
     "Labbe": {
-      "emparejados": 72,
+      "emparejados": 71,
       "arrastrados": 16,
       "catalogo": 1067,
       "fuente": "scan"
@@ -69,26 +73,28 @@
       "fuente": "scan"
     },
     "Chopo": {
-      "emparejados": 62,
+      "emparejados": 63,
       "arrastrados": 33,
       "catalogo": 1601,
       "fuente": "scan"
     },
     "Salud Digna": {
-      "emparejados": 59,
+      "emparejados": 60,
       "arrastrados": 21,
       "catalogo": 580,
       "fuente": "scan"
     },
     "LAPI": {
-      "emparejados": 83,
-      "arrastrados": 32,
+      "emparejados": 81,
+      "arrastrados": 33,
       "catalogo": 1492,
       "fuente": "scan"
     },
     "OLAB": {
-      "emparejados": 0,
-      "fuente": "publicado"
+      "emparejados": 61,
+      "arrastrados": 20,
+      "catalogo": 2077,
+      "fuente": "scan"
     }
   },
   "estudios": [
@@ -99,8 +105,8 @@
       "Chopo": 275.78,
       "Salud Digna": 115,
       "LAPI": 215,
-      "OLAB": 269,
-      "avg": 251,
+      "OLAB": 284,
+      "avg": 253,
       "cheapest": "Salud Digna"
     },
     {
@@ -110,8 +116,8 @@
       "Chopo": null,
       "Salud Digna": 110,
       "LAPI": 465,
-      "OLAB": 409,
-      "avg": 433,
+      "OLAB": 499,
+      "avg": 451,
       "cheapest": "Salud Digna"
     },
     {
@@ -121,8 +127,8 @@
       "Chopo": 926,
       "Salud Digna": 340,
       "LAPI": 655,
-      "OLAB": 819,
-      "avg": 784,
+      "OLAB": 897,
+      "avg": 797,
       "cheapest": "Salud Digna"
     },
     {
@@ -132,8 +138,8 @@
       "Chopo": 1003.79,
       "Salud Digna": 260,
       "LAPI": 1100,
-      "OLAB": 799,
-      "avg": 1043,
+      "OLAB": 906,
+      "avg": 1061,
       "cheapest": "Salud Digna"
     },
     {
@@ -165,8 +171,8 @@
       "Chopo": 495.48,
       "Salud Digna": 215,
       "LAPI": 300,
-      "OLAB": 419,
-      "avg": 398,
+      "OLAB": 453,
+      "avg": 404,
       "cheapest": "Salud Digna"
     },
     {
@@ -187,8 +193,8 @@
       "Chopo": 1168,
       "Salud Digna": 280,
       "LAPI": 314,
-      "OLAB": 758,
-      "avg": 730,
+      "OLAB": 942,
+      "avg": 760,
       "cheapest": "Salud Digna"
     },
     {
@@ -198,8 +204,8 @@
       "Chopo": 584.29,
       "Salud Digna": 550,
       "LAPI": 698,
-      "OLAB": 869,
-      "avg": 818,
+      "OLAB": 1039,
+      "avg": 846,
       "cheapest": "Salud Digna"
     },
     {
@@ -209,8 +215,8 @@
       "Chopo": 146.72,
       "Salud Digna": 65,
       "LAPI": 121,
-      "OLAB": 149,
-      "avg": 159,
+      "OLAB": 169,
+      "avg": 162,
       "cheapest": "Salud Digna"
     },
     {
@@ -231,8 +237,8 @@
       "Chopo": 1755,
       "Salud Digna": 1020,
       "LAPI": 1178,
-      "OLAB": 1400,
-      "avg": 1235,
+      "OLAB": 1395,
+      "avg": 1234,
       "cheapest": "Polanco"
     },
     {
@@ -264,8 +270,8 @@
       "Chopo": 327.61,
       "Salud Digna": 129,
       "LAPI": 281,
-      "OLAB": null,
-      "avg": 299,
+      "OLAB": 22657,
+      "avg": 4025,
       "cheapest": "Salud Digna"
     },
     {
@@ -275,8 +281,8 @@
       "Chopo": 1334.36,
       "Salud Digna": 250,
       "LAPI": 452,
-      "OLAB": 759,
-      "avg": 1095,
+      "OLAB": 728,
+      "avg": 1090,
       "cheapest": "Salud Digna"
     },
     {
@@ -286,8 +292,8 @@
       "Chopo": 1879.43,
       "Salud Digna": 294,
       "LAPI": 509,
-      "OLAB": null,
-      "avg": 1541,
+      "OLAB": 862,
+      "avg": 1428,
       "cheapest": "Salud Digna"
     },
     {
@@ -308,8 +314,8 @@
       "Chopo": 2489.5,
       "Salud Digna": null,
       "LAPI": 572,
-      "OLAB": 717,
-      "avg": 2075,
+      "OLAB": 1590,
+      "avg": 2250,
       "cheapest": "LAPI"
     },
     {
@@ -396,8 +402,8 @@
       "Chopo": 336.14,
       "Salud Digna": 95,
       "LAPI": 262,
-      "OLAB": 369,
-      "avg": 365,
+      "OLAB": 382,
+      "avg": 368,
       "cheapest": "Salud Digna"
     },
     {
@@ -407,8 +413,8 @@
       "Chopo": 251.64,
       "Salud Digna": 143,
       "LAPI": 171,
-      "OLAB": 359,
-      "avg": 283,
+      "OLAB": 390,
+      "avg": 288,
       "cheapest": "Salud Digna"
     },
     {
@@ -418,8 +424,8 @@
       "Chopo": 418.23,
       "Salud Digna": 285,
       "LAPI": 317,
-      "OLAB": 419,
-      "avg": 477,
+      "OLAB": 453,
+      "avg": 484,
       "cheapest": "Salud Digna"
     },
     {
@@ -429,8 +435,8 @@
       "Chopo": 570,
       "Salud Digna": null,
       "LAPI": 375,
-      "OLAB": 439,
-      "avg": 552,
+      "OLAB": 529,
+      "avg": 570,
       "cheapest": "LAPI"
     },
     {
@@ -440,8 +446,8 @@
       "Chopo": 336,
       "Salud Digna": 47,
       "LAPI": 152,
-      "OLAB": 314,
-      "avg": 234,
+      "OLAB": 204,
+      "avg": 216,
       "cheapest": "Salud Digna"
     },
     {
@@ -451,8 +457,8 @@
       "Chopo": 145.78,
       "Salud Digna": 70,
       "LAPI": 141,
-      "OLAB": 146,
-      "avg": 188,
+      "OLAB": 179,
+      "avg": 193,
       "cheapest": "Salud Digna"
     },
     {
@@ -462,8 +468,8 @@
       "Chopo": 104.92,
       "Salud Digna": 105,
       "LAPI": 200,
-      "OLAB": 229,
-      "avg": 235,
+      "OLAB": 204,
+      "avg": 231,
       "cheapest": "Chopo"
     },
     {
@@ -473,8 +479,8 @@
       "Chopo": 179,
       "Salud Digna": null,
       "LAPI": 199,
-      "OLAB": 269,
-      "avg": 228,
+      "OLAB": 302,
+      "avg": 235,
       "cheapest": "Chopo"
     },
     {
@@ -484,8 +490,8 @@
       "Chopo": null,
       "Salud Digna": null,
       "LAPI": 199,
-      "OLAB": 389,
-      "avg": 260,
+      "OLAB": 435,
+      "avg": 271,
       "cheapest": "LAPI"
     },
     {
@@ -528,8 +534,8 @@
       "Chopo": 401.12,
       "Salud Digna": 125,
       "LAPI": 454,
-      "OLAB": 379,
-      "avg": 364,
+      "OLAB": 429,
+      "avg": 374,
       "cheapest": "Salud Digna"
     },
     {
@@ -572,8 +578,8 @@
       "Chopo": 960.14,
       "Salud Digna": null,
       "LAPI": null,
-      "OLAB": 769,
-      "avg": 1146,
+      "OLAB": 817,
+      "avg": 1162,
       "cheapest": "OLAB"
     },
     {
@@ -681,9 +687,9 @@
       "Polanco": 1138.5,
       "Chopo": 143,
       "Salud Digna": null,
-      "LAPI": 568,
+      "LAPI": null,
       "OLAB": 282,
-      "avg": 533,
+      "avg": 521,
       "cheapest": "Chopo"
     },
     {
@@ -702,11 +708,11 @@
       "Labbe": 105,
       "Polanco": null,
       "Chopo": 103.99,
-      "Salud Digna": null,
+      "Salud Digna": 99,
       "LAPI": 103,
-      "OLAB": null,
-      "avg": 104,
-      "cheapest": "LAPI"
+      "OLAB": 168,
+      "avg": 116,
+      "cheapest": "Salud Digna"
     },
     {
       "name": "Velocidad de Sedimentación Globular (VSG)",
@@ -715,8 +721,8 @@
       "Chopo": null,
       "Salud Digna": null,
       "LAPI": 98,
-      "OLAB": null,
-      "avg": 227,
+      "OLAB": 284,
+      "avg": 241,
       "cheapest": "LAPI"
     },
     {
@@ -724,10 +730,10 @@
       "Labbe": 137,
       "Polanco": 380.65,
       "Chopo": null,
-      "Salud Digna": 550,
+      "Salud Digna": null,
       "LAPI": 134,
-      "OLAB": null,
-      "avg": 300,
+      "OLAB": 293,
+      "avg": 236,
       "cheapest": "LAPI"
     },
     {
@@ -770,8 +776,8 @@
       "Chopo": 195.94,
       "Salud Digna": 55,
       "LAPI": 138,
-      "OLAB": 153,
-      "avg": 193,
+      "OLAB": 195,
+      "avg": 200,
       "cheapest": "Salud Digna"
     },
     {
@@ -781,8 +787,8 @@
       "Chopo": 123.51,
       "Salud Digna": 55,
       "LAPI": 154,
-      "OLAB": null,
-      "avg": 195,
+      "OLAB": 186,
+      "avg": 194,
       "cheapest": "Salud Digna"
     },
     {
@@ -803,8 +809,8 @@
       "Chopo": 146.72,
       "Salud Digna": 55,
       "LAPI": 175,
-      "OLAB": null,
-      "avg": 216,
+      "OLAB": 222,
+      "avg": 217,
       "cheapest": "Salud Digna"
     },
     {
@@ -814,8 +820,8 @@
       "Chopo": 1075,
       "Salud Digna": 185,
       "LAPI": 380,
-      "OLAB": null,
-      "avg": 955,
+      "OLAB": 849,
+      "avg": 937,
       "cheapest": "Salud Digna"
     },
     {
@@ -825,8 +831,8 @@
       "Chopo": 781.85,
       "Salud Digna": 297,
       "LAPI": 440,
-      "OLAB": null,
-      "avg": 761,
+      "OLAB": 799,
+      "avg": 768,
       "cheapest": "Salud Digna"
     },
     {
@@ -836,8 +842,8 @@
       "Chopo": 2054,
       "Salud Digna": 363,
       "LAPI": 294,
-      "OLAB": null,
-      "avg": 1121,
+      "OLAB": 1484,
+      "avg": 1182,
       "cheapest": "LAPI"
     },
     {
@@ -847,8 +853,8 @@
       "Chopo": 671.36,
       "Salud Digna": 267,
       "LAPI": 401,
-      "OLAB": null,
-      "avg": 684,
+      "OLAB": 630,
+      "avg": 675,
       "cheapest": "Salud Digna"
     },
     {
@@ -858,8 +864,8 @@
       "Chopo": 1493.15,
       "Salud Digna": 210,
       "LAPI": 347,
-      "OLAB": null,
-      "avg": 634,
+      "OLAB": 1190,
+      "avg": 745,
       "cheapest": "Salud Digna"
     },
     {
@@ -869,8 +875,8 @@
       "Chopo": 368.64,
       "Salud Digna": 236,
       "LAPI": 399,
-      "OLAB": null,
-      "avg": 459,
+      "OLAB": 399,
+      "avg": 449,
       "cheapest": "Salud Digna"
     },
     {
@@ -880,8 +886,8 @@
       "Chopo": 365,
       "Salud Digna": 226,
       "LAPI": 399,
-      "OLAB": null,
-      "avg": 474,
+      "OLAB": 355,
+      "avg": 454,
       "cheapest": "Salud Digna"
     },
     {
@@ -902,8 +908,8 @@
       "Chopo": 415.07,
       "Salud Digna": null,
       "LAPI": 282,
-      "OLAB": null,
-      "avg": 562,
+      "OLAB": 390,
+      "avg": 519,
       "cheapest": "LAPI"
     },
     {
@@ -913,8 +919,8 @@
       "Chopo": 409.5,
       "Salud Digna": 236,
       "LAPI": 356,
-      "OLAB": null,
-      "avg": 489,
+      "OLAB": 390,
+      "avg": 473,
       "cheapest": "Salud Digna"
     },
     {
@@ -935,7 +941,7 @@
       "Chopo": 411,
       "Salud Digna": 70,
       "LAPI": 419,
-      "OLAB": null,
+      "OLAB": 444,
       "avg": 446,
       "cheapest": "Salud Digna"
     },
@@ -946,20 +952,20 @@
       "Chopo": 312.01,
       "Salud Digna": 138,
       "LAPI": 275,
-      "OLAB": null,
-      "avg": 351,
+      "OLAB": 1146,
+      "avg": 484,
       "cheapest": "Salud Digna"
     },
     {
       "name": "Antiestreptolisinas",
       "Labbe": 255,
       "Polanco": 649.75,
-      "Chopo": null,
+      "Chopo": 246.07,
       "Salud Digna": null,
       "LAPI": 250,
       "OLAB": null,
-      "avg": 385,
-      "cheapest": "LAPI"
+      "avg": 350,
+      "cheapest": "Chopo"
     },
     {
       "name": "VDRL",
@@ -968,8 +974,8 @@
       "Chopo": null,
       "Salud Digna": 82,
       "LAPI": 281,
-      "OLAB": null,
-      "avg": 224,
+      "OLAB": 195,
+      "avg": 217,
       "cheapest": "Salud Digna"
     },
     {
@@ -979,8 +985,8 @@
       "Chopo": 339.86,
       "Salud Digna": 110,
       "LAPI": 135,
-      "OLAB": null,
-      "avg": 306,
+      "OLAB": 248,
+      "avg": 296,
       "cheapest": "Salud Digna"
     },
     {
@@ -990,8 +996,8 @@
       "Chopo": 361.21,
       "Salud Digna": 99,
       "LAPI": 137,
-      "OLAB": null,
-      "avg": 318,
+      "OLAB": 417,
+      "avg": 334,
       "cheapest": "Salud Digna"
     },
     {
@@ -1001,8 +1007,8 @@
       "Chopo": 244.4,
       "Salud Digna": 99,
       "LAPI": 168,
-      "OLAB": null,
-      "avg": 249,
+      "OLAB": 230,
+      "avg": 246,
       "cheapest": "Salud Digna"
     },
     {
@@ -1023,8 +1029,8 @@
       "Chopo": 512.57,
       "Salud Digna": 99,
       "LAPI": 441,
-      "OLAB": null,
-      "avg": 544,
+      "OLAB": 524,
+      "avg": 541,
       "cheapest": "Salud Digna"
     },
     {
@@ -1034,8 +1040,8 @@
       "Chopo": 365.86,
       "Salud Digna": null,
       "LAPI": 202,
-      "OLAB": null,
-      "avg": 413,
+      "OLAB": 310,
+      "avg": 392,
       "cheapest": "LAPI"
     },
     {
@@ -1045,8 +1051,8 @@
       "Chopo": 129.07,
       "Salud Digna": 71,
       "LAPI": 171,
-      "OLAB": null,
-      "avg": 189,
+      "OLAB": 1484,
+      "avg": 405,
       "cheapest": "Salud Digna"
     },
     {
@@ -1062,14 +1068,14 @@
     },
     {
       "name": "DHEA-S (Sulfato de Dehidroepiandrosterona)",
-      "Labbe": 406,
+      "Labbe": null,
       "Polanco": null,
       "Chopo": 1274,
-      "Salud Digna": null,
-      "LAPI": 438,
-      "OLAB": null,
-      "avg": 706,
-      "cheapest": "Labbe"
+      "Salud Digna": 273,
+      "LAPI": 407,
+      "OLAB": 942,
+      "avg": 724,
+      "cheapest": "Salud Digna"
     },
     {
       "name": "Proteínas Totales",
@@ -1078,8 +1084,8 @@
       "Chopo": 135.57,
       "Salud Digna": 77,
       "LAPI": 191,
-      "OLAB": null,
-      "avg": 197,
+      "OLAB": 310,
+      "avg": 220,
       "cheapest": "Salud Digna"
     },
     {
@@ -1089,8 +1095,8 @@
       "Chopo": 710.35,
       "Salud Digna": 235,
       "LAPI": 273,
-      "OLAB": null,
-      "avg": 637,
+      "OLAB": 417,
+      "avg": 601,
       "cheapest": "Salud Digna"
     },
     {
@@ -1100,8 +1106,8 @@
       "Chopo": 332.43,
       "Salud Digna": 55,
       "LAPI": 233,
-      "OLAB": null,
-      "avg": 337,
+      "OLAB": 302,
+      "avg": 332,
       "cheapest": "Salud Digna"
     },
     {
@@ -1119,11 +1125,11 @@
       "name": "Antígeno Carcinoembrionario (CEA)",
       "Labbe": null,
       "Polanco": 3047.5,
-      "Chopo": 1203.43,
+      "Chopo": 1298.14,
       "Salud Digna": 329,
       "LAPI": 334,
-      "OLAB": null,
-      "avg": 1228,
+      "OLAB": 1430,
+      "avg": 1288,
       "cheapest": "Salud Digna"
     },
     {
@@ -1144,8 +1150,8 @@
       "Chopo": 314.23,
       "Salud Digna": 285,
       "LAPI": 306,
-      "OLAB": null,
-      "avg": 420,
+      "OLAB": 349,
+      "avg": 408,
       "cheapest": "Salud Digna"
     },
     {
@@ -1199,8 +1205,8 @@
       "Chopo": null,
       "Salud Digna": 330,
       "LAPI": 2209,
-      "OLAB": null,
-      "avg": 1769,
+      "OLAB": 968,
+      "avg": 1609,
       "cheapest": "Salud Digna"
     },
     {
@@ -1210,8 +1216,8 @@
       "Chopo": null,
       "Salud Digna": null,
       "LAPI": 109,
-      "OLAB": null,
-      "avg": 109,
+      "OLAB": 186,
+      "avg": 148,
       "cheapest": "LAPI"
     },
     {
@@ -1254,8 +1260,8 @@
       "Chopo": null,
       "Salud Digna": 1106,
       "LAPI": 1790,
-      "OLAB": null,
-      "avg": 4156,
+      "OLAB": 4382,
+      "avg": 4201,
       "cheapest": "Salud Digna"
     },
     {
@@ -1265,8 +1271,8 @@
       "Chopo": 271.15,
       "Salud Digna": null,
       "LAPI": 240,
-      "OLAB": null,
-      "avg": 398,
+      "OLAB": 319,
+      "avg": 382,
       "cheapest": "LAPI"
     },
     {
@@ -1276,8 +1282,8 @@
       "Chopo": 2761.57,
       "Salud Digna": 775,
       "LAPI": 1066,
-      "OLAB": null,
-      "avg": 2567,
+      "OLAB": 1946,
+      "avg": 2463,
       "cheapest": "Salud Digna"
     },
     {
@@ -1298,8 +1304,8 @@
       "Chopo": null,
       "Salud Digna": 110,
       "LAPI": null,
-      "OLAB": null,
-      "avg": 299,
+      "OLAB": 284,
+      "avg": 295,
       "cheapest": "Labbe"
     },
     {
@@ -1419,8 +1425,8 @@
       "Chopo": null,
       "Salud Digna": null,
       "LAPI": 633,
-      "OLAB": null,
-      "avg": 633,
+      "OLAB": 1004,
+      "avg": 819,
       "cheapest": "LAPI"
     },
     {

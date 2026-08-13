@@ -82,6 +82,20 @@ const SINONIMOS = [
   [/\banti\s+/g, 'anti'],
 ];
 
+/**
+ * Colapsa singular/plural. Los laboratorios alternan sin criterio:
+ * "CA 19-9 ANTÍGENO (MARCADOR TUMORAL)" vs "Marcadores Tumorales Páncreas".
+ * Sin esto son tokens distintos y el par no cruza.
+ *
+ * Conservador a propósito: solo palabras largas, y nunca las que terminan en
+ * -is / -us (análisis, virus) donde la "s" es parte de la raíz.
+ */
+function singular(w) {
+  if (w.length > 5 && w.endsWith('es')) return w.slice(0, -2);
+  if (w.length > 4 && w.endsWith('s') && !/[iu]s$/.test(w)) return w.slice(0, -1);
+  return w;
+}
+
 /** Quita acentos, mayúsculas, puntuación y espacios redundantes. */
 function limpiar(s) {
   return String(s || '')
@@ -110,7 +124,16 @@ function clave(s) {
 function tokens(s) {
   let t = limpiar(s);
   for (const [re, rep] of SINONIMOS) t = t.replace(re, rep);
-  return new Set(t.split(' ').filter((w) => w && !STOPWORDS.has(w)));
+  // Se descarta por la forma original Y por la singular, para que las listas de
+  // STOPWORDS/CALIFICADORES sigan funcionando escritas en cualquiera de las dos.
+  const out = new Set();
+  for (const w of t.split(' ')) {
+    if (!w || STOPWORDS.has(w)) continue;
+    const sg = singular(w);
+    if (STOPWORDS.has(sg)) continue;
+    out.add(sg);
+  }
+  return out;
 }
 
 /** Números y variantes romanas: distinguen estudios que son parientes, no iguales. */
@@ -161,8 +184,9 @@ function marcadores(set, otro) {
  *  - las variantes romanas deben coincidir: "Perfil Tiroideo" no se convierte
  *    en "Perfil Tiroideo II" por su cuenta; eso se declara como alias a mano.
  */
+const CALIF_SG = new Set([...CALIFICADORES].map(singular));
 function calificadores(set) {
-  return [...set].filter((t) => CALIFICADORES.has(t)).sort().join(',');
+  return [...set].filter((t) => CALIFICADORES.has(t) || CALIF_SG.has(t)).sort().join(',');
 }
 
 /** Un panel se define por lo que incluye, no por su nombre corto. */
@@ -186,11 +210,35 @@ function alinear(A, B) {
   return out;
 }
 
+/** Score numérico puro, sin guardas: solapamiento + contención. */
+function puntuar(A, B) {
+  let inter = 0;
+  for (const t of A) if (B.has(t)) inter++;
+  if (!inter) return 0;
+  const menor = Math.min(A.size, B.size);
+  return 0.35 * (inter / (A.size + B.size - inter)) + 0.65 * (inter / menor);
+}
+
+/**
+ * Piso de plausibilidad para permitir el truco de las abreviaturas.
+ * "Proteína S de Coagulación" y "Pruebas de Coagulación Sanguínea" comparten
+ * una sola palabra; alinear la "S" con "sanguínea" solo porque empiezan igual
+ * inventaría un match. La abreviatura puede AFINAR un par que ya es plausible,
+ * nunca crearlo.
+ */
+const UMBRAL_ABREV = 0.5;
+
 function similitudCruda(A0, B0) {
   if (!A0.size || !B0.size) return 0;
-  if (marcadores(A0, B0) !== marcadores(B0, A0)) return 0;
-  const A = alinear(A0, B0), B = alinear(B0, A0);
-  if (calificadores(A) !== calificadores(B)) return 0;
+  if (calificadores(A0) !== calificadores(B0)) return 0;
+
+  const permitirAbrev = puntuar(A0, B0) >= UMBRAL_ABREV;
+  const dicA = permitirAbrev ? B0 : null;
+  const dicB = permitirAbrev ? A0 : null;
+  if (marcadores(A0, dicA) !== marcadores(B0, dicB)) return 0;
+
+  const A = permitirAbrev ? alinear(A0, B0) : A0;
+  const B = permitirAbrev ? alinear(B0, A0) : B0;
   let inter = 0;
   for (const t of A) if (B.has(t)) inter++;
   if (!inter) return 0;

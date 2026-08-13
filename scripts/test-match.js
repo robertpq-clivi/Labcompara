@@ -78,6 +78,11 @@ const DISTINTOS = [
   ['Bicarbonato en Sangre', 'Bicarbonato Urinario'],
   // fracción distinta
   ['Antígeno Prostático Específico (PSA Total)', 'ANTIGENO PROSTÁTICO ESPECIFICO LIBRE EN SUERO'],
+  // una letra suelta no se alinea con una palabra solo por compartir inicial:
+  // la "S" de "Proteína S" no es "sanguínea"
+  ['Pruebas de Coagulación Sanguínea', 'Proteina S de Coagulación (Antigénica)'],
+  // plural/singular sí colapsa, pero no borra la diferencia de analito
+  ['Marcadores Tumorales Colon (CEA)', 'MARCADOR TUMORAL CA 15-3'],
   ['Vitamina B12', 'ACIDO FÓLICO Y VITAMINA B12 EN SUERO'],
 ];
 

@@ -267,22 +267,24 @@ const lapi = {
  * usa una estrategia genérica: sitemap → fichas → JSON-LD offers.price, con
  * respaldo a patrones de precio comunes.
  *
- * ⚠️ NO VERIFICADO. olab.com.mx/robots.txt bloquea explícitamente a los
- * crawlers de IA (ClaudeBot, GPTBot, CCBot, …) mientras que `User-agent: *`
- * es `Allow: /`. Por eso este adaptador se dejó escrito pero sin ejecutar desde
- * aquí: debe correrlo el bot propio de Labcompara (que cae bajo `*`).
- * Ver docs/AUTOMATIZACION.md → "Nota sobre OLAB".
+ * olab.com.mx/robots.txt bloquea por nombre a los crawlers de IA (ClaudeBot,
+ * GPTBot, CCBot, …) pero deja `User-agent: * → Allow: /`. LabcomparaBot cae
+ * bajo `*`, y la corrida del 13/08/2026 desde GitHub Actions lo confirmó:
+ * 6,043 fichas en el sitemap, 2,077 con precio, sin necesidad de proxy.
  *
- * `proxy: true` manda sus requests por Zyte desde el arranque: el sitio está
- * detrás de Cloudflare y el acceso directo desde un runner de GitHub (IP de
- * datacenter) es justo lo que ese tipo de protección filtra.
+ * Contrastados contra los 43 precios de OLAB que estaban capturados a mano,
+ * 42 quedaron dentro de ±2x con deriva al alza consistente (×1.0–1.24), que es
+ * justo lo que se espera de precios de hace meses. El extractor lee el campo
+ * correcto.
+ *
+ * Sin `proxy: true` a propósito: responde directo, y forzar Zyte gastaría
+ * ~9,000 requests de crédito por corrida. Si algún día empieza a bloquear, la
+ * escalada automática de lib/http.js lo cubre sola.
  */
 const olab = {
   id: 'OLAB',
   modo: 'catalogo',
   fuente: 'olab.com.mx',
-  verificado: false,
-  proxy: true,
   async urls(ctx) {
     const xml = await ctx.get('https://olab.com.mx/sitemap.xml');
     let locs = locsFrom(xml);

@@ -79,7 +79,7 @@ Medido en la corrida del 13 de agosto de 2026 (**6,188 estudios, 0 errores**):
 | **Labbe** | Sitio propio (Laravel) | HTML, `div.precio_gral` de cada ficha | 1,096 | 1,067 | 69 |
 | **Chopo** | Magento 2 | HTML, `.price__value--special` / `#old-price-*` | 1,628 | 1,601 | 61 |
 | **LAPI** | Odoo eCommerce | HTML, `.oe_default_pric2` | 1,492 | 1,492 | 79 |
-| **OLAB** | Nuxt | genérico: sitemap → JSON-LD `offers.price` | — | sin verificar | 0 |
+| **OLAB** | Nuxt | genérico: sitemap → JSON-LD `offers.price` | 3,077 | 2,077 | 61 |
 
 El efecto sobre el comparador: antes 46 de los 124 estudios tenían precio de un
 solo laboratorio; ahora solo 6. Los que tienen los 6 labs pasaron de 7 a 16.
@@ -112,18 +112,18 @@ Detalles que cuestan tiempo redescubrir:
 `olab.com.mx/robots.txt` bloquea por nombre a los crawlers de IA —ClaudeBot,
 GPTBot, CCBot, Google-Extended, Bytespider, meta-externalagent— mientras que
 `User-agent: *` es `Allow: /` con `Content-Signal: search=yes, use=reference`.
+LabcomparaBot cae bajo `*`.
 
-LabcomparaBot cae bajo `*`, así que el scan semanal puede correr. Pero el
-adaptador se escribió **sin poder validarlo contra el sitio real**, así que usa
-una estrategia genérica (sitemap → JSON-LD → patrón de precio) y está marcado
-`verificado: false`.
+El adaptador se escribió sin poder validarlo (el entorno donde se programó cae
+bajo el bloqueo por nombre), y la primera corrida real desde GitHub Actions lo
+confirmó: 6,043 fichas en el sitemap, 2,077 con precio, **sin necesidad de
+proxy**.
 
-Qué esperar: la guardia de sanidad (`CFG.MIN_CATALOGO`) descarta cualquier scan
-que devuelva menos del 30% del catálogo previo, así que si el extractor genérico
-no encaja, **OLAB conserva sus precios actuales en vez de publicar basura**.
-Revisa `Scan_Log` después de la primera corrida: si la fila de OLAB dice
-`descartado` o `sin-datos`, hay que ajustar `LABS.OLAB.parse` con los selectores
-reales del sitio.
+Cómo se validó que lee el precio correcto y no cualquier número de la página:
+contra los 43 precios de OLAB que estaban capturados a mano, 42 quedaron dentro
+de ±2× con una deriva al alza consistente (×1.00–1.24) — justo lo que se espera
+de precios de hace meses. El único fuera de rango era una ficha duplicada del
+mismo estudio a distinto precio, no un error de extracción.
 
 ---
 
@@ -198,6 +198,18 @@ para gráficas de evolución y para detectar movimientos raros.
 nunca es una promoción: suele ser un emparejamiento equivocado o un selector
 que cambió. `consolidar_()` los detecta solos y los escribe como una fila
 `alerta` en `Scan_Log`; el scanner local los pone en `data/reporte.md`.
+
+### Cortacircuitos por laboratorio
+
+Un sitio que bloquea o se cayó hace que cada request agote su timeout (25s × 3
+intentos). Con 1,500 fichas eso son horas, y sin topes un solo laboratorio caído
+se lleva la corrida semanal completa.
+
+- **Sonda inicial**: las primeras 25 fichas van sin reintentos. Si menos de 3
+  traen precio, se corta ese laboratorio y se conserva su columna anterior.
+- **Presupuesto de reloj**: 12 minutos por laboratorio (OLAB, el más grande,
+  tarda ~8.5). Al agotarse, el catálogo se marca incompleto en el reporte.
+- **Timeout del workflow**: 45 minutos como último recurso.
 
 ### Qué pasa con lo que no se pudo emparejar
 

@@ -37,6 +37,14 @@ const SCAN_DIR = path.join(OUT_DIR, 'scan');
 const CONCURRENCIA = 5;     // requests simultáneos por laboratorio
 const PAUSA_MS = 120;       // respiro entre requests de un mismo worker
 
+// Cortacircuitos por laboratorio. Un sitio que bloquea o se cayó hace que cada
+// request agote su timeout (25s × 3 intentos): con 1,500 fichas eso son horas.
+// Sin estos topes, un solo lab caído se lleva la corrida semanal completa.
+const MAX_MS_POR_LAB = 12 * 60 * 1000;  // presupuesto de reloj por laboratorio
+                                        // (OLAB, el más grande, tarda ~8.5 min)
+const MUESTRA_INICIAL = 25;             // primeras fichas que deciden si sigue
+const MIN_EXITOS_INICIALES = 3;         // menos que esto en la muestra → se corta
+
 // ── CLI ──────────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
 const arg = (n, d) => {
@@ -57,8 +65,11 @@ const http = crearCliente({ log: (m) => process.stdout.write(`  ⇢ ${m}\n`) });
 
 /** ctx que reciben los adaptadores. `proxy` fuerza Zyte desde el arranque. */
 function ctxPara(lab) {
-  const o = lab && lab.proxy ? { proxy: true } : undefined;
-  return { get: (u) => http.get(u, o), getJSON: (u) => http.getJSON(u, o) };
+  const base = lab && lab.proxy ? { proxy: true } : {};
+  return {
+    get: (u, extra) => http.get(u, { ...base, ...extra }),
+    getJSON: (u, extra) => http.getJSON(u, { ...base, ...extra }),
+  };
 }
 
 /** Corre `tarea` sobre `items` con N workers y pausa entre requests. */
@@ -106,15 +117,34 @@ async function escanear(lab) {
   log(`${urls.length} fichas en sitemap`);
   if (LIMITE) urls = urls.slice(0, LIMITE);
 
-  const crudos = await enParalelo(urls, CONCURRENCIA, async (u) => {
+  // Sonda: si las primeras fichas fallan casi todas, el sitio está bloqueando o
+  // el adaptador ya no encaja. Cortar aquí evita quemar el resto del catálogo.
+  // Sin reintentos en la sonda: si el sitio está caído, reintentar 3 veces cada
+  // una de las 25 fichas convierte un diagnóstico de 2 minutos en uno de 6.
+  const sonda = await enParalelo(urls.slice(0, MUESTRA_INICIAL), CONCURRENCIA, async (u) => {
+    const html = await ctx.get(u, { reintentos: 0 });
+    return lab.parse(html, u);
+  });
+  const exitos = sonda.filter((r) => r && !r.__error && r.nombre && r.precio).length;
+  if (exitos < MIN_EXITOS_INICIALES) {
+    const causa = (sonda.find((r) => r && r.__error) || {}).__error || 'sin precio en la ficha';
+    log(`✗ cortado tras ${sonda.length} fichas: solo ${exitos} con precio (${causa})`);
+    return { filas: [], errores: sonda.length - exitos, urls: urls.length, ms: Date.now() - t0, cortado: causa };
+  }
+
+  const resto = await enParalelo(urls.slice(MUESTRA_INICIAL), CONCURRENCIA, async (u) => {
+    if (Date.now() - t0 > MAX_MS_POR_LAB) return { __error: 'presupuesto de tiempo agotado' };
     const html = await ctx.get(u);
     return lab.parse(html, u);
-  }, (h, t) => log(`${h}/${t}…`));
+  }, (h, t) => log(`${h + MUESTRA_INICIAL}/${urls.length}…`));
 
+  const crudos = sonda.concat(resto);
   const errores = crudos.filter((r) => r && r.__error).length;
   const filas = crudos.filter((r) => r && !r.__error && r.nombre && r.precio);
-  log(`${filas.length} con precio · ${errores} errores · ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-  return { filas, errores, urls: urls.length, ms: Date.now() - t0 };
+  const agotado = Date.now() - t0 > MAX_MS_POR_LAB;
+  log(`${filas.length} con precio · ${errores} errores · ${((Date.now() - t0) / 1000).toFixed(1)}s` +
+    (agotado ? ' · ⚠️ presupuesto de tiempo agotado, catálogo incompleto' : ''));
+  return { filas, errores, urls: urls.length, ms: Date.now() - t0, agotado };
 }
 
 // ── lectura de los estudios publicados en index.html ─────────────────────────
@@ -148,7 +178,12 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
     try {
       const r = await escanear(lab);
       resultados[lab.id] = r.filas;
-      meta[lab.id] = { ok: true, estudios: r.filas.length, errores: r.errores, urls: r.urls, ms: r.ms, verificado: lab.verificado !== false };
+      meta[lab.id] = {
+        ok: !r.cortado, estudios: r.filas.length, errores: r.errores, urls: r.urls, ms: r.ms,
+        verificado: lab.verificado !== false,
+        ...(r.cortado ? { cortado: r.cortado } : {}),
+        ...(r.agotado ? { agotado: true } : {}),
+      };
       if (!OFFLINE) fs.writeFileSync(archivoScan(lab.id), JSON.stringify(r.filas, null, 2));
     } catch (e) {
       console.log(`  [${lab.id}] ✗ ${e.message}`);
