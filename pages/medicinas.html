@@ -589,9 +589,16 @@ async function guardarLead(l){
   traza('lead', {cp:l.cp});
   if(window.MC) MC.ga('generate_lead', {});
 }
-function trackFarmacia(p){
-  traza('click', {farmacia:p.pharmacy_name||'', medicamento:p.medicamento||'', precio:p.price_mxn||'', destino:p.destination||''});
-  if(window.MC) MC.ga('click_ir_a_la_farmacia', p);
+function trackFarmacia(d, href){
+  const ev = {
+    farmacia: d.ph || '', medicamento: d.med || '', sustancia: d.sustancia || '',
+    categoria: d.categoria || '', dosis: d.dosis || '', presentacion: d.forma || '',
+    piezas: d.piezas || '', marca: d.marca || '', modo: d.modo || '',
+    // Número, no cadena: en la hoja un precio de texto no se puede sumar.
+    precio: Number(d.price) || 0, destino: href || '',
+  };
+  traza('click', ev);
+  if(window.MC) MC.ga('click_ir_a_la_farmacia', {pharmacy_name:ev.farmacia, medicamento:ev.medicamento, dosis:ev.dosis, marca:ev.marca, price_mxn:ev.precio, destination:ev.destino});
 }
 function trackComparar(medicamento, presentaciones){
   traza('comparacion', {medicamento, dosis:presentaciones});
@@ -750,6 +757,27 @@ function irResultados(){
   trackComparar(medSel ? medSel.nombre : '', selected.join(' | '));
 }
 
+/**
+ * Los datos del click, desglosados.
+ *
+ * Mandar el producto como una sola cadena —"Omeprazol 20mg · 14 cápsulas"—
+ * obliga a que quien haga el tablero la parta con expresiones regulares para
+ * poder agrupar por dosis, y eso se rompe con el primer formato distinto. La
+ * dosis, la forma, las piezas y la marca ya vienen separadas del scan: se
+ * mandan separadas.
+ */
+function datos(farmacia, p, v){
+  const a = {
+    ph: FARM_META[farmacia] ? FARM_META[farmacia].nombre : farmacia,
+    med: p.etiqueta, sustancia: p.medicamento, categoria: p.categoria || '',
+    dosis: p.mg != null ? p.mg + 'mg' : '', forma: p.forma || '',
+    piezas: p.piezas != null ? p.piezas : (p.ml != null ? p.ml + 'ml' : ''),
+    marca: v.marca === undefined ? '' : (v.marca || 'genérico'),
+    modo: p.tipo || 'sustancia', price: v.precio,
+  };
+  return Object.entries(a).map(([k, val]) => `data-${k}="${esc(val)}"`).join(' ');
+}
+
 function renderResultados(){
   const filas = PRES.filter(p => selected.includes(p.clave));
   // Solo columnas con al menos un precio en lo seleccionado: una farmacia que
@@ -778,7 +806,7 @@ function renderResultados(){
       if(!v) return '<td><span class="cmp-na">—</span><span class="cmp-est">no lo vende</span></td>';
       const bajo = v.precio === min;
       const quien = v.marca === undefined ? '' : (v.marca || 'genérico');
-      return `<td class="cmp-clickable"><a href="${esc(v.url)}" target="_blank" rel="noopener nofollow" data-ph="${esc(FARM_META[f]?FARM_META[f].nombre:f)}" data-med="${esc(p.etiqueta)}" data-price="${v.precio}" title="${esc(v.titulo)}" style="display:block;">
+      return `<td class="cmp-clickable"><a href="${esc(v.url)}" target="_blank" rel="noopener nofollow" ${datos(f, p, v)} title="${esc(v.titulo)}" style="display:block;">
         <span class="cmp-price${bajo?' low':''}">${money(v.precio)}</span>
         ${bajo?'<span class="cmp-low-tag">Mejor precio</span>':''}
         ${quien?`<span class="cmp-marca">${esc(quien)}</span>`:''}
@@ -815,7 +843,8 @@ function renderResultados(){
     const conProducto = filas.find(p => p.precios[f]);
     const m = FARM_META[f] || {};
     const url = conProducto ? conProducto.precios[f].url : m.url;
-    return `<td><a class="cmp-go" href="${esc(url)}" target="_blank" rel="noopener nofollow" data-ph="${esc(m.nombre||f)}">Ir →</a></td>`;
+    return `<td><a class="cmp-go" href="${esc(url)}" target="_blank" rel="noopener nofollow" ${
+      conProducto ? datos(f, conProducto, conProducto.precios[f]) : `data-ph="${esc(m.nombre||f)}"`}>Ir →</a></td>`;
   }).join('')}</tr>`;
 
   const ahorro = Math.max(...filas.map(p => p.ahorro || 0));
@@ -839,9 +868,7 @@ function renderResultados(){
     `<p class="cmp-hint">Toca un precio para ir directo al producto en la farmacia. Desliza la tabla ↔ para ver todas.</p>`;
 
   $('results-container').querySelectorAll('a[data-ph]').forEach(a => {
-    a.addEventListener('click', function(){
-      trackFarmacia({pharmacy_name:this.dataset.ph||'', medicamento:this.dataset.med||'', price_mxn:this.dataset.price||'', destination:this.href});
-    });
+    a.addEventListener('click', function(){ trackFarmacia(this.dataset, this.href); });
   });
 }
 

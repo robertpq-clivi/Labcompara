@@ -148,6 +148,36 @@ console.log('\nPestaña preexistente con los encabezados de la versión 1:');
   check(ss.getSheetByName('Clicks').filas[0].includes('Vertical'), 'la columna Vertical se agregó');
 }
 
+// ── 2b. El producto llega desglosado ───────────────────────────────────────
+// Es lo que permite que un tablero agrupe por dosis o por marca sin volver a
+// partir la cadena del nombre, que es justo donde se rompen estas cosas.
+console.log('\nDesglose del producto:');
+{
+  const ss = hojaFalsa();
+  const { api } = cargar(ss);
+  post(api, { tipo:'click', vertical:'medicinas', farmacia:'Prixz',
+              medicamento:'Omeprazol 20mg · 14 cápsulas', sustancia:'Omeprazol',
+              categoria:'Antiácido / Protector gástrico', dosis:'20mg', presentacion:'cápsulas',
+              piezas:14, marca:'genérico', modo:'sustancia', precio:13 });
+  post(api, { tipo:'click', vertical:'glp1', farmacia:'Farmacias del Ahorro',
+              medicamento:'Ozempic 1 mg (1 pluma)', sustancia:'Semaglutida',
+              dosis:'1 mg', presentacion:'1 pluma', marca:'Ozempic', precio:3400 });
+  const c = comoObjetos(ss, 'Clicks');
+  check(c.length === 2, 'los dos clicks llegaron a la pestaña Clicks', String(c.length));
+  check(c[0]['Dosis'] === '20mg' && c[0]['Piezas'] === 14 && c[0]['Marca'] === 'genérico',
+    'medicinas: dosis, piezas y marca en columnas propias', JSON.stringify(c[0]));
+  // `tipo` es el tipo de EVENTO; el tipo de fila viaja como `modo`. Confundirlos
+  // mandaba el click a la pestaña de lo no reconocido.
+  check(c[0]['Tipo de fila'] === 'sustancia' && !ss.getSheetByName('Sin clasificar'),
+    'el tipo de fila no se confunde con el tipo de evento', JSON.stringify(c[0]['Tipo de fila']));
+  check(c[1]['Dosis'] === '1 mg' && c[1]['Marca'] === 'Ozempic' && c[1]['Principio activo'] === 'Semaglutida',
+    'GLP-1: la dosis deja de venir pegada al nombre', JSON.stringify(c[1]));
+  check(typeof c[0]['Precio'] === 'number' && typeof c[1]['Precio'] === 'number',
+    'el precio llega como número, para poder sumarlo en la hoja');
+  // El nombre completo se conserva: es lo que se lee de un vistazo.
+  check(c[0]['Producto'] === 'Omeprazol 20mg · 14 cápsulas', 'el nombre completo se conserva');
+}
+
 // ── 3. Búsquedas, incluidas las que no encuentran nada ─────────────────────
 console.log('\nBúsquedas:');
 {

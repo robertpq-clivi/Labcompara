@@ -1077,10 +1077,35 @@ async function saveLead(l){
   sheetLog('lead', { nombre: l.nombre, correo: l.correo, cp: l.cp });
 }
 // Click "Ir a la farmacia": GA4 + hoja (pestaña Clicks).
+/**
+ * Parte "Ozempic 1 mg (1 pluma)" en producto, dosis y presentación.
+ *
+ * La dosis es la unidad de comparación de esta vertical, así que mandarla
+ * pegada al nombre obliga a rehacer este mismo corte —peor, con expresiones
+ * regulares— en cualquier tablero que quiera agrupar por ella.
+ */
+function partirNombre(nombre){
+  const d = (typeof DRUGS !== 'undefined' ? DRUGS : []).find(x => nombre.startsWith(x)) || '';
+  const resto = nombre.slice(d.length).trim();
+  const m = resto.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+  const info = d && typeof STUDY_INFO !== 'undefined' ? STUDY_INFO[d] : null;
+  return {
+    producto: d || nombre,
+    dosis: (m ? m[1] : resto).trim(),
+    presentacion: m ? m[2].trim() : '',
+    sustancia: info ? info.substance : '',
+  };
+}
+
 function trackPharmaClick(p){
   if(typeof gtag!=='undefined') gtag('event','click_ir_a_la_farmacia', p);
   if(window.MC) MC.identidad({nombre:lead?lead.nombre:'', correo:lead?lead.correo:''});
-  sheetLog('click', { nombre: lead?lead.nombre:'', correo: lead?lead.correo:'', farmacia: p.pharmacy_name||'', medicamento: p.medicamento||'', precio: p.price_mxn||'' });
+  var partes = partirNombre(p.medicamento || '');
+  sheetLog('click', { nombre: lead?lead.nombre:'', correo: lead?lead.correo:'',
+    farmacia: p.pharmacy_name||'', medicamento: p.medicamento||'',
+    sustancia: partes.sustancia, dosis: partes.dosis, presentacion: partes.presentacion,
+    marca: partes.producto,   // en GLP-1 el producto ES la marca: Ozempic, Mounjaro…
+    precio: Number(p.price_mxn) || 0, destino: p.destination || '' });
 }
 // Ver comparativa: GA4 + hoja (pestaña Comparaciones).
 function trackCompare(medicamento, dosis){

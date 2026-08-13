@@ -84,12 +84,27 @@ function doPost(e) {
                      'Presentacion': pick_(d, ['dosis', 'presentacion', 'presentaciones'])}));
 
     } else if (tipo === 'click') {
-      escribir_(ss, 'Clicks', ['Fecha', 'Vertical', 'Nombre', 'Correo', 'Farmacia o laboratorio', 'Producto', 'Precio', 'Destino', 'Origen'],
+      // El producto va desglosado además de completo: un tablero que quiera
+      // agrupar por dosis o por marca no debería tener que partir la cadena
+      // "Omeprazol 20mg · 14 cápsulas" con expresiones regulares.
+      escribir_(ss, 'Clicks', ['Fecha', 'Vertical', 'Nombre', 'Correo', 'Farmacia o laboratorio',
+                               'Producto', 'Principio activo', 'Categoria', 'Dosis', 'Presentacion',
+                               'Piezas', 'Marca', 'Tipo de fila', 'Precio', 'Destino', 'Origen'],
         // 'Laboratorio' y 'Estudio' son los encabezados de la versión anterior:
         // si la pestaña ya existe con ellos, se siguen llenando además de los
         // nuevos, para que la columna histórica no se corte a la mitad.
         obj_(comun, {'Farmacia o laboratorio': lugar, 'Laboratorio': lugar,
                      'Producto': producto, 'Estudio': producto,
+                     'Principio activo': pick_(d, ['sustancia', 'principio_activo']),
+                     'Categoria': pick_(d, ['categoria']),
+                     'Dosis': pick_(d, ['dosis']),
+                     'Presentacion': pick_(d, ['presentacion', 'forma']),
+                     'Piezas': pick_(d, ['piezas']),
+                     'Marca': pick_(d, ['marca']),
+                     // `modo` y no `tipo`: `tipo` ya es el tipo de evento del protocolo,
+                     // y reusarlo hacía que un click se registrara como un evento
+                     // llamado "sustancia" y acabara en Sin clasificar.
+                     'Tipo de fila': pick_(d, ['modo']),
                      'Precio': pick_(d, ['precio', 'price_mxn']),
                      'Destino': pick_(d, ['destino', 'url'])}));
 
