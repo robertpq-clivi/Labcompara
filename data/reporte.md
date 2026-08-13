@@ -1,6 +1,6 @@
 # Reporte de scan — 2026-08-13
 
-Catálogo total escaneado: **8,265 estudios** en 6 laboratorios.
+Catálogo total escaneado: **8,249 estudios** en 6 laboratorios.
 
 ## Cobertura por laboratorio
 
@@ -8,10 +8,10 @@ Catálogo total escaneado: **8,265 estudios** en 6 laboratorios.
 |---|---|---:|---:|---:|---:|
 | Labbe | catalogo | 1067 | 71 | 16 | 0 |
 | Polanco | api | 1448 | 72 | 25 | 0 |
-| Chopo | catalogo | 1601 | 63 | 33 | 0 |
+| Chopo | catalogo | 1585 | 62 | 34 | 15 |
 | Salud Digna | api | 580 | 60 | 21 | 0 |
 | LAPI | catalogo | 1492 | 81 | 33 | 0 |
-| OLAB | catalogo | 2077 | 61 | 20 | 0 |
+| OLAB | catalogo | 2077 | 61 | 20 | 1000 |
 
 _"Confirmados" son precios leídos del laboratorio esta corrida. "Arrastrados"
 son los que no se pudieron emparejar y conservan el valor anterior._

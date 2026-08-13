@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-13T15:52:05.789Z",
+  "generado": "2026-08-13T16:07:52.383Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -14,48 +14,48 @@
       "ok": true,
       "estudios": 580,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1,
+      "ms": 860,
       "verificado": true
     },
     "Polanco": {
       "ok": true,
       "estudios": 1448,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1,
+      "ms": 11813,
       "verificado": true
     },
     "Labbe": {
       "ok": true,
       "estudios": 1067,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1096,
+      "ms": 144291,
       "verificado": true
     },
     "Chopo": {
       "ok": true,
-      "estudios": 1601,
-      "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "estudios": 1585,
+      "errores": 15,
+      "urls": 1611,
+      "ms": 71226,
       "verificado": true
     },
     "LAPI": {
       "ok": true,
       "estudios": 1492,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1492,
+      "ms": 96093,
       "verificado": true
     },
     "OLAB": {
       "ok": true,
       "estudios": 2077,
-      "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "errores": 1000,
+      "urls": 6043,
+      "ms": 557184,
       "verificado": true
     }
   },
@@ -73,9 +73,9 @@
       "fuente": "scan"
     },
     "Chopo": {
-      "emparejados": 63,
-      "arrastrados": 33,
-      "catalogo": 1601,
+      "emparejados": 62,
+      "arrastrados": 34,
+      "catalogo": 1585,
       "fuente": "scan"
     },
     "Salud Digna": {
