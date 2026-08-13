@@ -1,0 +1,7 @@
+# Catálogos crudos por laboratorio: son caché de scripts/scan-labs.js.
+# Se regeneran con `npm run scan` y sirven para `--offline`, pero son ~1.1 MB
+# de datos derivados que no aportan nada al historial del repo.
+data/scan/
+
+node_modules/
+.DS_Store

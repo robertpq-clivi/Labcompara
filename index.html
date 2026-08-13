@@ -465,130 +465,130 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
 <script>
 // ── DATA ──────────────────────────────────────────────────────────────────
 const RAW_DATA = [
-  {name:"Biometría Hemática",Labbe:277,Polanco:556,Chopo:270,"Salud Digna":95,LAPI:193,OLAB:269,avg:277,cheapest:"Salud Digna"},
-  {name:"Química Sanguínea 6 Elementos",Labbe:616,Polanco:910,Chopo:null,"Salud Digna":110,LAPI:465,OLAB:409,avg:502,cheapest:"Salud Digna"},
-  {name:"Química Sanguínea 27 Elementos",Labbe:903,Polanco:1730,Chopo:926,"Salud Digna":340,LAPI:655,OLAB:819,avg:896,cheapest:"Salud Digna"},
-  {name:"Química Sanguínea 35 Elementos",Labbe:1277,Polanco:1818,Chopo:null,"Salud Digna":260,LAPI:869,OLAB:799,avg:1005,cheapest:"Salud Digna"},
+  {name:"Biometría Hemática",Labbe:319,Polanco:310.5,Chopo:275.78,"Salud Digna":115,LAPI:215,OLAB:269,avg:251,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 6 Elementos",Labbe:619,Polanco:563.49,Chopo:null,"Salud Digna":110,LAPI:465,OLAB:409,avg:433,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 27 Elementos",Labbe:951,Polanco:1011.72,Chopo:926,"Salud Digna":340,LAPI:655,OLAB:819,avg:784,cheapest:"Salud Digna"},
+  {name:"Química Sanguínea 35 Elementos",Labbe:1280,Polanco:1818,Chopo:1003.79,"Salud Digna":260,LAPI:1100,OLAB:799,avg:1043,cheapest:"Salud Digna"},
   {name:"Química Sanguínea 45 Elementos",Labbe:null,Polanco:1892,Chopo:1015,"Salud Digna":null,LAPI:null,OLAB:929,avg:1279,cheapest:"OLAB"},
-  {name:"Glucosa en Suero",Labbe:145,Polanco:216,Chopo:99,"Salud Digna":null,LAPI:76,OLAB:null,avg:134,cheapest:"LAPI"},
-  {name:"Hemoglobina Glicosilada (HbA1c)",Labbe:449,Polanco:852,Chopo:467,"Salud Digna":null,LAPI:300,OLAB:419,avg:497,cheapest:"LAPI"},
-  {name:"Perfil de Lípidos",Labbe:848,Polanco:830,Chopo:403,"Salud Digna":230,LAPI:381,OLAB:419,avg:519,cheapest:"Salud Digna"},
-  {name:"Insulina Basal",Labbe:385,Polanco:1470,Chopo:1168,"Salud Digna":280,LAPI:249,OLAB:758,avg:718,cheapest:"LAPI"},
-  {name:"Perfil Tiroideo",Labbe:1016,Polanco:2100,Chopo:1079,"Salud Digna":550,LAPI:698,OLAB:869,avg:1052,cheapest:"Salud Digna"},
-  {name:"Examen General de Orina (EGO)",Labbe:303,Polanco:302,Chopo:144,"Salud Digna":55,LAPI:110,OLAB:149,avg:177,cheapest:"Salud Digna"},
-  {name:"Perfil Hormonal Femenino",Labbe:null,Polanco:3380,Chopo:2075,"Salud Digna":350,LAPI:3347,OLAB:749,avg:1980,cheapest:"Salud Digna"},
-  {name:"Perfil Hormonal Masculino",Labbe:null,Polanco:823,Chopo:1755,"Salud Digna":940,LAPI:1119,OLAB:1400,avg:1207,cheapest:"Polanco"},
-  {name:"Testosterona Libre y Total",Labbe:null,Polanco:null,Chopo:2633,"Salud Digna":null,LAPI:null,OLAB:null,avg:2633,cheapest:"Chopo"},
-  {name:"Vitamina D (25-Hidroxi)",Labbe:1059,Polanco:3697,Chopo:1145,"Salud Digna":550,LAPI:733,OLAB:null,avg:1237,cheapest:"Salud Digna"},
-  {name:"Antígeno Prostático Específico (PSA Total)",Labbe:418,Polanco:null,Chopo:320,"Salud Digna":null,LAPI:251,OLAB:null,avg:330,cheapest:"LAPI"},
-  {name:"CA-125 (Marcador Tumoral Ovario)",Labbe:549,Polanco:2794,Chopo:null,"Salud Digna":null,LAPI:452,OLAB:759,avg:1139,cheapest:"LAPI"},
-  {name:"CA 15-3 (Marcador Tumoral Mama)",Labbe:549,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:452,OLAB:null,avg:501,cheapest:"LAPI"},
+  {name:"Glucosa en Suero",Labbe:148,Polanco:248.4,Chopo:93.79,"Salud Digna":55,LAPI:96,OLAB:null,avg:128,cheapest:"Salud Digna"},
+  {name:"Hemoglobina Glicosilada (HbA1c)",Labbe:449,Polanco:512,Chopo:495.48,"Salud Digna":215,LAPI:300,OLAB:419,avg:398,cheapest:"Salud Digna"},
+  {name:"Perfil de Lípidos",Labbe:851,Polanco:473.8,Chopo:424.36,"Salud Digna":230,LAPI:429,OLAB:419,avg:471,cheapest:"Salud Digna"},
+  {name:"Insulina Basal",Labbe:388,Polanco:1470,Chopo:1168,"Salud Digna":280,LAPI:314,OLAB:758,avg:730,cheapest:"Salud Digna"},
+  {name:"Perfil Tiroideo",Labbe:1016,Polanco:1190.25,Chopo:584.29,"Salud Digna":550,LAPI:698,OLAB:869,avg:818,cheapest:"Salud Digna"},
+  {name:"Examen General de Orina (EGO)",Labbe:306,Polanco:166.75,Chopo:146.72,"Salud Digna":65,LAPI:121,OLAB:149,avg:159,cheapest:"Salud Digna"},
+  {name:"Perfil Hormonal Femenino",Labbe:3671,Polanco:3380,Chopo:2075,"Salud Digna":350,LAPI:3599,OLAB:749,avg:2304,cheapest:"Salud Digna"},
+  {name:"Perfil Hormonal Masculino",Labbe:null,Polanco:823,Chopo:1755,"Salud Digna":1020,LAPI:1178,OLAB:1400,avg:1235,cheapest:"Polanco"},
+  {name:"Testosterona Libre y Total",Labbe:null,Polanco:null,Chopo:2798.34,"Salud Digna":null,LAPI:null,OLAB:null,avg:2798,cheapest:"Chopo"},
+  {name:"Vitamina D (25-Hidroxi)",Labbe:1150,Polanco:3697,Chopo:1145,"Salud Digna":560,LAPI:733,OLAB:null,avg:1457,cheapest:"Salud Digna"},
+  {name:"Antígeno Prostático Específico (PSA Total)",Labbe:418,Polanco:339.25,Chopo:327.61,"Salud Digna":129,LAPI:281,OLAB:null,avg:299,cheapest:"Salud Digna"},
+  {name:"CA-125 (Marcador Tumoral Ovario)",Labbe:583,Polanco:3193.55,Chopo:1334.36,"Salud Digna":250,LAPI:452,OLAB:759,avg:1095,cheapest:"Salud Digna"},
+  {name:"CA 15-3 (Marcador Tumoral Mama)",Labbe:583,Polanco:4439,Chopo:1879.43,"Salud Digna":294,LAPI:509,OLAB:null,avg:1541,cheapest:"Salud Digna"},
   {name:"Marcadores Tumorales Hígado (AFP)",Labbe:null,Polanco:1758,Chopo:null,"Salud Digna":null,LAPI:342,OLAB:null,avg:1050,cheapest:"LAPI"},
-  {name:"Marcadores Tumorales Páncreas (CA 19-9)",Labbe:null,Polanco:3340,Chopo:3166,"Salud Digna":null,LAPI:452,OLAB:717,avg:1919,cheapest:"LAPI"},
+  {name:"Marcadores Tumorales Páncreas (CA 19-9)",Labbe:709,Polanco:5888,Chopo:2489.5,"Salud Digna":null,LAPI:572,OLAB:717,avg:2075,cheapest:"LAPI"},
   {name:"Marcadores Tumorales Colon (CEA)",Labbe:null,Polanco:1884,Chopo:1305,"Salud Digna":null,LAPI:334,OLAB:null,avg:1174,cheapest:"LAPI"},
-  {name:"Papanicolaou",Labbe:null,Polanco:778,Chopo:499,"Salud Digna":250,LAPI:548,OLAB:649,avg:545,cheapest:"Salud Digna"},
-  {name:"Prueba de Embarazo en Sangre (Beta-HCG)",Labbe:304,Polanco:806,Chopo:669,"Salud Digna":null,LAPI:293,OLAB:null,avg:518,cheapest:"LAPI"},
+  {name:"Papanicolaou",Labbe:null,Polanco:1007.4,Chopo:499,"Salud Digna":250,LAPI:548,OLAB:649,avg:591,cheapest:"Salud Digna"},
+  {name:"Prueba de Embarazo en Sangre (Beta-HCG)",Labbe:397,Polanco:806,Chopo:669,"Salud Digna":135,LAPI:293,OLAB:null,avg:460,cheapest:"Salud Digna"},
   {name:"Prueba de VIH",Labbe:null,Polanco:1092,Chopo:579,"Salud Digna":290,LAPI:334,OLAB:519,avg:563,cheapest:"Salud Digna"},
-  {name:"Perfil Reumático",Labbe:null,Polanco:2196,Chopo:919,"Salud Digna":285,LAPI:702,OLAB:null,avg:1026,cheapest:"Salud Digna"},
-  {name:"Perfil Hepático",Labbe:null,Polanco:5810,Chopo:380,"Salud Digna":null,LAPI:459,OLAB:639,avg:1822,cheapest:"Chopo"},
-  {name:"Perfil Ginecológico",Labbe:1279,Polanco:3270,Chopo:1245,"Salud Digna":595,LAPI:1237,OLAB:759,avg:1398,cheapest:"Salud Digna"},
-  {name:"Depuración de Creatinina",Labbe:null,Polanco:764,Chopo:345,"Salud Digna":95,LAPI:262,OLAB:369,avg:367,cheapest:"Salud Digna"},
-  {name:"Deshidrogenasa Láctica (DHL)",Labbe:402,Polanco:406,Chopo:255,"Salud Digna":null,LAPI:136,OLAB:359,avg:312,cheapest:"LAPI"},
-  {name:"Coprocultivo",Labbe:null,Polanco:948,Chopo:438,"Salud Digna":null,LAPI:251,OLAB:419,avg:514,cheapest:"LAPI"},
-  {name:"Urocultivo",Labbe:null,Polanco:998,Chopo:570,"Salud Digna":null,LAPI:334,OLAB:439,avg:585,cheapest:"LAPI"},
-  {name:"Coproparasitoscópico (1 muestra)",Labbe:null,Polanco:636,Chopo:336,"Salud Digna":60,LAPI:121,OLAB:314,avg:293,cheapest:"Salud Digna"},
-  {name:"Grupo Sanguíneo y Rh",Labbe:null,Polanco:414,Chopo:175,"Salud Digna":80,LAPI:134,OLAB:146,avg:190,cheapest:"Salud Digna"},
-  {name:"Reacciones Febriles",Labbe:null,Polanco:432,Chopo:179,"Salud Digna":null,LAPI:200,OLAB:229,avg:260,cheapest:"Chopo"},
-  {name:"Tiempo de Protrombina",Labbe:null,Polanco:582,Chopo:179,"Salud Digna":null,LAPI:199,OLAB:269,avg:307,cheapest:"Chopo"},
-  {name:"Tiempo de Tromboplastina Parcial (TTP)",Labbe:null,Polanco:588,Chopo:null,"Salud Digna":null,LAPI:468,OLAB:389,avg:482,cheapest:"OLAB"},
+  {name:"Perfil Reumático",Labbe:null,Polanco:1355.85,Chopo:890.49,"Salud Digna":285,LAPI:702,OLAB:null,avg:808,cheapest:"Salud Digna"},
+  {name:"Perfil Hepático",Labbe:null,Polanco:5810,Chopo:654.65,"Salud Digna":null,LAPI:459,OLAB:639,avg:1891,cheapest:"LAPI"},
+  {name:"Perfil Ginecológico",Labbe:1387,Polanco:3270,Chopo:1245,"Salud Digna":595,LAPI:1565,OLAB:759,avg:1470,cheapest:"Salud Digna"},
+  {name:"Depuración de Creatinina",Labbe:null,Polanco:764,Chopo:336.14,"Salud Digna":95,LAPI:262,OLAB:369,avg:365,cheapest:"Salud Digna"},
+  {name:"Deshidrogenasa Láctica (DHL)",Labbe:174,Polanco:598,Chopo:251.64,"Salud Digna":143,LAPI:171,OLAB:359,avg:283,cheapest:"Salud Digna"},
+  {name:"Coprocultivo",Labbe:null,Polanco:948,Chopo:418.23,"Salud Digna":285,LAPI:317,OLAB:419,avg:477,cheapest:"Salud Digna"},
+  {name:"Urocultivo",Labbe:376,Polanco:998,Chopo:570,"Salud Digna":null,LAPI:375,OLAB:439,avg:552,cheapest:"LAPI"},
+  {name:"Coproparasitoscópico (1 muestra)",Labbe:155,Polanco:402.5,Chopo:336,"Salud Digna":47,LAPI:152,OLAB:314,avg:234,cheapest:"Salud Digna"},
+  {name:"Grupo Sanguíneo y Rh",Labbe:164,Polanco:460,Chopo:145.78,"Salud Digna":70,LAPI:141,OLAB:146,avg:188,cheapest:"Salud Digna"},
+  {name:"Reacciones Febriles",Labbe:238,Polanco:531.3,Chopo:104.92,"Salud Digna":105,LAPI:200,OLAB:229,avg:235,cheapest:"Chopo"},
+  {name:"Tiempo de Protrombina",Labbe:247,Polanco:247.25,Chopo:179,"Salud Digna":null,LAPI:199,OLAB:269,avg:228,cheapest:"Chopo"},
+  {name:"Tiempo de Tromboplastina Parcial (TTP)",Labbe:203,Polanco:247.25,Chopo:null,"Salud Digna":null,LAPI:199,OLAB:389,avg:260,cheapest:"LAPI"},
   {name:"Pruebas de Coagulación Sanguínea",Labbe:1006,Polanco:null,Chopo:671,"Salud Digna":555,LAPI:781,OLAB:null,avg:753,cheapest:"Salud Digna"},
-  {name:"Curva de Tolerancia a la Glucosa",Labbe:null,Polanco:884,Chopo:354,"Salud Digna":null,LAPI:301,OLAB:439,avg:495,cheapest:"LAPI"},
+  {name:"Curva de Tolerancia a la Glucosa",Labbe:null,Polanco:884,Chopo:354,"Salud Digna":220,LAPI:301,OLAB:439,avg:440,cheapest:"Salud Digna"},
   {name:"Prueba de Influenza",Labbe:null,Polanco:1568,Chopo:635,"Salud Digna":370,LAPI:553,OLAB:559,avg:737,cheapest:"Salud Digna"},
-  {name:"Electrocardiograma en Reposo",Labbe:null,Polanco:810,Chopo:415,"Salud Digna":125,LAPI:473,OLAB:379,avg:440,cheapest:"Salud Digna"},
+  {name:"Electrocardiograma en Reposo",Labbe:null,Polanco:460,Chopo:401.12,"Salud Digna":125,LAPI:454,OLAB:379,avg:364,cheapest:"Salud Digna"},
   {name:"Examen Prenupcial",Labbe:null,Polanco:1122,Chopo:470,"Salud Digna":205,LAPI:1430,OLAB:449,avg:735,cheapest:"Salud Digna"},
   {name:"Examen de ETS",Labbe:1109,Polanco:1924,Chopo:859,"Salud Digna":null,LAPI:666,OLAB:3429,avg:1597,cheapest:"LAPI"},
   {name:"Prueba Antidoping",Labbe:null,Polanco:1056,Chopo:489,"Salud Digna":225,LAPI:null,OLAB:539,avg:577,cheapest:"Salud Digna"},
-  {name:"Hemocultivo",Labbe:null,Polanco:1708,Chopo:1019,"Salud Digna":null,LAPI:null,OLAB:769,avg:1165,cheapest:"OLAB"},
-  {name:"Espermatobioscopia",Labbe:909,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:763,OLAB:null,avg:836,cheapest:"LAPI"},
+  {name:"Hemocultivo",Labbe:null,Polanco:1708,Chopo:960.14,"Salud Digna":null,LAPI:null,OLAB:769,avg:1146,cheapest:"OLAB"},
+  {name:"Espermatobioscopia",Labbe:909,Polanco:null,Chopo:null,"Salud Digna":346,LAPI:763,OLAB:null,avg:673,cheapest:"Salud Digna"},
   {name:"Perfil Diabético",Labbe:381,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1283,OLAB:null,avg:832,cheapest:"Labbe"},
-  {name:"Perfil Básico",Labbe:1339,Polanco:null,Chopo:null,"Salud Digna":150,LAPI:746,OLAB:null,avg:745,cheapest:"Salud Digna"},
+  {name:"Perfil Básico",Labbe:1339,Polanco:null,Chopo:784.64,"Salud Digna":150,LAPI:843,OLAB:null,avg:779,cheapest:"Salud Digna"},
   {name:"Check Up Básico",Labbe:null,Polanco:1914,Chopo:1359,"Salud Digna":265,LAPI:329,OLAB:1159,avg:1005,cheapest:"Salud Digna"},
   {name:"Check Up Completo",Labbe:null,Polanco:null,Chopo:2275,"Salud Digna":450,LAPI:null,OLAB:1249,avg:1325,cheapest:"Salud Digna"},
-  {name:"Proteínas en Orina 24h",Labbe:472,Polanco:5058,Chopo:210,"Salud Digna":null,LAPI:200,OLAB:239,avg:1036,cheapest:"LAPI"},
-  {name:"Colposcopía",Labbe:null,Polanco:1492,Chopo:625,"Salud Digna":null,LAPI:507,OLAB:449,avg:768,cheapest:"OLAB"},
-  {name:"Mastografía",Labbe:null,Polanco:636,Chopo:315,"Salud Digna":275,LAPI:491,OLAB:289,avg:401,cheapest:"Salud Digna"},
+  {name:"Proteínas en Orina 24h",Labbe:472,Polanco:5058,Chopo:210,"Salud Digna":null,LAPI:200,OLAB:239,avg:1236,cheapest:"LAPI"},
+  {name:"Colposcopía",Labbe:null,Polanco:1821.6,Chopo:625,"Salud Digna":null,LAPI:545,OLAB:449,avg:860,cheapest:"OLAB"},
+  {name:"Mastografía",Labbe:null,Polanco:552,Chopo:494.1,"Salud Digna":275,LAPI:599,OLAB:289,avg:442,cheapest:"Salud Digna"},
   {name:"Perfil Preoperatorio",Labbe:1070,Polanco:3268,Chopo:809,"Salud Digna":null,LAPI:718,OLAB:1956,avg:1564,cheapest:"LAPI"},
-  {name:"Bicarbonato en Sangre",Labbe:null,Polanco:510,Chopo:126,"Salud Digna":null,LAPI:null,OLAB:282,avg:306,cheapest:"Chopo"},
+  {name:"Bicarbonato en Sangre",Labbe:null,Polanco:1138.5,Chopo:143,"Salud Digna":null,LAPI:null,OLAB:282,avg:521,cheapest:"Chopo"},
   {name:"Pruebas de Función Renal",Labbe:null,Polanco:2054,Chopo:1119,"Salud Digna":null,LAPI:417,OLAB:null,avg:1197,cheapest:"LAPI"},
-  {name:"Bilirrubina Total",Labbe:102,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:82,OLAB:null,avg:92,cheapest:"LAPI"},
-  {name:"Velocidad de Sedimentación Globular (VSG)",Labbe:135,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:98,OLAB:null,avg:117,cheapest:"LAPI"},
-  {name:"Colesterol Total",Labbe:134,Polanco:331,Chopo:null,"Salud Digna":null,LAPI:107,OLAB:null,avg:191,cheapest:"LAPI"},
-  {name:"Perfil Climaterio",Labbe:829,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:682,OLAB:null,avg:756,cheapest:"LAPI"},
+  {name:"Bilirrubina Total",Labbe:105,Polanco:null,Chopo:103.99,"Salud Digna":null,LAPI:103,OLAB:null,avg:104,cheapest:"LAPI"},
+  {name:"Velocidad de Sedimentación Globular (VSG)",Labbe:138,Polanco:443.9,Chopo:null,"Salud Digna":null,LAPI:98,OLAB:null,avg:227,cheapest:"LAPI"},
+  {name:"Colesterol Total",Labbe:137,Polanco:380.65,Chopo:null,"Salud Digna":null,LAPI:134,OLAB:null,avg:217,cheapest:"LAPI"},
+  {name:"Perfil Climaterio",Labbe:880,Polanco:null,Chopo:2235.99,"Salud Digna":null,LAPI:863,OLAB:null,avg:1326,cheapest:"LAPI"},
   {name:"Perfil de Alergia Inhalatoria",Labbe:null,Polanco:984,Chopo:1365,"Salud Digna":null,LAPI:2911,OLAB:null,avg:1753,cheapest:"Polanco"},
-  {name:"Tamiz Neonatal",Labbe:null,Polanco:2200,Chopo:808,"Salud Digna":null,LAPI:null,OLAB:2469,avg:1826,cheapest:"Chopo"},
-  {name:"Creatinina Sérica",Labbe:154,Polanco:178,Chopo:185,"Salud Digna":null,LAPI:110,OLAB:153,avg:156,cheapest:"LAPI"},
-  {name:"Urea en Suero",Labbe:null,Polanco:211,Chopo:120,"Salud Digna":null,LAPI:122,OLAB:null,avg:151,cheapest:"Chopo"},
-  {name:"Ácido Úrico",Labbe:null,Polanco:171,Chopo:null,"Salud Digna":null,LAPI:120,OLAB:null,avg:146,cheapest:"LAPI"},
-  {name:"Triglicéridos",Labbe:176,Polanco:229,Chopo:158,"Salud Digna":null,LAPI:null,OLAB:null,avg:188,cheapest:"Chopo"},
-  {name:"Testosterona Total",Labbe:466,Polanco:1031,Chopo:1075,"Salud Digna":null,LAPI:380,OLAB:null,avg:738,cheapest:"LAPI"},
-  {name:"Ferritina",Labbe:542,Polanco:848,Chopo:825,"Salud Digna":null,LAPI:348,OLAB:null,avg:641,cheapest:"LAPI"},
-  {name:"Vitamina B12",Labbe:608,Polanco:1933,Chopo:1933,"Salud Digna":null,LAPI:294,OLAB:null,avg:1192,cheapest:"LAPI"},
-  {name:"Ácido Fólico",Labbe:493,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:317,OLAB:null,avg:405,cheapest:"LAPI"},
-  {name:"Cortisol Sérico",Labbe:482,Polanco:null,Chopo:1433,"Salud Digna":null,LAPI:310,OLAB:null,avg:742,cheapest:"LAPI"},
-  {name:"Progesterona",Labbe:404,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:399,OLAB:null,avg:402,cheapest:"LAPI"},
-  {name:"Prolactina",Labbe:491,Polanco:325,Chopo:365,"Salud Digna":null,LAPI:null,OLAB:null,avg:394,cheapest:"Polanco"},
-  {name:"Estradiol en Suero",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:314,OLAB:null,avg:314,cheapest:"LAPI"},
-  {name:"FSH (Hormona Folículo Estimulante)",Labbe:null,Polanco:null,Chopo:438,"Salud Digna":null,LAPI:282,OLAB:null,avg:360,cheapest:"LAPI"},
-  {name:"LH (Hormona Luteinizante)",Labbe:null,Polanco:null,Chopo:441,"Salud Digna":null,LAPI:282,OLAB:null,avg:362,cheapest:"LAPI"},
-  {name:"TSH (Hormona Estimulante de Tiroides)",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:282,OLAB:null,avg:282,cheapest:"LAPI"},
-  {name:"Proteína C Reactiva (PCR)",Labbe:848,Polanco:411,Chopo:411,"Salud Digna":null,LAPI:419,OLAB:null,avg:522,cheapest:"Polanco"},
-  {name:"Factor Reumatoide",Labbe:246,Polanco:340,Chopo:329,"Salud Digna":null,LAPI:217,OLAB:null,avg:283,cheapest:"LAPI"},
-  {name:"Antiestreptolisinas",Labbe:252,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:198,OLAB:null,avg:225,cheapest:"LAPI"},
-  {name:"VDRL",Labbe:310,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:310,cheapest:"Labbe"},
-  {name:"Calcio Sérico",Labbe:null,Polanco:233,Chopo:317,"Salud Digna":null,LAPI:108,OLAB:null,avg:219,cheapest:"LAPI"},
-  {name:"Fósforo Sérico",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:109,OLAB:null,avg:109,cheapest:"LAPI"},
-  {name:"Fosfatasa Alcalina",Labbe:null,Polanco:195,Chopo:228,"Salud Digna":null,LAPI:133,OLAB:null,avg:185,cheapest:"LAPI"},
-  {name:"Albúmina en Suero",Labbe:null,Polanco:null,Chopo:299,"Salud Digna":null,LAPI:null,OLAB:null,avg:299,cheapest:"Chopo"},
-  {name:"Magnesio Sérico",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:410,OLAB:null,avg:410,cheapest:"LAPI"},
-  {name:"Sodio Sérico",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:206,OLAB:null,avg:206,cheapest:"LAPI"},
-  {name:"Colesterol HDL",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:135,OLAB:null,avg:135,cheapest:"LAPI"},
-  {name:"Colesterol LDL",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:135,OLAB:null,avg:135,cheapest:"LAPI"},
+  {name:"Tamiz Neonatal",Labbe:null,Polanco:2727.8,Chopo:808,"Salud Digna":null,LAPI:null,OLAB:2469,avg:2002,cheapest:"Chopo"},
+  {name:"Creatinina Sérica",Labbe:157,Polanco:460,Chopo:195.94,"Salud Digna":55,LAPI:138,OLAB:153,avg:193,cheapest:"Salud Digna"},
+  {name:"Urea en Suero",Labbe:157,Polanco:486.45,Chopo:123.51,"Salud Digna":55,LAPI:154,OLAB:null,avg:195,cheapest:"Salud Digna"},
+  {name:"Ácido Úrico",Labbe:153,Polanco:394.45,Chopo:143,"Salud Digna":55,LAPI:150,OLAB:null,avg:179,cheapest:"Salud Digna"},
+  {name:"Triglicéridos",Labbe:179,Polanco:526.7,Chopo:146.72,"Salud Digna":55,LAPI:175,OLAB:null,avg:216,cheapest:"Salud Digna"},
+  {name:"Testosterona Total",Labbe:466,Polanco:2668,Chopo:1075,"Salud Digna":185,LAPI:380,OLAB:null,avg:955,cheapest:"Salud Digna"},
+  {name:"Ferritina",Labbe:545,Polanco:1743.4,Chopo:781.85,"Salud Digna":297,LAPI:440,OLAB:null,avg:761,cheapest:"Salud Digna"},
+  {name:"Vitamina B12",Labbe:608,Polanco:2288.48,Chopo:1836.71,"Salud Digna":363,LAPI:294,OLAB:null,avg:1078,cheapest:"LAPI"},
+  {name:"Ácido Fólico",Labbe:496,Polanco:1584.7,Chopo:671.36,"Salud Digna":267,LAPI:401,OLAB:null,avg:684,cheapest:"Salud Digna"},
+  {name:"Cortisol Sérico",Labbe:485,Polanco:null,Chopo:1493.15,"Salud Digna":210,LAPI:347,OLAB:null,avg:634,cheapest:"Salud Digna"},
+  {name:"Progesterona",Labbe:407,Polanco:885.5,Chopo:368.64,"Salud Digna":236,LAPI:399,OLAB:null,avg:459,cheapest:"Salud Digna"},
+  {name:"Prolactina",Labbe:494,Polanco:887.8,Chopo:365,"Salud Digna":226,LAPI:399,OLAB:null,avg:474,cheapest:"Salud Digna"},
+  {name:"Estradiol en Suero",Labbe:405,Polanco:1253.5,Chopo:532.08,"Salud Digna":236,LAPI:397,OLAB:null,avg:565,cheapest:"Salud Digna"},
+  {name:"FSH (Hormona Folículo Estimulante)",Labbe:null,Polanco:989,Chopo:415.07,"Salud Digna":null,LAPI:282,OLAB:null,avg:562,cheapest:"LAPI"},
+  {name:"LH (Hormona Luteinizante)",Labbe:null,Polanco:1081,Chopo:409.5,"Salud Digna":236,LAPI:282,OLAB:null,avg:502,cheapest:"Salud Digna"},
+  {name:"TSH (Hormona Estimulante de Tiroides)",Labbe:null,Polanco:908.5,Chopo:386.28,"Salud Digna":171,LAPI:282,OLAB:null,avg:437,cheapest:"Salud Digna"},
+  {name:"Proteína C Reactiva (PCR)",Labbe:851,Polanco:478.4,Chopo:411,"Salud Digna":70,LAPI:419,OLAB:null,avg:446,cheapest:"Salud Digna"},
+  {name:"Factor Reumatoide",Labbe:249,Polanco:782,Chopo:312.01,"Salud Digna":138,LAPI:275,OLAB:null,avg:351,cheapest:"Salud Digna"},
+  {name:"Antiestreptolisinas",Labbe:255,Polanco:649.75,Chopo:null,"Salud Digna":null,LAPI:250,OLAB:null,avg:385,cheapest:"LAPI"},
+  {name:"VDRL",Labbe:310,Polanco:null,Chopo:null,"Salud Digna":82,LAPI:281,OLAB:null,avg:224,cheapest:"Salud Digna"},
+  {name:"Calcio Sérico",Labbe:138,Polanco:805,Chopo:339.86,"Salud Digna":110,LAPI:135,OLAB:null,avg:306,cheapest:"Salud Digna"},
+  {name:"Fósforo Sérico",Labbe:140,Polanco:851,Chopo:361.21,"Salud Digna":99,LAPI:137,OLAB:null,avg:318,cheapest:"Salud Digna"},
+  {name:"Fosfatasa Alcalina",Labbe:171,Polanco:563.5,Chopo:244.4,"Salud Digna":99,LAPI:168,OLAB:null,avg:249,cheapest:"Salud Digna"},
+  {name:"Albúmina en Suero",Labbe:142,Polanco:816.5,Chopo:308.29,"Salud Digna":60,LAPI:140,OLAB:null,avg:293,cheapest:"Salud Digna"},
+  {name:"Magnesio Sérico",Labbe:450,Polanco:1219,Chopo:512.57,"Salud Digna":99,LAPI:441,OLAB:null,avg:544,cheapest:"Salud Digna"},
+  {name:"Sodio Sérico",Labbe:210,Polanco:874,Chopo:365.86,"Salud Digna":null,LAPI:202,OLAB:null,avg:413,cheapest:"LAPI"},
+  {name:"Colesterol HDL",Labbe:174,Polanco:400.2,Chopo:129.07,"Salud Digna":71,LAPI:171,OLAB:null,avg:189,cheapest:"Salud Digna"},
+  {name:"Colesterol LDL",Labbe:174,Polanco:null,Chopo:null,"Salud Digna":71,LAPI:171,OLAB:null,avg:139,cheapest:"Salud Digna"},
   {name:"DHEA-S (Sulfato de Dehidroepiandrosterona)",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:407,OLAB:null,avg:407,cheapest:"LAPI"},
-  {name:"Proteínas Totales",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:151,OLAB:null,avg:151,cheapest:"LAPI"},
-  {name:"Fibrinógeno",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:216,OLAB:null,avg:216,cheapest:"LAPI"},
-  {name:"Sangre Oculta en Heces",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:233,OLAB:null,avg:233,cheapest:"LAPI"},
-  {name:"Electrolitos Séricos",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:328,OLAB:null,avg:328,cheapest:"LAPI"},
-  {name:"Antígeno Carcinoembrionario (CEA)",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:334,OLAB:null,avg:334,cheapest:"LAPI"},
-  {name:"Cultivo de Exudado Vaginal",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:291,OLAB:null,avg:291,cheapest:"LAPI"},
-  {name:"Cultivo de Exudado Faríngeo",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:242,OLAB:null,avg:242,cheapest:"LAPI"},
-  {name:"Perfil Hepatitis C",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:308,OLAB:null,avg:308,cheapest:"LAPI"},
-  {name:"Antígeno Superficie Hepatitis B",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:385,OLAB:null,avg:385,cheapest:"LAPI"},
-  {name:"Perfil Renal Básico",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:417,OLAB:null,avg:417,cheapest:"LAPI"},
-  {name:"CPK (Creatinfosfoquinasa)",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:228,OLAB:null,avg:228,cheapest:"LAPI"},
-  {name:"Dímero D",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:2055,OLAB:null,avg:2055,cheapest:"LAPI"},
+  {name:"Proteínas Totales",Labbe:null,Polanco:384.1,Chopo:135.57,"Salud Digna":77,LAPI:191,OLAB:null,avg:197,cheapest:"Salud Digna"},
+  {name:"Fibrinógeno",Labbe:278,Polanco:1690.5,Chopo:710.35,"Salud Digna":235,LAPI:273,OLAB:null,avg:637,cheapest:"Salud Digna"},
+  {name:"Sangre Oculta en Heces",Labbe:193,Polanco:874,Chopo:332.43,"Salud Digna":55,LAPI:233,OLAB:null,avg:337,cheapest:"Salud Digna"},
+  {name:"Electrolitos Séricos",Labbe:null,Polanco:1138.5,Chopo:481.92,"Salud Digna":null,LAPI:328,OLAB:null,avg:649,cheapest:"LAPI"},
+  {name:"Antígeno Carcinoembrionario (CEA)",Labbe:null,Polanco:3047.5,Chopo:1298.14,"Salud Digna":329,LAPI:334,OLAB:null,avg:1252,cheapest:"Salud Digna"},
+  {name:"Cultivo de Exudado Vaginal",Labbe:null,Polanco:749.34,Chopo:226.57,"Salud Digna":330,LAPI:367,OLAB:null,avg:418,cheapest:"Chopo"},
+  {name:"Cultivo de Exudado Faríngeo",Labbe:353,Polanco:842.95,Chopo:314.23,"Salud Digna":285,LAPI:306,OLAB:null,avg:420,cheapest:"Salud Digna"},
+  {name:"Perfil Hepatitis C",Labbe:396,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:345,OLAB:null,avg:371,cheapest:"LAPI"},
+  {name:"Antígeno Superficie Hepatitis B",Labbe:null,Polanco:null,Chopo:850.58,"Salud Digna":null,LAPI:385,OLAB:null,avg:618,cheapest:"LAPI"},
+  {name:"Perfil Renal Básico",Labbe:538,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:528,OLAB:null,avg:533,cheapest:"LAPI"},
+  {name:"CPK (Creatinfosfoquinasa)",Labbe:293,Polanco:1184.5,Chopo:null,"Salud Digna":null,LAPI:288,OLAB:null,avg:589,cheapest:"LAPI"},
+  {name:"Dímero D",Labbe:2044,Polanco:2492.05,Chopo:null,"Salud Digna":330,LAPI:2209,OLAB:null,avg:1769,cheapest:"Salud Digna"},
   {name:"Glucosa Post-Prandial 2h",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:109,OLAB:null,avg:109,cheapest:"LAPI"},
-  {name:"Perfil Cardíaco I",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:717,OLAB:null,avg:717,cheapest:"LAPI"},
-  {name:"Perfil Inmunoglobulinas",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1089,OLAB:null,avg:1089,cheapest:"LAPI"},
+  {name:"Perfil Cardíaco I",Labbe:926,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:908,OLAB:null,avg:917,cheapest:"LAPI"},
+  {name:"Perfil Inmunoglobulinas",Labbe:1405,Polanco:2438,Chopo:null,"Salud Digna":null,LAPI:1377,OLAB:null,avg:1740,cheapest:"LAPI"},
   {name:"Microalbúmina en Orina 24h",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:273,OLAB:null,avg:273,cheapest:"LAPI"},
-  {name:"Hormona Antimulleriana",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1490,OLAB:null,avg:1490,cheapest:"LAPI"},
-  {name:"Coproparasitoscópico 3 Muestras",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:190,OLAB:null,avg:190,cheapest:"LAPI"},
-  {name:"Procalcitonina",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:991,OLAB:null,avg:991,cheapest:"LAPI"},
-  {name:"TGO (Transaminasa Glutámico Oxalacética)",Labbe:95,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:95,cheapest:"Labbe"},
-  {name:"TGP (Transaminasa Glutámico Pirúvica)",Labbe:95,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:95,cheapest:"Labbe"},
+  {name:"Hormona Antimulleriana",Labbe:1331,Polanco:12397,Chopo:null,"Salud Digna":1106,LAPI:1790,OLAB:null,avg:4156,cheapest:"Salud Digna"},
+  {name:"Coproparasitoscópico 3 Muestras",Labbe:297,Polanco:782,Chopo:271.15,"Salud Digna":null,LAPI:240,OLAB:null,avg:398,cheapest:"LAPI"},
+  {name:"Procalcitonina",Labbe:987,Polanco:7245,Chopo:2761.57,"Salud Digna":775,LAPI:1066,OLAB:null,avg:2567,cheapest:"Salud Digna"},
+  {name:"TGO (Transaminasa Glutámico Oxalacética)",Labbe:95,Polanco:724.09,Chopo:275.78,"Salud Digna":110,LAPI:null,OLAB:null,avg:301,cheapest:"Labbe"},
+  {name:"TGP (Transaminasa Glutámico Pirúvica)",Labbe:95,Polanco:692.39,Chopo:null,"Salud Digna":110,LAPI:null,OLAB:null,avg:299,cheapest:"Labbe"},
   {name:"Insulina Pre y Post-Prandial",Labbe:null,Polanco:null,Chopo:1168,"Salud Digna":null,LAPI:null,OLAB:null,avg:1168,cheapest:"Chopo"},
-  {name:"Perfil Hormonal con Tiroideo",Labbe:null,Polanco:null,Chopo:2075,"Salud Digna":null,LAPI:null,OLAB:null,avg:2075,cheapest:"Chopo"},
-  {name:"Perfil Hombre",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1290,OLAB:null,avg:1290,cheapest:"LAPI"},
-  {name:"Perfil Mujer",Labbe:1157,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:null,OLAB:null,avg:1157,cheapest:"Labbe"},
-  {name:"Perfil Adolescente Hombre",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:462,OLAB:null,avg:462,cheapest:"LAPI"},
-  {name:"Perfil Adolescente Mujer",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:689,OLAB:null,avg:689,cheapest:"LAPI"},
-  {name:"Perfil Embarazo",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1610,OLAB:null,avg:1610,cheapest:"LAPI"},
-  {name:"Perfil Testicular",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:647,OLAB:null,avg:647,cheapest:"LAPI"},
-  {name:"Perfil Hepatitis A",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:806,OLAB:null,avg:806,cheapest:"LAPI"},
-  {name:"Helicobacter Pylori en Heces",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:876,OLAB:null,avg:876,cheapest:"LAPI"},
-  {name:"Chlamydia (Detección de Antígeno)",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:589,OLAB:null,avg:589,cheapest:"LAPI"},
-  {name:"Ac. Anti-Toxoplasma IgG",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:337,OLAB:null,avg:337,cheapest:"LAPI"},
-  {name:"Ac. Anti-Toxoplasma IgM",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:337,OLAB:null,avg:337,cheapest:"LAPI"},
-  {name:"Ac. Anti-Citomegalovirus IgG",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:218,OLAB:null,avg:218,cheapest:"LAPI"},
+  {name:"Perfil Hormonal con Tiroideo",Labbe:null,Polanco:null,Chopo:2075,"Salud Digna":null,LAPI:2448,OLAB:null,avg:2262,cheapest:"Chopo"},
+  {name:"Perfil Hombre",Labbe:1666,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1634,OLAB:null,avg:1650,cheapest:"LAPI"},
+  {name:"Perfil Mujer",Labbe:1157,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:1561,OLAB:null,avg:1359,cheapest:"Labbe"},
+  {name:"Perfil Adolescente Hombre",Labbe:595,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:584,OLAB:null,avg:590,cheapest:"LAPI"},
+  {name:"Perfil Adolescente Mujer",Labbe:889,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:871,OLAB:null,avg:880,cheapest:"LAPI"},
+  {name:"Perfil Embarazo",Labbe:3002,Polanco:null,Chopo:1499.64,"Salud Digna":null,LAPI:2038,OLAB:null,avg:2180,cheapest:"Chopo"},
+  {name:"Perfil Testicular",Labbe:834,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:818,OLAB:null,avg:826,cheapest:"LAPI"},
+  {name:"Perfil Hepatitis A",Labbe:1042,Polanco:1512.25,Chopo:null,"Salud Digna":null,LAPI:1022,OLAB:null,avg:1192,cheapest:"LAPI"},
+  {name:"Helicobacter Pylori en Heces",Labbe:959,Polanco:null,Chopo:2099.51,"Salud Digna":555,LAPI:941,OLAB:null,avg:1139,cheapest:"Salud Digna"},
+  {name:"Chlamydia (Detección de Antígeno)",Labbe:null,Polanco:null,Chopo:null,"Salud Digna":null,LAPI:633,OLAB:null,avg:633,cheapest:"LAPI"},
+  {name:"Ac. Anti-Toxoplasma IgG",Labbe:435,Polanco:2012.5,Chopo:null,"Salud Digna":308,LAPI:426,OLAB:null,avg:795,cheapest:"Salud Digna"},
+  {name:"Ac. Anti-Toxoplasma IgM",Labbe:435,Polanco:3696.1,Chopo:null,"Salud Digna":308,LAPI:426,OLAB:null,avg:1216,cheapest:"Salud Digna"},
+  {name:"Ac. Anti-Citomegalovirus IgG",Labbe:1350,Polanco:1552.5,Chopo:null,"Salud Digna":315,LAPI:1350,OLAB:null,avg:1142,cheapest:"Salud Digna"},
 ];
 
 const LABS = ['Labbe','Polanco','Chopo','Salud Digna','LAPI','OLAB'];
@@ -663,6 +663,12 @@ let lead = null;
 let selected = [];
 let sortBy = 'price';
 let supaClient = null;
+
+// RAW_DATA es el snapshot embebido: sirve solo/instant&#xe1;neo si el feed falla.
+// ESTUDIOS es lo que renderiza la app; se reemplaza en caliente con los precios
+// del scan semanal (scripts/labcompara-apps-script.gs).
+let ESTUDIOS = RAW_DATA;
+let preciosActualizados = null;
 
 // ── UTILS ─────────────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
@@ -765,6 +771,51 @@ $('hero-cta').onclick=goForm;
 $('how-cta').onclick=goForm;
 $('promo-cta').onclick=goForm;
 
+// ── FEED DE PRECIOS ───────────────────────────────────────────────────────
+// El scan semanal publica la matriz actualizada; el sitio la consume en
+// caliente. Si algo falla (feed ca&#xed;do, respuesta rara, sin red) se queda con
+// RAW_DATA embebido: nunca se muestra una p&#xe1;gina sin precios.
+//
+// FEED_URL: URL /exec de la app web de Apps Script.
+// Mientras no est&#xe9; desplegada, se usa el snapshot del repo (data/precios.json).
+const FEED_URL = '/data/precios.json';
+const FEED_TIMEOUT_MS = 4000;
+
+async function cargarPrecios(){
+  try{
+    const ctrl = new AbortController();
+    const t = setTimeout(()=>ctrl.abort(), FEED_TIMEOUT_MS);
+    const res = await fetch(FEED_URL,{signal:ctrl.signal,cache:'no-cache'});
+    clearTimeout(t);
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const feed = await res.json();
+
+    // Validaci&#xf3;n m&#xed;nima: si el feed viene vac&#xed;o o con menos de la mitad de los
+    // estudios publicados, se descarta. Es preferible un precio de hace una
+    // semana que una comparativa a medias.
+    if(!feed || !Array.isArray(feed.estudios) || feed.estudios.length < RAW_DATA.length/2)
+      throw new Error('feed incompleto ('+((feed&&feed.estudios&&feed.estudios.length)||0)+')');
+
+    const limpio = feed.estudios.filter(e=>e&&e.name&&LABS.some(l=>typeof e[l]==='number'&&e[l]>0));
+    if(limpio.length < RAW_DATA.length/2) throw new Error('feed sin precios usables');
+
+    ESTUDIOS = limpio;
+    preciosActualizados = feed.generado ? new Date(feed.generado) : null;
+    marcarFrescura();
+    if(document.querySelector('#sec-search.active')) renderList($('search-input') ? $('search-input').value : '');
+  }catch(err){
+    console.warn('Feed de precios no disponible, uso el snapshot embebido:', err.message);
+  }
+}
+
+function marcarFrescura(){
+  if(!preciosActualizados) return;
+  const el = document.querySelector('.footer-disc');
+  if(!el) return;
+  const f = preciosActualizados.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});
+  el.textContent = 'Labcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio clínico. Precios actualizados el '+f+'; son referenciales y pueden variar por sucursal. © 2024 Labcompara.';
+}
+
 // ── SUPABASE ──────────────────────────────────────────────────────────────
 function initSupabase(){
   if(window.supabase) supaClient=window.supabase.createClient('https://tgpoilgjqudfjlzfxbwp.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRncG9pbGdqcXVkZmpsemZ4YndwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4MDAzNjcsImV4cCI6MjA4OTM3NjM2N30.TBt-DxunQCYysUBg5JORju7T_J0HW9Fd1qPYCKlm4yQ');
@@ -797,7 +848,7 @@ $('form-submit').onclick=async function(){
 
 // ── SEARCH ────────────────────────────────────────────────────────────────
 function renderList(q){
-  const fil=q?RAW_DATA.filter(s=>s.name.toLowerCase().includes(q.toLowerCase())):RAW_DATA.slice(0,30);
+  const fil=q?ESTUDIOS.filter(s=>s.name.toLowerCase().includes(q.toLowerCase())):ESTUDIOS.slice(0,30);
   const list=$('study-list');
   if(!fil.length){list.innerHTML='<div style="text-align:center;color:var(--gray-400);padding:24px;font-size:14px;">No encontramos ese estudio.</div>';return;}
   list.innerHTML=fil.map(s=>{
@@ -835,7 +886,7 @@ $('compare-btn').onclick=()=>{if(selected.length)goResults();};
 
 // ── RESULTS ───────────────────────────────────────────────────────────────
 function renderResults(){
-  const studies=RAW_DATA.filter(s=>selected.includes(s.name));
+  const studies=ESTUDIOS.filter(s=>selected.includes(s.name));
   $('results-sub').textContent=`${studies.length} estudio${studies.length!==1?'s':''} · Precios en pesos mexicanos`;
   const cont=$('results-container');
   cont.innerHTML=studies.map(study=>{
@@ -856,7 +907,7 @@ function renderResults(){
   }).join('');
   cont.querySelectorAll('.btn-detail').forEach(btn=>{
     btn.onclick=()=>{
-      const study=RAW_DATA.find(s=>s.name===btn.dataset.s),lab=btn.dataset.l;
+      const study=ESTUDIOS.find(s=>s.name===btn.dataset.s),lab=btn.dataset.l;
       const opts2=LABS.map(l=>({lab:l,price:study[l],rating:LAB_META[l].rating})).filter(o=>o.price);
       const mp2=Math.min(...opts2.map(o=>o.price)),mr2=Math.max(...opts2.map(o=>o.rating));
       const opt=opts2.find(o=>o.lab===lab);
@@ -913,6 +964,10 @@ document.getElementById('m-go').addEventListener('click', function() {
     gtag('event', 'click_ir_al_laboratorio', params);
   }
 });
+
+// Arranca con el snapshot embebido ya renderizable y refresca en segundo plano
+// con el feed del scan semanal.
+cargarPrecios();
 </script>
 </main>
 </body>
