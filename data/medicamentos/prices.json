@@ -1,15 +1,7 @@
 {
-  "generado": "2026-08-13T17:35:43.505Z",
+  "generated_at": "2026-08-13T17:39:28.498Z",
   "currency": "MXN",
-  "fuentes": [
-    "Clivi",
-    "Ahorro",
-    "Benavides",
-    "Guadalajara",
-    "SanPablo",
-    "Revert"
-  ],
-  "precios": {
+  "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
       "sources": {
         "Benavides": {

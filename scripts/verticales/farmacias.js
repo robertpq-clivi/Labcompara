@@ -107,21 +107,51 @@ const guadalajara = {
   id: 'Guadalajara',
   fuente: 'www.farmaciasguadalajara.com',
   proxy: true,
-  async buscar(ctx, query) {
+  async buscar(ctx, query, opts = {}) {
     const base = 'https://www.farmaciasguadalajara.com';
     const html = await ctx.get(`${base}/buscar/?q=${encodeURIComponent(query)}`);
+    if (opts.volcar) opts.volcar(`guadalajara-${query}`, html);
+
     const out = [], vistos = new Set();
-    const tiles = html.split(/<div[^>]+class="[^"]*product-tile/i).slice(1);
+    // Se corta por tile y se busca dentro. El orden de atributos NO se asume:
+    // la primera versión exigía class antes de content y encontraba cero.
+    const tiles = html.split(/<div[^>]+(?:class="[^"]*product-tile|data-pid=)/i).slice(1);
     for (const tile of tiles) {
-      const a = tile.match(/<a[^>]+href="([^"]*)"[^>]*>([\s\S]{0,220}?)<\/a>/i);
-      const val = tile.match(/class="[^"]*value[^"]*"[^>]*content="([\d.]+)"/i);
-      if (!a || !val) continue;
-      const titulo = stripTags(a[2]);
-      const precio = toPrice(val[1]);
+      // El precio: cualquier elemento que tenga a la vez clase "value" y un
+      // atributo content numérico, en el orden que sea.
+      let precio = null;
+      const reEl = /<[a-z]+\s([^>]*)>/gi;
+      let m;
+      while ((m = reEl.exec(tile))) {
+        const attrs = m[1];
+        if (!/class="[^"]*\bvalue\b/i.test(attrs)) continue;
+        const c = attrs.match(/content="([\d.]+)"/i);
+        if (c) { precio = toPrice(c[1]); break; }
+      }
+      if (!precio) {
+        const alt = tile.match(/content="([\d.]+)"[^>]*class="[^"]*\bvalue\b/i);
+        if (alt) precio = toPrice(alt[1]);
+      }
+      if (!precio) continue;
+
+      // El título: se prefiere el enlace del producto (.link / .pdp-link) y se
+      // cae al primer enlace con texto útil.
+      let titulo = '', href = '';
+      const anclas = [...tile.matchAll(/<a\s([^>]*)>([\s\S]{0,300}?)<\/a>/gi)];
+      const preferida = anclas.find((x) => /class="[^"]*\b(link|pdp-link)\b/i.test(x[1]));
+      for (const cand of preferida ? [preferida, ...anclas] : anclas) {
+        const t = stripTags(cand[2]);
+        if (t.length > 3) {
+          titulo = t;
+          href = (cand[1].match(/href="([^"]*)"/i) || [])[1] || '';
+          break;
+        }
+      }
+      if (!titulo) continue;
+
       const clave = `${titulo}|${precio}`;
-      if (!titulo || !precio || vistos.has(clave)) continue;
+      if (vistos.has(clave)) continue;
       vistos.add(clave);
-      const href = a[1];
       out.push({ titulo, precio: Math.round(precio), url: href.startsWith('/') ? base + href : href || base });
     }
     return out;

@@ -12,7 +12,7 @@
  *   node scripts/scan-farmacias.js --dry     # no escribe nada
  *
  * Escribe:
- *   data/medicamentos/precios.json        matriz consumida por el sitio
+ *   data/medicamentos/prices.json         matriz consumida por el sitio
  *   data/medicamentos/crudo.json          todo lo encontrado, para afinar tokens
  *   data/medicamentos/price-history.json  serie temporal
  *   data/medicamentos/reporte.md          cobertura y cambios
@@ -38,6 +38,10 @@ const arg = (n, d) => {
 };
 const SOLO = (arg('fuentes', '') || '').split(',').map((s) => s.trim()).filter(Boolean);
 const DRY = argv.includes('--dry');
+// --volcar guarda la respuesta cruda de cada fuente en data/medicamentos/debug/.
+// Sirve para arreglar un parser con el HTML real en vez de a ciegas: los sitios
+// que van por proxy no se pueden inspeccionar desde una máquina local.
+const VOLCAR = argv.includes('--volcar');
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
 const http = crearCliente({ log: (m) => process.stdout.write(`  ⇢ ${m}\n`) });
@@ -75,7 +79,12 @@ const ctxPara = (ad) => {
     let total = 0, errores = 0;
     for (const fam of familias) {
       try {
-        const items = await ad.buscar(ctx, catalogo.families[fam].query);
+        const volcar = VOLCAR ? (nombre, cuerpo) => {
+          const dir = path.join(OUT, 'debug');
+          fs.mkdirSync(dir, { recursive: true });
+          fs.writeFileSync(path.join(dir, `${nombre}.txt`), cuerpo);
+        } : null;
+        const items = await ad.buscar(ctx, catalogo.families[fam].query, { volcar });
         crudo[ad.id][fam] = items;
         total += items.length;
         console.log(`  ${ad.id}/${fam}: ${items.length} productos`);
@@ -140,8 +149,11 @@ const ctxPara = (ad) => {
   if (DRY) { console.log('\n(--dry: nada escrito)'); return; }
 
   fs.mkdirSync(OUT, { recursive: true });
-  fs.writeFileSync(path.join(OUT, 'precios.json'),
-    JSON.stringify({ generado, currency: 'MXN', fuentes: columnas, precios }, null, 2));
+  // Se emite EXACTAMENTE el formato que ya consume el front-end de GLPcompara
+  // ({generated_at, currency, prices}). Cambiarlo obligaría a tocar 118 KB de
+  // código que lleva meses funcionando, a cambio de nada.
+  fs.writeFileSync(path.join(OUT, 'prices.json'),
+    JSON.stringify({ generated_at: generado, currency: 'MXN', prices: precios }, null, 2));
   fs.writeFileSync(path.join(OUT, 'crudo.json'),
     JSON.stringify({ generado, crudo }, null, 2));
 
@@ -162,5 +174,5 @@ const ctxPara = (ad) => {
   fs.writeFileSync(path.join(OUT, 'reporte.md'), lineas.join('\n') + '\n');
 
   console.log(`  historial: ${hist.puntos} puntos · ${hist.estudios} productos con serie`);
-  console.log('\nEscrito: data/medicamentos/{precios,crudo,price-history}.json · reporte.md');
+  console.log('\nEscrito: data/medicamentos/{prices,crudo,price-history}.json · reporte.md');
 })().catch((e) => { console.error(e); process.exit(1); });

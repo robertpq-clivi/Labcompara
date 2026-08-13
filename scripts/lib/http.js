@@ -92,11 +92,21 @@ function crearCliente(opts = {}) {
     }
   }
 
-  async function viaZyte(url) {
+  async function viaZyte(url, o = {}) {
     if (!clave) throw new Error('SCRAPER_API_KEY no está configurada');
     if (proveedor !== 'zyte') throw new Error(`proveedor no soportado: ${proveedor}`);
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), TIMEOUT_PROXY_MS);
+
+    // Las cabeceras del llamador tienen que viajar DENTRO del payload de Zyte,
+    // no en el request a su API: si no, el destino nunca las ve. La API de San
+    // Pablo devuelve XML en vez de JSON cuando le falta su Accept.
+    const payload = { url, httpResponseBody: true, geolocation: 'MX' };
+    if (o.headers && Object.keys(o.headers).length) {
+      payload.customHttpRequestHeaders = Object.entries(o.headers)
+        .map(([name, value]) => ({ name, value }));
+    }
+
     try {
       const res = await fetch('https://api.zyte.com/v1/extract', {
         method: 'POST',
@@ -105,7 +115,7 @@ function crearCliente(opts = {}) {
           Authorization: 'Basic ' + Buffer.from(`${clave}:`).toString('base64'),
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url, httpResponseBody: true, geolocation: 'MX' }),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(`Zyte HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
       const data = await res.json();
@@ -128,7 +138,7 @@ function crearCliente(opts = {}) {
 
     if (o.proxy && clave) {
       stats.proxy++;
-      return viaZyte(url);
+      return viaZyte(url, o);
     }
 
     let ultimoErr = null, ultimoStatus = 0, ultimoCuerpo = '';
@@ -148,7 +158,7 @@ function crearCliente(opts = {}) {
     if (clave && pareceBloqueo(ultimoErr, ultimoStatus, ultimoCuerpo)) {
       stats.escaladas++; stats.proxy++;
       log(`escalando a Zyte (${ultimoStatus || (ultimoErr && ultimoErr.message) || 'sin respuesta'}): ${url}`);
-      return viaZyte(url);
+      return viaZyte(url, o);
     }
 
     stats.fallos++;
