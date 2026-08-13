@@ -17,6 +17,10 @@ on:
         description: "Escanear y reportar sin commitear"
         type: boolean
         default: false
+      volcar:
+        description: "Guardar el HTML crudo de cada fuente como artifact"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,7 +55,7 @@ jobs:
       - name: Escanear medicamentos
         if: ${{ inputs.vertical != 'laboratorio' }}
         continue-on-error: true
-        run: node scripts/scan-farmacias.js
+        run: node scripts/scan-farmacias.js ${{ inputs.volcar && '--volcar' || '' }}
         env:
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
           SCRAPER_PROVIDER: zyte
@@ -96,5 +100,6 @@ jobs:
           path: |
             data/scan/
             data/medicamentos/crudo.json
+            data/medicamentos/debug/
           retention-days: 30
           if-no-files-found: ignore

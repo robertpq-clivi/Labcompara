@@ -117,21 +117,27 @@ const guadalajara = {
     // la primera versión exigía class antes de content y encontraba cero.
     const tiles = html.split(/<div[^>]+(?:class="[^"]*product-tile|data-pid=)/i).slice(1);
     for (const tile of tiles) {
-      // El precio: cualquier elemento que tenga a la vez clase "value" y un
-      // atributo content numérico, en el orden que sea.
+      // El precio: en Salesforce Commerce la ficha trae DOS valores —el de lista
+      // tachado y el de venta— y el de lista aparece primero en el DOM. Hay que
+      // tomar el de dentro del bloque .sales; quedarse con el primero publica el
+      // precio de lista (Mounjaro 2.5 mg: $9,186 de lista contra $3,770 real).
+      const precioEn = (fragmento) => {
+        const reEl = /<[a-z]+\s([^>]*)>/gi;
+        let m;
+        while ((m = reEl.exec(fragmento))) {
+          const attrs = m[1];
+          if (!/class="[^"]*\bvalue\b/i.test(attrs)) continue;
+          const c = attrs.match(/content="([\d.]+)"/i);
+          if (c) return toPrice(c[1]);
+        }
+        const alt = fragmento.match(/content="([\d.]+)"[^>]*class="[^"]*\bvalue\b/i);
+        return alt ? toPrice(alt[1]) : null;
+      };
+
       let precio = null;
-      const reEl = /<[a-z]+\s([^>]*)>/gi;
-      let m;
-      while ((m = reEl.exec(tile))) {
-        const attrs = m[1];
-        if (!/class="[^"]*\bvalue\b/i.test(attrs)) continue;
-        const c = attrs.match(/content="([\d.]+)"/i);
-        if (c) { precio = toPrice(c[1]); break; }
-      }
-      if (!precio) {
-        const alt = tile.match(/content="([\d.]+)"[^>]*class="[^"]*\bvalue\b/i);
-        if (alt) precio = toPrice(alt[1]);
-      }
+      const venta = tile.search(/class="[^"]*\bsales\b/i);
+      if (venta > -1) precio = precioEn(tile.slice(venta));
+      if (!precio) precio = precioEn(tile);   // ficha sin promoción: precio único
       if (!precio) continue;
 
       // El título: se prefiere el enlace del producto (.link / .pdp-link) y se
