@@ -42,6 +42,11 @@ const PAUSA_MS = 120;       // respiro entre requests de un mismo worker
 // Sin estos topes, un solo lab caído se lleva la corrida semanal completa.
 const MAX_MS_POR_LAB = 12 * 60 * 1000;  // presupuesto de reloj por laboratorio
                                         // (OLAB, el más grande, tarda ~8.5 min)
+// Presupuesto global. El tope por laboratorio no acota la corrida completa:
+// 6 labs lentos × 12 min superan el timeout del workflow, el job muere y NO se
+// commitea nada. Publicar parcial (con arrastre de lo no confirmado) siempre es
+// mejor que no publicar, así que la corrida se corta a tiempo para consolidar.
+const MAX_MS_TOTAL = 28 * 60 * 1000;
 const MUESTRA_INICIAL = 25;             // primeras fichas que deciden si sigue
 const MIN_EXITOS_INICIALES = 3;         // menos que esto en la muestra → se corta
 
@@ -90,12 +95,17 @@ async function enParalelo(items, n, tarea, onProgreso) {
   return salida;
 }
 
+const ARRANQUE = Date.now();
+const restanteGlobal = () => ARRANQUE + MAX_MS_TOTAL - Date.now();
+
 const archivoScan = (id) => path.join(SCAN_DIR, `${id.replace(/\s+/g, '-').toLowerCase()}.json`);
 
 // ── escaneo de un laboratorio ────────────────────────────────────────────────
 async function escanear(lab) {
   const t0 = Date.now();
   const log = (m) => process.stdout.write(`  [${lab.id}] ${m}\n`);
+  // Lo que quede del presupuesto global manda sobre el del laboratorio.
+  const tope = Math.min(MAX_MS_POR_LAB, Math.max(0, ARRANQUE + MAX_MS_TOTAL - Date.now()));
 
   if (OFFLINE) {
     const f = archivoScan(lab.id);
@@ -133,7 +143,7 @@ async function escanear(lab) {
   }
 
   const resto = await enParalelo(urls.slice(MUESTRA_INICIAL), CONCURRENCIA, async (u) => {
-    if (Date.now() - t0 > MAX_MS_POR_LAB) return { __error: 'presupuesto de tiempo agotado' };
+    if (Date.now() - t0 > tope) return { __error: 'presupuesto de tiempo agotado' };
     const html = await ctx.get(u);
     return lab.parse(html, u);
   }, (h, t) => log(`${h + MUESTRA_INICIAL}/${urls.length}…`));
@@ -141,7 +151,7 @@ async function escanear(lab) {
   const crudos = sonda.concat(resto);
   const errores = crudos.filter((r) => r && r.__error).length;
   const filas = crudos.filter((r) => r && !r.__error && r.nombre && r.precio);
-  const agotado = Date.now() - t0 > MAX_MS_POR_LAB;
+  const agotado = Date.now() - t0 > tope;
   log(`${filas.length} con precio · ${errores} errores · ${((Date.now() - t0) / 1000).toFixed(1)}s` +
     (agotado ? ' · ⚠️ presupuesto de tiempo agotado, catálogo incompleto' : ''));
   return { filas, errores, urls: urls.length, ms: Date.now() - t0, agotado };
@@ -174,6 +184,14 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   const meta = {};
 
   for (const lab of objetivo) {
+    // Sin tiempo para escanear, se salta: su columna se arrastra intacta y la
+    // corrida llega al paso de commit en vez de morir por timeout.
+    if (!OFFLINE && restanteGlobal() < 60 * 1000) {
+      console.log(`▸ ${lab.id} — omitido, presupuesto global agotado\n`);
+      meta[lab.id] = { ok: false, error: 'presupuesto global agotado' };
+      resultados[lab.id] = [];
+      continue;
+    }
     console.log(`▸ ${lab.id} (${lab.modo} · ${lab.fuente})`);
     try {
       const r = await escanear(lab);

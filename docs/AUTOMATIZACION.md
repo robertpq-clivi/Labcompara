@@ -196,8 +196,8 @@ para gráficas de evolución y para detectar movimientos raros.
 
 **Alertas automáticas** — un salto de más de 3× en cualquier dirección casi
 nunca es una promoción: suele ser un emparejamiento equivocado o un selector
-que cambió. `consolidar_()` los detecta solos y los escribe como una fila
-`alerta` en `Scan_Log`; el scanner local los pone en `data/reporte.md`.
+que cambió. El scan los detecta solo y los pone al principio de
+`data/reporte.md`, que es lo que aparece en el Summary del run.
 
 ### Cortacircuitos por laboratorio
 
@@ -209,7 +209,14 @@ se lleva la corrida semanal completa.
   traen precio, se corta ese laboratorio y se conserva su columna anterior.
 - **Presupuesto de reloj**: 12 minutos por laboratorio (OLAB, el más grande,
   tarda ~8.5). Al agotarse, el catálogo se marca incompleto en el reporte.
+- **Presupuesto global**: 28 minutos para toda la corrida. El tope por
+  laboratorio no acota el total —6 labs lentos superarían el timeout, el job
+  moriría y **no se commitearía nada**—, así que al agotarse el global los labs
+  restantes se omiten y conservan su columna. Publicar parcial siempre gana.
 - **Timeout del workflow**: 45 minutos como último recurso.
+
+Medido: la corrida completa tarda ~15 min, casi toda en OLAB (~9.3 min por sus
+6,043 fichas). Los otros cinco suman ~5 min.
 
 ### Qué pasa con lo que no se pudo emparejar
 
@@ -250,13 +257,12 @@ si cambias un selector en uno, cámbialo en el otro.
 npm test
 ```
 
-- **`test-paridad.js`** — el emparejador está escrito dos veces (Node y Apps
-  Script). Si se desincronizan, el sitio publica una matriz distinta de la que
-  ve quien depura en su máquina, y el síntoma aparece semanas después como "un
-  precio que no cuadra". Este test extrae las funciones del `.gs`, las evalúa en
-  un sandbox y compara los dos resultados par por par. Usa `data/scan/` si
-  existe; si no, un fixture con los casos que en su momento sí destaparon un
-  bug (`PERFIL LIPOIDEO`, `POLIOMAVIRUS BK POR PCR`, `VITAMINA A` vs `B12`…).
+- **`test-match.js`** — 47 casos del emparejador. Emparejar mal no rompe nada
+  visiblemente: publica un precio equivocado y se ve igual de normal que uno
+  correcto. Cada caso aquí es un fallo real encontrado revisando el scan de los
+  6 laboratorios, congelado para que no vuelva: `POLIOMAVIRUS BK POR PCR` no es
+  proteína C reactiva, `VITAMINA A` no es `VITAMINA B12`, `Perfil Tiroideo II`
+  no es `Perfil Tiroideo`, la "S" de `Proteína S` no es `sanguínea`.
 - **`test-feed.js`** — extrae `cargarPrecios()` del `index.html` real y lo corre
   contra un feed bueno, uno corto, uno sin precios, un 500, una red caída y un
   JSON corrupto. En todos los casos malos el sitio tiene que quedarse con

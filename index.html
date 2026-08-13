@@ -666,7 +666,7 @@ let supaClient = null;
 
 // RAW_DATA es el snapshot embebido: sirve solo/instant&#xe1;neo si el feed falla.
 // ESTUDIOS es lo que renderiza la app; se reemplaza en caliente con los precios
-// del scan semanal (scripts/labcompara-apps-script.gs).
+// del scan semanal (.github/workflows/scrape-prices.yml).
 let ESTUDIOS = RAW_DATA;
 let preciosActualizados = null;
 
@@ -776,8 +776,9 @@ $('promo-cta').onclick=goForm;
 // caliente. Si algo falla (feed ca&#xed;do, respuesta rara, sin red) se queda con
 // RAW_DATA embebido: nunca se muestra una p&#xe1;gina sin precios.
 //
-// FEED_URL: URL /exec de la app web de Apps Script.
-// Mientras no est&#xe9; desplegada, se usa el snapshot del repo (data/precios.json).
+// El scan semanal commitea data/precios.json al repo, as&#xed; que el feed es un
+// archivo est&#xe1;tico del mismo origen: sin CORS, sin latencia de terceros y sin
+// nada que se pueda caer aparte del propio sitio.
 const FEED_URL = '/data/precios.json';
 const FEED_TIMEOUT_MS = 4000;
 
