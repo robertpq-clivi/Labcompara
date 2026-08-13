@@ -86,14 +86,14 @@ nav.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:
 .wordmark{font-weight:800;font-size:clamp(24px,2.4vw,30px);line-height:1;letter-spacing:-.03em;white-space:nowrap;color:#fff;}
 .wordmark span{color:var(--sky);}
 .navlinks{display:flex;align-items:center;flex-wrap:wrap;gap:12px 26px;}
-.navlinks a{font-weight:600;font-size:15px;line-height:1;color:rgba(255,255,255,.74);}
-.navlinks a:hover{color:#fff;}
+/* :not(.btn-light) en vez de subir la especificidad del botón: el botón NO es
+   un enlace de menú, y excluirlo dice eso. Sin esto, .navlinks a (0,1,1) le
+   ganaba a .btn-light (0,1,0) y pintaba texto blanco sobre fondo blanco. */
+.navlinks a:not(.btn-light){font-weight:600;font-size:15px;line-height:1;color:rgba(255,255,255,.74);}
+.navlinks a:not(.btn-light):hover{color:#fff;}
 .btn-light{display:inline-flex;align-items:center;justify-content:center;padding:13px 26px;border-radius:999px;background:#fff;color:var(--navy);font-weight:700;font-size:15px;line-height:1;white-space:nowrap;transition:transform var(--ease) 150ms,box-shadow var(--ease) 150ms;}
 .btn-light:hover{color:var(--navy);transform:translateY(-2px);box-shadow:0 10px 28px rgba(6,20,42,.45);}
 
-.eyebrow{display:inline-flex;align-items:center;gap:13px;padding:11px 22px;border-radius:999px;background:rgba(202,209,251,.10);box-shadow:inset 0 0 0 1.5px rgba(202,209,251,.32);margin-bottom:clamp(24px,3vw,34px);}
-.eyebrow .dot{width:10px;height:10px;border-radius:999px;background:var(--sky);box-shadow:0 0 14px rgba(121,197,226,.9);flex:none;}
-.eyebrow span{font-weight:700;font-size:13px;line-height:1;letter-spacing:.1em;text-transform:uppercase;color:#CFE9F5;}
 
 .hero h1{margin:0;font-weight:800;font-size:clamp(38px,6.4vw,80px);line-height:1.03;letter-spacing:-.035em;text-wrap:balance;}
 .hero h1 em{font-style:normal;color:var(--sky);}
@@ -102,15 +102,21 @@ nav.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:
 /* ── TARJETAS DE COMPARADOR ─────────────────────────────────────────────── */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:clamp(40px,5vw,64px) 0 clamp(64px,8vw,96px);}
 .card{
+  position:relative;z-index:1;
   display:flex;flex-direction:column;min-width:0;padding:34px 32px;border-radius:20px;
-  background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14);
+  /* Base opaca + la capa translúcida original encima. El #0a2a47 es el color
+     que el hero produce HOY detrás de las tarjetas (mesh al 60% sobre el navy,
+     más el degradado de desvanecido), así que el resultado se ve igual que
+     antes — pero ya no deja pasar el orbit. */
+  background:linear-gradient(rgba(255,255,255,.06),rgba(255,255,255,.06)),#0a2a47;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14);
   color:#fff;transition:transform 250ms var(--ease),box-shadow 250ms var(--ease),background 250ms var(--ease);
 }
-.card:hover{color:#fff;transform:translateY(-6px);background:rgba(255,255,255,.10);box-shadow:inset 0 0 0 1.5px rgba(121,197,226,.55),0 18px 44px rgba(6,20,42,.5);}
-.card.featured{background:rgba(121,197,226,.13);box-shadow:inset 0 0 0 1.5px rgba(121,197,226,.5),0 18px 44px rgba(6,20,42,.42);}
-.card.featured:hover{background:rgba(121,197,226,.18);box-shadow:inset 0 0 0 1.5px rgba(121,197,226,.8),0 22px 52px rgba(6,20,42,.55);}
+.card:hover{color:#fff;transform:translateY(-6px);background:linear-gradient(rgba(255,255,255,.10),rgba(255,255,255,.10)),#0a2a47;box-shadow:inset 0 0 0 1.5px rgba(121,197,226,.55),0 18px 44px rgba(6,20,42,.5);}
+.card.featured{background:linear-gradient(rgba(121,197,226,.13),rgba(121,197,226,.13)),#0a2a47;box-shadow:inset 0 0 0 1.5px rgba(121,197,226,.5),0 18px 44px rgba(6,20,42,.42);}
+.card.featured:hover{background:linear-gradient(rgba(121,197,226,.18),rgba(121,197,226,.18)),#0a2a47;box-shadow:inset 0 0 0 1.5px rgba(121,197,226,.8),0 22px 52px rgba(6,20,42,.55);}
 .card.soon{opacity:.72;cursor:default;}
-.card.soon:hover{transform:none;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14);}
+.card.soon:hover{transform:none;background:linear-gradient(rgba(255,255,255,.06),rgba(255,255,255,.06)),#0a2a47;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14);}
 
 .card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:clamp(28px,4vw,44px);}
 .kicker{font-weight:700;font-size:12px;line-height:1;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);}
@@ -140,10 +146,6 @@ nav.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:
 .step h3{margin:0 0 12px;font-weight:700;font-size:22px;line-height:1.25;color:var(--navy);}
 .step p{margin:0;font-weight:400;font-size:16px;line-height:1.6;color:var(--ink-600);text-wrap:pretty;}
 
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:32px;margin-top:clamp(48px,6vw,72px);padding-top:clamp(36px,5vw,56px);box-shadow:inset 0 1px 0 var(--line);}
-.stat{display:flex;flex-direction:column;gap:10px;}
-.stat b{font-weight:800;font-size:clamp(34px,3.6vw,44px);line-height:1;letter-spacing:-.03em;color:var(--teal);font-variant-numeric:tabular-nums;}
-.stat span{font-weight:500;font-size:15px;line-height:1.45;color:var(--ink-600);}
 
 /* ── PREGUNTAS ──────────────────────────────────────────────────────────── */
 .faq{background:#fff;color:#242424;}
@@ -170,6 +172,47 @@ footer{padding:44px 0 52px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
 .fcol a:hover{color:#fff;}
 .fabout{font-weight:400;font-size:15px;line-height:1.6;color:rgba(255,255,255,.5);max-width:300px;margin:0;text-wrap:pretty;}
 .disclaimer{margin:0;font-weight:400;font-size:13px;line-height:1.6;color:rgba(255,255,255,.38);max-width:900px;text-wrap:pretty;}
+
+/* ── ORBIT DEL HERO ──────────────────────────────────────────────────────
+   Traído del comparador de GLP-1. Aquí representa las DOS verticales, así que
+   además de las seis farmacias lleva Chopo y Salud Digna. Es decorativo:
+   aria-hidden y pointer-events:none para que no estorbe a lectores de
+   pantalla ni al cursor. */
+.hero-orbit{
+  /* Posición original en el hero. Ya no hace falta anclarlo a las tarjetas
+     para que no se transparente: ahora ellas son opacas. */
+  position:absolute;top:clamp(300px,42vw,460px);right:0;
+  transform:translate(28%,-50%);
+  width:min(700px,64vw);height:min(700px,64vw);
+  z-index:0;pointer-events:none;
+}
+.orbit-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;
+  background:#fff;border-radius:999px;padding:14px 24px;
+  box-shadow:0 12px 38px rgba(6,20,42,.42);
+  font-weight:800;font-size:clamp(17px,1.8vw,23px);color:var(--navy);
+  white-space:nowrap;line-height:1;
+}
+.orbit-center span{color:var(--teal);}
+.orbit-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:2px dotted rgba(169,222,242,.38);border-radius:50%;}
+.ring1{width:43%;height:43%;animation:orbit-spin 30s linear infinite;}
+.ring2{width:86%;height:86%;animation:orbit-spin 46s linear infinite;}
+.ring3{width:100%;height:100%;animation:orbit-spin 60s linear infinite;border-color:rgba(169,222,242,.18);}
+.orbit-item{position:absolute;transform:translate(-50%,-50%);}
+.orbit-badge{
+  width:clamp(46px,6vw,68px);height:clamp(46px,6vw,68px);border-radius:50%;
+  background:#fff;border:1px solid rgba(6,20,42,.06);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  box-shadow:0 6px 18px rgba(6,20,42,.3);
+}
+.orbit-logo{width:76%;height:76%;object-fit:contain;}
+/* Contragiro: mantiene los logos derechos mientras el anillo rota. */
+.ring1 .orbit-badge{animation:orbit-spin-rev 30s linear infinite;}
+.ring2 .orbit-badge{animation:orbit-spin-rev 46s linear infinite;}
+@keyframes orbit-spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes orbit-spin-rev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+/* Debajo de 1080px el orbit chocaría con el texto y las tarjetas. */
+@media (max-width:1080px){.hero-orbit{display:none;}}
 
 @media (max-width:640px){
   nav.top{padding:20px 0;}
@@ -199,11 +242,26 @@ footer{padding:44px 0 52px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
       </div>
     </nav>
 
-    <div style="padding:clamp(56px,8vw,88px) 0 0;max-width:880px;">
-      <div class="eyebrow">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Comparadores de salud en México</span>
+
+
+    <div class="hero-orbit" aria-hidden="true">
+      <div class="orbit-center">Med<span>compara</span></div>
+      <div class="orbit-ring ring3"></div>
+      <div class="orbit-ring ring1">
+        <div class="orbit-item" style="left:100%;top:50%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/chopo-logo.jpeg" alt="" loading="lazy" decoding="async"/></div></div>
+        <div class="orbit-item" style="left:25%;top:93.3%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/salud-digna-logo.png" alt="" loading="lazy" decoding="async"/></div></div>
+        <div class="orbit-item" style="left:25%;top:6.7%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/clivi-logo.webp" alt="" loading="lazy" decoding="async"/></div></div>
       </div>
+      <div class="orbit-ring ring2">
+        <div class="orbit-item" style="left:100%;top:50%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/ahorro-logo.webp" alt="" loading="lazy" decoding="async"/></div></div>
+        <div class="orbit-item" style="left:65.45%;top:97.55%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/guadalajara-logo.webp" alt="" loading="lazy" decoding="async"/></div></div>
+        <div class="orbit-item" style="left:9.55%;top:79.39%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/benavides-logo.webp" alt="" loading="lazy" decoding="async"/></div></div>
+        <div class="orbit-item" style="left:9.55%;top:20.61%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/sanpablo-logo.webp" alt="" loading="lazy" decoding="async"/></div></div>
+        <div class="orbit-item" style="left:65.45%;top:2.45%;"><div class="orbit-badge"><img class="orbit-logo" src="/images/farmacias/revert-logo.webp" alt="" loading="lazy" decoding="async"/></div></div>
+      </div>
+    </div>
+
+    <div style="padding:clamp(76px,10vw,116px) 0 0;max-width:880px;">
       <h1>¿Qué quieres <em>comparar</em> hoy?</h1>
       <p class="lede">Precios de estudios de laboratorio y medicamentos entre los principales laboratorios y farmacias del país, en un solo lugar. Elige un comparador para empezar.</p>
     </div>
@@ -282,12 +340,6 @@ footer{padding:44px 0 52px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
       </div>
     </div>
 
-    <div class="stats">
-      <div class="stat"><b>636</b><span>estudios y presentaciones comparados</span></div>
-      <div class="stat"><b>12</b><span>laboratorios y farmacias</span></div>
-      <div class="stat"><b>Semanal</b><span>actualización automática de precios</span></div>
-      <div class="stat"><b>$0</b><span>comparar siempre es gratis</span></div>
-    </div>
   </div>
 </section>
 
