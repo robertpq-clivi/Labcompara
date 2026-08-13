@@ -85,5 +85,59 @@ check(!V.columnas.includes('YZA') && !V.adaptadores.some((x) => x.id === 'YZA'),
 check(!V.columnas.includes('Clivi') && !V.columnas.includes('Revert'),
   'Clivi y Revert fuera de esta vertical');
 
+// ── la página y el feed no se pueden desincronizar ──────────────────────────
+// El comparador de laboratorio lleva los datos incrustados en el HTML; este no:
+// los pide a data/medicinas/prices.json al cargar. Eso lo hace más simple de
+// refrescar, pero también significa que un cambio de nombre de campo en el
+// scanner rompe la página sin que nada falle en el scan. Estas pruebas son ese
+// candado.
+console.log('\nPágina del comparador:');
+const fs = require('fs');
+const path = require('path');
+const ROOT = path.join(__dirname, '..');
+const PAGINA = path.join(ROOT, 'pages', 'medicinas.html');
+const html = fs.readFileSync(PAGINA, 'utf8');
+
+// Los ids que busca el script tienen que existir en el marcado.
+const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
+const usados = [...new Set([...html.matchAll(/\$\('([^']+)'\)/g)].map((m) => m[1]))];
+const idsFaltantes = usados.filter((i) => !ids.has(i));
+check(idsFaltantes.length === 0, `los ${usados.length} ids referenciados existen`, idsFaltantes.join(', '));
+
+// Los logos del orbit tienen que estar en disco: un src roto se ve como un
+// hueco blanco en el hero, que es lo primero que ve cualquiera.
+const assets = [...html.matchAll(/(?:src|href)="(\/[^"]+\.(?:png|jpe?g|webp|svg))"/g)].map((m) => m[1]);
+const rotos = assets.filter((r) => !fs.existsSync(path.join(ROOT, r)));
+check(rotos.length === 0, `los ${assets.length} logos del orbit existen`, rotos.join(', '));
+
+// Toda ruta interna necesita rewrite en vercel.json, o es un 404.
+const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, 'vercel.json'), 'utf8'));
+const rutas = new Set(vercel.rewrites.map((r) => r.source).concat(['/', '/blog']));
+const enlaces = [...new Set([...html.matchAll(/href="(\/[a-z0-9-]*)"/g)].map((m) => m[1]))];
+const huerfanos = enlaces.filter((l) => !rutas.has(l));
+check(huerfanos.length === 0, `los ${enlaces.length} enlaces internos tienen destino`, huerfanos.join(', '));
+check(rutas.has('/medicinas'), '/medicinas tiene rewrite en vercel.json');
+
+// Ninguna de las dos marcas que el cliente pidió sacar de esta vertical puede
+// reaparecer en la página, ni como logo ni como texto.
+check(!/yza/i.test(html) && !/clivi/i.test(html) && !/revert/i.test(html),
+  'ni YZA ni Clivi ni Revert aparecen en la página');
+
+// El feed publicado trae los campos que la página lee.
+const feed = path.join(ROOT, 'data', 'medicinas', 'prices.json');
+if (fs.existsSync(feed)) {
+  const d = JSON.parse(fs.readFileSync(feed, 'utf8'));
+  const campos = ['etiqueta', 'categoria', 'medicamento', 'precios', 'min', 'ahorro', 'piezas'];
+  const primera = d.presentaciones[0] || {};
+  const sin = campos.filter((k) => !(k in primera));
+  check(d.presentaciones.length > 0 && sin.length === 0,
+    `el feed trae los ${campos.length} campos que la página lee`, sin.join(', '));
+  // Cada fila publicada debe tener al menos dos farmacias: es la premisa de
+  // toda la vertical, y lo único que hace honesta la etiqueta "más barata".
+  const flacas = d.presentaciones.filter((p) => Object.keys(p.precios).length < 2);
+  check(flacas.length === 0, 'ninguna fila publicada tiene una sola farmacia',
+    flacas.slice(0, 3).map((p) => p.etiqueta).join(' · '));
+}
+
 console.log(fallos ? `\n✗ ${fallos} casos fallaron` : '\n✓ Todos los casos pasaron');
 process.exit(fallos ? 1 : 0);

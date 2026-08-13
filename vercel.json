@@ -20,6 +20,10 @@
       "destination": "/pages/medicamentos"
     },
     {
+      "source": "/medicinas",
+      "destination": "/pages/medicinas"
+    },
+    {
       "source": "/analisis-clinicos",
       "destination": "/pages/analisis-clinicos"
     },

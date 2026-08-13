@@ -22,6 +22,7 @@ const PUBLIC_DIR = path.join(__dirname, '..'); // Sitemaps at repo root → serv
 // changefreq: weekly | priority: 1.0 homepage / 0.9 core
 const CORE_PAGES = [
   { path: '/medicamentos',                      priority: '1.0', changefreq: 'weekly'  },
+  { path: '/medicinas',                         priority: '1.0', changefreq: 'weekly'  },
   { path: '/farmacias',                         priority: '0.8', changefreq: 'monthly' },
   { path: '/',                                  priority: '1.0', changefreq: 'weekly'  },
   { path: '/laboratorio',                       priority: '1.0', changefreq: 'weekly'  },

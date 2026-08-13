@@ -11,8 +11,8 @@ on:
       vertical:
         description: "Qué escanear"
         type: choice
-        options: ["ambas", "laboratorio", "medicamentos"]
-        default: "ambas"
+        options: ["todas", "laboratorio", "medicamentos", "medicinas"]
+        default: "todas"
       dry_run:
         description: "Escanear y reportar sin commitear"
         type: boolean
@@ -32,7 +32,7 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
@@ -43,19 +43,31 @@ jobs:
       - name: Tests
         run: npm test
 
-      # Las dos verticales corren en pasos separados para que una caída de un
-      # laboratorio no impida refrescar los medicamentos, ni al revés.
+      # Las tres verticales corren en pasos separados para que una caída de un
+      # laboratorio no impida refrescar los medicamentos, ni al revés. En la
+      # corrida por cron `inputs.vertical` viene vacío: por eso cada condición
+      # lista los casos en vez de negar uno solo.
       - name: Escanear laboratorios
-        if: ${{ inputs.vertical != 'medicamentos' }}
+        if: ${{ inputs.vertical == '' || inputs.vertical == 'todas' || inputs.vertical == 'laboratorio' }}
         run: node scripts/scan-labs.js --apply
         env:
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
           SCRAPER_PROVIDER: zyte
 
-      - name: Escanear medicamentos
-        if: ${{ inputs.vertical != 'laboratorio' }}
+      - name: Escanear medicamentos GLP-1
+        if: ${{ inputs.vertical == '' || inputs.vertical == 'todas' || inputs.vertical == 'medicamentos' }}
         continue-on-error: true
         run: node scripts/scan-farmacias.js ${{ inputs.volcar && '--volcar' || '' }}
+        env:
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          SCRAPER_PROVIDER: zyte
+
+      # 100 principios activos × 5 farmacias con pausa de cortesía: es el paso
+      # más largo de los tres, por eso va al final.
+      - name: Escanear medicinas de farmacia
+        if: ${{ inputs.vertical == '' || inputs.vertical == 'todas' || inputs.vertical == 'medicinas' }}
+        continue-on-error: true
+        run: node scripts/scan-medicinas.js
         env:
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
           SCRAPER_PROVIDER: zyte
@@ -74,8 +86,12 @@ jobs:
               sed -n '1,30p' data/reporte.md
             fi
             if [ -f data/medicamentos/reporte.md ]; then
-              echo; echo "### Medicamentos"; echo
+              echo; echo "### Medicamentos GLP-1"; echo
               cat data/medicamentos/reporte.md
+            fi
+            if [ -f data/medicinas/reporte.md ]; then
+              echo; echo "### Medicinas de farmacia"; echo
+              sed -n '1,40p' data/medicinas/reporte.md
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -101,5 +117,6 @@ jobs:
             data/scan/
             data/medicamentos/crudo.json
             data/medicamentos/debug/
+            data/medicinas/crudo.json
           retention-days: 30
           if-no-files-found: ignore

@@ -24,4 +24,10 @@ module.exports = {
   LANDING: path.join(ROOT, 'index.html'),
   /** Página del comparador de medicamentos GLP-1. */
   COMPARADOR_GLP: path.join(ROOT, 'pages', 'medicamentos.html'),
+  /**
+   * Página del comparador de medicinas de farmacia. A diferencia de las otras
+   * dos, esta no lleva los datos incrustados: los pide a data/medicinas/prices.json
+   * en tiempo de carga, así que el scan semanal no tiene que reescribir el HTML.
+   */
+  COMPARADOR_MEDICINAS: path.join(ROOT, 'pages', 'medicinas.html'),
 };
