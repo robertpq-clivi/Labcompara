@@ -16,7 +16,7 @@
       "destination": "/pages/farmacias"
     },
     {
-      "source": "/medicamentos",
+      "source": "/glp1",
       "destination": "/pages/medicamentos"
     },
     {
@@ -75,6 +75,11 @@
     {
       "source": "/pages/:slug",
       "destination": "/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/medicamentos",
+      "destination": "/glp1",
       "permanent": true
     },
     {

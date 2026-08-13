@@ -5,7 +5,7 @@ Comparador de precios de salud en México. Tres verticales en un dominio:
 | Ruta | Qué compara | Fuentes |
 |---|---|---|
 | `/laboratorio` | **620 estudios** de laboratorio | Labbe, Polanco, Chopo, Salud Digna, LAPI, OLAB |
-| `/medicamentos` | **16 presentaciones** GLP-1 | Clivi, Ahorro, Benavides, Guadalajara, San Pablo, Revert |
+| `/glp1` | **16 presentaciones** GLP-1 | Clivi, Ahorro, Benavides, Guadalajara, San Pablo, Revert |
 | `/medicinas` | **200 medicamentos** de farmacia | Ahorro, Benavides, Guadalajara, San Pablo, Prixz |
 
 `/` es el landing de Medcompara y dirige a las tres. GLPcompara se consolidó

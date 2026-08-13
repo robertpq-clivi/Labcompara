@@ -4,7 +4,7 @@
  * ----------------------------------------
  * Sirve el sitio aplicando las reglas del propio vercel.json: cleanUrls,
  * rewrites y redirects condicionados por host. Sin eso, un servidor estático
- * devuelve 404 en /laboratorio y /medicamentos, que es justo lo que hay que
+ * devuelve 404 en /laboratorio y /glp1, que es justo lo que hay que
  * revisar antes de desplegar.
  *
  * No se usa `vercel dev` porque exige un script `build` en package.json, y
@@ -119,7 +119,7 @@ server.listen(PORT, '127.0.0.1', () => {
   console.log(`  ${REDIRECTS.length} redirects · ${REWRITES.length} rewrites · cleanUrls ${cfg.cleanUrls ? 'on' : 'off'}\n`);
   console.log(`     http://localhost:${PORT}/                 landing`);
   console.log(`     http://localhost:${PORT}/laboratorio      620 estudios`);
-  console.log(`     http://localhost:${PORT}/medicamentos     16 GLP-1`);
+  console.log(`     http://localhost:${PORT}/glp1            16 GLP-1`);
   console.log(`     http://localhost:${PORT}/blog             159 posts\n`);
   console.log('  Ctrl+C para detener.\n');
 });
