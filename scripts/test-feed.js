@@ -103,6 +103,27 @@ const casos = [
   },
 ];
 
+// ── las cifras publicadas no deben quedarse atrás del catálogo ──────────────
+// El "más de 64 estudios" sobrevivió a dos ampliaciones (64 → 124 → 620) en
+// siete lugares distintos, porque está escrito a mano en el copy. Este chequeo
+// no lo arregla solo, pero lo delata antes de publicarlo.
+function revisarCifras() {
+  const feed = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'precios.json'), 'utf8'));
+  const real = feed.estudios.length;
+  const archivos = ['index.html', ...fs.readdirSync(path.join(ROOT, 'pages'))
+    .filter((f) => f.endsWith('.html')).map((f) => path.join('pages', f))];
+  const malas = [];
+  for (const rel of archivos) {
+    const txt = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    for (const m of txt.matchAll(/(?:más de|Más de|M&#xe1;s de)\s+(\d{2,4})\s+(?:estudios|pruebas)/g)) {
+      const n = Number(m[1]);
+      // Debe ser una afirmación cierta y no quedarse corta por más de una centena.
+      if (n > real || real - n >= 100) malas.push(`${rel}: "más de ${n}" contra ${real} reales`);
+    }
+  }
+  return malas;
+}
+
 (async () => {
   let fallos = 0;
   console.log('Cargador de precios del comparador\n');
@@ -114,6 +135,11 @@ const casos = [
     console.log(`  ${pasa ? '✓' : '✗'} ${caso.nombre}`);
     if (!pasa) console.log(`      estudios=${ctx.leer('ESTUDIOS.length')} warns=${JSON.stringify(ctx.__warns)}`);
   }
+  const cifras = revisarCifras();
+  console.log('\nCifras publicadas al día:');
+  if (cifras.length) { fallos += cifras.length; cifras.forEach((c) => console.log(`  ✗ ${c}`)); }
+  else console.log('  ✓ ninguna cifra del copy se quedó atrás del catálogo');
+
   console.log(fallos ? `\n✗ ${fallos} casos fallaron` : '\n✓ Todos los casos pasaron');
   process.exit(fallos ? 1 : 0);
 })();
