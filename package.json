@@ -4,7 +4,9 @@
   "description": "Comparador de precios de estudios de laboratorio en México, con scan automático semanal",
   "scripts": {
     "generate:sitemaps": "node scripts/generate-sitemaps.js",
-    "predeploy": "npm run generate:sitemaps",
+    "comparativas": "node scripts/generar-comparativas.js",
+    "comparativas:apply": "node scripts/generar-comparativas.js --apply",
+    "predeploy": "npm run comparativas:apply && npm run generate:sitemaps",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
     "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-medicinas.js && node scripts/test-captura.js && node scripts/test-feed.js",

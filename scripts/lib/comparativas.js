@@ -48,8 +48,41 @@ function pares() {
   return out;
 }
 
+// Un precio que supera este múltiplo de la mediana del resto de labs es, casi
+// siempre, un error de captura del scan — no un precio real. Publicarlo sería
+// atribuirle a un laboratorio un cobro que no hace.
+const FACTOR_ATIPICO = 20;
+
+/**
+ * Descarta datos atípicos por estudio y laboratorio.
+ * No tira el estudio entero: solo el precio que no se sostiene.
+ */
+function limpiar(datos) {
+  const descartes = [];
+  const estudios = datos.estudios.map(e => {
+    const vs = LABS.map(l => [l, e[l]]).filter(([, v]) => typeof v === 'number' && v > 0);
+    if (vs.length < 3) return e;
+
+    const ord = [...vs].map(([, v]) => v).sort((x, y) => x - y);
+    const mediana = ord[Math.floor(ord.length / 2)];
+
+    let copia = e;
+    for (const [lab, v] of vs) {
+      if (v > mediana * FACTOR_ATIPICO) {
+        if (copia === e) copia = { ...e };
+        copia[lab] = null;
+        descartes.push({ estudio: e.name, lab, precio: v, mediana });
+      }
+    }
+    return copia;
+  });
+
+  return { ...datos, estudios, descartes };
+}
+
 function cargarPrecios() {
-  return require(path.join(__dirname, '..', '..', 'data', 'precios.json'));
+  const crudo = require(path.join(__dirname, '..', '..', 'data', 'precios.json'));
+  return limpiar(crudo);
 }
 
 /** Hechos verificables de un par: tabla destacada + agregados de todo el catálogo. */
@@ -113,4 +146,4 @@ function hechos(par, datos = cargarPrecios()) {
   };
 }
 
-module.exports = { LABS, DESTACADOS, slugLab, pares, hechos, cargarPrecios };
+module.exports = { LABS, DESTACADOS, slugLab, pares, hechos, cargarPrecios, limpiar };

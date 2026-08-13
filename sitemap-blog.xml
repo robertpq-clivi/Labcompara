@@ -55,10 +55,28 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://medcompara.com.mx/blog/chopo-vs-labbe-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://medcompara.com.mx/blog/chopo-vs-lapi-precios</loc>
     <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/chopo-vs-olab-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/chopo-vs-polanco-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://medcompara.com.mx/blog/como-acelerar-la-perdida-de-peso-saludable</loc>
@@ -397,10 +415,28 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://medcompara.com.mx/blog/labbe-vs-polanco-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://medcompara.com.mx/blog/laboratorio-mas-barato-cdmx</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/lapi-vs-labbe-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/lapi-vs-polanco-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://medcompara.com.mx/blog/los-glp1-son-para-toda-la-vida</loc>
@@ -561,8 +597,20 @@
   <url>
     <loc>https://medcompara.com.mx/blog/olab-vs-labbe-precios</loc>
     <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/olab-vs-lapi-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/olab-vs-polanco-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://medcompara.com.mx/blog/olvidar-dosis-mounjaro</loc>
@@ -903,8 +951,32 @@
   <url>
     <loc>https://medcompara.com.mx/blog/salud-digna-vs-chopo-precios</loc>
     <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/salud-digna-vs-labbe-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/salud-digna-vs-lapi-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/salud-digna-vs-olab-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://medcompara.com.mx/blog/salud-digna-vs-polanco-precios</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://medcompara.com.mx/blog/semaglutida-vs-tirzepatida</loc>

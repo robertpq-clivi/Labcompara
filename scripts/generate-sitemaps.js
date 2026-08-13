@@ -71,7 +71,15 @@ const BLOG_PAGES = fs.existsSync(BLOG_DIR)
   ? fs.readdirSync(BLOG_DIR)
       .filter(f => f.endsWith('.html') && f !== 'index.html')
       .sort()
-      .map(f => ({ path: '/blog/' + f.replace(/\.html$/, ''), priority: '0.7', changefreq: 'monthly' }))
+      .map(f => {
+        // Las comparativas entre laboratorios se regeneran con cada scan semanal.
+        const esComparativa = /-vs-.*-precios\.html$/.test(f);
+        return {
+          path: '/blog/' + f.replace(/\.html$/, ''),
+          priority:   esComparativa ? '0.8'    : '0.7',
+          changefreq: esComparativa ? 'weekly' : 'monthly',
+        };
+      })
   : [];
 
 
