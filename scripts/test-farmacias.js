@@ -119,5 +119,30 @@ check(new Set(V.catalogo.products.map((p) => p.name)).size === V.catalogo.produc
 check(V.adaptadores.every((a) => a.id && typeof a.buscar === 'function'),
   'todo adaptador expone id y buscar()');
 
-console.log(fallos ? `\n✗ ${fallos} casos fallaron` : '\n✓ Todos los casos pasaron');
-process.exit(fallos ? 1 : 0);
+// ── precio de venta vs precio de lista ───────────────────────────────────────
+// Markup real de farmaciasguadalajara.com: la ficha trae el valor de lista y el
+// de venta, y el de lista va PRIMERO en el DOM. Quedarse con el primero
+// publicaba $9,186 donde el cliente paga $3,770.
+console.log('\nEn una ficha con promoción se toma el precio de venta:');
+const tileReal = `<div class="product-tile" data-pid="123">
+  <a class="link" href="/mounjaro-kwikpen-2-5mg">Mounjaro KwikPen 2.5mg/0.6ml Solución Inyectable Pluma Precargada</a>
+  <div class="price">
+    <span class="strike-through list"><span class="value" content="9186.00">$9,186.00</span></span>
+    <span class="sales offer-mini-cart offer campaign-badge-offer"><span class="value" content="3770.00"></span> $3,770.00</span>
+  </div>
+</div>`;
+const gdl = V.adaptadores.find((a) => a.id === 'Guadalajara');
+(async () => {
+  const items = await gdl.buscar({ get: async () => tileReal }, 'mounjaro');
+  check(items.length === 1 && items[0].precio === 3770,
+    'toma 3770 (venta) y no 9186 (lista)', items.length ? String(items[0].precio) : 'sin resultados');
+
+  // Sin promoción hay un solo valor y debe seguir funcionando.
+  const sinPromo = tileReal.replace(/<span class="sales[\s\S]*?<\/span>\s*\$3,770\.00<\/span>/, '');
+  const items2 = await gdl.buscar({ get: async () => sinPromo }, 'mounjaro');
+  check(items2.length === 1 && items2[0].precio === 9186,
+    'sin bloque .sales cae al valor único', items2.length ? String(items2[0].precio) : 'sin resultados');
+
+  console.log(fallos ? `\n✗ ${fallos} casos fallaron` : '\n✓ Todos los casos pasaron');
+  process.exit(fallos ? 1 : 0);
+})();
