@@ -108,7 +108,7 @@ const ctxPara = (ad) => {
     for (const c of columnas) fila[c] = null;
 
     for (const ad of objetivo) {
-      const hit = V.elegir(crudo[ad.id][prod.family] || [], prod, ad.id);
+      const hit = V.elegir(crudo[ad.id][prod.family] || [], prod, ad.id, catalogo.families[prod.family]);
       if (!hit) continue;
       fila[ad.id] = hit.precio;
       fila.sources[ad.id] = { price: hit.precio, url: hit.url, title: hit.titulo };

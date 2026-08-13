@@ -84,6 +84,31 @@ if (p1mg) {
   check(hit && hit.precio === 4100, 'elige 4100 sobre 4500', hit ? String(hit.precio) : 'sin match');
 }
 
+// ── vial vs pluma ────────────────────────────────────────────────────────────
+// Ahorro y Guadalajara venden el mismo mg en pluma KwikPen y en frasco ámpula.
+// El frasco cuesta ~4x menos, requiere jeringa aparte y no es la presentación
+// que listan Benavides ni San Pablo. Compararlos hacía ver a esas farmacias
+// como 4x más baratas justo en las dosis de inicio, que son las más buscadas.
+console.log('\nMounjaro se compara en pluma, nunca en frasco:');
+const famM = V.catalogo.families.Mounjaro;
+const mezcla = [
+  { titulo: 'Mounjaro 2.5 mg/0.5 ml 1 Frasco', precio: 1694, url: '' },
+  { titulo: 'Mounjaro Kwikpen 2.5Mg/0.6Ml 3 ml', precio: 6250, url: '' },
+  { titulo: 'Mounjaro 2.5mg/0.5ml en Frasco ámpula Solución Inyectable', precio: 2297, url: '' },
+  { titulo: 'Mounjaro KwikPen 2.5mg/0.6ml Solución Inyectable Pluma Precargada', precio: 9186, url: '' },
+];
+const p25 = V.catalogo.products.find((x) => x.name.startsWith('Mounjaro 2.5'));
+const conFam = V.elegir(mezcla, p25, 'Ahorro', famM);
+check(conFam && conFam.precio === 6250, 'con la regla de familia elige la KwikPen (6250)',
+  conFam ? String(conFam.precio) : 'sin match');
+const sinFam = V.elegir(mezcla, p25, 'Ahorro');
+check(sinFam && sinFam.precio === 1694, 'sin ella elegía el frasco — así se detectó el error');
+
+// "2.5 mg" es subcadena de "12.5 mg"
+console.log('\nLa dosis no se confunde con otra que la contenga:');
+const doce = [{ titulo: 'Mounjaro KwikPen 12.5mg/0.6ml Pluma Precargada', precio: 14358, url: '' }];
+check(V.elegir(doce, p25, 'Ahorro', famM) === null, '"2.5 mg" no captura la de 12.5 mg');
+
 // ── el catálogo está bien formado ────────────────────────────────────────────
 console.log('\nIntegridad del catálogo:');
 check(V.catalogo.products.every((p) => p.name && p.family), 'toda presentación tiene name y family');

@@ -221,8 +221,15 @@ function normalizar(s) {
   return String(s || '').toLowerCase().replace(/(\d)\s*mg/g, '$1 mg').replace(/\s+/g, ' ');
 }
 
-function coincide(titulo, prod) {
+/**
+ * @param {object} [familia] entrada de catalogo.families, para exclusiones que
+ *   aplican a toda la familia y no a cada presentación por separado.
+ */
+function coincide(titulo, prod, familia) {
   const t = normalizar(titulo);
+  // Las exclusiones de familia van primero: si Mounjaro se compara en pluma,
+  // ninguna de sus seis dosis debe considerar un frasco ámpula.
+  for (const ex of (familia && familia.exclude) || []) if (t.includes(ex.toLowerCase())) return false;
   for (const ex of prod.exclude || []) if (t.includes(ex.toLowerCase())) return false;
   if (prod.match_all && !prod.match_all.every((tok) => t.includes(tok.toLowerCase()))) return false;
   if (prod.match_any && !prod.match_any.some((tok) => t.includes(tok.toLowerCase()))) return false;
@@ -236,8 +243,8 @@ function coincide(titulo, prod) {
  * cruce medicamentos distintos. Benavides es la excepción: lista "1 mg
  * Semaglutida" sin marca, pero su búsqueda ya viene acotada por familia.
  */
-function elegir(resultados, prod, fuente) {
-  let cands = resultados.filter((r) => coincide(r.titulo, prod));
+function elegir(resultados, prod, fuente, familia) {
+  let cands = resultados.filter((r) => coincide(r.titulo, prod, familia));
   if (prod.min_price) cands = cands.filter((r) => r.precio >= prod.min_price);
 
   const fam = normalizar(prod.family || '');
