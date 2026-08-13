@@ -9,13 +9,18 @@
  * reintenta por Zyte si el sitio responde como si estuviera bloqueando
  * (403, 429, 503, Cloudflare, error de red). Dos razones:
  *
- *   1. 5 de los 6 laboratorios responden directo hoy. Mandarlos por Zyte
- *      gastaría ~4,200 requests de crédito por corrida para nada.
+ *   1. Hoy los seis laboratorios responden directo: la corrida del 13/08/2026
+ *      hizo 9,247 requests directos y 0 por Zyte. Mandarlos por proxy gastaría
+ *      ese mismo volumen de crédito por corrida para nada.
  *   2. Si mañana alguno empieza a bloquear, el scan se cura solo en vez de
  *      devolver cero y dejar la columna congelada hasta que alguien lo note.
  *
- * Un adaptador puede forzar el proxy desde el arranque con `proxy: true`
- * (OLAB lo hace: está detrás de Cloudflare).
+ * Un adaptador puede forzar el proxy desde el arranque con `proxy: true`.
+ * Ninguno lo usa hoy; OLAB lo tuvo hasta comprobarse que no le hace falta.
+ *
+ * Como el proxy casi nunca se activa, `verificarProxy()` hace un request barato
+ * al inicio de cada corrida: sin eso una clave vencida pasaría inadvertida
+ * hasta el día que se necesite de verdad.
  */
 
 'use strict';
@@ -136,11 +141,35 @@ function crearCliente(opts = {}) {
     throw ultimoErr || new Error(`HTTP ${ultimoStatus} en ${url}`);
   }
 
+  /**
+   * Chequeo previo de la credencial de Zyte.
+   *
+   * Existe porque el proxy es una red de seguridad que casi nunca se activa: si
+   * los seis laboratorios responden directo, una clave vencida o mal pegada
+   * pasaría inadvertida durante meses y fallaría justo el día que alguno
+   * empiece a bloquear — el peor momento posible. Un request barato por corrida
+   * convierte ese fallo silencioso en una línea del log.
+   *
+   * Nunca aborta la corrida: si el proxy está roto, el scan directo sigue
+   * siendo válido para los labs que no lo necesitan.
+   */
+  async function verificarProxy() {
+    if (!clave) return { ok: false, motivo: 'sin SCRAPER_API_KEY' };
+    try {
+      const html = await viaZyte('https://example.com/');
+      if (!/example domain/i.test(html)) return { ok: false, motivo: 'respuesta inesperada' };
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, motivo: String((e && e.message) || e).slice(0, 160) };
+    }
+  }
+
   return {
     get: (url, o) => pedir(url, o),
     getJSON: async (url, o) => JSON.parse(await pedir(url, o)),
     stats: () => ({ ...stats }),
     tieneProxy: () => !!clave,
+    verificarProxy,
     proveedor,
   };
 }

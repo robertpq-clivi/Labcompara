@@ -175,9 +175,18 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   const canonicos = publicados.map((e) => e.name);
   console.log(`Labcompara · scan de precios`);
   console.log(`${canonicos.length} estudios publicados · ${LABS.length} laboratorios`);
-  console.log(OFFLINE
-    ? 'modo offline: se reusa data/scan/\n'
-    : `proxy anti-bloqueo: ${http.tieneProxy() ? http.proveedor + ' (con SCRAPER_API_KEY)' : 'no configurado — solo acceso directo'}\n`);
+  if (OFFLINE) {
+    console.log('modo offline: se reusa data/scan/\n');
+  } else if (!http.tieneProxy()) {
+    console.log('proxy anti-bloqueo: no configurado — solo acceso directo\n');
+  } else {
+    const chk = await http.verificarProxy();
+    console.log(chk.ok
+      ? `proxy anti-bloqueo: ${http.proveedor} ✓ credencial válida\n`
+      : `proxy anti-bloqueo: ${http.proveedor} ✗ NO FUNCIONA (${chk.motivo})\n` +
+        '  El scan directo continúa, pero no hay red de seguridad si un lab bloquea.\n');
+    if (!chk.ok) process.exitCode = 0; // informativo: no tumba la corrida
+  }
 
   const objetivo = LABS.filter((l) => !SOLO.length || SOLO.includes(l.id));
   const resultados = {};
