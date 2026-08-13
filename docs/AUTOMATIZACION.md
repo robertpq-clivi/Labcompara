@@ -14,31 +14,35 @@ deploy los publique.
    cron domingo 07:00 CDMX
             │
             ▼
-  ┌────────────────────────────────────┐
-  │ .github/workflows/scrape-prices.yml│
-  │  └─ node scripts/scan-labs.js      │
-  │       SCRAPER_API_KEY  (secret)    │
-  │       SCRAPER_PROVIDER = zyte      │
-  └──────────────┬─────────────────────┘
+  ┌──────────────────────────────────────────────────────┐
+  │ .github/workflows/scrape-prices.yml                  │
+  │   SCRAPER_API_KEY (secret) · SCRAPER_PROVIDER = zyte │
+  │                                                      │
+  │   scan-labs.js       6 labs      → el mismo estudio   │
+  │   scan-farmacias.js  6 fuentes   → la misma dosis     │
+  │   scan-medicinas.js  5 farmacias → la misma caja      │
+  └──────────────┬───────────────────────────────────────┘
                  │  directo → si el sitio bloquea, escala a Zyte
+                 │  un paso por vertical: si una se cae, las otras siguen
                  ▼
-  ┌────────────────────────────────────┐
-  │ 6 laboratorios · ~6,200 estudios   │
-  └──────────────┬─────────────────────┘
-                 │  emparejar contra los 124 del comparador
+  ┌──────────────────────────────────────────────────────┐
+  │ data/precios.json           → pages/laboratorio.html │
+  │ data/medicamentos/          → pages/medicamentos.html│
+  │ data/medicinas/prices.json  → pages/medicinas.html   │
+  │ data/*/price-history.json   ← serie temporal          │
+  │ data/*/reporte.md           ← qué cambió              │
+  └──────────────┬───────────────────────────────────────┘
+                 │  git commit + push  →  Vercel redeploya
                  ▼
-  ┌────────────────────────────────────┐
-  │ data/precios.json                  │  ← lo consume el sitio
-  │ data/price-history.json            │  ← serie temporal
-  │ data/reporte.md                    │  ← qué cambió
-  │ index.html (RAW_DATA embebido)     │  ← respaldo actualizado
-  └──────────────┬─────────────────────┘
-                 │  git commit + push  → GitHub Pages redeploya
-                 ▼
-  ┌────────────────────────────────────┐
-  │ medcompara.com.mx                     │
-  └────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────┐
+  │ medcompara.com.mx                                    │
+  └──────────────────────────────────────────────────────┘
 ```
+
+Las tres verticales comparten transporte, parseo de precios e historial. Lo que
+cambia en cada una es **la unidad de comparación**, y equivocarla es de donde
+salió casi todo error de precio del proyecto: pluma contra frasco, precio de
+lista contra precio de venta, caja de 7 contra caja de 120.
 
 El Apps Script sigue existiendo pero **solo para leads**
 ([`scripts/medcompara-apps-script.gs`](../scripts/medcompara-apps-script.gs)),
@@ -267,6 +271,14 @@ npm test
   contra un feed bueno, uno corto, uno sin precios, un 500, una red caída y un
   JSON corrupto. En todos los casos malos el sitio tiene que quedarse con
   `RAW_DATA`; nunca mostrar una comparativa a medias.
+- **`test-farmacias.js`** — la vertical GLP-1. Aquí los dos errores que reportó
+  el cliente están congelados: en Guadalajara el precio bueno es el de la caja
+  `.sales` y no el primero que aparece (el de lista), y en Mounjaro se compara
+  KwikPen contra KwikPen, nunca pluma contra frasco.
+- **`test-medicinas.js`** — la vertical de farmacia general: lectura de
+  presentaciones, integridad del catálogo, y un candado sobre la página, que a
+  diferencia de las otras dos lee su feed en tiempo de carga (ids, logos del
+  orbit, rutas en `vercel.json` y forma del JSON).
 
 ---
 
@@ -293,6 +305,76 @@ Los estudios curados a mano no se tocan: sus nombres son las llaves de
 solo igualdad — "Tiempo de Tromboplastina Parcial" y "…(TTP)" son el mismo
 estudio, y publicar los dos hacía que compitieran por la misma fila del
 laboratorio, dejando a uno con un precio 8× más caro.
+
+## 5.3 La vertical de farmacia general
+
+Los 100 principios activos más buscados en México, en cinco farmacias:
+**Ahorro, Benavides, Guadalajara, San Pablo y Prixz**.
+
+```bash
+npm run scan:medicinas
+node scripts/scan-medicinas.js --meds=Omeprazol,Paracetamol
+node scripts/scan-medicinas.js --limit=20          # los N primeros del ranking
+node scripts/scan-medicinas.js --fuentes=Ahorro,Benavides,Prixz
+node scripts/scan-medicinas.js --dry              # escanea y reporta sin escribir
+```
+
+`--fuentes` existe por una razón práctica: Guadalajara y San Pablo solo
+responden por Zyte, y sin `SCRAPER_API_KEY` en local el scan se pasa el rato
+esperando sus timeouts. Con las tres directas se valida todo lo demás en
+minutos.
+
+### Lo que hace difícil esta vertical
+
+No es el scraping —cuatro de las cinco entregan JSON— sino **decidir qué se
+puede comparar con qué**. El mismo principio activo se vende en cajas que no
+son intercambiables:
+
+| Producto | Precio | Por cápsula |
+|---|---:|---:|
+| Omeprazol 20 mg · 7 cápsulas | $54 | $7.71 |
+| Omeprazol 20 mg · 120 cápsulas | $161 | $1.34 |
+
+5.7× de diferencia **dentro de la misma farmacia**. Tomar "el más barato" de
+cada una compararía una caja de 7 contra una de 120.
+
+Por eso `scripts/lib/presentacion.js` lee de cada título la tupla
+`sustancia | mg | forma | piezas`, y esa tupla es la llave: solo se publican
+filas donde dos o más farmacias tienen exactamente la misma caja
+(`MIN_FARMACIAS = 2` en `scan-medicinas.js`). Un hueco es mejor que un precio
+que no corresponde.
+
+### Lo que se descarta, y por qué
+
+Las farmacias mezclan en sus resultados de búsqueda productos que **no son** el
+medicamento buscado, y el más caro suele ser el que se cuela:
+
+- **Combinaciones con otro activo.** "Vildagliptina/Metformina 50/850 mg" no es
+  metformina: es un antidiabético de marca que cuesta el doble. La primera
+  versión del lector leía su primera dosis como si fuera la del principio
+  activo y publicaba una "Metformina 50 mg" que no existe, comparada contra
+  metformina pura. Se detectan por tres vías —conjunción (`+`, `/`, `y`,
+  `con`), doble dosis (`50/850 mg`) y un segundo activo del propio catálogo
+  nombrado en el título— porque ninguna de las tres las cubre todas.
+- **Títulos sin número de piezas.** Sin caja no hay comparación. Benavides es
+  la más afectada: sus títulos suelen omitir el contenido, así que aporta menos
+  filas que las otras cuatro.
+- **Sustancias que solo comparten raíz.** "Esomeprazol" no es "Omeprazol".
+
+Entre variantes de la *misma* caja —distintas marcas de genérico— se publica la
+más barata: es la que el cliente puede ir a comprar. Genérico y marca original
+sí se comparan entre sí; esa diferencia es justo la que la página existe para
+mostrar.
+
+### La página
+
+`pages/medicinas.html` es la única de las tres que **no** lleva los datos
+incrustados: pide `data/medicinas/prices.json` al cargar. El scan semanal no
+tiene que reescribir el HTML, pero a cambio un cambio de nombre de campo en el
+scanner rompería la página sin que nada fallara en el scan — de ahí las pruebas
+de forma del feed en `test-medicinas.js`.
+
+---
 
 ## 6. Agregar un laboratorio
 
