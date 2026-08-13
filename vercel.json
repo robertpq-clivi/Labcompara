@@ -69,6 +69,11 @@
   ],
   "redirects": [
     {
+      "source": "/pages/:slug",
+      "destination": "/:slug",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [
         {
