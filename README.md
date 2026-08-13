@@ -22,15 +22,18 @@ disponible.
 
 ## Actualización de precios
 
-Un Apps Script recorre cada semana los seis laboratorios, extrae su catálogo con
-precios (~6,200 estudios), lo empareja contra los 124 del comparador y publica
-el resultado como JSON que el sitio consume en caliente.
+Cada 7 días un workflow de GitHub Actions recorre los seis laboratorios, extrae
+su catálogo con precios (~6,200 estudios), lo empareja contra los 124 del
+comparador y commitea el resultado. Misma infraestructura que GLPcompara:
+cron + **Zyte** como proveedor anti-bloqueo (`SCRAPER_API_KEY`).
 
 ```bash
 npm run scan            # escanea los labs y regenera data/precios.json
 npm run scan:offline    # reusa data/scan/, sin pedir nada a los sitios
 npm run scan:apply      # además reescribe RAW_DATA en index.html
-npm test                # paridad Node↔Apps Script + cargador del feed
+npm test                # emparejador + cargador del feed
+
+gh workflow run scrape-prices.yml -f dry_run=true   # corrida manual sin commit
 ```
 
 Instalación de la automatización, adaptador por laboratorio y operación:
@@ -41,13 +44,18 @@ Instalación de la automatización, adaptador por laboratorio y operación:
 ```
 index.html                        el sitio completo (sin build)
 data/precios.json                 matriz de precios que consume el sitio
+data/price-history.json           serie temporal por estudio
 data/reporte.md                   qué cambió en el último scan
+.github/workflows/
+  scrape-prices.yml               el cron de 7 días
 scripts/
-  labcompara-apps-script.gs       la automatización semanal (Sheets + web app)
-  scan-labs.js                    el mismo pipeline, corrido en local
+  scan-labs.js                    orquestador del scan
   lib/labs.js                     un adaptador por laboratorio
+  lib/http.js                     transporte directo con escalada a Zyte
   lib/match.js                    emparejamiento de nombres de estudio
-  test-paridad.js  test-feed.js   tests
+  lib/history.js                  serie temporal
+  test-match.js  test-feed.js     tests
+  labcompara-apps-script.gs       captura de leads (Sheets)
   generate-sitemaps.js            sitemaps
 blog/  pages/                     contenido SEO
 ```

@@ -8,7 +8,7 @@
     "scan": "node scripts/scan-labs.js",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
-    "test": "node scripts/test-paridad.js && node scripts/test-feed.js"
+    "test": "node scripts/test-match.js && node scripts/test-feed.js"
   },
   "engines": {
     "node": ">=16"

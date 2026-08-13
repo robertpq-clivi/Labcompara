@@ -27,16 +27,15 @@ const fs = require('fs');
 const path = require('path');
 const { LABS } = require('./lib/labs');
 const { emparejar } = require('./lib/match');
+const { crearCliente } = require('./lib/http');
+const { actualizarHistorial } = require('./lib/history');
 
 const ROOT = path.join(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'data');
 const SCAN_DIR = path.join(OUT_DIR, 'scan');
 
-const UA = 'LabcomparaBot/1.0 (+https://labcompara.com; comparador de precios)';
 const CONCURRENCIA = 5;     // requests simultáneos por laboratorio
 const PAUSA_MS = 120;       // respiro entre requests de un mismo worker
-const REINTENTOS = 2;
-const TIMEOUT_MS = 25000;
 
 // ── CLI ──────────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
@@ -51,32 +50,16 @@ const APPLY = argv.includes('--apply');
 // modo para afinar el emparejador sin generar tráfico contra los laboratorios.
 const OFFLINE = argv.includes('--offline');
 
-// ── fetch con reintentos ─────────────────────────────────────────────────────
+// ── transporte: directo, con escalada automática a Zyte ──────────────────────
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function pedir(url, { json = false } = {}) {
-  let ultimo;
-  for (let intento = 0; intento <= REINTENTOS; intento++) {
-    try {
-      const ctrl = new AbortController();
-      const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
-      const res = await fetch(url, {
-        redirect: 'follow',
-        signal: ctrl.signal,
-        headers: { 'User-Agent': UA, Accept: json ? 'application/json,*/*' : 'text/html,*/*' },
-      });
-      clearTimeout(t);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return json ? res.json() : res.text();
-    } catch (e) {
-      ultimo = e;
-      if (intento < REINTENTOS) await dormir(400 * (intento + 1));
-    }
-  }
-  throw ultimo;
-}
+const http = crearCliente({ log: (m) => process.stdout.write(`  ⇢ ${m}\n`) });
 
-const ctx = { get: (u) => pedir(u), getJSON: (u) => pedir(u, { json: true }) };
+/** ctx que reciben los adaptadores. `proxy` fuerza Zyte desde el arranque. */
+function ctxPara(lab) {
+  const o = lab && lab.proxy ? { proxy: true } : undefined;
+  return { get: (u) => http.get(u, o), getJSON: (u) => http.getJSON(u, o) };
+}
 
 /** Corre `tarea` sobre `items` con N workers y pausa entre requests. */
 async function enParalelo(items, n, tarea, onProgreso) {
@@ -111,6 +94,8 @@ async function escanear(lab) {
     return { filas, errores: 0, urls: 0, ms: 0 };
   }
 
+  const ctx = ctxPara(lab);
+
   if (lab.modo === 'api') {
     const filas = await lab.scan(ctx);
     log(`${filas.length} estudios vía API (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
@@ -122,7 +107,7 @@ async function escanear(lab) {
   if (LIMITE) urls = urls.slice(0, LIMITE);
 
   const crudos = await enParalelo(urls, CONCURRENCIA, async (u) => {
-    const html = await pedir(u);
+    const html = await ctx.get(u);
     return lab.parse(html, u);
   }, (h, t) => log(`${h}/${t}…`));
 
@@ -149,7 +134,10 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   const publicados = leerRawData();
   const canonicos = publicados.map((e) => e.name);
   console.log(`Labcompara · scan de precios`);
-  console.log(`${canonicos.length} estudios publicados · ${LABS.length} laboratorios\n`);
+  console.log(`${canonicos.length} estudios publicados · ${LABS.length} laboratorios`);
+  console.log(OFFLINE
+    ? 'modo offline: se reusa data/scan/\n'
+    : `proxy anti-bloqueo: ${http.tieneProxy() ? http.proveedor + ' (con SCRAPER_API_KEY)' : 'no configurado — solo acceso directo'}\n`);
 
   const objetivo = LABS.filter((l) => !SOLO.length || SOLO.includes(l.id));
   const resultados = {};
@@ -229,8 +217,9 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   // suele ser un emparejamiento equivocado o un selector que cambió.
   const alertas = cambios.filter((c) => c.antes && c.ahora && (c.ahora / c.antes > 3 || c.ahora / c.antes < 1 / 3));
 
+  const generado = new Date().toISOString();
   const feed = {
-    generado: new Date().toISOString(),
+    generado,
     fuente: 'scan-labs.js',
     labs: LAB_IDS,
     meta,
@@ -238,6 +227,8 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
     estudios: matriz,
   };
   fs.writeFileSync(path.join(OUT_DIR, 'precios.json'), JSON.stringify(feed, null, 2));
+
+  const hist = actualizarHistorial(path.join(OUT_DIR, 'price-history.json'), matriz, LAB_IDS, generado);
 
   // ── reporte ───────────────────────────────────────────────────────────────
   const catalogoTotal = Object.values(resultados).reduce((n, r) => n + r.length, 0);
@@ -288,7 +279,13 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   console.log(`Por similitud      : ${porSimilitud.length} (revisar en data/reporte.md)`);
   console.log(`Cambios sospechosos: ${alertas.length}${alertas.length ? '  ⚠️  revisar antes de publicar' : ''}`);
   console.log(`Cambios de precio  : ${cambios.length}`);
-  console.log(`\nEscrito: data/precios.json · data/reporte.md · data/scan/*.json`);
+  if (!OFFLINE) {
+    const st = http.stats();
+    console.log(`Requests           : ${st.directo} directos · ${st.proxy} por ${http.proveedor}` +
+      (st.escaladas ? ` (${st.escaladas} escalados por bloqueo)` : ''));
+  }
+  console.log(`Historial          : ${hist.puntos} puntos nuevos · ${hist.estudios} estudios con serie`);
+  console.log(`\nEscrito: data/precios.json · data/price-history.json · data/reporte.md · data/scan/*.json`);
 
   if (APPLY) {
     const { escribirRawData } = require('./lib/apply');

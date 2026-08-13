@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-13T06:12:14.509Z",
+  "generado": "2026-08-13T15:31:28.220Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -57,32 +57,32 @@
   },
   "cobertura": {
     "Labbe": {
-      "emparejados": 69,
+      "emparejados": 72,
       "arrastrados": 16,
       "catalogo": 1067,
       "fuente": "scan"
     },
     "Polanco": {
-      "emparejados": 71,
-      "arrastrados": 26,
+      "emparejados": 72,
+      "arrastrados": 25,
       "catalogo": 1448,
       "fuente": "scan"
     },
     "Chopo": {
-      "emparejados": 61,
+      "emparejados": 62,
       "arrastrados": 33,
       "catalogo": 1601,
       "fuente": "scan"
     },
     "Salud Digna": {
-      "emparejados": 57,
+      "emparejados": 59,
       "arrastrados": 21,
       "catalogo": 580,
       "fuente": "scan"
     },
     "LAPI": {
-      "emparejados": 79,
-      "arrastrados": 35,
+      "emparejados": 83,
+      "arrastrados": 32,
       "catalogo": 1492,
       "fuente": "scan"
     },
@@ -139,12 +139,12 @@
     {
       "name": "Química Sanguínea 45 Elementos",
       "Labbe": null,
-      "Polanco": 1892,
+      "Polanco": 2265.5,
       "Chopo": 1015,
       "Salud Digna": null,
       "LAPI": null,
       "OLAB": 929,
-      "avg": 1279,
+      "avg": 1403,
       "cheapest": "OLAB"
     },
     {
@@ -681,9 +681,9 @@
       "Polanco": 1138.5,
       "Chopo": 143,
       "Salud Digna": null,
-      "LAPI": null,
+      "LAPI": 568,
       "OLAB": 282,
-      "avg": 521,
+      "avg": 533,
       "cheapest": "Chopo"
     },
     {
@@ -724,10 +724,10 @@
       "Labbe": 137,
       "Polanco": 380.65,
       "Chopo": null,
-      "Salud Digna": null,
+      "Salud Digna": 550,
       "LAPI": 134,
       "OLAB": null,
-      "avg": 217,
+      "avg": 300,
       "cheapest": "LAPI"
     },
     {
@@ -833,11 +833,11 @@
       "name": "Vitamina B12",
       "Labbe": 608,
       "Polanco": 2288.48,
-      "Chopo": 1836.71,
+      "Chopo": 2054,
       "Salud Digna": 363,
       "LAPI": 294,
       "OLAB": null,
-      "avg": 1078,
+      "avg": 1121,
       "cheapest": "LAPI"
     },
     {
@@ -908,24 +908,24 @@
     },
     {
       "name": "LH (Hormona Luteinizante)",
-      "Labbe": null,
+      "Labbe": 363,
       "Polanco": 1081,
       "Chopo": 409.5,
       "Salud Digna": 236,
-      "LAPI": 282,
+      "LAPI": 356,
       "OLAB": null,
-      "avg": 502,
+      "avg": 489,
       "cheapest": "Salud Digna"
     },
     {
       "name": "TSH (Hormona Estimulante de Tiroides)",
-      "Labbe": null,
+      "Labbe": 441,
       "Polanco": 908.5,
       "Chopo": 386.28,
       "Salud Digna": 171,
-      "LAPI": 282,
+      "LAPI": 189,
       "OLAB": null,
-      "avg": 437,
+      "avg": 419,
       "cheapest": "Salud Digna"
     },
     {
@@ -1062,14 +1062,14 @@
     },
     {
       "name": "DHEA-S (Sulfato de Dehidroepiandrosterona)",
-      "Labbe": null,
+      "Labbe": 406,
       "Polanco": null,
-      "Chopo": null,
+      "Chopo": 1274,
       "Salud Digna": null,
-      "LAPI": 407,
+      "LAPI": 438,
       "OLAB": null,
-      "avg": 407,
-      "cheapest": "LAPI"
+      "avg": 706,
+      "cheapest": "Labbe"
     },
     {
       "name": "Proteínas Totales",
@@ -1119,11 +1119,11 @@
       "name": "Antígeno Carcinoembrionario (CEA)",
       "Labbe": null,
       "Polanco": 3047.5,
-      "Chopo": 1298.14,
+      "Chopo": 1203.43,
       "Salud Digna": 329,
       "LAPI": 334,
       "OLAB": null,
-      "avg": 1252,
+      "avg": 1228,
       "cheapest": "Salud Digna"
     },
     {
@@ -1164,11 +1164,11 @@
       "Labbe": null,
       "Polanco": null,
       "Chopo": 850.58,
-      "Salud Digna": null,
+      "Salud Digna": 315,
       "LAPI": 385,
       "OLAB": null,
-      "avg": 618,
-      "cheapest": "LAPI"
+      "avg": 517,
+      "cheapest": "Salud Digna"
     },
     {
       "name": "Perfil Renal Básico",

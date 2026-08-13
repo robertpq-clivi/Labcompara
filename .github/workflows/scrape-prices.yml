@@ -1,0 +1,76 @@
+name: Scrape lab prices
+
+# Cada 7 días. Domingo 13:00 UTC ≈ 07:00 America/Mexico_City.
+# Se usa "domingo" y no "*/7" porque */7 se desalinea al cambiar de mes
+# (dispararía días 1, 8, 15, 22, 29 y luego otra vez el 1).
+on:
+  schedule:
+    - cron: "0 13 * * 0"
+  workflow_dispatch:
+    inputs:
+      labs:
+        description: "Solo estos labs (separados por coma). Vacío = todos."
+        type: string
+        default: ""
+      dry_run:
+        description: "Escanear y reportar sin commitear"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrape-prices
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Escanear laboratorios
+        run: node scripts/scan-labs.js --apply ${{ inputs.labs && format('--labs={0}', inputs.labs) || '' }}
+        env:
+          # Mismo proveedor y mismo nombre de secret que GLPcompara.
+          SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
+          SCRAPER_PROVIDER: zyte
+
+      - name: Verificar el feed y el snapshot embebido
+        run: node scripts/test-feed.js
+
+      - name: Resumen de la corrida
+        run: |
+          {
+            echo "## Scan de precios"
+            echo
+            sed -n '1,40p' data/reporte.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commitear precios actualizados
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name  "labcompara-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/precios.json data/reporte.md data/price-history.json index.html
+          if git diff --staged --quiet; then
+            echo "Sin cambios de precio."
+          else
+            git commit -m "chore(data): refrescar precios de laboratorio [skip ci]"
+            git push
+          fi
+
+      - name: Subir el catálogo crudo como artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogo-crudo
+          path: data/scan/
+          retention-days: 30
+          if-no-files-found: ignore

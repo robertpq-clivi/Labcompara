@@ -272,12 +272,17 @@ const lapi = {
  * es `Allow: /`. Por eso este adaptador se dejó escrito pero sin ejecutar desde
  * aquí: debe correrlo el bot propio de Labcompara (que cae bajo `*`).
  * Ver docs/AUTOMATIZACION.md → "Nota sobre OLAB".
+ *
+ * `proxy: true` manda sus requests por Zyte desde el arranque: el sitio está
+ * detrás de Cloudflare y el acceso directo desde un runner de GitHub (IP de
+ * datacenter) es justo lo que ese tipo de protección filtra.
  */
 const olab = {
   id: 'OLAB',
   modo: 'catalogo',
   fuente: 'olab.com.mx',
   verificado: false,
+  proxy: true,
   async urls(ctx) {
     const xml = await ctx.get('https://olab.com.mx/sitemap.xml');
     let locs = locsFrom(xml);

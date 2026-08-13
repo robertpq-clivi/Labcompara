@@ -6,41 +6,62 @@ Cómo Labcompara mantiene los precios al día sin que nadie los capture a mano.
 
 ## 1. Cómo funciona
 
-Cada 7 días un Apps Script recorre los seis laboratorios, extrae su catálogo con
-precios, lo empareja contra los estudios de Labcompara y publica el resultado
-como JSON. El sitio lo consume al cargar.
+Misma infraestructura que GLPcompara: **GitHub Actions con cron + Zyte como
+proveedor anti-bloqueo**, commiteando los datos de vuelta al repo para que el
+deploy los publique.
 
 ```
-                        ┌──────────────────────────────┐
-   trigger 7 días  ───▶ │  labcompara-apps-script.gs   │
-                        │  ────────────────────────    │
-                        │  1. abrirCiclo_              │  ← labs de API + cola
-                        │  2. procesarCola_  (×N)      │  ← lotes de 30 fichas
-                        │  3. consolidar_              │  ← match + histórico
-                        └──────────────┬───────────────┘
-                                       │
-                        ┌──────────────▼───────────────┐
-                        │  Google Sheets               │
-                        │  Precios · Historico ·       │
-                        │  Catalogo · Scan_Log ·       │
-                        │  Sin_Match                   │
-                        └──────────────┬───────────────┘
-                                       │  GET ?feed=precios
-                        ┌──────────────▼───────────────┐
-                        │  index.html → cargarPrecios()│
-                        │  respaldo: RAW_DATA embebido │
-                        └──────────────────────────────┘
+   cron domingo 07:00 CDMX
+            │
+            ▼
+  ┌────────────────────────────────────┐
+  │ .github/workflows/scrape-prices.yml│
+  │  └─ node scripts/scan-labs.js      │
+  │       SCRAPER_API_KEY  (secret)    │
+  │       SCRAPER_PROVIDER = zyte      │
+  └──────────────┬─────────────────────┘
+                 │  directo → si el sitio bloquea, escala a Zyte
+                 ▼
+  ┌────────────────────────────────────┐
+  │ 6 laboratorios · ~6,200 estudios   │
+  └──────────────┬─────────────────────┘
+                 │  emparejar contra los 124 del comparador
+                 ▼
+  ┌────────────────────────────────────┐
+  │ data/precios.json                  │  ← lo consume el sitio
+  │ data/price-history.json            │  ← serie temporal
+  │ data/reporte.md                    │  ← qué cambió
+  │ index.html (RAW_DATA embebido)     │  ← respaldo actualizado
+  └──────────────┬─────────────────────┘
+                 │  git commit + push  → GitHub Pages redeploya
+                 ▼
+  ┌────────────────────────────────────┐
+  │ labcompara.com                     │
+  └────────────────────────────────────┘
 ```
 
-Es la misma infraestructura de GLPcompara —Sheets + Apps Script publicado como
-aplicación web— y el mismo `doPost()` sigue recibiendo leads, clicks,
-comparaciones y suscripciones. El scanner se le suma encima.
+El Apps Script sigue existiendo pero **solo para leads**
+([`scripts/labcompara-apps-script.gs`](../scripts/labcompara-apps-script.gs)),
+igual que en GLPcompara. Los precios no pasan por Sheets.
 
-**El scan es resumible.** Una ejecución de Apps Script muere a los 6 minutos y
-el catálogo completo son ~4,200 fichas HTML. Por eso las URLs se encolan en la
-hoja `_Cola`, se procesan por lotes durante ~4.5 minutos y el script se
-reprograma solo con un trigger de un disparo hasta vaciar la cola. Una corrida
-completa encadena 6–8 ejecuciones (~35 min de reloj, sin supervisión).
+### El proxy solo se usa cuando hace falta
+
+En GLPcompara cada fuente se asigna a mano a "directo" o "por Zyte". Aquí la
+escalada es **automática**: se pide directo y solo se reintenta por Zyte si el
+sitio responde como si estuviera bloqueando (403, 429, 503, reto de Cloudflare,
+error de red). Dos razones:
+
+1. 5 de los 6 laboratorios responden directo hoy. Mandarlos por Zyte gastaría
+   ~4,200 requests de crédito por corrida para nada.
+2. Si mañana alguno empieza a bloquear, el scan se cura solo en vez de devolver
+   cero y dejar la columna congelada hasta que alguien lo note.
+
+OLAB es la excepción: va con `proxy: true` desde el arranque porque está detrás
+de Cloudflare y un runner de GitHub sale con IP de datacenter, justo lo que ese
+tipo de protección filtra.
+
+Al final de cada corrida el log dice cuántos requests fueron directos, cuántos
+por Zyte y cuántos escalaron por bloqueo.
 
 ---
 
@@ -106,61 +127,69 @@ reales del sitio.
 
 ---
 
-## 3. Instalación
+## 3. Puesta en marcha
 
-Una sola vez, ~10 minutos.
+**Falta un paso, y solo lo puedes hacer tú:** agregar el secret con la clave de
+Zyte al repo de Labcompara. GitHub no deja leer el valor de un secret existente,
+así que no se puede copiar desde GLPcompara por API.
 
-1. **Crea una hoja de cálculo** nueva en Google Sheets.
-2. **Extensiones → Apps Script.** Borra lo que haya y pega
-   [`scripts/labcompara-apps-script.gs`](../scripts/labcompara-apps-script.gs)
-   completo.
-3. **Ejecuta `instalar()`** y autoriza los permisos.
-   Crea las hojas y programa el trigger cada 7 días a las 3am.
-4. **Ejecuta `sembrarCatalogo()`.**
-   `consolidar_()` nunca inventa estudios: solo actualiza los que ya existen en
-   la hoja `Precios`. Esta función la siembra desde `data/precios.json` del repo.
-   Vuelve a correrla cada vez que agregues estudios al comparador.
-5. **Implementar → Nueva implementación → Aplicación web**
-   - Ejecutar como: **Yo**
-   - Quién tiene acceso: **Cualquier persona**
+```bash
+# la misma clave que ya usa GLPcompara
+gh secret set SCRAPER_API_KEY -R robertpq-clivi/Labcompara
+```
 
-   Copia la URL `/exec`.
-6. **Pega esa URL en `index.html`** → constante `FEED_URL`.
-   Hasta entonces el sitio lee el snapshot del repo (`/data/precios.json`), que
-   también funciona pero solo se actualiza cuando alguien hace deploy.
-7. **Ejecuta `escanearAhora()`** para llenar los datos sin esperar al trigger.
+O en la web: **Settings → Secrets and variables → Actions → New repository
+secret**, nombre `SCRAPER_API_KEY`.
 
-Para redeployar después de un cambio:
-Implementar → Gestionar implementaciones → ✏️ → Versión: **Nueva versión**.
-La URL no cambia.
+> Si la vas a usar en los dos repos, conviene subirla a nivel de organización
+> (**Org settings → Secrets → Actions**) y darle acceso a ambos. Así se rota en
+> un solo lugar.
+
+Sin el secret el scan **igual corre**: 5 de los 6 laboratorios responden directo.
+Lo que se pierde es OLAB y la red de seguridad si alguno empieza a bloquear.
+
+### Disparar una corrida a mano
+
+```bash
+gh workflow run scrape-prices.yml -R robertpq-clivi/Labcompara
+gh workflow run scrape-prices.yml -R robertpq-clivi/Labcompara -f dry_run=true    # sin commitear
+gh workflow run scrape-prices.yml -R robertpq-clivi/Labcompara -f labs=Labbe,LAPI # solo algunos
+gh run watch -R robertpq-clivi/Labcompara
+```
+
+El resumen de cada corrida (cobertura por lab, cambios sospechosos) queda en la
+pestaña **Summary** del run, y el catálogo crudo como artifact por 30 días.
+
+### El Apps Script (leads)
+
+Solo para el formulario, sin precios:
+Hoja nueva → Extensiones → Apps Script → pegar
+[`scripts/labcompara-apps-script.gs`](../scripts/labcompara-apps-script.gs) →
+Implementar como aplicación web (ejecutar como **Yo**, acceso **Cualquier
+persona**).
 
 ---
 
 ## 4. Operación
 
-**Qué revisar después de cada corrida** (hoja `Scan_Log`):
+**Dónde mirar después de cada corrida:** la pestaña **Summary** del run en
+Actions trae las primeras 40 líneas de `data/reporte.md`, que es lo que importa:
 
-| Estado | Significa | Acción |
-|---|---|---|
-| `ok` | scan y consolidación normales | ninguna |
-| `encolado` | sitemap leído, fichas en cola | ninguna (es intermedio) |
-| `descartado` | el scan trajo <30% del catálogo previo | revisar el adaptador |
-| `sin-datos` | cero resultados | el sitio cambió o está caído |
-| `error` | excepción; el detalle trae el mensaje | revisar |
+| Sección | Qué dice |
+|---|---|
+| Cobertura por laboratorio | catálogo escaneado, confirmados, arrastrados, errores |
+| ⚠️ Cambios sospechosos | saltos de más de 3×, casi siempre un match equivocado |
+| Emparejamientos por similitud | los inferidos, con su score, para validar |
+| Cambios de precio | todo lo que se movió respecto a la corrida anterior |
 
-**Hoja `Sin_Match`** — estudios que el laboratorio sí tiene con precio pero que
-no se pudieron emparejar con ningún estudio de Labcompara. Es la mejor fuente
-para dos cosas: detectar estudios que valdría la pena agregar al comparador, y
-detectar nombres que solo necesitan un alias.
+**Si un laboratorio devuelve `✗ falló` o cae mucho su catálogo**, la guardia de
+sanidad descarta la corrida de ese lab y conserva sus precios previos, así que
+el sitio no se rompe. Revisa el adaptador en `scripts/lib/labs.js`.
 
-**Hoja `Catalogo`** — la forma de arreglar un emparejamiento fallido sin tocar
-código: una fila con el nombre canónico y sus variantes separadas por `|`.
-
-```
-Estudio canónico                  | Alias
-Biometría Hemática                | biometria hematica completa|BH|biometria hematica automatizada
-Química Sanguínea 27 Elementos    | quimica sanguinea de 27 elementos|QS27
-```
+**Emparejamientos que salen mal** se arreglan sin tocar el algoritmo: agrega el
+nombre real del laboratorio a `ALIASES` en
+[`scripts/lib/match.js`](../scripts/lib/match.js) bajo el estudio canónico que
+le toca, y agrega el caso a `scripts/test-match.js` para que no vuelva.
 
 **Hoja `Historico`** — append-only: cada cambio de precio con su delta. Sirve
 para gráficas de evolución y para detectar movimientos raros.

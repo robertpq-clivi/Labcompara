@@ -126,9 +126,24 @@ const ROMANOS = { i: 1, ii: 2, iii: 3, iv: 4, v: 5 };
  *    similitud por tokens es más ciega, porque una letra pesa lo mismo que
  *    cualquier otro token.
  */
-function marcadores(set) {
-  return [...set]
-    .filter((t) => /^\d+$/.test(t) || ROMANOS[t] !== undefined || /^[a-z]$/.test(t) || /^[a-z]\d+$/.test(t))
+function marcadores(set, otro) {
+  const toks = [...set];
+  const numeros = new Set(toks.filter((t) => /^\d+$/.test(t)));
+  // Iniciales del otro nombre: "Tsh (H. Estimulante…)" abrevia "Hormona", que
+  // el nombre canónico escribe completa. Una letra suelta que es la inicial de
+  // una palabra del otro lado es una abreviatura, no un marcador.
+  const iniciales = new Set(otro ? [...otro].map((t) => t[0]) : []);
+
+  return toks
+    .filter((t) => {
+      if (/^\d+$/.test(t)) return true;
+      if (ROMANOS[t] !== undefined) return true;
+      // Código de producto redundante: "Química de 45 elementos (Q45)" — el 45
+      // ya está suelto, así que Q45 no aporta identidad.
+      if (/^[a-z]\d+$/.test(t)) return !numeros.has(t.slice(1));
+      if (/^[a-z]$/.test(t)) return !iniciales.has(t);
+      return false;
+    })
     .map((t) => (ROMANOS[t] !== undefined ? 'r' + ROMANOS[t] : t))
     .sort()
     .join(',');
@@ -154,9 +169,27 @@ function calificadores(set) {
 const MARCAS_PANEL = ['perfil', 'checkup', 'check', 'paquete', 'panel'];
 const marcaPanel = (S) => MARCAS_PANEL.some((m) => S.has(m));
 
-function similitudCruda(A, B) {
-  if (!A.size || !B.size) return 0;
-  if (marcadores(A) !== marcadores(B)) return 0;
+/**
+ * Expande abreviaturas de una letra usando el otro nombre como diccionario:
+ * "Tsh (H. Estimulante de Tiroides)" ↔ "TSH (Hormona Estimulante de Tiroides)".
+ * Sin esto, "h" y "hormona" cuentan como dos tokens distintos y hunden el score
+ * de un par que es idéntico.
+ */
+function alinear(A, B) {
+  const out = new Set();
+  for (const t of A) {
+    if (/^[a-z]$/.test(t)) {
+      const largo = [...B].find((u) => u.length > 1 && u[0] === t);
+      out.add(largo || t);
+    } else out.add(t);
+  }
+  return out;
+}
+
+function similitudCruda(A0, B0) {
+  if (!A0.size || !B0.size) return 0;
+  if (marcadores(A0, B0) !== marcadores(B0, A0)) return 0;
+  const A = alinear(A0, B0), B = alinear(B0, A0);
   if (calificadores(A) !== calificadores(B)) return 0;
   let inter = 0;
   for (const t of A) if (B.has(t)) inter++;
@@ -186,11 +219,21 @@ function similitudCruda(A, B) {
 }
 
 /**
+ * Un "X y Y" en el nombre del laboratorio suele ser un estudio combinado:
+ * "ÁCIDO FÓLICO Y VITAMINA B12" no es "Vitamina B12", y su precio es otro.
+ * Solo cuenta si el nombre canónico no trae también una conjunción — "Grupo
+ * Sanguíneo y Rh" ↔ "GRUPO SANGUÍNEO Y FACTOR RH" sí son el mismo estudio.
+ */
+const CONJUNCION = /\s+[ye]\s+/i;
+const esCombinado = (canon, lab) => CONJUNCION.test(lab) && !CONJUNCION.test(canon);
+
+/**
  * Los nombres canónicos usan paréntesis para aclarar, no para identificar:
  * "CA-125 (Marcador Tumoral Ovario)", "Vitamina D (25-Hidroxi)".
  * Se compara con y sin el paréntesis y se toma el mejor resultado.
  */
 function similitud(a, b) {
+  if (esCombinado(a, b)) return 0;
   const B = tokens(b);
   let mejor = similitudCruda(tokens(a), B);
   const sinParentesis = String(a).replace(/\([^)]*\)/g, ' ').trim();
