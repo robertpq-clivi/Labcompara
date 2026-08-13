@@ -43,6 +43,9 @@ const CALIFICADORES = new Set([
   // sensibilidad / método
   'ultra', 'ultrasensible', 'sensible', 'sensibilidad', 'hs', 'cualitativo', 'cuantitativo',
   'dilucion', 'extra',
+  // "NICOTINA EN ORINA" ($2,970, cromatografía) ≠ "NICOTINA EN ORINA PRUEBA
+  // RÁPIDA" ($193, tira reactiva). El método cambia el precio por 15x.
+  'rapida', 'rapido', 'correccion', 'diluciones',
   'inmunologico', 'inmunologica', 'automatizado', 'confirmatorio', 'reflejo',
   // fracción / derivado
   'libre', 'total', 'fraccionado', 'directo', 'indirecto', 'ionizado',
@@ -57,8 +60,13 @@ const CALIFICADORES = new Set([
   'basico', 'completo', 'especial', 'ampliado', 'express', 'plus', 'premium', 'avanzado',
   // condiciones de toma
   'postprandial', 'ayuno', 'curva', 'horas', 'hrs', 'pre', 'post',
-  // matriz de la muestra que sí cambia el estudio
-  'orina', 'urinario', 'urinaria', 'urinarias', 'heces', 'saliva', 'capilar', 'lcr', 'liquido',
+  // matriz de la muestra que sí cambia el estudio. "Adenosín deaminasa" cuesta
+  // $5,314 y "…en Líquido Peritoneal" $1,099: no son intercambiables.
+  'orina', 'urinario', 'urinaria', 'urinarias', 'heces', 'saliva', 'capilar',
+  'lcr', 'liquido', 'liq', 'peritoneal', 'pleural', 'sinovial', 'amniotico',
+  'ascitico', 'esputo', 'expectoracion', 'semen', 'sudor',
+  // organismo buscado: un cultivo de hongos no es un cultivo bacteriano
+  'hongos', 'micologico', 'mycobacterium', 'micobacteria', 'bacteriologico', 'viral',
 ]);
 
 /** Sinónimos que se colapsan antes de comparar. */
@@ -267,26 +275,38 @@ function similitudCruda(A0, B0) {
 }
 
 /**
- * Un "X y Y" en el nombre del laboratorio suele ser un estudio combinado:
- * "ÁCIDO FÓLICO Y VITAMINA B12" no es "Vitamina B12", y su precio es otro.
- * Solo cuenta si el nombre canónico no trae también una conjunción — "Grupo
- * Sanguíneo y Rh" ↔ "GRUPO SANGUÍNEO Y FACTOR RH" sí son el mismo estudio.
+ * Un "X y Y" en el nombre suele señalar un estudio combinado: "ÁCIDO FÓLICO Y
+ * VITAMINA B12" no es "Vitamina B12", y "DENSITOMETRÍA COLUMNA Y CADERA" no es
+ * "Densitometría Cadera". Sus precios son otros.
+ *
+ * La comparación es simétrica a propósito: da igual de qué lado esté la
+ * conjunción. La primera versión solo miraba el lado del laboratorio, y al usar
+ * el emparejador para agrupar estudios ENTRE laboratorios —donde no hay un lado
+ * "canónico"— el orden de los argumentos decidía si el par se fusionaba o no.
  */
 const CONJUNCION = /\s+[ye]\s+/i;
-const esCombinado = (canon, lab) => CONJUNCION.test(lab) && !CONJUNCION.test(canon);
+const esCombinado = (a, b) => CONJUNCION.test(a) !== CONJUNCION.test(b);
 
 /**
- * Los nombres canónicos usan paréntesis para aclarar, no para identificar:
- * "CA-125 (Marcador Tumoral Ovario)", "Vitamina D (25-Hidroxi)".
- * Se compara con y sin el paréntesis y se toma el mejor resultado.
+ * Los nombres canónicos suelen usar paréntesis para aclarar, no para
+ * identificar: "CA-125 (Marcador Tumoral Ovario)", "TSH (Hormona Estimulante
+ * de Tiroides)". Por eso se compara con y sin el paréntesis.
+ *
+ * Salvo cuando el paréntesis lleva un número: ahí SÍ identifica.
+ * "Baciloscopia BAAR (5 Muestras)" cuesta $2,016 y "Baciloscopia BAAR" $426;
+ * descartar el "(5 Muestras)" los volvía el mismo estudio.
  */
+const PARENTESIS_CON_NUMERO = /\([^)]*\d[^)]*\)/;
+
 function similitud(a, b) {
   if (esCombinado(a, b)) return 0;
   const B = tokens(b);
   let mejor = similitudCruda(tokens(a), B);
-  const sinParentesis = String(a).replace(/\([^)]*\)/g, ' ').trim();
-  if (sinParentesis && sinParentesis !== String(a).trim()) {
-    mejor = Math.max(mejor, similitudCruda(tokens(sinParentesis), B));
+  if (!PARENTESIS_CON_NUMERO.test(a)) {
+    const sinParentesis = String(a).replace(/\([^)]*\)/g, ' ').trim();
+    if (sinParentesis && sinParentesis !== String(a).trim()) {
+      mejor = Math.max(mejor, similitudCruda(tokens(sinParentesis), B));
+    }
   }
   return mejor;
 }
@@ -330,12 +350,24 @@ function emparejar(canonicos, filas, umbral = 0.82) {
   const porClave = new Map();
   for (const c of canonicos) porClave.set(clave(c), c);
 
-  const mapeo = new Map();   // canónico → fila (la más barata si hay empate)
+  const mapeo = new Map();   // canónico → mejor fila del laboratorio
   const sinMatch = [];
 
+  /**
+   * Gana el candidato con MEJOR score; el precio solo desempata.
+   *
+   * La primera versión elegía siempre el más barato, y eso hacía que un match
+   * difuso barato le ganara a uno exacto: "Antitrombina III (Funcional)"
+   * ($1,843) perdía contra "Antitrombina III (Antigénica)" ($482), y
+   * "Adenosín deaminasa" ($5,314) contra "…en Líquido Peritoneal" ($1,099).
+   * Elegir por parecido y desempatar por precio resuelve toda esa familia de
+   * errores de un golpe, en vez de ir agregando calificadores uno por uno.
+   */
   const registrar = (canon, fila, via, score) => {
     const prev = mapeo.get(canon);
-    if (!prev || fila.precio < prev.precio) mapeo.set(canon, { ...fila, via, score });
+    if (!prev || score > prev.score || (score === prev.score && fila.precio < prev.precio)) {
+      mapeo.set(canon, { ...fila, via, score });
+    }
   };
 
   for (const fila of filas) {

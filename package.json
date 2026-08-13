@@ -8,7 +8,9 @@
     "scan": "node scripts/scan-labs.js",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
-    "test": "node scripts/test-match.js && node scripts/test-feed.js"
+    "test": "node scripts/test-match.js && node scripts/test-feed.js",
+    "expandir": "node scripts/expandir-catalogo.js",
+    "expandir:apply": "node scripts/expandir-catalogo.js --apply"
   },
   "engines": {
     "node": ">=16"

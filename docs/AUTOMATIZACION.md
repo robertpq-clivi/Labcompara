@@ -270,6 +270,30 @@ npm test
 
 ---
 
+## 5.2 Ampliar el catálogo de estudios
+
+El scan semanal **refresca** precios; nunca inventa filas. Descubrir estudios
+nuevos es una decisión aparte, que conviene revisar a ojo antes de publicar:
+
+```bash
+npm run expandir              # reporta qué se agregaría, sin escribir
+npm run expandir:apply        # lo aplica a index.html
+node scripts/expandir-catalogo.js --min-labs=2   # baja el listón
+```
+
+`scripts/lib/agrupar.js` resuelve el problema inverso al del emparejador: en vez
+de "¿este nombre es este estudio?", agrupa los ~8,300 nombres de los seis
+laboratorios **sin lista de referencia**, y publica los grupos presentes en 3+
+laboratorios. Con 2 ya se puede comparar pero apenas; con 3 la fila tiene
+sustancia, y como efecto secundario casi todo lo de gabinete (RX, resonancia)
+se queda fuera solo porque suele estar en pocos laboratorios.
+
+Los estudios curados a mano no se tocan: sus nombres son las llaves de
+`STUDY_INFO` y de las páginas SEO. El descarte de duplicados usa similitud, no
+solo igualdad — "Tiempo de Tromboplastina Parcial" y "…(TTP)" son el mismo
+estudio, y publicar los dos hacía que compitieran por la misma fila del
+laboratorio, dejando a uno con un precio 8× más caro.
+
 ## 6. Agregar un laboratorio
 
 1. Averigua de dónde sale el precio. En orden de preferencia:

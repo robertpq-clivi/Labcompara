@@ -6,7 +6,7 @@ Compara precios entre Labbe, Polanco, Chopo, Salud Digna, LAPI y OLAB en un solo
 
 ## Características
 
-- 124 estudios comparados entre 6 laboratorios
+- **620 estudios** comparados entre 6 laboratorios (90 con los seis precios)
 - **Precios actualizados solos cada 7 días** ([cómo funciona](docs/AUTOMATIZACION.md))
 - Formulario de captura de leads
 - Badges de "Más barato" y "Mejor calificado"
@@ -23,7 +23,7 @@ disponible.
 ## Actualización de precios
 
 Cada 7 días un workflow de GitHub Actions recorre los seis laboratorios, extrae
-su catálogo con precios (~6,200 estudios), lo empareja contra los 124 del
+su catálogo con precios (~8,300 nombres), lo empareja contra los 620 del
 comparador y commitea el resultado. Misma infraestructura que GLPcompara:
 cron + **Zyte** como proveedor anti-bloqueo (`SCRAPER_API_KEY`).
 
@@ -32,6 +32,7 @@ npm run scan            # escanea los labs y regenera data/precios.json
 npm run scan:offline    # reusa data/scan/, sin pedir nada a los sitios
 npm run scan:apply      # además reescribe RAW_DATA en index.html
 npm test                # emparejador + cargador del feed
+npm run expandir        # busca estudios nuevos que estén en 3+ labs
 
 gh workflow run scrape-prices.yml -f dry_run=true   # corrida manual sin commit
 ```
@@ -54,6 +55,8 @@ scripts/
   lib/http.js                     transporte directo con escalada a Zyte
   lib/match.js                    emparejamiento de nombres de estudio
   lib/history.js                  serie temporal
+  lib/agrupar.js                  descubre estudios agrupando entre labs
+  expandir-catalogo.js            amplía RAW_DATA con lo descubierto
   test-match.js  test-feed.js     tests
   labcompara-apps-script.gs       captura de leads (Sheets)
   generate-sitemaps.js            sitemaps

@@ -84,6 +84,14 @@ const DISTINTOS = [
   // plural/singular sí colapsa, pero no borra la diferencia de analito
   ['Marcadores Tumorales Colon (CEA)', 'MARCADOR TUMORAL CA 15-3'],
   ['Vitamina B12', 'ACIDO FÓLICO Y VITAMINA B12 EN SUERO'],
+  // el paréntesis con número identifica: $426 vs $2,016
+  ['Baciloscopia BAAR (5 Muestras)', 'Baciloscopia BAAR'],
+  // el método cambia el precio 15x
+  ['Nicotina en Orina', 'NICOTINA EN ORINA PRUEBA RÁPIDA'],
+  // el líquido de la muestra cambia el estudio
+  ['Adenosin deaminasa', 'Adenosin deaminasa en Liq. Peritoneal'],
+  // un cultivo de hongos no es un cultivo bacteriano
+  ['Cultivo de Expectoración', 'CULTIVO DE HONGOS EN EXPECTORACIÓN'],
 ];
 
 let fallos = 0;
@@ -112,10 +120,27 @@ const { mapeo, sinMatch } = emparejar(canonicos, [
   { nombre: 'Perfil Tiroideo II', precio: 811 },
   { nombre: 'ESTUDIO QUE NO EXISTE EN LABCOMPARA', precio: 999 },
 ]);
+
+// Gana el mejor parecido, no el precio más bajo: un match exacto caro debe
+// vencer a uno difuso barato.
+const puntaje = emparejar(['Antitrombina III (Funcional)'], [
+  { nombre: 'Antitrombina III (Antigénica)', precio: 482 },
+  { nombre: 'Antitrombina III (Funcional)', precio: 1843 },
+]).mapeo.get('Antitrombina III (Funcional)');
+
+// Con el mismo parecido sí manda el precio: un lab que lista dos veces el
+// mismo estudio no debe encarecer la comparativa.
+const empate = emparejar(['Glucosa en Suero'], [
+  { nombre: 'GLUCOSA EN SUERO', precio: 120 },
+  { nombre: 'Glucosa en suero', precio: 94 },
+]).mapeo.get('Glucosa en Suero');
+
 const casos = [
   ['empareja el que sí corresponde', mapeo.get('Biometría Hemática') && mapeo.get('Biometría Hemática').precio === 115],
   ['no inventa el que no corresponde', !mapeo.has('Perfil Tiroideo')],
   ['reporta los no emparejados', sinMatch.length === 2],
+  ['gana el mejor parecido, no el más barato', puntaje && puntaje.precio === 1843],
+  ['a igual parecido, gana el más barato', empate && empate.precio === 94],
 ];
 for (const [nombre, ok] of casos) {
   if (!ok) fallos++;
