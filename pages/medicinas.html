@@ -29,7 +29,7 @@
 :root{
   --navy:#0B1F4B;--navy-mid:#1a3a6e;--teal:#00B4D8;--teal-light:#90E0EF;--teal-dark:#0077A8;
   --green:#10B981;--amber:#F59E0B;
-  --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-400:#94A3B8;
+  --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-300:#CBD5E1;--gray-400:#94A3B8;
   --gray-600:#475569;--gray-800:#1E293B;
 }
 *{box-sizing:border-box;}
@@ -93,45 +93,114 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Sora',sans-serif;}
 @media(max-width:900px){.hero-orbit{display:none;}}
 
 /* ── SECCIONES ───────────────────────────────────────────────────────────── */
+/* Del comparador GLP-1, para que los tres pasos y la tabla se vean y se usen
+   igual en las dos verticales. Se omite todo lo específico de aquella —la
+   columna destacada de su patrocinador, el modal de detalle— y se agrega lo
+   propio de esta: la marca debajo de cada precio. */
 .section{display:none;}.section.active{display:block;}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
-.pane{padding:92px 0 72px;}
-.pane h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;letter-spacing:-.02em;color:var(--navy);margin:0 0 8px;}
-.pane .sub{color:var(--gray-600);font-size:16px;margin:0 0 28px;}
-
-/* búsqueda */
-.search-box{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:14px 18px;box-shadow:0 2px 10px rgba(11,31,75,.05);}
-.search-box input{flex:1;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:16px;color:var(--gray-800);background:transparent;}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
-.chip{padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--gray-200);font-size:13px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;}
-.chip:hover{border-color:var(--teal);color:var(--teal-dark);}
-.chip.on{background:var(--navy);border-color:var(--navy);color:#fff;}
-
-/* tarjeta de presentación */
-.pres{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:20px 22px;margin-bottom:14px;box-shadow:0 2px 10px rgba(11,31,75,.04);}
-.pres-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
-.pres-name{font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:var(--navy);margin:0;}
-.pres-meta{font-size:13px;color:var(--gray-400);margin:4px 0 0;}
-.pres-save{flex:none;text-align:right;}
-.pres.de-marca{border-left:3px solid var(--teal);}
-.tag-marca{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 9px;border-radius:999px;background:#ECFEFF;box-shadow:inset 0 0 0 1px #A5F3FC;font-size:11px;font-weight:700;color:var(--teal-dark);}
-.rx{display:inline-flex;align-items:center;gap:5px;margin-top:7px;padding:3px 9px;border-radius:999px;background:#FFFBEB;box-shadow:inset 0 0 0 1px #FDE68A;font-size:11.5px;font-weight:600;color:#92400E;font-family:'Sora',sans-serif;}
-.rx.ctrl{background:#FEF2F2;box-shadow:inset 0 0 0 1px #FECACA;color:#991B1B;}
-.pres-save b{display:block;font-family:'Sora',sans-serif;font-weight:800;font-size:19px;color:var(--green);line-height:1.1;}
-.pres-save span{font-size:12px;color:var(--gray-400);}
-.farm-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
-.farm{border:1px solid var(--gray-200);border-radius:11px;padding:12px 14px;position:relative;transition:border-color .15s;}
-.farm:hover{border-color:var(--teal);}
-.farm.best{border-color:var(--green);background:#F0FDF4;}
-.farm-name{font-size:12px;font-weight:600;color:var(--gray-600);margin-bottom:5px;}
-.farm-price{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:var(--navy);line-height:1;}
-.farm.best .farm-price{color:var(--green);}
-.farm-unit{font-size:11px;color:var(--gray-400);margin-top:4px;}
-.farm-tag{position:absolute;top:-8px;right:10px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;font-family:'Sora',sans-serif;}
+/* La nav es fija: sin este hueco, la barra de bienvenida le pasa por debajo y
+   se come el logo. El hero no lo necesita porque su contenido ya va centrado
+   en toda la altura de la pantalla. */
+#sec-form,#sec-search,#sec-results{padding-top:58px;}
+.spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;display:inline-block;animation:giro .6s linear infinite;}
+@keyframes giro{to{transform:rotate(360deg)}}
 .vacio{text-align:center;color:var(--gray-400);padding:44px 20px;font-size:15px;}
-.nota{background:#fff;border:1px solid var(--gray-200);border-left:3px solid var(--teal);border-radius:10px;padding:14px 18px;font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:24px;}
+.nota{background:#fff;border:1px solid var(--gray-200);border-left:3px solid var(--teal);border-radius:10px;padding:14px 18px;font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:20px;}
+.rx{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;background:#FFFBEB;box-shadow:inset 0 0 0 1px #FDE68A;font-size:11.5px;font-weight:600;color:#92400E;font-family:'Sora',sans-serif;}
+.rx.ctrl{background:#FEF2F2;box-shadow:inset 0 0 0 1px #FECACA;color:#991B1B;}
+.tag-marca{display:inline-block;vertical-align:middle;margin-left:6px;padding:2px 8px;border-radius:999px;background:#ECFEFF;box-shadow:inset 0 0 0 1px #A5F3FC;font-size:10px;font-weight:700;color:var(--teal-dark);font-family:'Sora',sans-serif;}
+.buscador{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--gray-200);border-radius:12px;padding:11px 14px;margin-bottom:12px;}
+.buscador input{flex:1;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--gray-800);background:transparent;}
+.cmp-marca{display:block;font-size:9px;font-weight:700;color:var(--gray-400);letter-spacing:.02em;margin-top:2px;text-transform:uppercase;}
+
+/* BUTTONS */
+.btn-primary{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;border:none;padding:14px 30px;border-radius:12px;font-family:'Sora',sans-serif;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,180,216,.35);transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,180,216,.45);}
+.top-bar{background:linear-gradient(90deg,var(--navy),var(--navy-mid));padding:12px 24px;text-align:center;font-size:14px;color:white;}
+.top-bar b{color:#90E0EF;}
+.form-wrap{max-width:500px;margin:0 auto;padding:40px 24px 80px;}
+.step-label{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);text-align:center;margin-bottom:8px;}
+.form-h{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;color:var(--navy);text-align:center;margin-bottom:8px;}
+.form-p{font-size:15px;color:var(--gray-600);text-align:center;margin-bottom:24px;line-height:1.6;}
+.privacy-box{display:flex;align-items:flex-start;gap:10px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:12px 15px;margin-bottom:20px;}
+.privacy-box p{font-size:13px;color:#065F46;line-height:1.5;margin:0;}
+.form-card{background:white;border-radius:16px;box-shadow:0 4px 24px rgba(11,31,75,.08);padding:28px;}
+.field{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
+.field label{font-size:13px;font-weight:600;color:var(--gray-600);font-family:'Sora',sans-serif;}
+.field input,.field select{width:100%;padding:11px 14px;border:2px solid var(--gray-200);border-radius:10px;font-size:15px;color:var(--gray-800);outline:none;transition:border-color .2s;background:white;-webkit-appearance:none;}
+.field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,180,216,.1);}
+.field input.err,.field select.err{border-color:#EF4444;}
+.err-msg{font-size:12px;color:#EF4444;min-height:16px;}
+.hint{font-size:11px;color:var(--gray-400);}
+.btn-full{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;}
+.form-note{text-align:center;font-size:12px;color:var(--gray-400);margin-top:12px;line-height:1.6;}
+.search-wrap{max-width:700px;margin:0 auto;padding:36px 24px 80px;}
+.chips-wrap{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;background:var(--gray-50);border-radius:10px;margin-bottom:12px;align-items:center;}
+.chip-lbl{font-size:13px;font-weight:600;color:var(--gray-600);}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(0,180,216,.1);border:1px solid var(--teal);border-radius:20px;font-size:13px;color:var(--teal-dark);font-weight:500;}
+.chip-x{background:none;border:none;color:var(--teal-dark);font-weight:700;font-size:13px;line-height:1;padding:0 2px;}
+.study-list{max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.study-item{display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:10px;border:2px solid var(--gray-100);cursor:pointer;transition:border-color .15s;font-size:14px;}
+.study-item:hover{border-color:var(--teal);background:rgba(0,180,216,.03);}
+.study-item.sel{border-color:var(--teal);background:rgba(0,180,216,.07);}
+.study-cb{width:19px;height:19px;border-radius:5px;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:white;transition:all .15s;}
+.study-cb.on{background:var(--teal);border-color:var(--teal);}
+.study-name{flex:1;}
+.study-from{font-size:11px;color:var(--gray-400);}
+.study-price{font-size:13px;font-weight:700;color:var(--teal-dark);}
+.btn-compare{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;position:sticky;bottom:16px;}
+.results-wrap{max-width:820px;margin:0 auto;padding:30px 24px 80px;}
+.results-top{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;}
+.btn-back{background:white;border:2px solid var(--gray-200);border-radius:10px;padding:8px 14px;font-size:14px;font-family:'Sora',sans-serif;font-weight:600;color:var(--gray-600);transition:all .2s;}
+.btn-back:hover{border-color:var(--teal);color:var(--teal-dark);}
+.results-title{font-family:'Sora',sans-serif;font-weight:800;font-size:21px;color:var(--navy);}
+.results-sub-t{font-size:13px;color:var(--gray-600);}
+.sort-btns{margin-left:auto;display:flex;gap:6px;}
+.sort-btn{padding:6px 12px;border-radius:8px;font-size:13px;font-weight:600;font-family:'Sora',sans-serif;border:2px solid var(--gray-200);background:white;color:var(--gray-600);transition:all .2s;}
+.sort-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.bc{background:linear-gradient(135deg,#10B981,#059669);color:white;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;}
+.brec{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;}
+.back-link-wrap{text-align:center;margin-top:12px;}
+.back-link{background:none;border:none;color:var(--gray-400);font-size:14px;text-decoration:underline;cursor:pointer;}
+/* COMPARISON MATRIX */
+.cmp-hero{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:18px;padding:20px 22px;margin-bottom:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.cmp-hero-badge{width:48px;height:48px;border-radius:14px;background:rgba(0,180,216,.2);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.cmp-hero-t{font-family:'Sora',sans-serif;font-weight:800;font-size:17px;color:white;}
+.cmp-hero-t span{color:var(--teal-light);}
+.cmp-hero-p{font-size:13px;color:rgba(255,255,255,.72);margin-top:3px;line-height:1.5;}
+.cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:2px solid var(--gray-100);background:white;box-shadow:0 4px 24px rgba(11,31,75,.06);}
+.cmp-table{border-collapse:separate;border-spacing:0;width:100%;min-width:600px;}
+.cmp-table th,.cmp-table td{padding:11px 9px;text-align:center;font-size:13px;}
+.cmp-corner{position:sticky;left:0;z-index:4;background:white;min-width:138px;}
+.cmp-label{position:sticky;left:0;z-index:2;background:white;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;color:var(--gray-800);font-size:13px;white-space:nowrap;border-right:1px solid var(--gray-100);min-width:138px;}
+.cmp-ph{font-family:'Sora',sans-serif;font-weight:700;color:var(--navy);font-size:12.5px;vertical-align:bottom;line-height:1.25;border-bottom:2px solid var(--gray-100);}
+.cmp-emoji{font-size:21px;display:flex;justify-content:center;margin-bottom:5px;}
+.ph-logo{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;overflow:hidden;box-shadow:0 1px 5px rgba(11,31,75,.12);vertical-align:middle;flex-shrink:0;}
+.ph-logo img{width:76%;height:76%;object-fit:contain;}
+.cmp-rating{font-size:10px;color:var(--gray-400);font-weight:600;display:block;margin-top:3px;}
+.cmp-tag{display:inline-block;background:var(--teal);color:white;font-size:9px;font-weight:800;font-family:'Sora',sans-serif;padding:2px 8px;border-radius:20px;margin-top:6px;letter-spacing:.03em;text-transform:uppercase;}
+.cmp-row td{border-top:1px solid var(--gray-100);}
+.cmp-price{font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:var(--navy);}
+.cmp-price.low{color:#059669;}
+.cmp-low-tag{display:block;font-size:8.5px;font-weight:800;color:#059669;letter-spacing:.04em;margin-top:1px;}
+.cmp-na{color:var(--gray-300);font-size:13px;}
+.cmp-clickable{cursor:pointer;transition:background .15s;}
+.cmp-clickable:hover{background:rgba(0,180,216,.12);}
+.cmp-yes{color:#10B981;font-size:17px;font-weight:800;}
+.cmp-no{color:#CBD5E1;font-size:15px;font-weight:700;}
+.cmp-section td{background:var(--gray-50);text-align:left;font-family:'Sora',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-400);padding:9px 12px;position:sticky;left:0;}
+.cmp-go{display:inline-block;background:var(--gray-100);color:var(--navy);font-family:'Sora',sans-serif;font-weight:700;font-size:11.5px;padding:8px 11px;border-radius:9px;text-decoration:none;white-space:nowrap;}
+.cmp-go.prim{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:white;box-shadow:0 3px 12px rgba(0,180,216,.35);}
+.cmp-count{font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:var(--navy);}
+.cmp-count.win{color:var(--teal-dark);}
+.cmp-hint{font-size:12px;color:var(--gray-400);text-align:center;margin-top:12px;}
+.cmp-est{display:block;font-size:8.5px;font-weight:700;color:var(--gray-400);letter-spacing:.03em;margin-top:1px;text-transform:uppercase;}
+.cmp-note{font-size:12px;color:var(--gray-600);background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:11px 14px;margin-top:14px;line-height:1.6;}
+.cmp-note b{color:var(--navy);}
 
 /* footer */
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:44px 0 40px;font-size:14px;}
 footer a{color:rgba(255,255,255,.78);}
 footer a:hover{color:var(--teal-light);}
@@ -197,29 +266,64 @@ footer a:hover{color:var(--teal-light);}
 </section>
 
 <!-- ══════════════════ COMPARADOR ══════════════════ -->
-<section id="sec-comparador" class="section">
-  <div class="wrap pane">
-    <h2>Compara precios de medicamentos</h2>
-    <p class="sub" id="sub-comparador">Busca por principio activo o nombre del medicamento.</p>
+<!-- ══════════════════ PASO 1: DATOS ══════════════════ -->
+<section id="sec-form" class="section">
+  <div class="form-wrap">
+    <div class="step-label">Paso 1 de 3</div>
+    <h1 class="form-h">Cuéntanos de ti</h1>
+    <p class="form-p">Te enviaremos tu comparativa de precios y te avisamos cuando tu medicamento baje.</p>
+    <div class="privacy-box"><span>🔒</span><p><strong>Tu privacidad es lo primero.</strong> Solo usamos tus datos para enviarte la comparativa.</p></div>
+    <div class="form-card">
+      <div class="field"><label for="f-nombre">Nombre completo *</label><input id="f-nombre" type="text" placeholder="Ej. María García" autocomplete="name"/><span class="err-msg" id="err-nombre"></span></div>
+      <div class="field"><label for="f-correo">Correo electrónico *</label><input id="f-correo" type="email" placeholder="tu@correo.com" autocomplete="email"/><span class="err-msg" id="err-correo"></span></div>
+      <div class="field"><label for="f-cp">Código postal *</label><input id="f-cp" type="text" placeholder="06600" maxlength="5" inputmode="numeric"/><span class="err-msg" id="err-cp"></span><span class="hint">Para mostrarte farmacias en tu zona.</span></div>
+      <button class="btn-primary btn-full" id="form-submit">Elegir mi medicamento <span>→</span></button>
+    </div>
+    <p class="form-note">Al continuar aceptas nuestro aviso de privacidad.</p>
+  </div>
+</section>
 
-    <div class="nota">
-      Solo mostramos filas donde <strong>dos o más farmacias tienen exactamente la misma caja</strong>
-      —misma dosis, misma presentación y mismo número de piezas—. Comparar una caja de 7 contra una
-      de 120 no diría nada útil. Los combinados con otro principio activo se excluyen.
-      <br/><br/>
-      Hay dos tipos de fila. Las de <strong>principio activo</strong> toman lo más barato de cada
-      farmacia, que puede ser el genérico de una contra la marca de otra —debajo de cada precio dice
-      cuál es—. Las marcadas <span class="tag-marca" style="margin:0">misma marca</span> comparan el
-      mismo producto de la misma marca entre farmacias. Puedes buscar por cualquiera de los dos.
+<!-- ══════════════════ PASOS 2 y 3: MEDICAMENTO Y DOSIS ══════════════════ -->
+<section id="sec-search" class="section">
+  <div class="top-bar" id="search-bar" style="display:none;">👋 Hola <b id="search-name"></b> — Tu comparativa se enviará a <b id="search-email"></b></div>
+  <div class="search-wrap" style="padding-top:40px;">
+
+    <!-- Paso 2: medicamento por nombre o principio activo -->
+    <div id="med-step">
+      <div class="step-label">Paso 2 de 3</div>
+      <h1 class="form-h">¿Qué medicamento necesitas?</h1>
+      <p class="form-p">Búscalo por principio activo (paracetamol) o por marca (Tempra).</p>
+      <div class="buscador">
+        <span aria-hidden="true">🔍</span>
+        <input id="buscar" type="text" placeholder="Paracetamol, Tempra, omeprazol, Dimefor…" autocomplete="off" aria-label="Buscar medicamento por principio activo o marca"/>
+      </div>
+      <div class="study-list" id="med-grid" style="max-height:420px;"></div>
     </div>
 
-    <div class="search-box">
-      <span aria-hidden="true">🔍</span>
-      <input id="buscar" type="text" placeholder="Paracetamol, Tempra, omeprazol, Dimefor…" autocomplete="off" aria-label="Buscar medicamento por principio activo o marca"/>
+    <!-- Paso 3: presentación. Solo aparece si el medicamento tiene más de una. -->
+    <div id="dosis-step" style="display:none;">
+      <div class="step-label">Paso 3 de 3</div>
+      <button class="btn-back" id="cambiar-med" style="margin-bottom:18px;">← Cambiar medicamento</button>
+      <h1 class="form-h" id="dosis-title">Elige la presentación</h1>
+      <p class="form-p" id="dosis-sub">Selecciona una o varias presentaciones para comparar precios.</p>
+      <div class="chips-wrap" id="chips-wrap" style="display:none;"><span class="chip-lbl">Seleccionadas:</span><span id="chips-inner"></span></div>
+      <div class="study-list" id="dosis-list" style="max-height:none;"></div>
+      <button class="btn-primary btn-compare" id="comparar-btn" disabled style="opacity:.5;">Selecciona al menos una presentación</button>
     </div>
-    <div class="chips" id="chips"></div>
+  </div>
+</section>
 
-    <div id="resultados" style="margin-top:26px;"></div>
+<!-- ══════════════════ RESULTADOS ══════════════════ -->
+<section id="sec-results" class="section" style="background:var(--gray-50);">
+  <div class="top-bar" id="results-bar" style="display:none;">👋 Hola <b id="results-name"></b> — Enviamos tu comparativa a <b id="results-email"></b> ✓</div>
+  <div class="results-wrap">
+    <div class="results-top">
+      <button class="btn-back" id="results-back">← Volver</button>
+      <div><div class="results-title">Tu comparativa de precios</div><div class="results-sub-t" id="results-sub"></div></div>
+    </div>
+    <div class="legend"><span class="bc">✓ Incluido</span><span style="background:var(--gray-100);color:var(--gray-600);padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;">✕ No incluido</span><span class="brec">🏆 Más servicios</span></div>
+    <div id="results-container"></div>
+    <div class="back-link-wrap"><button class="back-link" id="nueva-busqueda">Buscar otro medicamento</button></div>
   </div>
 </section>
 
@@ -230,7 +334,7 @@ footer a:hover{color:var(--teal-light);}
     <div class="fnav">
       <a href="/">Inicio</a>
       <a href="/laboratorio">Laboratorios</a>
-      <a href="/glp1">Medicamentos GLP-1</a>
+      <a href="/glp1">GLP-1 (Pérdida peso)</a>
       <a href="/farmacias">Farmacias</a>
       <a href="/blog">Blog</a>
       <a href="/aviso-de-privacidad">Aviso de privacidad</a>
@@ -294,11 +398,47 @@ $('hero-cta').onclick = () => { ver('sec-comparador'); setTimeout(()=>$('buscar'
   medir(); addEventListener('resize', medir, {passive:true}); pintar();
 })();
 
-// ── DATOS ──────────────────────────────────────────────────────────────────
-const FEED = '/data/medicinas/prices.json';
-let PRES = [];      // presentaciones comparables
-let FUENTES = [];
+// ── FARMACIAS ──────────────────────────────────────────────────────────────
+// Los datos de las cuatro cadenas son los mismos que ya publica el comparador
+// GLP-1, para que una misma farmacia no aparezca con dos calificaciones
+// distintas según la sección. Prixz va sin calificación: no tenemos una, y
+// inventarla sería peor que dejar el hueco.
+const FARM_META = {
+  Ahorro:      { rating:4.4, url:'https://www.fahorro.com/',                 emoji:'💊', nombre:'Farmacias del Ahorro' },
+  Guadalajara: { rating:4.3, url:'https://www.farmaciasguadalajara.com/',    emoji:'🏪', nombre:'Farmacias Guadalajara' },
+  Benavides:   { rating:4.2, url:'https://www.benavides.com.mx/',            emoji:'🏬', nombre:'Farmacias Benavides' },
+  SanPablo:    { rating:4.3, url:'https://www.farmaciasanpablo.com.mx/',     emoji:'🏥', nombre:'Farmacias San Pablo' },
+  Prixz:       { url:'https://prixz.com/',                                   emoji:'🛒', nombre:'Prixz' },
+};
+const FARM_LOGO = {
+  Ahorro:'/images/farmacias/ahorro-logo.webp', Guadalajara:'/images/farmacias/guadalajara-logo.webp',
+  Benavides:'/images/farmacias/benavides-logo.webp', SanPablo:'/images/farmacias/sanpablo-logo.webp',
+};
+const CORTO = { Ahorro:'Del Ahorro', Guadalajara:'F. Guadalajara', Benavides:'Benavides', SanPablo:'San Pablo', Prixz:'Prixz' };
 
+/**
+ * Servicios de cada farmacia. Solo se afirma lo que se puede comprobar desde su
+ * propio sitio: que entregan a domicilio, que cobran en línea, que tienen
+ * sucursales físicas y que atienden recetas. Prixz es la única sin sucursales
+ * —opera solo en línea—, y eso no la hace peor: la hace distinta, que es justo
+ * lo que la tabla debe dejar ver.
+ */
+const SERVICIOS = [
+  { key:'envio',      icon:'🚚', label:'Envío a domicilio' },
+  { key:'pago',       icon:'💳', label:'Pago en línea' },
+  { key:'sucursales', icon:'🏪', label:'Sucursales físicas' },
+  { key:'receta',     icon:'📄', label:'Venta con receta en línea' },
+  { key:'generico',   icon:'💊', label:'Marca propia de genéricos' },
+];
+const FARM_SERV = {
+  Ahorro:      { envio:1, pago:1, sucursales:1, receta:0, generico:1 },
+  Guadalajara: { envio:1, pago:1, sucursales:1, receta:0, generico:1 },
+  Benavides:   { envio:1, pago:1, sucursales:1, receta:0, generico:1 },
+  SanPablo:    { envio:1, pago:1, sucursales:1, receta:1, generico:1 },
+  Prixz:       { envio:1, pago:1, sucursales:0, receta:1, generico:0 },
+};
+
+// ── UTILS ──────────────────────────────────────────────────────────────────
 const money = (n) => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
 /**
  * El precio por pieza necesita centavos. Con el formato de arriba, $0.93 y
@@ -307,6 +447,22 @@ const money = (n) => new Intl.NumberFormat('es-MX',{style:'currency',currency:'M
  */
 const porPieza = (n) => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
 const norm = (s) => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const esc = (s) => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+
+function farmBadge(id, px){
+  const m = FARM_META[id] || {}, src = FARM_LOGO[id];
+  return `<span class="ph-logo" style="width:${px}px;height:${px}px;font-size:${Math.round(px*0.55)}px;">${
+    src ? `<img src="${src}" alt="${esc(m.nombre||id)}" loading="lazy" decoding="async" onerror="this.parentNode.textContent='${m.emoji||''}'">` : (m.emoji||'')}</span>`;
+}
+
+function ver(id){
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  $(id).classList.add('active');
+  // Solo el hero es oscuro; cualquier otra sección obliga a oscurecer la nav.
+  $('main-nav').classList.toggle('on-light', id !== 'sec-hero');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+addEventListener('scroll', () => $('main-nav').classList.toggle('scrolled', scrollY > 20), {passive:true});
 
 /**
  * Aviso de receta. Comparar precios de un antibiótico o un ansiolítico sin
@@ -320,24 +476,36 @@ const norm = (s) => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowe
  */
 function receta(p){
   const c = p.categoria || '';
-  if (/venta controlada/i.test(c) || /^Tramadol$/i.test(p.medicamento))
+  if (/venta controlada/i.test(c) || /^(Tramadol|Morfina|Oxicodona|Buprenorfina|Metilfenidato)$/i.test(p.medicamento))
     return {clase:'ctrl', txt:'Receta especial · medicamento controlado'};
-  if (/antibi[oó]tico|antidepresivo|antipsic[oó]tico|insulina/i.test(c)
-      || /^(Semaglutida|Liraglutida|Pregabalina|Gabapentina)$/i.test(p.medicamento))
+  if (/antibi[oó]tico|antidepresivo|antipsic[oó]tico|insulina|opioide|ansiol[ií]tico|antiepil[eé]ptico|oncolog[ií]a|inmunosupresor/i.test(c)
+      || /^(Semaglutida|Liraglutida|Tirzepatida|Pregabalina|Gabapentina|Isotretinoína)$/i.test(p.medicamento))
     return {clase:'', txt:'Requiere receta médica'};
   return null;
 }
 
+// ── DATOS ──────────────────────────────────────────────────────────────────
+const FEED = '/data/medicinas/prices.json';
+let PRES = [];        // presentaciones comparables
+let FUENTES = [];     // farmacias configuradas, en orden
+let META = null;
+let MEDS = [];        // agrupadas por principio activo
+
+let lead = null;
+let medSel = null;    // medicamento elegido en el paso 2
+let selected = [];    // claves de presentación elegidas en el paso 3
+
 async function cargar(){
   try{
     const ctrl = new AbortController();
-    const t = setTimeout(()=>ctrl.abort(), 6000);
+    const t = setTimeout(()=>ctrl.abort(), 8000);
     const res = await fetch(FEED, {signal:ctrl.signal, cache:'no-cache'});
     clearTimeout(t);
     if(!res.ok) throw new Error('HTTP '+res.status);
     const d = await res.json();
     PRES = Array.isArray(d.presentaciones) ? d.presentaciones : [];
-    FUENTES = d.fuentes || [];
+    FUENTES = d.fuentes || Object.keys(FARM_META);
+    META = d;
     if(d.generated_at){
       const f = new Date(d.generated_at).toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});
       $('actualizado').textContent = 'Precios actualizados el ' + f + '.';
@@ -347,110 +515,326 @@ async function cargar(){
     const activas = new Set();
     PRES.forEach(p => Object.keys(p.precios).forEach(f => activas.add(f)));
     $('badge-txt').textContent = PRES.length + ' presentaciones comparadas en ' + activas.size + ' farmacias';
-    // render con lo que ya traiga el campo: si se entró por ?q= el valor está
-    // puesto desde antes de que llegara el feed.
-    pintarChips(); render($('buscar').value);
+
+    agrupar();
+    renderMedGrid($('buscar').value);
   }catch(err){
     console.warn('No se pudo cargar el comparador:', err.message);
-    $('resultados').innerHTML = '<div class="vacio">No pudimos cargar los precios en este momento. Vuelve a intentarlo en unos minutos.</div>';
+    $('med-grid').innerHTML = '<div class="vacio">No pudimos cargar los precios en este momento. Vuelve a intentarlo en unos minutos.</div>';
   }
 }
 
-function pintarChips(){
-  // Los medicamentos con más presentaciones comparables son los más útiles
-  // como atajo: son los que de verdad tienen con qué compararse.
-  const cuenta = {};
-  PRES.forEach(p => { cuenta[p.medicamento] = (cuenta[p.medicamento]||0) + 1; });
-  const top = Object.entries(cuenta).sort((a,b) => b[1]-a[1]).slice(0,10).map(x => x[0]);
-  $('chips').innerHTML = top.map(m => `<button class="chip" data-m="${m}">${m}</button>`).join('');
-  $('chips').querySelectorAll('.chip').forEach(ch => {
-    // Pasa por el evento 'input' para que el chip también actualice la URL.
-    ch.onclick = () => {
-      $('buscar').value = ch.dataset.m;
-      $('buscar').dispatchEvent(new Event('input'));
+/**
+ * Un renglón por principio activo, con sus presentaciones dentro.
+ *
+ * El feed viene por presentación porque esa es la unidad que se compara, pero
+ * el paso 2 pregunta por el medicamento: hay que darle la vuelta.
+ */
+function agrupar(){
+  const m = new Map();
+  for(const p of PRES){
+    const g = m.get(p.medicamento) || {
+      nombre: p.medicamento, categoria: p.categoria, rank: p.rank, filas: [], marcas: new Set(),
     };
-  });
+    g.filas.push(p);
+    if(p.marca) g.marcas.add(p.marca);
+    Object.values(p.precios).forEach(v => { if(v.marca) g.marcas.add(v.marca); });
+    m.set(p.medicamento, g);
+  }
+  MEDS = [...m.values()].map(g => {
+    g.desde = Math.min(...g.filas.map(f => f.min));
+    g.busca = norm(g.nombre + ' ' + (g.categoria||'') + ' ' + [...g.marcas].join(' '));
+    return g;
+  }).sort((a,b) => a.rank - b.rank);
 }
 
-function render(q){
-  const t = norm(q);
+// ── PASO 1: DATOS ──────────────────────────────────────────────────────────
+const setErr = (id, msg) => { $(id).textContent = msg; };
+['f-nombre','f-correo','f-cp'].forEach(id => {
+  $(id).addEventListener('input', () => setErr('err-'+id.slice(2), ''));
+});
+
+$('form-submit').onclick = async function(){
+  const n = $('f-nombre').value.trim(), c = $('f-correo').value.trim(), cp = $('f-cp').value.trim();
+  let ok = true;
+  if(!n){ setErr('err-nombre','Tu nombre es necesario'); ok = false; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c)){ setErr('err-correo','Ingresa un correo válido'); ok = false; }
+  if(!cp || cp.length < 4){ setErr('err-cp','Código postal requerido'); ok = false; }
+  if(!ok) return;
+  this.disabled = true; this.innerHTML = '<span class="spinner"></span> Preparando…';
+  lead = {nombre:n, correo:c, cp};
+  await guardarLead(lead);
+  this.disabled = false; this.innerHTML = 'Elegir mi medicamento <span>→</span>';
+  irBusqueda();
+};
+
+// Misma hoja que la vertical GLP-1: los leads de las tres caen en el mismo
+// lugar y se distinguen por "vertical".
+const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxKB4HJnpIxH2e-CLvr74ZsC1YSDon_It_khHS70Ha_P2QqSvo7Ul3Fj9S19MRsxstn/exec';
+function sheetLog(tipo, data){
+  if(!SHEET_WEBHOOK) return;
+  try{
+    fetch(SHEET_WEBHOOK, {
+      method:'POST',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},  // text/plain evita el preflight CORS
+      body: JSON.stringify(Object.assign({tipo, origen:'medcompara.com.mx', vertical:'medicinas'}, data)),
+    });
+  }catch(e){ console.warn('sheetLog:', e.message); }
+}
+async function guardarLead(l){ sheetLog('lead', {nombre:l.nombre, correo:l.correo, cp:l.cp}); }
+function trackFarmacia(p){
+  if(typeof gtag !== 'undefined') gtag('event','click_ir_a_la_farmacia', p);
+  sheetLog('click', {nombre:lead?lead.nombre:'', correo:lead?lead.correo:'', farmacia:p.pharmacy_name||'', medicamento:p.medicamento||'', precio:p.price_mxn||''});
+}
+function trackComparar(medicamento, presentaciones){
+  if(typeof gtag !== 'undefined') gtag('event','ver_comparativa', {medicamento, dosis:presentaciones});
+  sheetLog('comparacion', {nombre:lead?lead.nombre:'', correo:lead?lead.correo:'', medicamento, dosis:presentaciones});
+}
+
+// ── PASO 2: MEDICAMENTO ────────────────────────────────────────────────────
+function irBusqueda(){
+  ver('sec-search');
+  if(lead){
+    $('search-bar').style.display = 'block';
+    $('search-name').textContent = lead.nombre.split(' ')[0];
+    $('search-email').textContent = lead.correo;
+  }
+  mostrarMedStep();
+}
+function mostrarMedStep(){
+  medSel = null; selected = [];
+  $('med-step').style.display = 'block';
+  $('dosis-step').style.display = 'none';
+  renderMedGrid($('buscar').value);
+}
+
+function renderMedGrid(q){
+  const t = norm(q || '');
   // La marca entra en la búsqueda igual que el principio activo: nadie pide
   // "ácido acetilsalicílico", pide Aspirina.
-  const lista = t
-    ? PRES.filter(p => norm(p.medicamento).includes(t) || norm(p.etiqueta).includes(t)
-        || norm(p.marca||'').includes(t) || norm(p.categoria||'').includes(t)
-        || Object.values(p.precios).some(v => norm(v.marca||'').includes(t)))
-    : PRES.slice(0, 40);
-
-  $('sub-comparador').textContent = t
-    ? `${lista.length} presentación${lista.length===1?'':'es'} de "${q}"`
-    : `${PRES.length} presentaciones comparables. Busca por principio activo o por marca.`;
-
+  const lista = t ? MEDS.filter(m => m.busca.includes(t)) : MEDS;
+  const grid = $('med-grid');
+  if(!MEDS.length){ grid.innerHTML = '<div class="vacio">Cargando medicamentos…</div>'; return; }
   if(!lista.length){
-    $('resultados').innerHTML = `<div class="vacio">No encontramos "${q}" con al menos dos farmacias que tengan la misma caja.<br/>
-      Puede que solo una lo venda, o que cada una maneje una presentación distinta.</div>`;
+    grid.innerHTML = `<div class="vacio">No encontramos "${esc(q)}" con al menos dos farmacias que tengan la misma caja.<br/>Puede que solo una lo venda, o que cada una maneje una presentación distinta.</div>`;
     return;
   }
-
-  $('resultados').innerHTML = lista.map(p => {
-    const farmacias = FUENTES.filter(f => p.precios[f]).map(f => {
-      const v = p.precios[f];
-      const best = v.precio === p.min;
-      const unidad = p.piezas ? `${porPieza(v.precio/p.piezas)} por pieza`
-                   : p.ml    ? `${porPieza(v.precio/p.ml)} por ml` : '';
-      // Qué marca es cada precio. En una fila por sustancia las farmacias
-      // pueden estar ofreciendo cosas distintas —el genérico de una contra el
-      // Dimefor de otra— y sin decirlo la diferencia de precio parece un abuso
-      // cuando en realidad son dos productos.
-      //
-      // `null` es "lo leímos y no tiene marca"; `undefined` es un feed anterior
-      // a que se leyera la marca. No es lo mismo, y llamarle genérico a un
-      // Dimefor porque el dato falta sería peor que no decir nada.
-      const quien = v.marca === undefined ? '' : (v.marca || 'genérico');
-      return `<a class="farm${best?' best':''}" href="${v.url}" target="_blank" rel="noopener nofollow" title="${v.titulo.replace(/"/g,'&quot;')}">
-        ${best?'<span class="farm-tag">más barata</span>':''}
-        <div class="farm-name">${f}</div>
-        <div class="farm-price">${money(v.precio)}</div>
-        <div class="farm-unit">${[quien, unidad].filter(Boolean).join(' · ')}</div>
-      </a>`;
-    }).join('');
-
-    const rx = receta(p);
-    const marcas = new Set(Object.values(p.precios).map(v => v.marca || 'genérico'));
-    return `<article class="pres${p.tipo==='marca'?' de-marca':''}">
-      <div class="pres-top">
-        <div>
-          <h3 class="pres-name">${p.etiqueta}${p.tipo==='marca'?' <span class="tag-marca">misma marca</span>':''}</h3>
-          <p class="pres-meta">${p.categoria||''} · en ${Object.keys(p.precios).length} de ${FUENTES.length} farmacias${
-            p.tipo!=='marca' && marcas.size>1 ? ' · presentaciones de distinta marca' : ''}</p>
-          ${rx?`<span class="rx ${rx.clase}">℞ ${rx.txt}</span>`:''}
-        </div>
-        ${p.ahorro>0?`<div class="pres-save"><b>Ahorras ${money(p.ahorro)}</b><span>entre la más cara y la más barata</span></div>`:''}
+  grid.innerHTML = lista.map(m => {
+    const n = m.filas.length;
+    return `<div class="study-item" data-med="${esc(m.nombre)}" style="padding:13px 15px;">
+      <div style="font-size:22px;">💊</div>
+      <div class="study-name">
+        <div style="font-family:'Sora',sans-serif;font-weight:700;color:var(--navy);">${esc(m.nombre)}</div>
+        <div class="study-from">${esc(m.categoria||'')} · ${n} presentaci${n>1?'ones':'ón'}</div>
       </div>
-      <div class="farm-row">${farmacias}</div>
-    </article>`;
+      <div style="text-align:right"><div class="study-from">desde</div><div class="study-price">${money(m.desde)}</div></div>
+      <div style="color:var(--teal-dark);font-weight:800;font-size:18px;margin-left:8px;">→</div>
+    </div>`;
   }).join('');
+  grid.querySelectorAll('.study-item').forEach(el => el.onclick = () => elegirMed(el.dataset.med));
 }
 
 $('buscar').addEventListener('input', e => {
-  render(e.target.value);
+  renderMedGrid(e.target.value);
   // La búsqueda queda en la URL para que se pueda compartir o volver a ella.
   // replaceState y no pushState: escribir letra por letra no debe llenar el
-  // historial de 11 entradas que hay que atravesar con el botón de regresar.
+  // historial de entradas que hay que atravesar con el botón de regresar.
   const u = new URL(location);
   e.target.value ? u.searchParams.set('q', e.target.value) : u.searchParams.delete('q');
-  u.hash = 'comparador';
   history.replaceState(null, '', u);
 });
 
-// Entrada directa: /medicinas?q=omeprazol o /medicinas#comparador
+// ── PASO 3: PRESENTACIÓN ───────────────────────────────────────────────────
+function elegirMed(nombre){
+  medSel = MEDS.find(m => m.nombre === nombre);
+  if(!medSel) return;
+  selected = [];
+  // "Dosis en caso de que haya más de una": con una sola presentación el paso
+  // sería una pantalla con un único botón, así que se salta.
+  if(medSel.filas.length === 1){
+    selected = [medSel.filas[0].clave];
+    irResultados();
+    return;
+  }
+  $('med-step').style.display = 'none';
+  $('dosis-step').style.display = 'block';
+  $('dosis-title').textContent = `Elige la presentación de ${medSel.nombre}`;
+  $('dosis-sub').textContent = `${medSel.filas.length} presentaciones con precio en dos o más farmacias. Puedes elegir varias.`;
+  renderDosis(); renderChips(); renderBoton();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function renderDosis(){
+  $('dosis-list').innerHTML = medSel.filas.map(f => {
+    const sel = selected.includes(f.clave);
+    const marcas = new Set(Object.values(f.precios).map(v => v.marca).filter(Boolean));
+    const detalle = f.tipo === 'marca'
+      ? 'misma marca en las dos farmacias'
+      : (marcas.size ? [...marcas].join(' · ') : '');
+    return `<div class="study-item${sel?' sel':''}" data-c="${esc(f.clave)}">
+      <div class="study-cb${sel?' on':''}">${sel?'✓':''}</div>
+      <div class="study-name">
+        <div>${esc(f.etiqueta)}${f.tipo==='marca'?'<span class="tag-marca">misma marca</span>':''}</div>
+        ${detalle?`<div class="study-from">${esc(detalle)}</div>`:''}
+      </div>
+      <div style="text-align:right"><div class="study-from">desde</div><div class="study-price">${money(f.min)}</div></div>
+    </div>`;
+  }).join('');
+  $('dosis-list').querySelectorAll('.study-item').forEach(el => el.onclick = () => alternar(el.dataset.c));
+}
+
+function alternar(clave){
+  selected = selected.includes(clave) ? selected.filter(c => c !== clave) : selected.concat(clave);
+  renderDosis(); renderChips(); renderBoton();
+}
+function renderChips(){
+  const wrap = $('chips-wrap'), inner = $('chips-inner');
+  if(!selected.length){ wrap.style.display = 'none'; return; }
+  wrap.style.display = 'flex';
+  inner.innerHTML = selected.map(c => {
+    const f = PRES.find(p => p.clave === c);
+    return `<span class="chip">${esc(f?f.etiqueta:c)}<button class="chip-x" data-c="${esc(c)}">×</button></span>`;
+  }).join('');
+  inner.querySelectorAll('.chip-x').forEach(b => b.onclick = e => { e.stopPropagation(); alternar(b.dataset.c); });
+}
+function renderBoton(){
+  const btn = $('comparar-btn'), n = selected.length;
+  btn.disabled = !n; btn.style.opacity = n ? '1' : '.5';
+  btn.innerHTML = n ? `Comparar ${n} presentaci${n>1?'ones':'ón'} →` : 'Selecciona al menos una presentación';
+}
+$('cambiar-med').onclick = mostrarMedStep;
+$('comparar-btn').onclick = () => { if(selected.length) irResultados(); };
+
+// ── RESULTADOS ─────────────────────────────────────────────────────────────
+function irResultados(){
+  ver('sec-results');
+  if(lead){
+    $('results-bar').style.display = 'block';
+    $('results-name').textContent = lead.nombre.split(' ')[0];
+    $('results-email').textContent = lead.correo;
+  }
+  renderResultados();
+  trackComparar(medSel ? medSel.nombre : '', selected.join(' | '));
+}
+
+function renderResultados(){
+  const filas = PRES.filter(p => selected.includes(p.clave));
+  // Solo columnas con al menos un precio en lo seleccionado: una farmacia que
+  // no vende esta caja no aporta una columna de guiones.
+  const cols = FUENTES.filter(f => filas.some(p => p.precios[f]));
+  $('results-sub').textContent =
+    `${medSel?medSel.nombre+' · ':''}${filas.length} presentaci${filas.length!==1?'ones':'ón'} · ${cols.length} farmacias · Precios en pesos mexicanos`;
+
+  const cuenta = {}; cols.forEach(f => cuenta[f] = SERVICIOS.reduce((a,s) => a + (FARM_SERV[f]?FARM_SERV[f][s.key]:0), 0));
+  const maxCuenta = Math.max(...cols.map(f => cuenta[f]));
+
+  const th = cols.map(f => {
+    const m = FARM_META[f] || {};
+    return `<th class="cmp-ph"><span class="cmp-emoji">${farmBadge(f,34)}</span>${CORTO[f]||f}${
+      m.rating?`<span class="cmp-rating">★ ${m.rating}</span>`:'<span class="cmp-rating">&nbsp;</span>'}</th>`;
+  }).join('');
+
+  // Una fila por presentación. Cada celda dice de qué marca es ese precio:
+  // sin eso, el genérico de una farmacia contra la marca de otra parece un
+  // abuso cuando en realidad son dos productos distintos.
+  const filasPrecio = filas.map(p => {
+    const vals = cols.map(f => p.precios[f] && p.precios[f].precio).filter(Boolean);
+    const min = vals.length ? Math.min(...vals) : null;
+    const celdas = cols.map(f => {
+      const v = p.precios[f];
+      if(!v) return '<td><span class="cmp-na">—</span><span class="cmp-est">no lo vende</span></td>';
+      const bajo = v.precio === min;
+      const quien = v.marca === undefined ? '' : (v.marca || 'genérico');
+      return `<td class="cmp-clickable"><a href="${esc(v.url)}" target="_blank" rel="noopener nofollow" data-ph="${esc(FARM_META[f]?FARM_META[f].nombre:f)}" data-med="${esc(p.etiqueta)}" data-price="${v.precio}" title="${esc(v.titulo)}" style="display:block;">
+        <span class="cmp-price${bajo?' low':''}">${money(v.precio)}</span>
+        ${bajo?'<span class="cmp-low-tag">Mejor precio</span>':''}
+        ${quien?`<span class="cmp-marca">${esc(quien)}</span>`:''}
+      </a></td>`;
+    }).join('');
+    const rx = receta(p);
+    const etq = `${esc(p.etiqueta)}${p.tipo==='marca'?'<span class="tag-marca">misma marca</span>':''}`;
+    return `<tr class="cmp-row"><td class="cmp-label">💊 ${etq}${rx?`<br/><span class="rx ${rx.clase}" style="margin-top:5px;">℞ ${rx.txt}</span>`:''}</td>${celdas}</tr>`;
+  }).join('');
+
+  // Precio por pieza: es lo que de verdad dice qué caja conviene, y solo tiene
+  // sentido cuando todas las presentaciones comparten unidad.
+  const filasUnidad = filas.filter(p => p.piezas || p.ml).map(p => {
+    const u = p.piezas || p.ml, cual = p.piezas ? 'pieza' : 'ml';
+    const celdas = cols.map(f => {
+      const v = p.precios[f];
+      return `<td>${v?`<span class="cmp-price" style="font-size:13px;">${porPieza(v.precio/u)}</span>`:'<span class="cmp-na">—</span>'}</td>`;
+    }).join('');
+    return `<tr class="cmp-row"><td class="cmp-label">📐 ${esc(p.etiqueta)} · por ${cual}</td>${celdas}</tr>`;
+  }).join('');
+
+  const filasServ = SERVICIOS.map(s => {
+    const celdas = cols.map(f => `<td>${FARM_SERV[f] && FARM_SERV[f][s.key] ? '<span class="cmp-yes">✓</span>' : '<span class="cmp-no">✕</span>'}</td>`).join('');
+    return `<tr class="cmp-row"><td class="cmp-label">${s.icon} ${s.label}</td>${celdas}</tr>`;
+  }).join('');
+
+  const filaTotal = `<tr class="cmp-row"><td class="cmp-label">✅ Total incluido</td>${
+    cols.map(f => `<td><span class="cmp-count${cuenta[f]===maxCuenta?' win':''}">${cuenta[f]}/${SERVICIOS.length}</span></td>`).join('')}</tr>`;
+
+  const filaCTA = `<tr class="cmp-row"><td class="cmp-label"></td>${cols.map(f => {
+    // Se enlaza al producto de esta comparativa cuando lo hay, no a la portada
+    // de la farmacia: llegar a la home y tener que buscar otra vez es perder
+    // justo el trabajo que hizo esta página.
+    const conProducto = filas.find(p => p.precios[f]);
+    const m = FARM_META[f] || {};
+    const url = conProducto ? conProducto.precios[f].url : m.url;
+    return `<td><a class="cmp-go" href="${esc(url)}" target="_blank" rel="noopener nofollow" data-ph="${esc(m.nombre||f)}">Ir →</a></td>`;
+  }).join('')}</tr>`;
+
+  const ahorro = Math.max(...filas.map(p => p.ahorro || 0));
+  const barata = (() => {
+    const p = filas.reduce((a,b) => (b.ahorro||0) > (a.ahorro||0) ? b : a, filas[0]);
+    return p && p.masBarata ? p.masBarata : null;
+  })();
+
+  $('results-container').innerHTML =
+    (ahorro > 0 ? `<div class="cmp-hero"><div class="cmp-hero-badge">💰</div><div style="flex:1;min-width:200px;">
+      <div class="cmp-hero-t">Puedes ahorrar hasta <span>${money(ahorro)}</span>${barata?` comprando en <span>${CORTO[barata]||barata}</span>`:''}</div>
+      <div class="cmp-hero-p">Es la diferencia entre la farmacia más cara y la más barata para la misma caja: misma dosis, misma presentación y mismo número de piezas.</div>
+    </div></div>` : '') +
+    `<div class="cmp-scroll"><table class="cmp-table"><thead><tr><th class="cmp-corner"></th>${th}</tr></thead><tbody>` +
+    `<tr class="cmp-section"><td colspan="${cols.length+1}">Precio por presentación</td></tr>` + filasPrecio +
+    (filasUnidad ? `<tr class="cmp-section"><td colspan="${cols.length+1}">Precio por unidad</td></tr>` + filasUnidad : '') +
+    `<tr class="cmp-section"><td colspan="${cols.length+1}">Qué ofrece cada farmacia</td></tr>` + filasServ + filaTotal + filaCTA +
+    `</tbody></table></div>` +
+    `<div class="cmp-note"><b>💡 Cómo leer esta tabla:</b> todas las columnas son <b>la misma caja</b> —misma dosis, misma presentación y mismo número de piezas—; debajo de cada precio dice de qué marca es, porque el genérico de una farmacia y la marca de otra no cuestan lo mismo ni son el mismo producto. <b>"no lo vende"</b> = esa farmacia no tiene esa presentación.${
+      META && META.generated_at ? ` &middot; Precios actualizados: ${new Date(META.generated_at).toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}.` : ''}</div>` +
+    `<p class="cmp-hint">Toca un precio para ir directo al producto en la farmacia. Desliza la tabla ↔ para ver todas.</p>`;
+
+  $('results-container').querySelectorAll('a[data-ph]').forEach(a => {
+    a.addEventListener('click', function(){
+      trackFarmacia({pharmacy_name:this.dataset.ph||'', medicamento:this.dataset.med||'', price_mxn:this.dataset.price||'', destination:this.href});
+    });
+  });
+}
+
+$('results-back').onclick = () => {
+  ver('sec-search');
+  if(medSel && medSel.filas.length > 1){
+    $('med-step').style.display = 'none';
+    $('dosis-step').style.display = 'block';
+    renderDosis(); renderChips(); renderBoton();
+  } else mostrarMedStep();
+};
+$('nueva-busqueda').onclick = () => { ver('sec-search'); mostrarMedStep(); };
+
+// ── ENTRADA ────────────────────────────────────────────────────────────────
+$('hero-cta').onclick = () => ver('sec-form');
+
+// Entrada directa: /medicinas?q=omeprazol entra buscando, sin pedir datos —
+// quien llega desde un buscador viene a ver un precio, no a llenar un
+// formulario, y ponérselo enfrente es la forma más rápida de perderlo.
 (function inicial(){
   const q = new URLSearchParams(location.search).get('q') || '';
-  if (q) $('buscar').value = q;
-  if (q || location.hash === '#comparador') ver('sec-comparador');
+  if(q){ $('buscar').value = q; irBusqueda(); }
 })();
 
 cargar();
+
 </script>
 </body>
 </html>
