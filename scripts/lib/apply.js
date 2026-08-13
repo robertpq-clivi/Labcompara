@@ -1,18 +1,19 @@
 /**
- * Medcompara — Reescritura de RAW_DATA dentro de index.html
+ * Medcompara — Reescritura de RAW_DATA dentro del comparador de laboratorio
  * ----------------------------------------------------------
- * index.html es un solo archivo sin build: los estudios viven en un literal
+ * pages/laboratorio.html es un solo archivo sin build: los estudios viven en un literal
  * `const RAW_DATA = [ … ];`. Este módulo reemplaza ese bloque conservando el
  * formato de una línea por estudio que ya usa el archivo.
  *
  * Solo se usa con `node scripts/scan-labs.js --apply`. El flujo semanal normal
- * NO toca index.html: publica el feed y el sitio lo consume en caliente.
+ * NO toca el HTML: publica el feed y el sitio lo consume en caliente.
  */
 
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
+const { COMPARADOR_LAB } = require('./rutas');
 
 const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
 
@@ -27,10 +28,10 @@ function fila(e) {
 }
 
 function escribirRawData(matriz, archivo) {
-  const file = archivo || path.join(__dirname, '..', '..', 'index.html');
+  const file = archivo || COMPARADOR_LAB;
   const html = fs.readFileSync(file, 'utf8');
   const m = html.match(/(const RAW_DATA\s*=\s*\[)[\s\S]*?(\n\];)/);
-  if (!m) throw new Error('No se encontró el bloque RAW_DATA en index.html');
+  if (!m) throw new Error('No se encontró el bloque RAW_DATA en ' + path.basename(file));
   const cuerpo = '\n' + matriz.map(fila).join('\n');
   const nuevo = html.slice(0, m.index) + m[1] + cuerpo + m[2] + html.slice(m.index + m[0].length);
   fs.writeFileSync(file, nuevo);

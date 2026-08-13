@@ -4,6 +4,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/laboratorio",
+      "destination": "/pages/laboratorio"
+    },
+    {
       "source": "/aviso-de-privacidad",
       "destination": "/pages/aviso-de-privacidad"
     },
@@ -64,6 +68,17 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?labcompara\\.com"
+        }
+      ],
+      "destination": "https://medcompara.com.mx/laboratorio",
+      "permanent": true
+    },
     {
       "source": "/(.*)",
       "has": [

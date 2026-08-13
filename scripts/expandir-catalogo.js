@@ -8,10 +8,10 @@
  *
  * Este script hace la otra mitad: agrupa los ~8,265 nombres de los seis
  * laboratorios, encuentra los estudios que existen en varios y no están en el
- * comparador, y los agrega a RAW_DATA de index.html.
+ * comparador, y los agrega a RAW_DATA de pages/laboratorio.html.
  *
  *   node scripts/expandir-catalogo.js              # solo reporta, no escribe
- *   node scripts/expandir-catalogo.js --apply      # escribe index.html
+ *   node scripts/expandir-catalogo.js --apply      # escribe el comparador
  *   node scripts/expandir-catalogo.js --min-labs=2 # baja el listón
  *
  * Los 124 estudios curados a mano se conservan intactos: sus nombres son las
@@ -26,6 +26,7 @@ const path = require('path');
 const { agrupar } = require('./lib/agrupar');
 const { clave, similitud } = require('./lib/match');
 const { escribirRawData, LAB_IDS } = require('./lib/apply');
+const { COMPARADOR_LAB } = require('./lib/rutas');
 
 const ROOT = path.join(__dirname, '..');
 const SCAN_DIR = path.join(ROOT, 'data', 'scan');
@@ -61,9 +62,9 @@ for (const f of fs.readdirSync(SCAN_DIR).filter((x) => x.endsWith('.json'))) {
   if (lab) porLab[lab] = JSON.parse(fs.readFileSync(path.join(SCAN_DIR, f), 'utf8'));
 }
 
-const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const html = fs.readFileSync(COMPARADOR_LAB, 'utf8');
 const m = html.match(/const RAW_DATA\s*=\s*(\[[\s\S]*?\n\];)/);
-if (!m) throw new Error('No se encontró RAW_DATA en index.html');
+if (!m) throw new Error('No se encontró RAW_DATA en pages/laboratorio.html');
 // eslint-disable-next-line no-new-func
 const publicados = new Function(`return ${m[1].replace(/;$/, '')}`)();
 
@@ -149,6 +150,6 @@ if (!APPLY) {
       variantes: Object.fromEntries(Object.entries(g.variantes).map(([l, v]) => [l, { nombre: v.nombre, precio: v.precio, url: v.url }])),
     })) }, null, 2)
   );
-  console.log(`\nindex.html actualizado: ${catalogo.length} estudios.`);
+  console.log(`\npages/laboratorio.html actualizado: ${catalogo.length} estudios.`);
   console.log('Trazabilidad de los nuevos en data/catalogo-nuevos.json');
 }

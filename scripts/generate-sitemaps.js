@@ -24,6 +24,7 @@ const CORE_PAGES = [
   { path: '/medicamentos',                      priority: '1.0', changefreq: 'weekly'  },
   { path: '/farmacias',                         priority: '0.8', changefreq: 'monthly' },
   { path: '/',                                  priority: '1.0', changefreq: 'weekly'  },
+  { path: '/laboratorio',                       priority: '1.0', changefreq: 'weekly'  },
   { path: '/laboratorio-cerca-de-mi',           priority: '0.9', changefreq: 'weekly'  },
   { path: '/laboratorio-clinico',               priority: '0.9', changefreq: 'weekly'  },
   { path: '/estudios-de-laboratorio',           priority: '0.9', changefreq: 'weekly'  },

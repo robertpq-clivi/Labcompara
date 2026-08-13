@@ -3,7 +3,7 @@
  * Medcompara — Scanner de precios
  * --------------------------------
  * Recorre los 6 laboratorios, extrae el catálogo con precios, lo empareja
- * contra los estudios de index.html y escribe:
+ * contra los estudios de pages/laboratorio.html y escribe:
  *
  *   data/scan/<lab>.json    catálogo crudo por laboratorio
  *   data/precios.json       matriz comparada lista para el sitio
@@ -14,7 +14,7 @@
  *   node scripts/scan-labs.js --labs=Labbe,LAPI
  *   node scripts/scan-labs.js --limit=50      # tope de fichas por lab (pruebas)
  *   node scripts/scan-labs.js --offline       # reusa data/scan/*.json, no pide nada
- *   node scripts/scan-labs.js --apply         # además reescribe RAW_DATA en index.html
+ *   node scripts/scan-labs.js --apply         # además reescribe RAW_DATA en el comparador
  *
  * Es el mismo pipeline que corre semanalmente en Apps Script
  * (scripts/medcompara-apps-script.gs); esta versión sirve para backfill,
@@ -157,11 +157,11 @@ async function escanear(lab) {
   return { filas, errores, urls: urls.length, ms: Date.now() - t0, agotado };
 }
 
-// ── lectura de los estudios publicados en index.html ─────────────────────────
+// ── lectura de los estudios publicados en el comparador ──────────────────────
 function leerRawData() {
-  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const html = fs.readFileSync(COMPARADOR_LAB, 'utf8');
   const m = html.match(/const RAW_DATA\s*=\s*(\[[\s\S]*?\n\];)/);
-  if (!m) throw new Error('No se encontró RAW_DATA en index.html');
+  if (!m) throw new Error('No se encontró RAW_DATA en pages/laboratorio.html');
   // eslint-disable-next-line no-new-func
   return new Function(`return ${m[1].replace(/;$/, '')}`)();
 }
@@ -362,7 +362,8 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
 
   if (APPLY) {
     const { escribirRawData } = require('./lib/apply');
+const { COMPARADOR_LAB } = require('./lib/rutas');
     escribirRawData(matriz);
-    console.log('index.html actualizado con los precios escaneados.');
+    console.log('pages/laboratorio.html actualizado con los precios escaneados.');
   }
 })().catch((e) => { console.error(e); process.exit(1); });

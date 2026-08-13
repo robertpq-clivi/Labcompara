@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * Medcompara — Test del cargador de precios de index.html
+ * Medcompara — Test del cargador de precios del comparador
  * --------------------------------------------------------
  * `cargarPrecios()` es la pieza que decide si el sitio muestra precios frescos
  * o el snapshot embebido. Si falla mal, el comparador se queda a medias sin
- * avisar. Este test extrae la función REAL de index.html (no una copia) y la
+ * avisar. Este test extrae la función REAL del comparador (no una copia) y la
  * corre contra un DOM mínimo y varios feeds:
  *
  *   1. feed bueno            → adopta los precios nuevos y actualiza el footer
@@ -21,11 +21,12 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const { COMPARADOR_LAB } = require('./lib/rutas');
 
 const ROOT = path.join(__dirname, '..');
-const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const html = fs.readFileSync(COMPARADOR_LAB, 'utf8');
 
-// ── extraer del index.html: RAW_DATA, LABS y el bloque del feed ──────────────
+// ── extraer del comparador: RAW_DATA, LABS y el bloque del feed ──────────────
 function trozo(desde, hasta) {
   const i = html.indexOf(desde);
   const j = html.indexOf(hasta, i);
@@ -104,7 +105,7 @@ const casos = [
 
 (async () => {
   let fallos = 0;
-  console.log('Cargador de precios de index.html\n');
+  console.log('Cargador de precios del comparador\n');
   for (const caso of casos) {
     const ctx = nuevoEntorno(caso.fetch);
     await vm.runInContext('cargarPrecios()', ctx);
