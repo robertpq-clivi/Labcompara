@@ -28,7 +28,10 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const APLICAR = process.argv.includes('--apply');
-const PAGINAS = ['pages/laboratorio.html', 'pages/medicamentos.html', 'pages/medicinas.html'];
+const PAGINAS = [
+  ...fs.readdirSync(path.join(ROOT, 'pages')).filter((f) => f.endsWith('.html')).map((f) => 'pages/' + f),
+  ...fs.readdirSync(path.join(ROOT, 'blog')).filter((f) => f.endsWith('.html')).map((f) => 'blog/' + f),
+];
 
 /**
  * De la paleta de GLPcompara a la del landing, por el papel que cumple cada
