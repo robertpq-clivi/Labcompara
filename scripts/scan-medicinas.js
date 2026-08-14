@@ -53,8 +53,8 @@ const DRY = argv.includes('--dry');
 // lo que más requests cuesta. Se puede apagar y se puede acotar.
 const SIN_MARCAS = argv.includes('--sin-marcas');
 const MAX_MARCAS = Number(arg('max-marcas', '400')) || 400;
-// Guadalajara y San Pablo solo responden por proxy, que no existe en local:
-// este filtro permite validar el resto sin esperar sus timeouts.
+// Guadalajara solo responde por proxy, que no existe en local: este filtro
+// permite validar el resto sin esperar sus timeouts.
 const FUENTES = (arg('fuentes', '') || '').split(',').map((s) => s.trim()).filter(Boolean);
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -138,7 +138,12 @@ const ctxPara = (ad) => {
         // que reconocer el activo, las marcas comerciales con las que media
         // farmacia titula sus productos, y —si el producto es un combinado—
         // los dos activos que el título tiene que mencionar.
-        const p = leer(it.titulo, conMarca);
+        // El texto que se lee es el título MÁS lo que la farmacia sepa decir
+        // aparte: el slug de Benavides y la descripción de San Pablo traen las
+        // piezas y la forma que sus títulos omiten. Sin esto, esas dos
+        // aportaban 8 y 11 filas de miles de productos.
+        const texto = [it.titulo, it.detalle].filter(Boolean).join(' ');
+        const p = leer(texto, conMarca);
         if (!p.clave) {
           if (p.combinado) descartes.combinados++;
           else if (p.motivo) descartes.otraSustancia++;
@@ -152,7 +157,11 @@ const ctxPara = (ad) => {
           mg: p.mg, forma: p.forma, piezas: p.piezas, ml: p.ml,
           precios: {},
         });
-        const oferta = { precio: it.precio, titulo: it.titulo, url: it.url, marca: p.marca };
+        // La marca que declara la farmacia gana sobre la que deducimos del
+        // texto: `undefined` es "no dijo", pero `null` es "dijo que es
+        // genérico", y eso último es un dato, no una ausencia.
+        const marcaFinal = it.marca !== undefined ? it.marca : p.marca;
+        const oferta = { precio: it.precio, titulo: it.titulo, url: it.url, marca: marcaFinal };
 
         // Fila por principio activo: entre variantes de la MISMA caja se
         // publica la más barata, sea de marca o genérica. Es la que el cliente
@@ -163,20 +172,20 @@ const ctxPara = (ad) => {
         presentaciones.set(p.clave, g);
 
         // Fila por marca: la misma caja de la misma marca en cada farmacia.
-        if (p.marca) {
-          const cm = `${p.clave}|marca:${p.marca.toLowerCase()}`;
+        if (marcaFinal) {
+          const cm = `${p.clave}|marca:${marcaFinal.toLowerCase()}`;
           const gm = porMarca.get(cm) || Object.assign(base(), {
-            tipo: 'marca', clave: cm, marca: p.marca,
+            tipo: 'marca', clave: cm, marca: marcaFinal,
             // "Tempra 500mg · 20 tabletas" en vez de "Paracetamol 500mg · …":
             // así se lee como lo que el cliente fue a buscar.
-            etiqueta: etiqueta(p.clave).replace(/^[^\s]+/, p.marca),
+            etiqueta: etiqueta(p.clave).replace(/^[^\s]+/, marcaFinal),
           });
           if (!gm.precios[ad.id] || it.precio < gm.precios[ad.id].precio) gm.precios[ad.id] = oferta;
           porMarca.set(cm, gm);
 
           const vistas = (marcasDe[med.nombre] = marcasDe[med.nombre] || new Map());
-          if (!vistas.has(p.marca)) vistas.set(p.marca, new Set());
-          vistas.get(p.marca).add(ad.id);
+          if (!vistas.has(marcaFinal)) vistas.set(marcaFinal, new Set());
+          vistas.get(marcaFinal).add(ad.id);
         }
       }
     await dormir(PAUSA_MS);

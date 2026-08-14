@@ -56,7 +56,31 @@ const benavides = {
       const attr = item.match(/data-price-amount="([\d.]+)"/i);
       const span = item.match(/class="[^"]*price[^"]*"[^>]*>([\s\S]{0,80}?)</i);
       const precio = attr ? toPrice(attr[1]) : toPrice(stripTags((span || [])[1] || ''));
-      if (titulo && precio) out.push({ titulo, precio: Math.round(precio), url: a[1] });
+      if (!titulo || !precio) continue;
+      // El título de Benavides casi nunca dice el contenido de la caja —"20 mg
+      // Omeprazol" y nada más—. Pero el listado trae la respuesta en dos
+      // lugares que estábamos tirando:
+      //
+      //   la URL:  /farmacias-benavides-20-mg-omeprazol-120-capsulas
+      //   el GA4:  "Principio_activo":"Paracetamol + Tramadol","item_brand":"Ogmatin"
+      //
+      // Se agregan como campos aparte y NO se mezclan en `titulo`: este
+      // adaptador lo comparte la vertical GLP-1, donde el emparejador lee ese
+      // título y meter texto nuevo podría producir coincidencias falsas.
+      const slug = decodeURIComponent(String(a[1]).split('/').pop() || '')
+        .replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
+      const ga = (n) => {
+        const m = item.match(new RegExp('&quot;' + n + '&quot;:&quot;([^&]*)&quot;'));
+        return m ? m[1].replace(/\\u([0-9a-f]{4})/gi, (_, c) => String.fromCharCode(parseInt(c, 16))) : '';
+      };
+      out.push({
+        titulo,
+        detalle: slug,                       // trae piezas y forma
+        activos: ga('Principio_activo') || undefined,   // lo que la farmacia afirma
+        marca: ga('item_brand') || undefined,
+        precio: Math.round(precio),
+        url: a[1],
+      });
     }
     return out;
   },
@@ -184,8 +208,16 @@ const sanpablo = {
       const precio = toPrice((p.price || {}).value);
       if (!precio) continue;
       const u = p.url || '';
+      // `name` es solo "Omeprazol 20 MG": la dosis sin la caja. El contenido
+      // vive en `additionalDescription` —"Aurax 120 Cápsulas Frasco"—, que ya
+      // venía en esta misma respuesta y se estaba descartando.
       out.push({
         titulo: p.name || '',
+        detalle: p.additionalDescription || '',
+        // La farmacia declara su marca y si el producto es genérico; no hace
+        // falta deducirlo del texto.
+        marca: p.isGeneric ? null : (p.brandName || undefined),
+        antibiotico: p.antibiotic === true || undefined,
         precio: Math.round(precio),
         url: u.startsWith('/') ? 'https://www.farmaciasanpablo.com.mx' + u : (u || URL_FARMACIA.SanPablo),
       });

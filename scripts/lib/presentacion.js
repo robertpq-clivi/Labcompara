@@ -98,10 +98,28 @@ function forma(titulo) {
   return null;
 }
 
-/** Mililitros, para jarabes y suspensiones donde las "piezas" no aplican. */
+/**
+ * Mililitros del envase, para jarabes y suspensiones donde las "piezas" no
+ * aplican.
+ *
+ * El primer "N ml" de un título suele ser la CONCENTRACIÓN y no el envase:
+ * en "Febraxito 100 mg / 1 ml Paracetamol 30 ml Gotas" el frasco es de 30 ml
+ * y el "1 ml" es el denominador de la dosis. Tomar el primero daba una
+ * presentación de 1 ml que no existe, y peor: dos frascos de distinto tamaño
+ * caían en la misma fila porque los dos decían "1 ml".
+ *
+ * Se descartan los ml que vienen inmediatamente después de una dosis, y de lo
+ * que queda se toma el mayor: el envase siempre es más grande que su medida.
+ */
 function mililitros(titulo) {
-  const m = titulo.match(/(\d+(?:[.,]\d+)?)\s*ml\b/i);
-  return m ? Number(m[1].replace(',', '.')) : null;
+  const t = String(titulo || '');
+  const concentracion = /\d+(?:[.,]\d+)?\s*(?:mg|g|mcg|µg|ui)\s*\/\s*$/i;
+  const vals = [];
+  for (const m of t.matchAll(/(\d+(?:[.,]\d+)?)\s*ml\b/gi)) {
+    if (concentracion.test(t.slice(0, m.index))) continue;
+    vals.push(Number(m[1].replace(',', '.')));
+  }
+  return vals.length ? Math.max(...vals) : null;
 }
 
 /**

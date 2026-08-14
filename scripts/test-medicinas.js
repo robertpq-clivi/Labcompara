@@ -15,7 +15,7 @@
 
 'use strict';
 
-const { leer, etiqueta, marca } = require('./lib/presentacion');
+const { leer, etiqueta, marca, mililitros } = require('./lib/presentacion');
 const V = require('./verticales/medicinas');
 
 let fallos = 0;
@@ -157,6 +157,40 @@ for (const [titulo, sust, debe] of [
 }
 const jarabe = leer('Paracetamol 100 mg Suspensión Infantil Frasco 15 ml', 'Paracetamol');
 check(jarabe.clave === 'paracetamol|100mg|líquido|15ml', 'la suspensión oral sí se compara por ml', jarabe.clave || 'rechazado');
+
+// ── lo que la farmacia dice aparte del título ───────────────────────────────
+// Benavides y San Pablo casi nunca ponen el contenido de la caja en el título,
+// y por eso aportaban 8 y 11 filas de miles de productos. Las dos lo dicen en
+// otro campo que ya venía en la misma respuesta y se estaba tirando: Benavides
+// en el slug de la URL, San Pablo en `additionalDescription`.
+console.log('\nEl contenido de la caja, cuando no está en el título:');
+for (const [titulo, detalle, sust, esperada] of [
+  // Benavides: "20 mg Omeprazol" a secas; el slug trae las cápsulas.
+  ['20 mg Omeprazol', 'farmacias benavides 20 mg omeprazol 120 capsulas', 'Omeprazol', 'omeprazol|20mg|cápsulas|120'],
+  ['500 mg Paracetamol', 'tylenol 500 mg paracetamol 20 tabletas', 'Paracetamol', 'paracetamol|500mg|tabletas|20'],
+  // San Pablo: el nombre trae la dosis y la descripción la caja.
+  ['Omeprazol 20 MG', 'Aurax 120 Cápsulas Frasco', 'Omeprazol', 'omeprazol|20mg|cápsulas|120'],
+  ['Metformina 850 MG', 'Dabex 30 Tabletas Caja', 'Metformina', 'metformina|850mg|tabletas|30'],
+]) {
+  const r = leer(`${titulo} ${detalle}`, sust);
+  check(r.clave === esperada, `${titulo.padEnd(20)} + detalle → ${esperada}`, r.clave || 'rechazado');
+}
+// Sin el campo extra, esos mismos títulos no se pueden comparar: es justo la
+// diferencia que este cambio recupera.
+check(leer('20 mg Omeprazol', 'Omeprazol').clave === null, 'el título solo sigue sin alcanzar');
+
+// ── los ml del envase no son los de la concentración ────────────────────────
+// "Febraxito 100 mg / 1 ml Paracetamol 30 ml Gotas": el frasco es de 30 ml y
+// el "1 ml" es el denominador de la dosis. Tomar el primero inventaba una
+// presentación de 1 ml y metía en la misma fila frascos de distinto tamaño.
+console.log('\nEnvase contra concentración:');
+for (const [titulo, esperado] of [
+  ['Febraxito 100 mg 1 ml Paracetamol 30 ml Gotas', 30],
+  ['Paracetamol 100 mg/1 ml Solución 15 ml', 15],
+  ['Amoxil 250 mg Amoxicilina 75 ml Suspensión', 75],
+]) {
+  check(mililitros(titulo) === esperado, `${esperado} ml · ${titulo.slice(0, 44)}`, String(mililitros(titulo)));
+}
 
 // ── la llave se lee de vuelta ───────────────────────────────────────────────
 console.log('\nEtiqueta legible:');
