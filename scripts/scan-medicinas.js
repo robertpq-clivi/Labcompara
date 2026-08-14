@@ -263,6 +263,14 @@ const ctxPara = (ad) => {
       || (a.tipo === b.tipo ? 0 : a.tipo === 'sustancia' ? -1 : 1));
 
   for (const g of comparables) {
+    // Todas las marcas con las que se vio este activo durante la corrida, no
+    // solo las de las filas publicadas. Buscar "Dolac" tiene que encontrar al
+    // ketorolaco aunque esa caja concreta no la tengan dos farmacias: la marca
+    // se vio en un producto que SÍ se leyó como ketorolaco, así que es
+    // evidencia y no suposición.
+    const vistas = marcasDe[g.medicamento];
+    if (vistas && vistas.size) g.marcasVistas = [...vistas.keys()].sort();
+
     const vals = Object.values(g.precios).map((p) => p.precio);
     g.min = Math.min(...vals);
     g.max = Math.max(...vals);

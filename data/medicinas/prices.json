@@ -45,7 +45,13 @@
       "max": 64,
       "ahorro": 56,
       "masBarata": "Prixz",
-      "porUnidad": 0.8
+      "porUnidad": 0.8,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -77,7 +83,13 @@
       "max": 74,
       "ahorro": 10,
       "masBarata": "Guadalajara",
-      "porUnidad": 6.4
+      "porUnidad": 6.4,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -109,7 +121,13 @@
       "max": 68,
       "ahorro": 3,
       "masBarata": "Guadalajara",
-      "porUnidad": 6.5
+      "porUnidad": 6.5,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -146,7 +164,13 @@
       "max": 116,
       "ahorro": 85,
       "masBarata": "Ahorro",
-      "porUnidad": 1.55
+      "porUnidad": 1.55,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -178,7 +202,13 @@
       "max": 129,
       "ahorro": 17,
       "masBarata": "Guadalajara",
-      "porUnidad": 5.6
+      "porUnidad": 5.6,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -216,7 +246,13 @@
       "max": 118,
       "ahorro": 5,
       "masBarata": "Guadalajara",
-      "porUnidad": 5.65
+      "porUnidad": 5.65,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -247,7 +283,13 @@
       "max": 228,
       "ahorro": 6,
       "masBarata": "Guadalajara",
-      "porUnidad": 5.55
+      "porUnidad": 5.55,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -278,7 +320,13 @@
       "max": 161,
       "ahorro": 2,
       "masBarata": "Guadalajara",
-      "porUnidad": 6.63
+      "porUnidad": 6.63,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Paracetamol",
@@ -309,7 +357,13 @@
       "max": 33,
       "ahorro": 21,
       "masBarata": "Prixz",
-      "porUnidad": 1.2
+      "porUnidad": 1.2,
+      "marcasVistas": [
+        "Desenfriol",
+        "Saridon",
+        "Tempra",
+        "Tylenol"
+      ]
     },
     {
       "medicamento": "Omeprazol",
@@ -550,7 +604,10 @@
       "max": 42,
       "ahorro": 25,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.42
+      "porUnidad": 1.42,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -587,7 +644,10 @@
       "max": 65,
       "ahorro": 42,
       "masBarata": "Guadalajara",
-      "porUnidad": 2.3
+      "porUnidad": 2.3,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -618,7 +678,10 @@
       "max": 20,
       "ahorro": 3,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.7
+      "porUnidad": 1.7,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -650,7 +713,10 @@
       "max": 109,
       "ahorro": 49,
       "masBarata": "Prixz",
-      "porUnidad": 6
+      "porUnidad": 6,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -681,7 +747,10 @@
       "max": 188,
       "ahorro": 77,
       "masBarata": "Prixz",
-      "porUnidad": 5.55
+      "porUnidad": 5.55,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -712,7 +781,10 @@
       "max": 84,
       "ahorro": 53,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.55
+      "porUnidad": 1.55,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -743,7 +815,10 @@
       "max": 83,
       "ahorro": 41,
       "masBarata": "Guadalajara",
-      "porUnidad": 4.2
+      "porUnidad": 4.2,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -780,7 +855,10 @@
       "max": 163,
       "ahorro": 128,
       "masBarata": "Prixz",
-      "porUnidad": 3.5
+      "porUnidad": 3.5,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Ibuprofeno",
@@ -811,7 +889,10 @@
       "max": 190,
       "ahorro": 128,
       "masBarata": "Guadalajara",
-      "porUnidad": 3.1
+      "porUnidad": 3.1,
+      "marcasVistas": [
+        "Temprafen"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -848,7 +929,10 @@
       "max": 295,
       "ahorro": 177,
       "masBarata": "Ahorro",
-      "porUnidad": 3.93
+      "porUnidad": 3.93,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -886,7 +970,10 @@
       "max": 318,
       "ahorro": 89,
       "masBarata": "Prixz",
-      "porUnidad": 7.63
+      "porUnidad": 7.63,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -923,7 +1010,10 @@
       "max": 273,
       "ahorro": 216,
       "masBarata": "Guadalajara",
-      "porUnidad": 0.95
+      "porUnidad": 0.95,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -961,7 +1051,10 @@
       "max": 472,
       "ahorro": 199,
       "masBarata": "Prixz",
-      "porUnidad": 4.55
+      "porUnidad": 4.55,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -998,7 +1091,10 @@
       "max": 492,
       "ahorro": 436,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.87
+      "porUnidad": 1.87,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1036,7 +1132,10 @@
       "max": 492,
       "ahorro": 117,
       "masBarata": "Guadalajara",
-      "porUnidad": 12.5
+      "porUnidad": 12.5,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1073,7 +1172,10 @@
       "max": 865,
       "ahorro": 205,
       "masBarata": "Guadalajara",
-      "porUnidad": 11
+      "porUnidad": 11,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1110,7 +1212,10 @@
       "max": 393,
       "ahorro": 370,
       "masBarata": "Guadalajara",
-      "porUnidad": 0.77
+      "porUnidad": 0.77,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1148,7 +1253,10 @@
       "max": 397,
       "ahorro": 39,
       "masBarata": "Guadalajara",
-      "porUnidad": 11.93
+      "porUnidad": 11.93,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1179,7 +1287,10 @@
       "max": 592,
       "ahorro": 476,
       "masBarata": "Ahorro",
-      "porUnidad": 1.93
+      "porUnidad": 1.93,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1211,7 +1322,10 @@
       "max": 641,
       "ahorro": 49,
       "masBarata": "Guadalajara",
-      "porUnidad": 9.87
+      "porUnidad": 9.87,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1248,7 +1362,10 @@
       "max": 456,
       "ahorro": 94,
       "masBarata": "Guadalajara",
-      "porUnidad": 12.07
+      "porUnidad": 12.07,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Metformina",
@@ -1285,7 +1402,10 @@
       "max": 761,
       "ahorro": 99,
       "masBarata": "Guadalajara",
-      "porUnidad": 11.03
+      "porUnidad": 11.03,
+      "marcasVistas": [
+        "Dimefor"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1322,7 +1442,10 @@
       "max": 33,
       "ahorro": 24,
       "masBarata": "Prixz",
-      "porUnidad": 0.9
+      "porUnidad": 0.9,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1359,7 +1482,10 @@
       "max": 132,
       "ahorro": 20,
       "masBarata": "Guadalajara",
-      "porUnidad": 11.2
+      "porUnidad": 11.2,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1390,7 +1516,10 @@
       "max": 48,
       "ahorro": 24,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.2
+      "porUnidad": 1.2,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1427,7 +1556,10 @@
       "max": 192,
       "ahorro": 60,
       "masBarata": "Prixz",
-      "porUnidad": 6.6
+      "porUnidad": 6.6,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1458,7 +1590,10 @@
       "max": 120,
       "ahorro": 92,
       "masBarata": "Ahorro",
-      "porUnidad": 14
+      "porUnidad": 14,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1490,7 +1625,10 @@
       "max": 148,
       "ahorro": 28,
       "masBarata": "Guadalajara",
-      "porUnidad": 60
+      "porUnidad": 60,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1527,7 +1665,10 @@
       "max": 73,
       "ahorro": 45,
       "masBarata": "Prixz",
-      "porUnidad": 9.33
+      "porUnidad": 9.33,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1565,7 +1706,10 @@
       "max": 397,
       "ahorro": 136,
       "masBarata": "Prixz",
-      "porUnidad": 87
+      "porUnidad": 87,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1602,7 +1746,10 @@
       "max": 157,
       "ahorro": 142,
       "masBarata": "Prixz",
-      "porUnidad": 3.75
+      "porUnidad": 3.75,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1634,7 +1781,10 @@
       "max": 157,
       "ahorro": 11,
       "masBarata": "Guadalajara",
-      "porUnidad": 36.5
+      "porUnidad": 36.5,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1671,7 +1821,10 @@
       "max": 56,
       "ahorro": 31,
       "masBarata": "Prixz",
-      "porUnidad": 4.17
+      "porUnidad": 4.17,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Ketorolaco",
@@ -1703,7 +1856,10 @@
       "max": 181,
       "ahorro": 14,
       "masBarata": "Guadalajara",
-      "porUnidad": 27.83
+      "porUnidad": 27.83,
+      "marcasVistas": [
+        "Dolac"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1741,7 +1897,10 @@
       "ahorro": 43,
       "masBarata": "Guadalajara",
       "porUnidad": 86.9,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1774,7 +1933,10 @@
       "ahorro": 9,
       "masBarata": "Guadalajara",
       "porUnidad": 86.9,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1812,7 +1974,10 @@
       "ahorro": 231,
       "masBarata": "Guadalajara",
       "porUnidad": 72.4,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1845,7 +2010,10 @@
       "ahorro": 231,
       "masBarata": "Guadalajara",
       "porUnidad": 72.4,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1883,7 +2051,10 @@
       "ahorro": 655,
       "masBarata": "Guadalajara",
       "porUnidad": 99.17,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1916,7 +2087,10 @@
       "ahorro": 18,
       "masBarata": "Guadalajara",
       "porUnidad": 99.17,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Semaglutida",
@@ -1948,7 +2122,10 @@
       "ahorro": 736,
       "masBarata": "Guadalajara",
       "porUnidad": 111.17,
-      "tambien": "Ozempic / Rybelsus / Wegovy"
+      "tambien": "Ozempic / Rybelsus / Wegovy",
+      "marcasVistas": [
+        "Rybelsus"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -1979,7 +2156,14 @@
       "max": 197,
       "ahorro": 141,
       "masBarata": "Ahorro",
-      "porUnidad": 0.75
+      "porUnidad": 0.75,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2016,7 +2200,14 @@
       "max": 568,
       "ahorro": 524,
       "masBarata": "Guadalajara",
-      "porUnidad": 8.8
+      "porUnidad": 8.8,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2048,7 +2239,14 @@
       "max": 290,
       "ahorro": 56,
       "masBarata": "Guadalajara",
-      "porUnidad": 46.8
+      "porUnidad": 46.8,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2085,7 +2283,14 @@
       "max": 427,
       "ahorro": 45,
       "masBarata": "Prixz",
-      "porUnidad": 5.46
+      "porUnidad": 5.46,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2116,7 +2321,14 @@
       "max": 277,
       "ahorro": 32,
       "masBarata": "Prixz",
-      "porUnidad": 4.9
+      "porUnidad": 4.9,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2153,7 +2365,14 @@
       "max": 423,
       "ahorro": 210,
       "masBarata": "Guadalajara",
-      "porUnidad": 42.6
+      "porUnidad": 42.6,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2185,7 +2404,14 @@
       "max": 284,
       "ahorro": 45,
       "masBarata": "Guadalajara",
-      "porUnidad": 47.8
+      "porUnidad": 47.8,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2216,7 +2442,14 @@
       "max": 106,
       "ahorro": 80,
       "masBarata": "Prixz",
-      "porUnidad": 0.35
+      "porUnidad": 0.35,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2248,7 +2481,14 @@
       "max": 371,
       "ahorro": 58,
       "masBarata": "Prixz",
-      "porUnidad": 4.17
+      "porUnidad": 4.17,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2285,7 +2525,14 @@
       "max": 102,
       "ahorro": 76,
       "masBarata": "Prixz",
-      "porUnidad": 2.17
+      "porUnidad": 2.17,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2323,7 +2570,14 @@
       "max": 322,
       "ahorro": 62,
       "masBarata": "Guadalajara",
-      "porUnidad": 21.67
+      "porUnidad": 21.67,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2361,7 +2615,14 @@
       "max": 292,
       "ahorro": 37,
       "masBarata": "Guadalajara",
-      "porUnidad": 21.25
+      "porUnidad": 21.25,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2392,7 +2653,14 @@
       "max": 466,
       "ahorro": 44,
       "masBarata": "Guadalajara",
-      "porUnidad": 84.4
+      "porUnidad": 84.4,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2429,7 +2697,14 @@
       "max": 356,
       "ahorro": 31,
       "masBarata": "Guadalajara",
-      "porUnidad": 27.08
+      "porUnidad": 27.08,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2466,7 +2741,14 @@
       "max": 335,
       "ahorro": 76,
       "masBarata": "Guadalajara",
-      "porUnidad": 25.9
+      "porUnidad": 25.9,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2504,7 +2786,14 @@
       "max": 335,
       "ahorro": 55,
       "masBarata": "Guadalajara",
-      "porUnidad": 28
+      "porUnidad": 28,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Amoxicilina",
@@ -2535,7 +2824,14 @@
       "max": 492,
       "ahorro": 68,
       "masBarata": "Prixz",
-      "porUnidad": 35.33
+      "porUnidad": 35.33,
+      "marcasVistas": [
+        "Acroxil",
+        "Amoxil",
+        "Ampliron",
+        "Clavulin",
+        "Penamox"
+      ]
     },
     {
       "medicamento": "Clonazepam",
@@ -2603,7 +2899,12 @@
       "max": 71,
       "ahorro": 46,
       "masBarata": "Prixz",
-      "porUnidad": 0.83
+      "porUnidad": 0.83,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2640,7 +2941,12 @@
       "max": 179,
       "ahorro": 141,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.9
+      "porUnidad": 1.9,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2678,7 +2984,12 @@
       "max": 193,
       "ahorro": 14,
       "masBarata": "Prixz",
-      "porUnidad": 8.95
+      "porUnidad": 8.95,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2715,7 +3026,12 @@
       "max": 310,
       "ahorro": 71,
       "masBarata": "Guadalajara",
-      "porUnidad": 15.93
+      "porUnidad": 15.93,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2746,7 +3062,12 @@
       "max": 71,
       "ahorro": 29,
       "masBarata": "Guadalajara",
-      "porUnidad": 2.1
+      "porUnidad": 2.1,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2783,7 +3104,12 @@
       "max": 136,
       "ahorro": 61,
       "masBarata": "Prixz",
-      "porUnidad": 1.67
+      "porUnidad": 1.67,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2821,7 +3147,12 @@
       "max": 730,
       "ahorro": 176,
       "masBarata": "Guadalajara",
-      "porUnidad": 12.31
+      "porUnidad": 12.31,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2858,7 +3189,12 @@
       "max": 99,
       "ahorro": 10,
       "masBarata": "Guadalajara",
-      "porUnidad": 14.83
+      "porUnidad": 14.83,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2896,7 +3232,12 @@
       "max": 119,
       "ahorro": 20,
       "masBarata": "Ahorro",
-      "porUnidad": 16.5
+      "porUnidad": 16.5,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2928,7 +3269,12 @@
       "max": 95,
       "ahorro": 6,
       "masBarata": "Guadalajara",
-      "porUnidad": 14.83
+      "porUnidad": 14.83,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -2965,7 +3311,12 @@
       "max": 117,
       "ahorro": 25,
       "masBarata": "Guadalajara",
-      "porUnidad": 9.2
+      "porUnidad": 9.2,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -3002,7 +3353,12 @@
       "max": 59,
       "ahorro": 34,
       "masBarata": "Guadalajara",
-      "porUnidad": 2.08
+      "porUnidad": 2.08,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -3040,7 +3396,12 @@
       "max": 230,
       "ahorro": 35,
       "masBarata": "Prixz",
-      "porUnidad": 16.25
+      "porUnidad": 16.25,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -3077,7 +3438,12 @@
       "max": 211,
       "ahorro": 54,
       "masBarata": "Guadalajara",
-      "porUnidad": 7.85
+      "porUnidad": 7.85,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -3114,7 +3480,12 @@
       "max": 389,
       "ahorro": 21,
       "masBarata": "Prixz",
-      "porUnidad": 15.33
+      "porUnidad": 15.33,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Naproxeno",
@@ -3151,7 +3522,12 @@
       "max": 271,
       "ahorro": 11,
       "masBarata": "Guadalajara",
-      "porUnidad": 32.5
+      "porUnidad": 32.5,
+      "marcasVistas": [
+        "Alliviax",
+        "Flanax",
+        "Naxen"
+      ]
     },
     {
       "medicamento": "Losartán",
@@ -3244,7 +3620,10 @@
       "max": 181,
       "ahorro": 109,
       "masBarata": "Guadalajara",
-      "porUnidad": 14.4
+      "porUnidad": 14.4,
+      "marcasVistas": [
+        "Complejo"
+      ]
     },
     {
       "medicamento": "Diclofenaco",
@@ -3275,7 +3654,10 @@
       "max": 36,
       "ahorro": 21,
       "masBarata": "Prixz",
-      "porUnidad": 7.5
+      "porUnidad": 7.5,
+      "marcasVistas": [
+        "Complejo"
+      ]
     },
     {
       "medicamento": "Diclofenaco",
@@ -3306,7 +3688,10 @@
       "max": 51,
       "ahorro": 23,
       "masBarata": "Guadalajara",
-      "porUnidad": 2.8
+      "porUnidad": 2.8,
+      "marcasVistas": [
+        "Complejo"
+      ]
     },
     {
       "medicamento": "Diclofenaco",
@@ -3343,7 +3728,10 @@
       "max": 52,
       "ahorro": 22,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.5
+      "porUnidad": 1.5,
+      "marcasVistas": [
+        "Complejo"
+      ]
     },
     {
       "medicamento": "Diclofenaco",
@@ -3380,7 +3768,10 @@
       "max": 114,
       "ahorro": 74,
       "masBarata": "Prixz",
-      "porUnidad": 0.8
+      "porUnidad": 0.8,
+      "marcasVistas": [
+        "Complejo"
+      ]
     },
     {
       "medicamento": "Loratadina",
@@ -3522,7 +3913,20 @@
       "max": 212,
       "ahorro": 36,
       "masBarata": "Guadalajara",
-      "porUnidad": 35.2
+      "porUnidad": 35.2,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3565,7 +3969,20 @@
       "max": 338,
       "ahorro": 306,
       "masBarata": "Prixz",
-      "porUnidad": 10.67
+      "porUnidad": 10.67,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3597,7 +4014,20 @@
       "max": 307,
       "ahorro": 36,
       "masBarata": "Guadalajara",
-      "porUnidad": 90.33
+      "porUnidad": 90.33,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3629,7 +4059,20 @@
       "max": 276,
       "ahorro": 26,
       "masBarata": "Guadalajara",
-      "porUnidad": 83.33
+      "porUnidad": 83.33,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3667,7 +4110,20 @@
       "max": 338,
       "ahorro": 88,
       "masBarata": "Guadalajara",
-      "porUnidad": 83.33
+      "porUnidad": 83.33,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3699,7 +4155,20 @@
       "max": 53,
       "ahorro": 8,
       "masBarata": "Prixz",
-      "porUnidad": 15
+      "porUnidad": 15,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3737,7 +4206,20 @@
       "max": 405,
       "ahorro": 93,
       "masBarata": "Guadalajara",
-      "porUnidad": 104
+      "porUnidad": 104,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3775,7 +4257,20 @@
       "max": 463,
       "ahorro": 18,
       "masBarata": "Guadalajara",
-      "porUnidad": 148.33
+      "porUnidad": 148.33,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3813,7 +4308,20 @@
       "max": 869,
       "ahorro": 84,
       "masBarata": "Guadalajara",
-      "porUnidad": 261.67
+      "porUnidad": 261.67,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3850,7 +4358,20 @@
       "max": 480,
       "ahorro": 438,
       "masBarata": "Prixz",
-      "porUnidad": 10.5
+      "porUnidad": 10.5,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3888,7 +4409,20 @@
       "max": 487,
       "ahorro": 100,
       "masBarata": "Guadalajara",
-      "porUnidad": 96.75
+      "porUnidad": 96.75,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3926,7 +4460,20 @@
       "max": 502,
       "ahorro": 22,
       "masBarata": "Ahorro",
-      "porUnidad": 120
+      "porUnidad": 120,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -3964,7 +4511,20 @@
       "max": 928,
       "ahorro": 90,
       "masBarata": "Guadalajara",
-      "porUnidad": 209.5
+      "porUnidad": 209.5,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4007,7 +4567,20 @@
       "max": 536,
       "ahorro": 212,
       "masBarata": "Guadalajara",
-      "porUnidad": 64.8
+      "porUnidad": 64.8,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4039,7 +4612,20 @@
       "max": 409,
       "ahorro": 40,
       "masBarata": "Guadalajara",
-      "porUnidad": 73.8
+      "porUnidad": 73.8,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4077,7 +4663,20 @@
       "max": 435,
       "ahorro": 111,
       "masBarata": "Guadalajara",
-      "porUnidad": 64.8
+      "porUnidad": 64.8,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4115,7 +4714,20 @@
       "max": 536,
       "ahorro": 61,
       "masBarata": "Guadalajara",
-      "porUnidad": 95
+      "porUnidad": 95,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4152,7 +4764,20 @@
       "max": 355,
       "ahorro": 37,
       "masBarata": "Guadalajara",
-      "porUnidad": 21.2
+      "porUnidad": 21.2,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4190,7 +4815,20 @@
       "max": 623,
       "ahorro": 67,
       "masBarata": "Guadalajara",
-      "porUnidad": 37.07
+      "porUnidad": 37.07,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4221,7 +4859,20 @@
       "max": 815,
       "ahorro": 116,
       "masBarata": "Prixz",
-      "porUnidad": 31.07
+      "porUnidad": 31.07,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Azitromicina",
@@ -4258,7 +4909,20 @@
       "max": 403,
       "ahorro": 43,
       "masBarata": "Guadalajara",
-      "porUnidad": 12
+      "porUnidad": 12,
+      "marcasVistas": [
+        "Aclarium",
+        "Amizt",
+        "Azibiot",
+        "Aziphar",
+        "Azitrocin",
+        "Charyn",
+        "Craztronin",
+        "Koptin",
+        "Macrozit",
+        "Marzivag",
+        "Zertalin"
+      ]
     },
     {
       "medicamento": "Alprazolam",
@@ -4364,7 +5028,11 @@
       "ahorro": 60,
       "masBarata": "Prixz",
       "porUnidad": 2.5,
-      "tambien": "Buscapina"
+      "tambien": "Buscapina",
+      "marcasVistas": [
+        "Buscapina",
+        "Capin"
+      ]
     },
     {
       "medicamento": "Butilhioscina",
@@ -4403,7 +5071,11 @@
       "ahorro": 53,
       "masBarata": "Prixz",
       "porUnidad": 3.2,
-      "tambien": "Buscapina"
+      "tambien": "Buscapina",
+      "marcasVistas": [
+        "Buscapina",
+        "Capin"
+      ]
     },
     {
       "medicamento": "Butilhioscina",
@@ -4441,7 +5113,11 @@
       "ahorro": 337,
       "masBarata": "Prixz",
       "porUnidad": 10.67,
-      "tambien": "Buscapina"
+      "tambien": "Buscapina",
+      "marcasVistas": [
+        "Buscapina",
+        "Capin"
+      ]
     },
     {
       "medicamento": "Sertralina",
@@ -4689,7 +5365,11 @@
       "ahorro": 137,
       "masBarata": "Ahorro",
       "porUnidad": 0.89,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4728,7 +5408,11 @@
       "ahorro": 29,
       "masBarata": "Ahorro",
       "porUnidad": 4.75,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4766,7 +5450,11 @@
       "ahorro": 126,
       "masBarata": "Prixz",
       "porUnidad": 0.63,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4798,7 +5486,11 @@
       "ahorro": 180,
       "masBarata": "Prixz",
       "porUnidad": 1.42,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4831,7 +5523,11 @@
       "ahorro": 84,
       "masBarata": "Prixz",
       "porUnidad": 3.02,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4869,7 +5565,11 @@
       "ahorro": 81,
       "masBarata": "Ahorro",
       "porUnidad": 3.74,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4907,7 +5607,11 @@
       "ahorro": 12,
       "masBarata": "Guadalajara",
       "porUnidad": 8.6,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4939,7 +5643,11 @@
       "ahorro": 4,
       "masBarata": "Prixz",
       "porUnidad": 3.58,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4977,7 +5685,11 @@
       "ahorro": 20,
       "masBarata": "Guadalajara",
       "porUnidad": 0.75,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -5016,7 +5728,11 @@
       "ahorro": 34,
       "masBarata": "Prixz",
       "porUnidad": 1.75,
-      "tambien": "Aspirina"
+      "tambien": "Aspirina",
+      "marcasVistas": [
+        "Aspirina",
+        "Latasina"
+      ]
     },
     {
       "medicamento": "Atorvastatina",
@@ -5152,7 +5868,14 @@
       "max": 941,
       "ahorro": 31,
       "masBarata": "Prixz",
-      "porUnidad": 9.1
+      "porUnidad": 9.1,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5189,7 +5912,14 @@
       "max": 398,
       "ahorro": 382,
       "masBarata": "Prixz",
-      "porUnidad": 1.33
+      "porUnidad": 1.33,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5226,7 +5956,14 @@
       "max": 420,
       "ahorro": 82,
       "masBarata": "Guadalajara",
-      "porUnidad": 28.17
+      "porUnidad": 28.17,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5258,7 +5995,14 @@
       "max": 398,
       "ahorro": 105,
       "masBarata": "Prixz",
-      "porUnidad": 24.42
+      "porUnidad": 24.42,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5295,7 +6039,14 @@
       "max": 412,
       "ahorro": 86,
       "masBarata": "Guadalajara",
-      "porUnidad": 54.33
+      "porUnidad": 54.33,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5332,7 +6083,14 @@
       "max": 572,
       "ahorro": 153,
       "masBarata": "Guadalajara",
-      "porUnidad": 59.86
+      "porUnidad": 59.86,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5369,7 +6127,14 @@
       "max": 610,
       "ahorro": 480,
       "masBarata": "Guadalajara",
-      "porUnidad": 16.25
+      "porUnidad": 16.25,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5401,7 +6166,14 @@
       "max": 444,
       "ahorro": 136,
       "masBarata": "Prixz",
-      "porUnidad": 38.5
+      "porUnidad": 38.5,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5432,7 +6204,14 @@
       "max": 236,
       "ahorro": 91,
       "masBarata": "Guadalajara",
-      "porUnidad": 14.5
+      "porUnidad": 14.5,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5469,7 +6248,14 @@
       "max": 242,
       "ahorro": 220,
       "masBarata": "Prixz",
-      "porUnidad": 1.83
+      "porUnidad": 1.83,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5506,7 +6292,14 @@
       "max": 631,
       "ahorro": 94,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.75
+      "porUnidad": 44.75,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5543,7 +6336,14 @@
       "max": 239,
       "ahorro": 154,
       "masBarata": "Prixz",
-      "porUnidad": 6.07
+      "porUnidad": 6.07,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5581,7 +6381,14 @@
       "max": 799,
       "ahorro": 202,
       "masBarata": "Guadalajara",
-      "porUnidad": 42.64
+      "porUnidad": 42.64,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5619,7 +6426,14 @@
       "max": 843,
       "ahorro": 221,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.43
+      "porUnidad": 44.43,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5657,7 +6471,14 @@
       "max": 561,
       "ahorro": 146,
       "masBarata": "Prixz",
-      "porUnidad": 29.64
+      "porUnidad": 29.64,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5689,7 +6510,14 @@
       "max": 995,
       "ahorro": 45,
       "masBarata": "Ahorro",
-      "porUnidad": 67.86
+      "porUnidad": 67.86,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Ciprofloxacino",
@@ -5720,7 +6548,14 @@
       "max": 793,
       "ahorro": 6,
       "masBarata": "Ahorro",
-      "porUnidad": 112.43
+      "porUnidad": 112.43,
+      "marcasVistas": [
+        "Ciprobac",
+        "Ciproflox",
+        "Ciproxina",
+        "Eni",
+        "Microrgan"
+      ]
     },
     {
       "medicamento": "Fluconazol",
@@ -6042,7 +6877,10 @@
       "max": 167,
       "ahorro": 128,
       "masBarata": "Prixz",
-      "porUnidad": 2.79
+      "porUnidad": 2.79,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6073,7 +6911,10 @@
       "max": 267,
       "ahorro": 15,
       "masBarata": "Prixz",
-      "porUnidad": 16.8
+      "porUnidad": 16.8,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6104,7 +6945,10 @@
       "max": 292,
       "ahorro": 152,
       "masBarata": "Prixz",
-      "porUnidad": 5
+      "porUnidad": 5,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6135,7 +6979,10 @@
       "max": 420,
       "ahorro": 268,
       "masBarata": "Prixz",
-      "porUnidad": 5.07
+      "porUnidad": 5.07,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6167,7 +7014,10 @@
       "max": 456,
       "ahorro": 36,
       "masBarata": "Guadalajara",
-      "porUnidad": 14
+      "porUnidad": 14,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6198,7 +7048,10 @@
       "max": 232,
       "ahorro": 132,
       "masBarata": "Prixz",
-      "porUnidad": 7.14
+      "porUnidad": 7.14,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6235,7 +7088,10 @@
       "max": 626,
       "ahorro": 466,
       "masBarata": "Prixz",
-      "porUnidad": 5.71
+      "porUnidad": 5.71,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Telmisartán",
@@ -6266,7 +7122,10 @@
       "max": 683,
       "ahorro": 73,
       "masBarata": "Guadalajara",
-      "porUnidad": 20.33
+      "porUnidad": 20.33,
+      "marcasVistas": [
+        "Rolet"
+      ]
     },
     {
       "medicamento": "Metamizol",
@@ -6298,7 +7157,10 @@
       "ahorro": 16,
       "masBarata": "Guadalajara",
       "porUnidad": 25,
-      "tambien": "Dipirona"
+      "tambien": "Dipirona",
+      "marcasVistas": [
+        "Neo"
+      ]
     },
     {
       "medicamento": "Metamizol",
@@ -6330,7 +7192,10 @@
       "ahorro": 20,
       "masBarata": "Guadalajara",
       "porUnidad": 1.4,
-      "tambien": "Dipirona"
+      "tambien": "Dipirona",
+      "marcasVistas": [
+        "Neo"
+      ]
     },
     {
       "medicamento": "Metamizol",
@@ -6362,7 +7227,10 @@
       "ahorro": 35,
       "masBarata": "Prixz",
       "porUnidad": 6.67,
-      "tambien": "Dipirona"
+      "tambien": "Dipirona",
+      "marcasVistas": [
+        "Neo"
+      ]
     },
     {
       "medicamento": "Empagliflozina",
@@ -6400,7 +7268,10 @@
       "ahorro": 223,
       "masBarata": "Guadalajara",
       "porUnidad": 83.8,
-      "tambien": "Jardianz"
+      "tambien": "Jardianz",
+      "marcasVistas": [
+        "Jardianz"
+      ]
     },
     {
       "medicamento": "Empagliflozina",
@@ -6438,7 +7309,10 @@
       "ahorro": 213,
       "masBarata": "Prixz",
       "porUnidad": 73.8,
-      "tambien": "Jardianz"
+      "tambien": "Jardianz",
+      "marcasVistas": [
+        "Jardianz"
+      ]
     },
     {
       "medicamento": "Empagliflozina",
@@ -6476,7 +7350,10 @@
       "ahorro": 197,
       "masBarata": "Guadalajara",
       "porUnidad": 83.8,
-      "tambien": "Jardianz"
+      "tambien": "Jardianz",
+      "marcasVistas": [
+        "Jardianz"
+      ]
     },
     {
       "medicamento": "Empagliflozina",
@@ -6514,7 +7391,10 @@
       "ahorro": 149,
       "masBarata": "Prixz",
       "porUnidad": 73.8,
-      "tambien": "Jardianz"
+      "tambien": "Jardianz",
+      "marcasVistas": [
+        "Jardianz"
+      ]
     },
     {
       "medicamento": "Orlistat",
@@ -6706,7 +7586,11 @@
       "max": 78,
       "ahorro": 50,
       "masBarata": "Guadalajara",
-      "porUnidad": 2
+      "porUnidad": 2,
+      "marcasVistas": [
+        "Dorsal",
+        "Glucosamina"
+      ]
     },
     {
       "medicamento": "Meloxicam",
@@ -6737,7 +7621,11 @@
       "max": 71,
       "ahorro": 50,
       "masBarata": "Guadalajara",
-      "porUnidad": 2.1
+      "porUnidad": 2.1,
+      "marcasVistas": [
+        "Dorsal",
+        "Glucosamina"
+      ]
     },
     {
       "medicamento": "Enalapril",
@@ -6805,7 +7693,10 @@
       "max": 523,
       "ahorro": 434,
       "masBarata": "Prixz",
-      "porUnidad": 2.97
+      "porUnidad": 2.97,
+      "marcasVistas": [
+        "Rovartal"
+      ]
     },
     {
       "medicamento": "Rosuvastatina",
@@ -6843,7 +7734,10 @@
       "max": 591,
       "ahorro": 182,
       "masBarata": "Guadalajara",
-      "porUnidad": 13.63
+      "porUnidad": 13.63,
+      "marcasVistas": [
+        "Rovartal"
+      ]
     },
     {
       "medicamento": "Rosuvastatina",
@@ -6874,7 +7768,10 @@
       "max": 140,
       "ahorro": 20,
       "masBarata": "Prixz",
-      "porUnidad": 8
+      "porUnidad": 8,
+      "marcasVistas": [
+        "Rovartal"
+      ]
     },
     {
       "medicamento": "Rosuvastatina",
@@ -6911,7 +7808,10 @@
       "max": 746,
       "ahorro": 506,
       "masBarata": "Prixz",
-      "porUnidad": 8
+      "porUnidad": 8,
+      "marcasVistas": [
+        "Rovartal"
+      ]
     },
     {
       "medicamento": "Rosuvastatina",
@@ -6949,7 +7849,10 @@
       "max": 746,
       "ahorro": 173,
       "masBarata": "Guadalajara",
-      "porUnidad": 19.1
+      "porUnidad": 19.1,
+      "marcasVistas": [
+        "Rovartal"
+      ]
     },
     {
       "medicamento": "Pantoprazol",
@@ -7172,7 +8075,12 @@
       "max": 687,
       "ahorro": 541,
       "masBarata": "Guadalajara",
-      "porUnidad": 29.2
+      "porUnidad": 29.2,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7204,7 +8112,12 @@
       "max": 687,
       "ahorro": 134,
       "masBarata": "Guadalajara",
-      "porUnidad": 110.6
+      "porUnidad": 110.6,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7241,7 +8154,12 @@
       "max": 925,
       "ahorro": 712,
       "masBarata": "Guadalajara",
-      "porUnidad": 42.6
+      "porUnidad": 42.6,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7279,7 +8197,12 @@
       "max": 956,
       "ahorro": 101,
       "masBarata": "Guadalajara",
-      "porUnidad": 171
+      "porUnidad": 171,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7311,7 +8234,12 @@
       "max": 576,
       "ahorro": 68,
       "masBarata": "Guadalajara",
-      "porUnidad": 101.6
+      "porUnidad": 101.6,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7342,7 +8270,12 @@
       "max": 152,
       "ahorro": 119,
       "masBarata": "Prixz",
-      "porUnidad": 2.75
+      "porUnidad": 2.75,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7373,7 +8306,12 @@
       "max": 896,
       "ahorro": 108,
       "masBarata": "Guadalajara",
-      "porUnidad": 65.67
+      "porUnidad": 65.67,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7410,7 +8348,12 @@
       "max": 253,
       "ahorro": 178,
       "masBarata": "Prixz",
-      "porUnidad": 3.75
+      "porUnidad": 3.75,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7448,7 +8391,12 @@
       "max": 686,
       "ahorro": 344,
       "masBarata": "Prixz",
-      "porUnidad": 17.1
+      "porUnidad": 17.1,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Cefalexina",
@@ -7479,7 +8427,12 @@
       "max": 1291,
       "ahorro": 87,
       "masBarata": "Guadalajara",
-      "porUnidad": 57.33
+      "porUnidad": 57.33,
+      "marcasVistas": [
+        "Cefalver",
+        "Keflex",
+        "Naxifelar"
+      ]
     },
     {
       "medicamento": "Clindamicina",
@@ -7510,7 +8463,14 @@
       "max": 20,
       "ahorro": 4,
       "masBarata": "Prixz",
-      "porUnidad": 16
+      "porUnidad": 16,
+      "marcasVistas": [
+        "Cigmadil",
+        "Clendix",
+        "Dalacin",
+        "Foshlenn",
+        "Indamid"
+      ]
     },
     {
       "medicamento": "Clindamicina",
@@ -7547,7 +8507,14 @@
       "max": 118,
       "ahorro": 85,
       "masBarata": "Prixz",
-      "porUnidad": 2.06
+      "porUnidad": 2.06,
+      "marcasVistas": [
+        "Cigmadil",
+        "Clendix",
+        "Dalacin",
+        "Foshlenn",
+        "Indamid"
+      ]
     },
     {
       "medicamento": "Clindamicina",
@@ -7579,7 +8546,14 @@
       "max": 527,
       "ahorro": 52,
       "masBarata": "Prixz",
-      "porUnidad": 29.69
+      "porUnidad": 29.69,
+      "marcasVistas": [
+        "Cigmadil",
+        "Clendix",
+        "Dalacin",
+        "Foshlenn",
+        "Indamid"
+      ]
     },
     {
       "medicamento": "Clindamicina",
@@ -7617,7 +8591,14 @@
       "max": 753,
       "ahorro": 177,
       "masBarata": "Guadalajara",
-      "porUnidad": 36
+      "porUnidad": 36,
+      "marcasVistas": [
+        "Cigmadil",
+        "Clendix",
+        "Dalacin",
+        "Foshlenn",
+        "Indamid"
+      ]
     },
     {
       "medicamento": "Clindamicina",
@@ -7649,7 +8630,14 @@
       "max": 558,
       "ahorro": 15,
       "masBarata": "Guadalajara",
-      "porUnidad": 33.94
+      "porUnidad": 33.94,
+      "marcasVistas": [
+        "Cigmadil",
+        "Clendix",
+        "Dalacin",
+        "Foshlenn",
+        "Indamid"
+      ]
     },
     {
       "medicamento": "Clindamicina",
@@ -7686,7 +8674,14 @@
       "max": 753,
       "ahorro": 76,
       "masBarata": "Guadalajara",
-      "porUnidad": 32.24
+      "porUnidad": 32.24,
+      "marcasVistas": [
+        "Cigmadil",
+        "Clendix",
+        "Dalacin",
+        "Foshlenn",
+        "Indamid"
+      ]
     },
     {
       "medicamento": "Montelukast",
@@ -7927,7 +8922,10 @@
       "max": 243,
       "ahorro": 191,
       "masBarata": "Guadalajara",
-      "porUnidad": 10.4
+      "porUnidad": 10.4,
+      "marcasVistas": [
+        "Daxon"
+      ]
     },
     {
       "medicamento": "Nitazoxanida",
@@ -7965,7 +8963,10 @@
       "max": 243,
       "ahorro": 31,
       "masBarata": "Guadalajara",
-      "porUnidad": 42.4
+      "porUnidad": 42.4,
+      "marcasVistas": [
+        "Daxon"
+      ]
     },
     {
       "medicamento": "Nitazoxanida",
@@ -8002,7 +9003,10 @@
       "max": 303,
       "ahorro": 59,
       "masBarata": "Guadalajara",
-      "porUnidad": 40.67
+      "porUnidad": 40.67,
+      "marcasVistas": [
+        "Daxon"
+      ]
     },
     {
       "medicamento": "Nitazoxanida",
@@ -8039,7 +9043,10 @@
       "max": 550,
       "ahorro": 57,
       "masBarata": "Guadalajara",
-      "porUnidad": 82.17
+      "porUnidad": 82.17,
+      "marcasVistas": [
+        "Daxon"
+      ]
     },
     {
       "medicamento": "Nitazoxanida",
@@ -8070,7 +9077,10 @@
       "max": 99,
       "ahorro": 24,
       "masBarata": "Guadalajara",
-      "porUnidad": 10.71
+      "porUnidad": 10.71,
+      "marcasVistas": [
+        "Daxon"
+      ]
     },
     {
       "medicamento": "Dutasterida",
@@ -8107,7 +9117,10 @@
       "max": 687,
       "ahorro": 96,
       "masBarata": "Guadalajara",
-      "porUnidad": 19.7
+      "porUnidad": 19.7,
+      "marcasVistas": [
+        "Zivata"
+      ]
     },
     {
       "medicamento": "Finasterida",
@@ -8144,7 +9157,10 @@
       "max": 909,
       "ahorro": 92,
       "masBarata": "Ahorro",
-      "porUnidad": 27.23
+      "porUnidad": 27.23,
+      "marcasVistas": [
+        "Pilovait"
+      ]
     },
     {
       "medicamento": "Finasterida",
@@ -8181,7 +9197,10 @@
       "max": 1300,
       "ahorro": 246,
       "masBarata": "Prixz",
-      "porUnidad": 17.57
+      "porUnidad": 17.57,
+      "marcasVistas": [
+        "Pilovait"
+      ]
     },
     {
       "medicamento": "Finasterida",
@@ -8218,7 +9237,10 @@
       "max": 804,
       "ahorro": 700,
       "masBarata": "Prixz",
-      "porUnidad": 3.47
+      "porUnidad": 3.47,
+      "marcasVistas": [
+        "Pilovait"
+      ]
     },
     {
       "medicamento": "Trimetoprima / Sulfametoxazol",
@@ -8249,7 +9271,10 @@
       "max": 87,
       "ahorro": 51,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.8
+      "porUnidad": 1.8,
+      "marcasVistas": [
+        "Pisatrina"
+      ]
     },
     {
       "medicamento": "Nitrofurantoína",
@@ -8286,7 +9311,15 @@
       "max": 135,
       "ahorro": 81,
       "masBarata": "Prixz",
-      "porUnidad": 1.35
+      "porUnidad": 1.35,
+      "marcasVistas": [
+        "Biofurin",
+        "Furitex",
+        "Ircilus",
+        "Macrofurin",
+        "Suronit",
+        "Terfhicid"
+      ]
     },
     {
       "medicamento": "Nitrofurantoína",
@@ -8324,7 +9357,15 @@
       "max": 748,
       "ahorro": 89,
       "masBarata": "Guadalajara",
-      "porUnidad": 16.48
+      "porUnidad": 16.48,
+      "marcasVistas": [
+        "Biofurin",
+        "Furitex",
+        "Ircilus",
+        "Macrofurin",
+        "Suronit",
+        "Terfhicid"
+      ]
     },
     {
       "medicamento": "Terbinafina",
@@ -8616,7 +9657,10 @@
       "ahorro": 102,
       "masBarata": "Guadalajara",
       "porUnidad": 81.1,
-      "tambien": "Trayenta"
+      "tambien": "Trayenta",
+      "marcasVistas": [
+        "Trayenta"
+      ]
     },
     {
       "medicamento": "Linagliptina",
@@ -8654,7 +9698,10 @@
       "ahorro": 1553,
       "masBarata": "Guadalajara",
       "porUnidad": 26.27,
-      "tambien": "Trayenta"
+      "tambien": "Trayenta",
+      "marcasVistas": [
+        "Trayenta"
+      ]
     },
     {
       "medicamento": "Linagliptina",
@@ -8693,7 +9740,10 @@
       "ahorro": 249,
       "masBarata": "Guadalajara",
       "porUnidad": 72.37,
-      "tambien": "Trayenta"
+      "tambien": "Trayenta",
+      "marcasVistas": [
+        "Trayenta"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8730,7 +9780,16 @@
       "max": 158,
       "ahorro": 73,
       "masBarata": "Prixz",
-      "porUnidad": 12.14
+      "porUnidad": 12.14,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8762,7 +9821,16 @@
       "max": 536,
       "ahorro": 32,
       "masBarata": "Guadalajara",
-      "porUnidad": 72
+      "porUnidad": 72,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8800,7 +9868,16 @@
       "max": 587,
       "ahorro": 223,
       "masBarata": "Prixz",
-      "porUnidad": 52
+      "porUnidad": 52,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8838,7 +9915,16 @@
       "max": 669,
       "ahorro": 138,
       "masBarata": "Guadalajara",
-      "porUnidad": 75.86
+      "porUnidad": 75.86,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8876,7 +9962,16 @@
       "max": 1109,
       "ahorro": 203,
       "masBarata": "Guadalajara",
-      "porUnidad": 129.43
+      "porUnidad": 129.43,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8914,7 +10009,16 @@
       "max": 754,
       "ahorro": 112,
       "masBarata": "Guadalajara",
-      "porUnidad": 91.71
+      "porUnidad": 91.71,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8952,7 +10056,16 @@
       "max": 682,
       "ahorro": 198,
       "masBarata": "Prixz",
-      "porUnidad": 69.14
+      "porUnidad": 69.14,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -8989,7 +10102,16 @@
       "max": 495,
       "ahorro": 47,
       "masBarata": "Guadalajara",
-      "porUnidad": 89.6
+      "porUnidad": 89.6,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9027,7 +10149,16 @@
       "max": 738,
       "ahorro": 190,
       "masBarata": "Guadalajara",
-      "porUnidad": 109.6
+      "porUnidad": 109.6,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9065,7 +10196,16 @@
       "max": 1181,
       "ahorro": 214,
       "masBarata": "Guadalajara",
-      "porUnidad": 193.4
+      "porUnidad": 193.4,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9102,7 +10242,16 @@
       "max": 409,
       "ahorro": 259,
       "masBarata": "Prixz",
-      "porUnidad": 21.43
+      "porUnidad": 21.43,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9140,7 +10289,16 @@
       "max": 537,
       "ahorro": 73,
       "masBarata": "Guadalajara",
-      "porUnidad": 66.29
+      "porUnidad": 66.29,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9178,7 +10336,16 @@
       "max": 736,
       "ahorro": 158,
       "masBarata": "Guadalajara",
-      "porUnidad": 82.57
+      "porUnidad": 82.57,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9216,7 +10383,16 @@
       "max": 672,
       "ahorro": 259,
       "masBarata": "Prixz",
-      "porUnidad": 59
+      "porUnidad": 59,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9254,7 +10430,16 @@
       "max": 794,
       "ahorro": 160,
       "masBarata": "Guadalajara",
-      "porUnidad": 90.57
+      "porUnidad": 90.57,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Levofloxacino",
@@ -9292,7 +10477,16 @@
       "max": 816,
       "ahorro": 111,
       "masBarata": "Guadalajara",
-      "porUnidad": 100.71
+      "porUnidad": 100.71,
+      "marcasVistas": [
+        "Adenasa",
+        "Bredelin",
+        "Elequine",
+        "Evocs",
+        "Fluoning",
+        "Lefloxin",
+        "Tamiram"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9329,7 +10523,16 @@
       "max": 545,
       "ahorro": 139,
       "masBarata": "Guadalajara",
-      "porUnidad": 14.5
+      "porUnidad": 14.5,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9367,7 +10570,16 @@
       "max": 977,
       "ahorro": 228,
       "masBarata": "Guadalajara",
-      "porUnidad": 26.75
+      "porUnidad": 26.75,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9404,7 +10616,16 @@
       "max": 113,
       "ahorro": 86,
       "masBarata": "Prixz",
-      "porUnidad": 2.7
+      "porUnidad": 2.7,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9442,7 +10663,16 @@
       "max": 659,
       "ahorro": 136,
       "masBarata": "Guadalajara",
-      "porUnidad": 52.3
+      "porUnidad": 52.3,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9473,7 +10703,16 @@
       "max": 491,
       "ahorro": 21,
       "masBarata": "Prixz",
-      "porUnidad": 31.33
+      "porUnidad": 31.33,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9510,7 +10749,16 @@
       "max": 581,
       "ahorro": 421,
       "masBarata": "Guadalajara",
-      "porUnidad": 5.71
+      "porUnidad": 5.71,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9547,7 +10795,16 @@
       "max": 657,
       "ahorro": 81,
       "masBarata": "Guadalajara",
-      "porUnidad": 20.57
+      "porUnidad": 20.57,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Doxiciclina",
@@ -9585,7 +10842,16 @@
       "max": 581,
       "ahorro": 145,
       "masBarata": "Guadalajara",
-      "porUnidad": 15.57
+      "porUnidad": 15.57,
+      "marcasVistas": [
+        "Granudoxy",
+        "Kenciclen",
+        "Lievricin",
+        "Periosan",
+        "Roxidolin",
+        "Vibramicina",
+        "Vivradoxil"
+      ]
     },
     {
       "medicamento": "Clonixinato de lisina",
@@ -9622,7 +10888,10 @@
       "max": 259,
       "ahorro": 217,
       "masBarata": "Prixz",
-      "porUnidad": 8.4
+      "porUnidad": 8.4,
+      "marcasVistas": [
+        "Dorixina"
+      ]
     },
     {
       "medicamento": "Clonixinato de lisina",
@@ -9654,7 +10923,10 @@
       "max": 259,
       "ahorro": 50,
       "masBarata": "Guadalajara",
-      "porUnidad": 41.8
+      "porUnidad": 41.8,
+      "marcasVistas": [
+        "Dorixina"
+      ]
     },
     {
       "medicamento": "Clonixinato de lisina",
@@ -9691,7 +10963,10 @@
       "max": 388,
       "ahorro": 363,
       "masBarata": "Guadalajara",
-      "porUnidad": 2.5
+      "porUnidad": 2.5,
+      "marcasVistas": [
+        "Dorixina"
+      ]
     },
     {
       "medicamento": "Clonixinato de lisina",
@@ -9729,7 +11004,10 @@
       "max": 392,
       "ahorro": 75,
       "masBarata": "Guadalajara",
-      "porUnidad": 31.7
+      "porUnidad": 31.7,
+      "marcasVistas": [
+        "Dorixina"
+      ]
     },
     {
       "medicamento": "Clonixinato de lisina",
@@ -9760,7 +11038,10 @@
       "max": 667,
       "ahorro": 3,
       "masBarata": "Prixz",
-      "porUnidad": 33.2
+      "porUnidad": 33.2,
+      "marcasVistas": [
+        "Dorixina"
+      ]
     },
     {
       "medicamento": "Clonixinato de lisina",
@@ -9791,7 +11072,10 @@
       "max": 115,
       "ahorro": 73,
       "masBarata": "Guadalajara",
-      "porUnidad": 4.2
+      "porUnidad": 4.2,
+      "marcasVistas": [
+        "Dorixina"
+      ]
     },
     {
       "medicamento": "Celecoxib",
@@ -9828,7 +11112,10 @@
       "max": 457,
       "ahorro": 385,
       "masBarata": "Guadalajara",
-      "porUnidad": 7.2
+      "porUnidad": 7.2,
+      "marcasVistas": [
+        "Cortax"
+      ]
     },
     {
       "medicamento": "Celecoxib",
@@ -9866,7 +11153,10 @@
       "max": 556,
       "ahorro": 72,
       "masBarata": "Guadalajara",
-      "porUnidad": 48.4
+      "porUnidad": 48.4,
+      "marcasVistas": [
+        "Cortax"
+      ]
     },
     {
       "medicamento": "Celecoxib",
@@ -9903,7 +11193,10 @@
       "max": 1029,
       "ahorro": 901,
       "masBarata": "Prixz",
-      "porUnidad": 6.4
+      "porUnidad": 6.4,
+      "marcasVistas": [
+        "Cortax"
+      ]
     },
     {
       "medicamento": "Celecoxib",
@@ -9941,7 +11234,10 @@
       "max": 1029,
       "ahorro": 91,
       "masBarata": "Guadalajara",
-      "porUnidad": 46.9
+      "porUnidad": 46.9,
+      "marcasVistas": [
+        "Cortax"
+      ]
     },
     {
       "medicamento": "Celecoxib",
@@ -9978,7 +11274,10 @@
       "max": 933,
       "ahorro": 812,
       "masBarata": "Prixz",
-      "porUnidad": 4.03
+      "porUnidad": 4.03,
+      "marcasVistas": [
+        "Cortax"
+      ]
     },
     {
       "medicamento": "Celecoxib",
@@ -10016,7 +11315,10 @@
       "max": 1634,
       "ahorro": 305,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.3
+      "porUnidad": 44.3,
+      "marcasVistas": [
+        "Cortax"
+      ]
     },
     {
       "medicamento": "Hidroclorotiazida",
@@ -10047,7 +11349,10 @@
       "max": 77,
       "ahorro": 63,
       "masBarata": "Prixz",
-      "porUnidad": 0.7
+      "porUnidad": 0.7,
+      "marcasVistas": [
+        "Evipress"
+      ]
     },
     {
       "medicamento": "Espironolactona",
@@ -10115,7 +11420,11 @@
       "max": 498,
       "ahorro": 377,
       "masBarata": "Guadalajara",
-      "porUnidad": 8.64
+      "porUnidad": 8.64,
+      "marcasVistas": [
+        "Agreless",
+        "Flucogrel"
+      ]
     },
     {
       "medicamento": "Clopidogrel",
@@ -10153,7 +11462,11 @@
       "max": 682,
       "ahorro": 184,
       "masBarata": "Prixz",
-      "porUnidad": 35.57
+      "porUnidad": 35.57,
+      "marcasVistas": [
+        "Agreless",
+        "Flucogrel"
+      ]
     },
     {
       "medicamento": "Clopidogrel",
@@ -10185,7 +11498,11 @@
       "max": 785,
       "ahorro": 164,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.36
+      "porUnidad": 44.36,
+      "marcasVistas": [
+        "Agreless",
+        "Flucogrel"
+      ]
     },
     {
       "medicamento": "Clopidogrel",
@@ -10222,7 +11539,11 @@
       "max": 828,
       "ahorro": 730,
       "masBarata": "Prixz",
-      "porUnidad": 3.5
+      "porUnidad": 3.5,
+      "marcasVistas": [
+        "Agreless",
+        "Flucogrel"
+      ]
     },
     {
       "medicamento": "Clopidogrel",
@@ -10260,7 +11581,11 @@
       "max": 1096,
       "ahorro": 164,
       "masBarata": "Guadalajara",
-      "porUnidad": 33.29
+      "porUnidad": 33.29,
+      "marcasVistas": [
+        "Agreless",
+        "Flucogrel"
+      ]
     },
     {
       "medicamento": "Clopidogrel",
@@ -10298,7 +11623,11 @@
       "max": 1393,
       "ahorro": 318,
       "masBarata": "Guadalajara",
-      "porUnidad": 38.39
+      "porUnidad": 38.39,
+      "marcasVistas": [
+        "Agreless",
+        "Flucogrel"
+      ]
     },
     {
       "medicamento": "Senósidos A-B",
@@ -10360,7 +11689,14 @@
       "max": 736,
       "ahorro": 70,
       "masBarata": "Ahorro",
-      "porUnidad": 11.1
+      "porUnidad": 11.1,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10391,7 +11727,14 @@
       "max": 831,
       "ahorro": 27,
       "masBarata": "Prixz",
-      "porUnidad": 13.4
+      "porUnidad": 13.4,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10428,7 +11771,14 @@
       "max": 717,
       "ahorro": 628,
       "masBarata": "Guadalajara",
-      "porUnidad": 8.9
+      "porUnidad": 8.9,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10466,7 +11816,14 @@
       "max": 744,
       "ahorro": 177,
       "masBarata": "Guadalajara",
-      "porUnidad": 56.7
+      "porUnidad": 56.7,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10503,7 +11860,14 @@
       "max": 956,
       "ahorro": 190,
       "masBarata": "Guadalajara",
-      "porUnidad": 109.43
+      "porUnidad": 109.43,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10540,7 +11904,14 @@
       "max": 236,
       "ahorro": 179,
       "masBarata": "Prixz",
-      "porUnidad": 5.7
+      "porUnidad": 5.7,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10578,7 +11949,14 @@
       "max": 1031,
       "ahorro": 203,
       "masBarata": "Guadalajara",
-      "porUnidad": 82.8
+      "porUnidad": 82.8,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10616,7 +11994,14 @@
       "max": 800,
       "ahorro": 108,
       "masBarata": "Guadalajara",
-      "porUnidad": 69.2
+      "porUnidad": 69.2,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10648,7 +12033,14 @@
       "max": 635,
       "ahorro": 26,
       "masBarata": "Ahorro",
-      "porUnidad": 60.9
+      "porUnidad": 60.9,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10685,7 +12077,14 @@
       "max": 1201,
       "ahorro": 563,
       "masBarata": "Guadalajara",
-      "porUnidad": 45.57
+      "porUnidad": 45.57,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10717,7 +12116,14 @@
       "max": 648,
       "ahorro": 10,
       "masBarata": "Guadalajara",
-      "porUnidad": 45.57
+      "porUnidad": 45.57,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10755,7 +12161,14 @@
       "max": 1201,
       "ahorro": 218,
       "masBarata": "Guadalajara",
-      "porUnidad": 70.21
+      "porUnidad": 70.21,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Claritromicina",
@@ -10786,7 +12199,14 @@
       "max": 604,
       "ahorro": 83,
       "masBarata": "Prixz",
-      "porUnidad": 26.05
+      "porUnidad": 26.05,
+      "marcasVistas": [
+        "Adel",
+        "Doycur",
+        "Klaricid",
+        "Pisatrom",
+        "Solievo"
+      ]
     },
     {
       "medicamento": "Oseltamivir",
@@ -11127,7 +12547,10 @@
       "ahorro": 57,
       "masBarata": "Prixz",
       "porUnidad": 65.43,
-      "tambien": "Forxiga"
+      "tambien": "Forxiga",
+      "marcasVistas": [
+        "Forxiga"
+      ]
     },
     {
       "medicamento": "Dapagliflozina",
@@ -11165,7 +12588,10 @@
       "ahorro": 1038,
       "masBarata": "Ahorro",
       "porUnidad": 27.21,
-      "tambien": "Forxiga"
+      "tambien": "Forxiga",
+      "marcasVistas": [
+        "Forxiga"
+      ]
     },
     {
       "medicamento": "Dapagliflozina",
@@ -11198,7 +12624,10 @@
       "ahorro": 103,
       "masBarata": "Prixz",
       "porUnidad": 60.61,
-      "tambien": "Forxiga"
+      "tambien": "Forxiga",
+      "marcasVistas": [
+        "Forxiga"
+      ]
     },
     {
       "medicamento": "Bromuro de pinaverio",
@@ -11261,7 +12690,11 @@
       "ahorro": 164,
       "masBarata": "Guadalajara",
       "porUnidad": 96.86,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11299,7 +12732,11 @@
       "ahorro": 18,
       "masBarata": "Guadalajara",
       "porUnidad": 30.89,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11332,7 +12769,11 @@
       "ahorro": 362,
       "masBarata": "Guadalajara",
       "porUnidad": 53,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11364,7 +12805,11 @@
       "ahorro": 811,
       "masBarata": "Guadalajara",
       "porUnidad": 10.14,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11397,7 +12842,11 @@
       "ahorro": 152,
       "masBarata": "Guadalajara",
       "porUnidad": 104.29,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11435,7 +12884,11 @@
       "ahorro": 352,
       "masBarata": "Prixz",
       "porUnidad": 6.21,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11468,7 +12921,11 @@
       "ahorro": 278,
       "masBarata": "Guadalajara",
       "porUnidad": 93.71,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11507,7 +12964,11 @@
       "ahorro": 237,
       "masBarata": "Prixz",
       "porUnidad": 42.5,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11545,7 +13006,11 @@
       "ahorro": 544,
       "masBarata": "Prixz",
       "porUnidad": 5.71,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11578,7 +13043,11 @@
       "ahorro": 338,
       "masBarata": "Guadalajara",
       "porUnidad": 64.32,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11617,7 +13086,11 @@
       "ahorro": 128,
       "masBarata": "Guadalajara",
       "porUnidad": 34.57,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11655,7 +13128,11 @@
       "ahorro": 351,
       "masBarata": "Prixz",
       "porUnidad": 16.43,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11688,7 +13165,11 @@
       "ahorro": 137,
       "masBarata": "Guadalajara",
       "porUnidad": 134.71,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Etoricoxib",
@@ -11727,7 +13208,11 @@
       "ahorro": 118,
       "masBarata": "Prixz",
       "porUnidad": 72.14,
-      "tambien": "Arcoxia"
+      "tambien": "Arcoxia",
+      "marcasVistas": [
+        "Arcoxia",
+        "Mistan"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11764,7 +13249,10 @@
       "max": 468,
       "ahorro": 329,
       "masBarata": "Guadalajara",
-      "porUnidad": 19.86
+      "porUnidad": 19.86,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11795,7 +13283,10 @@
       "max": 819,
       "ahorro": 556,
       "masBarata": "Guadalajara",
-      "porUnidad": 18.79
+      "porUnidad": 18.79,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11827,7 +13318,10 @@
       "max": 819,
       "ahorro": 179,
       "masBarata": "Guadalajara",
-      "porUnidad": 45.71
+      "porUnidad": 45.71,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11864,7 +13358,10 @@
       "max": 904,
       "ahorro": 779,
       "masBarata": "Prixz",
-      "porUnidad": 8.93
+      "porUnidad": 8.93,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11896,7 +13393,10 @@
       "max": 904,
       "ahorro": 212,
       "masBarata": "Guadalajara",
-      "porUnidad": 49.43
+      "porUnidad": 49.43,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11927,7 +13427,10 @@
       "max": 1409,
       "ahorro": 902,
       "masBarata": "Guadalajara",
-      "porUnidad": 18.11
+      "porUnidad": 18.11,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Duloxetina",
@@ -11959,7 +13462,10 @@
       "max": 1409,
       "ahorro": 168,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.32
+      "porUnidad": 44.32,
+      "marcasVistas": [
+        "Abretia"
+      ]
     },
     {
       "medicamento": "Levetiracetam",
@@ -11990,7 +13496,10 @@
       "max": 1333,
       "ahorro": 390,
       "masBarata": "Guadalajara",
-      "porUnidad": 31.43
+      "porUnidad": 31.43,
+      "marcasVistas": [
+        "Leprezil"
+      ]
     },
     {
       "medicamento": "Levetiracetam",
@@ -12027,7 +13536,10 @@
       "max": 587,
       "ahorro": 310,
       "masBarata": "Prixz",
-      "porUnidad": 4.62
+      "porUnidad": 4.62,
+      "marcasVistas": [
+        "Leprezil"
+      ]
     },
     {
       "medicamento": "Levetiracetam",
@@ -12058,7 +13570,10 @@
       "max": 222,
       "ahorro": 47,
       "masBarata": "Prixz",
-      "porUnidad": 5.83
+      "porUnidad": 5.83,
+      "marcasVistas": [
+        "Leprezil"
+      ]
     },
     {
       "medicamento": "Tamsulosina",
@@ -12157,7 +13672,10 @@
       "max": 577,
       "ahorro": 15,
       "masBarata": "Ahorro",
-      "porUnidad": 18.73
+      "porUnidad": 18.73,
+      "marcasVistas": [
+        "Oratane"
+      ]
     },
     {
       "medicamento": "Isotretinoína",
@@ -12188,7 +13706,10 @@
       "max": 722,
       "ahorro": 220,
       "masBarata": "Ahorro",
-      "porUnidad": 16.73
+      "porUnidad": 16.73,
+      "marcasVistas": [
+        "Oratane"
+      ]
     },
     {
       "medicamento": "Isotretinoína",
@@ -12220,7 +13741,10 @@
       "max": 722,
       "ahorro": 20,
       "masBarata": "Ahorro",
-      "porUnidad": 23.4
+      "porUnidad": 23.4,
+      "marcasVistas": [
+        "Oratane"
+      ]
     },
     {
       "medicamento": "Isotretinoína",
@@ -12251,7 +13775,10 @@
       "max": 1329,
       "ahorro": 27,
       "masBarata": "Ahorro",
-      "porUnidad": 43.4
+      "porUnidad": 43.4,
+      "marcasVistas": [
+        "Oratane"
+      ]
     },
     {
       "medicamento": "Aciclovir",
@@ -12394,7 +13921,11 @@
       "ahorro": 181,
       "masBarata": "Guadalajara",
       "porUnidad": 55,
-      "tambien": "Ritalin / Concerta"
+      "tambien": "Ritalin / Concerta",
+      "marcasVistas": [
+        "Concerta",
+        "Ritalin"
+      ]
     },
     {
       "medicamento": "Metilfenidato",
@@ -12432,7 +13963,11 @@
       "ahorro": 122,
       "masBarata": "Guadalajara",
       "porUnidad": 59.93,
-      "tambien": "Ritalin / Concerta"
+      "tambien": "Ritalin / Concerta",
+      "marcasVistas": [
+        "Concerta",
+        "Ritalin"
+      ]
     },
     {
       "medicamento": "Metilfenidato",
@@ -12470,7 +14005,11 @@
       "ahorro": 276,
       "masBarata": "Prixz",
       "porUnidad": 64.37,
-      "tambien": "Ritalin / Concerta"
+      "tambien": "Ritalin / Concerta",
+      "marcasVistas": [
+        "Concerta",
+        "Ritalin"
+      ]
     },
     {
       "medicamento": "Metilfenidato",
@@ -12508,7 +14047,11 @@
       "ahorro": 229,
       "masBarata": "Guadalajara",
       "porUnidad": 72.1,
-      "tambien": "Ritalin / Concerta"
+      "tambien": "Ritalin / Concerta",
+      "marcasVistas": [
+        "Concerta",
+        "Ritalin"
+      ]
     },
     {
       "medicamento": "Diazepam",
@@ -12638,7 +14181,10 @@
       "max": 473,
       "ahorro": 49,
       "masBarata": "Prixz",
-      "porUnidad": 30.29
+      "porUnidad": 30.29,
+      "marcasVistas": [
+        "Coriatros"
+      ]
     },
     {
       "medicamento": "Candesartán",
@@ -12675,7 +14221,10 @@
       "max": 880,
       "ahorro": 221,
       "masBarata": "Guadalajara",
-      "porUnidad": 23.54
+      "porUnidad": 23.54,
+      "marcasVistas": [
+        "Coriatros"
+      ]
     },
     {
       "medicamento": "Candesartán",
@@ -12712,7 +14261,10 @@
       "max": 629,
       "ahorro": 159,
       "masBarata": "Guadalajara",
-      "porUnidad": 33.57
+      "porUnidad": 33.57,
+      "marcasVistas": [
+        "Coriatros"
+      ]
     },
     {
       "medicamento": "Candesartán",
@@ -12749,7 +14301,10 @@
       "max": 1127,
       "ahorro": 260,
       "masBarata": "Guadalajara",
-      "porUnidad": 30.96
+      "porUnidad": 30.96,
+      "marcasVistas": [
+        "Coriatros"
+      ]
     },
     {
       "medicamento": "Candesartán",
@@ -12780,7 +14335,10 @@
       "max": 1156,
       "ahorro": 146,
       "masBarata": "Prixz",
-      "porUnidad": 72.14
+      "porUnidad": 72.14,
+      "marcasVistas": [
+        "Coriatros"
+      ]
     },
     {
       "medicamento": "Valsartán",
@@ -12811,7 +14369,11 @@
       "max": 1842,
       "ahorro": 521,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.03
+      "porUnidad": 44.03,
+      "marcasVistas": [
+        "Neparvis",
+        "Temivar"
+      ]
     },
     {
       "medicamento": "Valsartán",
@@ -12842,7 +14404,11 @@
       "max": 168,
       "ahorro": 112,
       "masBarata": "Prixz",
-      "porUnidad": 1.87
+      "porUnidad": 1.87,
+      "marcasVistas": [
+        "Neparvis",
+        "Temivar"
+      ]
     },
     {
       "medicamento": "Valsartán",
@@ -12873,7 +14439,11 @@
       "max": 1809,
       "ahorro": 194,
       "masBarata": "Guadalajara",
-      "porUnidad": 53.83
+      "porUnidad": 53.83,
+      "marcasVistas": [
+        "Neparvis",
+        "Temivar"
+      ]
     },
     {
       "medicamento": "Valsartán",
@@ -12904,7 +14474,11 @@
       "max": 3409,
       "ahorro": 37,
       "masBarata": "Prixz",
-      "porUnidad": 56.2
+      "porUnidad": 56.2,
+      "marcasVistas": [
+        "Neparvis",
+        "Temivar"
+      ]
     },
     {
       "medicamento": "Valsartán",
@@ -12935,7 +14509,11 @@
       "max": 3409,
       "ahorro": 720,
       "masBarata": "Guadalajara",
-      "porUnidad": 44.82
+      "porUnidad": 44.82,
+      "marcasVistas": [
+        "Neparvis",
+        "Temivar"
+      ]
     },
     {
       "medicamento": "Irbesartán",
@@ -13096,7 +14674,16 @@
       "max": 312,
       "ahorro": 40,
       "masBarata": "Prixz",
-      "porUnidad": 4.53
+      "porUnidad": 4.53,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13127,7 +14714,16 @@
       "max": 393,
       "ahorro": 12,
       "masBarata": "Prixz",
-      "porUnidad": 3.18
+      "porUnidad": 3.18,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13158,7 +14754,16 @@
       "max": 248,
       "ahorro": 14,
       "masBarata": "Ahorro",
-      "porUnidad": 234
+      "porUnidad": 234,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13195,7 +14800,16 @@
       "max": 279,
       "ahorro": 34,
       "masBarata": "Guadalajara",
-      "porUnidad": 40.83
+      "porUnidad": 40.83,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13233,7 +14847,16 @@
       "max": 338,
       "ahorro": 93,
       "masBarata": "Guadalajara",
-      "porUnidad": 40.83
+      "porUnidad": 40.83,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13271,7 +14894,16 @@
       "max": 387,
       "ahorro": 88,
       "masBarata": "Guadalajara",
-      "porUnidad": 49.83
+      "porUnidad": 49.83,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13308,7 +14940,16 @@
       "max": 451,
       "ahorro": 219,
       "masBarata": "Guadalajara",
-      "porUnidad": 19.33
+      "porUnidad": 19.33,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13340,7 +14981,16 @@
       "max": 264,
       "ahorro": 32,
       "masBarata": "Guadalajara",
-      "porUnidad": 19.33
+      "porUnidad": 19.33,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13378,7 +15028,16 @@
       "max": 460,
       "ahorro": 65,
       "masBarata": "Guadalajara",
-      "porUnidad": 32.92
+      "porUnidad": 32.92,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13410,7 +15069,16 @@
       "max": 416,
       "ahorro": 21,
       "masBarata": "Guadalajara",
-      "porUnidad": 32.92
+      "porUnidad": 32.92,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13448,7 +15116,16 @@
       "max": 503,
       "ahorro": 58,
       "masBarata": "Guadalajara",
-      "porUnidad": 37.08
+      "porUnidad": 37.08,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13479,7 +15156,16 @@
       "max": 594,
       "ahorro": 94,
       "masBarata": "Guadalajara",
-      "porUnidad": 25
+      "porUnidad": 25,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13516,7 +15202,16 @@
       "max": 657,
       "ahorro": 56,
       "masBarata": "Guadalajara",
-      "porUnidad": 25.04
+      "porUnidad": 25.04,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13548,7 +15243,16 @@
       "max": 806,
       "ahorro": 111,
       "masBarata": "Guadalajara",
-      "porUnidad": 28.96
+      "porUnidad": 28.96,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13579,7 +15283,16 @@
       "max": 905,
       "ahorro": 167,
       "masBarata": "Guadalajara",
-      "porUnidad": 24.6
+      "porUnidad": 24.6,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13610,7 +15323,16 @@
       "max": 468,
       "ahorro": 89,
       "masBarata": "Prixz",
-      "porUnidad": 379
+      "porUnidad": 379,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13642,7 +15364,16 @@
       "max": 468,
       "ahorro": 17,
       "masBarata": "Prixz",
-      "porUnidad": 451
+      "porUnidad": 451,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Fosfomicina",
@@ -13674,7 +15405,16 @@
       "max": 538,
       "ahorro": 20,
       "masBarata": "Prixz",
-      "porUnidad": 518
+      "porUnidad": 518,
+      "marcasVistas": [
+        "Acecnou",
+        "Fosfocil",
+        "Fossin",
+        "Fosune",
+        "Infoxim",
+        "Monurol",
+        "Pregnus"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13705,7 +15445,12 @@
       "max": 381,
       "ahorro": 3,
       "masBarata": "Ahorro",
-      "porUnidad": 75.6
+      "porUnidad": 75.6,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13742,7 +15487,12 @@
       "max": 585,
       "ahorro": 445,
       "masBarata": "Benavides",
-      "porUnidad": 28
+      "porUnidad": 28,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13773,7 +15523,12 @@
       "max": 612,
       "ahorro": 379,
       "masBarata": "Ahorro",
-      "porUnidad": 4.66
+      "porUnidad": 4.66,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13805,7 +15560,12 @@
       "max": 585,
       "ahorro": 29,
       "masBarata": "Guadalajara",
-      "porUnidad": 111.2
+      "porUnidad": 111.2,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13837,7 +15597,12 @@
       "max": 662,
       "ahorro": 145,
       "masBarata": "Guadalajara",
-      "porUnidad": 103.4
+      "porUnidad": 103.4,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13868,7 +15633,12 @@
       "max": 562,
       "ahorro": 136,
       "masBarata": "Guadalajara",
-      "porUnidad": 42.6
+      "porUnidad": 42.6,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13905,7 +15675,12 @@
       "max": 554,
       "ahorro": 348,
       "masBarata": "Guadalajara",
-      "porUnidad": 20.6
+      "porUnidad": 20.6,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13943,7 +15718,12 @@
       "max": 839,
       "ahorro": 121,
       "masBarata": "Guadalajara",
-      "porUnidad": 71.8
+      "porUnidad": 71.8,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -13975,7 +15755,12 @@
       "max": 698,
       "ahorro": 144,
       "masBarata": "Prixz",
-      "porUnidad": 55.4
+      "porUnidad": 55.4,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -14013,7 +15798,12 @@
       "max": 636,
       "ahorro": 132,
       "masBarata": "Guadalajara",
-      "porUnidad": 50.4
+      "porUnidad": 50.4,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Cefuroxima",
@@ -14044,7 +15834,12 @@
       "max": 933,
       "ahorro": 86,
       "masBarata": "Prixz",
-      "porUnidad": 60.5
+      "porUnidad": 60.5,
+      "marcasVistas": [
+        "Cefabiot",
+        "Cefuracet",
+        "Zinnat"
+      ]
     },
     {
       "medicamento": "Nifedipino",
@@ -14149,7 +15944,10 @@
       "max": 821,
       "ahorro": 194,
       "masBarata": "Guadalajara",
-      "porUnidad": 41.8
+      "porUnidad": 41.8,
+      "marcasVistas": [
+        "Exotib"
+      ]
     },
     {
       "medicamento": "Ezetimiba",
@@ -14186,7 +15984,10 @@
       "max": 1532,
       "ahorro": 294,
       "masBarata": "Guadalajara",
-      "porUnidad": 41.27
+      "porUnidad": 41.27,
+      "marcasVistas": [
+        "Exotib"
+      ]
     },
     {
       "medicamento": "Sucralfato",
@@ -14255,7 +16056,11 @@
       "ahorro": 15,
       "masBarata": "Guadalajara",
       "porUnidad": 24.5,
-      "tambien": "Dramamine"
+      "tambien": "Dramamine",
+      "marcasVistas": [
+        "Antimareo",
+        "Dramamine"
+      ]
     },
     {
       "medicamento": "Dimenhidrinato",
@@ -14288,7 +16093,11 @@
       "ahorro": 11,
       "masBarata": "Prixz",
       "porUnidad": 25.5,
-      "tambien": "Dramamine"
+      "tambien": "Dramamine",
+      "marcasVistas": [
+        "Antimareo",
+        "Dramamine"
+      ]
     },
     {
       "medicamento": "Dimenhidrinato",
@@ -14320,7 +16129,11 @@
       "ahorro": 12,
       "masBarata": "Guadalajara",
       "porUnidad": 7.83,
-      "tambien": "Dramamine"
+      "tambien": "Dramamine",
+      "marcasVistas": [
+        "Antimareo",
+        "Dramamine"
+      ]
     },
     {
       "medicamento": "Itraconazol",
@@ -14685,7 +16498,11 @@
       "max": 539,
       "ahorro": 58,
       "masBarata": "Guadalajara",
-      "porUnidad": 12.03
+      "porUnidad": 12.03,
+      "marcasVistas": [
+        "Jard",
+        "Musimir"
+      ]
     },
     {
       "medicamento": "Mesalazina",
@@ -14716,7 +16533,11 @@
       "max": 794,
       "ahorro": 45,
       "masBarata": "Ahorro",
-      "porUnidad": 23.41
+      "porUnidad": 23.41,
+      "marcasVistas": [
+        "Jard",
+        "Musimir"
+      ]
     },
     {
       "medicamento": "Picosulfato de sodio",
@@ -14902,7 +16723,11 @@
       "max": 190,
       "ahorro": 90,
       "masBarata": "Prixz",
-      "porUnidad": 7.14
+      "porUnidad": 7.14,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Memantina",
@@ -14939,7 +16764,11 @@
       "max": 725,
       "ahorro": 500,
       "masBarata": "Prixz",
-      "porUnidad": 8.04
+      "porUnidad": 8.04,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Memantina",
@@ -14971,7 +16800,11 @@
       "max": 725,
       "ahorro": 115,
       "masBarata": "Ahorro",
-      "porUnidad": 21.79
+      "porUnidad": 21.79,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Memantina",
@@ -15003,7 +16836,11 @@
       "max": 1331,
       "ahorro": 335,
       "masBarata": "Guadalajara",
-      "porUnidad": 35.57
+      "porUnidad": 35.57,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Memantina",
@@ -15034,7 +16871,11 @@
       "max": 305,
       "ahorro": 140,
       "masBarata": "Prixz",
-      "porUnidad": 5.5
+      "porUnidad": 5.5,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Memantina",
@@ -15071,7 +16912,11 @@
       "max": 1189,
       "ahorro": 899,
       "masBarata": "Prixz",
-      "porUnidad": 10.36
+      "porUnidad": 10.36,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Memantina",
@@ -15103,7 +16948,11 @@
       "max": 1189,
       "ahorro": 106,
       "masBarata": "Ahorro",
-      "porUnidad": 38.68
+      "porUnidad": 38.68,
+      "marcasVistas": [
+        "Matinev",
+        "Menural"
+      ]
     },
     {
       "medicamento": "Piracetam",

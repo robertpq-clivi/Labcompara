@@ -19,10 +19,10 @@
 
 /** Formas farmacéuticas, normalizadas al singular. */
 const FORMAS = [
-  [/\bc[aá]psulas?\b/i, 'cápsulas'],
-  [/\btabletas?\b/i, 'tabletas'],
+  [/\bc[aá]psulas?\b|\bcaps?\b/i, 'cápsulas'],   // Ahorro abrevia: "30 Caps"
+  [/\btabletas?\b|\btabs?\b/i, 'tabletas'],      // y "24 Tabs"
   [/\bcomprimidos?\b/i, 'tabletas'],
-  [/\bgrageas?\b/i, 'tabletas'],
+  [/\bgrageas?\b|\bgrag\b/i, 'tabletas'],
   [/\bsobres?\b/i, 'sobres'],
   [/\bampolletas?\b|\bampollas?\b/i, 'ampolletas'],
   [/\bjarabe\b/i, 'jarabe'],
@@ -85,10 +85,17 @@ function dosisMg(titulo) {
   return null;
 }
 
-/** "Con 14 Cápsulas", "caja 20 tabletas", "30 Tabs" → 14 / 20 / 30. */
+/**
+ * "Con 14 Cápsulas", "caja 20 tabletas", "30 Tabs" → 14 / 20 / 30.
+ *
+ * Las abreviaturas importan más de lo que parece: en una sola corrida hay 686
+ * "tabs", 176 "caps" y 20 "pz". Sin ellas, "Inhibitron 20 mg Oral 30 Caps" no
+ * tenía número de piezas, se quedaba sin llave y su marca no era buscable — y
+ * eso son 18 productos de un solo medicamento.
+ */
 function piezas(titulo) {
   const m = titulo.match(
-    /(?:con|caja|c\/|x)?\s*(\d{1,3})\s*(?:c[aá]psulas?|tabletas?|comprimidos?|grageas?|tabs?|sobres?|ampolletas?|[oó]vulos?|supositorios?|parches?|piezas?|pzas?)\b/i
+    /(?:con|caja|c\/|x)?\s*(\d{1,3})\s*(?:c[aá]psulas?|caps?|tabletas?|tabs?|comprimidos?|comp|grageas?|grag|sobres?|ampolletas?|[oó]vulos?|supositorios?|parches?|piezas?|pzas?|pz)\b/i
   );
   return m ? Number(m[1]) : null;
 }

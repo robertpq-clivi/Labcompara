@@ -679,6 +679,9 @@ function agrupar(){
     // Las marcas conocidas del activo, vengan o no en un título de esta
     // semana: "Ozempic" y "Wegovy" tienen que encontrar a la semaglutida.
     (p.tambien || '').split(/\s*[\/,]\s*/).filter(Boolean).forEach(m => g.marcas.add(m));
+    // Y las que el scan vio en cualquier producto de este activo, aunque esa
+    // caja no llegara a publicarse por faltarle una segunda farmacia.
+    (p.marcasVistas || []).forEach(m => g.marcas.add(m));
     Object.values(p.precios).forEach(v => { if(v.marca) g.marcas.add(v.marca); });
     m.set(p.medicamento, g);
   }

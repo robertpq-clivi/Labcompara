@@ -158,6 +158,20 @@ for (const [titulo, sust, debe] of [
 const jarabe = leer('Paracetamol 100 mg Suspensión Infantil Frasco 15 ml', 'Paracetamol');
 check(jarabe.clave === 'paracetamol|100mg|líquido|15ml', 'la suspensión oral sí se compara por ml', jarabe.clave || 'rechazado');
 
+// ── las abreviaturas de las farmacias ───────────────────────────────────────
+// Ahorro escribe "30 Caps" y "24 Tabs". En una sola corrida hay 686 "tabs",
+// 176 "caps" y 20 "pz": sin reconocerlas, esos productos se quedaban sin
+// número de piezas y por tanto sin fila. Son 110 productos más legibles.
+console.log('\nAbreviaturas de forma:');
+for (const [titulo, sust, esperada] of [
+  ['Omeprazol 20 mg Oral 30 Caps', 'Omeprazol', 'omeprazol|20mg|cápsulas|30'],
+  ['Paracetamol 500 mg 24 Tabs', 'Paracetamol', 'paracetamol|500mg|tabletas|24'],
+  ['Metformina 850 mg 30 Tab', 'Metformina', 'metformina|850mg|tabletas|30'],
+]) {
+  const r = leer(titulo, sust);
+  check(r.clave === esperada, `${titulo.padEnd(34)} → ${esperada}`, r.clave || 'rechazado');
+}
+
 // ── lo que la farmacia dice aparte del título ───────────────────────────────
 // Benavides y San Pablo casi nunca ponen el contenido de la caja en el título,
 // y por eso aportaban 8 y 11 filas de miles de productos. Las dos lo dicen en
