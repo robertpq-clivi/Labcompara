@@ -72,7 +72,8 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Sora',sans-serif;}
 #main-nav.scrolled .nav-link:hover{color:var(--teal-light);}
 
 /* ── HERO ────────────────────────────────────────────────────────────────── */
-#sec-hero{min-height:100vh;background:var(--navy);position:relative;overflow:hidden;}
+#sec-hero{background:var(--navy);position:relative;overflow:hidden;}
+#hero-top{min-height:100vh;position:relative;}
 #hero-canvas{position:absolute;top:0;left:0;width:100%;height:100vh;pointer-events:none;filter:blur(28px);will-change:transform;}
 .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100vh;background:linear-gradient(180deg,rgba(6,20,42,.55) 0%,rgba(6,20,42,.3) 60%,rgba(6,20,42,.75) 100%);pointer-events:none;}
 .hero-content{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:80px 24px 60px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
@@ -102,6 +103,20 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Sora',sans-serif;}
 @keyframes orbit-spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes orbit-spin-rev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
 @media(max-width:900px){.hero-orbit{display:none;}}
+@media(max-width:640px){
+  /* Con los tres enlaces de vertical el menú se parte en dos renglones y la
+     nav ocupa el doble de alto que el logo. Achicarlos los deja en uno. */
+  /* Los tres enlaces no caben junto al logo en 390px: el menú se parte y su
+     segunda línea se mete DEBAJO del logo, encimándose. En vez de apretar la
+     letra hasta que quepa, el menú se va a su propio renglón. */
+  #main-nav{flex-wrap:wrap;row-gap:2px;padding:10px 16px;}
+  .nav-logo{font-size:18px;}
+  .nav-right{width:100%;gap:14px;}
+  .nav-link{font-size:12px;}
+  /* "Inicio" sobra en un teléfono: el logo ya lleva a la portada. */
+  .nav-right a[href="/"]{display:none;}
+  #sec-form,#sec-search,#sec-results{padding-top:46px;}
+}
 
 /* ── SECCIONES ───────────────────────────────────────────────────────────── */
 /* Del comparador GLP-1, para que los tres pasos y la tabla se vean y se usen
@@ -210,6 +225,38 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Sora',sans-serif;}
 .cmp-note{font-size:12px;color:var(--gray-600);background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:11px 14px;margin-top:14px;line-height:1.6;}
 .cmp-note b{color:var(--navy);}
 
+/* ── SECCIONES DE CONTENIDO ──────────────────────────────────────────────── */
+/* Mismas piezas que el comparador GLP-1, para que las tres verticales se lean
+   igual por dentro y no solo por fuera. */
+.sec-eyebrow{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px;text-align:center;}
+.sec-title{font-family:'Sora',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--navy);line-height:1.2;text-align:center;margin:0;}
+.sec-sub{font-size:16px;color:var(--gray-600);margin:12px auto 0;line-height:1.6;max-width:520px;text-align:center;}
+.how-list{margin:36px 0 0;display:flex;flex-direction:column;gap:12px;}
+.how-step{display:flex;gap:18px;align-items:flex-start;padding:20px;background:#fff;border:2px solid var(--gray-100);border-radius:16px;transition:border-color .2s,transform .2s;}
+.how-step:hover{border-color:var(--teal-light);transform:translateX(4px);}
+.how-num{min-width:40px;height:40px;background:linear-gradient(135deg,var(--teal),var(--teal-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;color:#fff;flex-shrink:0;}
+.how-step-body h3{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--navy);margin:0 0 5px;}
+.how-step-body p{font-size:14px;color:var(--gray-600);line-height:1.6;margin:0;}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:36px;}
+.trust-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;box-shadow:0 4px 24px rgba(6,20,42,.06);padding:22px;display:flex;gap:14px;align-items:flex-start;}
+.trust-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.trust-card h3{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--navy);margin:0 0 5px;}
+.trust-card p{font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;}
+.farm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:34px;}
+.farm-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:20px 16px;text-align:center;box-shadow:0 2px 14px rgba(6,20,42,.05);}
+.farm-card .ph-logo{margin-bottom:10px;}
+.farm-card b{display:block;font-family:'Sora',sans-serif;font-size:14px;color:var(--navy);}
+.farm-card span{display:block;font-size:12px;color:var(--gray-400);margin-top:4px;line-height:1.5;}
+.farm-nota{font-size:13px;color:var(--gray-600);line-height:1.7;margin:26px auto 0;max-width:640px;text-align:center;}
+.faq-list{margin-top:34px;display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:#fff;border:1px solid var(--gray-200);border-radius:14px;padding:16px 20px;}
+.faq-item summary{font-family:'Sora',sans-serif;font-weight:700;font-size:15.5px;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:20px;color:var(--teal-dark);font-weight:700;line-height:1;}
+.faq-item[open] summary::after{content:'−';}
+.faq-item p{margin:12px 0 0;font-size:14.5px;color:var(--gray-600);line-height:1.7;}
+.cta-band{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:64px 24px;}
+
 /* footer */
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:44px 0 40px;font-size:14px;}
@@ -223,6 +270,9 @@ footer a:hover{color:var(--teal-light);}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
 }
 </style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Por qué no encuentro mi medicamento?", "acceptedAnswer": {"@type": "Answer", "text": "Solo publicamos filas donde dos o más farmacias tienen exactamente la misma caja. Si únicamente una lo vende, o cada una maneja una presentación distinta, no hay comparación que mostrar y preferimos no inventarla. También puede ser que todavía no esté en nuestra lista de los 200 más buscados."}}, {"@type": "Question", "name": "¿El genérico es igual que el de marca?", "acceptedAnswer": {"@type": "Answer", "text": "Tienen el mismo principio activo en la misma cantidad. Lo que cambia es el fabricante y el precio, que puede ser dos o tres veces mayor en la marca. Por eso mostramos las dos comparaciones: la del principio activo, que toma lo más barato de cada farmacia, y la de la misma marca entre farmacias."}}, {"@type": "Question", "name": "¿Cada cuánto cambian los precios?", "acceptedAnswer": {"@type": "Answer", "text": "Los revisamos cada domingo de forma automática. La fecha de la última actualización aparece al pie de la comparativa. Entre una revisión y otra, una farmacia puede cambiar su precio o quedarse sin existencias: por eso te llevamos a su sitio, donde ves el precio del momento."}}, {"@type": "Question", "name": "¿Puedo comprar aquí?", "acceptedAnswer": {"@type": "Answer", "text": "No. Medcompara solo compara: te llevamos directo al producto en el sitio de la farmacia y la compra se hace con ellos. No cobramos comisión ni recibimos pago por aparecer en una posición."}}, {"@type": "Question", "name": "¿Por qué algunos medicamentos requieren receta?", "acceptedAnswer": {"@type": "Answer", "text": "En México los antibióticos requieren receta desde 2010, y los psicotrópicos —ansiolíticos, algunos analgésicos— requieren receta especial. Los marcamos con ℞ cuando su categoría no admite duda. Que no lleve la marca no significa que sea de libre venta: consúltalo con tu médico o con el farmacéutico."}}, {"@type": "Question", "name": "¿De dónde salen los precios?", "acceptedAnswer": {"@type": "Answer", "text": "Del sitio público de cada farmacia, leídos automáticamente cada semana. Son precios de venta en línea y pueden variar por sucursal, promoción y disponibilidad."}}]}
+</script>
 </head>
 <body>
 
@@ -240,6 +290,7 @@ footer a:hover{color:var(--teal-light);}
 
 <!-- ══════════════════ HERO ══════════════════ -->
 <section id="sec-hero" class="section active">
+  <div id="hero-top">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -274,6 +325,100 @@ footer a:hover{color:var(--teal-light);}
       </div>
     </div>
   </div>
+  </div>
+
+  <!-- ══════════════════ CÓMO FUNCIONA ══════════════════ -->
+  <div style="background:#fff;padding:64px 24px;">
+    <div style="max-width:760px;margin:0 auto;">
+      <div class="sec-eyebrow">Cómo funciona</div>
+      <h2 class="sec-title">Cuatro pasos, resultado garantizado</h2>
+      <p class="sec-sub">Sin cuentas, sin comisiones y sin intermediarios en el pago.</p>
+      <div class="how-list">
+        <div class="how-step"><div class="how-num">1</div><div class="how-step-body"><h3>👤 Cuéntanos de ti</h3><p>Tu nombre, correo y código postal. Te enviamos la comparativa y te avisamos cuando tu medicamento baje de precio.</p></div></div>
+        <div class="how-step"><div class="how-num">2</div><div class="how-step-body"><h3>🔍 Busca por activo o por marca</h3><p>Paracetamol o Tempra, metformina o Dimefor. Las dos formas llevan al mismo lugar, porque nadie pide su medicamento de una sola manera.</p></div></div>
+        <div class="how-step"><div class="how-num">3</div><div class="how-step-body"><h3>📦 Elige la caja exacta</h3><p>La misma dosis, la misma presentación y el mismo número de piezas. Es el paso que hace que la comparación signifique algo.</p></div></div>
+        <div class="how-step"><div class="how-num">4</div><div class="how-step-body"><h3>🛍️ Compra en la farmacia</h3><p>Te llevamos directo al producto en el sitio de la farmacia. El pago es con ellos; nosotros no vendemos nada.</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;"><button class="btn-primary" id="how-cta">Empezar ahora</button></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ FARMACIAS ══════════════════ -->
+  <div style="background:var(--gray-50);padding:64px 24px;">
+    <div style="max-width:920px;margin:0 auto;">
+      <div class="sec-eyebrow">Dónde buscamos</div>
+      <h2 class="sec-title">Cinco farmacias, un mismo precio de referencia</h2>
+      <p class="sec-sub">Tomamos el precio público de venta en línea de cada una. No hay acuerdos comerciales ni posiciones pagadas.</p>
+      <div class="farm-grid" id="farm-grid"></div>
+      <p class="farm-nota">
+        No todas aportan lo mismo, y la razón no es el precio sino cómo escriben sus títulos:
+        Benavides y San Pablo casi nunca dicen cuántas piezas trae la caja, y sin ese dato no se
+        puede saber si dos precios son comparables. Cuando falta, dejamos el hueco en vez de
+        suponerlo.
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════ TRANSPARENCIA ══════════════════ -->
+  <div style="background:#fff;padding:64px 24px;">
+    <div style="max-width:920px;margin:0 auto;">
+      <div class="sec-eyebrow">Por qué confiar</div>
+      <h2 class="sec-title">Transparencia total, sin sorpresas</h2>
+      <p class="sec-sub">Comparar mal es peor que no comparar: da una respuesta que parece cierta.</p>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon" style="background:rgba(0,84,124,.1);">📦</div>
+          <div><h3>La misma caja, siempre</h3><p>Misma dosis, misma presentación y mismo número de piezas. Omeprazol de 20 mg cuesta $7.71 por cápsula en caja de 7 y $1.34 en caja de 120 — en la misma farmacia. Comparar "el más barato" de cada una no compararía nada.</p></div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:rgba(16,185,129,.12);">🏷️</div>
+          <div><h3>Decimos de qué marca es cada precio</h3><p>El genérico de una farmacia contra la marca de otra no son el mismo producto. Debajo de cada precio dice cuál es, y al lado va la comparación de la misma marca entre farmacias.</p></div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:rgba(121,197,226,.22);">🔄</div>
+          <div><h3>Precios actualizados solos cada 7 días</h3><p>Un robot recorre las cinco farmacias cada domingo y publica lo que encuentra. Nadie captura precios a mano, así que nadie puede equivocarse a mano.</p></div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:rgba(245,158,11,.14);">🚫</div>
+          <div><h3>Preferimos un hueco a un dato inventado</h3><p>Si una farmacia no vende esa caja o no pudimos verificar su precio, la celda queda vacía. Nunca estimamos ni redondeamos hacia donde nos convenga.</p></div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:rgba(0,84,124,.1);">💸</div>
+          <div><h3>Gratis, y no vendemos nada</h3><p>No cobramos por comparar ni por aparecer. Te mandamos al sitio de la farmacia y la compra es directamente con ellos.</p></div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:rgba(153,27,27,.1);">℞</div>
+          <div><h3>Avisamos cuándo hace falta receta</h3><p>Marcamos con ℞ los medicamentos cuya categoría no deja lugar a duda: antibióticos, psicotrópicos, antidepresivos, insulinas. Comparar precios no sustituye a tu médico.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ PREGUNTAS ══════════════════ -->
+  <div style="background:var(--gray-50);padding:64px 24px;">
+    <div style="max-width:760px;margin:0 auto;">
+      <div class="sec-eyebrow">Dudas frecuentes</div>
+      <h2 class="sec-title">Lo que suelen preguntarnos</h2>
+      <div class="faq-list">
+        <details class="faq-item"><summary>¿Por qué no encuentro mi medicamento?</summary><p>Solo publicamos filas donde <strong>dos o más farmacias tienen exactamente la misma caja</strong>. Si únicamente una lo vende, o cada una maneja una presentación distinta, no hay comparación que mostrar y preferimos no inventarla. También puede ser que todavía no esté en nuestra lista de los 200 más buscados.</p></details>
+        <details class="faq-item"><summary>¿El genérico es igual que el de marca?</summary><p>Tienen el mismo principio activo en la misma cantidad. Lo que cambia es el fabricante y el precio, que puede ser dos o tres veces mayor en la marca. Por eso mostramos las dos comparaciones: la del principio activo, que toma lo más barato de cada farmacia, y la de la misma marca entre farmacias.</p></details>
+        <details class="faq-item"><summary>¿Cada cuánto cambian los precios?</summary><p>Los revisamos cada domingo de forma automática. La fecha de la última actualización aparece al pie de la comparativa. Entre una revisión y otra, una farmacia puede cambiar su precio o quedarse sin existencias: por eso te llevamos a su sitio, donde ves el precio del momento.</p></details>
+        <details class="faq-item"><summary>¿Puedo comprar aquí?</summary><p>No. Medcompara solo compara: te llevamos directo al producto en el sitio de la farmacia y la compra se hace con ellos. No cobramos comisión ni recibimos pago por aparecer en una posición.</p></details>
+        <details class="faq-item"><summary>¿Por qué algunos medicamentos requieren receta?</summary><p>En México los antibióticos requieren receta desde 2010, y los psicotrópicos —ansiolíticos, algunos analgésicos— requieren receta especial. Los marcamos con ℞ cuando su categoría no admite duda. Que no lleve la marca no significa que sea de libre venta: consúltalo con tu médico o con el farmacéutico.</p></details>
+        <details class="faq-item"><summary>¿De dónde salen los precios?</summary><p>Del sitio público de cada farmacia, leídos automáticamente cada semana. Son precios de venta en línea y pueden variar por sucursal, promoción y disponibilidad.</p></details>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ CIERRE ══════════════════ -->
+  <div class="cta-band">
+    <div style="max-width:640px;margin:0 auto;text-align:center;">
+      <h2 class="sec-title" style="color:#fff;">¿Listo para comparar?</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.75);">Encuentra tu medicamento y ve cuánto cambia de una farmacia a otra. Es gratis.</p>
+      <div style="margin-top:26px;"><button class="btn-primary" id="cierre-cta">Buscar mi medicamento →</button></div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ══════════════════ COMPARADOR ══════════════════ -->
@@ -528,6 +673,7 @@ async function cargar(){
     $('badge-txt').textContent = PRES.length + ' presentaciones comparadas en ' + activas.size + ' farmacias';
 
     agrupar();
+    pintarFarmacias();
     renderMedGrid($('buscar').value);
   }catch(err){
     console.warn('No se pudo cargar el comparador:', err.message);
@@ -885,8 +1031,34 @@ $('results-back').onclick = () => {
 };
 $('nueva-busqueda').onclick = () => { ver('sec-search'); mostrarMedStep(); };
 
+// ── SECCIONES DE CONTENIDO ─────────────────────────────────────────────────
+/**
+ * Las farmacias, con lo que de verdad aportaron en el último scan.
+ *
+ * Se pinta desde el feed y no a mano: una lista escrita en el HTML afirmaría
+ * "cinco farmacias" aunque el scan de esta semana solo hubiera podido leer
+ * tres, y nadie se enteraría hasta revisar los datos.
+ */
+function pintarFarmacias(){
+  const el = $('farm-grid');
+  if(!el) return;
+  const cuenta = {};
+  PRES.forEach(p => Object.keys(p.precios).forEach(f => { cuenta[f] = (cuenta[f]||0) + 1; }));
+  el.innerHTML = FUENTES.map(f => {
+    const n = cuenta[f] || 0;
+    const m = FARM_META[f] || {};
+    return `<div class="farm-card">
+      ${farmBadge(f, 46)}
+      <b>${esc(m.nombre || f)}</b>
+      <span>${n ? n + ' presentaciones comparadas' : 'sin precios esta semana'}</span>
+    </div>`;
+  }).join('');
+}
+
 // ── ENTRADA ────────────────────────────────────────────────────────────────
 $('hero-cta').onclick = () => ver('sec-form');
+$('how-cta').onclick = () => ver('sec-form');
+$('cierre-cta').onclick = () => ver('sec-form');
 
 // Entrada directa: /medicinas?q=omeprazol entra buscando, sin pedir datos —
 // quien llega desde un buscador viene a ver un precio, no a llenar un
