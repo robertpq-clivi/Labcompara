@@ -38,6 +38,7 @@
    Reusa el hero de la vertical GLP-1 (beams en canvas + orbit + overlay).
    =========================================================================== */
 :root{
+  --mesh-1:#142534;--mesh-2:#183f5e;--indigo:#414392;--periwinkle:#cad1fb;
   --navy:#06142A;--navy-mid:#183f5e;--teal:#00547c;--teal-light:#79C5E2;--teal-dark:#003A56;
   --green:#10B981;--amber:#F59E0B;
   --gray-50:#F8F7F4;--gray-100:#EFEEEA;--gray-200:#E5E7EB;--gray-300:#CBD5E1;--gray-400:#94A3B8;
@@ -52,7 +53,7 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Montserrat',system-ui,-app
 /* ── NAV ─────────────────────────────────────────────────────────────────── */
 #main-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;transition:background .25s,box-shadow .25s;}
 #main-nav.scrolled{background:rgba(6,20,42,.92);backdrop-filter:blur(10px);box-shadow:0 2px 18px rgba(0,0,0,.28);}
-.nav-logo{font-weight:700;font-size:20px;color:#fff;cursor:pointer;user-select:none;}
+.nav-logo{font-weight:700;font-size:clamp(22px,2.2vw,28px);color:#fff;cursor:pointer;user-select:none;}
 .nav-logo span{color:var(--teal-light);}
 .nav-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 .nav-link{color:rgba(255,255,255,.8);font-size:13px;font-weight:600;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
@@ -74,16 +75,14 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Montserrat',system-ui,-app
 /* ── HERO ────────────────────────────────────────────────────────────────── */
 #sec-hero{background:var(--navy);position:relative;overflow:hidden;}
 #hero-top{min-height:100vh;position:relative;}
-#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100vh;pointer-events:none;filter:blur(28px);will-change:transform;}
-.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100vh;background:linear-gradient(180deg,rgba(6,20,42,.55) 0%,rgba(6,20,42,.3) 60%,rgba(6,20,42,.75) 100%);pointer-events:none;}
 .hero-content{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:80px 24px 60px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
 .hero-text{max-width:820px;}
 .badge-hero{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;background:rgba(121,197,226,.13);box-shadow:inset 0 0 0 1px rgba(121,197,226,.32);margin-bottom:24px;}
 .badge-dot{width:7px;height:7px;border-radius:999px;background:var(--teal-light);box-shadow:0 0 10px rgba(121,197,226,.9);}
 .badge-text{color:var(--teal-light);font-size:12px;font-weight:600;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;letter-spacing:.03em;}
-.hero-h1{color:#fff;font-size:clamp(28px,4.3vw,46px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance;}
+.hero-h1{color:#fff;font-size:clamp(38px,6.4vw,80px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0;text-wrap:balance;}
 .hero-h1 span{color:var(--teal-light);}
-.hero-sub{color:rgba(255,255,255,.76);font-size:clamp(16px,2.5vw,19px);max-width:760px;margin:18px 0 0;line-height:1.6;text-wrap:pretty;}
+.hero-sub{color:rgba(255,255,255,.76);font-size:clamp(17px,1.9vw,22px);max-width:760px;margin:18px 0 0;line-height:1.6;text-wrap:pretty;}
 .btn-primary{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border:none;padding:15px 30px;border-radius:999px;font-weight:700;font-size:16px;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,84,124,.45);}
 
@@ -103,6 +102,14 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Montserrat',system-ui,-app
 @keyframes orbit-spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes orbit-spin-rev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
 @media(max-width:900px){.hero-orbit{display:none;}}
+
+/* Con el h1 del landing (hasta 80px) el texto llega hasta donde empieza el
+   orbit y se encima. Mientras el orbit se ve, el texto cede ancho; por debajo
+   de 900px el orbit se oculta y el texto recupera los 820px. */
+@media(min-width:901px){
+  #sec-hero .hero-text,#sec-hero .hero-content > *{max-width:min(820px,52vw);}
+}
+
 @media(max-width:640px){
   /* Con los tres enlaces de vertical el menú se parte en dos renglones y la
      nav ocupa el doble de alto que el logo. Achicarlos los deja en uno. */
@@ -117,6 +124,14 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Montserrat',system-ui,-app
   .nav-right a[href="/"]{display:none;}
   #sec-form,#sec-search,#sec-results{padding-top:46px;}
 }
+
+/* ── FONDO DEL HERO ──────────────────────────────────────────────────────── */
+/* Las mismas tres capas del landing: la malla da el color, el resplandor abre
+   el centro y el desvanecido cierra contra el navy para que la sección
+   siguiente empalme sin costura. */
+#sec-hero .mesh{position:absolute;inset:0;background:radial-gradient(125% 115% at 6% 96%,var(--mesh-1) 0%,var(--mesh-2) 22%,var(--teal) 54%,var(--indigo) 78%,var(--periwinkle) 100%);opacity:.6;pointer-events:none;}
+#sec-hero .glow{position:absolute;inset:0;background:radial-gradient(90% 65% at 52% -12%,rgba(202,209,251,.18),rgba(202,209,251,0) 62%);pointer-events:none;}
+#sec-hero .fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,42,0) 62%,var(--navy) 100%);pointer-events:none;}
 
 /* ── SECCIONES ───────────────────────────────────────────────────────────── */
 /* Del comparador GLP-1, para que los tres pasos y la tabla se vean y se usen
@@ -229,7 +244,7 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Montserrat',system-ui,-app
 /* Mismas piezas que el comparador GLP-1, para que las tres verticales se lean
    igual por dentro y no solo por fuera. */
 .sec-eyebrow{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px;text-align:center;}
-.sec-title{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--navy);line-height:1.2;text-align:center;margin:0;}
+.sec-title{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:clamp(30px,4.2vw,52px);font-weight:800;color:var(--navy);line-height:1.2;text-align:center;margin:0;}
 .sec-sub{font-size:16px;color:var(--gray-600);margin:12px auto 0;line-height:1.6;max-width:520px;text-align:center;}
 .how-list{margin:36px 0 0;display:flex;flex-direction:column;gap:12px;}
 .how-step{display:flex;gap:18px;align-items:flex-start;padding:20px;background:#fff;border:2px solid var(--gray-100);border-radius:16px;transition:border-color .2s,transform .2s;}
@@ -291,8 +306,7 @@ footer a:hover{color:var(--teal-light);}
 <!-- ══════════════════ HERO ══════════════════ -->
 <section id="sec-hero" class="section active">
   <div id="hero-top">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="mesh" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div><div class="fade" aria-hidden="true"></div>
 
   <div class="hero-orbit" aria-hidden="true">
     <div class="orbit-center">Med<span>compara</span></div>
@@ -520,39 +534,6 @@ function ver(id){
 addEventListener('scroll', () => $('main-nav').classList.toggle('scrolled', scrollY > 20), {passive:true});
 $('hero-cta').onclick = () => { ver('sec-comparador'); setTimeout(()=>$('buscar').focus(), 300); };
 
-// ── BEAMS DEL HERO ─────────────────────────────────────────────────────────
-// Mismo efecto del comparador GLP-1: franjas suaves que derivan detrás del
-// desenfoque del canvas. Se detiene si el usuario pidió menos movimiento.
-(function beams(){
-  const c = $('hero-canvas');
-  if (!c || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const ctx = c.getContext('2d');
-  let w, h, franjas;
-  const COLORES = ['rgba(0,84,124,.55)','rgba(121,197,226,.4)','rgba(24,63,94,.75)','rgba(0,119,168,.5)'];
-  function medir(){
-    w = c.width = innerWidth; h = c.height = innerHeight;
-    franjas = Array.from({length:7}, (_,i) => ({
-      x: Math.random()*w, y: Math.random()*h,
-      r: 160 + Math.random()*220,
-      vx: (Math.random()-.5)*.28, vy: (Math.random()-.5)*.22,
-      col: COLORES[i % COLORES.length],
-    }));
-  }
-  function pintar(){
-    ctx.clearRect(0,0,w,h);
-    for (const f of franjas){
-      f.x += f.vx; f.y += f.vy;
-      if (f.x < -f.r || f.x > w+f.r) f.vx *= -1;
-      if (f.y < -f.r || f.y > h+f.r) f.vy *= -1;
-      const g = ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r);
-      g.addColorStop(0, f.col); g.addColorStop(1,'rgba(6,20,42,0)');
-      ctx.fillStyle = g;
-      ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,Math.PI*2); ctx.fill();
-    }
-    requestAnimationFrame(pintar);
-  }
-  medir(); addEventListener('resize', medir, {passive:true}); pintar();
-})();
 
 // ── FARMACIAS ──────────────────────────────────────────────────────────────
 // Los datos de las cuatro cadenas son los mismos que ya publica el comparador
