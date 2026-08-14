@@ -87,6 +87,12 @@ jobs:
       - name: Regenerar artículos de precio por medicamento
         run: node scripts/generar-blog-medicinas.js --apply
 
+      # Las páginas de precio por estudio se habían escrito a mano y se
+      # quedaron dos años atrás de los precios reales. Ahora salen del scan,
+      # así que tienen que regenerarse con él o vuelven al mismo lugar.
+      - name: Regenerar artículos de precio por estudio
+        run: node scripts/generar-blog-estudios.js --apply
+
       - name: Resumen de la corrida
         if: always()
         run: |
@@ -112,7 +118,7 @@ jobs:
         run: |
           git config user.name  "medcompara-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/ pages/laboratorio.html blog/*-vs-*-precios.html blog/precio-*-mexico.html blog/index.html sitemap-blog.xml
+          git add data/ pages/laboratorio.html blog/*-vs-*-precios.html blog/precio-*-mexico.html blog/precio-*-cdmx.html blog/cuanto-cuesta-check-up-mexico.html blog/laboratorio-mas-barato-cdmx.html blog/estudios-laboratorio-precios-mexico.html blog/index.html sitemap-blog.xml
           if git diff --staged --quiet; then
             echo "Sin cambios de precio."
           else

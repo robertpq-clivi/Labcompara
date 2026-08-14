@@ -1,0 +1,611 @@
+[
+  {
+    "slug": "precio-biometria-hematica-mexico",
+    "estudio": "Biometría Hemática",
+    "corto": "biometría hemática",
+    "titulo": "Biometría hemática precio {{MES_ANIO}}: dónde sale más barata",
+    "h1": "Precio de la biometría hemática en México",
+    "metaDescription": "Precio de la biometría hemática en México: de {{MIN}} a {{MAX}} según el laboratorio. Compara los {{N_LABS}} que publican precio, actualizado cada semana.",
+    "intro": "La biometría hemática es uno de los estudios de sangre más solicitados del país, y el mismo análisis cuesta {{VECES}} veces más en un laboratorio que en otro: de {{MIN}} a {{MAX}}.",
+    "respuesta": "La biometría hemática cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}. La mediana de los {{N_LABS}} laboratorios que publican precio está en {{MEDIANA}}, así que pagar más de eso casi siempre significa que no comparaste.",
+    "porQueVaria": [
+      "Cada cadena tiene su propia estructura de costos: las de alto volumen y toma masiva salen más baratas que las de servicio premium.",
+      "Los servicios adicionales se cobran aparte: toma a domicilio, resultado urgente o entrega en app pueden sumar al precio de lista.",
+      "Las promociones y los convenios empresariales mueven el precio final, sobre todo en las cadenas grandes.",
+      "El precio de lista no siempre incluye la toma de muestra; confírmalo antes de acudir."
+    ],
+    "queEs": "La biometría hemática completa (BHC) mide los tipos de células de la sangre: glóbulos rojos, glóbulos blancos y plaquetas, además de hemoglobina y hematocrito. Es de los estudios que más se piden en un chequeo general y también para investigar fatiga, fiebre o infecciones repetidas.",
+    "preparacion": "No requiere ayuno estricto, aunque algunos médicos lo piden si el mismo día te vas a hacer glucosa o perfil de lípidos. Se puede tomar a cualquier hora y los resultados suelen entregarse entre 24 y 48 horas.",
+    "elegir": [
+      "Que el laboratorio esté certificado y el precio incluya la toma de muestra.",
+      "El tiempo de entrega y si el resultado llega en app o solo impreso.",
+      "Si tu médico va a comparar contra estudios previos, conviene repetir en el mismo laboratorio: los rangos de referencia cambian entre uno y otro.",
+      "La distancia real: ahorrar en el estudio y gastarlo en traslado no es ahorrar."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta una biometría hemática en México?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, según el laboratorio. La mediana de los {{N_LABS}} que publican precio está en {{MEDIANA}}."
+      },
+      {
+        "q": "¿Dónde sale más barata la biometría hemática?",
+        "a": "En el corte del {{FECHA}}, el precio más bajo lo tenía {{BARATO}}. Conviene confirmarlo antes de acudir: los precios de lista cambian y las promociones son locales."
+      },
+      {
+        "q": "¿Necesito ayuno para una biometría hemática?",
+        "a": "No es estrictamente necesario. Si el mismo día te harás glucosa, perfil de lípidos o química sanguínea, entonces sí conviene llegar en ayunas por esos estudios."
+      },
+      {
+        "q": "¿Para qué sirve la biometría hemática?",
+        "a": "Evalúa glóbulos rojos, blancos y plaquetas. Sirve para detectar anemia, infecciones, problemas de coagulación y para dar seguimiento a tratamientos."
+      },
+      {
+        "q": "¿Cuánto tardan los resultados?",
+        "a": "Entre 24 y 48 horas en la mayoría de los laboratorios, y el mismo día en varios de ellos si la muestra se toma temprano."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "la"
+  },
+  {
+    "slug": "precio-biometria-hematica-cdmx",
+    "estudio": "Biometría Hemática",
+    "corto": "biometría hemática",
+    "ciudad": "CDMX",
+    "titulo": "Biometría hemática CDMX: precio {{MES_ANIO}}",
+    "h1": "Precio de la biometría hemática en CDMX",
+    "metaDescription": "Biometría hemática en CDMX: de {{MIN}} a {{MAX}} según el laboratorio. Compara los {{N_LABS}} con sucursal en la Ciudad de México, actualizado cada semana.",
+    "intro": "En la Ciudad de México conviven los {{N_LABS}} laboratorios que publican precio de la biometría hemática, y entre el más barato y el más caro hay {{AHORRO_PCT}} de diferencia por el mismo estudio.",
+    "respuesta": "En CDMX la biometría hemática va de {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}}. Son precios de lista nacionales, que es lo que cobran sus sucursales de la ciudad salvo promoción local.",
+    "porQueVaria": [
+      "En CDMX conviven todas las cadenas, así que la diferencia entre la más barata y la más cara es de las mayores del país: {{AHORRO_PCT}} por el mismo estudio.",
+      "Las cadenas de alto volumen tienen más sucursales en la ciudad, lo que suele significar precio más bajo y más horarios de toma.",
+      "Los servicios a domicilio se cobran aparte y en CDMX varían por alcaldía.",
+      "Las promociones son de sucursal: el precio de lista es el piso, no siempre el final."
+    ],
+    "queEs": "La biometría hemática completa mide glóbulos rojos, glóbulos blancos, plaquetas, hemoglobina y hematocrito. Es el estudio de sangre más pedido en consulta general y el primero que se solicita ante fatiga, fiebre o infecciones frecuentes.",
+    "preparacion": "No requiere ayuno estricto. Si vas a aprovechar el viaje para hacerte glucosa o perfil de lípidos, llega en ayunas por esos dos. En la mayoría de las sucursales de CDMX la toma es sin cita.",
+    "elegir": [
+      "La sucursal más cercana de la cadena barata suele ganarle al laboratorio de la esquina: verifica cobertura antes de decidir por distancia.",
+      "Pregunta si el precio incluye la toma de muestra.",
+      "Revisa el horario de toma: varias cadenas solo procesan muestras de la mañana el mismo día.",
+      "Si das seguimiento a un tratamiento, repite en el mismo laboratorio para que los rangos de referencia sean comparables."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la biometría hemática en CDMX?",
+        "a": "De {{MIN}} a {{MAX}} según el laboratorio, con mediana en {{MEDIANA}}. Son los precios de lista de los {{N_LABS}} laboratorios con sucursal en la ciudad."
+      },
+      {
+        "q": "¿Qué laboratorio es más barato en CDMX?",
+        "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio de lista más bajo. Las promociones de sucursal pueden cambiarlo, así que confirma al llegar."
+      },
+      {
+        "q": "¿Los precios son distintos en CDMX que en el resto del país?",
+        "a": "Las cadenas publican precio de lista nacional. Lo que sí cambia por ciudad son las promociones, la cobertura a domicilio y los horarios de toma."
+      },
+      {
+        "q": "¿Necesito cita para hacerme una biometría hemática en CDMX?",
+        "a": "En la mayoría de las sucursales no, la toma es por orden de llegada. Para servicio a domicilio sí se agenda."
+      },
+      {
+        "q": "¿Cuánto tardan los resultados en CDMX?",
+        "a": "Entre 24 y 48 horas, y el mismo día en varias cadenas si la muestra se toma temprano."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "la"
+  },
+  {
+    "slug": "precio-quimica-sanguinea-mexico",
+    "estudio": "Química Sanguínea 27 Elementos",
+    "tambien": [
+      "Química Sanguínea 6 Elementos",
+      "Química Sanguínea 35 Elementos"
+    ],
+    "corto": "química sanguínea",
+    "titulo": "Química sanguínea precio {{MES_ANIO}}: 6, 27 y 35 elementos",
+    "h1": "Precio de la química sanguínea en México",
+    "metaDescription": "Química sanguínea de 27 elementos: de {{MIN}} a {{MAX}} según el laboratorio. Compara también la de 6 y 35 elementos entre {{N_LABS}} laboratorios.",
+    "intro": "La química sanguínea es el panel que evalúa tu salud metabólica, y existe en versiones de 6, 27 y 35 elementos con precios muy distintos. La de 27 elementos, la más pedida, va de {{MIN}} a {{MAX}}.",
+    "respuesta": "La química sanguínea de 27 elementos cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}: {{VECES}} veces más cara en un laboratorio que en otro por el mismo panel. La mediana de los {{N_LABS}} que la publican está en {{MEDIANA}}.",
+    "porQueVaria": [
+      "El número de elementos cambia el precio, pero no tanto como el laboratorio: la diferencia entre cadenas ({{AHORRO_PCT}}) suele ser mayor que la que hay entre una versión y otra.",
+      "Cada laboratorio arma su propio panel, así que dos «químicas de 27» no siempre miden exactamente lo mismo. Pide el listado si tu médico busca un marcador específico.",
+      "El precio de lista casi nunca incluye la interpretación médica.",
+      "Las promociones de temporada mueven bastante este estudio por ser de los más vendidos."
+    ],
+    "queEs": "La química sanguínea mide, según la versión, glucosa, colesterol, triglicéridos, urea, creatinina, ácido úrico, proteínas totales, enzimas hepáticas y electrolitos. La de 6 elementos es un control básico; la de 27 es la de chequeo anual; las de 35 en adelante son para diagnósticos más detallados. Tu médico es quien indica cuál necesitas.",
+    "preparacion": "Requiere ayuno de 8 a 12 horas, solo con agua simple. Evita el ejercicio intenso y el alcohol el día anterior: ambos alteran glucosa y triglicéridos y pueden hacerte repetir el estudio.",
+    "elegir": [
+      "Compara la misma versión. Un precio bajo de «química sanguínea» a secas puede ser la de 3 o 6 elementos, no la que te pidieron.",
+      "Confirma qué marcadores incluye el panel del laboratorio, no solo cuántos son.",
+      "Si vas a dar seguimiento, repite en el mismo laboratorio para que los valores sean comparables.",
+      "Aprovecha el ayuno: si también necesitas perfil de lípidos, se toma en la misma muestra."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la química sanguínea en México?",
+        "a": "La de 27 elementos va de {{MIN}} a {{MAX}} según el laboratorio, con mediana en {{MEDIANA}}. Las versiones de 6 y 35 elementos las comparamos en la tabla de arriba."
+      },
+      {
+        "q": "¿Qué diferencia hay entre química de 6, 27 y 35 elementos?",
+        "a": "La de 6 mide parámetros básicos como glucosa, colesterol y función renal. La de 27 añade marcadores hepáticos, electrolitos y más perfil metabólico. Las de 35 en adelante son paneles exhaustivos para diagnóstico."
+      },
+      {
+        "q": "¿Necesito ayuno para la química sanguínea?",
+        "a": "Sí, de 8 a 12 horas y solo con agua simple. Sin ayuno, la glucosa y los triglicéridos salen alterados."
+      },
+      {
+        "q": "¿Dónde sale más barata la química sanguínea?",
+        "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio más bajo en la de 27 elementos. Compara la versión exacta que te pidieron: el ganador puede cambiar entre versiones."
+      },
+      {
+        "q": "¿Cada cuánto debo hacerme una química sanguínea?",
+        "a": "Como parte del chequeo anual en adultos sanos, y con la frecuencia que indique tu médico si tienes diabetes, colesterol alto o enfermedad renal."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "la"
+  },
+  {
+    "slug": "precio-quimica-sanguinea-cdmx",
+    "estudio": "Química Sanguínea 27 Elementos",
+    "tambien": [
+      "Química Sanguínea 6 Elementos",
+      "Química Sanguínea 35 Elementos"
+    ],
+    "corto": "química sanguínea",
+    "ciudad": "CDMX",
+    "titulo": "Química sanguínea CDMX precio {{MES_ANIO}}: dónde es más barata",
+    "h1": "Precio de la química sanguínea en CDMX",
+    "metaDescription": "Química sanguínea en CDMX: la de 27 elementos va de {{MIN}} a {{MAX}}. Compara {{N_LABS}} laboratorios con sucursal en la Ciudad de México.",
+    "intro": "En CDMX puedes hacerte la química sanguínea de 27 elementos desde {{MIN}} o pagar hasta {{MAX}} por el mismo panel, según a qué laboratorio entres.",
+    "respuesta": "En la Ciudad de México la química sanguínea de 27 elementos va de {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}}. Son precios de lista nacionales, los que aplican en sus sucursales de la ciudad salvo promoción local.",
+    "porQueVaria": [
+      "En CDMX están las {{N_LABS}} cadenas a la vez, así que la brecha se ve completa: {{AHORRO_PCT}} entre la más barata y la más cara.",
+      "Cada laboratorio arma su propio panel de 27 elementos; dos con el mismo nombre no siempre miden lo mismo.",
+      "Las promociones son por sucursal y por temporada.",
+      "El servicio a domicilio se cobra aparte y varía por alcaldía."
+    ],
+    "queEs": "La química sanguínea mide glucosa, colesterol, triglicéridos, urea, creatinina, ácido úrico, proteínas y enzimas hepáticas, según la versión. La de 27 elementos es la que se usa como chequeo anual; la de 6 es un control básico y las de 35 en adelante son para diagnóstico detallado.",
+    "preparacion": "Ayuno de 8 a 12 horas, solo agua simple, sin alcohol ni ejercicio intenso el día anterior. En CDMX la mayoría de las sucursales toma muestra sin cita, pero conviene llegar temprano para tener resultado el mismo día.",
+    "elegir": [
+      "Verifica que compares la misma versión del panel: es el error que hace ver «barato» a un estudio distinto.",
+      "Pregunta si el precio incluye la toma de muestra.",
+      "Elige por sucursal alcanzable, no solo por precio de lista.",
+      "Si también te pidieron perfil de lípidos, se toma de la misma muestra y del mismo ayuno."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la química sanguínea en CDMX?",
+        "a": "La de 27 elementos va de {{MIN}} a {{MAX}} según el laboratorio, con mediana en {{MEDIANA}}."
+      },
+      {
+        "q": "¿Qué laboratorio tiene la química sanguínea más barata en CDMX?",
+        "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio de lista más bajo entre los {{N_LABS}} comparados."
+      },
+      {
+        "q": "¿Necesito ayuno?",
+        "a": "Sí, de 8 a 12 horas y solo con agua simple. Sin ayuno se alteran glucosa y triglicéridos."
+      },
+      {
+        "q": "¿Los precios cambian entre CDMX y otras ciudades?",
+        "a": "El precio de lista es nacional en las cadenas grandes. Lo que cambia por ciudad son promociones, cobertura a domicilio y horarios de toma."
+      },
+      {
+        "q": "¿Cuál versión me toca, la de 6, 27 o 35 elementos?",
+        "a": "La que indique tu médico. La de 6 es control básico, la de 27 el chequeo anual y las de 35 en adelante son para diagnóstico detallado."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "la"
+  },
+  {
+    "slug": "precio-glucosa-mexico",
+    "estudio": "Glucosa en Suero",
+    "corto": "examen de glucosa",
+    "titulo": "Examen de glucosa precio {{MES_ANIO}}: cuánto cuesta y dónde",
+    "h1": "Precio del examen de glucosa en México",
+    "metaDescription": "Examen de glucosa en sangre: de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios, con precios actualizados cada semana.",
+    "intro": "El examen de glucosa es la prueba básica para detectar y controlar la diabetes, y también uno de los estudios donde más se nota no comparar: va de {{MIN}} a {{MAX}} por la misma medición.",
+    "respuesta": "La glucosa en suero cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, {{VECES}} veces más. La mediana de los {{N_LABS}} laboratorios que publican precio está en {{MEDIANA}}.",
+    "porQueVaria": [
+      "Es un estudio de costo bajo y alto volumen: las cadenas grandes lo usan como gancho y las de servicio premium lo cobran como cualquier otro.",
+      "Casi nunca conviene sola: la glucosa viene incluida en la química sanguínea y en el perfil diabético, que por poco más te dan mucho más.",
+      "La curva de tolerancia y la hemoglobina glicosilada son estudios distintos y más caros; confirma cuál te pidieron.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "La glucosa en suero mide el azúcar en sangre en un momento puntual. Es la prueba base para diagnosticar diabetes y prediabetes, y para dar seguimiento a quien ya está en tratamiento. Sus parientes cercanos son la glucosa postprandial, la curva de tolerancia y la hemoglobina glicosilada, que refleja el promedio de los últimos tres meses.",
+    "preparacion": "Para la glucosa en ayunas: al menos 8 horas sin comer ni beber nada más que agua. La curva de tolerancia lleva instrucciones propias que da el laboratorio, y toma varias horas.",
+    "elegir": [
+      "Antes de pagarla sola, compara contra la química sanguínea: suele incluirla y te deja el resto del panel.",
+      "Si tu médico busca control a mediano plazo, lo que necesitas es hemoglobina glicosilada, no glucosa en ayunas.",
+      "Confirma que el precio incluya la toma de muestra.",
+      "Para seguimiento, repite en el mismo laboratorio: los métodos varían un poco entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de glucosa en México?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Necesito ayuno para el examen de glucosa?",
+        "a": "Sí, de al menos 8 horas para la glucosa en ayunas. Para la curva de tolerancia el laboratorio da instrucciones específicas."
+      },
+      {
+        "q": "¿Cuál es el nivel normal de glucosa?",
+        "a": "En ayunas, entre 70 y 100 mg/dL se considera normal; de 100 a 125 mg/dL sugiere prediabetes. La interpretación siempre la hace tu médico."
+      },
+      {
+        "q": "¿Conviene más la glucosa sola o la química sanguínea?",
+        "a": "Casi siempre la química sanguínea: incluye la glucosa y añade colesterol, función renal y hepática por una diferencia pequeña frente a pagar estudios sueltos."
+      },
+      {
+        "q": "¿Dónde sale más barato el examen de glucosa?",
+        "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio más bajo de los {{N_LABS}} laboratorios que lo publican."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "el"
+  },
+  {
+    "slug": "precio-perfil-lipidico-mexico",
+    "estudio": "Perfil de Lípidos",
+    "corto": "perfil de lípidos",
+    "titulo": "Perfil lipídico precio {{MES_ANIO}}: cuánto cuesta y dónde",
+    "h1": "Precio del perfil lipídico en México",
+    "metaDescription": "Perfil lipídico: de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios, qué incluye y cómo prepararte. Actualizado cada semana.",
+    "intro": "El perfil lipídico es el panel estándar para evaluar riesgo cardiovascular: mide colesterol HDL, LDL y triglicéridos en una sola muestra. Su precio va de {{MIN}} a {{MAX}} según el laboratorio.",
+    "respuesta": "El perfil de lípidos cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican. Son {{VECES}} veces de diferencia por el mismo panel.",
+    "porQueVaria": [
+      "El panel no siempre trae lo mismo: algunos incluyen VLDL e índices de riesgo y otros se quedan en los cuatro básicos.",
+      "Las cadenas de alto volumen lo usan como estudio de entrada; las de servicio premium lo cobran junto con la interpretación.",
+      "Comparado con pagar colesterol y triglicéridos por separado, el perfil casi siempre sale mejor.",
+      "Las promociones de chequeo anual mueven bastante este precio."
+    ],
+    "queEs": "El perfil de lípidos mide colesterol total, HDL (el «bueno»), LDL (el «malo»), triglicéridos y en algunos laboratorios VLDL. Se recomienda en adultos desde los 20 años al menos cada cinco años, y con más frecuencia si hay diabetes, hipertensión, antecedente familiar de enfermedad cardiovascular o tratamiento para el colesterol.",
+    "preparacion": "Ayuno de 9 a 12 horas, solo agua. Sin alcohol las 24 horas previas y sin ejercicio intenso el día anterior: los triglicéridos son especialmente sensibles a las dos cosas.",
+    "elegir": [
+      "Pide el listado de lo que incluye el panel: la diferencia de precio a veces es la diferencia de marcadores.",
+      "Si también te pidieron glucosa o química sanguínea, se toman del mismo ayuno y de la misma muestra.",
+      "Para seguimiento de tratamiento, repite en el mismo laboratorio.",
+      "Confirma si el precio de lista incluye la toma de muestra."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el perfil lipídico en México?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Qué incluye el perfil lipídico?",
+        "a": "Colesterol total, HDL, LDL y triglicéridos; algunos laboratorios añaden VLDL e índices de riesgo cardiovascular."
+      },
+      {
+        "q": "¿Cuánto ayuno necesito para el perfil de lípidos?",
+        "a": "De 9 a 12 horas, solo con agua. El alcohol de la noche anterior altera los triglicéridos aunque hayas ayunado."
+      },
+      {
+        "q": "¿Cada cuándo debo hacerme el perfil lipídico?",
+        "a": "En adultos sanos, al menos cada cinco años desde los 20. Cada año o más seguido si tienes factores de riesgo o tratamiento para el colesterol."
+      },
+      {
+        "q": "¿Conviene el perfil completo o solo el colesterol?",
+        "a": "El perfil completo: por una diferencia pequeña frente al colesterol solo, agrega HDL, LDL y triglicéridos, que es lo que de verdad define el riesgo."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "el"
+  },
+  {
+    "slug": "precio-perfil-tiroideo-mexico",
+    "estudio": "Perfil Tiroideo",
+    "corto": "perfil tiroideo",
+    "titulo": "Perfil tiroideo precio {{MES_ANIO}}: cuánto cuesta y dónde",
+    "h1": "Precio del perfil tiroideo en México",
+    "metaDescription": "Perfil tiroideo: de {{MIN}} a {{MAX}} según el laboratorio. Qué incluye (TSH, T3, T4), cómo prepararte y dónde sale más barato. Actualizado cada semana.",
+    "intro": "El perfil tiroideo evalúa la glándula que regula tu metabolismo y tu energía. Es de los estudios caros del catálogo y la brecha entre laboratorios es de {{AHORRO_PCT}}: de {{MIN}} a {{MAX}}.",
+    "respuesta": "El perfil tiroideo cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican. Por ser un estudio de precio alto, la diferencia de comparar aquí pesa más que en cualquier estudio básico.",
+    "porQueVaria": [
+      "El nombre engaña: un «perfil tiroideo» puede traer tres hormonas o siete. Verifica cuáles incluye antes de comparar precios.",
+      "Las hormonas se procesan por inmunoensayo, más caro que un estudio de rutina, y no todos los laboratorios lo hacen en sitio.",
+      "Los anticuerpos tiroideos casi siempre van aparte y suben bastante la cuenta.",
+      "Al ser estudio de seguimiento, varios laboratorios ofrecen paquete de control anual."
+    ],
+    "queEs": "El perfil tiroideo mide las hormonas de la tiroides y de la hipófisis que la controlan: TSH, que es el indicador principal, T3 y T4. Se solicita ante fatiga persistente, cambios de peso sin causa aparente, intolerancia al frío o al calor, caída de cabello, piel seca, irregularidades menstruales o cambios de ánimo.",
+    "preparacion": "Conviene tomar la muestra por la mañana y en ayunas, porque los niveles hormonales cambian a lo largo del día. Avisa si tomas levotiroxina, biotina o suplementos: pueden alterar el resultado y el laboratorio te dirá cuánto suspenderlos.",
+    "elegir": [
+      "Compara el mismo perfil: TSH + T3 + T4 contra uno que además trae T4 libre o anticuerpos no son el mismo estudio.",
+      "Si es control de tratamiento, repite en el mismo laboratorio y a la misma hora del día.",
+      "Pregunta si el precio incluye la interpretación o solo el resultado.",
+      "La biotina de los suplementos para cabello y uñas altera el inmunoensayo: menciónala siempre."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el perfil tiroideo en México?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Qué incluye el perfil tiroideo?",
+        "a": "Generalmente TSH, T3 y T4. Algunos laboratorios añaden T4 libre o anticuerpos tiroideos, que suelen cobrarse aparte."
+      },
+      {
+        "q": "¿Necesito ayuno para el perfil tiroideo?",
+        "a": "Se recomienda tomarlo en ayunas y por la mañana, porque los niveles hormonales varían durante el día."
+      },
+      {
+        "q": "¿Cuándo debo hacerme un perfil tiroideo?",
+        "a": "Ante fatiga inexplicable, cambios de peso, intolerancia al frío o al calor, caída de cabello o alteraciones del ciclo menstrual, o cuando tu médico lo indique como control."
+      },
+      {
+        "q": "¿Dónde sale más barato el perfil tiroideo?",
+        "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio más bajo. Al ser un estudio caro, comparar aquí es donde más pesa: la brecha es de {{AHORRO_PCT}}."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "el"
+  },
+  {
+    "slug": "precio-colesterol-total-mexico",
+    "estudio": "Colesterol Total",
+    "corto": "examen de colesterol total",
+    "titulo": "Colesterol total precio {{MES_ANIO}}: cuánto cuesta el examen",
+    "h1": "Precio del colesterol total en México",
+    "metaDescription": "Examen de colesterol total: de {{MIN}} a {{MAX}} según el laboratorio. Compara contra el perfil de lípidos completo antes de pagarlo suelto.",
+    "intro": "El colesterol total es la medición individual más pedida para evaluar riesgo cardiovascular. Cuesta de {{MIN}} a {{MAX}}, pero casi siempre conviene revisarlo dentro del perfil de lípidos completo.",
+    "respuesta": "El colesterol total cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican por separado. Antes de pagarlo solo, compáralo contra el perfil de lípidos: por poco más incluye HDL, LDL y triglicéridos.",
+    "porQueVaria": [
+      "Es un estudio barato de procesar, así que el precio depende casi por completo de la política de cada cadena.",
+      "Varios laboratorios ya no lo venden suelto y solo lo ofrecen dentro del perfil de lípidos.",
+      "Pagado por separado, el colesterol total suele salir mal negocio frente al perfil completo.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "El colesterol total es la suma del HDL («bueno»), el LDL («malo») y otros lípidos de la sangre. Un valor elevado se asocia a mayor riesgo de infarto y de enfermedad cerebrovascular, pero por sí solo dice poco: lo que orienta el riesgo real es cómo se reparte entre HDL y LDL, que es justo lo que agrega el perfil de lípidos.",
+    "preparacion": "Ayuno de 9 a 12 horas, sin alcohol las 24 horas previas y sin ejercicio intenso el día anterior. Los medicamentos habituales se toman solo si tu médico lo indica.",
+    "elegir": [
+      "Compáralo siempre contra el perfil de lípidos completo antes de pagarlo suelto.",
+      "Si tu médico pidió solo colesterol total, el estudio individual basta.",
+      "Aprovecha el ayuno para los demás estudios que te hayan pedido.",
+      "Para seguimiento, repite en el mismo laboratorio."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de colesterol total?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo venden por separado."
+      },
+      {
+        "q": "¿Conviene el colesterol solo o el perfil de lípidos?",
+        "a": "Casi siempre el perfil: por una diferencia pequeña agrega HDL, LDL y triglicéridos, que son los que definen el riesgo cardiovascular."
+      },
+      {
+        "q": "¿Necesito ayuno para el colesterol?",
+        "a": "Sí, de 9 a 12 horas, sobre todo si el panel incluye triglicéridos."
+      },
+      {
+        "q": "¿Cuál es el nivel normal de colesterol?",
+        "a": "Por debajo de 200 mg/dL se considera deseable; de 200 a 239 mg/dL es limítrofe y por encima de 240 mg/dL es alto. La interpretación depende de tu riesgo global y la hace tu médico."
+      },
+      {
+        "q": "¿Cada cuándo debo medirme el colesterol?",
+        "a": "Al menos cada cinco años en adultos sanos desde los 20, y cada año si tienes factores de riesgo o tratamiento para bajarlo."
+      }
+    ],
+    "tipo": "estudio",
+    "articulo": "el"
+  },
+  {
+    "tipo": "canasta",
+    "slug": "precio-check-up-completo-mexico",
+    "corto": "check up completo",
+    "canasta": {
+      "nombre": "Check up completo",
+      "estudios": [
+        "Biometría Hemática",
+        "Química Sanguínea 27 Elementos",
+        "Perfil de Lípidos",
+        "Examen General de Orina (EGO)",
+        "Perfil Tiroideo"
+      ]
+    },
+    "titulo": "Check up completo precio {{MES_ANIO}}: cuánto cuesta armarlo",
+    "h1": "Precio del check up completo en México",
+    "metaDescription": "Check up completo de {{N_ESTUDIOS}} estudios: de {{MIN}} a {{MAX}} según el laboratorio. Compara los {{N_LABS}} que tienen todos los estudios del paquete.",
+    "intro": "Un check up completo no es un producto único: es una canasta de estudios que cada laboratorio arma y cobra distinto. Los mismos {{N_ESTUDIOS}} estudios cuestan {{MIN}} en el más barato y {{MAX}} en el más caro.",
+    "respuesta": "Armar el check up completo — {{ESTUDIOS}} — cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}: {{AHORRO_PCT}} de diferencia por exactamente los mismos estudios. Solo entran los {{N_LABS}} laboratorios que publican precio de todos ellos; sumar a quien le falta uno lo haría ver barato por incompleto.",
+    "porQueVaria": [
+      "El paquete de cada laboratorio incluye cosas distintas. Compara estudio por estudio, no el nombre del paquete.",
+      "El precio del paquete no siempre es menor que la suma suelta: en varios laboratorios conviene pedir los estudios por separado.",
+      "La consulta de interpretación suele ir aparte, y es lo que más encarece los paquetes «premium».",
+      "El estudio caro de la canasta manda: aquí el perfil tiroideo pesa más que la biometría en la diferencia final."
+    ],
+    "queEs": "Un check up general busca detectar a tiempo lo que no da síntomas: anemia, alteraciones de glucosa, colesterol alto, función renal y hepática, y problemas de tiroides. La canasta que comparamos aquí cubre esos frentes con estudios de sangre y orina, que es el mínimo razonable de un chequeo anual de adulto sano.",
+    "preparacion": "Ayuno de 8 a 12 horas, solo agua simple, sin alcohol las 24 horas previas ni ejercicio intenso el día anterior. Conviene ir temprano: casi todos los estudios de la canasta se toman de la misma muestra y varios laboratorios entregan el mismo día si la toma es de mañana.",
+    "elegir": [
+      "Pide el desglose del paquete antes de pagarlo y compáralo contra esta canasta.",
+      "Si tu médico pidió estudios específicos, arma tu propia lista: casi siempre sale más barato que el paquete cerrado.",
+      "Confirma si la consulta de interpretación está incluida o se cobra aparte.",
+      "Para seguimiento anual, repite en el mismo laboratorio: los valores son comparables entre sí."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta un check up completo en México?",
+        "a": "La canasta de {{N_ESTUDIOS}} estudios cuesta de {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, según el laboratorio."
+      },
+      {
+        "q": "¿Qué estudios incluye un check up completo?",
+        "a": "En esta comparación: {{ESTUDIOS}}. Cada laboratorio arma su paquete distinto, así que conviene revisar el desglose antes de pagarlo."
+      },
+      {
+        "q": "¿Conviene el paquete o pedir los estudios por separado?",
+        "a": "Depende del laboratorio. En varios, la suma de los estudios sueltos sale igual o menos que el paquete cerrado, sobre todo si no necesitas todos."
+      },
+      {
+        "q": "¿Necesito ayuno para el check up?",
+        "a": "Sí, de 8 a 12 horas y solo con agua simple. Sin ayuno se alteran glucosa, triglicéridos y colesterol."
+      },
+      {
+        "q": "¿Cada cuánto debo hacerme un check up?",
+        "a": "Una vez al año en adultos sanos, y con la frecuencia que indique tu médico si tienes una condición en control."
+      }
+    ],
+    "articulo": "un"
+  },
+  {
+    "tipo": "canasta",
+    "slug": "cuanto-cuesta-check-up-mexico",
+    "corto": "check up",
+    "canasta": {
+      "nombre": "Check up básico",
+      "estudios": [
+        "Biometría Hemática",
+        "Química Sanguínea 6 Elementos",
+        "Examen General de Orina (EGO)"
+      ]
+    },
+    "canastaTambien": {
+      "nombre": "Check up completo",
+      "estudios": [
+        "Biometría Hemática",
+        "Química Sanguínea 27 Elementos",
+        "Perfil de Lípidos",
+        "Examen General de Orina (EGO)",
+        "Perfil Tiroideo"
+      ]
+    },
+    "titulo": "¿Cuánto cuesta un check up en México? Precios {{MES_ANIO}}",
+    "h1": "¿Cuánto cuesta un check up en México?",
+    "metaDescription": "Un check up básico cuesta de {{MIN}} a {{MAX}} según el laboratorio. Comparamos el básico contra el completo, estudio por estudio y con precios de esta semana.",
+    "intro": "La respuesta corta: depende de cuántos estudios lleve y de a qué laboratorio entres. El check up básico va de {{MIN}} a {{MAX}} por los mismos {{N_ESTUDIOS}} estudios.",
+    "respuesta": "Un check up básico — {{ESTUDIOS}} — cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}: {{AHORRO_PCT}} de diferencia por la misma canasta. El completo, que añade perfil de lípidos y perfil tiroideo, cuesta bastante más; los dos están comparados abajo.",
+    "porQueVaria": [
+      "El número de estudios importa, pero el laboratorio importa más: la brecha entre cadenas por la misma canasta es de {{AHORRO_PCT}}.",
+      "Los paquetes con nombre comercial rara vez son comparables entre sí. La única forma honesta de compararlos es estudio por estudio.",
+      "La consulta de interpretación va aparte en casi todos.",
+      "Un check up con estudios que no necesitas no es más completo, es más caro."
+    ],
+    "queEs": "Un check up es un conjunto de estudios de tamizaje: buscan detectar a tiempo lo que todavía no da síntomas. El básico revisa sangre, metabolismo elemental y orina; el completo añade perfil de lípidos para riesgo cardiovascular y perfil tiroideo. Qué te toca depende de tu edad, tus antecedentes y lo que indique tu médico.",
+    "preparacion": "Ayuno de 8 a 12 horas con agua simple, sin alcohol las 24 horas previas y sin ejercicio intenso el día anterior. Lleva la lista de estudios por escrito: en el mostrador es donde se cambian por el paquete de la casa.",
+    "elegir": [
+      "Lleva tu lista y pide el precio de esa lista, no del paquete que te ofrezcan.",
+      "Compara la suma de estudios sueltos contra el paquete cerrado: no siempre gana el paquete.",
+      "Si es tu primer check up, el básico suele bastar salvo que tu médico indique otra cosa.",
+      "Aprovecha un solo ayuno: todos estos estudios salen de la misma toma."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta un check up en México?",
+        "a": "El básico de {{N_ESTUDIOS}} estudios va de {{MIN}} a {{MAX}} según el laboratorio. El completo, con perfil de lípidos y tiroideo, está comparado en la segunda tabla."
+      },
+      {
+        "q": "¿Qué incluye un check up básico?",
+        "a": "En esta comparación: {{ESTUDIOS}}. Es el mínimo razonable de un chequeo anual en un adulto sano sin síntomas."
+      },
+      {
+        "q": "¿Dónde sale más barato el check up?",
+        "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el total más bajo de la canasta básica entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Conviene el paquete del laboratorio?",
+        "a": "Solo si incluye lo que necesitas. Pide el desglose y compáralo contra la suma de los estudios sueltos; en varios laboratorios la suma sale igual o menos."
+      },
+      {
+        "q": "¿Necesito ayuno para un check up?",
+        "a": "Sí, de 8 a 12 horas y solo con agua simple."
+      }
+    ],
+    "articulo": "un"
+  },
+  {
+    "tipo": "ranking",
+    "slug": "laboratorio-mas-barato-cdmx",
+    "corto": "laboratorio más barato",
+    "ciudad": "CDMX",
+    "titulo": "Laboratorio más barato en CDMX: precios {{MES_ANIO}}",
+    "h1": "Laboratorio más barato en CDMX",
+    "metaDescription": "Cuál laboratorio es más barato en CDMX, medido sobre {{COMPARABLES}} estudios: {{LIDER}} gana en {{LIDER_PCT}} de ellos. Tabla completa y actualizada.",
+    "intro": "La pregunta tiene respuesta medible: de los {{COMPARABLES}} estudios que al menos tres laboratorios publican, {{LIDER}} pone el precio más bajo en {{LIDER_GANA}}, es decir {{LIDER_PCT}} de las veces.",
+    "respuesta": "En el corte del {{FECHA}}, {{LIDER}} es el laboratorio más barato de CDMX medido donde importa: gana en {{LIDER_GANA}} de {{COMPARABLES}} estudios comparables. Eso no lo vuelve la mejor opción para todo — el segundo lugar tiene un catálogo más amplio, y para estudios especializados suele ser el único que los ofrece.",
+    "porQueVaria": [
+      "Ganar en más estudios no es ganar en todos: revisa el tuyo antes de decidir, sobre todo si es especializado.",
+      "El catálogo pesa tanto como el precio: un laboratorio barato que no hace tu estudio no te sirve.",
+      "En CDMX todas las cadenas tienen sucursal, así que aquí la elección es real; en otras ciudades la cobertura decide.",
+      "Las promociones de sucursal pueden voltear el resultado en estudios puntuales."
+    ],
+    "queEs": "Este ranking no sale de una opinión ni de un convenio: se calcula sobre el catálogo completo del scan semanal, contando en cuántos estudios cada laboratorio pone el precio más bajo. Solo entran los estudios que al menos tres laboratorios publican, porque comparar dos precios no dice nada del mercado.",
+    "preparacion": "Antes de elegir por precio, revisa tres cosas: que el laboratorio tenga tu estudio, que la sucursal te quede alcanzable y que el precio incluya la toma de muestra. Y si vas a dar seguimiento a un tratamiento, quédate en el mismo laboratorio aunque otro salga más barato: los rangos de referencia cambian.",
+    "elegir": [
+      "Busca tu estudio concreto en el comparador antes de decidir por el ranking.",
+      "Verifica que el precio de lista incluya la toma de muestra.",
+      "Revisa el horario de toma si quieres resultados el mismo día.",
+      "Para control de tratamiento, la continuidad de laboratorio vale más que la diferencia de precio."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuál es el laboratorio más barato en CDMX?",
+        "a": "Medido sobre {{COMPARABLES}} estudios comparables, {{LIDER}} pone el precio más bajo en {{LIDER_GANA}} de ellos ({{LIDER_PCT}}). La tabla completa está arriba."
+      },
+      {
+        "q": "¿El más barato es el mejor?",
+        "a": "No necesariamente. El precio más bajo importa en estudios de rutina; en estudios especializados lo que decide es quién los hace, y ahí el catálogo pesa más que el precio."
+      },
+      {
+        "q": "¿Con qué frecuencia se actualiza este ranking?",
+        "a": "Cada semana. Los precios salen del scan del {{FECHA}} y la tabla se regenera con cada corrida."
+      },
+      {
+        "q": "¿Sirve este ranking fuera de CDMX?",
+        "a": "Los precios de lista son nacionales en las cadenas grandes, así que el orden se sostiene. Lo que cambia por ciudad es qué laboratorios tienen sucursal cerca."
+      },
+      {
+        "q": "¿Por qué no aparecen todos los estudios de cada laboratorio?",
+        "a": "Solo se cuentan los estudios que al menos tres laboratorios publican. Comparar un estudio que solo uno ofrece no dice nada sobre quién es más barato."
+      }
+    ]
+  },
+  {
+    "tipo": "guia",
+    "slug": "estudios-laboratorio-precios-mexico",
+    "corto": "estudios de laboratorio",
+    "titulo": "Precios de estudios de laboratorio {{MES_ANIO}} en México",
+    "h1": "Precios de estudios de laboratorio en México",
+    "metaDescription": "Cuánto cuestan los estudios de laboratorio más pedidos en México, comparados entre {{N_LABS}} laboratorios. Precios actualizados cada semana.",
+    "intro": "Los estudios de laboratorio no tienen un precio: tienen un rango, y es más ancho de lo que la gente supone. En los más pedidos, el mismo estudio llega a costar tres veces más en un laboratorio que en otro.",
+    "respuesta": "Esta es la tabla de referencia de los estudios más solicitados en México, con el precio más bajo y el más alto de los {{N_LABS}} laboratorios que comparamos. Los precios salen del scan del {{FECHA}} y se actualizan cada semana; ninguno está escrito a mano.",
+    "porQueVaria": [
+      "La estructura de cada cadena manda: las de alto volumen cobran menos por los estudios de rutina.",
+      "Los estudios especializados los procesan menos laboratorios, y ahí el rango se dispara.",
+      "Los paquetes y perfiles suelen salir mejor que comprar los estudios sueltos, pero no siempre: conviene comparar la suma.",
+      "El precio de lista no incluye siempre la toma de muestra ni la interpretación."
+    ],
+    "queEs": "Un estudio de laboratorio es una medición sobre una muestra — sangre, orina u otra — que ayuda a tu médico a diagnosticar o a dar seguimiento. Los de rutina, como la biometría hemática y la química sanguínea, cubren la mayoría de los chequeos; los perfiles agrupan varios en una sola toma y por eso salen mejor que pedirlos por separado.",
+    "preparacion": "La mayoría de los estudios metabólicos piden de 8 a 12 horas de ayuno con agua simple. Los hormonales conviene tomarlos por la mañana. Si te pidieron varios, casi siempre salen de la misma muestra y del mismo ayuno: pregunta antes de agendar dos visitas.",
+    "elegir": [
+      "Compara el estudio exacto que te pidieron, con el mismo número de elementos o marcadores.",
+      "Revisa si un perfil ya incluye lo que ibas a pedir suelto.",
+      "Confirma que el precio incluya la toma de muestra.",
+      "Para seguimiento, repite laboratorio aunque otro salga más barato."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuestan los estudios de laboratorio en México?",
+        "a": "Depende del estudio y del laboratorio. En la tabla de arriba están los más pedidos con su precio más bajo y más alto entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Por qué hay tanta diferencia de precio entre laboratorios?",
+        "a": "Por volumen y modelo de servicio. Las cadenas de toma masiva cobran menos los estudios de rutina; las de servicio premium incluyen interpretación y comodidades en el precio."
+      },
+      {
+        "q": "¿Conviene más un perfil o los estudios por separado?",
+        "a": "Casi siempre el perfil, porque agrupa varios marcadores de una sola muestra. Conviene comparar la suma cuando solo necesitas uno o dos de los que incluye."
+      },
+      {
+        "q": "¿Necesito ayuno para todos los estudios?",
+        "a": "No. Lo piden los metabólicos como glucosa, perfil de lípidos y química sanguínea. La biometría hemática y varios hormonales no lo requieren, aunque se recomienda tomar los hormonales por la mañana."
+      },
+      {
+        "q": "¿Cada cuánto se actualizan estos precios?",
+        "a": "Cada semana, con el scan del {{FECHA}} como corte más reciente."
+      }
+    ]
+  }
+]
