@@ -272,6 +272,18 @@ h1,h2,h3,.nav-logo,.btn-primary,.hero-h1{font-family:'Montserrat',system-ui,-app
 .faq-item p{margin:12px 0 0;font-size:14.5px;color:var(--gray-600);line-height:1.7;}
 .cta-band{background:linear-gradient(135deg,var(--navy),var(--navy-mid));padding:64px 24px;}
 
+/* ── SIN COMPARACIÓN ─────────────────────────────────────────────────────── */
+/* Deliberadamente distinto de la tabla: es un listado, y tiene que verse como
+   un listado para que nadie lo lea como una comparación. */
+.sueltas{margin-top:26px;background:#fff;border:1px solid var(--gray-200);border-left:3px solid var(--gray-400);border-radius:14px;padding:20px 22px;}
+.sueltas h3{margin:0 0 6px;font-family:'Montserrat',system-ui,sans-serif;font-weight:700;font-size:16px;color:var(--navy);}
+.sueltas > p{margin:0 0 16px;font-size:13.5px;color:var(--gray-600);line-height:1.6;max-width:640px;}
+.suelta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+.suelta-farm{display:flex;align-items:center;gap:8px;font-family:'Montserrat',system-ui,sans-serif;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:8px;}
+.suelta-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;border:1px solid var(--gray-200);border-radius:10px;margin-bottom:6px;font-size:13px;color:var(--gray-600);transition:border-color .15s;}
+.suelta-item:hover{border-color:var(--teal);}
+.suelta-item b{font-family:'Montserrat',system-ui,sans-serif;font-size:14px;color:var(--navy);white-space:nowrap;}
+
 /* footer */
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:44px 0 40px;font-size:14px;}
@@ -624,6 +636,7 @@ function receta(p){
 // ── DATOS ──────────────────────────────────────────────────────────────────
 const FEED = '/data/medicinas/prices.json';
 let PRES = [];        // presentaciones comparables
+let SUELTAS = [];     // las que solo tiene una farmacia
 let FUENTES = [];     // farmacias configuradas, en orden
 let META = null;
 let MEDS = [];        // agrupadas por principio activo
@@ -641,6 +654,9 @@ async function cargar(){
     if(!res.ok) throw new Error('HTTP '+res.status);
     const d = await res.json();
     PRES = Array.isArray(d.presentaciones) ? d.presentaciones : [];
+    // Presentaciones que solo tiene una farmacia: no comparan nada, pero son
+    // lo que existe. Se guardan aparte porque en la página tampoco se mezclan.
+    SUELTAS = Array.isArray(d.sueltas) ? d.sueltas : [];
     FUENTES = d.fuentes || Object.keys(FARM_META);
     META = d;
     if(d.generated_at){
@@ -670,23 +686,26 @@ async function cargar(){
  */
 function agrupar(){
   const m = new Map();
-  for(const p of PRES){
+  const meter = (p, comparable) => {
     const g = m.get(p.medicamento) || {
-      nombre: p.medicamento, categoria: p.categoria, rank: p.rank, filas: [], marcas: new Set(),
+      nombre: p.medicamento, categoria: p.categoria, rank: p.rank,
+      filas: [], sueltas: [], marcas: new Set(),
     };
-    g.filas.push(p);
+    (comparable ? g.filas : g.sueltas).push(p);
     if(p.marca) g.marcas.add(p.marca);
-    // Las marcas conocidas del activo, vengan o no en un título de esta
-    // semana: "Ozempic" y "Wegovy" tienen que encontrar a la semaglutida.
-    (p.tambien || '').split(/\s*[\/,]\s*/).filter(Boolean).forEach(m => g.marcas.add(m));
-    // Y las que el scan vio en cualquier producto de este activo, aunque esa
-    // caja no llegara a publicarse por faltarle una segunda farmacia.
-    (p.marcasVistas || []).forEach(m => g.marcas.add(m));
-    Object.values(p.precios).forEach(v => { if(v.marca) g.marcas.add(v.marca); });
+    (p.tambien || '').split(/\s*[\/,]\s*/).filter(Boolean).forEach(x => g.marcas.add(x));
+    (p.marcasVistas || []).forEach(x => g.marcas.add(x));
     m.set(p.medicamento, g);
+  };
+  SUELTAS.forEach(p => meter(p, false));
+  for(const p of PRES){
+    meter(p, true);
+    Object.values(p.precios).forEach(v => { if(v.marca) m.get(p.medicamento).marcas.add(v.marca); });
   }
   MEDS = [...m.values()].map(g => {
-    g.desde = Math.min(...g.filas.map(f => f.min));
+    const precios = g.filas.map(f => f.min).concat(g.sueltas.map(f => f.precio));
+    g.desde = precios.length ? Math.min(...precios) : 0;
+    g.comparable = g.filas.length > 0;
     g.busca = norm(g.nombre + ' ' + (g.categoria||'') + ' ' + [...g.marcas].join(' '));
     return g;
   }).sort((a,b) => a.rank - b.rank);
@@ -787,12 +806,17 @@ function renderMedGrid(q){
     return 0;
   }
   grid.innerHTML = lista.map(m => {
-    const n = m.filas.length;
+    const n = m.filas.length, sn = m.sueltas.length;
+    // Se dice de frente cuándo no hay comparación: entrar y encontrar una
+    // lista donde se esperaba una tabla es peor que saberlo antes.
+    const detalle = n
+      ? `${n} presentaci${n>1?'ones':'ón'} comparable${n>1?'s':''}`
+      : `en 1 farmacia · ${sn} presentaci${sn>1?'ones':'ón'}, sin comparación`;
     return `<div class="study-item" data-med="${esc(m.nombre)}" style="padding:13px 15px;">
       <div style="font-size:22px;">💊</div>
       <div class="study-name">
         <div style="font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:700;color:var(--navy);">${esc(m.nombre)}</div>
-        <div class="study-from">${esc(m.categoria||'')} · ${n} presentaci${n>1?'ones':'ón'}</div>
+        <div class="study-from">${esc(m.categoria||'')} · ${esc(detalle)}</div>
       </div>
       <div style="text-align:right"><div class="study-from">desde</div><div class="study-price">${money(m.desde)}</div></div>
       <div style="color:var(--teal-dark);font-weight:800;font-size:18px;margin-left:8px;">→</div>
@@ -822,6 +846,9 @@ function elegirMed(nombre){
   // erratas ni búsquedas a medio escribir.
   traza('seleccion', {medicamento:medSel.nombre, categoria:medSel.categoria||'', presentaciones:medSel.filas.length});
   if(window.MC) MC.ga('select_item', {item_name:medSel.nombre, item_category:medSel.categoria||''});
+  // Sin nada comparable no hay paso 3 que ofrecer: se enseña de una vez lo
+  // que cada farmacia tiene.
+  if(!medSel.filas.length){ irResultados(); return; }
   // "Dosis en caso de que haya más de una": con una sola presentación el paso
   // sería una pantalla con un único botón, así que se salta.
   if(medSel.filas.length === 1){
@@ -914,8 +941,50 @@ function datos(farmacia, p, v){
   return Object.entries(a).map(([k, val]) => `data-${k}="${esc(val)}"`).join(' ');
 }
 
+/**
+ * Lo que solo tiene una farmacia, listado y no comparado.
+ *
+ * Sin precio "más bajo", sin ahorro y sin destacar a nadie: con un solo
+ * precio no hay nada de eso que decir, y fingirlo sería justo el error que
+ * este comparador existe para no cometer.
+ */
+function renderSueltas(){
+  const s = (medSel && medSel.sueltas) || [];
+  if(!s.length) return '';
+  const porFarmacia = {};
+  s.forEach(p => (porFarmacia[p.farmacia] = porFarmacia[p.farmacia] || []).push(p));
+  const bloques = FUENTES.filter(f => porFarmacia[f]).map(f => `
+    <div class="suelta-col">
+      <div class="suelta-farm">${farmBadge(f, 30)} ${esc((FARM_META[f]||{}).nombre || f)}</div>
+      ${porFarmacia[f].sort((a,b) => a.precio - b.precio).map(p => `
+        <a class="suelta-item" href="${esc(p.url)}" target="_blank" rel="noopener nofollow"
+           data-ph="${esc((FARM_META[f]||{}).nombre || f)}" data-med="${esc(p.etiqueta)}" data-price="${p.precio}"
+           title="${esc(p.titulo||'')}">
+          <span>${esc(p.etiqueta)}${p.marca ? ` · ${esc(p.marca)}` : ''}</span>
+          <b>${money(p.precio)}</b>
+        </a>`).join('')}
+    </div>`).join('');
+  return `<div class="sueltas">
+    <h3>Sin comparación posible</h3>
+    <p>Ninguna otra farmacia vende exactamente estas cajas, así que no hay con qué
+       compararlas. Esto es lo que encontramos, y de quién es cada precio.</p>
+    <div class="suelta-grid">${bloques}</div>
+  </div>`;
+}
+
 function renderResultados(){
   const filas = PRES.filter(p => selected.includes(p.clave));
+  // Un medicamento sin nada comparable: solo el listado.
+  const leyenda = document.querySelector('.legend');
+  if(leyenda) leyenda.style.display = filas.length ? 'flex' : 'none';
+  if(!filas.length){
+    $('results-sub').textContent = `${medSel ? medSel.nombre + ' · ' : ''}sin presentaciones comparables`;
+    $('results-container').innerHTML = renderSueltas();
+    $('results-container').querySelectorAll('a[data-ph]').forEach(a => {
+      a.addEventListener('click', function(){ trackFarmacia(this.dataset, this.href); });
+    });
+    return;
+  }
   // Solo columnas con al menos un precio en lo seleccionado: una farmacia que
   // no vende esta caja no aporta una columna de guiones.
   const cols = FUENTES.filter(f => filas.some(p => p.precios[f]));
@@ -1001,7 +1070,8 @@ function renderResultados(){
     `</tbody></table></div>` +
     `<div class="cmp-note"><b>💡 Cómo leer esta tabla:</b> todas las columnas son <b>la misma caja</b> —misma dosis, misma presentación y mismo número de piezas—; debajo de cada precio dice de qué marca es, porque el genérico de una farmacia y la marca de otra no cuestan lo mismo ni son el mismo producto. <b>"no lo vende"</b> = esa farmacia no tiene esa presentación.${
       META && META.generated_at ? ` &middot; Precios actualizados: ${new Date(META.generated_at).toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}.` : ''}</div>` +
-    `<p class="cmp-hint">Toca un precio para ir directo al producto en la farmacia. Desliza la tabla ↔ para ver todas.</p>`;
+    `<p class="cmp-hint">Toca un precio para ir directo al producto en la farmacia. Desliza la tabla ↔ para ver todas.</p>` +
+    renderSueltas();
 
   $('results-container').querySelectorAll('a[data-ph]').forEach(a => {
     a.addEventListener('click', function(){ trackFarmacia(this.dataset, this.href); });

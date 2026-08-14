@@ -250,6 +250,13 @@ const ROOT = path.join(__dirname, '..');
 const PAGINA = path.join(ROOT, 'pages', 'medicinas.html');
 const html = fs.readFileSync(PAGINA, 'utf8');
 
+// Un comentario CSS sin cerrar se traga TODO el estilo que le sigue y el
+// navegador no da ningún error: la página simplemente aparece a medio pintar.
+// Pasó al agregar el bloque "sin comparación" y el pie se quedó sin estilos.
+const css = html.slice(html.indexOf('<style>') + 7, html.indexOf('</style>'));
+const abre = (css.match(/\/\*/g) || []).length, cierra = (css.match(/\*\//g) || []).length;
+check(abre === cierra, `los ${abre} comentarios del CSS están cerrados`, `${abre} abiertos, ${cierra} cerrados`);
+
 // Los ids que busca el script tienen que existir en el marcado.
 const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]));
 const usados = [...new Set([...html.matchAll(/\$\('([^']+)'\)/g)].map((m) => m[1]))];

@@ -250,6 +250,29 @@ const ctxPara = (ad) => {
   const conDos = (g) => Object.keys(g.precios).length >= MIN_FARMACIAS;
   const porSustancia = [...presentaciones.values()].filter(conDos);
 
+  /**
+   * Las que solo tiene una farmacia.
+   *
+   * No son comparaciones y no se mezclan con las de arriba: la regla de esta
+   * vertical es que una fila con un solo precio no compara nada. Pero tirarlas
+   * dejaba 28 medicamentos mostrando una pantalla vacía cuando sí teníamos
+   * qué enseñar —la liraglutida, por ejemplo, existe en varias farmacias pero
+   * ninguna coincide en la misma caja—. Se publican aparte para que la página
+   * pueda decir "esto es lo que hay" en vez de "no encontramos nada".
+   */
+  const sueltas = [...presentaciones.values()]
+    .filter((g) => !conDos(g))
+    .map((g) => {
+      const [farmacia, v] = Object.entries(g.precios)[0];
+      return {
+        medicamento: g.medicamento, rank: g.rank, categoria: g.categoria,
+        etiqueta: g.etiqueta, mg: g.mg, forma: g.forma, piezas: g.piezas, ml: g.ml,
+        ...(g.tambien ? { tambien: g.tambien } : {}),
+        farmacia, precio: v.precio, url: v.url, titulo: v.titulo, marca: v.marca,
+      };
+    })
+    .sort((a, b) => a.rank - b.rank || a.mg - b.mg || (a.piezas || 0) - (b.piezas || 0));
+
   // Una fila de marca sobra cuando repite exactamente la de su sustancia: pasa
   // cuando esa caja solo existe de esa marca, y entonces las dos dirían lo
   // mismo con distinto nombre. La de sustancia ya trae la marca en cada precio.
@@ -288,6 +311,7 @@ const ctxPara = (ad) => {
   }
   console.log(`  presentaciones distintas : ${presentaciones.size} por sustancia · ${porMarca.size} por marca`);
   console.log(`  comparables (${MIN_FARMACIAS}+ farmacias): ${porSustancia.length} por sustancia · ${marcas.length} por marca`);
+  console.log(`  sueltas (una sola farmacia): ${sueltas.length}`);
   console.log(`  descartes: ${descartes.combinados} combinados · ${descartes.sinDosis} sin dosis · ${descartes.sinPiezas} sin piezas · ${descartes.otraSustancia} otra sustancia`);
   const st = http.stats();
   console.log(`  requests: ${st.directo} directos · ${st.proxy} por ${http.proveedor}`);
@@ -305,8 +329,9 @@ const ctxPara = (ad) => {
   fs.mkdirSync(OUT, { recursive: true });
   fs.writeFileSync(path.join(OUT, 'prices.json'), JSON.stringify({
     generated_at: generado, currency: 'MXN', fuentes: columnas,
-    nota: 'Solo se publican presentaciones idénticas (misma dosis, forma y número de piezas) presentes en 2 o más farmacias.',
+    nota: 'Solo se comparan presentaciones idénticas (misma dosis, forma y número de piezas) presentes en 2 o más farmacias. Las de una sola farmacia van en "sueltas": no son comparaciones, son lo que existe.',
     presentaciones: comparables,
+    sueltas,
   }, null, 2));
   fs.writeFileSync(path.join(OUT, 'crudo.json'), JSON.stringify({ generado, crudo }, null, 2));
 
