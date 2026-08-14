@@ -1146,5 +1146,152 @@
         "a": "No. La biometría hemática es solo uno de los estudios del conjunto; sola cuesta bastante menos y responde preguntas distintas."
       }
     ]
+  },
+  {
+    "tipo": "labs",
+    "slug": "mejor-laboratorio-estudios-clinicos-mexico",
+    "corto": "laboratorio",
+    "articulo": "el",
+    "canasta": {
+      "nombre": "Canasta de chequeo",
+      "estudios": [
+        "Biometría Hemática",
+        "Química Sanguínea 27 Elementos",
+        "Perfil de Lípidos",
+        "Examen General de Orina (EGO)",
+        "Perfil Tiroideo"
+      ]
+    },
+    "titulo": "Mejor laboratorio de análisis clínicos {{MES_ANIO}}",
+    "h1": "¿Cuál es el mejor laboratorio de análisis clínicos en México?",
+    "metaDescription": "Comparamos {{N_LABS}} laboratorios sobre {{COMPARABLES}} estudios: {{LIDER}} pone el precio más bajo en {{LIDER_PCT}} de ellos. Datos del scan de esta semana.",
+    "intro": "Elegir laboratorio depende de qué te importe más: precio, catálogo, cercanía o servicio. Esta comparativa no opina — mide: sobre {{COMPARABLES}} estudios que al menos tres laboratorios publican, cuenta quién pone el precio más bajo y cuántos estudios ofrece cada uno.",
+    "respuesta": "Si lo que buscas es precio, la respuesta es {{LIDER}}: gana en {{LIDER_GANA}} de {{COMPARABLES}} estudios comparables, {{LIDER_PCT}} de las veces. Pero el más barato no es el más completo — el catálogo más amplio lo tiene {{CATALOGO_LIDER}}, con {{CATALOGO_LIDER_N}} estudios con precio público frente a los {{CATALOGO_MIN_N}} del líder en precio. Si tu estudio es especializado, esa diferencia decide más que el precio.",
+    "porQueVaria": [
+      "Ganar en más estudios no es ganar en todos: revisa el tuyo antes de decidir, sobre todo si es de alta especialidad.",
+      "El catálogo pesa tanto como el precio. Un laboratorio barato que no hace tu estudio no te sirve de nada.",
+      "Los precios de lista son nacionales en las cadenas grandes; lo que cambia por ciudad es la cobertura, el horario de toma y las promociones.",
+      "Para dar seguimiento a un tratamiento, la continuidad de laboratorio vale más que la diferencia de precio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "queEs": "Este ranking no sale de una opinión ni de un convenio comercial. Se calcula cada semana sobre el catálogo completo del scan, contando en cuántos estudios cada laboratorio pone el precio más bajo. Solo entran los estudios que al menos tres laboratorios publican: comparar dos precios no dice nada del mercado.",
+    "preparacion": "Antes de decidir por precio, revisa tres cosas: que el laboratorio tenga tu estudio, que la sucursal te quede alcanzable y que el precio de lista incluya la toma de muestra. Y si el estudio es de control, quédate en el mismo laboratorio aunque otro salga más barato.",
+    "elegir": [
+      "Busca tu estudio concreto en el comparador antes de decidir por el ranking general.",
+      "Confirma que el precio incluya la toma de muestra.",
+      "Revisa el horario de toma si quieres resultados el mismo día.",
+      "Si tu médico va a comparar contra estudios previos, repite laboratorio."
+    ],
+    "laboratorios": [
+      {
+        "lab": "Salud Digna",
+        "titular": "El más barato en la mayoría",
+        "emoji": "🟢",
+        "texto": "Es la opción más económica en la mayor parte de los estudios de rutina, con cobertura nacional y toma sin cita en casi todos sus módulos. Su límite es el catálogo: es el más corto de los seis, así que en estudios especializados es probable que no lo tenga.",
+        "pro": [
+          "El precio más bajo en más estudios que cualquier otro",
+          "Sin cita en la mayoría de sus módulos",
+          "Cobertura nacional amplia"
+        ],
+        "contra": [
+          "El catálogo más corto de los seis comparados"
+        ]
+      },
+      {
+        "lab": "LAPI",
+        "titular": "El catálogo más amplio",
+        "emoji": "🔴",
+        "texto": "Es el laboratorio con más estudios con precio público del comparador, y a la vez el segundo que más veces pone el precio más bajo. Es la combinación más equilibrada de los seis: si tu médico pidió algo poco común, es el primero donde conviene buscarlo.",
+        "pro": [
+          "El catálogo más amplio de los comparados",
+          "Segundo lugar en número de estudios donde es el más barato",
+          "Fuerte en análisis de alta complejidad"
+        ],
+        "contra": [
+          "Menor cobertura geográfica que las cadenas grandes"
+        ]
+      },
+      {
+        "lab": "Chopo",
+        "titular": "El de más sucursales",
+        "emoji": "🟡",
+        "texto": "Es el laboratorio con mayor presencia física del país, con más de quinientas sucursales. Sus precios son intermedios y su catálogo es amplio, lo que lo vuelve la opción práctica cuando la cercanía pesa más que el peso exacto del ticket.",
+        "pro": [
+          "Más de quinientas sucursales en todo el país",
+          "Catálogo amplio",
+          "Precios intermedios"
+        ],
+        "contra": [
+          "Rara vez es el más barato frente a las opciones económicas"
+        ]
+      },
+      {
+        "lab": "OLAB",
+        "titular": "El más digital",
+        "emoji": "🔵",
+        "texto": "Su proceso está pensado para ser digital de punta a punta: agendas, acudes y el resultado llega a la app. El catálogo es de los amplios, aunque su precio queda por encima de las opciones económicas en la mayoría de los estudios.",
+        "pro": [
+          "Experiencia digital completa, con resultados en app",
+          "Catálogo amplio"
+        ],
+        "contra": [
+          "Menos ubicaciones físicas",
+          "Pocas veces es el más barato"
+        ]
+      },
+      {
+        "lab": "Labbe",
+        "titular": "El mejor a domicilio",
+        "emoji": "🟣",
+        "texto": "Es el más fuerte en toma de muestra a domicilio: un técnico acude a tu casa o trabajo y el resultado llega al teléfono. Ese servicio se paga: es de los que menos veces pone el precio más bajo, aunque su catálogo es de los amplios.",
+        "pro": [
+          "Toma a domicilio en muchas ciudades",
+          "Resultados en app",
+          "Catálogo amplio"
+        ],
+        "contra": [
+          "De los que menos veces gana en precio"
+        ]
+      },
+      {
+        "lab": "Polanco",
+        "titular": "La experiencia premium",
+        "emoji": "🩷",
+        "texto": "Ofrece atención de primer nivel, instalaciones cuidadas y personal muy especializado. Es, con claridad, el más caro de los seis: prácticamente nunca aparece como el precio más bajo del catálogo comparado.",
+        "pro": [
+          "Atención e instalaciones premium",
+          "Personal altamente especializado"
+        ],
+        "contra": [
+          "Los precios más altos del mercado comparado",
+          "Casi nunca es la opción más barata"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuál es el mejor laboratorio de análisis clínicos en México?",
+        "a": "Depende de qué priorices. Por precio, {{LIDER}}: gana en {{LIDER_GANA}} de {{COMPARABLES}} estudios comparables. Por amplitud de catálogo, {{CATALOGO_LIDER}}, con {{CATALOGO_LIDER_N}} estudios con precio público. Por cobertura física, Laboratorio Chopo."
+      },
+      {
+        "q": "¿Cuál es el laboratorio más barato?",
+        "a": "En el corte del {{FECHA}}, {{LIDER}} pone el precio más bajo en {{LIDER_PCT}} de los estudios comparables. La misma canasta de chequeo cuesta {{CANASTA_MIN}} ahí y hasta {{CANASTA_MAX}} en el más caro."
+      },
+      {
+        "q": "¿Salud Digna o Chopo?",
+        "a": "Salud Digna gana en precio en muchos más estudios; Chopo gana en número de sucursales y catálogo. Para estudios de rutina con presupuesto ajustado, Salud Digna; si la cercanía manda, Chopo."
+      },
+      {
+        "q": "¿Los laboratorios privados en México son confiables?",
+        "a": "Sí, siempre que estén certificados. Los seis que comparamos están acreditados y tienen trayectoria; lo que cambia entre ellos es precio, catálogo, cobertura y servicio."
+      },
+      {
+        "q": "¿Puedo hacerme estudios sin receta médica?",
+        "a": "La mayoría de los estudios de laboratorio en México no requieren receta para realizarse. Lo que sí conviene es que un médico indique cuáles necesitas e interprete el resultado."
+      },
+      {
+        "q": "¿Con qué frecuencia se actualiza esta comparativa?",
+        "a": "Cada semana. Los datos salen del scan del {{FECHA}} y la página se regenera con cada corrida."
+      }
+    ]
   }
 ]

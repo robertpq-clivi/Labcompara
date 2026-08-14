@@ -93,6 +93,24 @@ const tokens = {
     N_LABS: d.tabla.length,
   }),
 
+  labs: (d, c, meta) => {
+    const catalogo = [...d.ranking.tabla].sort((a, b) => b.catalogo - a.catalogo)[0];
+    return {
+      ...comunes(c, meta),
+      COMPARABLES: d.ranking.comparables,
+      LIDER: lab(d.ranking.lider.lab),
+      LIDER_GANA: d.ranking.lider.gana,
+      LIDER_PCT: d.ranking.lider.pct + '%',
+      CATALOGO_LIDER:   lab(catalogo.lab),
+      CATALOGO_LIDER_N: catalogo.catalogo,
+      CATALOGO_MIN_N:   d.ranking.lider.catalogo,
+      CANASTA_MIN: mxn(d.canasta.min), CANASTA_MAX: mxn(d.canasta.max),
+      CANASTA_BARATO: lab(d.canasta.barato), CANASTA_AHORRO: d.canasta.ahorroPct + '%',
+      N_ESTUDIOS_CANASTA: d.canasta.nEstudios,
+      N_LABS: d.ranking.tabla.length,
+    };
+  },
+
   guia: (d, c, meta) => ({
     ...comunes(c, meta),
     N_LABS: d.nLabs,
@@ -117,6 +135,9 @@ const ESTRUCTURA = ['tipo', 'slug', 'estudio', 'corto', 'articulo', 'ciudad', 't
 
 const OBLIGATORIOS = ['tipo', 'slug', 'corto', 'titulo', 'h1', 'metaDescription', 'intro',
                       'respuesta', 'porQueVaria', 'queEs', 'preparacion', 'elegir', 'faqs'];
+
+/** Campos que solo existen en algunos tipos y no llevan prosa que validar. */
+const ESTRUCTURA_EXTRA = ['laboratorios'];
 
 function validarCopy(c, mapa) {
   const problemas = [];
@@ -157,7 +178,12 @@ function validarCopy(c, mapa) {
 function validarResuelto(c, titulo) {
   const p = [];
   if (c.metaDescription.length > 155) p.push(`metaDescription de ${c.metaDescription.length} caracteres`);
-  if (c.h1.length > 60)               p.push(`h1 de ${c.h1.length} caracteres`);
+  // El h1 se mantiene corto por costumbre, no por regla: no es factor de
+  // ranking. El de la comparativa de laboratorios llega a 61 porque repite
+  // literal la consulta que la trae ("mejor laboratorio de análisis clínicos
+  // en méxico", 116 impresiones), y recortarla para cumplir un número propio
+  // sería romper lo que funciona.
+  if (c.h1.length > 65)               p.push(`h1 de ${c.h1.length} caracteres`);
   if (titulo.length > 75)             p.push(`title de ${titulo.length} caracteres`);
   return p;
 }
@@ -242,6 +268,36 @@ function tablaGuia(d) {
     + `<td><span class="badge-cheap">−${f.ahorroPct}%</span></td></tr>`));
 }
 
+/**
+ * Las fichas de cada laboratorio, con su cifra real dentro. La versión escrita
+ * a mano afirmaba que LAPI tenía "precios más elevados" cuando el scan dice
+ * que es el segundo que más veces gana en precio, y con el catálogo más
+ * amplio de los seis. Una ficha cualitativa sin dato al lado envejece hacia
+ * la afirmación cómoda, no hacia la verdadera.
+ */
+function fichasLabs(d, c) {
+  const porLab = Object.fromEntries(d.ranking.tabla.map(t => [t.lab, t]));
+  const canasta = Object.fromEntries(d.canasta.total.map(t => [t.lab, t.precio]));
+
+  return c.laboratorios.map(f => {
+    const t = porLab[f.lab];
+    if (!t) return '';
+    const cifras = [
+      `Más barato en <strong>${t.gana} de ${d.ranking.comparables}</strong> estudios (${t.pct}%)`,
+      `<strong>${t.catalogo}</strong> estudios con precio público`,
+      canasta[f.lab] ? `Canasta de chequeo: <strong>${mxn(canasta[f.lab])}</strong>` : null,
+    ].filter(Boolean).join(' · ');
+
+    return `  <h3>${f.emoji} ${esc(lab(f.lab))} — ${esc(f.titular)}</h3>
+  <p class="fuente-nota">${cifras}</p>
+  <p>${esc(f.texto)}</p>
+  <ul>
+${f.pro.map(x => `    <li>✅ ${esc(x)}</li>`).join('\n')}
+${f.contra.map(x => `    <li>❌ ${esc(x)}</li>`).join('\n')}
+  </ul>`;
+  }).join('\n\n');
+}
+
 // ── Página ────────────────────────────────────────────────────────────────────
 
 function relacionados(c, todos) {
@@ -316,7 +372,7 @@ const ESTILO_EXTRA = `<style>
  * tablas, por qué varía, el CTA, y sólo después el contenido de fondo. Lo que
  * cambia entre tipos son las tablas y de dónde sale el "verificado el".
  */
-function pagina({ c, meta, todos, fuente, tablas, h2Precio, cta, oferta }) {
+function pagina({ c, meta, todos, fuente, tablas, h2Precio, cta, oferta, eyebrow }) {
   const url    = `${BASE}/blog/${c.slug}`;
   const titulo = `${c.titulo} | Medcompara`;
   const donde  = c.ciudad || 'México';
@@ -342,7 +398,7 @@ ${schemas(c, url, meta, oferta)}
   ${esc(c.h1)}
 </div>
 <div class="article-wrap">
-  <div class="article-eyebrow">Estudios de laboratorio · Precio en ${esc(donde)}</div>
+  <div class="article-eyebrow">${esc(eyebrow || `Estudios de laboratorio · Precio en ${donde}`)}</div>
   <h1>${esc(c.h1)}</h1>
   <p class="article-intro">${esc(c.intro)}</p>
 
@@ -405,6 +461,11 @@ function hechosDe(c, datos) {
   if (c.tipo === 'estudio') return E.hechos(c.estudio, datos);
   if (c.tipo === 'canasta') return E.hechosCanasta(c.canasta.estudios, datos);
   if (c.tipo === 'ranking') return E.ranking(datos);
+  if (c.tipo === 'labs') {
+    const ranking = E.ranking(datos);
+    const canasta = E.hechosCanasta(c.canasta.estudios, datos);
+    return ranking && canasta ? { ranking, canasta } : null;
+  }
   if (c.tipo === 'guia') {
     const filas = DESTACADOS.map(n => E.hechos(n, datos)).filter(Boolean);
     if (filas.length < 5) return null;
@@ -454,6 +515,27 @@ function armar(c, d, meta, datos, todos) {
       cta: { titulo: 'Arma tu propia canasta',
              texto: 'Compara estudio por estudio entre laboratorios y paga solo lo que necesitas.' },
       oferta: { nombre: `${c.canasta.nombre} — precio en ${donde}`, min: d.min, max: d.max, n: d.nLabs },
+    });
+  }
+
+  if (c.tipo === 'labs') {
+    const tablas = [
+      '  <h2>En cuántos estudios gana cada laboratorio</h2>',
+      tablaRanking(d.ranking),
+      `\n  <h2>La misma canasta de ${d.canasta.nEstudios} estudios, en cada laboratorio</h2>`,
+      '  <p>Biometría hemática, química sanguínea, perfil de lípidos, examen general de orina y perfil tiroideo: lo que pide un chequeo general, sumado laboratorio por laboratorio.</p>',
+      tablaCanastaTotal(d.canasta, 'Laboratorio'),
+      `\n  <h2>Los ${c.laboratorios.length} laboratorios, uno por uno</h2>`,
+      fichasLabs(d, c),
+    ];
+    return pagina({
+      c, meta, todos, tablas,
+      eyebrow: 'Guía · Laboratorios clínicos en México',
+      fuente: `Calculado el ${meta.fechaLarga} sobre los ${d.ranking.comparables} estudios que al menos tres laboratorios publican. Se recalcula con cada scan semanal.`,
+      h2Precio: '¿Cuál conviene según lo que buscas?',
+      cta: { titulo: 'Compara el estudio que necesitas',
+             texto: 'El ranking dice quién gana más veces; el comparador dice quién gana en tu estudio.' },
+      oferta: null,
     });
   }
 

@@ -204,7 +204,13 @@ function schemas(h, c, url, fecha) {
 
 function pagina(h, c, todos, meta) {
   const url    = `${BASE}/blog/${h.slug}`;
-  const titulo = `${h.a} vs ${h.b}: Precios de Estudios ${meta.mesAnio} | Medcompara`;
+  // El title vende lo que la consulta pregunta. Search Console del semestre:
+  // "que es mejor chopo o salud digna" y sus variantes suman 234 impresiones en
+  // posición 5 con CERO clics, cayendo en una página cuyo title decía "Precios
+  // de Estudios". La pregunta es cuál conviene; el title contestaba cuánto
+  // cuesta. Se dice "más barato" y no "mejor" porque esto compara precio, no
+  // calidad: prometer lo segundo sería ganar el clic mintiendo.
+  const titulo = `${h.a} vs ${h.b}: cuál es más barato en ${meta.mesAnio} | Medcompara`;
 
   const head = HEAD
     .replace(/{{TITULO}}/g, esc(titulo))
