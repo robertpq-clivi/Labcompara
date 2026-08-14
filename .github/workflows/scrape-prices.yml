@@ -111,7 +111,17 @@ jobs:
             echo "Sin cambios de precio."
           else
             git commit -m "chore(data): refrescar precios [skip ci]"
-            git push
+            # El scan tarda más de una hora: es normal que alguien haya
+            # empujado a main mientras corría, y entonces este push se
+            # rechaza y se pierde una corrida entera de datos ya obtenidos.
+            # Se reintenta reacomodando encima de lo que llegó primero.
+            for intento in 1 2 3; do
+              git pull --rebase origin main && git push && exit 0
+              echo "push rechazado (intento $intento), reintentando…"
+              sleep 5
+            done
+            echo "::error::no se pudo empujar los precios después de 3 intentos"
+            exit 1
           fi
 
       - name: Subir los catálogos crudos como artifact
