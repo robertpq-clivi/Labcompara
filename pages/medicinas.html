@@ -754,7 +754,10 @@ function irResultados(){
     $('results-email').textContent = lead.correo;
   }
   renderResultados();
-  trackComparar(medSel ? medSel.nombre : '', selected.join(' | '));
+  // Las etiquetas y no las llaves internas: la hoja recibía
+  // "omeprazol|20mg|cápsulas|14", que no se puede leer ni agrupar.
+  const etiquetas = selected.map(c => { const f = PRES.find(p => p.clave === c); return f ? f.etiqueta : c; });
+  trackComparar(medSel ? medSel.nombre : '', etiquetas.join(' | '));
 }
 
 /**

@@ -1105,6 +1105,7 @@ function trackPharmaClick(p){
     farmacia: p.pharmacy_name||'', medicamento: p.medicamento||'',
     sustancia: partes.sustancia, dosis: partes.dosis, presentacion: partes.presentacion,
     marca: partes.producto,   // en GLP-1 el producto ES la marca: Ozempic, Mounjaro…
+    contexto: p.contexto || 'ficha del medicamento',
     precio: Number(p.price_mxn) || 0, destino: p.destination || '' });
 }
 // Ver comparativa: GA4 + hoja (pestaña Comparaciones).
@@ -1307,7 +1308,9 @@ function renderBestTreatments(){
     `<b>1.</b> La calificaci&#xf3;n proviene de rese&ntilde;as p&#xfa;blicas de cada farmacia. &nbsp; `+
     `<b>2.</b> "Desde" es el precio m&#xe1;s bajo encontrado entre las presentaciones disponibles; var&#xed;a por dosis y puede cambiar. &nbsp; `+
     `<b>3.</b> El precio de Clivi corresponde a un plan integral (medicamento + seguimiento m&#xe9;dico + consulta + plan de alimentaci&#xf3;n), no solo al medicamento.</div>`;
-  el.querySelectorAll('.bt-btn').forEach(a=>a.addEventListener('click',function(){trackPharmaClick({pharmacy_name:this.dataset.ph||'',destination:this.href});}));
+  // Este botón es de la farmacia, no de un medicamento: se registra el contexto
+  // para que la fila se explique sola en vez de parecer un producto perdido.
+  el.querySelectorAll('.bt-btn').forEach(a=>a.addEventListener('click',function(){trackPharmaClick({pharmacy_name:this.dataset.ph||'',destination:this.href,contexto:'ranking de farmacias'});}));
   el.querySelectorAll('[data-cmp]').forEach(b=>b.onclick=goForm);
 }
 
@@ -1321,13 +1324,13 @@ function renderPopularOffers(){
   ];
   el.innerHTML=`<div class="of-scroll">`+offers.map(o=>{
     const cta=o.url
-      ?`<a class="of-btn" href="${o.url}" target="_blank" rel="noopener noreferrer" data-ph="${o.ph||''}">Ver oferta &#x2192;</a>`
+      ?`<a class="of-btn" href="${o.url}" target="_blank" rel="noopener noreferrer" data-ph="${o.ph||''}" data-med="${(o.title||'').replace(/"/g,'&quot;')}" data-price="${o.price||''}">Ver oferta &#x2192;</a>`
       :`<button class="of-btn" data-cmp="1">Comparar &#x2192;</button>`;
     return `<div class="of-card"><div class="of-top" style="background:${o.bg};"><span class="of-tag" style="background:${o.tagbg};">${o.tag}</span>${o.emoji}</div>`+
       `<div class="of-body"><div class="of-title">${o.title}</div><div class="of-desc">${o.desc}</div>`+
       `${o.price?`<div class="of-price">desde <b>${fmtP(o.price)}</b></div>`:''}${cta}</div></div>`;
   }).join('')+`</div>`;
-  el.querySelectorAll('.of-btn[data-ph]').forEach(a=>a.addEventListener('click',function(){trackPharmaClick({pharmacy_name:this.dataset.ph||'',destination:this.href});}));
+  el.querySelectorAll('.of-btn[data-ph]').forEach(a=>a.addEventListener('click',function(){trackPharmaClick({pharmacy_name:this.dataset.ph||'',medicamento:this.dataset.med||'',price_mxn:Number(this.dataset.price)||0,destination:this.href,contexto:'ofertas populares'});}));
   el.querySelectorAll('[data-cmp]').forEach(b=>b.onclick=goForm);
 }
 
@@ -1376,7 +1379,7 @@ function renderResults(){
   const totalRow=`<tr class="cmp-row"><td class="cmp-label">&#x2705; Total incluido</td>${cols.map(l=>{const win=counts[l]===maxCount;return`<td class="${l==='Clivi'?'cmp-clivi':''}"><span class="cmp-count${win?' win':''}">${counts[l]}/${FEATURES.length}</span></td>`;}).join('')}</tr>`;
 
   // fila de acción
-  const ctaRow=`<tr class="cmp-row"><td class="cmp-label"></td>${cols.map(l=>{const m=LAB_META[l],isClivi=l==='Clivi';return`<td class="${isClivi?'cmp-clivi':''}"><a class="cmp-go${isClivi?' prim':''}" href="${m.url}" target="_blank" rel="noopener noreferrer" data-ph="${m.displayName||l}">Ir &#x2192;</a></td>`;}).join('')}</tr>`;
+  const ctaRow=`<tr class="cmp-row"><td class="cmp-label"></td>${cols.map(l=>{const m=LAB_META[l],isClivi=l==='Clivi';return`<td class="${isClivi?'cmp-clivi':''}"><a class="cmp-go${isClivi?' prim':''}" href="${m.url}" target="_blank" rel="noopener noreferrer" data-ph="${m.displayName||l}" data-col="${l}">Ir &#x2192;</a></td>`;}).join('')}</tr>`;
 
   $('results-container').innerHTML=
     `<div class="cmp-hero"><div class="cmp-hero-badge">&#x1F3C6;</div><div style="flex:1;min-width:200px;"><div class="cmp-hero-t">La opción más completa es <span>Clivi</span></div><div class="cmp-hero-p">El precio de Clivi es un <strong>plan integral</strong>: incluye el medicamento más consulta, seguimiento médico, estudios de laboratorio y plan de alimentación. Las farmacias muestran solo el precio del medicamento.</div></div></div>`+
@@ -1402,7 +1405,15 @@ function renderResults(){
   });
   // GA en los botones "Ir" de la tabla
   $('results-container').querySelectorAll('.cmp-go').forEach(a=>{
-    a.addEventListener('click',function(){ trackPharmaClick({pharmacy_name:this.dataset.ph||'',destination:this.href}); });
+    a.addEventListener('click',function(){
+      // La tabla sabe qué se está comparando; mandarlo evita una fila con la
+      // farmacia y nada más, que es lo que hoy llena la hoja.
+      var s0 = RAW_DATA.find(function(x){ return x.name === selected[0]; });
+      var lab = this.dataset.ph;
+      trackPharmaClick({ pharmacy_name: lab, medicamento: selected.join(' | '),
+        price_mxn: (s0 && s0[this.dataset.col]) || 0, destination: this.href,
+        contexto: 'tabla comparativa' });
+    });
   });
 }
 $('results-back').onclick=()=>{

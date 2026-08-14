@@ -178,6 +178,41 @@ console.log('\nDesglose del producto:');
   check(c[0]['Producto'] === 'Omeprazol 20mg · 14 cápsulas', 'el nombre completo se conserva');
 }
 
+// ── 2c. La hoja real, con sus encabezados de verdad ────────────────────────
+// Los encabezados que traía la copia del repo NO eran los de la hoja en
+// producción: ahí dicen 'Farmacia' y 'Medicamento'. Escribir solo en las
+// columnas nuevas habría dejado en blanco las que llevan meses llenándose,
+// que es exactamente lo que se quería arreglar.
+console.log('\nEncabezados reales de la hoja en producción:');
+{
+  const ss = hojaFalsa({
+    Clicks: [
+      ['Fecha', 'Nombre', 'Correo', 'Farmacia', 'Medicamento', 'Precio', 'Origen'],
+      ['2026-08-07', '', '', 'Revert', '', '', 'glpcompara.com.mx'],
+    ],
+    Comparaciones: [
+      ['Fecha', 'Nombre', 'Correo', 'Medicamento', 'Dosis', 'Origen'],
+      ['2026-08-13', 'Alguien', 'a@x.com', 'Mounjaro', '5 mg (1 pluma)', 'glpcompara.com.mx'],
+    ],
+  });
+  const { api } = cargar(ss);
+  post(api, { tipo:'click', vertical:'glp1', farmacia:'Farmacias del Ahorro',
+              medicamento:'Ozempic 1 mg (1 pluma)', precio:3400, contexto:'ofertas populares',
+              origen:'medcompara.com.mx' });
+  post(api, { tipo:'comparacion', vertical:'medicinas', medicamento:'Omeprazol',
+              dosis:'Omeprazol 20mg · 14 cápsulas', origen:'medcompara.com.mx' });
+
+  const c = comoObjetos(ss, 'Clicks')[1];
+  check(c['Farmacia'] === 'Farmacias del Ahorro', 'la columna Farmacia que ya existía se sigue llenando', JSON.stringify(c['Farmacia']));
+  check(c['Medicamento'] === 'Ozempic 1 mg (1 pluma)', 'la columna Medicamento deja de quedarse vacía', JSON.stringify(c['Medicamento']));
+  check(c['Precio'] === 3400, 'y el precio también');
+  check(c['Contexto'] === 'ofertas populares', 'la fila dice de qué botón salió el click');
+
+  const cm = comoObjetos(ss, 'Comparaciones')[1];
+  check(cm['Medicamento'] === 'Omeprazol' && cm['Dosis'] === 'Omeprazol 20mg · 14 cápsulas',
+    'Comparaciones respeta sus encabezados Medicamento/Dosis', JSON.stringify(cm));
+}
+
 // ── 3. Búsquedas, incluidas las que no encuentran nada ─────────────────────
 console.log('\nBúsquedas:');
 {

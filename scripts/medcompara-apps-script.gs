@@ -80,8 +80,9 @@ function doPost(e) {
 
     } else if (tipo === 'comparacion') {
       escribir_(ss, 'Comparaciones', ['Fecha', 'Vertical', 'Nombre', 'Correo', 'Producto', 'Presentacion', 'Origen'],
-        obj_(comun, {'Producto': producto, 'Estudio': producto,
-                     'Presentacion': pick_(d, ['dosis', 'presentacion', 'presentaciones'])}));
+        obj_(comun, {'Producto': producto, 'Medicamento': producto, 'Estudio': producto,
+                     'Presentacion': pick_(d, ['dosis', 'presentacion', 'presentaciones']),
+                     'Dosis': pick_(d, ['dosis', 'presentacion', 'presentaciones'])}));
 
     } else if (tipo === 'click') {
       // El producto va desglosado además de completo: un tablero que quiera
@@ -89,12 +90,14 @@ function doPost(e) {
       // "Omeprazol 20mg · 14 cápsulas" con expresiones regulares.
       escribir_(ss, 'Clicks', ['Fecha', 'Vertical', 'Nombre', 'Correo', 'Farmacia o laboratorio',
                                'Producto', 'Principio activo', 'Categoria', 'Dosis', 'Presentacion',
-                               'Piezas', 'Marca', 'Tipo de fila', 'Precio', 'Destino', 'Origen'],
-        // 'Laboratorio' y 'Estudio' son los encabezados de la versión anterior:
-        // si la pestaña ya existe con ellos, se siguen llenando además de los
-        // nuevos, para que la columna histórica no se corte a la mitad.
-        obj_(comun, {'Farmacia o laboratorio': lugar, 'Laboratorio': lugar,
-                     'Producto': producto, 'Estudio': producto,
+                               'Piezas', 'Marca', 'Tipo de fila', 'Contexto', 'Precio', 'Destino', 'Origen'],
+        // La hoja real trae los encabezados 'Farmacia' y 'Medicamento'; una
+        // versión anterior usó 'Laboratorio' y 'Estudio'. Se llenan todos los
+        // que existan: escribir solo en las columnas nuevas habría dejado en
+        // blanco las que llevan meses llenándose, que es justo lo que se
+        // quería arreglar.
+        obj_(comun, {'Farmacia o laboratorio': lugar, 'Farmacia': lugar, 'Laboratorio': lugar,
+                     'Producto': producto, 'Medicamento': producto, 'Estudio': producto,
                      'Principio activo': pick_(d, ['sustancia', 'principio_activo']),
                      'Categoria': pick_(d, ['categoria']),
                      'Dosis': pick_(d, ['dosis']),
@@ -105,12 +108,18 @@ function doPost(e) {
                      // y reusarlo hacía que un click se registrara como un evento
                      // llamado "sustancia" y acabara en Sin clasificar.
                      'Tipo de fila': pick_(d, ['modo']),
+                     // De dónde salió el click: ficha, tabla, ranking u ofertas.
+                     // Un botón del ranking es de la farmacia y no de un
+                     // medicamento; sin esta columna su fila parece un dato
+                     // perdido en vez de una fila legítima sin producto.
+                     'Contexto': pick_(d, ['contexto']),
                      'Precio': pick_(d, ['precio', 'price_mxn']),
                      'Destino': pick_(d, ['destino', 'url'])}));
 
     } else if (tipo === 'suscripcion') {
       escribir_(ss, 'Suscripciones', ['Fecha', 'Vertical', 'Nombre', 'Correo', 'Productos', 'Origen'],
         obj_(comun, {'Productos': pick_(d, ['medicamentos', 'estudios', 'productos']),
+                     'Medicamentos': pick_(d, ['medicamentos', 'estudios', 'productos']),
                      'Estudios': pick_(d, ['medicamentos', 'estudios', 'productos'])}));
 
     } else if (tipo === 'lead') {
