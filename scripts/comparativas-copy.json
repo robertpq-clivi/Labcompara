@@ -2,7 +2,7 @@
   {
     "slug": "salud-digna-vs-chopo-precios",
     "metaDescription": "Salud Digna vs Chopo: {{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios. Ahorro mediano {{AHORRO_MEDIANO}}%.",
-    "h1": "Salud Digna vs Chopo: precios en {{FILAS}} análisis",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Salud Digna lleva la delantera en costo cuando la comparas con Chopo. En {{FILAS}} estudios comunes, {{LIDER}} es más barato en {{GANA_LIDER}}, mientras que {{PERDEDOR}} solo gana en {{GANA_B}}. La ventaja de Salud Digna es amplia y consistente.",
     "veredicto": "{{LIDER}} domina en precio. El ahorro mediano alcanza {{AHORRO_MEDIANO}}%, y en una canasta de estudios frecuentes la diferencia es {{CANASTA_AHORRO_PCT}}%: {{CANASTA_A}} en {{LIDER}} vs {{CANASTA_B}} en {{PERDEDOR}}. Si buscas reducir costos sin sacrificar acceso a análisis, es una ventaja clara.",
     "cuandoA": [
@@ -37,7 +37,7 @@
   {
     "slug": "salud-digna-vs-olab-precios",
     "metaDescription": "Salud Digna vs OLAB: {{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios. Ahorro {{CANASTA_AHORRO_PCT}}% en canasta.",
-    "h1": "Salud Digna vs OLAB: precios en {{FILAS}} análisis",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Salud Digna se separa significativamente de OLAB en términos de precio. En {{FILAS}} estudios comunes, {{LIDER}} es más económico en {{GANA_LIDER}}, mientras que {{PERDEDOR}} apenas gana en {{GANA_B}}. La brecha es pronunciada.",
     "veredicto": "{{LIDER}} es considerablemente más barato. El ahorro mediano es {{AHORRO_MEDIANO}}%, y en estudios frecuentes la diferencia llega a {{CANASTA_AHORRO_PCT}}%: {{CANASTA_A}} en {{LIDER}} contra {{CANASTA_B}} en {{PERDEDOR}}. OLAB es una opción costosa por comparación.",
     "cuandoA": [
@@ -72,7 +72,7 @@
   {
     "slug": "salud-digna-vs-lapi-precios",
     "metaDescription": "Salud Digna vs LAPI: {{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios. Compara {{FILAS}} análisis.",
-    "h1": "Salud Digna vs LAPI: precios en {{FILAS}} análisis",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Salud Digna y LAPI compiten en precio, pero Salud Digna lleva ventaja. En {{COMPARABLES}} estudios comparables, {{LIDER}} es más económico en {{GANA_LIDER}}, mientras que {{PERDEDOR}} es más barato en {{GANA_B}}. La diferencia existe, pero es menos radical que con otros laboratorios.",
     "veredicto": "{{LIDER}} es más barato, aunque la brecha es más ajustada aquí. El ahorro mediano es {{AHORRO_MEDIANO}}%, y en una canasta estándar resulta {{CANASTA_AHORRO_PCT}}% menos: {{CANASTA_A}} en {{LIDER}} frente a {{CANASTA_B}} en {{PERDEDOR}}. Ambas son opciones económicas, pero Salud Digna mantiene el liderato.",
     "cuandoA": [
@@ -107,7 +107,7 @@
   {
     "slug": "salud-digna-vs-labbe-precios",
     "metaDescription": "Compara precios de laboratorios: Salud Digna vs Labbe. Conoce cuál es más barato en {{COMPARABLES}} estudios.",
-    "h1": "Salud Digna vs Labbe: precios de estudios clínicos",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Salud Digna y Labbe son dos opciones conocidas en la red de laboratorios. La diferencia en precios es clara: Salud Digna es más accesible en la mayoría de los estudios que ofrecen ambos. Aquí comparamos {{COMPARABLES}} estudios disponibles en ambos laboratorios.",
     "veredicto": "{{LIDER}} es más barato en {{GANA_LIDER}} de los {{COMPARABLES}} estudios comparables, lo que representa {{PCT_LIDER}}% del catálogo compartido. En una canasta de {{FILAS}} estudios comunes, el ahorro es {{CANASTA_AHORRO}}%, con un costo total de {{CANASTA_A}} versus {{CANASTA_B}}. La brecha es consistente y significativa.",
     "cuandoA": [
@@ -142,7 +142,7 @@
   {
     "slug": "salud-digna-vs-polanco-precios",
     "metaDescription": "Compara precios: Salud Digna vs Polanco. Descubre cuál es más barato en {{COMPARABLES}} estudios clínicos.",
-    "h1": "Salud Digna vs Polanco: comparativa de precios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Entre Salud Digna y Polanco hay una brecha considerable en precios. Salud Digna domina ampliamente en la mayoría de estudios. Si tu presupuesto es limitado, esta es una comparativa importante.",
     "veredicto": "{{LIDER}} es significativamente más barato, ganando en {{GANA_LIDER}} de {{COMPARABLES}} estudios ({{PCT_LIDER}}%). El ahorro mediano es {{AHORRO_MEDIANO}}%, uno de los más altos en cualquier comparación. Una canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} en {{LIDER}} y {{CANASTA_B}} en {{PERDEDOR}}, con {{CANASTA_AHORRO}}% de ahorro.",
     "cuandoA": [
@@ -177,7 +177,7 @@
   {
     "slug": "chopo-vs-olab-precios",
     "metaDescription": "Compara precios de Chopo vs OLAB. Encuentra el laboratorio más barato en {{COMPARABLES}} estudios clínicos.",
-    "h1": "Chopo vs OLAB: cuál es más barato",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Chopo y OLAB tienen un enfrentamiento más parejo que otras comparaciones. Chopo tiene ventaja en precio en varios estudios, pero OLAB gana en algunos especialidades. Ambos son opciones competitivas.",
     "veredicto": "{{LIDER}} es ligeramente más barato en conjunto, ganando en {{GANA_LIDER}} de {{COMPARABLES}} estudios ({{PCT_LIDER}}%), mientras {{PERDEDOR}} gana en {{GANA_B}}. El ahorro mediano de {{LIDER}} es {{AHORRO_MEDIANO}}%. En una canasta de {{FILAS}} estudios, {{LIDER}} cuesta {{CANASTA_A}} contra {{CANASTA_B}} en {{PERDEDOR}}, ahorrando {{CANASTA_AHORRO}}%. Esta es una competencia más cerrada que otros pares.",
     "cuandoA": [
@@ -212,7 +212,7 @@
   {
     "slug": "chopo-vs-lapi-precios",
     "metaDescription": "{{LIDER}} es más barato que {{PERDEDOR}} en {{GANA_LIDER}} de {{COMPARABLES}} estudios. Compara precios de laboratorios.",
-    "h1": "{{LAB_A}} vs {{LAB_B}}: precios de análisis",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "{{LIDER}} ofrece precios menores que {{PERDEDOR}} en la mayoría de sus estudios publicados. La canasta de {{FILAS}} análisis comunes sale {{CANASTA_B}} en {{LIDER}}, versus {{CANASTA_A}} en {{PERDEDOR}}: una diferencia de {{CANASTA_AHORRO}}%.",
     "veredicto": "{{LIDER}} gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, con {{AHORRO_MEDIANO}}% de ahorro mediano. No es equilibrado: los precios favorecen consistentemente a {{LIDER}}.",
     "cuandoA": [
@@ -247,7 +247,7 @@
   {
     "slug": "chopo-vs-labbe-precios",
     "metaDescription": "{{LAB_A}} vs {{LAB_B}}: precios muy parejos en {{COMPARABLES}} estudios. Diferencia mínima en canasta.",
-    "h1": "{{LAB_A}} vs {{LAB_B}}: una competencia cerrada",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "{{LIDER}} tiene precios menores en la mayoría de estudios, pero la ventaja es ajustada. En la canasta de {{FILAS}} análisis comunes, la diferencia es solo {{CANASTA_AHORRO}}%.",
     "veredicto": "{{LIDER}} gana en {{GANA_LIDER}} estudios frente a {{GANA_B}} de {{PERDEDOR}}. Es una competencia cerrada: ambos laboratorios ofrecen precios similares en conjunto, con {{AHORRO_MEDIANO}}% de ahorro mediano.",
     "cuandoA": [
@@ -282,7 +282,7 @@
   {
     "slug": "chopo-vs-polanco-precios",
     "metaDescription": "{{LIDER}} es mucho más barato que {{PERDEDOR}} en {{GANA_LIDER}} de {{COMPARABLES}} estudios. Ahorro de {{AHORRO_MEDIANO}}%.",
-    "h1": "{{LAB_A}} vs {{LAB_B}}: diferencia clara de precios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "{{LIDER}} tiene precios significativamente menores que {{PERDEDOR}}. En {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, {{LIDER}} es la opción más económica con {{AHORRO_MEDIANO}}% de ahorro mediano.",
     "veredicto": "La ventaja de {{LIDER}} es consistente. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios. La canasta de {{FILAS}} análisis comunes sale {{CANASTA_A}} en {{LIDER}} versus {{CANASTA_B}} en {{PERDEDOR}}, equivalente a {{CANASTA_AHORRO}}% de ahorro.",
     "cuandoA": [
@@ -316,7 +316,7 @@
   {
     "slug": "olab-vs-lapi-precios",
     "metaDescription": "Compara OLAB vs LAPI precios de laboratorios. {{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios con {{AHORRO_MEDIANO}}% de ahorro mediano.",
-    "h1": "OLAB vs LAPI: precios de laboratorios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Cuando comparas OLAB y LAPI, las diferencias de precio son significativas en muchos estudios. Aunque los dos laboratorios tienen catálogos amplios, la ventaja de precio no está distribuida parejo entre ellos.",
     "veredicto": "{{LIDER}} gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, con {{AHORRO_MEDIANO}}% de ahorro mediano. La canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} contra {{CANASTA_B}} en {{PERDEDOR}}, una diferencia del {{CANASTA_AHORRO}}% a favor de {{LIDER}}.",
     "cuandoA": [
@@ -351,7 +351,7 @@
   {
     "slug": "olab-vs-labbe-precios",
     "metaDescription": "Compara OLAB vs Labbe precios de laboratorios. {{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios con {{AHORRO_MEDIANO}}% de ahorro mediano.",
-    "h1": "OLAB vs Labbe: precios de laboratorios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "OLAB y Labbe tienen aproximaciones distintas a sus precios. Aunque ambos son laboratorios establecidos, uno de ellos mantiene costos más competitivos de forma consistente.",
     "veredicto": "{{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, con {{AHORRO_MEDIANO}}% de ahorro mediano. En la canasta de {{FILAS}} estudios comunes, {{LIDER}} cuesta {{CANASTA_B}} contra {{CANASTA_A}} en {{PERDEDOR}}, ahorrando {{CANASTA_AHORRO}}% del total.",
     "cuandoA": [
@@ -386,7 +386,7 @@
   {
     "slug": "olab-vs-polanco-precios",
     "metaDescription": "Compara OLAB vs Polanco precios de laboratorios. {{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios con {{AHORRO_MEDIANO}}% de ahorro mediano.",
-    "h1": "OLAB vs Polanco: precios de laboratorios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "La diferencia de precios entre OLAB y Polanco es sustancial. Uno de estos laboratorios mantiene una clara ventaja en accesibilidad de precio en casi todos los estudios.",
     "veredicto": "{{LIDER}} es dramáticamente más barato. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, con {{AHORRO_MEDIANO}}% de ahorro mediano. Una canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} en {{LIDER}} contra {{CANASTA_B}} en {{PERDEDOR}}: {{CANASTA_AHORRO}}% de ahorro.",
     "cuandoA": [
@@ -421,7 +421,7 @@
   {
     "slug": "lapi-vs-labbe-precios",
     "metaDescription": "{{LAB_A}} vs {{LAB_B}}: compara precios de laboratorio clínico — quién te ahorra más",
-    "h1": "{{LAB_A}} vs {{LAB_B}}: precios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Comparamos {{COMPARABLES}} estudios que publican precios en ambos laboratorios. {{LIDER}} es más barato en la mayoría, pero los números dicen la verdad: el ahorro es mínimo.",
     "veredicto": "{{LIDER}} gana en {{GANA_A}} de {{COMPARABLES}} estudios comparables, pero el ahorro mediano es apenas {{AHORRO_MEDIANO}}%. La canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} contra {{CANASTA_B}}, una diferencia de {{CANASTA_AHORRO_PCT}}%. Técnicamente {{LIDER}} es más barato, pero en la práctica los precios son muy parejos.",
     "cuandoA": [
@@ -456,7 +456,7 @@
   {
     "slug": "lapi-vs-polanco-precios",
     "metaDescription": "{{LAB_A}} vs {{LAB_B}}: precios de laboratorio — quién ahorra más y cuánto",
-    "h1": "{{LAB_A}} vs {{LAB_B}}: precios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Revisamos {{COMPARABLES}} estudios con precios públicos en ambos laboratorios. La diferencia es clara: {{LIDER}} es considerablemente más barato.",
     "veredicto": "{{LIDER}} gana en {{GANA_A}} de {{COMPARABLES}} estudios, con un ahorro mediano de {{AHORRO_MEDIANO}}%. La canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} en {{LIDER}} versus {{CANASTA_B}} en {{PERDEDOR}}, equivalente a {{CANASTA_AHORRO_PCT}}% de diferencia. No es un empate: {{LIDER}} es sustancialmente más barato.",
     "cuandoA": [
@@ -491,7 +491,7 @@
   {
     "slug": "labbe-vs-polanco-precios",
     "metaDescription": "{{LAB_A}} vs {{LAB_B}}: compara precios de laboratorio — quién sale más barato",
-    "h1": "{{LAB_A}} vs {{LAB_B}}: precios",
+    "h1": "{{LAB_A}} vs {{LAB_B}}: cuál es más barato",
     "intro": "Analizamos {{COMPARABLES}} estudios con precios públicos en los dos laboratorios. {{LIDER}} es consistentemente más barato que {{PERDEDOR}}.",
     "veredicto": "{{LIDER}} es más barato en {{GANA_A}} de {{COMPARABLES}} estudios, con un ahorro mediano de {{AHORRO_MEDIANO}}%. La canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} en {{LIDER}} contra {{CANASTA_B}} en {{PERDEDOR}}, una diferencia de {{CANASTA_AHORRO_PCT}}%. {{LIDER}} es la opción más accesible si el precio es tu criterio principal.",
     "cuandoA": [
