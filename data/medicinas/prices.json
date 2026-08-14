@@ -1740,7 +1740,8 @@
       "max": 912,
       "ahorro": 43,
       "masBarata": "Guadalajara",
-      "porUnidad": 86.9
+      "porUnidad": 86.9,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Semaglutida",
@@ -1772,7 +1773,8 @@
       "max": 878,
       "ahorro": 9,
       "masBarata": "Guadalajara",
-      "porUnidad": 86.9
+      "porUnidad": 86.9,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Semaglutida",
@@ -1809,7 +1811,8 @@
       "max": 2403,
       "ahorro": 231,
       "masBarata": "Guadalajara",
-      "porUnidad": 72.4
+      "porUnidad": 72.4,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Semaglutida",
@@ -1841,7 +1844,8 @@
       "max": 2403,
       "ahorro": 231,
       "masBarata": "Guadalajara",
-      "porUnidad": 72.4
+      "porUnidad": 72.4,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Semaglutida",
@@ -1878,7 +1882,8 @@
       "max": 3630,
       "ahorro": 655,
       "masBarata": "Guadalajara",
-      "porUnidad": 99.17
+      "porUnidad": 99.17,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Semaglutida",
@@ -1910,7 +1915,8 @@
       "max": 2993,
       "ahorro": 18,
       "masBarata": "Guadalajara",
-      "porUnidad": 99.17
+      "porUnidad": 99.17,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Semaglutida",
@@ -1941,7 +1947,8 @@
       "max": 4071,
       "ahorro": 736,
       "masBarata": "Guadalajara",
-      "porUnidad": 111.17
+      "porUnidad": 111.17,
+      "tambien": "Ozempic / Rybelsus / Wegovy"
     },
     {
       "medicamento": "Amoxicilina",
@@ -4356,7 +4363,8 @@
       "max": 85,
       "ahorro": 60,
       "masBarata": "Prixz",
-      "porUnidad": 2.5
+      "porUnidad": 2.5,
+      "tambien": "Buscapina"
     },
     {
       "medicamento": "Butilhioscina",
@@ -4394,7 +4402,8 @@
       "max": 85,
       "ahorro": 53,
       "masBarata": "Prixz",
-      "porUnidad": 3.2
+      "porUnidad": 3.2,
+      "tambien": "Buscapina"
     },
     {
       "medicamento": "Butilhioscina",
@@ -4431,7 +4440,8 @@
       "max": 369,
       "ahorro": 337,
       "masBarata": "Prixz",
-      "porUnidad": 10.67
+      "porUnidad": 10.67,
+      "tambien": "Buscapina"
     },
     {
       "medicamento": "Sertralina",
@@ -4678,7 +4688,8 @@
       "max": 162,
       "ahorro": 137,
       "masBarata": "Ahorro",
-      "porUnidad": 0.89
+      "porUnidad": 0.89,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4716,7 +4727,8 @@
       "max": 162,
       "ahorro": 29,
       "masBarata": "Ahorro",
-      "porUnidad": 4.75
+      "porUnidad": 4.75,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4753,7 +4765,8 @@
       "max": 145,
       "ahorro": 126,
       "masBarata": "Prixz",
-      "porUnidad": 0.63
+      "porUnidad": 0.63,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4784,7 +4797,8 @@
       "max": 265,
       "ahorro": 180,
       "masBarata": "Prixz",
-      "porUnidad": 1.42
+      "porUnidad": 1.42,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4816,7 +4830,8 @@
       "max": 265,
       "ahorro": 84,
       "masBarata": "Prixz",
-      "porUnidad": 3.02
+      "porUnidad": 3.02,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4853,7 +4868,8 @@
       "max": 395,
       "ahorro": 81,
       "masBarata": "Ahorro",
-      "porUnidad": 3.74
+      "porUnidad": 3.74,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4890,7 +4906,8 @@
       "max": 98,
       "ahorro": 12,
       "masBarata": "Guadalajara",
-      "porUnidad": 8.6
+      "porUnidad": 8.6,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4921,7 +4938,8 @@
       "max": 47,
       "ahorro": 4,
       "masBarata": "Prixz",
-      "porUnidad": 3.58
+      "porUnidad": 3.58,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4958,7 +4976,8 @@
       "max": 35,
       "ahorro": 20,
       "masBarata": "Guadalajara",
-      "porUnidad": 0.75
+      "porUnidad": 0.75,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Ácido acetilsalicílico",
@@ -4996,7 +5015,8 @@
       "max": 69,
       "ahorro": 34,
       "masBarata": "Prixz",
-      "porUnidad": 1.75
+      "porUnidad": 1.75,
+      "tambien": "Aspirina"
     },
     {
       "medicamento": "Atorvastatina",
@@ -6277,7 +6297,8 @@
       "max": 141,
       "ahorro": 16,
       "masBarata": "Guadalajara",
-      "porUnidad": 25
+      "porUnidad": 25,
+      "tambien": "Dipirona"
     },
     {
       "medicamento": "Metamizol",
@@ -6308,7 +6329,8 @@
       "max": 34,
       "ahorro": 20,
       "masBarata": "Guadalajara",
-      "porUnidad": 1.4
+      "porUnidad": 1.4,
+      "tambien": "Dipirona"
     },
     {
       "medicamento": "Metamizol",
@@ -6339,7 +6361,8 @@
       "max": 55,
       "ahorro": 35,
       "masBarata": "Prixz",
-      "porUnidad": 6.67
+      "porUnidad": 6.67,
+      "tambien": "Dipirona"
     },
     {
       "medicamento": "Empagliflozina",
@@ -6376,7 +6399,8 @@
       "max": 1061,
       "ahorro": 223,
       "masBarata": "Guadalajara",
-      "porUnidad": 83.8
+      "porUnidad": 83.8,
+      "tambien": "Jardianz"
     },
     {
       "medicamento": "Empagliflozina",
@@ -6413,7 +6437,8 @@
       "max": 2427,
       "ahorro": 213,
       "masBarata": "Prixz",
-      "porUnidad": 73.8
+      "porUnidad": 73.8,
+      "tambien": "Jardianz"
     },
     {
       "medicamento": "Empagliflozina",
@@ -6450,7 +6475,8 @@
       "max": 1035,
       "ahorro": 197,
       "masBarata": "Guadalajara",
-      "porUnidad": 83.8
+      "porUnidad": 83.8,
+      "tambien": "Jardianz"
     },
     {
       "medicamento": "Empagliflozina",
@@ -6487,7 +6513,8 @@
       "max": 2363,
       "ahorro": 149,
       "masBarata": "Prixz",
-      "porUnidad": 73.8
+      "porUnidad": 73.8,
+      "tambien": "Jardianz"
     },
     {
       "medicamento": "Orlistat",
@@ -8588,7 +8615,8 @@
       "max": 913,
       "ahorro": 102,
       "masBarata": "Guadalajara",
-      "porUnidad": 81.1
+      "porUnidad": 81.1,
+      "tambien": "Trayenta"
     },
     {
       "medicamento": "Linagliptina",
@@ -8625,7 +8653,8 @@
       "max": 2341,
       "ahorro": 1553,
       "masBarata": "Guadalajara",
-      "porUnidad": 26.27
+      "porUnidad": 26.27,
+      "tambien": "Trayenta"
     },
     {
       "medicamento": "Linagliptina",
@@ -8663,7 +8692,8 @@
       "max": 2420,
       "ahorro": 249,
       "masBarata": "Guadalajara",
-      "porUnidad": 72.37
+      "porUnidad": 72.37,
+      "tambien": "Trayenta"
     },
     {
       "medicamento": "Levofloxacino",
@@ -11096,7 +11126,8 @@
       "max": 973,
       "ahorro": 57,
       "masBarata": "Prixz",
-      "porUnidad": 65.43
+      "porUnidad": 65.43,
+      "tambien": "Forxiga"
     },
     {
       "medicamento": "Dapagliflozina",
@@ -11133,7 +11164,8 @@
       "max": 1800,
       "ahorro": 1038,
       "masBarata": "Ahorro",
-      "porUnidad": 27.21
+      "porUnidad": 27.21,
+      "tambien": "Forxiga"
     },
     {
       "medicamento": "Dapagliflozina",
@@ -11165,7 +11197,8 @@
       "max": 1800,
       "ahorro": 103,
       "masBarata": "Prixz",
-      "porUnidad": 60.61
+      "porUnidad": 60.61,
+      "tambien": "Forxiga"
     },
     {
       "medicamento": "Bromuro de pinaverio",
@@ -11227,7 +11260,8 @@
       "max": 842,
       "ahorro": 164,
       "masBarata": "Guadalajara",
-      "porUnidad": 96.86
+      "porUnidad": 96.86,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11264,7 +11298,8 @@
       "max": 883,
       "ahorro": 18,
       "masBarata": "Guadalajara",
-      "porUnidad": 30.89
+      "porUnidad": 30.89,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11296,7 +11331,8 @@
       "max": 1846,
       "ahorro": 362,
       "masBarata": "Guadalajara",
-      "porUnidad": 53
+      "porUnidad": 53,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11327,7 +11363,8 @@
       "max": 882,
       "ahorro": 811,
       "masBarata": "Guadalajara",
-      "porUnidad": 10.14
+      "porUnidad": 10.14,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11359,7 +11396,8 @@
       "max": 882,
       "ahorro": 152,
       "masBarata": "Guadalajara",
-      "porUnidad": 104.29
+      "porUnidad": 104.29,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11396,7 +11434,8 @@
       "max": 439,
       "ahorro": 352,
       "masBarata": "Prixz",
-      "porUnidad": 6.21
+      "porUnidad": 6.21,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11428,7 +11467,8 @@
       "max": 1590,
       "ahorro": 278,
       "masBarata": "Guadalajara",
-      "porUnidad": 93.71
+      "porUnidad": 93.71,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11466,7 +11506,8 @@
       "max": 832,
       "ahorro": 237,
       "masBarata": "Prixz",
-      "porUnidad": 42.5
+      "porUnidad": 42.5,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11503,7 +11544,8 @@
       "max": 704,
       "ahorro": 544,
       "masBarata": "Prixz",
-      "porUnidad": 5.71
+      "porUnidad": 5.71,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11535,7 +11577,8 @@
       "max": 2139,
       "ahorro": 338,
       "masBarata": "Guadalajara",
-      "porUnidad": 64.32
+      "porUnidad": 64.32,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11573,7 +11616,8 @@
       "max": 1096,
       "ahorro": 128,
       "masBarata": "Guadalajara",
-      "porUnidad": 34.57
+      "porUnidad": 34.57,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11610,7 +11654,8 @@
       "max": 466,
       "ahorro": 351,
       "masBarata": "Prixz",
-      "porUnidad": 16.43
+      "porUnidad": 16.43,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11642,7 +11687,8 @@
       "max": 1080,
       "ahorro": 137,
       "masBarata": "Guadalajara",
-      "porUnidad": 134.71
+      "porUnidad": 134.71,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Etoricoxib",
@@ -11680,7 +11726,8 @@
       "max": 623,
       "ahorro": 118,
       "masBarata": "Prixz",
-      "porUnidad": 72.14
+      "porUnidad": 72.14,
+      "tambien": "Arcoxia"
     },
     {
       "medicamento": "Duloxetina",
@@ -12346,7 +12393,8 @@
       "max": 1831,
       "ahorro": 181,
       "masBarata": "Guadalajara",
-      "porUnidad": 55
+      "porUnidad": 55,
+      "tambien": "Ritalin / Concerta"
     },
     {
       "medicamento": "Metilfenidato",
@@ -12383,7 +12431,8 @@
       "max": 1920,
       "ahorro": 122,
       "masBarata": "Guadalajara",
-      "porUnidad": 59.93
+      "porUnidad": 59.93,
+      "tambien": "Ritalin / Concerta"
     },
     {
       "medicamento": "Metilfenidato",
@@ -12420,7 +12469,8 @@
       "max": 2207,
       "ahorro": 276,
       "masBarata": "Prixz",
-      "porUnidad": 64.37
+      "porUnidad": 64.37,
+      "tambien": "Ritalin / Concerta"
     },
     {
       "medicamento": "Metilfenidato",
@@ -12457,7 +12507,8 @@
       "max": 2392,
       "ahorro": 229,
       "masBarata": "Guadalajara",
-      "porUnidad": 72.1
+      "porUnidad": 72.1,
+      "tambien": "Ritalin / Concerta"
     },
     {
       "medicamento": "Diazepam",
@@ -14203,7 +14254,8 @@
       "max": 113,
       "ahorro": 15,
       "masBarata": "Guadalajara",
-      "porUnidad": 24.5
+      "porUnidad": 24.5,
+      "tambien": "Dramamine"
     },
     {
       "medicamento": "Dimenhidrinato",
@@ -14235,7 +14287,8 @@
       "max": 113,
       "ahorro": 11,
       "masBarata": "Prixz",
-      "porUnidad": 25.5
+      "porUnidad": 25.5,
+      "tambien": "Dramamine"
     },
     {
       "medicamento": "Dimenhidrinato",
@@ -14266,7 +14319,8 @@
       "max": 200,
       "ahorro": 12,
       "masBarata": "Guadalajara",
-      "porUnidad": 7.83
+      "porUnidad": 7.83,
+      "tambien": "Dramamine"
     },
     {
       "medicamento": "Itraconazol",

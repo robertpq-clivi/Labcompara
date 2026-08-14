@@ -74,6 +74,21 @@ const COMBINADOS = {
 };
 
 /**
+ * Marcas que la hoja no anotó y que sí conocemos.
+ *
+ * La hoja apunta "Semaglutida (Ozempic / Rybelsus)" y se olvida de Wegovy,
+ * que es la misma molécula en la dosis de control de peso — lo dice nuestra
+ * propia página de GLP-1. Sin la marca en el catálogo, quien busca "wegovy"
+ * en el comparador de medicinas no encuentra nada aunque el precio esté ahí.
+ *
+ * Solo se agregan equivalencias que este repositorio ya afirma en otro lado;
+ * no se inventan.
+ */
+const MARCAS_EXTRA = {
+  Semaglutida: ['Wegovy'],   // pages/medicamentos.html: "Wegovy contiene semaglutida"
+};
+
+/**
  * Raíces con las que se reconoce un activo en un título. Por omisión se usa la
  * palabra más larga del nombre, que casi siempre basta; estas son las que no.
  */
@@ -214,12 +229,15 @@ function entradas(fila) {
   // pegado al nombre. La forma y los ml ya separan las gotas de las tabletas.
   const activo = nombre.replace(VIAS, '').trim();
 
+  const extra = MARCAS_EXTRA[nombre] || [];
+  const marcas = [tambien, ...extra].filter(Boolean).join(' / ');
+
   return [{
     ...base,
     nombre,
     query: nombre.toLowerCase(),
     raiz: raiz(activo),
-    ...(tambien ? { tambien } : {}),
+    ...(marcas ? { tambien: marcas } : {}),
   }];
 }
 

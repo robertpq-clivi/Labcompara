@@ -270,6 +270,17 @@ if (fs.existsSync(feed)) {
   const sin = campos.filter((k) => !(k in primera));
   check(d.presentaciones.length > 0 && sin.length === 0,
     `el feed trae los ${campos.length} campos que la página lee`, sin.join(', '));
+  // Las marcas conocidas del activo tienen que viajar con la presentación.
+  // Sin ellas, buscar "Ozempic" o "Wegovy" en la página no encontraba la
+  // semaglutida que sí estaba publicada: el alias vivía en el catálogo y nunca
+  // llegaba al navegador.
+  const conAlias = require('path').join(ROOT, 'scripts', 'verticales', 'medicinas-catalogo.json');
+  const alias = Object.fromEntries(require(conAlias).medicamentos
+    .filter((m) => m.tambien).map((m) => [m.nombre, m.tambien]));
+  const sinAlias = d.presentaciones.filter((p) => alias[p.medicamento] && !p.tambien);
+  check(sinAlias.length === 0, 'las presentaciones llevan las marcas conocidas de su activo',
+    sinAlias.slice(0, 3).map((p) => p.medicamento).join(' · '));
+
   // Cada fila publicada debe tener al menos dos farmacias: es la premisa de
   // toda la vertical, y lo único que hace honesta la etiqueta "más barata".
   const flacas = d.presentaciones.filter((p) => Object.keys(p.precios).length < 2);

@@ -166,6 +166,11 @@ const ctxPara = (ad) => {
         meta[ad.id].conLlave++;
         const base = () => ({
           medicamento: med.nombre, rank: med.rank, categoria: med.categoria,
+          // Las marcas con las que se conoce este activo, aunque ninguna
+          // farmacia las haya usado en un título esta semana. Sin esto,
+          // buscar "Ozempic" en la página no encontraba la semaglutida que
+          // sí estaba publicada.
+          ...(med.tambien ? { tambien: med.tambien } : {}),
           mg: p.mg, forma: p.forma, piezas: p.piezas, ml: p.ml,
           precios: {},
         });
