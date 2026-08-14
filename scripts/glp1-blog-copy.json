@@ -1,0 +1,252 @@
+[
+  {
+    "slug": "ozempic-precio-mexico",
+    "familia": "Ozempic",
+    "corto": "Ozempic",
+    "articulo": "el",
+    "titulo": "Ozempic precio {{MES_ANIO}}: cuánto cuesta en México",
+    "h1": "Precio de Ozempic en México",
+    "metaDescription": "Ozempic: la pluma de {{INICIAL}} cuesta de {{INICIAL_MIN}} a {{INICIAL_MAX}} según la farmacia. Compara {{N_FARMACIAS}} farmacias, actualizado cada semana.",
+    "intro": "Ozempic se aplica una vez por semana y cada pluma dura un mes, así que su precio es un gasto mensual, no una compra única. La de inicio va de {{INICIAL_MIN}} a {{INICIAL_MAX}} según la farmacia.",
+    "respuesta": "La pluma de {{INICIAL}} cuesta desde {{INICIAL_MIN}} en {{INICIAL_BARATA}} y hasta {{INICIAL_MAX}} en la farmacia más cara: {{INICIAL_AHORRO}} de diferencia por el mismo producto. Entre las {{N_PRES}} presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}.",
+    "porQueVaria": [
+      "Es un medicamento de patente sin genérico en México: el precio lo fija el laboratorio y lo que cambia entre farmacias es el margen.",
+      "Las cadenas grandes negocian mejor y suelen quedar abajo; en el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones.",
+      "El desabasto mueve el precio: cuando escasea, las farmacias con existencia suben.",
+      "La dosis sube durante la titulación, y con ella el gasto mensual. Presupuesta la dosis de mantenimiento, no la de inicio."
+    ],
+    "queEs": "Ozempic es semaglutida inyectable de aplicación semanal. Está aprobado para diabetes tipo 2: mejora el control de la glucosa, y como efecto asociado reduce el apetito y favorece la pérdida de peso. Para el tratamiento de la obesidad, la presentación aprobada es Wegovy, que lleva el mismo activo en dosis distintas.",
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "Ozempic se vende con receta médica en México. No es un producto de mostrador y su uso requiere titulación de dosis y seguimiento: la indicación la hace tu médico."
+    },
+    "elegir": [
+      "Confirma la dosis exacta de tu receta: la pluma de inicio y la de mantenimiento tienen precios distintos.",
+      "Compara antes de surtir. La diferencia mediana entre farmacias es de {{AHORRO_MEDIANO}} por pluma, y se repite cada mes.",
+      "Revisa la caducidad y que la cadena de frío se haya respetado; desconfía de precios muy por debajo del rango.",
+      "Considera el costo del tratamiento completo, no el de la primera pluma: la dosis sube durante los primeros meses."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta Ozempic en México?",
+        "a": "La pluma de {{INICIAL}} va de {{INICIAL_MIN}} a {{INICIAL_MAX}} según la farmacia. Entre las {{N_PRES}} presentaciones comparadas, el rango es de {{MIN}} a {{MAX}}."
+      },
+      {
+        "q": "¿Dónde sale más barato Ozempic?",
+        "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones. Confirma existencia antes de ir: el desabasto cambia el panorama."
+      },
+      {
+        "q": "¿Ozempic necesita receta?",
+        "a": "Sí. Se vende con receta médica y requiere titulación de dosis y seguimiento."
+      },
+      {
+        "q": "¿Cuánto dura una pluma de Ozempic?",
+        "a": "Un mes: se aplica una vez por semana, así que cada pluma cubre cuatro aplicaciones a la dosis indicada."
+      },
+      {
+        "q": "¿Ozempic o Wegovy para bajar de peso?",
+        "a": "Los dos son semaglutida. Wegovy es la presentación aprobada para el tratamiento de la obesidad y llega a dosis más altas; Ozempic está aprobado para diabetes tipo 2. Cuál corresponde lo decide tu médico."
+      }
+    ]
+  },
+  {
+    "slug": "mounjaro-precio-mexico",
+    "familia": "Mounjaro",
+    "corto": "Mounjaro",
+    "articulo": "el",
+    "titulo": "Mounjaro precio {{MES_ANIO}}: cuánto cuesta cada dosis",
+    "h1": "Precio de Mounjaro en México",
+    "metaDescription": "Mounjaro: de {{MIN}} a {{MAX}} según la dosis y la farmacia. Compara las {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias, actualizado cada semana.",
+    "intro": "Mounjaro es el GLP-1 con más presentaciones en México y el precio sube con cada escalón de dosis: de {{MIN}} en la de inicio a {{MAX}} en la más alta, según la farmacia.",
+    "respuesta": "La pluma de {{INICIAL}}, la de inicio, cuesta desde {{INICIAL_MIN}} en {{INICIAL_BARATA}} y hasta {{INICIAL_MAX}}: {{INICIAL_AHORRO}} de diferencia. Como la dosis sube durante la titulación, el gasto mensual crece: entre las {{N_PRES}} presentaciones el rango completo va de {{MIN}} a {{MAX}}.",
+    "porQueVaria": [
+      "Cada escalón de dosis es un producto distinto con su propio precio; el salto de la dosis media a la alta es el que más se siente.",
+      "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones, así que aquí sí hay un patrón claro.",
+      "Es medicamento de patente sin genérico: lo que cambia entre farmacias es el margen, no el producto.",
+      "El desabasto encarece las dosis altas antes que las de inicio."
+    ],
+    "queEs": "Mounjaro es tirzepatida inyectable de aplicación semanal. Actúa sobre dos receptores —GLP-1 y GIP—, a diferencia de la semaglutida que actúa sobre uno. Está indicado en diabetes tipo 2 y, en varias presentaciones, en el manejo de la obesidad. El tratamiento empieza en la dosis más baja y sube de forma escalonada.",
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "Mounjaro se vende con receta médica en México. La titulación de dosis y el seguimiento son parte del tratamiento: no es un producto para automedicarse."
+    },
+    "elegir": [
+      "Compra la dosis que dice tu receta: son productos distintos y no son intercambiables.",
+      "Presupuesta la dosis de mantenimiento, no la de inicio: la diferencia entre ambas es grande.",
+      "Compara cada mes. La brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por pluma.",
+      "Verifica caducidad y cadena de frío; desconfía de precios muy por debajo del rango publicado."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta Mounjaro en México?",
+        "a": "De {{MIN}} a {{MAX}} según la dosis y la farmacia. La pluma de inicio, de {{INICIAL}}, va de {{INICIAL_MIN}} a {{INICIAL_MAX}}."
+      },
+      {
+        "q": "¿Dónde sale más barato Mounjaro?",
+        "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones comparadas."
+      },
+      {
+        "q": "¿Cuánto dura una pluma de Mounjaro?",
+        "a": "Un mes: se aplica una vez por semana, así que cada pluma cubre cuatro aplicaciones."
+      },
+      {
+        "q": "¿Por qué sube el precio conforme avanza el tratamiento?",
+        "a": "Porque cada escalón de dosis es un producto distinto y más caro. El gasto mensual de mantenimiento es mayor que el de los primeros meses."
+      },
+      {
+        "q": "¿Mounjaro o Ozempic?",
+        "a": "Mounjaro es tirzepatida y actúa sobre dos receptores; Ozempic es semaglutida y actúa sobre uno. Cuál corresponde depende de tu diagnóstico y lo decide tu médico."
+      }
+    ]
+  },
+  {
+    "slug": "wegovy-precio-mexico",
+    "familia": "Wegovy",
+    "corto": "Wegovy",
+    "articulo": "el",
+    "titulo": "Wegovy precio {{MES_ANIO}}: cuánto cuesta la caja mensual",
+    "h1": "Precio de Wegovy en México",
+    "metaDescription": "Wegovy: la caja mensual va de {{MIN}} a {{MAX}} según la dosis y la farmacia. Compara {{N_FARMACIAS}} farmacias, con precios actualizados cada semana.",
+    "intro": "Wegovy se vende en caja mensual, así que su precio es literalmente el costo del mes de tratamiento: de {{MIN}} en la dosis de inicio a {{MAX}} en la de mantenimiento, según la farmacia.",
+    "respuesta": "La caja de {{INICIAL}} cuesta desde {{INICIAL_MIN}} en {{INICIAL_BARATA}} y hasta {{INICIAL_MAX}}: {{INICIAL_AHORRO}} de diferencia por la misma caja. Entre las {{N_PRES}} dosis comparadas, el rango va de {{MIN}} a {{MAX}} al mes.",
+    "porQueVaria": [
+      "Cada dosis es un producto distinto y el tratamiento sube de escalón cada cuatro semanas hasta la de mantenimiento.",
+      "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} dosis.",
+      "Es medicamento de patente sin genérico en México.",
+      "La demanda para control de peso genera desabasto, y con él sube el precio de las dosis más buscadas."
+    ],
+    "queEs": "Wegovy es semaglutida inyectable semanal, en la presentación aprobada para el tratamiento de la obesidad y el sobrepeso con comorbilidades. Lleva el mismo activo que Ozempic pero llega a dosis más altas y se dosifica en caja mensual. El tratamiento arranca en la dosis más baja y sube cada cuatro semanas.",
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "Wegovy se vende con receta médica en México. Está indicado junto con cambios de alimentación y actividad física, y requiere seguimiento médico durante la titulación."
+    },
+    "elegir": [
+      "Presupuesta la dosis de mantenimiento: es la que vas a pagar la mayor parte del tratamiento.",
+      "Compara cada mes; la brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por caja.",
+      "Confirma existencia antes de ir: las dosis altas son las que más escasean.",
+      "Verifica caducidad y cadena de frío al recibir la caja."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta Wegovy en México?",
+        "a": "La caja mensual va de {{MIN}} a {{MAX}} según la dosis y la farmacia. La de inicio, de {{INICIAL}}, cuesta entre {{INICIAL_MIN}} y {{INICIAL_MAX}}."
+      },
+      {
+        "q": "¿Dónde sale más barato Wegovy?",
+        "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} dosis comparadas."
+      },
+      {
+        "q": "¿Cuánto dura una caja de Wegovy?",
+        "a": "Un mes. Cada caja trae las aplicaciones semanales de esa dosis."
+      },
+      {
+        "q": "¿Wegovy necesita receta?",
+        "a": "Sí, se vende con receta médica y requiere seguimiento durante la titulación de dosis."
+      },
+      {
+        "q": "¿Qué diferencia hay entre Wegovy y Ozempic?",
+        "a": "Los dos son semaglutida. Wegovy está aprobado para el tratamiento de la obesidad y llega a dosis más altas; Ozempic está aprobado para diabetes tipo 2."
+      }
+    ]
+  },
+  {
+    "slug": "precio-tirzepatida-mexico",
+    "familia": "Mounjaro",
+    "corto": "tirzepatida",
+    "articulo": "la",
+    "titulo": "Tirzepatida precio {{MES_ANIO}}: cuánto cuesta en México",
+    "h1": "Precio de la tirzepatida en México",
+    "metaDescription": "Tirzepatida (Mounjaro): de {{MIN}} a {{MAX}} según la dosis y la farmacia. Sin genérico en México. Compara {{N_FARMACIAS}} farmacias cada semana.",
+    "intro": "En México la tirzepatida se vende bajo una sola marca, Mounjaro, y no tiene genérico. Su precio va de {{MIN}} a {{MAX}} según la dosis y la farmacia.",
+    "respuesta": "La tirzepatida cuesta desde {{MIN}} en la dosis de inicio y hasta {{MAX}} en la más alta. La pluma de {{INICIAL}} va de {{INICIAL_MIN}} en {{INICIAL_BARATA}} a {{INICIAL_MAX}}, {{INICIAL_AHORRO}} de diferencia por el mismo producto. Al no existir genérico, comparar farmacias es la única palanca real sobre el precio.",
+    "porQueVaria": [
+      "No hay genérico ni biosimilar aprobado en México: el precio de fábrica es uno solo y lo que cambia es el margen de cada farmacia.",
+      "Cada escalón de dosis es un producto distinto y más caro que el anterior.",
+      "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones.",
+      "Desconfía de la tirzepatida a granel o preparada: fuera del producto de patente no hay garantía de dosis ni de esterilidad."
+    ],
+    "queEs": "La tirzepatida es un agonista dual: actúa sobre los receptores de GLP-1 y de GIP, mientras que la semaglutida actúa solo sobre el primero. Se aplica una vez por semana y en México se comercializa como Mounjaro, indicado en diabetes tipo 2 y en el manejo de la obesidad según la presentación.",
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "La tirzepatida se vende con receta médica en México, únicamente como Mounjaro. Las versiones a granel o preparadas por terceros no están autorizadas y no ofrecen garantía de dosis ni de esterilidad."
+    },
+    "elegir": [
+      "Compra el producto de patente en farmacia establecida: no hay genérico autorizado en México.",
+      "Confirma la dosis de tu receta antes de pagar; los escalones no son intercambiables.",
+      "La brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por pluma, y se repite cada mes.",
+      "Verifica caducidad y cadena de frío al recibirla."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la tirzepatida en México?",
+        "a": "De {{MIN}} a {{MAX}} según la dosis y la farmacia. La pluma de {{INICIAL}} va de {{INICIAL_MIN}} a {{INICIAL_MAX}}."
+      },
+      {
+        "q": "¿Hay tirzepatida genérica en México?",
+        "a": "No. No existe genérico ni biosimilar aprobado; se vende únicamente como Mounjaro, el producto de patente."
+      },
+      {
+        "q": "¿Qué diferencia hay entre tirzepatida y semaglutida?",
+        "a": "La tirzepatida actúa sobre dos receptores (GLP-1 y GIP) y la semaglutida sobre uno. Cuál corresponde depende de tu diagnóstico y lo decide tu médico."
+      },
+      {
+        "q": "¿Dónde sale más barata la tirzepatida?",
+        "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones comparadas."
+      },
+      {
+        "q": "¿Es segura la tirzepatida a granel o preparada?",
+        "a": "No está autorizada en México. Fuera del producto de patente no hay garantía de dosis, pureza ni esterilidad."
+      }
+    ]
+  },
+  {
+    "slug": "cuanto-cuesta-bajar-de-peso-con-glp1-mexico",
+    "familia": "todas",
+    "corto": "tratamiento GLP-1",
+    "articulo": "un",
+    "titulo": "Bajar de peso con GLP-1: cuánto cuesta al mes en {{MES_ANIO}}",
+    "h1": "¿Cuánto cuesta bajar de peso con GLP-1?",
+    "metaDescription": "Los {{N_FAMILIAS}} tratamientos GLP-1 comparados: de {{MIN}} a {{MAX}} al mes según cuál y qué dosis. Precios de farmacia actualizados cada semana.",
+    "intro": "La respuesta honesta tiene dos números, no uno: lo que cuesta empezar y lo que cuesta mantener. Entre los {{N_FAMILIAS}} tratamientos disponibles en México, el rango va de {{MIN}} a {{MAX}} al mes.",
+    "respuesta": "Empezar es la parte barata: {{BARATA}} arranca desde {{BARATA_MIN}} al mes. Lo que define el presupuesto real es el mantenimiento, porque la dosis sube durante los primeros meses y ya no baja — en {{BARATA}} el mantenimiento arranca en {{BARATA_MANTENIMIENTO}}. La tabla compara los {{N_FAMILIAS}} tratamientos en ambos momentos, con precios de farmacia de los {{N_FARMACIAS}} comercios comparados.",
+    "porQueVaria": [
+      "El escalón de dosis manda: casi todos los tratamientos duplican su costo entre la dosis de inicio y la de mantenimiento.",
+      "Ninguno tiene genérico en México, así que lo único que cambia entre farmacias es el margen.",
+      "La vía cambia el precio: la presentación oral tiene un piso más bajo que las inyectables, aunque no sea intercambiable con ellas.",
+      "El desabasto encarece primero las dosis altas, que son justo las de mantenimiento."
+    ],
+    "queEs": "El precio de la caja no es el costo del tratamiento. A lo que ves en la tabla hay que sumarle la consulta médica que lo indica, los estudios de control y el seguimiento durante la titulación — y, si el tratamiento se suspende, la evidencia disponible indica que buena parte del peso perdido tiende a recuperarse, así que conviene presupuestarlo como algo sostenido y no como una compra de tres meses.",
+    "receta": {
+      "estado": "Todos requieren receta médica",
+      "texto": "Ninguno de estos tratamientos se vende sin receta en México, y ninguno está pensado para usarse sin supervisión. Qué tratamiento corresponde, a qué dosis y por cuánto tiempo lo decide tu médico a partir de tu diagnóstico."
+    },
+    "elegir": [
+      "Presupuesta la dosis de mantenimiento, no la de inicio: es la que vas a pagar la mayor parte del tiempo.",
+      "Suma consulta, estudios y seguimiento al costo de la caja antes de decidir.",
+      "Compara farmacias cada mes: es la única palanca real sobre el precio, porque no hay genéricos.",
+      "Desconfía de los preparados a granel y de la venta sin receta: fuera del producto de patente no hay garantía de dosis ni de esterilidad."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta bajar de peso con GLP-1 en México?",
+        "a": "Entre {{MIN}} y {{MAX}} al mes según el tratamiento y la dosis, contando solo el medicamento. {{BARATA}} tiene la entrada más baja, desde {{BARATA_MIN}}."
+      },
+      {
+        "q": "¿Cuál es el GLP-1 más barato?",
+        "a": "En el corte del {{FECHA}}, {{BARATA}} tenía la entrada más económica: desde {{BARATA_MIN}} al mes, y {{BARATA_MANTENIMIENTO}} en dosis de mantenimiento. Cuál te corresponde depende de tu diagnóstico, no del precio."
+      },
+      {
+        "q": "¿Por qué sube el costo con el tiempo?",
+        "a": "Porque la dosis se escala durante los primeros meses y cada escalón es un producto más caro. El gasto de mantenimiento es el que hay que presupuestar."
+      },
+      {
+        "q": "¿El precio incluye la consulta y los estudios?",
+        "a": "No. La tabla compara solo el precio del medicamento en farmacia. La consulta, los estudios de control y el seguimiento van aparte, salvo en los planes que los incluyen en una cuota mensual."
+      },
+      {
+        "q": "¿Qué pasa si dejo el tratamiento?",
+        "a": "La evidencia disponible indica que buena parte del peso perdido tiende a recuperarse al suspenderlo. Por eso conviene planearlo como un gasto sostenido y hablarlo con tu médico antes de empezar."
+      }
+    ]
+  }
+]
