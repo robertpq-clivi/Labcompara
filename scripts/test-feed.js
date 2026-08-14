@@ -120,6 +120,13 @@ function revisarCifras() {
       // Debe ser una afirmación cierta y no quedarse corta por más de una centena.
       if (n > real || real - n >= 100) malas.push(`${rel}: "más de ${n}" contra ${real} reales`);
     }
+    // Los contadores del hero dicen lo mismo con otra forma —"64+" encima de
+    // "Estudios disponibles"— y por eso el chequeo anterior no los veía: ese
+    // "64+" siguió publicado dos ampliaciones después de dejar de ser cierto.
+    for (const m of txt.matchAll(/>(\d{2,4})\+?<\/div>\s*<div[^>]*>\s*(?:Estudios|Pruebas)[^<]*</gi)) {
+      const n = Number(m[1]);
+      if (n > real || real - n >= 100) malas.push(`${rel}: contador "${n}+" contra ${real} reales`);
+    }
   }
   return malas;
 }
