@@ -195,7 +195,13 @@ const guadalajara = {
 const sanpablo = {
   id: 'SanPablo',
   fuente: 'farmaciasanpablo.com.mx',
-  proxy: true,
+  // San Pablo responde directo: se comprobó con su propia API OCC. El cliente
+  // escala a Zyte solo si empieza a bloquear, que es la regla del proyecto —el
+  // proxy se usa cuando hace falta, no por costumbre—. Forzarlo gastaba ~300
+  // requests de crédito por corrida sin necesidad.
+  //
+  // Guadalajara sí lo necesita: directo aborta la conexión.
+  proxy: false,
   occ: process.env.SP_OCC || 'https://api.coxdka37yz-unifarsad1-p2-public.model-t.cc.commerce.ondemand.com',
   site: process.env.SP_SITE || 'fsp',
   async buscar(ctx, query) {

@@ -108,12 +108,24 @@ const ctxPara = (ad) => {
   const marcasDe = {};
 
   /**
+   * Lo ya preguntado en esta corrida, por (farmacia, consulta).
+   *
+   * La pasada 2 pregunta por marcas en las farmacias donde no salieron, y una
+   * marca que la hoja ya anotaba —Ozempic, Buscapina, Dramamine— ya se preguntó
+   * en la pasada 1. Repetir la consulta cuesta un request y devuelve lo mismo.
+   */
+  const preguntado = new Set();
+
+  /**
    * Una consulta a una farmacia, y lo que se hace con lo que devuelve.
    *
    * Está aparte porque se llama dos veces con intenciones distintas: primero
    * buscando el principio activo, después buscando marcas concretas.
    */
   async function consultar(med, ad, consulta, marcaBuscada) {
+    const firma = `${ad.id}|${String(consulta).toLowerCase().trim()}`;
+    if (preguntado.has(firma)) return;
+    preguntado.add(firma);
     // Cuando se pregunta por una marca, esa marca vale como evidencia del
     // principio activo para esta consulta. No es un supuesto: la marca solo
     // llega aquí si en la pasada 1 apareció en un título que SÍ nombraba el
