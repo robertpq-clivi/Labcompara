@@ -42,6 +42,11 @@ const DESTINO = {
   'guia-examenes-de-sangre':                   ['/blog/estudios-laboratorio-precios-mexico', 'los precios actualizados de cada estudio'],
   'guia-completa-examenes-de-sangre':          ['/blog/estudios-laboratorio-precios-mexico', 'los precios actualizados de cada estudio'],
   'tipos-analisis-clinicos-comunes':           ['/blog/estudios-laboratorio-precios-mexico', 'los precios actualizados de cada estudio'],
+  'cada-cuanto-hacerte-examenes-de-sangre':    ['/blog/precio-check-up-completo-mexico', 'cuánto cuesta hoy el check up'],
+  'como-elegir-laboratorio-clinico-mexico':    ['/blog/laboratorio-mas-barato-cdmx', 'qué laboratorio gana en más estudios'],
+  'mounjaro-para-bajar-de-peso':               ['/blog/mounjaro-precio-mexico', 'el precio de Mounjaro dosis por dosis'],
+  'que-revisar-antes-de-hacerte-estudios-clinicos': ['/blog/estudios-laboratorio-precios-mexico', 'los precios actualizados de cada estudio'],
+  'tipos-de-analisis-clinicos-mas-comunes':    ['/blog/estudios-laboratorio-precios-mexico', 'los precios actualizados de cada estudio'],
 };
 
 /**
@@ -150,9 +155,35 @@ function limpiarFrases(html, [destino, ancla], cambios) {
     // "… Desde $95 MXN." al cierre de una frase.
     [/\.?\s*Desde \$[0-9][0-9,]*(?:\s*MXN)?[^.<]*\./g, '.'],
     // FAQ que abre con una cifra orientativa.
-    [/(?:Como referencia orientativa, )?[Dd]esde alrededor de \$[0-9][0-9,]*(?:\s*MXN)?[^.]*\./g,
+    [/(?:Como referencia orientativa, )?[Dd]esde alrededor de \$[0-9][0-9,]*(?:\s*MXN)?[^.;]*[.;]/g,
      'El precio cambia entre farmacias y entre dosis, así que conviene compararlo antes de comprar.'],
   ];
+
+  // Frases que ningún patrón general puede reescribir sin romperlas: cada una
+  // lleva la cifra incrustada en su propia sintaxis. Se listan completas, tal
+  // como están en el HTML, para que la reescritura sea legible y verificable.
+  const literales = [
+    ['Con Salud Digna, un perfil básico anual puede costar desde $300-500 MXN. Un check up más completo, desde $450 MXN.',
+     'Lo que cuesta depende del laboratorio y de cuántos estudios lleve el paquete.'],
+    ['Una biometría hemática cuesta $95 MXN en Salud Digna y $556 MXN en Laboratorio M&#xe9;dico Polanco.',
+     'La misma biometría hemática puede costar varias veces más en un laboratorio que en otro.'],
+    ['Desde alrededor de $3,490 MXN por pluma; compara en Medcompara.',
+     'El precio cambia entre farmacias y entre dosis; compáralo en Medcompara.'],
+    ['Mounjaro cuesta desde alrededor de $3,490 MXN por pluma.',
+     'El precio de Mounjaro cambia entre farmacias y sube con cada escalón de dosis.'],
+    ['puede ahorrarte desde $200 hasta $2,000 MXN.',
+     'puede ahorrarte una diferencia que en varios estudios supera el doble.'],
+    ['tiene uno de los precios más bajos, desde $55 MXN en Salud Digna.',
+     'es de los estudios más accesibles del catálogo.'],
+  ];
+
+  for (const [antes, despues] of literales) {
+    if (html.includes(antes)) {
+      cambios.push(`frase reescrita: "${antes.slice(0, 40)}…"`);
+      html = html.split(antes).join(despues);
+    }
+  }
+
 
   for (const [re, por] of reescrituras) {
     html = html.replace(re, () => { cambios.push('frase con cifra reescrita'); return por; });
