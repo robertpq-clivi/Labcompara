@@ -6,7 +6,7 @@
     "generate:sitemaps": "node scripts/generate-sitemaps.js",
     "comparativas": "node scripts/generar-comparativas.js",
     "comparativas:apply": "node scripts/generar-comparativas.js --apply",
-    "predeploy": "npm run comparativas:apply && npm run generate:sitemaps",
+    "predeploy": "npm run comparativas:apply && npm run blog:medicinas:apply && npm run generate:sitemaps",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
     "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-medicinas.js && node scripts/test-captura.js && node scripts/test-feed.js",
@@ -16,7 +16,9 @@
     "scan:farmacias": "node scripts/scan-farmacias.js",
     "scan:medicinas": "node scripts/scan-medicinas.js",
     "catalogo:medicinas": "node scripts/construir-catalogo-medicinas.js",
-    "catalogo:medicinas:apply": "node scripts/construir-catalogo-medicinas.js --apply"
+    "catalogo:medicinas:apply": "node scripts/construir-catalogo-medicinas.js --apply",
+    "blog:medicinas": "node scripts/generar-blog-medicinas.js",
+    "blog:medicinas:apply": "node scripts/generar-blog-medicinas.js --apply"
   },
   "engines": {
     "node": ">=16"
