@@ -17,6 +17,7 @@
  *   node scripts/scan-medicinas.js --limit=20     # primeros N del ranking
  *   node scripts/scan-medicinas.js --fuentes=Ahorro,Prixz
  *   node scripts/scan-medicinas.js --dry
+ *   node scripts/scan-medicinas.js --offline   # reusa data/medicinas/crudo.json
  *
  * Escribe:
  *   data/medicinas/prices.json   presentaciones comparables
@@ -52,6 +53,17 @@ const DRY = argv.includes('--dry');
 // no salieron— es lo que hace que exista la comparación por marca, y también
 // lo que más requests cuesta. Se puede apagar y se puede acotar.
 const SIN_MARCAS = argv.includes('--sin-marcas');
+/**
+ * Rehace el resultado desde la captura anterior, sin tocar la red.
+ *
+ * Una corrida completa son casi dos horas, y ya se perdieron dos por un push
+ * rechazado al final: el scan había funcionado y los datos existían, solo que
+ * no llegaron al repo. Con esto se recuperan de `crudo.json` en segundos, y
+ * además permite reprocesar todo cuando se mejora el lector sin volver a
+ * pedirle nada a las farmacias.
+ */
+const OFFLINE = argv.includes('--offline');
+const CRUDO_ORIGEN = (arg('crudo', '') || '') || path.join(ROOT, 'data', 'medicinas', 'crudo.json');
 const MAX_MARCAS = Number(arg('max-marcas', '400')) || 400;
 // Guadalajara solo responde por proxy, que no existe en local: este filtro
 // permite validar el resto sin esperar sus timeouts.
@@ -78,7 +90,7 @@ const ctxPara = (ad) => {
 
   console.log('Medcompara · scan de medicamentos de farmacia');
   console.log(`${meds.length} principios activos · ${adaptadores.length} farmacias`);
-  if (!DRY) {
+  if (!DRY && !OFFLINE) {
     const chk = await http.verificarProxy();
     console.log(chk.ok
       ? `proxy anti-bloqueo: ${http.proveedor} ✓ credencial válida\n`
@@ -122,6 +134,14 @@ const ctxPara = (ad) => {
    * Está aparte porque se llama dos veces con intenciones distintas: primero
    * buscando el principio activo, después buscando marcas concretas.
    */
+  /** En modo sin red, lo ya capturado hace de respuesta de la farmacia. */
+  let guardado = null;
+  if (OFFLINE) {
+    const j = JSON.parse(fs.readFileSync(CRUDO_ORIGEN, 'utf8'));
+    guardado = j.crudo || j;
+    console.log(`sin red: releyendo ${path.relative(ROOT, CRUDO_ORIGEN)}\n`);
+  }
+
   async function consultar(med, ad, consulta, marcaBuscada) {
     const firma = `${ad.id}|${String(consulta).toLowerCase().trim()}`;
     if (preguntado.has(firma)) return;
@@ -132,18 +152,32 @@ const ctxPara = (ad) => {
     // activo. Sin esto, "Tempra 160 Mg 30 Tabletas" —que no dice paracetamol
     // por ningún lado— quedaría fuera, y con él media comparación por marca.
     const conMarca = marcaBuscada ? { ...med, sinonimos: [marcaBuscada] } : med;
-    const ctx = ctxPara(ad);
     let items = [];
-    try {
-      items = await ad.buscar(ctx, consulta);
-      meta[ad.id].hallados += items.length;
-    } catch (e) {
-      meta[ad.id].errores++;
-      await dormir(PAUSA_MS);
-      return;
+    if (OFFLINE) {
+      // La captura guarda todo junto, sin separar con qué consulta se obtuvo
+      // cada producto. Así que las dos pasadas releen la misma bolsa: la
+      // primera con el principio activo y la segunda con la marca descubierta
+      // como sinónimo. Es la misma lógica de la corrida en vivo —una marca
+      // solo vale como evidencia si la pasada 1 la encontró— y sin ella se
+      // pierden las 326 comparaciones de marca que dependen de títulos que
+      // solo dicen la marca.
+      items = ((guardado[med.nombre] || {})[ad.id]) || [];
+      if (!marcaBuscada) meta[ad.id].hallados += items.length;
+    } else {
+      const ctx = ctxPara(ad);
+      try {
+        items = await ad.buscar(ctx, consulta);
+        meta[ad.id].hallados += items.length;
+      } catch (e) {
+        meta[ad.id].errores++;
+        await dormir(PAUSA_MS);
+        return;
+      }
     }
-    const bolsa = (crudo[med.nombre] = crudo[med.nombre] || {});
-    bolsa[ad.id] = (bolsa[ad.id] || []).concat(items);
+    if (!OFFLINE) {
+      const bolsa = (crudo[med.nombre] = crudo[med.nombre] || {});
+      bolsa[ad.id] = (bolsa[ad.id] || []).concat(items);
+    }
 
       for (const it of items) {
         // Se pasa la entrada completa, no solo el nombre: trae la raíz con la
@@ -205,7 +239,7 @@ const ctxPara = (ad) => {
           vistas.get(marcaFinal).add(ad.id);
         }
       }
-    await dormir(PAUSA_MS);
+    if (!OFFLINE) await dormir(PAUSA_MS);
   }
 
   // ── pasada 1: por principio activo, y por las marcas que la hoja ya trae ──
@@ -333,7 +367,7 @@ const ctxPara = (ad) => {
     presentaciones: comparables,
     sueltas,
   }, null, 2));
-  fs.writeFileSync(path.join(OUT, 'crudo.json'), JSON.stringify({ generado, crudo }, null, 2));
+  if (!OFFLINE) fs.writeFileSync(path.join(OUT, 'crudo.json'), JSON.stringify({ generado, crudo }, null, 2));
 
   const matriz = comparables.map((g) => {
     const e = { name: g.etiqueta };

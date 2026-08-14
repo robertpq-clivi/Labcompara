@@ -129,10 +129,27 @@ jobs:
             # El scan tarda más de una hora: es normal que alguien haya
             # empujado a main mientras corría, y entonces este push se
             # rechaza y se pierde una corrida entera de datos ya obtenidos.
-            # Se reintenta reacomodando encima de lo que llegó primero.
+            #
+            # El rebase por sí solo no basta y ya costó una corrida: si
+            # alguien tocó a mano un archivo que este paso también escribe
+            # —data/medicinas/prices.json, por ejemplo— el rebase entra en
+            # conflicto y los tres intentos fallan igual.
+            #
+            # Para datos GENERADOS no hay conflicto real que resolver: lo que
+            # acaba de salir del scan es la verdad. Así que se guarda aparte,
+            # se toma la punta de main y se vuelve a poner encima.
             for intento in 1 2 3; do
-              git pull --rebase origin main && git push && exit 0
-              echo "push rechazado (intento $intento), reintentando…"
+              git push && exit 0
+              echo "push rechazado (intento $intento): reacomodando sobre main"
+              rm -rf /tmp/recien-escaneado && mkdir -p /tmp/recien-escaneado
+              git diff --name-only HEAD~1 HEAD | while read -r f; do
+                mkdir -p "/tmp/recien-escaneado/$(dirname "$f")"
+                cp "$f" "/tmp/recien-escaneado/$f" 2>/dev/null || true
+              done
+              git fetch origin main && git reset --hard origin/main
+              cp -a /tmp/recien-escaneado/. "$GITHUB_WORKSPACE/"
+              git add -A
+              git diff --staged --quiet || git commit -m "chore(data): refrescar precios [skip ci]"
               sleep 5
             done
             echo "::error::no se pudo empujar los precios después de 3 intentos"
