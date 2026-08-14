@@ -1,0 +1,338 @@
+[
+  {
+    "med": "Paracetamol",
+    "titulo": "Paracetamol precio {{MES_ANIO}}: dónde sale más barato",
+    "h1": "Precio del paracetamol en México",
+    "metaDescription": "Cuánto cuesta el paracetamol en México: desde {{MIN}} la caja de {{DEST_CAJA}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias.",
+    "intro": "El paracetamol es el medicamento más buscado del país y también uno de los que más cambia de precio de una farmacia a otra: la misma caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}} según dónde la compres.",
+    "respuesta": "La caja de {{DEST_CAJA}} se consigue desde {{DEST_MIN}} en {{DEST_BARATA}} y llega hasta {{DEST_MAX}} en la farmacia más cara: {{DEST_AHORRO}} de diferencia por el mismo activo y la misma dosis. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Considerando todas las presentaciones, el paracetamol arranca en {{MIN}} y llega a {{MAX}}.",
+    "comprar": [
+      "Compara antes de entrar: entre {{FARMACIAS}} la diferencia mediana por caja es de {{AHORRO_MEDIANO}}, y en la presentación con más brecha ({{BRECHA}}) llega a {{BRECHA_PCT}}.",
+      "Pide el genérico por su nombre. Basta con decir «paracetamol de 500 miligramos»; la marca cuesta más por el mismo activo y la misma dosis.",
+      "Saca la cuenta por {{UNIDAD}}: a la misma dosis va de {{POR_UNIDAD_MIN}} a {{POR_UNIDAD_MAX}} según el tamaño de la caja. No des por hecho que la grande sale mejor; en la tabla de arriba se ve caja por caja.",
+      "No compres de más: el paracetamol es para episodios de dolor o fiebre, no para tomarse a diario sin indicación médica."
+    ],
+    "receta": {
+      "estado": "Venta libre",
+      "texto": "El paracetamol se vende sin receta en México. Eso no lo vuelve inocuo: es la causa más frecuente de daño agudo al hígado por medicamento, casi siempre por sumar dosis sin darse cuenta."
+    },
+    "paraQue": "El paracetamol (acetaminofén) baja la fiebre y calma el dolor leve a moderado: dolor de cabeza, muscular, dental, malestar de gripe. A diferencia del ibuprofeno o el naproxeno no es antiinflamatorio, así que no desinflama; por eso mismo es más amable con el estómago.",
+    "comoSeToma": "En adultos la dosis habitual es de 500 a 1000 mg cada 6 u 8 horas, sin pasar de 4 gramos al día — y menos si tomas alcohol con regularidad o tienes daño hepático. En niños la dosis va por peso, no por edad, y la calcula tu médico o farmacéutico.",
+    "cuidados": [
+      "Revisa los antigripales y las combinaciones «para el dolor»: muchos ya traen paracetamol y ahí es donde la gente se pasa de dosis sin saberlo.",
+      "Si tomas alcohol de forma habitual o tienes problemas de hígado, consulta la dosis con tu médico antes de usarlo.",
+      "Si la fiebre pasa de tres días o el dolor de cinco sin mejorar, ve al médico en vez de subir la dosis."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el paracetamol en México?", "a": "La caja de {{DEST_CAJA}} cuesta desde {{DEST_MIN}} y hasta {{DEST_MAX}} según la farmacia. Tomando todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Dónde sale más barato el paracetamol?", "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de las {{LIDER_DE}} presentaciones comparadas. Aun así conviene revisar caja por caja: el ganador cambia según la dosis y el tamaño." },
+      { "q": "¿Es lo mismo el paracetamol genérico que Tempra o Tylenol?", "a": "El activo y la dosis son los mismos; cambian el excipiente, la presentación y el precio. La caja de marca puede costar varias veces lo que la genérica de la misma dosis." },
+      { "q": "¿Necesito receta para comprar paracetamol?", "a": "No. Es de venta libre en México, aunque conviene respetar la dosis máxima diaria y no combinarlo con antigripales que ya lo contienen." },
+      { "q": "¿Paracetamol o ibuprofeno?", "a": "El paracetamol sirve para dolor y fiebre y no irrita el estómago; el ibuprofeno además desinflama, y por eso funciona mejor en dolor con inflamación, como el muscular o el menstrual. Si tienes gastritis, el paracetamol suele ser la opción más segura." }
+    ]
+  },
+
+  {
+    "med": "Omeprazol",
+    "titulo": "Omeprazol precio {{MES_ANIO}}: cuánto cuesta la caja",
+    "h1": "Precio del omeprazol en México",
+    "metaDescription": "Precio del omeprazol en México: desde {{MIN}} y hasta {{MAX}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias y checa el costo por {{UNIDAD}}.",
+    "intro": "El omeprazol es el protector gástrico más vendido en México y el precio de la misma caja se multiplica de una farmacia a otra: la presentación de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}}.",
+    "respuesta": "La caja de {{DEST_CAJA}} arranca en {{DEST_MIN}} en {{DEST_BARATA}} y sube hasta {{DEST_MAX}}: {{DEST_AHORRO}} de diferencia por la misma cápsula. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "La diferencia mediana entre farmacias es de {{AHORRO_MEDIANO}} por caja, y en {{BRECHA}} llega a {{BRECHA_PCT}}: comparar antes de entrar vale más que cualquier promoción.",
+      "Si tu tratamiento es de varias semanas, saca la cuenta por {{UNIDAD}}: a la misma dosis va de {{POR_UNIDAD_MIN}} a {{POR_UNIDAD_MAX}} según la caja, y la diferencia se multiplica por los días que te faltan.",
+      "El omeprazol genérico y el de marca llevan el mismo activo en la misma dosis. Pídelo por nombre de sustancia.",
+      "Tomarlo por meses sin control no es ahorrar: si llevas más de ocho semanas con él, lo que necesitas es consulta, no otra caja."
+    ],
+    "receta": {
+      "estado": "Venta libre",
+      "texto": "El omeprazol se vende sin receta en México. Aun así, es un medicamento pensado para tratamientos de semanas, no para tomarse indefinidamente por costumbre."
+    },
+    "paraQue": "El omeprazol reduce la producción de ácido en el estómago. Se usa en reflujo gastroesofágico, gastritis, úlcera gástrica y duodenal, y para proteger el estómago cuando se toman antiinflamatorios por tiempo prolongado.",
+    "comoSeToma": "Lo habitual es una cápsula de 20 mg al día, en ayunas, entre 30 y 60 minutos antes del desayuno: tomado con la comida pierde efecto. La duración depende del diagnóstico y la define tu médico.",
+    "cuidados": [
+      "En ayunas y antes de comer. Es el error más común y el que más efecto le quita.",
+      "El uso prolongado se asocia a menor absorción de vitamina B12, magnesio y calcio; si lo llevas tomando meses, coméntalo en consulta.",
+      "Si tienes dificultad para tragar, vómito con sangre, heces negras o bajaste de peso sin explicación, no lo resuelvas con omeprazol: ve al médico."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el omeprazol en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Considerando todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Qué farmacia tiene el omeprazol más barato?", "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de las {{LIDER_DE}} presentaciones comparadas. Conviene confirmar caja por caja, porque el ganador cambia según el tamaño." },
+      { "q": "¿El omeprazol necesita receta?", "a": "No, es de venta libre en México. Si necesitas tomarlo más de un par de semanas, lo correcto es que un médico revise por qué." },
+      { "q": "¿Cuándo se toma el omeprazol?", "a": "En ayunas, entre 30 y 60 minutos antes del desayuno. Tomarlo después de comer reduce bastante su efecto." },
+      { "q": "¿Puedo tomar omeprazol todos los días por tiempo indefinido?", "a": "No sin indicación médica. Está pensado para tratamientos de semanas; el uso crónico requiere valoración porque afecta la absorción de algunos nutrientes." }
+    ]
+  },
+
+  {
+    "med": "Ibuprofeno",
+    "titulo": "Ibuprofeno precio {{MES_ANIO}}: cuánto cuesta y dónde",
+    "h1": "Precio del ibuprofeno en México",
+    "metaDescription": "Ibuprofeno precio en México: desde {{MIN}} la caja. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias y el costo por {{UNIDAD}}.",
+    "intro": "El ibuprofeno es el antiinflamatorio de venta libre más usado en México, y la caja de {{DEST_CAJA}} pasa de {{DEST_MIN}} a {{DEST_MAX}} según la farmacia: el mismo activo, la misma dosis, distinto precio.",
+    "respuesta": "La caja de {{DEST_CAJA}} se consigue desde {{DEST_MIN}} en {{DEST_BARATA}} y hasta {{DEST_MAX}}, una diferencia de {{DEST_AHORRO}}. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las {{N_PRES}} presentaciones comparadas el rango completo va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "La brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por caja; en {{BRECHA}} llega a {{BRECHA_PCT}}.",
+      "Elige la dosis, no la marca: 200, 400 y 600 mg son el mismo medicamento en distinta cantidad, y el precio por {{UNIDAD}} cambia mucho entre presentaciones.",
+      "Para dolor ocasional, la caja chica basta. Comprar la caja grande «por si acaso» de un antiinflamatorio que no deberías tomar seguido no es ahorro.",
+      "Compara el genérico contra la caja de marca antes de pagar: es el mismo activo en la misma dosis."
+    ],
+    "receta": {
+      "estado": "Venta libre en dosis bajas",
+      "texto": "Las presentaciones de 200 y 400 mg son de venta libre. Las de dosis mayores y los tratamientos prolongados deben ir con indicación médica."
+    },
+    "paraQue": "El ibuprofeno es un antiinflamatorio no esteroideo: baja el dolor, la inflamación y la fiebre. Funciona especialmente bien en dolor con inflamación de por medio — muscular, articular, menstrual, dental — donde el paracetamol se queda corto.",
+    "comoSeToma": "En adultos, de 200 a 400 mg cada 6 u 8 horas, siempre con alimento para proteger el estómago, y por el menor tiempo posible. Las dosis altas y los tratamientos largos los indica el médico.",
+    "cuidados": [
+      "Tómalo con comida. En ayunas irrita el estómago y es la causa más común de gastritis por automedicación.",
+      "Si tienes hipertensión, enfermedad renal, gastritis o úlcera, consulta antes: los antiinflamatorios pueden subir la presión y afectar el riñón.",
+      "No lo combines con naproxeno, diclofenaco o ketorolaco: son de la misma familia y sumarlos multiplica el riesgo sin dar más alivio."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el ibuprofeno en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Con todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Dónde comprar ibuprofeno más barato?", "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones. Compara la caja exacta que necesitas: la diferencia mediana entre farmacias es de {{AHORRO_MEDIANO}}." },
+      { "q": "¿Cada cuánto se puede tomar ibuprofeno?", "a": "En adultos, cada 6 u 8 horas con alimento, sin exceder lo indicado en el empaque y por el menor tiempo posible. Si necesitas tomarlo más de tres días seguidos, consulta." },
+      { "q": "¿Ibuprofeno o paracetamol para la fiebre?", "a": "Los dos bajan la fiebre. El ibuprofeno además desinflama, y el paracetamol es más amable con el estómago. Con gastritis o úlcera, el paracetamol suele ser mejor opción." },
+      { "q": "¿El ibuprofeno necesita receta?", "a": "Las presentaciones de 200 y 400 mg son de venta libre en México. Las dosis más altas conviene usarlas con indicación médica." }
+    ]
+  },
+
+  {
+    "med": "Metformina",
+    "genero": "f",
+    "titulo": "Metformina precio {{MES_ANIO}}: cuánto cuesta al mes",
+    "h1": "Precio de la metformina en México",
+    "metaDescription": "Precio de la metformina en México: desde {{MIN}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias, genérico contra {{MARCA}}, y el costo por mes.",
+    "intro": "La metformina es el tratamiento de primera línea para la diabetes tipo 2 y se toma todos los días, así que la diferencia de precio no se paga una vez: se paga cada mes. La caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}}.",
+    "respuesta": "La caja de {{DEST_CAJA}} cuesta desde {{DEST_MIN}} en {{DEST_BARATA}} y hasta {{DEST_MAX}}: {{DEST_AHORRO}} de diferencia por el mismo medicamento. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las {{N_PRES}} presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "Es tratamiento crónico: la brecha mediana de {{AHORRO_MEDIANO}} por caja se multiplica por doce al año. Aquí comparar sí mueve el presupuesto.",
+      "Genérico contra marca: la misma caja de {{MARCA_CAJA}} cuesta {{MARCA_GENERICO}} como genérico y {{MARCA_PRECIO}} como {{MARCA}} — {{MARCA_SOBREPRECIO}} más por el mismo activo.",
+      "Saca la cuenta por {{UNIDAD}}, no por caja: a la misma dosis va de {{POR_UNIDAD_MIN}} a {{POR_UNIDAD_MAX}} según la presentación, y eso es lo que define lo que gastas al mes.",
+      "La metformina de liberación prolongada (XR) cuesta más que la normal. Si tu médico no la indicó específicamente, pregunta si te sirve la convencional."
+    ],
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "La metformina se vende con receta médica en México. La farmacia la solicita, aunque no la retiene, y la receta puede surtirse las veces que indique el médico."
+    },
+    "paraQue": "La metformina mejora la forma en que el cuerpo usa la insulina y reduce la glucosa que produce el hígado. Es el primer medicamento que se indica en diabetes tipo 2, y también se usa en prediabetes, resistencia a la insulina y síndrome de ovario poliquístico.",
+    "comoSeToma": "Se toma con alimentos, casi siempre empezando con una dosis baja que se sube poco a poco para que el estómago la tolere. La dosis y el esquema los define tu médico según tus niveles de glucosa.",
+    "cuidados": [
+      "Los efectos digestivos (náusea, diarrea, malestar) son comunes al inicio y suelen ceder; tomarla con comida ayuda bastante.",
+      "Requiere vigilar la función renal, así que tu médico pedirá estudios de control periódicos.",
+      "No la suspendas ni le cambies la dosis por tu cuenta, aunque tus niveles hayan mejorado."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta la metformina en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Con todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Dónde sale más barata la metformina?", "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones comparadas. Como es tratamiento diario, conviene comparar la caja exacta que usas cada mes." },
+      { "q": "¿Es lo mismo la metformina genérica que {{MARCA}}?", "a": "Llevan el mismo activo en la misma dosis. En la caja de {{MARCA_CAJA}}, la de marca cuesta {{MARCA_SOBREPRECIO}} más que la genérica." },
+      { "q": "¿La metformina necesita receta?", "a": "Sí. Es un medicamento de prescripción y la farmacia pedirá la receta médica para venderla." },
+      { "q": "¿Sirve la metformina para bajar de peso?", "a": "No es un medicamento para bajar de peso. Puede favorecer una pérdida modesta en personas con resistencia a la insulina, pero su indicación es el control de la glucosa y la decide tu médico." }
+    ]
+  },
+
+  {
+    "med": "Ketorolaco",
+    "titulo": "Ketorolaco precio {{MES_ANIO}}: cuánto cuesta la caja",
+    "h1": "Precio del ketorolaco en México",
+    "metaDescription": "Ketorolaco precio en México: desde {{MIN}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias y el genérico contra {{MARCA}}.",
+    "intro": "El ketorolaco es de los analgésicos más potentes que se consiguen en farmacia y también uno de los que más varía de precio: la caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}}, y la versión de marca cuesta varias veces más que la genérica.",
+    "respuesta": "La caja de {{DEST_CAJA}} arranca en {{DEST_MIN}} en {{DEST_BARATA}} y llega a {{DEST_MAX}}: {{DEST_AHORRO}} de diferencia. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las {{N_PRES}} presentaciones comparadas el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "Genérico contra marca: la caja de {{MARCA_CAJA}} cuesta {{MARCA_GENERICO}} como genérico y {{MARCA_PRECIO}} como {{MARCA}}. Es {{MARCA_SOBREPRECIO}} más por el mismo activo.",
+      "La brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por caja, y en {{BRECHA}} llega a {{BRECHA_PCT}}.",
+      "Compra la caja chica. El ketorolaco no debe usarse más de unos días seguidos, así que la presentación grande casi nunca conviene.",
+      "Sublingual, tabletas y ampolletas cuestan distinto: pregunta cuál te indicaron antes de pagar la más cara."
+    ],
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "El ketorolaco se vende con receta médica en México. Es un analgésico potente con riesgo gastrointestinal y renal real, y por eso su uso está limitado a periodos cortos."
+    },
+    "paraQue": "El ketorolaco es un antiinflamatorio no esteroideo de acción potente. Se usa para dolor agudo de moderado a intenso: postoperatorio, dental, cólico renal, dolor traumático. No está pensado para molestias cotidianas.",
+    "comoSeToma": "Su uso está limitado a pocos días — habitualmente no más de cinco por vía oral — porque el riesgo de sangrado digestivo y daño renal crece con la duración. La dosis y la vía las indica el médico.",
+    "cuidados": [
+      "Nunca en ayunas y nunca junto con otro antiinflamatorio (ibuprofeno, naproxeno, diclofenaco): el riesgo de sangrado gástrico se dispara.",
+      "Contraindicado en úlcera activa, sangrado digestivo, enfermedad renal avanzada y en el embarazo.",
+      "Si necesitas ketorolaco más de unos días, el problema es el dolor de fondo: eso se valora en consulta, no en el mostrador."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el ketorolaco en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Con todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Es lo mismo el ketorolaco genérico que {{MARCA}}?", "a": "Mismo activo y misma dosis. En la caja de {{MARCA_CAJA}}, la de marca cuesta {{MARCA_SOBREPRECIO}} más que la genérica." },
+      { "q": "¿El ketorolaco necesita receta?", "a": "Sí, se vende con receta médica. Es un analgésico potente y su uso debe ser corto y supervisado." },
+      { "q": "¿Cuántos días se puede tomar ketorolaco?", "a": "Por vía oral, lo habitual es no pasar de cinco días. Prolongarlo aumenta el riesgo de sangrado digestivo y de daño renal." },
+      { "q": "¿Qué es más fuerte, ketorolaco o ibuprofeno?", "a": "El ketorolaco es más potente para dolor agudo intenso, y por lo mismo tiene más riesgo. El ibuprofeno es la opción razonable para dolor leve a moderado de uso ocasional." }
+    ]
+  },
+
+  {
+    "med": "Amoxicilina",
+    "genero": "f",
+    "titulo": "Amoxicilina precio {{MES_ANIO}}: cuánto cuesta la caja",
+    "h1": "Precio de la amoxicilina en México",
+    "metaDescription": "Amoxicilina precio en México: desde {{MIN}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias, cápsulas y suspensión, genérico contra marca.",
+    "intro": "La amoxicilina es el antibiótico más recetado del país. Se vende con receta y su precio cambia muchísimo entre el genérico y la marca: la misma caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}}.",
+    "respuesta": "La caja de {{DEST_CAJA}} se consigue desde {{DEST_MIN}} en {{DEST_BARATA}} y hasta {{DEST_MAX}}, {{DEST_AHORRO}} de diferencia. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las {{N_PRES}} presentaciones comparadas — cápsulas y suspensión — el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "Genérico contra marca: la misma caja de {{MARCA_CAJA}} cuesta {{MARCA_GENERICO}} en genérico y {{MARCA_PRECIO}} como {{MARCA}}, es decir {{MARCA_SOBREPRECIO}} más.",
+      "Lleva la receta. Es antibiótico: sin receta la farmacia no puede vendértelo, y la retiene al surtirla.",
+      "Compra el tratamiento completo de una vez. Cortar el antibiótico a la mitad por precio es la peor forma de ahorrar: falla el tratamiento y genera resistencia.",
+      "Confirma la presentación: cápsulas para adulto y suspensión para niños tienen precios muy distintos, y la suspensión se dosifica por peso."
+    ],
+    "receta": {
+      "estado": "Receta médica que la farmacia retiene",
+      "texto": "Desde 2010 los antibióticos en México solo pueden venderse con receta, y la farmacia se queda con ella al surtirla. Si necesitas repetir el tratamiento, necesitas una nueva."
+    },
+    "paraQue": "La amoxicilina es un antibiótico de la familia de las penicilinas. Se usa en infecciones bacterianas de garganta, oído, senos paranasales, vías respiratorias, urinarias y en algunos tratamientos dentales. No sirve contra virus: en gripe o resfriado común no hace nada.",
+    "comoSeToma": "Se toma a intervalos fijos — cada 8 o cada 12 horas según la presentación — durante todos los días que indique la receta, aunque te sientas bien desde el segundo día. La suspensión infantil se dosifica por peso y se agita antes de cada toma.",
+    "cuidados": [
+      "Completa el esquema. Suspenderlo al sentirte mejor es lo que deja bacterias resistentes.",
+      "Avisa si eres alérgico a la penicilina: la reacción puede ser grave.",
+      "Puede causar diarrea; si es intensa o con sangre, suspende y consulta.",
+      "Si usas anticonceptivos orales, considera un método de respaldo durante el tratamiento."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta la amoxicilina en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Considerando cápsulas y suspensión, el rango comparado va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Se puede comprar amoxicilina sin receta?", "a": "No. En México los antibióticos requieren receta médica y la farmacia la retiene al surtirla." },
+      { "q": "¿Es igual la amoxicilina genérica que la de marca?", "a": "Mismo activo y misma dosis. En la caja de {{MARCA_CAJA}}, la de marca cuesta {{MARCA_SOBREPRECIO}} más que la genérica." },
+      { "q": "¿Cuántos días se toma la amoxicilina?", "a": "Depende de la infección; lo habitual son entre cinco y diez días. Hay que completar todos los días indicados aunque los síntomas desaparezcan antes." },
+      { "q": "¿Sirve la amoxicilina para la gripe?", "a": "No. La gripe y el resfriado común son virales y los antibióticos no actúan sobre virus. Tomarla sin necesidad solo genera resistencia." }
+    ]
+  },
+
+  {
+    "med": "Clonazepam",
+    "titulo": "Clonazepam precio {{MES_ANIO}}: cuánto cuesta y receta",
+    "h1": "Precio del clonazepam en México",
+    "metaDescription": "Clonazepam precio en México: de {{MIN}} a {{MAX}} la caja de {{DEST_CAJA}}. Qué receta pide la farmacia y cómo comparar antes de comprar.",
+    "intro": "El clonazepam es de venta controlada: se surte con receta especial y no todas las farmacias publican su precio. Entre las que sí, la caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}}.",
+    "respuesta": "La caja de {{DEST_CAJA}} cuesta desde {{DEST_MIN}} en {{DEST_BARATA}} y hasta {{DEST_MAX}}, {{DEST_AHORRO}} de diferencia. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Al ser un psicotrópico, el catálogo publicado es corto: comparado entre {{N_FARMACIAS}} farmacias, el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "Llega con la receta correcta: los psicotrópicos se surten con receta especial con código de barras, que la farmacia retiene.",
+      "Confirma existencia por teléfono antes de ir. No todas las sucursales manejan medicamentos controlados.",
+      "El precio se mueve poco entre farmacias comparado con otros medicamentos: la diferencia aquí es de {{DEST_AHORRO}} en la caja comparada.",
+      "El genérico y el de marca llevan el mismo activo; pregunta por el genérico si tu receta lo permite."
+    ],
+    "receta": {
+      "estado": "Venta controlada: receta especial retenida",
+      "texto": "El clonazepam es un psicotrópico. Se surte únicamente con receta especial con código de barras emitida por un médico registrado, y la farmacia se queda con ella. Cada receta ampara una cantidad limitada."
+    },
+    "paraQue": "El clonazepam es una benzodiacepina. Se usa en trastornos de ansiedad, crisis de pánico y algunos tipos de epilepsia. Actúa sobre el sistema nervioso central, y por eso su prescripción y su retiro deben ser supervisados.",
+    "comoSeToma": "La dosis siempre la establece el médico y suele iniciarse baja. No se suspende de golpe: el retiro de una benzodiacepina se hace de forma gradual y bajo supervisión para evitar síntomas de abstinencia.",
+    "cuidados": [
+      "Produce somnolencia y disminuye los reflejos: no manejes hasta saber cómo te afecta.",
+      "No lo combines con alcohol ni con otros depresores del sistema nervioso.",
+      "El uso prolongado genera tolerancia y dependencia. Cualquier cambio de dosis se decide en consulta.",
+      "Nunca lo compartas: una receta es para una persona."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el clonazepam en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} en las farmacias que publican precio. El rango comparado va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Qué receta piden para comprar clonazepam?", "a": "Receta especial con código de barras, emitida por un médico con registro ante la autoridad sanitaria. La farmacia la retiene al surtirla." },
+      { "q": "¿Por qué pocas farmacias publican el precio del clonazepam?", "a": "Por ser un medicamento controlado, muchas cadenas no lo listan en su catálogo en línea ni permiten su venta por internet. Por eso la comparación es más corta que la de otros medicamentos." },
+      { "q": "¿Se puede dejar de tomar clonazepam de golpe?", "a": "No. La suspensión debe ser gradual y supervisada por tu médico para evitar síntomas de abstinencia." },
+      { "q": "¿El clonazepam genérico funciona igual?", "a": "Contiene el mismo activo en la misma dosis. El cambio entre presentaciones conviene comentarlo con tu médico tratante." }
+    ]
+  },
+
+  {
+    "med": "Naproxeno",
+    "titulo": "Naproxeno precio {{MES_ANIO}}: cuánto cuesta y dónde",
+    "h1": "Precio del naproxeno en México",
+    "metaDescription": "Naproxeno precio en México: desde {{MIN}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias y el genérico contra {{MARCA}}.",
+    "intro": "El naproxeno es el antiinflamatorio de elección para el dolor que dura, porque su efecto es más prolongado. También es donde la marca cobra más caro: la misma caja puede costar varias veces lo que el genérico.",
+    "respuesta": "La caja de {{DEST_CAJA}} se consigue desde {{DEST_MIN}} en {{DEST_BARATA}} y hasta {{DEST_MAX}}, {{DEST_AHORRO}} de diferencia. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las {{N_PRES}} presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "Genérico contra marca: la caja de {{MARCA_CAJA}} cuesta {{MARCA_GENERICO}} en genérico y {{MARCA_PRECIO}} como {{MARCA}} — {{MARCA_SOBREPRECIO}} más por el mismo activo.",
+      "Naproxeno y naproxeno sódico son el mismo medicamento; el sódico se absorbe un poco más rápido. Compara ambos antes de pagar.",
+      "La brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por caja; en {{BRECHA}} llega a {{BRECHA_PCT}}.",
+      "Para dolor de unos días basta la caja chica: es un antiinflamatorio, no un analgésico de uso diario."
+    ],
+    "receta": {
+      "estado": "Venta libre en dosis bajas",
+      "texto": "Las presentaciones de dosis baja se venden sin receta. Las de dosis alta y los tratamientos prolongados requieren indicación médica."
+    },
+    "paraQue": "El naproxeno es un antiinflamatorio no esteroideo de acción prolongada. Se usa en dolor menstrual, muscular, articular, de cabeza y en padecimientos reumáticos. Su ventaja frente al ibuprofeno es que dura más, así que se toma menos veces al día.",
+    "comoSeToma": "En adultos se toma cada 8 o cada 12 horas según la dosis, siempre con alimento. Para dolor menstrual conviene iniciarlo al primer síntoma en lugar de esperar a que el dolor esté instalado.",
+    "cuidados": [
+      "Siempre con comida: como todo antiinflamatorio, irrita la mucosa gástrica.",
+      "No lo combines con ibuprofeno, ketorolaco o diclofenaco.",
+      "Con hipertensión, enfermedad renal o antecedente de úlcera, consúltalo antes de usarlo.",
+      "Si necesitas tomarlo más de unos días seguidos, valora la causa del dolor en consulta."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el naproxeno en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Con todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿Es lo mismo el naproxeno genérico que {{MARCA}}?", "a": "Mismo activo y misma dosis. En la caja de {{MARCA_CAJA}}, la de marca cuesta {{MARCA_SOBREPRECIO}} más que la genérica." },
+      { "q": "¿Naproxeno o ibuprofeno para el dolor menstrual?", "a": "Los dos funcionan. El naproxeno dura más, así que se toma menos veces al día; el ibuprofeno actúa un poco más rápido. Ambos conviene iniciarlos al primer síntoma." },
+      { "q": "¿El naproxeno necesita receta?", "a": "Las presentaciones de dosis baja son de venta libre en México. Las de dosis alta deben usarse con indicación médica." },
+      { "q": "¿Cada cuánto se toma el naproxeno?", "a": "Cada 8 o 12 horas según la dosis, siempre con alimento y por el menor tiempo posible." }
+    ]
+  },
+
+  {
+    "med": "Losartán",
+    "titulo": "Losartán precio {{MES_ANIO}}: cuánto cuesta al mes",
+    "h1": "Precio del losartán en México",
+    "metaDescription": "Losartán precio en México: de {{MIN}} a {{MAX}}. Compara presentaciones entre {{N_FARMACIAS}} farmacias y calcula el costo mensual del tratamiento.",
+    "intro": "El losartán es de los antihipertensivos más recetados en México y se toma todos los días de por vida, así que el precio importa mes con mes. La caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}} según la farmacia.",
+    "respuesta": "La caja de {{DEST_CAJA}} cuesta desde {{DEST_MIN}} en {{DEST_BARATA}} y hasta {{DEST_MAX}}: {{DEST_AHORRO}} de diferencia por la misma tableta. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "Es tratamiento diario y permanente: la diferencia de {{DEST_AHORRO}} entre farmacias se repite cada mes del año.",
+      "Compara por {{UNIDAD}}, no por caja. A la misma dosis va de {{POR_UNIDAD_MIN}} a {{POR_UNIDAD_MAX}} según la presentación, y eso es lo que define tu gasto mensual.",
+      "El losartán genérico lleva el mismo activo que el de marca; pregunta por el genérico al surtir tu receta.",
+      "Si tu receta indica losartán con hidroclorotiazida, es otro producto y otro precio: confirma cuál te toca antes de pagar."
+    ],
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "El losartán se vende con receta médica en México. La receta puede surtirse varias veces según lo indique tu médico, y no se retiene."
+    },
+    "paraQue": "El losartán relaja los vasos sanguíneos y con eso baja la presión arterial. Se usa en hipertensión, en protección renal de personas con diabetes tipo 2 y en algunos pacientes con insuficiencia cardiaca.",
+    "comoSeToma": "Se toma una vez al día, a la misma hora, con o sin alimento. El efecto pleno sobre la presión tarda de tres a seis semanas en verse, así que no se juzga por la primera toma.",
+    "cuidados": [
+      "No lo suspendas porque tu presión ya está normal: está normal precisamente porque lo tomas.",
+      "Está contraindicado en el embarazo. Si estás embarazada o lo planeas, avísale a tu médico de inmediato.",
+      "Puede elevar el potasio: evita los sustitutos de sal y los suplementos de potasio salvo indicación médica.",
+      "Al inicio puede dar mareo al levantarte rápido; hazlo despacio los primeros días."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el losartán en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Entre las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿El losartán necesita receta?", "a": "Sí, es un medicamento de prescripción. La farmacia pedirá la receta médica, aunque no la retiene." },
+      { "q": "¿Dónde sale más barato el losartán?", "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones comparadas. Al ser tratamiento diario, conviene revisar el costo por {{UNIDAD}}." },
+      { "q": "¿A qué hora se toma el losartán?", "a": "Una vez al día, a la misma hora. La constancia importa más que la hora exacta; tu médico puede sugerir la noche si te da mareo." },
+      { "q": "¿Puedo dejar el losartán si mi presión ya está bien?", "a": "No sin indicarlo con tu médico. La presión está controlada gracias al medicamento, y suspenderlo suele hacerla subir de nuevo." }
+    ]
+  },
+
+  {
+    "med": "Diclofenaco",
+    "titulo": "Diclofenaco precio {{MES_ANIO}}: cuánto cuesta la caja",
+    "h1": "Precio del diclofenaco en México",
+    "metaDescription": "Diclofenaco precio en México: desde {{MIN}}. Compara {{N_PRES}} presentaciones entre {{N_FARMACIAS}} farmacias y checa el costo por {{UNIDAD}}.",
+    "intro": "El diclofenaco es uno de los antiinflamatorios más recetados para dolor muscular y articular, y su precio cambia mucho entre presentaciones y farmacias: la caja de {{DEST_CAJA}} va de {{DEST_MIN}} a {{DEST_MAX}}.",
+    "respuesta": "La caja de {{DEST_CAJA}} arranca en {{DEST_MIN}} en {{DEST_BARATA}} y llega hasta {{DEST_MAX}}, {{DEST_AHORRO}} de diferencia por el mismo activo. Sale a {{POR_UNIDAD}} por {{UNIDAD}}. Entre las {{N_PRES}} presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}.",
+    "comprar": [
+      "La brecha mediana entre farmacias es de {{AHORRO_MEDIANO}} por caja, y en {{BRECHA}} llega a {{BRECHA_PCT}}.",
+      "Tabletas, cápsulas de liberación prolongada, gel e inyectable tienen precios muy distintos: confirma cuál te indicaron.",
+      "Pídelo por sustancia. El genérico lleva el mismo activo en la misma dosis que la caja de marca.",
+      "Para dolor de unos días, la caja chica alcanza: el diclofenaco no es para tomarse a diario sin supervisión."
+    ],
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "El diclofenaco oral se vende con receta médica en México. El gel de uso tópico sí se consigue sin receta."
+    },
+    "paraQue": "El diclofenaco es un antiinflamatorio no esteroideo. Se usa en dolor musculoesquelético, lumbalgia, artritis, dolor postoperatorio y dolor menstrual intenso. El gel se aplica sobre la zona en golpes y contracturas.",
+    "comoSeToma": "Por vía oral se toma con alimento y por el menor tiempo posible. La dosis y la duración las indica el médico según el cuadro; el gel se aplica sobre piel íntegra y se lava las manos después.",
+    "cuidados": [
+      "Siempre con alimento: es de los antiinflamatorios que más irritan el estómago.",
+      "No lo combines con ibuprofeno, naproxeno ni ketorolaco.",
+      "En personas con riesgo cardiovascular, hipertensión o enfermedad renal debe usarse con precaución y supervisión.",
+      "Si el dolor persiste más de unos días, lo que hace falta es diagnóstico, no otra caja."
+    ],
+    "faqs": [
+      { "q": "¿Cuánto cuesta el diclofenaco en México?", "a": "La caja de {{DEST_CAJA}} cuesta entre {{DEST_MIN}} y {{DEST_MAX}} según la farmacia. Con todas las presentaciones comparadas, el rango va de {{MIN}} a {{MAX}}." },
+      { "q": "¿El diclofenaco necesita receta?", "a": "Las presentaciones orales sí requieren receta médica. El gel de uso tópico se consigue sin receta." },
+      { "q": "¿Dónde comprar diclofenaco más barato?", "a": "En el corte del {{FECHA}}, {{LIDER}} tenía el precio más bajo en {{LIDER_GANA}} de {{LIDER_DE}} presentaciones. La diferencia mediana entre farmacias es de {{AHORRO_MEDIANO}}." },
+      { "q": "¿Qué es más fuerte, diclofenaco o ibuprofeno?", "a": "El diclofenaco tiene un efecto antiinflamatorio más potente y por eso se usa en dolor musculoesquelético intenso; también tiene más riesgo gástrico y cardiovascular, así que se usa por periodos cortos." },
+      { "q": "¿Se puede tomar diclofenaco todos los días?", "a": "No sin indicación médica. Está pensado para tratamientos cortos; el uso prolongado requiere valoración por sus efectos gástricos, renales y cardiovasculares." }
+    ]
+  }
+]
