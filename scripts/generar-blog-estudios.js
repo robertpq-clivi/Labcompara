@@ -107,10 +107,10 @@ const CAMPOS_SIN_CIFRAS = ['titulo', 'h1', 'metaDescription', 'intro', 'respuest
 /**
  * Lo que sí puede llevar dígitos: unidades clínicas y nombres de panel. Se
  * admiten enumeraciones y rangos ("de 6, 27 y 35 elementos", "de 9 a 12
- * horas") porque el número solo tiene sentido pegado a su unidad, y ninguna de
- * esas unidades es un peso.
+ * horas") y los nombres químicos con cifra ("25-hidroxi"), porque el número
+ * solo tiene sentido pegado a lo que nombra, y nada de eso es un peso.
  */
-const CLINICO = /\d+(?:\.\d+)?(?:\s*(?:,|y|a)\s*\d+(?:\.\d+)?)*\s*(?:mg\/dL|mg|ml|horas?|años|elementos)\b/gi;
+const CLINICO = /\d+(?:\.\d+)?(?:\s*(?:,|y|a)\s*\d+(?:\.\d+)?)*[\s-]*(?:mg\/dL|mg|ml|horas?|años|elementos|hidroxi|dihidroxi)\b/gi;
 
 /** Campos que describen la estructura de la página, no su prosa. */
 const ESTRUCTURA = ['tipo', 'slug', 'estudio', 'corto', 'articulo', 'ciudad', 'tambien', 'canasta', 'canastaTambien'];

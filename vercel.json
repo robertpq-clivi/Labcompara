@@ -73,6 +73,16 @@
   ],
   "redirects": [
     {
+      "source": "/blog/cuanto-cuestan-los-estudios-medicos-en-mexico",
+      "destination": "/blog/estudios-laboratorio-precios-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuanto-cuestan-estudios-medicos-mexico",
+      "destination": "/blog/estudios-laboratorio-precios-mexico",
+      "permanent": true
+    },
+    {
       "source": "/pages/:slug",
       "destination": "/:slug",
       "permanent": true

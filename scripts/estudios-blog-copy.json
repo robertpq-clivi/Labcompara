@@ -607,5 +607,544 @@
         "a": "Cada semana, con el scan del {{FECHA}} como corte más reciente."
       }
     ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-acido-urico-mexico",
+    "estudio": "Ácido Úrico",
+    "corto": "examen de ácido úrico",
+    "articulo": "el",
+    "titulo": "Ácido úrico precio {{MES_ANIO}}: cuánto cuesta el examen",
+    "h1": "Precio del examen de ácido úrico en México",
+    "metaDescription": "Examen de ácido úrico: de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios, con precios actualizados cada semana.",
+    "intro": "El ácido úrico es de los estudios más baratos del catálogo y, aun así, cuesta {{VECES}} veces más en un laboratorio que en otro: de {{MIN}} a {{MAX}}.",
+    "respuesta": "El examen de ácido úrico cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican. Antes de pagarlo suelto, revisa si la química sanguínea que te pidieron ya lo incluye.",
+    "porQueVaria": [
+      "Es un estudio de costo bajo, así que el precio depende casi por completo de la política de cada cadena.",
+      "Viene incluido en la química sanguínea de 27 elementos en adelante: pagarlo aparte suele ser innecesario.",
+      "El ácido úrico en orina de 24 horas es otro estudio y cuesta bastante más; confirma cuál te pidieron.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "El ácido úrico es el producto final del metabolismo de las purinas. Se mide para diagnosticar y dar seguimiento a la gota, para valorar cálculos renales y como parte del control metabólico en personas con síndrome metabólico o enfermedad renal.",
+    "preparacion": "Se recomienda ayuno de 8 a 12 horas. Conviene evitar carnes rojas, mariscos, vísceras y alcohol las 24 horas previas: suben el ácido úrico y pueden dar un resultado alto que no refleja tu nivel habitual.",
+    "elegir": [
+      "Revisa si tu química sanguínea ya lo incluye antes de pagarlo suelto.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de ácido úrico?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Necesito ayuno para el ácido úrico?",
+        "a": "Sí, de 8 a 12 horas. Y conviene evitar carnes rojas, mariscos y alcohol el día anterior, porque elevan el resultado."
+      },
+      {
+        "q": "¿Cuál es el nivel normal de ácido úrico?",
+        "a": "En general, hasta 7 mg/dL en hombres y 6 mg/dL en mujeres, aunque el rango varía por laboratorio. La interpretación la hace tu médico."
+      },
+      {
+        "q": "¿Conviene pagarlo suelto o dentro de la química sanguínea?",
+        "a": "La química sanguínea de 27 elementos en adelante ya lo incluye. Si te pidieron ambos, no lo pagues dos veces."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-creatinina-mexico",
+    "estudio": "Creatinina Sérica",
+    "corto": "creatinina",
+    "articulo": "la",
+    "titulo": "Creatinina precio {{MES_ANIO}}: cuánto cuesta el examen",
+    "h1": "Precio del examen de creatinina en México",
+    "metaDescription": "Examen de creatinina: de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios y revisa si tu química sanguínea ya lo incluye.",
+    "intro": "La creatinina es el marcador básico de función renal y uno de los estudios donde más se nota no comparar: va de {{MIN}} a {{MAX}} por la misma medición.",
+    "respuesta": "La creatinina sérica cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}: {{AHORRO_PCT}} de diferencia. La mediana de los {{N_LABS}} laboratorios que la publican está en {{MEDIANA}}.",
+    "porQueVaria": [
+      "Es un estudio de rutina y bajo costo: la diferencia entre cadenas es casi toda política de precio, no de método.",
+      "Viene incluida en la química sanguínea desde la versión de 6 elementos.",
+      "La depuración de creatinina en orina de 24 horas es otro estudio, mucho más caro y con recolección de por medio.",
+      "Algunos laboratorios reportan además la tasa de filtrado glomerular sin costo extra; otros la cobran."
+    ],
+    "queEs": "La creatinina es un producto de desecho del músculo que el riñón filtra. Su nivel en sangre es el indicador más usado de función renal, y a partir de él se calcula la tasa de filtrado glomerular. Se pide en control de diabetes, hipertensión, enfermedad renal y antes de estudios con medio de contraste.",
+    "preparacion": "No requiere ayuno estricto salvo que se tome junto con otros estudios metabólicos. Evita el ejercicio intenso y el consumo alto de carne el día anterior: los dos elevan la creatinina de forma transitoria.",
+    "elegir": [
+      "Revisa si la química sanguínea que te pidieron ya la incluye.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de creatinina?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Necesito ayuno para la creatinina?",
+        "a": "No es indispensable, aunque conviene si el mismo día te harás glucosa o perfil de lípidos. Evita ejercicio intenso y mucha carne el día anterior."
+      },
+      {
+        "q": "¿Para qué sirve medir la creatinina?",
+        "a": "Es el marcador básico de función renal. Con ella se calcula la tasa de filtrado glomerular, que es lo que indica qué tan bien está trabajando el riñón."
+      },
+      {
+        "q": "¿Es lo mismo creatinina que depuración de creatinina?",
+        "a": "No. La creatinina sérica se mide en una muestra de sangre; la depuración requiere recolectar la orina de 24 horas y cuesta bastante más."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-examen-general-orina-mexico",
+    "estudio": "Examen General de Orina (EGO)",
+    "corto": "examen general de orina",
+    "articulo": "el",
+    "titulo": "Examen general de orina precio {{MES_ANIO}}: cuánto cuesta",
+    "h1": "Precio del examen general de orina en México",
+    "metaDescription": "Examen general de orina (EGO): de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios y cómo recolectar bien la muestra.",
+    "intro": "El examen general de orina es de los estudios más pedidos en consulta y de los más baratos, pero la brecha entre laboratorios sigue siendo de {{AHORRO_PCT}}: de {{MIN}} a {{MAX}}.",
+    "respuesta": "El EGO cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican.",
+    "porQueVaria": [
+      "Es un estudio de rutina y de procesamiento rápido: el precio lo fija la política de cada cadena.",
+      "El urocultivo es otro estudio, más caro y con días de espera; el EGO no lo sustituye.",
+      "Algunos laboratorios cobran aparte el frasco estéril.",
+      "Suele venir incluido en los paquetes de check up, donde sale mejor que suelto."
+    ],
+    "queEs": "El examen general de orina analiza el aspecto, la composición química y el sedimento de la orina. Detecta infección urinaria, sangre, proteínas, glucosa y cristales, y por eso se pide tanto en chequeos generales como ante síntomas urinarios.",
+    "preparacion": "Se recomienda la primera orina de la mañana, tomada a la mitad del chorro y en frasco estéril, tras higiene de la zona. Evita tomarla durante la menstruación y avisa si tomas antibiótico o vitamina C en dosis alta: los dos alteran el resultado.",
+    "elegir": [
+      "Pregunta si el frasco estéril está incluido en el precio.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen general de orina?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Cómo debo recolectar la muestra?",
+        "a": "Con la primera orina de la mañana, a la mitad del chorro, en frasco estéril y después de asearte. Llévala al laboratorio dentro de las dos horas siguientes."
+      },
+      {
+        "q": "¿El EGO detecta infección urinaria?",
+        "a": "Da indicios claros —leucocitos, nitritos, bacterias—, pero para identificar la bacteria y su tratamiento se necesita urocultivo, que es otro estudio."
+      },
+      {
+        "q": "¿Puedo hacerme el EGO durante la menstruación?",
+        "a": "Es mejor esperar. La sangre menstrual contamina la muestra y suele obligar a repetir el estudio."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-hemoglobina-glucosilada-mexico",
+    "estudio": "Hemoglobina Glicosilada (HbA1c)",
+    "corto": "hemoglobina glucosilada",
+    "articulo": "la",
+    "titulo": "Hemoglobina glucosilada precio {{MES_ANIO}}: cuánto cuesta",
+    "h1": "Precio de la hemoglobina glucosilada (HbA1c)",
+    "metaDescription": "Hemoglobina glucosilada HbA1c: de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios. No requiere ayuno.",
+    "intro": "La hemoglobina glucosilada es el estudio que refleja tu promedio de glucosa de los últimos tres meses, y quien vive con diabetes lo repite varias veces al año. Va de {{MIN}} a {{MAX}}.",
+    "respuesta": "La HbA1c cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados. Como es estudio de control trimestral, la diferencia se paga varias veces al año.",
+    "porQueVaria": [
+      "Requiere un método estandarizado y más caro que una glucosa simple, por eso el piso de precio es más alto.",
+      "Varios laboratorios la incluyen en paquetes de control de diabetes, donde suele salir mejor que suelta.",
+      "Algunos reportan además la glucosa promedio estimada sin costo extra.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "La hemoglobina glucosilada mide qué porcentaje de tu hemoglobina lleva glucosa pegada, y como el glóbulo rojo vive unos tres meses, refleja el promedio de ese periodo. Es el estudio estándar para diagnosticar diabetes y, sobre todo, para saber si el tratamiento está funcionando.",
+    "preparacion": "No requiere ayuno y puede tomarse a cualquier hora: es su gran ventaja frente a la glucosa en ayunas. Avisa si tienes anemia, hemoglobinopatías o recibiste transfusión reciente, porque alteran el resultado.",
+    "elegir": [
+      "No pagues glucosa en ayunas y HbA1c por separado si tu médico solo quiere control: la HbA1c ya da el panorama.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la hemoglobina glucosilada?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Necesito ayuno para la HbA1c?",
+        "a": "No. Puede tomarse a cualquier hora del día y sin ayuno, porque mide un promedio de tres meses y no el momento."
+      },
+      {
+        "q": "¿Cada cuánto debo hacerme la hemoglobina glucosilada?",
+        "a": "Cada tres a seis meses en personas con diabetes, según qué tan estable esté el control. Tu médico define la frecuencia."
+      },
+      {
+        "q": "¿Qué diferencia hay entre HbA1c y glucosa en ayunas?",
+        "a": "La glucosa en ayunas es una foto de ese momento; la HbA1c es el promedio de los últimos tres meses. Por eso la segunda sirve para evaluar el tratamiento."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-insulina-mexico",
+    "estudio": "Insulina Basal",
+    "corto": "examen de insulina",
+    "articulo": "el",
+    "titulo": "Insulina en sangre precio {{MES_ANIO}}: cuánto cuesta",
+    "h1": "Precio del examen de insulina en México",
+    "metaDescription": "Examen de insulina basal: de {{MIN}} a {{MAX}} según el laboratorio. Compara {{N_LABS}} laboratorios y para qué sirve medir la resistencia a la insulina.",
+    "intro": "El examen de insulina se volvió de los más pedidos por el auge de la resistencia a la insulina, y es donde la brecha entre laboratorios se dispara: {{AHORRO_PCT}}, de {{MIN}} a {{MAX}}.",
+    "respuesta": "La insulina basal cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que la publican. Por sí sola dice poco: se interpreta junto con la glucosa del mismo momento.",
+    "porQueVaria": [
+      "Se procesa por inmunoensayo, bastante más caro que un estudio de química de rutina.",
+      "No todos los laboratorios lo hacen en sitio; los que lo envían a maquila lo cobran más.",
+      "La curva de insulina, con varias tomas, es otro estudio y cuesta varias veces esto.",
+      "Suele pedirse junto con glucosa para calcular el índice HOMA, que muchos laboratorios reportan sin costo extra."
+    ],
+    "queEs": "La insulina basal mide la hormona que produce el páncreas en ayunas. Se solicita para evaluar resistencia a la insulina, en estudio de síndrome de ovario poliquístico, en obesidad y en prediabetes. Su valor se interpreta siempre junto con la glucosa de la misma muestra.",
+    "preparacion": "Ayuno de 8 a 12 horas, solo agua simple. Toma la muestra por la mañana y evita el ejercicio intenso el día anterior. Menciona si usas metformina u otro medicamento que afecte la glucosa.",
+    "elegir": [
+      "Pídela junto con glucosa en la misma muestra: sola no permite calcular el índice HOMA.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de insulina?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Necesito ayuno para el examen de insulina?",
+        "a": "Sí, de 8 a 12 horas con agua simple. Sin ayuno el valor no es interpretable como insulina basal."
+      },
+      {
+        "q": "¿Sirve para diagnosticar resistencia a la insulina?",
+        "a": "Es una de las piezas. La resistencia se valora con la insulina y la glucosa del mismo momento, junto con tu cuadro clínico; el índice HOMA sale de esos dos valores."
+      },
+      {
+        "q": "¿Es lo mismo insulina basal que curva de insulina?",
+        "a": "No. La basal es una sola toma en ayunas; la curva son varias tomas tras una carga de glucosa y cuesta bastante más."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-perfil-hormonal-femenino-mexico",
+    "estudio": "Perfil Hormonal Femenino",
+    "corto": "perfil hormonal femenino",
+    "articulo": "el",
+    "titulo": "Perfil hormonal femenino precio {{MES_ANIO}}: cuánto cuesta",
+    "h1": "Precio del perfil hormonal femenino en México",
+    "metaDescription": "Perfil hormonal femenino: de {{MIN}} a {{MAX}} según el laboratorio. Qué incluye, en qué día del ciclo tomarlo y dónde sale más barato.",
+    "intro": "El perfil hormonal femenino es de los estudios con mayor brecha de todo el catálogo: {{AHORRO_PCT}} entre el laboratorio más barato y el más caro, de {{MIN}} a {{MAX}}.",
+    "respuesta": "El perfil hormonal femenino cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican. Es la diferencia más grande del catálogo, así que aquí comparar cambia de verdad la cuenta.",
+    "porQueVaria": [
+      "Cada laboratorio arma un perfil distinto: unos traen cuatro hormonas y otros ocho. Revisa la lista antes de comparar precios.",
+      "Todas se procesan por inmunoensayo, el método caro, y el número de hormonas multiplica el costo.",
+      "El día del ciclo en que se toma cambia qué hormonas tienen sentido medir, no el precio: pedir de más es la forma más común de pagar de más.",
+      "La prolactina y la AMH suelen ir aparte y suben bastante el total."
+    ],
+    "queEs": "El perfil hormonal femenino agrupa las hormonas que regulan el ciclo: FSH, LH, estradiol, progesterona y con frecuencia prolactina y testosterona. Se solicita en estudio de infertilidad, ciclos irregulares, sospecha de ovario poliquístico y valoración de menopausia.",
+    "preparacion": "El día del ciclo importa más que el ayuno: FSH, LH y estradiol suelen tomarse entre el día 2 y el 5, y la progesterona alrededor del día 21. Conviene ir en ayunas y por la mañana. La prolactina pide reposo previo y evitar estimulación mamaria las 24 horas anteriores.",
+    "elegir": [
+      "Lleva la lista exacta de hormonas que te pidieron: el paquete del laboratorio suele traer de más.",
+      "Confirma en qué día del ciclo debes acudir antes de agendar.",
+      "Pregunta si la prolactina y la AMH están incluidas o se cobran aparte.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el perfil hormonal femenino?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}}. Es la brecha más ancha del catálogo: {{AHORRO_PCT}}."
+      },
+      {
+        "q": "¿Qué incluye el perfil hormonal femenino?",
+        "a": "Habitualmente FSH, LH, estradiol y progesterona, y según el laboratorio también prolactina y testosterona. Conviene pedir el desglose."
+      },
+      {
+        "q": "¿En qué día del ciclo debo hacérmelo?",
+        "a": "FSH, LH y estradiol suelen tomarse entre el día 2 y el 5 del ciclo; la progesterona cerca del día 21. Tu médico indica cuál aplica en tu caso."
+      },
+      {
+        "q": "¿Necesito ayuno?",
+        "a": "Se recomienda acudir en ayunas y por la mañana, porque varias de estas hormonas cambian a lo largo del día."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-prueba-embarazo-sangre-mexico",
+    "estudio": "Prueba de Embarazo en Sangre (Beta-HCG)",
+    "corto": "prueba de embarazo en sangre",
+    "articulo": "la",
+    "titulo": "Prueba de embarazo en sangre precio {{MES_ANIO}}",
+    "h1": "Precio de la prueba de embarazo en sangre",
+    "metaDescription": "Prueba de embarazo en sangre (Beta-HCG): de {{MIN}} a {{MAX}} según el laboratorio. Cuándo hacerla, cuánto tarda y dónde sale más barata.",
+    "intro": "La prueba de embarazo en sangre detecta antes y con más certeza que la de farmacia, y su precio va de {{MIN}} a {{MAX}} según a qué laboratorio entres.",
+    "respuesta": "La Beta-HCG en sangre cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados.",
+    "porQueVaria": [
+      "La cualitativa —dice sí o no— es más barata que la cuantitativa, que reporta el nivel exacto. Confirma cuál te pidieron.",
+      "Varios laboratorios la entregan el mismo día, y el servicio urgente se cobra aparte.",
+      "Es de las pocas pruebas que no requieren preparación, así que el precio es todo el criterio junto con la rapidez.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "La Beta-HCG mide en sangre la hormona que produce el embarazo. La versión cualitativa confirma si hay embarazo; la cuantitativa da el nivel exacto, que sirve para estimar tiempo de gestación y para dar seguimiento cuando el médico necesita ver cómo evoluciona.",
+    "preparacion": "No requiere ayuno ni preparación. Puede detectar el embarazo desde unos ocho a diez días después de la concepción, antes que una prueba de orina. Si el resultado sale negativo y la sospecha sigue, se repite unos días después.",
+    "elegir": [
+      "Confirma si necesitas la cualitativa o la cuantitativa: el precio y la utilidad son distintos.",
+      "Pregunta el tiempo de entrega si la necesitas el mismo día.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la prueba de embarazo en sangre?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Desde cuándo detecta el embarazo?",
+        "a": "Desde unos ocho a diez días después de la concepción, antes que una prueba de orina de farmacia."
+      },
+      {
+        "q": "¿Necesito ayuno o preparación?",
+        "a": "No. Se toma a cualquier hora y sin ayuno."
+      },
+      {
+        "q": "¿Cuál es la diferencia entre cualitativa y cuantitativa?",
+        "a": "La cualitativa responde si hay embarazo o no; la cuantitativa da el valor exacto de la hormona, útil para estimar el tiempo de gestación y dar seguimiento."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-prueba-vih-mexico",
+    "estudio": "Prueba de VIH",
+    "corto": "prueba de VIH",
+    "articulo": "la",
+    "titulo": "Prueba de VIH precio {{MES_ANIO}}: cuánto cuesta y dónde",
+    "h1": "Precio de la prueba de VIH en México",
+    "metaDescription": "Prueba de VIH: de {{MIN}} a {{MAX}} en laboratorio privado. También existe gratuita en el sector público. Periodo de ventana y confidencialidad.",
+    "intro": "La prueba de VIH en laboratorio privado va de {{MIN}} a {{MAX}}. Antes de pagarla, conviene saber que en México existe gratuita y confidencial en centros de salud y en los CAPASITS.",
+    "respuesta": "La prueba de VIH cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios privados comparados. En el sector público es gratuita, anónima y confidencial.",
+    "porQueVaria": [
+      "La prueba de cuarta generación, que detecta antígeno y anticuerpos, cuesta más que la de anticuerpos sola y acorta el periodo de ventana.",
+      "La carga viral y la prueba confirmatoria son estudios distintos y mucho más caros.",
+      "Varios laboratorios ofrecen resultado el mismo día con costo adicional.",
+      "En el sector público es gratuita: los centros de salud y los CAPASITS la aplican sin costo y de forma confidencial."
+    ],
+    "queEs": "La prueba de VIH busca anticuerpos contra el virus y, en las de cuarta generación, también el antígeno p24, que aparece antes. Un resultado reactivo siempre requiere una prueba confirmatoria: ninguna prueba de tamizaje diagnostica por sí sola.",
+    "preparacion": "No requiere ayuno. Lo que sí importa es el periodo de ventana: las pruebas de cuarta generación son confiables desde unas dos a seis semanas después de la exposición, y las de anticuerpos pueden requerir hasta tres meses. Si la exposición fue reciente, coméntalo para elegir la prueba correcta.",
+    "elegir": [
+      "Pregunta si es de cuarta generación: acorta el periodo de ventana.",
+      "Considera la opción gratuita del sector público, que además es anónima.",
+      "Un resultado reactivo necesita prueba confirmatoria; pregunta si está incluida.",
+      "Confirma que el precio de lista incluya la toma de muestra."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta la prueba de VIH en México?",
+        "a": "En laboratorio privado, de {{MIN}} a {{MAX}} según el laboratorio, con mediana en {{MEDIANA}}. En centros de salud y CAPASITS es gratuita."
+      },
+      {
+        "q": "¿Dónde puedo hacerme la prueba de VIH gratis?",
+        "a": "En centros de salud del sector público y en los CAPASITS, de forma gratuita, confidencial y sin necesidad de receta."
+      },
+      {
+        "q": "¿Cuánto tiempo debo esperar después de una exposición?",
+        "a": "Las pruebas de cuarta generación son confiables desde unas dos a seis semanas; las de anticuerpos pueden requerir hasta tres meses. Coméntalo al agendar."
+      },
+      {
+        "q": "¿El resultado es confidencial?",
+        "a": "Sí. El resultado es personal y confidencial, tanto en laboratorio privado como en el sector público."
+      },
+      {
+        "q": "¿Un resultado positivo es definitivo?",
+        "a": "No. Toda prueba de tamizaje reactiva requiere una prueba confirmatoria antes de cualquier diagnóstico."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-pruebas-funcion-hepatica-mexico",
+    "estudio": "Perfil Hepático",
+    "corto": "pruebas de función hepática",
+    "articulo": "las",
+    "titulo": "Pruebas de función hepática precio {{MES_ANIO}}",
+    "h1": "Precio de las pruebas de función hepática",
+    "metaDescription": "Perfil hepático: de {{MIN}} a {{MAX}} según el laboratorio. Qué incluye, si requiere ayuno y dónde sale más barato. Actualizado cada semana.",
+    "intro": "Las pruebas de función hepática son de los paneles con mayor dispersión de precio del catálogo: {{AHORRO_PCT}} entre el más barato y el más caro, de {{MIN}} a {{MAX}}.",
+    "respuesta": "El perfil hepático cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que lo publican como panel completo.",
+    "porQueVaria": [
+      "Cada laboratorio arma su panel: unos traen cinco parámetros y otros diez. La diferencia de precio suele ser diferencia de contenido.",
+      "Varias enzimas hepáticas ya vienen en la química sanguínea de 27 elementos en adelante.",
+      "Las pruebas de hepatitis son estudios aparte, no forman parte del perfil hepático.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "El perfil hepático agrupa enzimas y sustancias que reflejan cómo está trabajando el hígado: TGO (AST), TGP (ALT), fosfatasa alcalina, GGT, bilirrubinas, proteínas totales y albúmina. Se solicita ante sospecha de daño hepático, para control de medicamentos que lo afectan y en chequeos generales.",
+    "preparacion": "Ayuno de 8 a 12 horas con agua simple. Evita el alcohol al menos 72 horas antes: es la causa más común de un resultado alterado que no refleja tu estado habitual. Menciona todos los medicamentos y suplementos que tomas.",
+    "elegir": [
+      "Compara el mismo panel: dos perfiles hepáticos con el mismo nombre no siempre traen lo mismo.",
+      "Revisa si tu química sanguínea ya incluye varias de estas enzimas.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuestan las pruebas de función hepática?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Qué incluye el perfil hepático?",
+        "a": "Habitualmente TGO, TGP, fosfatasa alcalina, GGT, bilirrubinas, proteínas totales y albúmina. El contenido exacto varía por laboratorio."
+      },
+      {
+        "q": "¿Necesito ayuno?",
+        "a": "Sí, de 8 a 12 horas. Y conviene no tomar alcohol durante los tres días previos, porque altera las enzimas hepáticas."
+      },
+      {
+        "q": "¿El perfil hepático detecta hepatitis?",
+        "a": "Muestra si hay daño o inflamación del hígado, pero no identifica el virus. Para eso se piden las pruebas serológicas de hepatitis, que son estudios aparte."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-testosterona-mexico",
+    "estudio": "Testosterona Total",
+    "corto": "examen de testosterona",
+    "articulo": "el",
+    "titulo": "Testosterona precio {{MES_ANIO}}: cuánto cuesta el examen",
+    "h1": "Precio del examen de testosterona en México",
+    "metaDescription": "Testosterona total: de {{MIN}} a {{MAX}} según el laboratorio. A qué hora tomarla, qué la altera y dónde sale más barato.",
+    "intro": "El examen de testosterona tiene la mayor dispersión de precio del catálogo comparado: {{AHORRO_PCT}} entre laboratorios, de {{MIN}} a {{MAX}} por la misma medición.",
+    "respuesta": "La testosterona total cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que la publican. Es {{VECES}} veces de diferencia: aquí comparar es lo que más ahorra de todo el catálogo.",
+    "porQueVaria": [
+      "Se procesa por inmunoensayo y no todos los laboratorios lo hacen en sitio.",
+      "La testosterona libre y la biodisponible son estudios distintos y más caros que la total.",
+      "El horario de toma importa: varios laboratorios solo la procesan en el turno matutino.",
+      "Suele pedirse junto con otras hormonas, y ahí los paquetes cambian bastante de precio."
+    ],
+    "queEs": "La testosterona total mide la hormona circulante, unida a proteínas y libre. Se solicita ante sospecha de déficit —fatiga, baja libido, pérdida de masa muscular—, en estudio de infertilidad, y en mujeres para valorar hirsutismo o sospecha de ovario poliquístico.",
+    "preparacion": "Toma la muestra por la mañana, idealmente entre las 7 y las 10, porque el nivel es más alto al despertar y cae durante el día. Se recomienda ayuno. Avisa si tomas biotina: altera el inmunoensayo y puede dar un resultado falso.",
+    "elegir": [
+      "Confirma si te pidieron total, libre o biodisponible: son estudios y precios distintos.",
+      "Agenda por la mañana; una muestra vespertina puede sugerir un déficit que no existe.",
+      "Suspende la biotina de los suplementos según indique el laboratorio.",
+      "Para seguimiento, repite en el mismo laboratorio: los rangos de referencia cambian entre uno y otro."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de testosterona?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}}. La diferencia entre laboratorios es de {{AHORRO_PCT}}, la mayor del catálogo."
+      },
+      {
+        "q": "¿A qué hora debo hacerme el examen de testosterona?",
+        "a": "Por la mañana, idealmente entre las 7 y las 10. El nivel es más alto al despertar y baja a lo largo del día."
+      },
+      {
+        "q": "¿Necesito ayuno?",
+        "a": "Se recomienda acudir en ayunas y por la mañana para que el valor sea comparable con los rangos de referencia."
+      },
+      {
+        "q": "¿Es lo mismo testosterona total que libre?",
+        "a": "No. La total incluye la unida a proteínas; la libre mide solo la fracción activa y es un estudio distinto y más caro."
+      }
+    ]
+  },
+  {
+    "tipo": "estudio",
+    "slug": "precio-vitamina-d-mexico",
+    "estudio": "Vitamina D (25-Hidroxi)",
+    "corto": "examen de vitamina D",
+    "articulo": "el",
+    "titulo": "Vitamina D precio {{MES_ANIO}}: cuánto cuesta el examen",
+    "h1": "Precio del examen de vitamina D en México",
+    "metaDescription": "Vitamina D 25-hidroxi: de {{MIN}} a {{MAX}} según el laboratorio. Cuál pedir, cuándo repetirla y dónde sale más barata.",
+    "intro": "El examen de vitamina D se volvió de los más solicitados de los últimos años, y también de los más caros: va de {{MIN}} a {{MAX}}, {{AHORRO_PCT}} de diferencia entre laboratorios.",
+    "respuesta": "La vitamina D 25-hidroxi cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios que la publican. Al ser de precio alto y repetirse en control, comparar aquí pesa el doble.",
+    "porQueVaria": [
+      "Es un inmunoensayo caro y no todos los laboratorios lo procesan en sitio.",
+      "Hay dos estudios con nombre parecido: la 25-hidroxi es la que se pide para saber tu nivel; la 1,25-dihidroxi es para casos específicos y cuesta bastante más.",
+      "Varios laboratorios la incluyen en paquetes de salud ósea junto con calcio y PTH.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "La vitamina D 25-hidroxi es la forma que refleja tus reservas. Se mide ante sospecha de deficiencia —fatiga, dolor óseo o muscular, caídas frecuentes—, en osteoporosis, en enfermedad renal y para dar seguimiento a quien ya toma suplemento.",
+    "preparacion": "No requiere ayuno. Si tomas suplemento de vitamina D, pregunta a tu médico si debes suspenderlo antes; para control de tratamiento suele medirse después de tres meses de suplementación. La biotina de los suplementos para cabello y uñas puede alterar el resultado.",
+    "elegir": [
+      "Verifica que sea la 25-hidroxi y no la 1,25-dihidroxi: es el error de pedido más caro de este estudio.",
+      "Si es control de suplementación, respeta el tiempo que indique tu médico antes de repetirla.",
+      "Confirma que el precio de lista incluya la toma de muestra.",
+      "Revisa el tiempo de entrega y si el resultado llega en app."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta el examen de vitamina D?",
+        "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
+      },
+      {
+        "q": "¿Cuál examen de vitamina D debo pedir?",
+        "a": "La 25-hidroxi vitamina D. Es la que refleja tus reservas. La 1,25-dihidroxi se reserva para casos específicos y cuesta bastante más."
+      },
+      {
+        "q": "¿Necesito ayuno para la vitamina D?",
+        "a": "No. Puede tomarse a cualquier hora y sin ayuno."
+      },
+      {
+        "q": "¿Cada cuánto debo repetirla?",
+        "a": "Si estás en tratamiento, lo habitual es repetirla a los tres meses de iniciar el suplemento. Fuera de eso, la frecuencia la define tu médico."
+      }
+    ]
+  },
+  {
+    "tipo": "canasta",
+    "slug": "precio-examen-sangre-completo-mexico",
+    "corto": "examen de sangre completo",
+    "articulo": "un",
+    "canasta": {
+      "nombre": "Examen de sangre completo",
+      "estudios": [
+        "Biometría Hemática",
+        "Química Sanguínea 27 Elementos",
+        "Perfil de Lípidos"
+      ]
+    },
+    "titulo": "Examen de sangre completo precio {{MES_ANIO}}",
+    "h1": "Precio del examen de sangre completo en México",
+    "metaDescription": "Un examen de sangre completo cuesta de {{MIN}} a {{MAX}} según el laboratorio. Qué incluye realmente y cómo compararlo entre {{N_LABS}} laboratorios.",
+    "intro": "«Examen de sangre completo» no es un estudio: es un conjunto que cada laboratorio arma distinto. Los {{N_ESTUDIOS}} que casi siempre lo componen cuestan de {{MIN}} a {{MAX}} según dónde te los hagas.",
+    "respuesta": "Lo que la gente llama examen de sangre completo suele ser {{ESTUDIOS}}. Esa canasta cuesta desde {{MIN}} en {{BARATO}} y hasta {{MAX}} en {{CARO}}: {{AHORRO_PCT}} de diferencia por los mismos estudios. Solo entran los {{N_LABS}} laboratorios que publican precio de los tres.",
+    "porQueVaria": [
+      "El nombre no está estandarizado: cada laboratorio decide qué mete en su «examen completo», y por eso dos precios no siempre comparan lo mismo.",
+      "La versión de la química sanguínea es lo que más mueve el total: entre la de 6 y la de 27 elementos hay una diferencia grande.",
+      "Si solo necesitas la biometría hemática, pedir el paquete completo es pagar de más.",
+      "El precio de lista no siempre incluye la toma de muestra."
+    ],
+    "queEs": "Un examen de sangre completo, en la práctica, es la biometría hemática —que revisa glóbulos rojos, blancos y plaquetas— más la química sanguínea, que mide glucosa, función renal, hepática y ácido úrico, y el perfil de lípidos, que evalúa el riesgo cardiovascular. Con esos tres se cubre lo que un chequeo general busca detectar en sangre.",
+    "preparacion": "Ayuno de 8 a 12 horas con agua simple, sin alcohol las 24 horas previas ni ejercicio intenso el día anterior. Los tres estudios salen de la misma toma, así que un solo ayuno basta.",
+    "elegir": [
+      "Pide el desglose antes de pagar: «completo» significa cosas distintas en cada laboratorio.",
+      "Verifica qué versión de la química sanguínea incluye el paquete.",
+      "Si tu médico pidió estudios concretos, arma tu lista en vez de comprar el paquete.",
+      "Para seguimiento anual, repite en el mismo laboratorio."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta un examen de sangre completo?",
+        "a": "La canasta de {{N_ESTUDIOS}} estudios cuesta de {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, según el laboratorio."
+      },
+      {
+        "q": "¿Qué incluye un examen de sangre completo?",
+        "a": "En esta comparación: {{ESTUDIOS}}. No es un nombre estandarizado, así que conviene pedir el desglose del paquete de cada laboratorio."
+      },
+      {
+        "q": "¿Necesito ayuno?",
+        "a": "Sí, de 8 a 12 horas con agua simple. Los tres estudios se toman de la misma muestra."
+      },
+      {
+        "q": "¿Es lo mismo que una biometría hemática?",
+        "a": "No. La biometría hemática es solo uno de los estudios del conjunto; sola cuesta bastante menos y responde preguntas distintas."
+      }
+    ]
   }
 ]
