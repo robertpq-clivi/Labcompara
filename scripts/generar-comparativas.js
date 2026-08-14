@@ -204,7 +204,7 @@ function schemas(h, c, url, fecha) {
 
 function pagina(h, c, todos, meta) {
   const url    = `${BASE}/blog/${h.slug}`;
-  const titulo = `${h.a} vs ${h.b}: Precios de Estudios ${meta.anio} | Medcompara`;
+  const titulo = `${h.a} vs ${h.b}: Precios de Estudios ${meta.mesAnio} | Medcompara`;
 
   const head = HEAD
     .replace(/{{TITULO}}/g, esc(titulo))
@@ -281,9 +281,14 @@ ${relacionados(h, todos)}
 
 const datos = cargarPrecios();
 const fechaScan = new Date(datos.generado);
+// El mes sale de la fecha del scan y no del reloj: en el title le dice al
+// usuario que el precio se verificó hace poco, y estas páginas se regeneran
+// cada domingo, así que la promesa se sostiene. Si el scan se cae, el título
+// se queda en el mes real de los datos en vez de anunciar uno nuevo.
 const meta = {
   fecha: datos.generado.slice(0, 10),
   anio: fechaScan.getFullYear(),
+  mesAnio: `${fechaScan.toLocaleDateString('es-MX', { month: 'long' })} ${fechaScan.getFullYear()}`,
   fechaLarga: fechaScan.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }),
 };
 
