@@ -144,7 +144,7 @@ function revisarCifras() {
       ahorroMax = Math.max(ahorroMax, Math.round(((max - min) / max) * 100));
     }
     const txt = fs.readFileSync(path.join(ROOT, 'pages', 'medicamentos.html'), 'utf8');
-    for (const m of txt.matchAll(/hasta por (\d{1,2})% menos/g)) {
+    for (const m of txt.matchAll(/hasta (?:por )?(\d{1,2})% menos/g)) {
       const n = Number(m[1]);
       if (n > ahorroMax) malas.push(`pages/medicamentos.html: promete "hasta ${n}%" y el ahorro máximo real es ${ahorroMax}%`);
     }
