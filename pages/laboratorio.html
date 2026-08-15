@@ -299,7 +299,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
 
 <a href="#main-content" style="position:absolute;left:-9999px;top:0;z-index:9999;padding:8px 16px;background:var(--teal);color:white;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:600;border-radius:0 0 8px 0;" onfocus="this.style.left='0';" onblur="this.style.left='-9999px';">Saltar al contenido</a>
 <nav id="main-nav">
-  <span class="nav-logo" id="nav-logo">Med<span>compara</span></span>
+  <a href="/" class="nav-logo" id="nav-logo" aria-label="Labcompara — ir a la portada de Medcompara">Lab<span>compara</span></a>
   <div class="nav-right">
     <a href="/" class="nav-link">Inicio</a>
     <a href="/medicinas" class="nav-link">Medicinas</a>
@@ -1246,7 +1246,6 @@ const minP = s => { const v=LABS.map(l=>s[l]).filter(v=>v); return v.length?Math
 const stars = r => [1,2,3,4,5].map(i=>`<span style="color:${i<=Math.floor(r)?'#F59E0B':'#E5E7EB'};font-size:11px;">&#x2605;</span>`).join('');
 
 function showSec(id){ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
-function goHome(){ lead=null; selected=[]; showSec('sec-hero'); }
 function goForm(){ showSec('sec-form'); }
 function goSearch(){
   showSec('sec-search');
@@ -1271,7 +1270,6 @@ function goResults(){
 
 // ── NAV ───────────────────────────────────────────────────────────────────
 window.addEventListener('scroll',()=>$('main-nav').classList.toggle('scrolled',scrollY>20),{passive:true});
-$('nav-logo').onclick=goHome;
 $('nav-cta').onclick=goForm;
 $('hero-cta').onclick=goForm;
 $('how-cta').onclick=goForm;

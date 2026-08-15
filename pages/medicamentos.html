@@ -446,7 +446,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="#main-content" style="position:absolute;left:-9999px;top:0;z-index:9999;padding:8px 16px;background:var(--teal);color:white;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:600;border-radius:0 0 8px 0;" onfocus="this.style.left='0';" onblur="this.style.left='-9999px';">Saltar al contenido</a>
 <nav id="main-nav">
-  <span class="nav-logo" id="nav-logo">Med<span>compara</span></span>
+  <a href="/" class="nav-logo" id="nav-logo" aria-label="GLPcompara — ir a la portada de Medcompara">GLP<span>compara</span></a>
   <div class="nav-right">
     <a href="/" class="nav-link">Inicio</a>
     <a href="/medicinas" class="nav-link">Medicinas</a>
@@ -480,7 +480,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="hero-content">
     <div class="hero-text">
-    <h1 class="hero-h1 anim" style="animation-delay:.1s">Encuentra tu medicamento GLP&#8209;1<br/><span>hasta por 35% menos</span></h1>
+    <h1 class="hero-h1 anim" style="animation-delay:.1s">Encuentra tu medicamento GLP&#8209;1<br/><span>hasta 35% menos</span></h1>
     <p class="hero-sub anim" style="animation-delay:.2s">Compara el precio de Ozempic, Mounjaro, Wegovy y Rybelsus entre las principales farmacias, elige el que m&#xe1;s te convenga y compra directamente.</p>
     <div style="margin-top:32px;" class="anim" style="animation-delay:.3s">
       <button class="btn-primary" id="hero-cta" style="font-size:17px;padding:16px 34px;">Comparar precios &#x2014; es gratis <span>&#x2192;</span></button>
@@ -931,7 +931,6 @@ function showSec(id){ document.querySelectorAll('.section').forEach(s=>s.classLi
 // Nav: transparente solo sobre el hero oscuro arriba; navy en cualquier otra sección.
 let navAtTop = true; // lo actualiza un IntersectionObserver (sin leer scrollY → sin reflow forzado).
 function updateNav(){ const onHeroTop = $('sec-hero').classList.contains('active') && navAtTop; $('main-nav').classList.toggle('scrolled', !onHeroTop); }
-function goHome(){ lead=null; selected=[]; selectedDrug=null; showSec('sec-hero'); }
 function goForm(){ showSec('sec-form'); }
 function goSearch(){
   showSec('sec-search');
@@ -995,7 +994,6 @@ async function goResults(){
   }
 })();
 updateNav();
-$('nav-logo').onclick=goHome;
 $('nav-cta').onclick=goForm;
 $('hero-cta').onclick=goForm;
 $('how-cta').onclick=goForm;
