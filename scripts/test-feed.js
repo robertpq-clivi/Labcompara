@@ -128,6 +128,28 @@ function revisarCifras() {
       if (n > real || real - n >= 100) malas.push(`${rel}: contador "${n}+" contra ${real} reales`);
     }
   }
+  // El hero de GLP-1 promete un ahorro máximo ("hasta por 35% menos"). Es una
+  // cifra a mano sobre datos que cambian cada semana: si el scan deja de
+  // sostenerla, la promesa se vuelve falsa sin que nadie se entere. Aquí se
+  // revienta el test antes de que eso llegue a producción.
+  const glp1 = path.join(ROOT, 'data', 'medicamentos', 'prices.json');
+  if (fs.existsSync(glp1)) {
+    const FARMACIAS = ['Ahorro', 'Guadalajara', 'Benavides', 'SanPablo'];
+    const precios = JSON.parse(fs.readFileSync(glp1, 'utf8')).prices;
+    let ahorroMax = 0;
+    for (const v of Object.values(precios)) {
+      const vs = FARMACIAS.map((f) => v.sources?.[f]?.price).filter((x) => x > 0);
+      if (vs.length < 2) continue;
+      const min = Math.min(...vs), max = Math.max(...vs);
+      ahorroMax = Math.max(ahorroMax, Math.round(((max - min) / max) * 100));
+    }
+    const txt = fs.readFileSync(path.join(ROOT, 'pages', 'medicamentos.html'), 'utf8');
+    for (const m of txt.matchAll(/hasta por (\d{1,2})% menos/g)) {
+      const n = Number(m[1]);
+      if (n > ahorroMax) malas.push(`pages/medicamentos.html: promete "hasta ${n}%" y el ahorro máximo real es ${ahorroMax}%`);
+    }
+  }
+
   return malas;
 }
 
