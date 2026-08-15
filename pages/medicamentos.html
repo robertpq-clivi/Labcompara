@@ -426,7 +426,7 @@ th.cmp-clivi{background:linear-gradient(180deg,rgba(0,84,124,.18),rgba(0,84,124,
    siguiente empalme sin costura. */
 #sec-hero .mesh{position:absolute;inset:0;background:radial-gradient(125% 115% at 6% 96%,var(--mesh-1) 0%,var(--mesh-2) 22%,var(--teal) 54%,var(--indigo) 78%,var(--periwinkle) 100%);opacity:.6;pointer-events:none;}
 #sec-hero .glow{position:absolute;inset:0;background:radial-gradient(90% 65% at 52% -12%,rgba(202,209,251,.18),rgba(202,209,251,0) 62%);pointer-events:none;}
-#sec-hero .fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,42,0) 62%,var(--navy) 100%);pointer-events:none;}
+#sec-hero #hero-top{position:relative;}.fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,42,0) 62%,var(--navy) 100%);pointer-events:none;}
 </style>
 <script>
   // Staging guard: don't index the temporary github.io URL — canonical is medcompara.com.mx
@@ -460,6 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- HERO SECTION -->
 <main id="main-content">
 <section id="sec-hero" class="section active">
+  <div id="hero-top">
   <div class="mesh" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div><div class="fade" aria-hidden="true"></div>
 
   <div class="hero-orbit" aria-hidden="true">
@@ -498,6 +499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     </div>
   </div>
+  </div><!--/hero-top-->
   <div class="wave"><svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="50"><path d="M0,50 C360,0 1080,0 1440,50 L1440,50 L0,50 Z" fill="white"/></svg></div>
 
   <!-- HOW IT WORKS -->
