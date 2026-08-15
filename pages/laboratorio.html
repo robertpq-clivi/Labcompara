@@ -180,6 +180,8 @@ nav.scrolled{background:rgba(6,20,42,.96);backdrop-filter:blur(16px);border-bott
 .rank-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white;flex-shrink:0;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
 .lab-info{min-width:100px;flex-shrink:0;}
 .lab-name{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:700;font-size:14px;color:var(--navy);}
+.lab-logo{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;overflow:hidden;box-shadow:0 1px 5px rgba(6,20,42,.12);vertical-align:middle;flex-shrink:0;}
+.lab-logo img{width:76%;height:76%;object-fit:contain;}
 .lab-stars{display:flex;align-items:center;margin-top:1px;}
 .lstar{font-size:11px;}
 .lrating{font-size:10px;color:var(--gray-400);margin-left:3px;}
@@ -1141,6 +1143,24 @@ const RAW_DATA = [
 
 const LABS = ['Labbe','Polanco','Chopo','Salud Digna','LAPI','OLAB'];
 
+/**
+ * Logo oficial de cada laboratorio. Las rutas de los que todavía no tienen
+ * archivo se dejan puestas a propósito: el <img> cae al emoji por onerror, y
+ * el día que el archivo exista el logo entra solo, sin tocar código.
+ */
+const LAB_LOGO = {
+  Chopo:'/images/farmacias/chopo-logo.jpeg', 'Salud Digna':'/images/farmacias/salud-digna-logo.png',
+  Labbe:'/images/laboratorios/labbe-logo.png', LAPI:'/images/laboratorios/lapi-logo.png',
+  OLAB:'/images/laboratorios/olab-logo.png', Polanco:'/images/laboratorios/polanco-logo.png',
+};
+
+function labBadge(id, px){
+  const m = LAB_META[id] || {}, src = LAB_LOGO[id];
+  const alt = String(m.displayName||id).replace(/"/g,'&quot;');
+  return `<span class="lab-logo" style="width:${px}px;height:${px}px;font-size:${Math.round(px*0.55)}px;">${
+    src ? `<img src="${src}" alt="${alt}" loading="lazy" decoding="async" onerror="this.parentNode.textContent='${m.emoji||''}'">` : (m.emoji||'')}</span>`;
+}
+
 const LAB_META = {
   Labbe: {
     rating: 4.5, votes: 1243, color: '#6366F1', colorClass: 'labbe',
@@ -1387,7 +1407,7 @@ function renderResults(){
       const rc=i===0?'linear-gradient(135deg,#F59E0B,#D97706)':i===1?'#94A3B8':'#CBD5E1';
       const cls=o.cheap?'cheap':o.best?'rated':'';
       const bdg=o.rec?'<span class="brec">&#x2705; Recomendado</span>':(o.cheap?'<span class="bc">&#x1F4B0; M&#xe1;s barato</span>':'')+(o.best?'<span class="br">&#x2B50; Mejor calificado</span>':'');
-      return`<div class="lab-row ${cls}"><div class="rank-dot" style="background:${rc};">${i+1}</div><div class="lab-info"><div class="lab-name">${o.meta.displayName||o.lab} ${o.meta.emoji}</div><div class="lab-stars">${stars(o.rating)}<span class="lrating">${o.rating} (${o.votes.toLocaleString()})</span></div></div><div class="lab-badges">${bdg}</div><div class="lab-price"><div class="price-val" style="color:${o.cheap?'#059669':'var(--navy)'};">${fmtP(o.price)}</div>${study.avg&&!o.cheap?`<div class="price-avg">prom. ${fmtP(study.avg)}</div>`:''}</div><button class="btn-detail" data-s="${study.name}" data-l="${o.lab}">Ver detalle</button></div>`;
+      return`<div class="lab-row ${cls}"><div class="rank-dot" style="background:${rc};">${i+1}</div><div class="lab-info"><div class="lab-name">${labBadge(o.lab,22)} ${o.meta.displayName||o.lab}</div><div class="lab-stars">${stars(o.rating)}<span class="lrating">${o.rating} (${o.votes.toLocaleString()})</span></div></div><div class="lab-badges">${bdg}</div><div class="lab-price"><div class="price-val" style="color:${o.cheap?'#059669':'var(--navy)'};">${fmtP(o.price)}</div>${study.avg&&!o.cheap?`<div class="price-avg">prom. ${fmtP(study.avg)}</div>`:''}</div><button class="btn-detail" data-s="${study.name}" data-l="${o.lab}">Ver detalle</button></div>`;
     }).join('');
     const unavail=LABS.filter(l=>!opts.find(o=>o.lab===l));
     return`<div class="study-block"><div class="study-hdr"><div><div class="study-hdr-name">${study.name}</div><div class="study-hdr-sub">${opts.length} laboratorio${opts.length!==1?'s':''} disponibles</div></div>${maxSav>100?`<div class="savings"><div class="savings-lbl">AHORRA HASTA</div><div class="savings-val">${fmtP(maxSav)}</div></div>`:''}</div><div class="lab-rows">${rows}${unavail.length?`<div class="nd-note">No disponible en: ${unavail.join(', ')}</div>`:''}</div></div>`;
@@ -1412,7 +1432,7 @@ $('new-search').onclick=()=>{showSec('sec-search');goSearch();};
 // ── MODAL ─────────────────────────────────────────────────────────────────
 function openModal(study,labName,opt){
   const meta=LAB_META[labName],info=sInfo(study.name);
-  $('m-icon').style.background=meta.bg;$('m-icon').textContent=meta.emoji;
+  $('m-icon').style.background=meta.bg;$('m-icon').innerHTML=labBadge(labName,44);
   $('m-name').textContent=meta.displayName||labName;
   $('m-badges').innerHTML=(opt.rec?'<span class="brec">&#x2705; Recomendado</span>':'')+(!opt.rec&&opt.cheap?'<span class="bc">&#x1F4B0; M&#xe1;s barato</span>':'')+(!opt.rec&&opt.best?'<span class="br">&#x2B50; Mejor calificado</span>':'');
   $('m-stars').innerHTML=stars(meta.rating)+`<span style="margin-left:3px;">${meta.rating}/5 &middot; ${meta.votes.toLocaleString()} rese&ntilde;as</span>`;
