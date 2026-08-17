@@ -96,6 +96,23 @@ jobs:
       - name: Regenerar artículos de precio de GLP-1
         run: node scripts/generar-blog-glp1.js --apply
 
+      # La tabla del comparador es contenido publicado, no el fallback RAW_DATA:
+      # se ve sin ejecutar JavaScript. Si no se regenera con el scan, publica
+      # precios viejos a la vista de todos. El test de abajo es la red.
+      - name: Regenerar la tabla de precios del comparador
+        run: node scripts/generar-tabla-precios.js --apply
+
+      # Los sitemaps se venían commiteando sin regenerarse nunca: un post nuevo
+      # creado por los generadores de arriba no entraba a sitemap-blog.xml y
+      # Google no se enteraba de él.
+      - name: Regenerar sitemaps
+        run: node scripts/generate-sitemaps.js
+
+      # Publicar precios desfasados es peor que no publicarlos: si algo quedó
+      # atrás del scan, la corrida falla y no se commitea.
+      - name: Verificar lo que se va a publicar
+        run: node scripts/test-tabla-precios.js
+
       - name: Resumen de la corrida
         if: always()
         run: |
@@ -121,7 +138,7 @@ jobs:
         run: |
           git config user.name  "medcompara-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/ pages/laboratorio.html blog/*-vs-*-precios.html blog/precio-*-mexico.html blog/precio-*-cdmx.html blog/cuanto-cuesta-check-up-mexico.html blog/laboratorio-mas-barato-cdmx.html blog/estudios-laboratorio-precios-mexico.html blog/index.html blog/ozempic-precio-mexico.html blog/mounjaro-precio-mexico.html blog/wegovy-precio-mexico.html blog/cuanto-cuesta-bajar-de-peso-con-glp1-mexico.html sitemap-blog.xml
+          git add data/ pages/laboratorio.html blog/*-vs-*-precios.html blog/precio-*-mexico.html blog/precio-*-cdmx.html blog/cuanto-cuesta-check-up-mexico.html blog/laboratorio-mas-barato-cdmx.html blog/estudios-laboratorio-precios-mexico.html blog/index.html blog/ozempic-precio-mexico.html blog/mounjaro-precio-mexico.html blog/wegovy-precio-mexico.html blog/cuanto-cuesta-bajar-de-peso-con-glp1-mexico.html sitemap-blog.xml sitemap-core.xml sitemap-index.xml
           if git diff --staged --quiet; then
             echo "Sin cambios de precio."
           else

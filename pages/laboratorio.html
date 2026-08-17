@@ -293,6 +293,32 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
 #sec-hero .mesh{position:absolute;inset:0;background:radial-gradient(125% 115% at 6% 96%,var(--mesh-1) 0%,var(--mesh-2) 22%,var(--teal) 54%,var(--indigo) 78%,var(--periwinkle) 100%);opacity:.6;pointer-events:none;}
 #sec-hero .glow{position:absolute;inset:0;background:radial-gradient(90% 65% at 52% -12%,rgba(202,209,251,.18),rgba(202,209,251,0) 62%);pointer-events:none;}
 #sec-hero #hero-top{position:relative;}.fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,42,0) 62%,var(--navy) 100%);pointer-events:none;}
+
+/* Tabla de precios renderizada en el servidor. Las reglas son las mismas que
+   usan las páginas de estudio del blog: es la misma tabla, no una variante.
+   .tabla-scroll no es cosmético — sin él, ocho columnas empujan el ancho de la
+   página entera y el 77% del tráfico es móvil. */
+/* La banda clara es obligatoria: esta sección va entre el bloque blanco de
+   confianza y el CTA en navy. Sin fondo propio hereda el oscuro y la tabla
+   queda negro sobre negro. */
+.precios-publicos-bg{background:#fff;}
+.precios-publicos{max-width:1100px;margin:0 auto;padding:56px 20px 48px;}
+.precios-publicos h2{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:26px;font-weight:800;color:var(--navy);margin:0 0 8px;}
+.precios-fecha,.precios-resto{color:var(--gray-600);font-size:14px;margin:0;}
+.precios-resto{margin-top:4px;}
+.tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;}
+.price-table{width:100%;border-collapse:collapse;margin:0;min-width:720px;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(6,20,42,.08);}
+.price-table th{background:var(--navy);color:white;padding:12px 16px;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:13px;font-weight:600;text-align:left;white-space:nowrap;}
+.price-table td{padding:12px 16px;border-bottom:1px solid var(--gray-100);font-size:14px;white-space:nowrap;color:var(--gray-800);}
+/* Cada fila lleva su fondo explícito. Con sólo pintar las pares, las impares
+   quedaban transparentes y se leían contra lo que hubiera detrás. */
+.price-table tr{background:#fff;}
+.price-table tr:nth-child(even){background:var(--gray-50);}
+.price-table tr:last-child td,.price-table tr:last-child th[scope="row"]{border-bottom:none;}
+/* El nombre del estudio es encabezado de fila por accesibilidad, pero no debe
+   pintarse como el encabezado de columna. */
+.price-table th[scope="row"]{background:transparent;color:var(--gray-800);font-family:inherit;font-size:14px;font-weight:600;text-align:left;white-space:normal;min-width:190px;border-bottom:1px solid var(--gray-100);}
+.badge-cheap{background:rgba(16,185,129,.1);color:#059669;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700;font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}
 </style>
 </head>
 <body>
@@ -403,6 +429,82 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
     </div>
   </div>
   </div><!-- /trust white bg -->
+
+<!-- TABLA-PRECIOS:INICIO — generado por scripts/generar-tabla-precios.js, no editar a mano -->
+  <div class="precios-publicos-bg">
+    <div class="precios-publicos">
+      <h2>Precios de los 63 estudios más buscados</h2>
+      <p class="precios-fecha">Comparados entre 6 laboratorios. Precios del <time datetime="2026-08-13">13 de agosto de 2026</time>.</p>
+      <div class="tabla-scroll"><table class="price-table">
+        <tr><th>Estudio</th><th>Labbe</th><th>Polanco</th><th>Chopo</th><th>Salud Digna</th><th>LAPI</th><th>OLAB</th><th>Más barato</th></tr>
+      <tr><th scope="row">Biometría Hemática</th><td>$319</td><td>$311</td><td>$276</td><td><strong style="color:#059669;">$115</strong></td><td>$215</td><td>$284</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Química Sanguínea 6 Elementos</th><td>$619</td><td>$563</td><td>—</td><td><strong style="color:#059669;">$110</strong></td><td>$465</td><td>$499</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Química Sanguínea 27 Elementos</th><td>$951</td><td>$1,012</td><td>$926</td><td><strong style="color:#059669;">$340</strong></td><td>$655</td><td>$897</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Química Sanguínea 35 Elementos</th><td>$1,280</td><td>$1,818</td><td>$1,004</td><td><strong style="color:#059669;">$260</strong></td><td>$1,100</td><td>$906</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Química Sanguínea 45 Elementos</th><td>—</td><td>$2,266</td><td>$1,015</td><td>—</td><td>—</td><td><strong style="color:#059669;">$929</strong></td><td><span class="badge-cheap">OLAB</span></td></tr>
+      <tr><th scope="row">Glucosa en Suero</th><td>$148</td><td>$248</td><td>$94</td><td><strong style="color:#059669;">$55</strong></td><td>$96</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Hemoglobina Glicosilada (HbA1c)</th><td>$449</td><td>$512</td><td>$495</td><td><strong style="color:#059669;">$215</strong></td><td>$300</td><td>$453</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil de Lípidos</th><td>$851</td><td>$474</td><td>$424</td><td><strong style="color:#059669;">$230</strong></td><td>$429</td><td>$419</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Insulina Basal</th><td>$388</td><td>$1,470</td><td>$1,168</td><td><strong style="color:#059669;">$280</strong></td><td>$314</td><td>$942</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Tiroideo</th><td>$1,016</td><td>$1,190</td><td>$584</td><td><strong style="color:#059669;">$550</strong></td><td>$698</td><td>$1,039</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Examen General de Orina (EGO)</th><td>$306</td><td>$167</td><td>$147</td><td><strong style="color:#059669;">$65</strong></td><td>$121</td><td>$169</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Hormonal Femenino</th><td>$3,671</td><td>$3,380</td><td>$2,075</td><td><strong style="color:#059669;">$350</strong></td><td>$3,599</td><td>$749</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Hormonal Masculino</th><td>—</td><td><strong style="color:#059669;">$823</strong></td><td>$1,755</td><td>$1,020</td><td>$1,178</td><td>$1,395</td><td><span class="badge-cheap">Polanco</span></td></tr>
+      <tr><th scope="row">Testosterona Libre y Total</th><td>—</td><td>—</td><td><strong style="color:#059669;">$2,798</strong></td><td>—</td><td>—</td><td>—</td><td><span class="badge-cheap">Chopo</span></td></tr>
+      <tr><th scope="row">Vitamina D (25-Hidroxi)</th><td>$1,150</td><td>$3,697</td><td>$1,145</td><td><strong style="color:#059669;">$560</strong></td><td>$733</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Antígeno Prostático Específico (PSA Total)</th><td>$418</td><td>$339</td><td>$328</td><td><strong style="color:#059669;">$129</strong></td><td>$281</td><td>$22,657</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">CA-125 (Marcador Tumoral Ovario)</th><td>$583</td><td>$3,194</td><td>$1,334</td><td><strong style="color:#059669;">$250</strong></td><td>$452</td><td>$1,288</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">CA 15-3 (Marcador Tumoral Mama)</th><td>$583</td><td>$4,439</td><td>$1,879</td><td><strong style="color:#059669;">$294</strong></td><td>$509</td><td>$862</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Marcadores Tumorales Hígado (AFP)</th><td>—</td><td>$1,758</td><td>—</td><td>—</td><td><strong style="color:#059669;">$342</strong></td><td>—</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Marcadores Tumorales Páncreas (CA 19-9)</th><td>$709</td><td>$5,888</td><td>$2,490</td><td>—</td><td><strong style="color:#059669;">$572</strong></td><td>$1,590</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Marcadores Tumorales Colon (CEA)</th><td>—</td><td>$1,884</td><td>$1,305</td><td>—</td><td><strong style="color:#059669;">$334</strong></td><td>—</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Papanicolaou</th><td>—</td><td>$1,007</td><td>$499</td><td><strong style="color:#059669;">$250</strong></td><td>$548</td><td>$649</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Prueba de Embarazo en Sangre (Beta-HCG)</th><td>$397</td><td>$806</td><td>$669</td><td><strong style="color:#059669;">$135</strong></td><td>$293</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Prueba de VIH</th><td>—</td><td>$1,092</td><td>$579</td><td><strong style="color:#059669;">$290</strong></td><td>$334</td><td>$519</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Reumático</th><td>—</td><td>$1,356</td><td>$890</td><td><strong style="color:#059669;">$285</strong></td><td>$702</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Hepático</th><td>—</td><td>$5,810</td><td>$655</td><td>—</td><td><strong style="color:#059669;">$459</strong></td><td>$639</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Perfil Ginecológico</th><td>$1,387</td><td>$3,270</td><td>$1,245</td><td><strong style="color:#059669;">$595</strong></td><td>$1,565</td><td>$759</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Depuración de Creatinina</th><td>—</td><td>$764</td><td>$336</td><td><strong style="color:#059669;">$95</strong></td><td>$262</td><td>$382</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Deshidrogenasa Láctica (DHL)</th><td>$174</td><td>$598</td><td>$252</td><td><strong style="color:#059669;">$143</strong></td><td>$171</td><td>$390</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Coprocultivo</th><td>—</td><td>$948</td><td>$418</td><td><strong style="color:#059669;">$285</strong></td><td>$317</td><td>$453</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Urocultivo</th><td>$376</td><td>$998</td><td>$570</td><td>—</td><td><strong style="color:#059669;">$375</strong></td><td>$529</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Coproparasitoscópico (1 muestra)</th><td>$155</td><td>$403</td><td>$336</td><td><strong style="color:#059669;">$47</strong></td><td>$152</td><td>$204</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Grupo Sanguíneo y Rh</th><td>$164</td><td>$460</td><td>$146</td><td><strong style="color:#059669;">$70</strong></td><td>$141</td><td>$179</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Reacciones Febriles</th><td>$238</td><td>$531</td><td><strong style="color:#059669;">$105</strong></td><td>$105</td><td>$200</td><td>$204</td><td><span class="badge-cheap">Chopo</span></td></tr>
+      <tr><th scope="row">Tiempo de Protrombina</th><td>$247</td><td>$247</td><td><strong style="color:#059669;">$179</strong></td><td>—</td><td>$199</td><td>$302</td><td><span class="badge-cheap">Chopo</span></td></tr>
+      <tr><th scope="row">Tiempo de Tromboplastina Parcial (TTP)</th><td>$203</td><td>$247</td><td>—</td><td>—</td><td><strong style="color:#059669;">$199</strong></td><td>$435</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Pruebas de Coagulación Sanguínea</th><td>$1,006</td><td>—</td><td>$671</td><td><strong style="color:#059669;">$555</strong></td><td>$781</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Curva de Tolerancia a la Glucosa</th><td>—</td><td>$884</td><td>$354</td><td><strong style="color:#059669;">$220</strong></td><td>$301</td><td>$439</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Prueba de Influenza</th><td>—</td><td>$1,568</td><td>$635</td><td><strong style="color:#059669;">$370</strong></td><td>$553</td><td>$559</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Electrocardiograma en Reposo</th><td>—</td><td>$460</td><td>$401</td><td><strong style="color:#059669;">$125</strong></td><td>$454</td><td>$429</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Examen Prenupcial</th><td>—</td><td>$1,122</td><td>$470</td><td><strong style="color:#059669;">$205</strong></td><td>$1,430</td><td>$449</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Examen de ETS</th><td>$1,109</td><td>$1,924</td><td>$859</td><td>—</td><td><strong style="color:#059669;">$666</strong></td><td>$3,429</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Prueba Antidoping</th><td>—</td><td>$1,056</td><td>$489</td><td><strong style="color:#059669;">$225</strong></td><td>—</td><td>$539</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Hemocultivo</th><td>—</td><td>$1,708</td><td>$960</td><td>—</td><td>—</td><td><strong style="color:#059669;">$817</strong></td><td><span class="badge-cheap">OLAB</span></td></tr>
+      <tr><th scope="row">Espermatobioscopia</th><td>$909</td><td>—</td><td>—</td><td><strong style="color:#059669;">$346</strong></td><td>$763</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Diabético</th><td><strong style="color:#059669;">$381</strong></td><td>—</td><td>—</td><td>—</td><td>$1,283</td><td>—</td><td><span class="badge-cheap">Labbe</span></td></tr>
+      <tr><th scope="row">Perfil Básico</th><td>$1,339</td><td>—</td><td>$785</td><td><strong style="color:#059669;">$150</strong></td><td>$843</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Check Up Básico</th><td>—</td><td>$1,914</td><td>$1,359</td><td><strong style="color:#059669;">$265</strong></td><td>$329</td><td>$1,159</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Check Up Completo</th><td>—</td><td>—</td><td>$2,275</td><td><strong style="color:#059669;">$450</strong></td><td>—</td><td>$1,249</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Proteínas en Orina 24h</th><td>$472</td><td>$5,058</td><td>$210</td><td>—</td><td><strong style="color:#059669;">$200</strong></td><td>$239</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Colposcopía</th><td>—</td><td>$1,822</td><td>$625</td><td>—</td><td>$545</td><td><strong style="color:#059669;">$449</strong></td><td><span class="badge-cheap">OLAB</span></td></tr>
+      <tr><th scope="row">Mastografía</th><td>—</td><td>$552</td><td>$494</td><td><strong style="color:#059669;">$275</strong></td><td>$599</td><td>$289</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Perfil Preoperatorio</th><td>$1,070</td><td>$3,268</td><td>$809</td><td>—</td><td><strong style="color:#059669;">$718</strong></td><td>$1,956</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Bicarbonato en Sangre</th><td>—</td><td>$1,139</td><td><strong style="color:#059669;">$143</strong></td><td>—</td><td>—</td><td>$282</td><td><span class="badge-cheap">Chopo</span></td></tr>
+      <tr><th scope="row">Pruebas de Función Renal</th><td>—</td><td>$2,054</td><td>$1,119</td><td>—</td><td><strong style="color:#059669;">$417</strong></td><td>—</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Bilirrubina Total</th><td>$105</td><td>—</td><td>$104</td><td><strong style="color:#059669;">$99</strong></td><td>$103</td><td>$168</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Velocidad de Sedimentación Globular (VSG)</th><td>$138</td><td>$444</td><td>—</td><td>—</td><td><strong style="color:#059669;">$98</strong></td><td>$284</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Colesterol Total</th><td>$137</td><td>$381</td><td>—</td><td>—</td><td><strong style="color:#059669;">$134</strong></td><td>$293</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Perfil Climaterio</th><td>$880</td><td>—</td><td>$2,236</td><td>—</td><td><strong style="color:#059669;">$863</strong></td><td>—</td><td><span class="badge-cheap">LAPI</span></td></tr>
+      <tr><th scope="row">Perfil de Alergia Inhalatoria</th><td>—</td><td><strong style="color:#059669;">$984</strong></td><td>$1,365</td><td>—</td><td>$2,911</td><td>—</td><td><span class="badge-cheap">Polanco</span></td></tr>
+      <tr><th scope="row">Creatinina Sérica</th><td>$157</td><td>$460</td><td>$196</td><td><strong style="color:#059669;">$55</strong></td><td>$138</td><td>$195</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Ácido Úrico</th><td>$153</td><td>$394</td><td>$143</td><td><strong style="color:#059669;">$55</strong></td><td>$150</td><td>—</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      <tr><th scope="row">Testosterona Total</th><td>$466</td><td>$2,668</td><td>$1,075</td><td><strong style="color:#059669;">$185</strong></td><td>$380</td><td>$849</td><td><span class="badge-cheap">Salud Digna</span></td></tr>
+      </table></div>
+      <p class="precios-resto">Y 557 estudios más en el comparador de arriba.</p>
+    </div>
+  </div>
+  <!-- TABLA-PRECIOS:FIN -->
 
   <!-- PROMO CTA -->
   <div class="promo">
