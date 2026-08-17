@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 /**
  * Medcompara — Sitemap Generator
- * Generates: sitemap-core.xml, sitemap-estudios.xml, sitemap-blog.xml, sitemap-index.xml
+ * Generates: sitemap-core.xml, sitemap-blog.xml, sitemap-index.xml
  *
  * Usage:
  *   node scripts/generate-sitemaps.js
  *   npm run generate:sitemaps
  *
- * To add pages: edit CORE_PAGES or ESTUDIOS_PAGES arrays below.
+ * To add pages: edit the CORE_PAGES array below. El blog se lee del directorio.
+ *
+ * Antes de escribir, valida que cada ruta resuelva a un archivo real. Un sitemap
+ * es una promesa: cada URL que declara, Google la va a pedir.
  */
 
 const fs   = require('fs');
@@ -37,30 +40,13 @@ const CORE_PAGES = [
   { path: '/estudios-clinicos',                 priority: '0.9', changefreq: 'weekly'  },
 ];
 
-// ── ESTUDIOS PAGES ────────────────────────────────────────────────────────────
-// changefreq: monthly | priority: 0.8
-const ESTUDIOS_PAGES = [
-  { path: '/blog/precio-biometria-hematica-mexico'           },
-  { path: '/blog/precio-quimica-sanguinea-mexico'            },
-  { path: '/blog/examen-de-glucosa-precio-mexico'            },
-  { path: '/blog/colesterol-total-precio-mexico'             },
-  { path: '/blog/perfil-tiroideo-precio-mexico'              },
-  { path: '/blog/prueba-de-embarazo-en-sangre-precio-mexico' },
-  { path: '/blog/check-up-completo-precio-mexico'            },
-  { path: '/blog/examen-general-de-orina-precio-mexico'      },
-  { path: '/blog/acido-urico-precio-mexico'                  },
-  { path: '/blog/creatinina-precio-mexico'                   },
-  { path: '/blog/pruebas-de-funcion-hepatica-precio-mexico'  },
-  { path: '/blog/perfil-lipidico-precio-mexico'              },
-  { path: '/blog/examen-de-insulina-precio-mexico'           },
-  { path: '/blog/hemoglobina-glucosilada-precio-mexico'      },
-  { path: '/blog/vitamina-d-precio-mexico'                   },
-  { path: '/blog/prueba-de-vih-precio-mexico'                },
-  { path: '/blog/testosterona-precio-mexico'                 },
-  { path: '/blog/perfil-hormonal-femenino-precio-mexico'     },
-  { path: '/blog/examen-de-sangre-completo-precio-mexico'    },
-  { path: '/blog/cuanto-cuesta-un-check-up-en-mexico'        },
-].map(p => ({ ...p, priority: '0.8', changefreq: 'monthly' }));
+// Hubo un tercer sitemap, sitemap-estudios.xml, con 20 URLs escritas a mano bajo
+// un patrón de slug —«tema-precio-mexico»— que los generadores nunca usaron: los
+// archivos salieron como «precio-tema-mexico». 18 de sus 20 URLs jamás existieron
+// y llevaban meses devolviendo 404 dentro de un sitemap. Las 2 restantes ya venían
+// en sitemap-blog.xml, que lee el directorio. El archivo era redundante entero, así
+// que se eliminó en vez de repararse. La misma enfermedad que ya había vaciado a
+// BLOG_PAGES; de ahí la validación de abajo.
 
 // ── BLOG ──────────────────────────────────────────────────────────────────────
 // Se lee del directorio en vez de mantener una lista a mano: la versión anterior
@@ -82,6 +68,30 @@ const BLOG_PAGES = fs.existsSync(BLOG_DIR)
       })
   : [];
 
+
+// ── VALIDACIÓN ────────────────────────────────────────────────────────────────
+// Resuelve una ruta pública al archivo que la sirve, igual que Vercel: `/` es
+// index.html, `/blog/x` es blog/x.html, y las rutas limpias pasan por los
+// rewrites de vercel.json (`/laboratorio` → pages/laboratorio.html).
+const REWRITES = JSON.parse(
+  fs.readFileSync(path.join(PUBLIC_DIR, 'vercel.json'), 'utf8')
+).rewrites || [];
+
+function archivoQueSirve(ruta) {
+  if (ruta === '/') return 'index.html';
+  const rw = REWRITES.find(r => r.source === ruta);
+  return (rw ? rw.destination : ruta).replace(/^\//, '') + '.html';
+}
+
+function validar(nombre, pages) {
+  const rotas = pages.filter(p => !fs.existsSync(path.join(PUBLIC_DIR, archivoQueSirve(p.path))));
+  if (rotas.length === 0) return;
+  console.error(`\n❌ ${nombre}: ${rotas.length} ruta(s) sin archivo que las sirva:\n`);
+  rotas.forEach(p => console.error(`     ${p.path}  →  falta ${archivoQueSirve(p.path)}`));
+  console.error('\n   No se escribió ningún sitemap. Anunciarle un 404 a Google es peor');
+  console.error('   que no anunciar la página.\n');
+  process.exit(1);
+}
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function urlEntry({ path: p, priority, changefreq }) {
@@ -105,7 +115,7 @@ function buildSitemap(pages) {
 }
 
 function buildSitemapIndex() {
-  const sitemaps = ['sitemap-core.xml', 'sitemap-estudios.xml', 'sitemap-blog.xml'];
+  const sitemaps = ['sitemap-core.xml', 'sitemap-blog.xml'];
   const entries  = sitemaps.map(name => [
     '  <sitemap>',
     `    <loc>${BASE_URL}/${name}</loc>`,
@@ -136,9 +146,13 @@ console.log(`   Output   : repo root/\n`);
 
 if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
 
-write('sitemap-core.xml',     buildSitemap(CORE_PAGES));
-write('sitemap-estudios.xml', buildSitemap(ESTUDIOS_PAGES));
-write('sitemap-blog.xml', buildSitemap(BLOG_PAGES));
-write('sitemap-index.xml',    buildSitemapIndex());
+// Valida las dos listas antes de escribir nada: o salen los sitemaps completos,
+// o no sale ninguno.
+validar('sitemap-core.xml', CORE_PAGES);
+validar('sitemap-blog.xml', BLOG_PAGES);
 
-console.log(`\n✅ Done — ${CORE_PAGES.length} core pages, ${ESTUDIOS_PAGES.length} estudio pages\n`);
+write('sitemap-core.xml',  buildSitemap(CORE_PAGES));
+write('sitemap-blog.xml',  buildSitemap(BLOG_PAGES));
+write('sitemap-index.xml', buildSitemapIndex());
+
+console.log(`\n✅ Done — ${CORE_PAGES.length} core pages, ${BLOG_PAGES.length} blog pages\n`);
