@@ -96,6 +96,12 @@ jobs:
       - name: Regenerar artículos de precio de GLP-1
         run: node scripts/generar-blog-glp1.js --apply
 
+      # El índice enlazaba 57 de 178 artículos: los otros sólo se alcanzaban
+      # saltando de post en post, a tres clics o más de la home. Va antes de los
+      # sitemaps porque un artículo nuevo tiene que entrar primero al índice.
+      - name: Regenerar el índice del blog
+        run: node scripts/generar-indice-blog.js --apply
+
       # Los sitemaps se venían commiteando sin regenerarse nunca: el paso de
       # commit incluía sitemap-blog.xml, pero ningún paso lo escribía. Mientras
       # los generadores sólo sobrescriben páginas que ya existen no se nota; el
