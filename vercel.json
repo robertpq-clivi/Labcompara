@@ -73,6 +73,17 @@
   ],
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www\\.medcompara\\.com\\.mx"
+        }
+      ],
+      "destination": "https://medcompara.com.mx/$1",
+      "permanent": true
+    },
+    {
       "source": "/blog/cuanto-cuestan-los-estudios-medicos-en-mexico",
       "destination": "/blog/estudios-laboratorio-precios-mexico",
       "permanent": true
