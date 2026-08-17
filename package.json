@@ -6,10 +6,10 @@
     "generate:sitemaps": "node scripts/generate-sitemaps.js",
     "comparativas": "node scripts/generar-comparativas.js",
     "comparativas:apply": "node scripts/generar-comparativas.js --apply",
-    "predeploy": "npm run comparativas:apply && npm run blog:medicinas:apply && npm run blog:estudios:apply && npm run blog:glp1:apply && npm run generate:sitemaps",
+    "predeploy": "npm run comparativas:apply && npm run blog:medicinas:apply && npm run blog:estudios:apply && npm run blog:glp1:apply && npm run indice:blog:apply && npm run generate:sitemaps",
     "scan:offline": "node scripts/scan-labs.js --offline",
     "scan:apply": "node scripts/scan-labs.js --offline --apply",
-    "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-medicinas.js && node scripts/test-captura.js && node scripts/test-feed.js",
+    "test": "node scripts/test-match.js && node scripts/test-farmacias.js && node scripts/test-medicinas.js && node scripts/test-captura.js && node scripts/test-feed.js && node scripts/test-indice-blog.js",
     "expandir": "node scripts/expandir-catalogo.js",
     "expandir:apply": "node scripts/expandir-catalogo.js --apply",
     "scan:labs": "node scripts/scan-labs.js",
@@ -22,7 +22,9 @@
     "blog:estudios": "node scripts/generar-blog-estudios.js",
     "blog:estudios:apply": "node scripts/generar-blog-estudios.js --apply",
     "blog:glp1": "node scripts/generar-blog-glp1.js",
-    "blog:glp1:apply": "node scripts/generar-blog-glp1.js --apply"
+    "blog:glp1:apply": "node scripts/generar-blog-glp1.js --apply",
+    "indice:blog": "node scripts/generar-indice-blog.js",
+    "indice:blog:apply": "node scripts/generar-indice-blog.js --apply"
   },
   "engines": {
     "node": ">=16"
