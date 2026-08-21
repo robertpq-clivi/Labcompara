@@ -346,7 +346,7 @@ function schemas(c, url, meta, oferta) {
       headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
       author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
-      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE },
+      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
     },
     {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',

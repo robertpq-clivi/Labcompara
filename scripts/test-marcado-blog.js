@@ -51,6 +51,8 @@ const sinFecha         = [];
 const ancaRota         = [];
 const tocSinCss        = [];
 const seccionSinId     = [];
+const sinLogo          = [];
+const sinIcono         = [];
 
 for (const archivo of archivos) {
   const html = fs.readFileSync(path.join(BLOG, archivo), 'utf8');
@@ -125,6 +127,11 @@ for (const archivo of archivos) {
     else revisarPng(product.image, pngFaltante);
   }
 
+  // El logo de marca: en publisher —que es de donde Google lo toma— y en los
+  // <link rel="icon">, que es lo que ve la pestaña.
+  if (article && !(article.publisher && article.publisher.logo)) sinLogo.push(archivo);
+  if (!/logo-medcompara-512\.png"\/>/.test(html)) sinIcono.push(archivo);
+
   if (!nodos.some((n) => n && n['@type'] === 'BreadcrumbList')) sinBreadcrumb.push(archivo);
   if (article && !article.author) sinAutor.push(archivo);
   if (article && !(article.datePublished && article.dateModified)) sinFecha.push(archivo);
@@ -140,6 +147,8 @@ for (const archivo of archivos) {
     const conId = [...html.matchAll(/<h2([^>]*)>/g)].filter((x) => /\bid=/.test(x[1])).length;
     if (conId < 4) seccionSinId.push(`${archivo} (${conId} h2 con ancla)`);
   }
+
+  revisarPng(['https://medcompara.com.mx/images/logo-medcompara-512.png'], pngFaltante);
 
   const og = (html.match(/property=["']og:image["'][^>]*content=["']([^"']+)["']/i) || [])[1];
   if (!og) sinOg.push(archivo);
@@ -178,6 +187,9 @@ caso(cssSinMargen, 'archivo(s) donde .faq-q no fija margin:0', 'la regla .faq-q 
 caso(desincronizado, 'archivo(s) donde el <h3> y el JSON-LD no dicen la misma pregunta',
   'el FAQ visible y el JSON-LD coinciden en las 824 preguntas');
 
+caso(sinLogo, 'Article sin publisher.logo', 'todos los Article declaran publisher.logo',
+  'corre: node scripts/generar-logo.js --apply');
+caso(sinIcono, 'archivo(s) sin el icono de marca de 512', 'los iconos de marca están declarados');
 caso(sinBreadcrumb, 'archivo(s) sin BreadcrumbList', `los ${archivos.length} declaran BreadcrumbList`,
   'es el único rich result que este sitio gana hoy — corre: node scripts/completar-marcado-blog.js --apply');
 caso(sinAutor, 'Article sin author', 'todos los Article declaran author');
