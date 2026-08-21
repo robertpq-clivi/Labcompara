@@ -23,6 +23,9 @@
 const fs   = require('fs');
 const path = require('path');
 const { anclas } = require('./lib/ancla');
+// El índice y las anclas de sección van sobre el HTML ya armado, con la misma
+// función que usó la pasada de los artículos escritos a mano.
+const { conIndice } = require('./lib/indice-articulo');
 const M    = require('./lib/medicinas-blog');
 
 const ROOT  = path.join(__dirname, '..');
@@ -323,6 +326,7 @@ function schemas(h, c, url, titulo, meta) {
     datePublished: meta.fecha,
     dateModified:  meta.fecha,
     inLanguage: 'es-MX',
+    author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
     publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE },
     about: { '@type': 'Drug', name: h.medicamento, activeIngredient: h.medicamento },
   };
@@ -532,7 +536,7 @@ let escritos = 0;
 for (const h of todos) {
   if (SOLO && h.slugMed !== SOLO) continue;
   const c    = resolver(porMed.get(h.medicamento), tokens(h, meta));
-  const html = pagina(h, c, todos, meta);
+  const html = conIndice(pagina(h, c, todos, meta));
   if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', h.slug + '.html'), html);
   escritos++;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${h.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${h.presentaciones} presentaciones · desde ${mxn(h.min)})`);
