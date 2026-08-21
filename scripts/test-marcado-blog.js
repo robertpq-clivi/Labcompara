@@ -45,6 +45,12 @@ const preguntaSinId    = [];
 const idRepetido       = [];
 const cssSinMargen     = [];
 const desincronizado   = [];
+const sinBreadcrumb    = [];
+const sinAutor         = [];
+const sinFecha         = [];
+const ancaRota         = [];
+const tocSinCss        = [];
+const seccionSinId     = [];
 
 for (const archivo of archivos) {
   const html = fs.readFileSync(path.join(BLOG, archivo), 'utf8');
@@ -119,6 +125,22 @@ for (const archivo of archivos) {
     else revisarPng(product.image, pngFaltante);
   }
 
+  if (!nodos.some((n) => n && n['@type'] === 'BreadcrumbList')) sinBreadcrumb.push(archivo);
+  if (article && !article.author) sinAutor.push(archivo);
+  if (article && !(article.datePublished && article.dateModified)) sinFecha.push(archivo);
+
+  // El índice del artículo: sus enlaces tienen que aterrizar, sus secciones
+  // tienen que tener ancla, y la hoja de estilo tiene que traer la regla.
+  if (/<nav class="toc"/.test(html)) {
+    const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((x) => x[1]));
+    for (const x of html.matchAll(/<li><a href="#([^"]+)"/g)) {
+      if (!ids.has(x[1])) ancaRota.push(`${archivo} → #${x[1]}`);
+    }
+    if (!/\.toc\{/.test(html)) tocSinCss.push(archivo);
+    const conId = [...html.matchAll(/<h2([^>]*)>/g)].filter((x) => /\bid=/.test(x[1])).length;
+    if (conId < 4) seccionSinId.push(`${archivo} (${conId} h2 con ancla)`);
+  }
+
   const og = (html.match(/property=["']og:image["'][^>]*content=["']([^"']+)["']/i) || [])[1];
   if (!og) sinOg.push(archivo);
   else revisarPng([og], pngFaltante);
@@ -155,6 +177,14 @@ caso(cssSinMargen, 'archivo(s) donde .faq-q no fija margin:0', 'la regla .faq-q 
 
 caso(desincronizado, 'archivo(s) donde el <h3> y el JSON-LD no dicen la misma pregunta',
   'el FAQ visible y el JSON-LD coinciden en las 824 preguntas');
+
+caso(sinBreadcrumb, 'archivo(s) sin BreadcrumbList', `los ${archivos.length} declaran BreadcrumbList`,
+  'es el único rich result que este sitio gana hoy — corre: node scripts/completar-marcado-blog.js --apply');
+caso(sinAutor, 'Article sin author', 'todos los Article declaran author');
+caso(sinFecha, 'Article sin datePublished o dateModified', 'todos los Article traen las dos fechas');
+caso(ancaRota, 'enlace(s) del índice que no aterrizan', 'todos los enlaces del índice aterrizan en una sección');
+caso(tocSinCss, 'archivo(s) con índice pero sin la regla .toc', 'todo índice trae su CSS');
+caso(seccionSinId, 'archivo(s) con índice y menos de 4 secciones con ancla', 'los índices cubren sus secciones');
 
 console.log('Marcado del blog\n');
 ok.forEach((o) => console.log(`  ✓ ${o}`));

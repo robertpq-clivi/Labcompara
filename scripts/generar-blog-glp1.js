@@ -24,6 +24,9 @@
 const fs   = require('fs');
 const path = require('path');
 const { anclas } = require('./lib/ancla');
+// El índice y las anclas de sección van sobre el HTML ya armado, con la misma
+// función que usó la pasada de los artículos escritos a mano.
+const { conIndice } = require('./lib/indice-articulo');
 const G    = require('./lib/glp1-blog');
 
 const ROOT  = path.join(__dirname, '..');
@@ -137,6 +140,7 @@ function paginaTodas(h, c, todos, meta) {
     { '@context': 'https://schema.org', '@type': 'Article',
       headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
+      author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
       publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE } },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
@@ -331,6 +335,7 @@ function schemas(h, c, url, meta) {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
+      author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
       publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE },
       about: { '@type': 'Drug', name: h.familia, activeIngredient: h.activo },
     },
@@ -496,7 +501,7 @@ if (problemas.length) {
 const resueltos = listos.map(x => x.r);
 
 for (const { c, h, r, cruzada } of listos) {
-  const html = cruzada ? paginaTodas(h, r, resueltos, meta) : pagina(h, r, resueltos, meta);
+  const html = conIndice(cruzada ? paginaTodas(h, r, resueltos, meta) : pagina(h, r, resueltos, meta));
   if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);
   const detalle = cruzada ? `${h.nFamilias} tratamientos` : `${h.nPresentaciones} dosis`;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${c.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${detalle} · desde ${mxn(h.min)})`);
