@@ -90,7 +90,7 @@
         "a": "Un mes: se aplica una vez por semana, así que cada pluma cubre cuatro aplicaciones."
       },
       {
-        "q": "¿Por qué sube el precio conforme avanza el tratamiento?",
+        "q": "¿Por qué sube el precio de Mounjaro conforme avanza el tratamiento?",
         "a": "Porque cada escalón de dosis es un producto distinto y más caro. El gasto mensual de mantenimiento es mayor que el de los primeros meses."
       },
       {
@@ -236,15 +236,15 @@
         "a": "En el corte del {{FECHA}}, {{BARATA}} tenía la entrada más económica: desde {{BARATA_MIN}} al mes, y {{BARATA_MANTENIMIENTO}} en dosis de mantenimiento. Cuál te corresponde depende de tu diagnóstico, no del precio."
       },
       {
-        "q": "¿Por qué sube el costo con el tiempo?",
+        "q": "¿Por qué sube el costo de un tratamiento GLP-1 con el tiempo?",
         "a": "Porque la dosis se escala durante los primeros meses y cada escalón es un producto más caro. El gasto de mantenimiento es el que hay que presupuestar."
       },
       {
-        "q": "¿El precio incluye la consulta y los estudios?",
+        "q": "¿El precio del tratamiento GLP-1 incluye la consulta y los estudios?",
         "a": "No. La tabla compara solo el precio del medicamento en farmacia. La consulta, los estudios de control y el seguimiento van aparte, salvo en los planes que los incluyen en una cuota mensual."
       },
       {
-        "q": "¿Qué pasa si dejo el tratamiento?",
+        "q": "¿Qué pasa si dejo el tratamiento GLP-1?",
         "a": "La evidencia disponible indica que buena parte del peso perdido tiende a recuperarse al suspenderlo. Por eso conviene planearlo como un gasto sostenido y hablarlo con tu médico antes de empezar."
       }
     ]

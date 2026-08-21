@@ -21,7 +21,7 @@
         "a": "{{LIDER}} es más barato. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, con un ahorro mediano de {{AHORRO_MEDIANO}}%."
       },
       {
-        "q": "¿Qué ahorro tendría en análisis de rutina?",
+        "q": "¿Qué ahorro hay entre {{LAB_A}} y {{LAB_B}} en análisis de rutina?",
         "a": "En una canasta estándar, {{CANASTA_A}} en {{LIDER}} frente a {{CANASTA_B}} en {{PERDEDOR}} equivale a {{CANASTA_AHORRO_PCT}}% de ahorro."
       },
       {
@@ -29,7 +29,7 @@
         "a": "En casi todos. {{LIDER}} gana en {{GANA_LIDER}} de {{COMPARABLES}}, y {{PERDEDOR}} solo es más barato en {{GANA_B}} estudios, así que son excepciones."
       },
       {
-        "q": "¿Vale la pena cambiar de laboratorio por precio?",
+        "q": "¿Vale la pena cambiar entre {{LAB_A}} y {{LAB_B}} sólo por precio?",
         "a": "Si haces análisis regularmente, el ahorro se acumula. {{AHORRO_MEDIANO}}% mediano es una diferencia significativa a lo largo del tiempo."
       }
     ]
@@ -56,7 +56,7 @@
         "a": "{{LIDER}} es más barato. En {{COMPARABLES}} estudios, gana en {{GANA_LIDER}} con un ahorro mediano de {{AHORRO_MEDIANO}}%."
       },
       {
-        "q": "¿Cuánto ahorraría en mis análisis mensuales?",
+        "q": "¿Cuánto se ahorra al mes entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Si haces análisis estándar mensuales, pasarías de {{CANASTA_B}} en {{PERDEDOR}} a {{CANASTA_A}} en {{LIDER}}. Eso es {{CANASTA_AHORRO_PCT}}% menos cada mes."
       },
       {
@@ -64,7 +64,7 @@
         "a": "Muy pocas veces. {{LIDER}} gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios, y {{PERDEDOR}} solo es más barato en {{GANA_B}}."
       },
       {
-        "q": "¿Por qué tanta diferencia entre los dos?",
+        "q": "¿Por qué hay tanta diferencia de precio entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Salud Digna tiene una estrategia de precios más accesibles. OLAB tiende a fijar valores más altos, lo que genera una brecha consistente en casi todos los análisis."
       }
     ]
@@ -91,7 +91,7 @@
         "a": "{{LIDER}} es más barato. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios, con un ahorro mediano de {{AHORRO_MEDIANO}}%."
       },
       {
-        "q": "¿La diferencia de precio es significativa?",
+        "q": "¿Es significativa la diferencia de precio entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Moderada. En una canasta de análisis comunes, el ahorro es {{CANASTA_AHORRO_PCT}}% ({{CANASTA_A}} vs {{CANASTA_B}}). No es tan amplio como con otros laboratorios, pero cuenta."
       },
       {
@@ -99,7 +99,7 @@
         "a": "No. {{LIDER}} gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios, y {{PERDEDOR}} solo es más barato en {{GANA_B}}. Salud Digna tiene consistencia en su ventaja de precio."
       },
       {
-        "q": "¿Cuál elegir entre estas dos?",
+        "q": "¿Cuál conviene elegir entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Si el precio es lo más importante, Salud Digna gana. Pero ambas son opciones económicas. La decisión también depende de disponibilidad de sucursales y cobertura de tu aseguradora."
       }
     ]
@@ -126,11 +126,11 @@
         "a": "{{LIDER}} es más barato. En los {{COMPARABLES}} estudios que ambos publican, {{LIDER}} gana en precio en {{GANA_LIDER}} casos. La canasta de estudios comunes cuesta {{CANASTA_A}} en {{LIDER}} y {{CANASTA_B}} en {{PERDEDOR}}, una diferencia de {{CANASTA_AHORRO}}%."
       },
       {
-        "q": "¿Qué tan grande es la diferencia de precios?",
+        "q": "¿Qué tan grande es la diferencia de precios entre {{LAB_A}} y {{LAB_B}}?",
         "a": "El ahorro mediano de {{LIDER}} es {{AHORRO_MEDIANO}}%. Algunas diferencias son pequeñas (bajo {{PCT_LIDER}}%), pero en estudios como perfil de lípidos o examen de orina, {{LIDER}} es notoriamente más accesible."
       },
       {
-        "q": "¿Cuál tiene más estudios disponibles?",
+        "q": "¿Quién tiene más estudios disponibles entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{PERDEDOR}} publica {{CATALOGO_B}} estudios con precio, mientras que {{LIDER}} tiene {{CATALOGO_A}}. La diferencia de catálogo es moderada, pero {{LIDER}} mantiene su ventaja de precio en la mayoría de los estudios compartidos."
       },
       {
@@ -157,11 +157,11 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál de los dos es más barato?",
+        "q": "¿Cuál es más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es mucho más barato. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios. En la canasta de {{FILAS}} estudios, {{LIDER}} cuesta {{CANASTA_A}} y {{PERDEDOR}} cuesta {{CANASTA_B}}, una diferencia de {{CANASTA_AHORRO}}%."
       },
       {
-        "q": "¿La diferencia es igual en todos los estudios?",
+        "q": "¿La diferencia entre {{LAB_A}} y {{LAB_B}} es igual en todos los estudios?",
         "a": "No. {{LIDER}} tiene {{AHORRO_MEDIANO}}% de ahorro mediano, pero varía por estudio. En algunos (como glucosa) la ventaja es extrema, mientras que en otros es más modesta."
       },
       {
@@ -204,7 +204,7 @@
         "a": "OLAB gana en varios: química sanguínea, hemoglobina glicosilada, insulina basal, testosterona y perfil hormonal femenino. Si necesitas muchos estudios hormonales, OLAB puede ser mejor opción."
       },
       {
-        "q": "¿Cómo elijo entre los dos si están tan parejos?",
+        "q": "¿Cómo elegir entre {{LAB_A}} y {{LAB_B}} si los precios están parejos?",
         "a": "Revisa los estudios específicos que necesitas. Si son básicos, {{LIDER}} es más barato. Si requieres hormonas o pruebas especializadas, OLAB tiene ventaja. Ambos publican {{COMPARABLES}} estudios comparables, así que tienes buena cobertura en cualquier opción."
       }
     ]
@@ -227,7 +227,7 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál laboratorio es más barato?",
+        "q": "¿Cuál es más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es más barato en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables."
       },
       {
@@ -235,7 +235,7 @@
         "a": "{{AHORRO_MEDIANO}}% de ahorro mediano en los estudios donde {{LIDER}} tiene precios menores."
       },
       {
-        "q": "¿La diferencia es grande en volumen?",
+        "q": "¿Cuánto crece la diferencia entre {{LAB_A}} y {{LAB_B}} al hacer varios estudios?",
         "a": "Sí. Para una canasta de {{FILAS}} análisis comunes, {{LIDER}} cuesta {{CANASTA_B}} contra {{CANASTA_A}} en {{PERDEDOR}}, equivalente a {{CANASTA_AHORRO}}% menos."
       },
       {
@@ -262,7 +262,7 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál es más barato entre estos dos?",
+        "q": "¿Cuál es más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} en {{GANA_LIDER}} de {{COMPARABLES}} estudios, frente a {{GANA_B}} donde {{PERDEDOR}} tiene precios menores."
       },
       {
@@ -270,11 +270,11 @@
         "a": "{{AHORRO_MEDIANO}}% de ahorro mediano, pero la ventaja por estudio tiende a ser modesta."
       },
       {
-        "q": "¿La canasta completa muestra diferencia?",
+        "q": "¿Hay diferencia entre {{LAB_A}} y {{LAB_B}} en una canasta completa de estudios?",
         "a": "Mínima. Con {{CANASTA_AHORRO}}% de diferencia en volumen, los precios están muy parejos. {{CANASTA_A}} en {{LIDER}} vs {{CANASTA_B}} en {{PERDEDOR}}."
       },
       {
-        "q": "¿En cuál conviene ir si compro muchos análisis?",
+        "q": "¿Cuál conviene entre {{LAB_A}} y {{LAB_B}} si me hago muchos análisis?",
         "a": "La diferencia total es tan pequeña que otros factores (ubicación, horarios, comodidad) importan más que el precio."
       }
     ]
@@ -296,15 +296,15 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál laboratorio ofrece mejores precios?",
+        "q": "¿Cuál ofrece mejores precios entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} en {{GANA_LIDER}} de {{COMPARABLES}} estudios analizados."
       },
       {
-        "q": "¿Cuál es el ahorro promedio?",
+        "q": "¿Cuál es el ahorro promedio entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{AHORRO_MEDIANO}}% de ahorro mediano donde {{LIDER}} gana."
       },
       {
-        "q": "¿Qué pasa si compro en volumen?",
+        "q": "¿Cambia la diferencia entre {{LAB_A}} y {{LAB_B}} si me hago varios estudios?",
         "a": "La ventaja se amplía. La canasta completa es {{CANASTA_AHORRO}}% más barata en {{LIDER}}: {{CANASTA_A}} contra {{CANASTA_B}}."
       },
       {
@@ -331,19 +331,19 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál de los dos es más barato?",
+        "q": "¿Cuál es más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es más barato en conjunto. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, lo que representa la mayoría de las opciones que publican ambos laboratorios."
       },
       {
-        "q": "¿En qué estudios hay mayor diferencia de precio?",
+        "q": "¿En qué estudios hay mayor diferencia entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Las diferencias varían. Algunos estudios como insulina basal y colesterol total muestran brechas notables. La tabla de esta página detalla cada uno."
       },
       {
-        "q": "¿Quién tiene más estudios con precio?",
+        "q": "¿Quién publica más estudios con precio entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{CATALOGO_B}} cuenta con {{CATALOGO_A}} estudios con precio. OLAB publica {{CATALOGO_A}} y LAPI {{CATALOGO_B}}."
       },
       {
-        "q": "¿Conviene usar ambos laboratorios?",
+        "q": "¿Conviene usar {{LAB_A}} y {{LAB_B}} según el estudio?",
         "a": "Si tu médico lo permite, revisar ambos puede ayudarte. {{LIDER}} es generalmente más accesible, pero algunos estudios específicos podrían tener precios distintos."
       }
     ]
@@ -366,7 +366,7 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál laboratorio sale más barato?",
+        "q": "¿Cuál sale más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es más barato en general. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios comparables, lo que representa una clara ventaja en precio."
       },
       {
@@ -374,11 +374,11 @@
         "a": "Sí, OLAB gana en {{GANA_A}} estudios. Pero Labbe mantiene ventaja en {{GANA_B}} estudios, dándole la supremacía general en precio."
       },
       {
-        "q": "¿Cuánto puedo ahorrar en una canasta de estudios comunes?",
+        "q": "¿Cuánto se ahorra entre {{LAB_A}} y {{LAB_B}} en una canasta de estudios comunes?",
         "a": "En {{FILAS}} estudios comunes, {{LIDER}} cuesta {{CANASTA_B}} contra {{CANASTA_A}} en {{PERDEDOR}}. Ahorras {{CANASTA_AHORRO}}% con {{LIDER}}."
       },
       {
-        "q": "¿Qué laboratorio tiene más opciones?",
+        "q": "¿Qué laboratorio tiene más opciones entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} publica {{CATALOGO_B}} estudios con precio, comparado con {{CATALOGO_A}} de {{PERDEDOR}}. Una diferencia pequeña pero {{LIDER}} adelante."
       }
     ]
@@ -401,7 +401,7 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál laboratorio es más barato?",
+        "q": "¿Cuál es más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "OLAB es significativamente más barato. Gana en {{GANA_LIDER}} de {{COMPARABLES}} estudios, una paliza clara en precio."
       },
       {
@@ -409,7 +409,7 @@
         "a": "Polanco gana en {{GANA_B}} estudios. Pero OLAB domina la mayoría, haciendo que cualquier ahorro en Polanco sea excepcional."
       },
       {
-        "q": "¿Cuál es el ahorro en una canasta de estudios comunes?",
+        "q": "¿Cuál es el ahorro entre {{LAB_A}} y {{LAB_B}} en una canasta de estudios comunes?",
         "a": "Usando {{FILAS}} estudios comunes: {{CANASTA_A}} en OLAB vs {{CANASTA_B}} en Polanco. Ahorras {{CANASTA_AHORRO}}% con OLAB."
       },
       {
@@ -436,7 +436,7 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál cuesta menos?",
+        "q": "¿Cuál cuesta menos entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es más barato en {{GANA_A}} de {{COMPARABLES}} estudios ({{PCT_LIDER}}%). Pero el ahorro mediano es {{AHORRO_MEDIANO}}%, muy pequeño. En términos reales, ambos laboratorios tienen precios casi idénticos."
       },
       {
@@ -444,11 +444,11 @@
         "a": "Revisa la tabla de comparativa — {{LIDER}} destaca en biometría, química y análisis generales. Pero hay muchos estudios donde los precios son prácticamente iguales."
       },
       {
-        "q": "¿Qué diferencia hay en el total?",
+        "q": "¿Qué diferencia hay en el total entre {{LAB_A}} y {{LAB_B}}?",
         "a": "La canasta de {{FILAS}} estudios comunes cuesta {{CANASTA_A}} en {{LIDER}} y {{CANASTA_B}} en {{PERDEDOR}}. Es una diferencia de {{CANASTA_AHORRO_PCT}}%, que en dinero no es significativa para la mayoría."
       },
       {
-        "q": "¿Debo cambiar de laboratorio por esto?",
+        "q": "¿Conviene cambiar entre {{LAB_A}} y {{LAB_B}} por esta diferencia?",
         "a": "La decisión entre estos dos no debería ser solo por precio. Considera: catálogo de {{CATALOGO_A}} vs {{CATALOGO_B}} estudios, ubicación de sucursales, horarios de atención y confiabilidad del servicio."
       }
     ]
@@ -471,19 +471,19 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál es más barato?",
+        "q": "¿Cuál es más barato entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es más barato en {{GANA_A}} de {{COMPARABLES}} estudios ({{PCT_LIDER}}%). El ahorro mediano es {{AHORRO_MEDIANO}}%, una diferencia real que se nota en la factura."
       },
       {
-        "q": "¿Cuánto ahorro real hay?",
+        "q": "¿Cuánto se ahorra realmente entre {{LAB_A}} y {{LAB_B}}?",
         "a": "En una canasta de {{FILAS}} estudios, {{LIDER}} cobra {{CANASTA_A}} mientras {{PERDEDOR}} cobra {{CANASTA_B}}. Es {{CANASTA_AHORRO_PCT}}% menos, lo que equivale a ahorros significativos si haces estudios regularmente."
       },
       {
-        "q": "¿Hay estudios donde son similares?",
+        "q": "¿Hay estudios donde {{LAB_A}} y {{LAB_B}} cuestan casi lo mismo?",
         "a": "Algunos estudios básicos tienen precios parecidos, pero {{LIDER}} destaca en estudios más complejos. Revisa la tabla para ver dónde son mayores las diferencias."
       },
       {
-        "q": "¿Cambia algo según el número de estudios?",
+        "q": "¿Cambia la diferencia entre {{LAB_A}} y {{LAB_B}} según cuántos estudios haga?",
         "a": "Cuantos más estudios necesites, mayor es tu ahorro total. {{LIDER}} tiene {{CATALOGO_A}} estudios en su catálogo, comparado con {{CATALOGO_B}} de {{PERDEDOR}}."
       }
     ]
@@ -506,19 +506,19 @@
     ],
     "faqs": [
       {
-        "q": "¿Cuál cuesta menos?",
+        "q": "¿Cuál cuesta menos entre {{LAB_A}} y {{LAB_B}}?",
         "a": "{{LIDER}} es más barato en {{GANA_A}} de {{COMPARABLES}} estudios ({{PCT_LIDER}}%). El ahorro mediano es {{AHORRO_MEDIANO}}%, algo que realmente impacta tu gasto en salud."
       },
       {
-        "q": "¿Cuánta es la diferencia de precios?",
+        "q": "¿De cuánto es la diferencia de precios entre {{LAB_A}} y {{LAB_B}}?",
         "a": "En la canasta de {{FILAS}} estudios comunes: {{LIDER}} cobra {{CANASTA_A}} y {{PERDEDOR}} cobra {{CANASTA_B}}, diferencia de {{CANASTA_AHORRO_PCT}}%. Si haces estudios regularmente, es dinero que importa."
       },
       {
-        "q": "¿En qué estudios es más notoria la diferencia?",
+        "q": "¿En qué estudios es más notoria la diferencia entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Revisa la tabla de comparativa. Hay algunos estudios especializados donde la brecha es mayor. Otros, como los básicos, tienen precios más parecidos."
       },
       {
-        "q": "¿Valdrá la pena cambiar de laboratorio?",
+        "q": "¿Vale la pena cambiar entre {{LAB_A}} y {{LAB_B}}?",
         "a": "Depende de con qué frecuencia hagas estudios. Si es regularmente y necesitas ese ahorro de {{CANASTA_AHORRO_PCT}}%, vale la pena. Además {{LIDER}} tiene {{CATALOGO_A}} estudios vs {{CATALOGO_B}} de {{PERDEDOR}}, así tienes más opciones."
       }
     ]

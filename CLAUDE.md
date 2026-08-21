@@ -83,6 +83,7 @@ estricta + `--apply` para escribir (sin la bandera es dry-run).
 | `npm run blog:estudios` | 25 páginas de laboratorio | `scripts/estudios-blog-copy.json` |
 | `npm run blog:medicinas` | 10 de medicamento de farmacia | `scripts/medicinas-blog-copy.json` |
 | `npm run blog:glp1` | 5 de GLP-1 | `scripts/glp1-blog-copy.json` |
+| `npm run tarjetas` | las 178 tarjetas de 1200x630 + su marcado | — (título y rubro salen del HTML) |
 
 `npm run predeploy` corre los cuatro con `--apply` y regenera los sitemaps.
 
@@ -111,6 +112,86 @@ Sale de la **fecha del scan**, nunca de `new Date()`. Un título que dice «agos
   seis columnas empuja el ancho de la página entera.
 - **Concordancia de género en los encabezados generados**: el copy trae `articulo`
   («la biometría hemática», «un check up», «el paracetamol»).
+
+---
+
+## Rich snippets
+
+**El JSON-LD de `FAQPage` se queda, y no cuenta como rich snippet.** Lo declaran
+190 de las 194 páginas del sitio — los 178 artículos del blog, los 11 de `pages/`
+y la landing, 868 preguntas en total — pero Google dejó de mostrar FAQ
+rich results en la búsqueda el **7 de mayo de 2026**, y desde septiembre de 2023
+ya sólo se los daba a sitios de gobierno y salud reconocidos como autoridad. Un
+comparador de precios nunca entró en esa lista, y Search Console lo confirma: la
+primera impresión del sitio es del **30 de mayo de 2026**, veintitrés días después
+del apagón. No hay «antes» — estas páginas nunca mostraron el rich result que
+marcan, y no lo perdieron.
+
+No se borra. Google dice que el structured data sin uso no causa problemas,
+`FAQPage` sigue siendo un tipo válido de schema.org, y Bingbot, DuckDuckGo y los
+crawlers de RAG lo siguen leyendo. Son 233 KB de los 3.6 MB de HTML: borrarlo
+compra bytes y pierde superficie fuera de Google.
+
+Lo que cambia es el tablero. Los rich results que este sitio puede ganar son
+`BreadcrumbList` — el único que funciona hoy — y `Product` + `AggregateOffer`,
+que está marcado en 36 páginas pero no renderiza porque le falta `image`. Ésos
+son los enhancement reports que se vigilan en Search Console. Si el de FAQ
+aparece vacío no es un bug: Google lo retiró junto con el soporte en el Rich
+Results Test.
+
+**Cada artículo tiene una tarjeta de 1200x630 en `images/blog/<slug>.png`.** No es
+decoración: `Article` y `Product` necesitan `image` o Google no arma el rich
+result, y el blog no tenía ni una etiqueta `<img>`. `npm run tarjetas:apply`
+las dibuja con Pillow y conecta el marcado.
+
+**La tarjeta no lleva cifras, a propósito.** `revisarCifras()` lee HTML; no puede
+leer un PNG. Un precio horneado en la imagen sería el único número del repo que
+ningún test vigila, y envejecería solo cada domingo mientras la tabla de su
+propia página se actualiza. El generador rechaza cualquier texto con `$N` o `N%`
+antes de dibujar.
+
+Consecuencia buena: la tarjeta no caduca. Se genera una vez y se commitea; el
+ciclo semanal no la toca y el workflow no necesita Pillow ni la fuente. Lo que
+sí pasa cada domingo es que los generadores reescriben 57 de estos HTML, así que
+el `image` vive en los generadores y en las dos plantillas de
+`scripts/plantillas/` — no parchado a mano. `test-marcado-blog.js` falla si
+alguien se lo lleva de paso.
+
+**Las preguntas del bloque FAQ son `<h3 class="faq-q" id="...">`, no divs.** Las 868
+estaban en divs. Un div no entra al esquema de encabezados, no es candidato de
+featured snippet y no puede ser destino de un enlace; un h3 con ancla es las
+tres cosas. El `id` sale de `scripts/lib/ancla.js`, compartido con los
+generadores: si las dos fórmulas se separan, cada domingo el ciclo semanal
+reescribe los `id` de las 56 páginas generadas y todo enlace a una sección
+apunta a la nada, sin error visible.
+
+La regla `.faq-q` fija `margin:0 0 8px` por eso mismo: un h3 heredaría el
+`margin-top:24px` global y abriría un hueco dentro de la caja. Verificado con
+un diff de píxeles — el bloque se ve idéntico al que era con divs.
+
+**Sobre el largo de las respuestas: el conteo de palabras es la métrica
+equivocada.** Parecía que la mediana de 19 palabras era el problema, pero en las
+páginas que tienen tráfico —todas generadas— la respuesta corta es la correcta:
+«¿Necesito ayuno para la vitamina D? → No. Puede tomarse a cualquier hora y sin
+ayuno» son nueve palabras y no le falta ninguna. Alargarla sería relleno.
+
+Lo que sí mide algo es si la pregunta **nombra su sujeto**. «¿Cuántas veces por
+semana?» o «¿La fruta sacia?» dependen del artículo que las rodea: como
+encabezado no ganan nada y como ancla (`#la-fruta-sacia`) no significan nada.
+Ya se arreglaron las dos tandas. En las **generadas**, en los cuatro
+`*-copy.json` con `{{LAB_A}}`/`{{LAB_B}}` en las comparativas, para que los
+nombres sigan saliendo del scan. En las **escritas a mano**, 217 preguntas en 102
+páginas, directo en el HTML — y ahí hay que tocar los **dos** lugares donde vive
+la pregunta: el `<h3>` visible y el `Question.name` del JSON-LD. Si se separan,
+el marcado le promete a Google una pregunta que la página no tiene;
+`test-marcado-blog.js` lo vigila.
+
+Ninguna respuesta se tocó en esa pasada: sólo la pregunta. Es contenido de salud
+y reformular una respuesta es otra decisión, con otro revisor.
+
+Las FAQ visibles sí siguen sirviendo — para el usuario, para featured snippets y
+para que los motores de IA citen la respuesta — pero eso se gana con el HTML, no
+con el marcado.
 
 ---
 

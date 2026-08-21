@@ -23,10 +23,16 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { anclas } = require('./lib/ancla');
 const G    = require('./lib/glp1-blog');
 
 const ROOT  = path.join(__dirname, '..');
 const BASE  = 'https://medcompara.com.mx';
+// La tarjeta de 1200x630 que escribe scripts/generar-tarjetas-blog.js. Sin
+// `image` Google no tiene thumbnail y no arma el rich result — ni de Article
+// ni de Product. Si el PNG no existe, la referencia queda colgando: corre
+// `node scripts/generar-tarjetas-blog.js --apply` cuando agregues un slug.
+const tarjeta = slug => `${BASE}/images/blog/${slug}.png`;
 const APPLY = process.argv.includes('--apply');
 const SOLO  = (i => (i > -1 ? process.argv[i + 1] : null))(process.argv.indexOf('--solo'));
 
@@ -35,6 +41,16 @@ const COPY = JSON.parse(fs.readFileSync(path.join(__dirname, 'glp1-blog-copy.jso
 
 const esc = s => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Las preguntas van en <h3> con ancla, no en <div>: un div no entra al esquema
+// de encabezados ni puede ser destino de un enlace. El id sale de lib/ancla.js
+// para que el ciclo semanal no lo cambie cada domingo.
+function bloqueFaqs(faqs) {
+  const ids = anclas(faqs.map(f => f.q));
+  return faqs.map((f, i) =>
+    `  <div class="faq-item"><h3 class="faq-q" id="${ids[i]}">${esc(f.q)}</h3><p class="faq-a">${esc(f.a)}</p></div>`
+  ).join('\n');
+}
 
 const mxn = n => '$' + Math.round(Number(n)).toLocaleString('es-MX');
 const nom = f => G.NOMBRE[f] || f;
@@ -107,6 +123,7 @@ function paginaTodas(h, c, todos, meta) {
     .replace(/{{TITULO}}/g, esc(titulo))
     .replace(/{{DESC}}/g, esc(c.metaDescription))
     .replace(/{{URL}}/g, url)
+    .replace(/{{IMAGEN}}/g, tarjeta(c.slug))
     .replace('</head>', ESTILO_EXTRA + '\n</head>');
 
   const bullets = xs => xs.map(x => `    <li>${esc(x)}</li>`).join('\n');
@@ -118,7 +135,7 @@ function paginaTodas(h, c, todos, meta) {
       mainEntity: c.faqs.map(f => ({ '@type': 'Question', name: f.q,
         acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'Article',
-      headline: c.h1, description: c.metaDescription, url,
+      headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
       publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE } },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList',
@@ -180,7 +197,7 @@ ${bullets(c.elegir)}
 
   <div class="faq-section">
   <h2>Preguntas frecuentes</h2>
-${c.faqs.map(f => `  <div class="faq-item"><div class="faq-q">${esc(f.q)}</div><p class="faq-a">${esc(f.a)}</p></div>`).join('\n')}
+${bloqueFaqs(c.faqs)}
 </div>
 
   <div class="info-card">
@@ -312,7 +329,7 @@ function schemas(h, c, url, meta) {
     },
     {
       '@context': 'https://schema.org', '@type': 'Article',
-      headline: c.h1, description: c.metaDescription, url,
+      headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
       publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE },
       about: { '@type': 'Drug', name: h.familia, activeIngredient: h.activo },
@@ -320,6 +337,7 @@ function schemas(h, c, url, meta) {
     {
       '@context': 'https://schema.org', '@type': 'Product',
       name: `${h.familia} ${h.inicial.dosis} — precio en México`,
+      image: [tarjeta(c.slug)],
       category: 'Medicamentos GLP-1',
       description: c.metaDescription,
       offers: {
@@ -348,6 +366,7 @@ function pagina(h, c, todos, meta) {
     .replace(/{{TITULO}}/g, esc(titulo))
     .replace(/{{DESC}}/g, esc(c.metaDescription))
     .replace(/{{URL}}/g, url)
+    .replace(/{{IMAGEN}}/g, tarjeta(c.slug))
     .replace('</head>', ESTILO_EXTRA + '\n</head>');
 
   const bullets = xs => xs.map(x => `    <li>${esc(x)}</li>`).join('\n');
@@ -410,7 +429,7 @@ ${bullets(c.elegir)}
 
   <div class="faq-section">
   <h2>Preguntas frecuentes</h2>
-${c.faqs.map(f => `  <div class="faq-item"><div class="faq-q">${esc(f.q)}</div><p class="faq-a">${esc(f.a)}</p></div>`).join('\n')}
+${bloqueFaqs(c.faqs)}
 </div>
 
   <div class="info-card">

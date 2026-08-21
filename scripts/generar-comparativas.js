@@ -14,10 +14,16 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { anclas } = require('./lib/ancla');
 const { pares, hechos, cargarPrecios } = require('./lib/comparativas');
 
 const ROOT  = path.join(__dirname, '..');
 const BASE  = 'https://medcompara.com.mx';
+// La tarjeta de 1200x630 que escribe scripts/generar-tarjetas-blog.js. Sin
+// `image` Google no tiene thumbnail y no arma el rich result — ni de Article
+// ni de Product. Si el PNG no existe, la referencia queda colgando: corre
+// `node scripts/generar-tarjetas-blog.js --apply` cuando agregues un slug.
+const tarjeta = slug => `${BASE}/images/blog/${slug}.png`;
 const APPLY = process.argv.includes('--apply');
 const SOLO  = (i => i > -1 ? process.argv[i + 1] : null)(process.argv.indexOf('--solo'));
 
@@ -26,6 +32,16 @@ const COPY = JSON.parse(fs.readFileSync(path.join(__dirname, 'comparativas-copy.
 
 const esc = s => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Las preguntas van en <h3> con ancla, no en <div>: un div no entra al esquema
+// de encabezados ni puede ser destino de un enlace. El id sale de lib/ancla.js
+// para que el ciclo semanal no lo cambie cada domingo.
+function bloqueFaqs(faqs) {
+  const ids = anclas(faqs.map(f => f.q));
+  return faqs.map((f, i) =>
+    `  <div class="faq-item"><h3 class="faq-q" id="${ids[i]}">${esc(f.q)}</h3><p class="faq-a">${esc(f.a)}</p></div>`
+  ).join('\n');
+}
 
 const mxn = n => '$' + Number(n).toLocaleString('es-MX', { maximumFractionDigits: 0 });
 
@@ -179,6 +195,7 @@ function schemas(h, c, url, fecha) {
   const article = {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: c.h1,
+    image: [tarjeta(c.slug)],
     description: c.metaDescription,
     url,
     datePublished: fecha,
@@ -215,7 +232,8 @@ function pagina(h, c, todos, meta) {
   const head = HEAD
     .replace(/{{TITULO}}/g, esc(titulo))
     .replace(/{{DESC}}/g, esc(c.metaDescription))
-    .replace(/{{URL}}/g, url);
+    .replace(/{{URL}}/g, url)
+    .replace(/{{IMAGEN}}/g, tarjeta(c.slug));
 
   const bullets = xs => xs.map(x => `    <li>${esc(x)}</li>`).join('\n');
 
@@ -268,7 +286,7 @@ ${bullets(c.cuandoB)}
 
   <div class="faq-section">
   <h2>Preguntas frecuentes</h2>
-${c.faqs.map(f => `  <div class="faq-item"><div class="faq-q">${esc(f.q)}</div><p class="faq-a">${esc(f.a)}</p></div>`).join('\n')}
+${bloqueFaqs(c.faqs)}
 </div>
 
 ${relacionados(h, todos)}

@@ -40,7 +40,7 @@
         "a": "Evalúa glóbulos rojos, blancos y plaquetas. Sirve para detectar anemia, infecciones, problemas de coagulación y para dar seguimiento a tratamientos."
       },
       {
-        "q": "¿Cuánto tardan los resultados?",
+        "q": "¿Cuánto tardan los resultados de la biometría hemática?",
         "a": "Entre 24 y 48 horas en la mayoría de los laboratorios, y el mismo día en varios de ellos si la muestra se toma temprano."
       }
     ],
@@ -81,7 +81,7 @@
         "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio de lista más bajo. Las promociones de sucursal pueden cambiarlo, así que confirma al llegar."
       },
       {
-        "q": "¿Los precios son distintos en CDMX que en el resto del país?",
+        "q": "¿El precio de la biometría hemática es distinto en CDMX que en el resto del país?",
         "a": "Las cadenas publican precio de lista nacional. Lo que sí cambia por ciudad son las promociones, la cobertura a domicilio y los horarios de toma."
       },
       {
@@ -89,7 +89,7 @@
         "a": "En la mayoría de las sucursales no, la toma es por orden de llegada. Para servicio a domicilio sí se agenda."
       },
       {
-        "q": "¿Cuánto tardan los resultados en CDMX?",
+        "q": "¿Cuánto tardan los resultados de la biometría hemática en CDMX?",
         "a": "Entre 24 y 48 horas, y el mismo día en varias cadenas si la muestra se toma temprano."
       }
     ],
@@ -129,7 +129,7 @@
         "a": "La de 27 elementos va de {{MIN}} a {{MAX}} según el laboratorio, con mediana en {{MEDIANA}}. Las versiones de 6 y 35 elementos las comparamos en la tabla de arriba."
       },
       {
-        "q": "¿Qué diferencia hay entre química de 6, 27 y 35 elementos?",
+        "q": "¿Qué diferencia hay entre la química sanguínea de 6, 27 y 35 elementos?",
         "a": "La de 6 mide parámetros básicos como glucosa, colesterol y función renal. La de 27 añade marcadores hepáticos, electrolitos y más perfil metabólico. Las de 35 en adelante son paneles exhaustivos para diagnóstico."
       },
       {
@@ -186,15 +186,15 @@
         "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el precio de lista más bajo entre los {{N_LABS}} comparados."
       },
       {
-        "q": "¿Necesito ayuno?",
+        "q": "¿Necesito ayuno para la química sanguínea?",
         "a": "Sí, de 8 a 12 horas y solo con agua simple. Sin ayuno se alteran glucosa y triglicéridos."
       },
       {
-        "q": "¿Los precios cambian entre CDMX y otras ciudades?",
+        "q": "¿El precio de la química sanguínea cambia entre CDMX y otras ciudades?",
         "a": "El precio de lista es nacional en las cadenas grandes. Lo que cambia por ciudad son promociones, cobertura a domicilio y horarios de toma."
       },
       {
-        "q": "¿Cuál versión me toca, la de 6, 27 o 35 elementos?",
+        "q": "¿Qué química sanguínea me toca, la de 6, 27 o 35 elementos?",
         "a": "La que indique tu médico. La de 6 es control básico, la de 27 el chequeo anual y las de 35 en adelante son para diagnóstico detallado."
       }
     ],
@@ -436,7 +436,7 @@
         "a": "En esta comparación: {{ESTUDIOS}}. Cada laboratorio arma su paquete distinto, así que conviene revisar el desglose antes de pagarlo."
       },
       {
-        "q": "¿Conviene el paquete o pedir los estudios por separado?",
+        "q": "¿Conviene el paquete de check up o pedir los estudios por separado?",
         "a": "Depende del laboratorio. En varios, la suma de los estudios sueltos sale igual o menos que el paquete cerrado, sobre todo si no necesitas todos."
       },
       {
@@ -505,7 +505,7 @@
         "a": "En el corte del {{FECHA}}, {{BARATO}} tenía el total más bajo de la canasta básica entre los {{N_LABS}} laboratorios comparados."
       },
       {
-        "q": "¿Conviene el paquete del laboratorio?",
+        "q": "¿Conviene el paquete de check up del laboratorio?",
         "a": "Solo si incluye lo que necesitas. Pide el desglose y compáralo contra la suma de los estudios sueltos; en varios laboratorios la suma sale igual o menos."
       },
       {
@@ -545,15 +545,15 @@
         "a": "Medido sobre {{COMPARABLES}} estudios comparables, {{LIDER}} pone el precio más bajo en {{LIDER_GANA}} de ellos ({{LIDER_PCT}}). La tabla completa está arriba."
       },
       {
-        "q": "¿El más barato es el mejor?",
+        "q": "¿El laboratorio más barato de CDMX es el mejor?",
         "a": "No necesariamente. El precio más bajo importa en estudios de rutina; en estudios especializados lo que decide es quién los hace, y ahí el catálogo pesa más que el precio."
       },
       {
-        "q": "¿Con qué frecuencia se actualiza este ranking?",
+        "q": "¿Cada cuánto se actualiza este ranking de laboratorios?",
         "a": "Cada semana. Los precios salen del scan del {{FECHA}} y la tabla se regenera con cada corrida."
       },
       {
-        "q": "¿Sirve este ranking fuera de CDMX?",
+        "q": "¿Sirve este ranking de laboratorios fuera de CDMX?",
         "a": "Los precios de lista son nacionales en las cadenas grandes, así que el orden se sostiene. Lo que cambia por ciudad es qué laboratorios tienen sucursal cerca."
       },
       {
@@ -603,7 +603,7 @@
         "a": "No. Lo piden los metabólicos como glucosa, perfil de lípidos y química sanguínea. La biometría hemática y varios hormonales no lo requieren, aunque se recomienda tomar los hormonales por la mañana."
       },
       {
-        "q": "¿Cada cuánto se actualizan estos precios?",
+        "q": "¿Cada cuánto se actualizan estos precios de estudios de laboratorio?",
         "a": "Cada semana, con el scan del {{FECHA}} como corte más reciente."
       }
     ]
@@ -727,7 +727,7 @@
         "a": "De {{MIN}} en {{BARATO}} a {{MAX}} en {{CARO}}, con mediana en {{MEDIANA}} entre los {{N_LABS}} laboratorios comparados."
       },
       {
-        "q": "¿Cómo debo recolectar la muestra?",
+        "q": "¿Cómo se recolecta la muestra para el examen general de orina?",
         "a": "Con la primera orina de la mañana, a la mitad del chorro, en frasco estéril y después de asearte. Llévala al laboratorio dentro de las dos horas siguientes."
       },
       {
@@ -863,11 +863,11 @@
         "a": "Habitualmente FSH, LH, estradiol y progesterona, y según el laboratorio también prolactina y testosterona. Conviene pedir el desglose."
       },
       {
-        "q": "¿En qué día del ciclo debo hacérmelo?",
+        "q": "¿En qué día del ciclo conviene hacerse el perfil hormonal femenino?",
         "a": "FSH, LH y estradiol suelen tomarse entre el día 2 y el 5 del ciclo; la progesterona cerca del día 21. Tu médico indica cuál aplica en tu caso."
       },
       {
-        "q": "¿Necesito ayuno?",
+        "q": "¿Necesito ayuno para el perfil hormonal femenino?",
         "a": "Se recomienda acudir en ayunas y por la mañana, porque varias de estas hormonas cambian a lo largo del día."
       }
     ]
@@ -907,11 +907,11 @@
         "a": "Desde unos ocho a diez días después de la concepción, antes que una prueba de orina de farmacia."
       },
       {
-        "q": "¿Necesito ayuno o preparación?",
+        "q": "¿Necesito ayuno o preparación para la prueba de embarazo en sangre?",
         "a": "No. Se toma a cualquier hora y sin ayuno."
       },
       {
-        "q": "¿Cuál es la diferencia entre cualitativa y cuantitativa?",
+        "q": "¿Cuál es la diferencia entre la prueba de embarazo cualitativa y la cuantitativa?",
         "a": "La cualitativa responde si hay embarazo o no; la cuantitativa da el valor exacto de la hormona, útil para estimar el tiempo de gestación y dar seguimiento."
       }
     ]
@@ -951,15 +951,15 @@
         "a": "En centros de salud del sector público y en los CAPASITS, de forma gratuita, confidencial y sin necesidad de receta."
       },
       {
-        "q": "¿Cuánto tiempo debo esperar después de una exposición?",
+        "q": "¿Cuánto hay que esperar para hacerse la prueba de VIH tras una exposición?",
         "a": "Las pruebas de cuarta generación son confiables desde unas dos a seis semanas; las de anticuerpos pueden requerir hasta tres meses. Coméntalo al agendar."
       },
       {
-        "q": "¿El resultado es confidencial?",
+        "q": "¿El resultado de la prueba de VIH es confidencial?",
         "a": "Sí. El resultado es personal y confidencial, tanto en laboratorio privado como en el sector público."
       },
       {
-        "q": "¿Un resultado positivo es definitivo?",
+        "q": "¿Un resultado positivo de VIH es definitivo?",
         "a": "No. Toda prueba de tamizaje reactiva requiere una prueba confirmatoria antes de cualquier diagnóstico."
       }
     ]
@@ -999,7 +999,7 @@
         "a": "Habitualmente TGO, TGP, fosfatasa alcalina, GGT, bilirrubinas, proteínas totales y albúmina. El contenido exacto varía por laboratorio."
       },
       {
-        "q": "¿Necesito ayuno?",
+        "q": "¿Necesito ayuno para las pruebas de función hepática?",
         "a": "Sí, de 8 a 12 horas. Y conviene no tomar alcohol durante los tres días previos, porque altera las enzimas hepáticas."
       },
       {
@@ -1043,7 +1043,7 @@
         "a": "Por la mañana, idealmente entre las 7 y las 10. El nivel es más alto al despertar y baja a lo largo del día."
       },
       {
-        "q": "¿Necesito ayuno?",
+        "q": "¿Necesito ayuno para el examen de testosterona?",
         "a": "Se recomienda acudir en ayunas y por la mañana para que el valor sea comparable con los rangos de referencia."
       },
       {
@@ -1091,7 +1091,7 @@
         "a": "No. Puede tomarse a cualquier hora y sin ayuno."
       },
       {
-        "q": "¿Cada cuánto debo repetirla?",
+        "q": "¿Cada cuánto hay que repetir el examen de vitamina D?",
         "a": "Si estás en tratamiento, lo habitual es repetirla a los tres meses de iniciar el suplemento. Fuera de eso, la frecuencia la define tu médico."
       }
     ]
@@ -1138,7 +1138,7 @@
         "a": "En esta comparación: {{ESTUDIOS}}. No es un nombre estandarizado, así que conviene pedir el desglose del paquete de cada laboratorio."
       },
       {
-        "q": "¿Necesito ayuno?",
+        "q": "¿Necesito ayuno para el examen de sangre completo?",
         "a": "Sí, de 8 a 12 horas con agua simple. Los tres estudios se toman de la misma muestra."
       },
       {
@@ -1277,7 +1277,7 @@
         "a": "En el corte del {{FECHA}}, {{LIDER}} pone el precio más bajo en {{LIDER_PCT}} de los estudios comparables. La misma canasta de chequeo cuesta {{CANASTA_MIN}} ahí y hasta {{CANASTA_MAX}} en el más caro."
       },
       {
-        "q": "¿Salud Digna o Chopo?",
+        "q": "¿Cuál es mejor, Salud Digna o Chopo?",
         "a": "Salud Digna gana en precio en muchos más estudios; Chopo gana en número de sucursales y catálogo. Para estudios de rutina con presupuesto ajustado, Salud Digna; si la cercanía manda, Chopo."
       },
       {
@@ -1289,7 +1289,7 @@
         "a": "La mayoría de los estudios de laboratorio en México no requieren receta para realizarse. Lo que sí conviene es que un médico indique cuáles necesitas e interprete el resultado."
       },
       {
-        "q": "¿Con qué frecuencia se actualiza esta comparativa?",
+        "q": "¿Cada cuánto se actualiza esta comparativa de laboratorios?",
         "a": "Cada semana. Los datos salen del scan del {{FECHA}} y la página se regenera con cada corrida."
       }
     ]
