@@ -24,6 +24,10 @@
 const fs   = require('fs');
 const path = require('path');
 const { anclas } = require('./lib/ancla');
+// El índice y las anclas de sección van sobre el HTML ya armado, con la misma
+// función que usó la pasada de los artículos escritos a mano.
+const { conIndice } = require('./lib/indice-articulo');
+const { conTablasScroll } = require('./lib/tabla-movil');
 const G    = require('./lib/glp1-blog');
 
 const ROOT  = path.join(__dirname, '..');
@@ -137,7 +141,8 @@ function paginaTodas(h, c, todos, meta) {
     { '@context': 'https://schema.org', '@type': 'Article',
       headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
-      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE } },
+      author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
+      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } } },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Inicio', item: BASE + '/' },
@@ -146,8 +151,11 @@ function paginaTodas(h, c, todos, meta) {
       ] },
   ].map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n');
 
-  return `${head}
-${schema}
+  // El JSON-LD va DENTRO del head: emitirlo después de `${head}` lo dejaba
+  // entre </head> y <body>, fuera de los dos.
+  const cabeza = head.replace('</head>', `${schema}\n</head>`);
+
+  return `${cabeza}
 <body>
 <nav>
   <a href="/" class="nav-logo">Med<span>compara</span></a>
@@ -331,7 +339,8 @@ function schemas(h, c, url, meta) {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
-      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE },
+      author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
+      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
       about: { '@type': 'Drug', name: h.familia, activeIngredient: h.activo },
     },
     {
@@ -374,8 +383,11 @@ function pagina(h, c, todos, meta) {
   const otros = todos.filter(o => o.slug !== c.slug).slice(0, 4)
     .map(o => `<a class="related-link" href="/blog/${o.slug}">${esc(o.h1)}</a>`);
 
-  return `${head}
-${schemas(h, c, url, meta)}
+  // El JSON-LD va DENTRO del head: emitirlo después de `${head}` lo dejaba
+  // entre </head> y <body>, fuera de los dos.
+  const cabeza = head.replace('</head>', `${schemas(h, c, url, meta)}\n</head>`);
+
+  return `${cabeza}
 <body>
 <nav>
   <a href="/" class="nav-logo">Med<span>compara</span></a>
@@ -496,7 +508,7 @@ if (problemas.length) {
 const resueltos = listos.map(x => x.r);
 
 for (const { c, h, r, cruzada } of listos) {
-  const html = cruzada ? paginaTodas(h, r, resueltos, meta) : pagina(h, r, resueltos, meta);
+  const html = conIndice(conTablasScroll(cruzada ? paginaTodas(h, r, resueltos, meta) : pagina(h, r, resueltos, meta)));
   if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);
   const detalle = cruzada ? `${h.nFamilias} tratamientos` : `${h.nPresentaciones} dosis`;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${c.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${detalle} · desde ${mxn(h.min)})`);

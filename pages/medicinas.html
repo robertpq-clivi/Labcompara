@@ -14,7 +14,10 @@
 <meta property="og:description" content="Los 200 medicamentos más buscados, comparados caja por caja entre cinco farmacias."/>
 <meta property="og:url" content="https://medcompara.com.mx/medicinas"/>
 <meta property="og:image" content="https://medcompara.com.mx/images/og-image.jpg"/>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="/images/logo-medcompara-512.png"/>
+<link rel="apple-touch-icon" sizes="512x512" href="/images/logo-medcompara-512.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -296,6 +299,8 @@ footer a:hover{color:var(--teal-light);}
   html{scroll-behavior:auto;}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
 }
+.tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;}
+.tabla-scroll>table{margin:0;min-width:480px;}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Por qué no encuentro mi medicamento?", "acceptedAnswer": {"@type": "Answer", "text": "Solo publicamos filas donde dos o más farmacias tienen exactamente la misma caja. Si únicamente una lo vende, o cada una maneja una presentación distinta, no hay comparación que mostrar y preferimos no inventarla. También puede ser que todavía no esté en nuestra lista de los 200 más buscados."}}, {"@type": "Question", "name": "¿El genérico es igual que el de marca?", "acceptedAnswer": {"@type": "Answer", "text": "Tienen el mismo principio activo en la misma cantidad. Lo que cambia es el fabricante y el precio, que puede ser dos o tres veces mayor en la marca. Por eso mostramos las dos comparaciones: la del principio activo, que toma lo más barato de cada farmacia, y la de la misma marca entre farmacias."}}, {"@type": "Question", "name": "¿Cada cuánto cambian los precios?", "acceptedAnswer": {"@type": "Answer", "text": "Los revisamos cada domingo de forma automática. La fecha de la última actualización aparece al pie de la comparativa. Entre una revisión y otra, una farmacia puede cambiar su precio o quedarse sin existencias: por eso te llevamos a su sitio, donde ves el precio del momento."}}, {"@type": "Question", "name": "¿Puedo comprar aquí?", "acceptedAnswer": {"@type": "Answer", "text": "No. Medcompara solo compara: te llevamos directo al producto en el sitio de la farmacia y la compra se hace con ellos. No cobramos comisión ni recibimos pago por aparecer en una posición."}}, {"@type": "Question", "name": "¿Por qué algunos medicamentos requieren receta?", "acceptedAnswer": {"@type": "Answer", "text": "En México los antibióticos requieren receta desde 2010, y los psicotrópicos —ansiolíticos, algunos analgésicos— requieren receta especial. Los marcamos con ℞ cuando su categoría no admite duda. Que no lleve la marca no significa que sea de libre venta: consúltalo con tu médico o con el farmacéutico."}}, {"@type": "Question", "name": "¿De dónde salen los precios?", "acceptedAnswer": {"@type": "Answer", "text": "Del sitio público de cada farmacia, leídos automáticamente cada semana. Son precios de venta en línea y pueden variar por sucursal, promoción y disponibilidad."}}]}
@@ -1066,11 +1071,11 @@ function renderResultados(){
       <div class="cmp-hero-t">Puedes ahorrar hasta <span>${money(ahorro)}</span>${barata?` comprando en <span>${CORTO[barata]||barata}</span>`:''}</div>
       <div class="cmp-hero-p">Es la diferencia entre la farmacia más cara y la más barata para la misma caja: misma dosis, misma presentación y mismo número de piezas.</div>
     </div></div>` : '') +
-    `<div class="cmp-scroll"><table class="cmp-table"><thead><tr><th class="cmp-corner"></th>${th}</tr></thead><tbody>` +
+    `<div class="cmp-scroll"><div class="tabla-scroll"><table class="cmp-table"><thead><tr><th class="cmp-corner"></th>${th}</tr></thead><tbody>` +
     `<tr class="cmp-section"><td colspan="${cols.length+1}">Precio por presentación</td></tr>` + filasPrecio +
     (filasUnidad ? `<tr class="cmp-section"><td colspan="${cols.length+1}">Precio por unidad</td></tr>` + filasUnidad : '') +
     `<tr class="cmp-section"><td colspan="${cols.length+1}">Qué ofrece cada farmacia</td></tr>` + filasServ + filaTotal + filaCTA +
-    `</tbody></table></div>` +
+    `</tbody></table></div></div>` +
     `<div class="cmp-note"><b>💡 Cómo leer esta tabla:</b> todas las columnas son <b>la misma caja</b> —misma dosis, misma presentación y mismo número de piezas—; debajo de cada precio dice de qué marca es, porque el genérico de una farmacia y la marca de otra no cuestan lo mismo ni son el mismo producto. <b>"no lo vende"</b> = esa farmacia no tiene esa presentación.${
       META && META.generated_at ? ` &middot; Precios actualizados: ${new Date(META.generated_at).toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}.` : ''}</div>` +
     `<p class="cmp-hint">Toca un precio para ir directo al producto en la farmacia. Desliza la tabla ↔ para ver todas.</p>` +

@@ -30,8 +30,10 @@ ev.forEach(function(e){window.addEventListener(e,load,{passive:true,once:true});
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://medcompara.com.mx/images/blog/glp1-vs-dieta-tradicional.png"/>
 <meta name="robots" content="index, follow"/>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="/images/logo-medcompara-512.png"/>
+<link rel="apple-touch-icon" sizes="512x512" href="/images/logo-medcompara-512.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
@@ -89,6 +91,14 @@ footer a{color:rgba(255,255,255,.5);margin:0 8px;}
 footer a:hover{color:var(--teal-light);}
 .footer-brand{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:700;color:white;font-size:16px;margin-bottom:12px;}
 @media(max-width:600px){h1{font-size:26px;}h2{font-size:19px;}}
+.toc{display:block;position:static;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px 20px;margin:24px 0;}
+.toc-title{font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);margin:0 0 10px;}
+.toc ol{margin:0;padding-left:20px;}
+.toc li{margin-bottom:4px;font-size:14px;}
+.toc a{color:var(--teal-dark);text-decoration:none;}
+.toc a:hover{text-decoration:underline;}
+.tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;}
+.tabla-scroll>table{margin:0;min-width:480px;}
 </style>
 <script>
   if ((location.hostname.includes('github.io')||location.hostname.includes('vercel.app'))) {
@@ -97,10 +107,10 @@ footer a:hover{color:var(--teal-light);}
     document.head.appendChild(m);
   }
 </script>
-</head><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Puedo bajar de peso solo con dieta?","acceptedAnswer":{"@type":"Answer","text":"Es posible, pero mantenerlo es difícil porque el cuerpo aumenta el hambre. Por eso muchos recaen."}},{"@type":"Question","name":"¿El GLP-1 reemplaza la dieta?","acceptedAnswer":{"@type":"Answer","text":"No; la potencia, al hacer más fácil comer menos. La alimentación sigue siendo clave."}},{"@type":"Question","name":"¿Qué da más resultados, un GLP-1 o la dieta tradicional?","acceptedAnswer":{"@type":"Answer","text":"La combinación de GLP-1 + hábitos supera a la dieta sola en los estudios."}},{"@type":"Question","name":"¿Necesito dieta estricta con GLP-1?","acceptedAnswer":{"@type":"Answer","text":"No estricta, pero sí priorizar proteína y comida real. Aprovecha la menor sensación de hambre para construir hábitos sostenibles, no solo para comer poco."}},{"@type":"Question","name":"¿Qué pasa si dejo el GLP-1?","acceptedAnswer":{"@type":"Answer","text":"Al suspenderlo, el apetito suele regresar y puede haber reganancia de peso, sobre todo si no se consolidaron hábitos. Por eso la combinación con alimentación y ejercicio es tan importante. Decide siempre con tu médico."}},{"@type":"Question","name":"¿El GLP-1 es para cualquiera que quiera bajar de peso?","acceptedAnswer":{"@type":"Answer","text":"No. Son medicamentos de prescripción que requieren receta y supervisión médica. Un profesional valora si eres candidato según tu peso, tu historia clínica y tus objetivos."}},{"@type":"Question","name":"¿Vale la pena el costo frente a hacer solo dieta?","acceptedAnswer":{"@type":"Answer","text":"Depende de tu caso. El GLP-1 implica un costo mensual mientras dure el tratamiento, pero suele mejorar la adherencia cuando la dieta sola no ha funcionado. Comparar precios y qué incluye cada opción ayuda a decidir."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GLP-1 vs dieta tradicional: ¿qué funciona mejor?","image":["https://medcompara.com.mx/images/blog/glp1-vs-dieta-tradicional.png"],"description":"GLP-1 vs dieta tradicional: diferencias en resultados, sostenibilidad y por qué combinarlos da el mejor resultado para bajar de peso.","url":"https://medcompara.com.mx/blog/glp1-vs-dieta-tradicional","inLanguage":"es-MX","datePublished":"2026-06-01","dateModified":"2026-06-24","author":{"@type":"Organization","name":"Medcompara","url":"https://medcompara.com.mx/"},"publisher":{"@type":"Organization","name":"Medcompara","url":"https://medcompara.com.mx/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Puedo bajar de peso solo con dieta?","acceptedAnswer":{"@type":"Answer","text":"Es posible, pero mantenerlo es difícil porque el cuerpo aumenta el hambre. Por eso muchos recaen."}},{"@type":"Question","name":"¿El GLP-1 reemplaza la dieta?","acceptedAnswer":{"@type":"Answer","text":"No; la potencia, al hacer más fácil comer menos. La alimentación sigue siendo clave."}},{"@type":"Question","name":"¿Qué da más resultados, un GLP-1 o la dieta tradicional?","acceptedAnswer":{"@type":"Answer","text":"La combinación de GLP-1 + hábitos supera a la dieta sola en los estudios."}},{"@type":"Question","name":"¿Necesito dieta estricta con GLP-1?","acceptedAnswer":{"@type":"Answer","text":"No estricta, pero sí priorizar proteína y comida real. Aprovecha la menor sensación de hambre para construir hábitos sostenibles, no solo para comer poco."}},{"@type":"Question","name":"¿Qué pasa si dejo el GLP-1?","acceptedAnswer":{"@type":"Answer","text":"Al suspenderlo, el apetito suele regresar y puede haber reganancia de peso, sobre todo si no se consolidaron hábitos. Por eso la combinación con alimentación y ejercicio es tan importante. Decide siempre con tu médico."}},{"@type":"Question","name":"¿El GLP-1 es para cualquiera que quiera bajar de peso?","acceptedAnswer":{"@type":"Answer","text":"No. Son medicamentos de prescripción que requieren receta y supervisión médica. Un profesional valora si eres candidato según tu peso, tu historia clínica y tus objetivos."}},{"@type":"Question","name":"¿Vale la pena el costo frente a hacer solo dieta?","acceptedAnswer":{"@type":"Answer","text":"Depende de tu caso. El GLP-1 implica un costo mensual mientras dure el tratamiento, pero suele mejorar la adherencia cuando la dieta sola no ha funcionado. Comparar precios y qué incluye cada opción ayuda a decidir."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GLP-1 vs dieta tradicional: ¿qué funciona mejor?","image":["https://medcompara.com.mx/images/blog/glp1-vs-dieta-tradicional.png"],"description":"GLP-1 vs dieta tradicional: diferencias en resultados, sostenibilidad y por qué combinarlos da el mejor resultado para bajar de peso.","url":"https://medcompara.com.mx/blog/glp1-vs-dieta-tradicional","inLanguage":"es-MX","datePublished":"2026-06-01","dateModified":"2026-06-24","author":{"@type":"Organization","name":"Medcompara","url":"https://medcompara.com.mx/"},"publisher":{"@type":"Organization","name":"Medcompara","url":"https://medcompara.com.mx/","logo":{"@type":"ImageObject","url":"https://medcompara.com.mx/images/logo-medcompara-512.png","width":512,"height":512}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://medcompara.com.mx/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://medcompara.com.mx/blog"}, {"@type": "ListItem", "position": 3, "name": "GLP-1 vs dieta tradicional: ¿qué funciona mejor?", "item": "https://medcompara.com.mx/blog/glp1-vs-dieta-tradicional"}]}</script>
-<body>
+</head><body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52TDCCCW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -120,8 +130,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h1>GLP-1 vs dieta tradicional: ¿qué funciona mejor?</h1>
   <div class="article-meta">Actualizado: 24 de junio de 2026 &middot; Equipo Medcompara</div>
   <p class="article-intro">¿Medicamento o solo dieta? No son rivales: entender la diferencia te ayuda a usar ambos a tu favor.</p>
+  <nav class="toc" aria-label="Contenido del artículo">
+    <p class="toc-title">En este artículo</p>
+    <ol>
+      <li><a href="#por-que-la-dieta-sola-suele-fallar">Por qué la dieta sola suele fallar</a></li>
+      <li><a href="#como-ayudan-los-glp-1-con-el-apetito">Cómo ayudan los GLP-1 con el apetito</a></li>
+      <li><a href="#que-cambia-con-un-glp-1-comparativa">Qué cambia con un GLP-1: comparativa</a></li>
+      <li><a href="#por-que-no-sustituyen-a-los-habitos-los-potencian">Por qué NO sustituyen a los hábitos (los potencian)</a></li>
+      <li><a href="#la-combinacion-ideal-medicamento-alimentacion-ejercicio">La combinación ideal: medicamento + alimentación + ejercicio + seguimiento</a></li>
+      <li><a href="#costo-sostenibilidad-y-expectativas-realistas">Costo, sostenibilidad y expectativas realistas</a></li>
+      <li><a href="#quien-se-beneficia-de-cada-enfoque-y-como-decidir">¿Quién se beneficia de cada enfoque y cómo decidir?</a></li>
+      <li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
+    </ol>
+  </nav>
 
-  <h2>Por qué la dieta sola suele fallar</h2>
+  <h2 id="por-que-la-dieta-sola-suele-fallar">Por qué la dieta sola suele fallar</h2>
   <p>Casi todas las dietas funcionan al principio: comes menos, pierdes peso y te sientes motivado. El problema aparece después, y casi nunca es por falta de disciplina. Cuando bajas de peso, tu cuerpo interpreta la pérdida como una amenaza y activa mecanismos para recuperarlo. Es biología, no debilidad de carácter.</p>
   <p>Dos fenómenos explican la mayor parte de las recaídas:</p>
   <ul>
@@ -130,7 +153,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
   <p>La consecuencia es conocida: la mayoría de las personas que bajan solo con dieta recupera buena parte del peso en los meses o años siguientes. No es que la dieta sea inútil, sino que la fuerza de voluntad termina peleando contra señales hormonales muy potentes.</p>
 
-  <h2>Cómo ayudan los GLP-1 con el apetito</h2>
+  <h2 id="como-ayudan-los-glp-1-con-el-apetito">Cómo ayudan los GLP-1 con el apetito</h2>
   <p>Los medicamentos GLP-1 (como semaglutida o tirzepatida, conocidos comercialmente como Ozempic, Wegovy o Mounjaro) imitan a una hormona intestinal que el cuerpo libera de forma natural al comer. Su efecto principal es sobre el apetito:</p>
   <ul>
     <li>Aumentan la sensación de saciedad, por lo que te llenas con menos comida.</li>
@@ -139,16 +162,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
   <p>Dicho de forma sencilla: los GLP-1 no te obligan a comer menos, sino que hacen que comer menos sea mucho más fácil de mantener. Eso ataca justo el punto donde la dieta tradicional suele romperse. Aun así, son medicamentos de prescripción que requieren receta y supervisión médica para valorar si son adecuados para ti.</p>
 
-  <h2>Qué cambia con un GLP-1: comparativa</h2>
-  <table class="price-table"><tr><th></th><th>Dieta tradicional sola</th><th>GLP-1 + hábitos</th></tr><tr><td>Control del hambre</td><td>Difícil de sostener</td><td>Reduce el hambre biológicamente</td></tr><tr><td>Pérdida de peso (rangos generales)</td><td>Suele ser modesta</td><td>Suele ser mayor y más constante</td></tr><tr><td>Sostenibilidad</td><td>Baja a largo plazo</td><td>Mayor mientras hay tratamiento y hábitos</td></tr><tr><td>Requiere receta</td><td>No</td><td>Sí, con supervisión médica</td></tr><tr><td>Costo</td><td>Bajo</td><td>Mensual mientras dure el tratamiento</td></tr></table>
+  <h2 id="que-cambia-con-un-glp-1-comparativa">Qué cambia con un GLP-1: comparativa</h2>
+  <div class="tabla-scroll"><table class="price-table"><tr><th></th><th>Dieta tradicional sola</th><th>GLP-1 + hábitos</th></tr><tr><td>Control del hambre</td><td>Difícil de sostener</td><td>Reduce el hambre biológicamente</td></tr><tr><td>Pérdida de peso (rangos generales)</td><td>Suele ser modesta</td><td>Suele ser mayor y más constante</td></tr><tr><td>Sostenibilidad</td><td>Baja a largo plazo</td><td>Mayor mientras hay tratamiento y hábitos</td></tr><tr><td>Requiere receta</td><td>No</td><td>Sí, con supervisión médica</td></tr><tr><td>Costo</td><td>Bajo</td><td>Mensual mientras dure el tratamiento</td></tr></table></div>
   <p>Los rangos exactos varían según la persona, la dosis y el tiempo de tratamiento. Lo importante no es un número aislado, sino la tendencia: cuando el hambre está controlada, los hábitos saludables se vuelven sostenibles.</p>
 
-  <h2>Por qué NO sustituyen a los hábitos (los potencian)</h2>
+  <h2 id="por-que-no-sustituyen-a-los-habitos-los-potencian">Por qué NO sustituyen a los hábitos (los potencian)</h2>
   <p>Aquí está el malentendido más común: pensar que el GLP-1 hace todo el trabajo. No es así. El medicamento controla el apetito, pero la <strong>calidad</strong> del resultado la determina lo que haces todos los días.</p>
   <p>Si comes menos pero mal, puedes bajar de peso perdiendo músculo y sintiéndote sin energía. Si combinas el medicamento con una alimentación adecuada y ejercicio, conservas masa muscular, te sientes mejor y construyes hábitos que te servirán incluso si algún día dejas el tratamiento.</p>
   <div class="info-card"><p>&#x1F4A1; <strong>Tip:</strong> Aprovecha la menor sensación de hambre para reeducar tus hábitos, no solo para comer poco. Es el mejor momento para priorizar proteína, verduras y comida real, porque el apetito ya no juega en tu contra.</p></div>
 
-  <h2>La combinación ideal: medicamento + alimentación + ejercicio + seguimiento</h2>
+  <h2 id="la-combinacion-ideal-medicamento-alimentacion-ejercicio">La combinación ideal: medicamento + alimentación + ejercicio + seguimiento</h2>
   <p>El mejor resultado casi nunca viene de un solo elemento, sino de la suma de cuatro:</p>
   <ul>
     <li><strong>Medicamento:</strong> controla el apetito y facilita la adherencia (siempre con receta y supervisión).</li>
@@ -158,7 +181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
   <p>Cada pieza compensa la debilidad de las otras: el medicamento facilita comer menos, los hábitos cuidan la calidad y el seguimiento mantiene el rumbo.</p>
 
-  <h2>Costo, sostenibilidad y expectativas realistas</h2>
+  <h2 id="costo-sostenibilidad-y-expectativas-realistas">Costo, sostenibilidad y expectativas realistas</h2>
   <p>La dieta tradicional es barata, pero su punto débil es la sostenibilidad. El GLP-1 mejora la sostenibilidad mientras hay tratamiento, pero implica un costo mensual recurrente. Por eso conviene tener expectativas realistas desde el inicio:</p>
   <ul>
     <li>La pérdida de peso es gradual; los mejores resultados se ven a lo largo de meses, no en semanas.</li>
@@ -167,7 +190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
   <p>La parte más cara puede no ser solo el medicamento, sino empezar sin un plan que incluya alimentación, ejercicio y seguimiento. Por eso vale la pena <a href="/">comparar precios y qué incluye cada opción</a> antes de decidir.</p>
 
-  <h2>¿Quién se beneficia de cada enfoque y cómo decidir?</h2>
+  <h2 id="quien-se-beneficia-de-cada-enfoque-y-como-decidir">¿Quién se beneficia de cada enfoque y cómo decidir?</h2>
   <p>No hay una sola respuesta correcta. En términos generales:</p>
   <ul>
     <li><strong>La dieta y el ejercicio</strong> son la base para todas las personas y, en casos de sobrepeso leve con buen control del apetito, pueden ser suficientes.</li>
@@ -184,7 +207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
   <div class="faq-section">
-  <h2>Preguntas frecuentes</h2>
+  <h2 id="preguntas-frecuentes">Preguntas frecuentes</h2>
   <div class="faq-item"><h3 class="faq-q" id="puedo-bajar-de-peso-solo-con-dieta">¿Puedo bajar de peso solo con dieta?</h3><p class="faq-a">Es posible, pero mantenerlo es difícil porque el cuerpo aumenta el hambre. Por eso muchos recaen.</p></div>
 <div class="faq-item"><h3 class="faq-q" id="el-glp-1-reemplaza-la-dieta">¿El GLP-1 reemplaza la dieta?</h3><p class="faq-a">No; la potencia, al hacer más fácil comer menos. La alimentación sigue siendo clave.</p></div>
 <div class="faq-item"><h3 class="faq-q" id="que-da-mas-resultados-un-glp-1-o-la-dieta-tradicional">¿Qué da más resultados, un GLP-1 o la dieta tradicional?</h3><p class="faq-a">La combinación de GLP-1 + hábitos supera a la dieta sola en los estudios.</p></div>
@@ -207,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer>
   <div class="footer-brand">Medcompara</div>
   <p style="margin-bottom:12px;">Compara precios de medicamentos GLP-1 en M&#xE9;xico.</p>
-  <div><a href="/">Inicio</a><a href="/blog">Blog</a><a href="/aviso-de-privacidad">Aviso de privacidad</a><a href="#">T&#xE9;rminos de uso</a></div>
+  <div><a href="/">Inicio</a><a href="/blog">Blog</a><a href="/aviso-de-privacidad">Aviso de privacidad</a></div>
   <p style="margin-top:16px;font-size:11px;opacity:.5;">Medcompara no vende medicamentos. Los precios son orientativos y pueden variar. Los GLP-1 requieren receta y supervisi&#xF3;n m&#xE9;dica. &copy; 2025 Medcompara.</p>
 </footer>
 </body></html>

@@ -84,6 +84,7 @@ estricta + `--apply` para escribir (sin la bandera es dry-run).
 | `npm run blog:medicinas` | 10 de medicamento de farmacia | `scripts/medicinas-blog-copy.json` |
 | `npm run blog:glp1` | 5 de GLP-1 | `scripts/glp1-blog-copy.json` |
 | `npm run tarjetas` | las 178 tarjetas de 1200x630 + su marcado | — (título y rubro salen del HTML) |
+| `node scripts/completar-marcado-blog.js` | `Article`, `BreadcrumbList`, `author` y fechas que falten | — (fechas de git) |
 
 `npm run predeploy` corre los cuatro con `--apply` y regenera los sitemaps.
 
@@ -195,7 +196,100 @@ con el marcado.
 
 ---
 
+## Tablas en móvil
+
+**Toda tabla va envuelta en `.tabla-scroll`, y la regla vive en
+`scripts/lib/tabla-movil.js`.** Estaba copiada en tres generadores, faltaba en
+`generar-comparativas.js` y no existía en ninguna de las 42 páginas escritas a
+mano: 81 tablas en 65 archivos sin envoltorio ni regla.
+
+El envoltorio sin la regla no hace nada, y la regla sin el envoltorio tampoco:
+la función pone las dos o ninguna. Cubre las tres clases de tabla del sitio
+—`price-table`, `table` y `cmp-table`—, porque una tabla sin clase desborda
+igual.
+
+La llaman los cuatro generadores sobre el HTML ya armado, como `conIndice`.
+
+---
+
+## Tipografía
+
+**Montserrat en todo el sitio.** `comparativa-head.html` era el último resto de
+GLPcompara: cargaba Sora + DM Sans y le daba otra tipografía a 15 páginas.
+
+Cuidado con el orden si se vuelve a tocar: cambiar el CSS de los HTML sin
+cambiar la plantilla no sirve de nada — el domingo el generador lo revierte. Pasó.
+
+---
+
+---
+
+## Índice y jump links
+
+Los «jump links» —los enlaces a secciones debajo del resultado de Google— piden
+dos cosas: secciones con ancla descriptiva y una tabla de contenidos que las
+enlace. Y una tercera que no es marcado: **la página tiene que ser larga y
+multi-tema.** Un artículo de 400 palabras no los va a recibir por mucha ancla
+que le pongamos, y un índice de dos renglones sólo empuja el contenido hacia
+abajo.
+
+De ahí los umbrales de `scripts/lib/indice-articulo.js`: **900 palabras y 4
+secciones**. Los cumplen 38 de los 178. Los otros 140 no llevan índice a
+propósito.
+
+`conIndice()` corre sobre el HTML ya armado y la llaman los dos lados: los
+cuatro generadores, justo antes de escribir, y la pasada de una sola vez sobre
+los artículos a mano. Reconstruye el índice en vez de acumularlo, así que si
+cambian las secciones el índice las sigue.
+
+**`.toc` declara `display:block` y `position:static` a propósito.** La hoja del
+sitio trae `nav{display:flex;position:sticky}` para la barra superior, y un
+`<nav>` hereda de ahí: sin esos dos overrides el título del índice se va al
+costado de la lista. Se vio en un render, no en el código.
+
+---
+
+## Fechas del marcado
+
+`datePublished` y `dateModified` de los artículos a mano salen de **git** —el
+commit que dio de alta el archivo y el último anterior a la pasada de marcado—,
+nunca de `new Date()`.
+
+Y las que ya existían no se tocaron. Un `dateModified` de hoy sobre un texto que
+nadie reescribió es una promesa de frescura falsa, y así trata Google los
+cambios de fecha sin cambio de contenido.
+
+---
+
 ## Logos
+
+### El logo de la marca
+
+No había. `favicon.svg` era un emoji 🧬 dentro de un `<text>` y `favicon.png`
+medía 32x32 — nada que sirviera para `publisher.logo` ni para un icono de app.
+`npm run logo:apply` genera tres piezas del lockup que ya vive en el nav y en
+las 178 tarjetas del blog:
+
+| Archivo | Para qué |
+|---|---|
+| `images/logo-medcompara-512.png` | `publisher.logo`, `Organization.logo`, `apple-touch-icon` |
+| `favicon.svg` | el monograma, lo que ve la pestaña |
+| `favicon.png` | el monograma a 32x32, respaldo sin SVG |
+
+**Son dos piezas distintas a propósito.** Una pestaña dibuja el icono a 16-32 px
+y ahí un wordmark de diez letras es una manchita ilegible; la «M» sola sí se lee.
+El de 512 con el nombre es para los contextos grandes.
+
+**El monograma del SVG va en `path`, no en `<text>`.** Un `font-family` dentro de
+un SVG se resuelve contra las fuentes de quien mira, y Montserrat no está en la
+mayoría de las máquinas: el icono saldría en Times.
+
+Los `<link rel="icon">` son **rutas absolutas** (`/favicon.svg`). Antes eran
+`../favicon.svg`, que funcionaba de casualidad —desde `/blog/slug` y desde
+`/foo` el `..` topa con la raíz— y se rompería el día que exista un nivel más.
+
+### Logos de laboratorios y farmacias
+
 
 `node scripts/colocar-logo.js <archivo> <clave> [modo]` recorta, cuadra, escala a
 256 px y lo deja en la carpeta correcta. Modos: `--isotipo` (lockup con nombre al
