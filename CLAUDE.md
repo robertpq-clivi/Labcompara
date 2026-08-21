@@ -84,6 +84,7 @@ estricta + `--apply` para escribir (sin la bandera es dry-run).
 | `npm run blog:medicinas` | 10 de medicamento de farmacia | `scripts/medicinas-blog-copy.json` |
 | `npm run blog:glp1` | 5 de GLP-1 | `scripts/glp1-blog-copy.json` |
 | `npm run tarjetas` | las 178 tarjetas de 1200x630 + su marcado | — (título y rubro salen del HTML) |
+| `node scripts/completar-marcado-blog.js` | `Article`, `BreadcrumbList`, `author` y fechas que falten | — (fechas de git) |
 
 `npm run predeploy` corre los cuatro con `--apply` y regenera los sitemaps.
 
@@ -192,6 +193,43 @@ y reformular una respuesta es otra decisión, con otro revisor.
 Las FAQ visibles sí siguen sirviendo — para el usuario, para featured snippets y
 para que los motores de IA citen la respuesta — pero eso se gana con el HTML, no
 con el marcado.
+
+---
+
+## Índice y jump links
+
+Los «jump links» —los enlaces a secciones debajo del resultado de Google— piden
+dos cosas: secciones con ancla descriptiva y una tabla de contenidos que las
+enlace. Y una tercera que no es marcado: **la página tiene que ser larga y
+multi-tema.** Un artículo de 400 palabras no los va a recibir por mucha ancla
+que le pongamos, y un índice de dos renglones sólo empuja el contenido hacia
+abajo.
+
+De ahí los umbrales de `scripts/lib/indice-articulo.js`: **900 palabras y 4
+secciones**. Los cumplen 38 de los 178. Los otros 140 no llevan índice a
+propósito.
+
+`conIndice()` corre sobre el HTML ya armado y la llaman los dos lados: los
+cuatro generadores, justo antes de escribir, y la pasada de una sola vez sobre
+los artículos a mano. Reconstruye el índice en vez de acumularlo, así que si
+cambian las secciones el índice las sigue.
+
+**`.toc` declara `display:block` y `position:static` a propósito.** La hoja del
+sitio trae `nav{display:flex;position:sticky}` para la barra superior, y un
+`<nav>` hereda de ahí: sin esos dos overrides el título del índice se va al
+costado de la lista. Se vio en un render, no en el código.
+
+---
+
+## Fechas del marcado
+
+`datePublished` y `dateModified` de los artículos a mano salen de **git** —el
+commit que dio de alta el archivo y el último anterior a la pasada de marcado—,
+nunca de `new Date()`.
+
+Y las que ya existían no se tocaron. Un `dateModified` de hoy sobre un texto que
+nadie reescribió es una promesa de frescura falsa, y así trata Google los
+cambios de fecha sin cambio de contenido.
 
 ---
 
