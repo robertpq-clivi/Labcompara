@@ -205,7 +205,7 @@ function schemas(h, c, url, fecha) {
     dateModified: fecha,
     inLanguage: 'es-MX',
     author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
-    publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE },
+    publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
     about: [h.a, h.b].map(n => ({ '@type': 'MedicalBusiness', name: n })),
   };
   const breadcrumb = {

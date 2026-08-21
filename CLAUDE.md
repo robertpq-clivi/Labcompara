@@ -235,6 +235,34 @@ cambios de fecha sin cambio de contenido.
 
 ## Logos
 
+### El logo de la marca
+
+No había. `favicon.svg` era un emoji 🧬 dentro de un `<text>` y `favicon.png`
+medía 32x32 — nada que sirviera para `publisher.logo` ni para un icono de app.
+`npm run logo:apply` genera tres piezas del lockup que ya vive en el nav y en
+las 178 tarjetas del blog:
+
+| Archivo | Para qué |
+|---|---|
+| `images/logo-medcompara-512.png` | `publisher.logo`, `Organization.logo`, `apple-touch-icon` |
+| `favicon.svg` | el monograma, lo que ve la pestaña |
+| `favicon.png` | el monograma a 32x32, respaldo sin SVG |
+
+**Son dos piezas distintas a propósito.** Una pestaña dibuja el icono a 16-32 px
+y ahí un wordmark de diez letras es una manchita ilegible; la «M» sola sí se lee.
+El de 512 con el nombre es para los contextos grandes.
+
+**El monograma del SVG va en `path`, no en `<text>`.** Un `font-family` dentro de
+un SVG se resuelve contra las fuentes de quien mira, y Montserrat no está en la
+mayoría de las máquinas: el icono saldría en Times.
+
+Los `<link rel="icon">` son **rutas absolutas** (`/favicon.svg`). Antes eran
+`../favicon.svg`, que funcionaba de casualidad —desde `/blog/slug` y desde
+`/foo` el `..` topa con la raíz— y se rompería el día que exista un nivel más.
+
+### Logos de laboratorios y farmacias
+
+
 `node scripts/colocar-logo.js <archivo> <clave> [modo]` recorta, cuadra, escala a
 256 px y lo deja en la carpeta correcta. Modos: `--isotipo` (lockup con nombre al
 lado), `--tono` (dos colores, el segundo es texto que sobra), `--circulo` (avatar
