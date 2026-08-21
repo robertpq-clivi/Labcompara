@@ -428,6 +428,8 @@ th.cmp-clivi{background:linear-gradient(180deg,rgba(0,84,124,.18),rgba(0,84,124,
 #sec-hero .mesh{position:absolute;inset:0;background:radial-gradient(125% 115% at 6% 96%,var(--mesh-1) 0%,var(--mesh-2) 22%,var(--teal) 54%,var(--indigo) 78%,var(--periwinkle) 100%);opacity:.6;pointer-events:none;}
 #sec-hero .glow{position:absolute;inset:0;background:radial-gradient(90% 65% at 52% -12%,rgba(202,209,251,.18),rgba(202,209,251,0) 62%);pointer-events:none;}
 #sec-hero #hero-top{position:relative;}.fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,42,0) 62%,var(--navy) 100%);pointer-events:none;}
+.tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;}
+.tabla-scroll>table{margin:0;min-width:480px;}
 </style>
 <script>
   // Staging guard: don't index the temporary github.io URL — canonical is medcompara.com.mx
@@ -1330,10 +1332,10 @@ function renderResults(){
 
   $('results-container').innerHTML=
     `<div class="cmp-hero"><div class="cmp-hero-badge">&#x1F3C6;</div><div style="flex:1;min-width:200px;"><div class="cmp-hero-t">La opción más completa es <span>Clivi</span></div><div class="cmp-hero-p">El precio de Clivi es un <strong>plan integral</strong>: incluye el medicamento más consulta, seguimiento médico, estudios de laboratorio y plan de alimentación. Las farmacias muestran solo el precio del medicamento.</div></div></div>`+
-    `<div class="cmp-scroll"><table class="cmp-table"><thead><tr><th class="cmp-corner"></th>${thCells}</tr></thead><tbody>`+
+    `<div class="cmp-scroll"><div class="tabla-scroll"><table class="cmp-table"><thead><tr><th class="cmp-corner"></th>${thCells}</tr></thead><tbody>`+
     `<tr class="cmp-section"><td colspan="${cols.length+1}">Precio por presentación</td></tr>`+priceRows+
     `<tr class="cmp-section"><td colspan="${cols.length+1}">Qué incluye cada opción</td></tr>`+featRows+totalRow+ctaRow+
-    `</tbody></table></div>`+
+    `</tbody></table></div></div>`+
     `<div class="cmp-note"><b>&#x1F4A1; Cómo leer esta tabla:</b> el precio de <b>Clivi</b> es un plan integral (medicamento + consulta + seguimiento médico + estudios de laboratorio + plan de alimentación). Las demás columnas son el precio del medicamento solo. <b>"pendiente"</b> = aún estamos verificando ese precio en línea (no mostramos precios sin confirmar).${PRICE_META?` &middot; Precios actualizados: ${new Date(PRICE_META.generated_at).toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}.`:''}</div>`+
     `<p class="cmp-hint">Toca un precio para ver el detalle del medicamento. Desliza la tabla &#x2194; para ver todas las farmacias.</p>`+
     `<div id="hist-mount"></div>`;

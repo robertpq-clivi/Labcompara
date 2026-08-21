@@ -18,6 +18,7 @@ const { anclas } = require('./lib/ancla');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
+const { conTablasScroll } = require('./lib/tabla-movil');
 const { pares, hechos, cargarPrecios } = require('./lib/comparativas');
 
 const ROOT  = path.join(__dirname, '..');
@@ -241,8 +242,11 @@ function pagina(h, c, todos, meta) {
 
   const bullets = xs => xs.map(x => `    <li>${esc(x)}</li>`).join('\n');
 
-  return `${head}
-${schemas(h, c, url, meta.fecha)}
+  // El JSON-LD va DENTRO del head: emitirlo después de `${head}` lo dejaba
+  // entre </head> y <body>, fuera de los dos.
+  const cabeza = head.replace('</head>', `${schemas(h, c, url, meta.fecha)}\n</head>`);
+
+  return `${cabeza}
 <body>
 <nav>
   <a href="/" class="nav-logo">Med<span>compara</span></a>
@@ -354,7 +358,7 @@ for (const h of todos) {
   const c = resolver(crudo, tokens(h));
 
   const destino = path.join(ROOT, 'blog', h.slug + '.html');
-  const html = conIndice(pagina(h, c, todos, meta));
+  const html = conIndice(conTablasScroll(pagina(h, c, todos, meta)));
   if (APPLY) fs.writeFileSync(destino, html);
   escritos++;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${h.slug}.html  (${(html.length / 1024).toFixed(1)} KB · líder: ${h.lider})`);

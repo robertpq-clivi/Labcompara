@@ -26,6 +26,7 @@ const { anclas } = require('./lib/ancla');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
+const { conTablasScroll } = require('./lib/tabla-movil');
 const M    = require('./lib/medicinas-blog');
 
 const ROOT  = path.join(__dirname, '..');
@@ -403,8 +404,11 @@ ${tablaMarcas(h)}
   <p>Si tu receta dice el nombre de la sustancia, puedes pedir el genérico. Si dice una marca concreta, pregúntale a tu médico si acepta el intercambiable.</p>
 ` : '';
 
-  return `${head}
-${schemas(h, c, url, titulo, meta)}
+  // El JSON-LD va DENTRO del head: emitirlo después de `${head}` lo dejaba
+  // entre </head> y <body>, fuera de los dos.
+  const cabeza = head.replace('</head>', `${schemas(h, c, url, titulo, meta)}\n</head>`);
+
+  return `${cabeza}
 <body>
 <nav>
   <a href="/" class="nav-logo">Med<span>compara</span></a>
@@ -536,7 +540,7 @@ let escritos = 0;
 for (const h of todos) {
   if (SOLO && h.slugMed !== SOLO) continue;
   const c    = resolver(porMed.get(h.medicamento), tokens(h, meta));
-  const html = conIndice(pagina(h, c, todos, meta));
+  const html = conIndice(conTablasScroll(pagina(h, c, todos, meta)));
   if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', h.slug + '.html'), html);
   escritos++;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${h.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${h.presentaciones} presentaciones · desde ${mxn(h.min)})`);
