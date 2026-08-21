@@ -53,6 +53,10 @@ const tocSinCss        = [];
 const seccionSinId     = [];
 const sinLogo          = [];
 const sinIcono         = [];
+const tablaSuelta      = [];
+const headAbierto      = [];
+const enlaceMuerto     = [];
+const fuenteVieja      = [];
 
 for (const archivo of archivos) {
   const html = fs.readFileSync(path.join(BLOG, archivo), 'utf8');
@@ -127,6 +131,18 @@ for (const archivo of archivos) {
     else revisarPng(product.image, pngFaltante);
   }
 
+  // Una tabla sin `.tabla-scroll` desborda su caja en móvil, que es el 77% del
+  // tráfico. La regla la pone lib/tabla-movil.js.
+  {
+    const n = (html.match(/<table/g) || []).length;
+    const env = (html.match(/class="tabla-scroll"/g) || []).length;
+    if (n > env) tablaSuelta.push(`${archivo} (${n} tablas, ${env} envueltas)`);
+  }
+  // 19 artículos no cerraban el <head>. El navegador lo perdona; el validador no.
+  if (!html.includes('</head>')) headAbierto.push(archivo);
+  if (/<a href="#">/.test(html)) enlaceMuerto.push(archivo);
+  if (/Sora|DM Sans/.test(html)) fuenteVieja.push(archivo);
+
   // El logo de marca: en publisher —que es de donde Google lo toma— y en los
   // <link rel="icon">, que es lo que ve la pestaña.
   if (article && !(article.publisher && article.publisher.logo)) sinLogo.push(archivo);
@@ -186,6 +202,12 @@ caso(cssSinMargen, 'archivo(s) donde .faq-q no fija margin:0', 'la regla .faq-q 
 
 caso(desincronizado, 'archivo(s) donde el <h3> y el JSON-LD no dicen la misma pregunta',
   'el FAQ visible y el JSON-LD coinciden en las 824 preguntas');
+
+caso(tablaSuelta, 'archivo(s) con tabla sin .tabla-scroll', 'todas las tablas van en .tabla-scroll',
+  'en móvil una tabla ancha desborda su caja');
+caso(headAbierto, 'archivo(s) que no cierran el <head>', 'todos cierran el <head>');
+caso(enlaceMuerto, 'archivo(s) con un <a href="#"> muerto', 'ningún enlace muerto en el pie');
+caso(fuenteVieja, 'archivo(s) con la tipografía vieja (Sora / DM Sans)', 'toda la tipografía es Montserrat');
 
 caso(sinLogo, 'Article sin publisher.logo', 'todos los Article declaran publisher.logo',
   'corre: node scripts/generar-logo.js --apply');

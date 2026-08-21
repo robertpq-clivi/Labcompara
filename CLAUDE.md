@@ -196,6 +196,34 @@ con el marcado.
 
 ---
 
+## Tablas en móvil
+
+**Toda tabla va envuelta en `.tabla-scroll`, y la regla vive en
+`scripts/lib/tabla-movil.js`.** Estaba copiada en tres generadores, faltaba en
+`generar-comparativas.js` y no existía en ninguna de las 42 páginas escritas a
+mano: 81 tablas en 65 archivos sin envoltorio ni regla.
+
+El envoltorio sin la regla no hace nada, y la regla sin el envoltorio tampoco:
+la función pone las dos o ninguna. Cubre las tres clases de tabla del sitio
+—`price-table`, `table` y `cmp-table`—, porque una tabla sin clase desborda
+igual.
+
+La llaman los cuatro generadores sobre el HTML ya armado, como `conIndice`.
+
+---
+
+## Tipografía
+
+**Montserrat en todo el sitio.** `comparativa-head.html` era el último resto de
+GLPcompara: cargaba Sora + DM Sans y le daba otra tipografía a 15 páginas.
+
+Cuidado con el orden si se vuelve a tocar: cambiar el CSS de los HTML sin
+cambiar la plantilla no sirve de nada — el domingo el generador lo revierte. Pasó.
+
+---
+
+---
+
 ## Índice y jump links
 
 Los «jump links» —los enlaces a secciones debajo del resultado de Google— piden
