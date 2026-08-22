@@ -17,8 +17,12 @@
  *                                    `publisher.logo`, `apple-touch-icon` y
  *                                    el icono de PWA — contextos grandes.
  *
- *   favicon.png                      El monograma a 32x32, respaldo para lo
- *                                    que no dibuja SVG.
+ *   favicon-96.png                   El monograma a 96x96. Es el que Google
+ *                                    Search prefiere: su guía pide cuadrado y
+ *                                    recomienda «más de 48x48», y el de 32 se
+ *                                    queda por debajo de esa recomendación.
+ *
+ *   favicon.png                      El monograma a 32x32, para la pestaña.
  *
  *   favicon.svg                      El monograma. Una pestaña de navegador
  *                                    dibuja el icono a 16-32 px y ahí un
@@ -113,8 +117,9 @@ print(destino)
 const MONOGRAMA_PY = `
 import sys
 from PIL import Image, ImageDraw
-destino, navy = sys.argv[1], sys.argv[2]
-S, E = 32, 16                       # se dibuja a 512 y se reduce
+destino, navy, lado = sys.argv[1], sys.argv[2], int(sys.argv[3])
+S = lado
+E = max(1, 512 // S)               # se dibuja a ~512 y se reduce
 def rgb(h):
     h = h.lstrip('#'); return tuple(int(h[i:i+2],16) for i in (0,2,4))
 W = S * E
@@ -147,6 +152,7 @@ function main() {
     console.log(`  images/logo-medcompara-512.png   512x512, con el nombre`);
     console.log(`  favicon.svg                      el monograma (${SVG.length} bytes)`);
     console.log(`  favicon.png                      el monograma a 32x32`);
+    console.log(`  favicon-96.png                   el monograma a 96x96 (el que usa Google)`);
     console.log('\nCorre con --apply para escribir.');
     return;
   }
@@ -161,8 +167,10 @@ function main() {
     { stdio: 'inherit' });
   fs.writeFileSync(path.join(ROOT, 'favicon.svg'), SVG);
   console.log('favicon.svg (monograma)');
-  execFileSync('python3', ['-c', MONOGRAMA_PY, path.join(ROOT, 'favicon.png'), NAVY],
-    { stdio: 'inherit' });
+  for (const [archivo, lado] of [['favicon.png', 32], ['favicon-96.png', 96]]) {
+    execFileSync('python3', ['-c', MONOGRAMA_PY, path.join(ROOT, archivo), NAVY, String(lado)],
+      { stdio: 'inherit' });
+  }
 }
 
 main();

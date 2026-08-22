@@ -53,6 +53,7 @@ const tocSinCss        = [];
 const seccionSinId     = [];
 const sinLogo          = [];
 const sinIcono         = [];
+const faviconGoogle    = [];
 const tablaSuelta      = [];
 const headAbierto      = [];
 const enlaceMuerto     = [];
@@ -148,6 +149,15 @@ for (const archivo of archivos) {
   if (article && !(article.publisher && article.publisher.logo)) sinLogo.push(archivo);
   if (!/logo-medcompara-512\.png"\/>/.test(html)) sinIcono.push(archivo);
 
+  // Google Search pide el favicon cuadrado y recomienda más de 48x48, y su guía
+  // no documenta soporte de SVG. El primer rel="icon" tiene que ser un PNG.
+  {
+    const iconos = [...html.matchAll(/<link rel="icon"[^>]*>/g)].map((x) => x[0]);
+    if (!/favicon-96\.png/.test(html) || (iconos[0] && /svg/.test(iconos[0]))) {
+      faviconGoogle.push(archivo);
+    }
+  }
+
   if (!nodos.some((n) => n && n['@type'] === 'BreadcrumbList')) sinBreadcrumb.push(archivo);
   if (article && !article.author) sinAutor.push(archivo);
   if (article && !(article.datePublished && article.dateModified)) sinFecha.push(archivo);
@@ -211,6 +221,8 @@ caso(fuenteVieja, 'archivo(s) con la tipografía vieja (Sora / DM Sans)', 'toda 
 
 caso(sinLogo, 'Article sin publisher.logo', 'todos los Article declaran publisher.logo',
   'corre: node scripts/generar-logo.js --apply');
+caso(faviconGoogle, 'archivo(s) donde el primer rel=icon no es un PNG de 96px',
+  'el favicon que ve Google es un PNG cuadrado de 96px');
 caso(sinIcono, 'archivo(s) sin el icono de marca de 512', 'los iconos de marca están declarados');
 caso(sinBreadcrumb, 'archivo(s) sin BreadcrumbList', `los ${archivos.length} declaran BreadcrumbList`,
   'es el único rich result que este sitio gana hoy — corre: node scripts/completar-marcado-blog.js --apply');
