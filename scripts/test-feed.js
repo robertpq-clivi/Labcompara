@@ -150,6 +150,45 @@ function revisarCifras() {
     }
   }
 
+  // Las tres tarjetas del landing publican un conteo por vertical
+  // ("620 estudios comparados de 6 laboratorios"). Son cifras a mano sobre
+  // catálogos que crecen, y así se colaron los "200 medicamentos" cuando el
+  // catálogo real tenía 180.
+  //
+  // El chequeo sólo revienta cuando el sitio **promete de más**. Quedarse corto
+  // no falla: si fallara, cada ampliación del catálogo tumbaría la corrida del
+  // domingo y con ella el refresco de precios, que importa más que redondear
+  // una cifra de mercadotecnia.
+  {
+    const medFeed = path.join(ROOT, 'data', 'medicinas', 'prices.json');
+    const glpFeed = path.join(ROOT, 'data', 'medicamentos', 'prices.json');
+    const reales = { estudios: real, laboratorios: (feed.labs || []).length };
+
+    if (fs.existsSync(medFeed)) {
+      const m = JSON.parse(fs.readFileSync(medFeed, 'utf8'));
+      reales.medicamentos = new Set([
+        ...m.presentaciones.map((x) => x.medicamento),
+        ...(m.sueltas || []).map((x) => x.medicamento).filter(Boolean),
+      ]).size;
+    }
+    if (fs.existsSync(glpFeed)) {
+      const p = JSON.parse(fs.readFileSync(glpFeed, 'utf8')).prices;
+      const claves = Object.keys(p);
+      reales.presentaciones = claves.length;
+      reales.tratamientos = new Set(claves.map((k) => k.split(' ')[0])).size;
+    }
+
+    const landing = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+    for (const m of landing.matchAll(/<p class="card-mini">([^<]*)<\/p>/g)) {
+      for (const c of m[1].matchAll(/(\d{1,4})\s+(estudios|laboratorios|presentaciones|tratamientos|medicamentos)/g)) {
+        const n = Number(c[1]), real2 = reales[c[2]];
+        if (real2 != null && n > real2) {
+          malas.push(`index.html: la tarjeta dice "${n} ${c[2]}" y hay ${real2}`);
+        }
+      }
+    }
+  }
+
   return malas;
 }
 
