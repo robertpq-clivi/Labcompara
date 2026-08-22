@@ -36,6 +36,16 @@ Si necesitas publicar un número que no viene del scan, protégelo con un test �
 como el «hasta 35% menos» del hero de GLP-1, que falla si el ahorro real baja de
 esa cifra.
 
+Lo mismo vale para **las tarjetas del landing**, que publican un conteo por
+vertical. Ahí se colaron unos «200 medicamentos» con 180 en el catálogo, porque
+`revisarCifras()` miraba las afirmaciones de «más de N estudios» pero no esas
+tres líneas. Ya las mira.
+
+Ese chequeo **sólo revienta cuando el sitio promete de más.** Quedarse corto no
+falla a propósito: si fallara, cada ampliación del catálogo tumbaría la corrida
+del domingo y con ella el refresco de precios, que importa más que redondear una
+cifra de mercadotecnia.
+
 ---
 
 ## Estructura
