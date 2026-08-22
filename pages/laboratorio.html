@@ -12,7 +12,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Medcompara &#x2013; Estudios de laboratorio al mejor precio en M&#xe9;xico</title>
-<meta name="description" content="Compara precios de estudios de laboratorio en M&#xe9;xico entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Laboratorio M&#xe9;dico Polanco. Biomet&#xed;a, qu&#xed;mica sangu&#xed;nea, glucosa y m&#xe1;s. Gratis."/>
+<meta name="description" content="Compara precios de estudios de laboratorio en México entre Salud Digna, Chopo, OLAB, Labbe, LAPI y Polanco. Biometría, química sanguínea y glucosa."/>
 <link rel="canonical" href="https://medcompara.com.mx/laboratorio"/>
 <meta property="og:title" content="Medcompara &#x2013; Compara estudios de laboratorio en M&#xe9;xico"/>
 <meta property="og:description" content="Compara precios de estudios cl&#xed;nicos entre los mejores laboratorios de M&#xe9;xico en segundos. Gratis, sin registro."/>
@@ -1380,7 +1380,6 @@ function renderCompBtn(){
   btn.innerHTML=n?`Comparar ${n} estudio${n>1?'s':''} &#x2192;`:'Selecciona al menos un estudio';
 }
 
-const POPULAR=['Biomet&#xed;a Hem&#xe1;tica','Qu&#xed;mica Sangu&#xed;nea 27 Elementos','Perfil Tiroideo','Glucosa en Suero','Perfil de L&#xed;pidos'];
 const POPULAR_REAL=['Biometría Hemática','Química Sanguínea 27 Elementos','Perfil Tiroideo','Glucosa en Suero','Perfil de Lípidos'];
 function renderTags(){
   $('quick-tags').innerHTML=POPULAR_REAL.map(n=>`<button class="tag${selected.includes(n)?' on':' off'}" data-n="${n}">${n}</button>`).join('');
