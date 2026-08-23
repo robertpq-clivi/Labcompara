@@ -29,6 +29,7 @@ const { LABS } = require('./verticales/laboratorio');
 const { emparejar } = require('./lib/match');
 const { crearCliente } = require('./lib/http');
 const { actualizarHistorial } = require('./lib/history');
+const { COMPARADOR_LAB } = require('./lib/rutas');
 
 const ROOT = path.join(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'data');
@@ -362,7 +363,6 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
 
   if (APPLY) {
     const { escribirRawData } = require('./lib/apply');
-const { COMPARADOR_LAB } = require('./lib/rutas');
     escribirRawData(matriz);
     console.log('pages/laboratorio.html actualizado con los precios escaneados.');
   }
