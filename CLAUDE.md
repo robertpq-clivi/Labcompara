@@ -271,6 +271,31 @@ cambios de fecha sin cambio de contenido.
 
 ---
 
+## Rutas muertas y redirects
+
+`sitemap-estudios.xml` anunció 20 URLs de las que 18 nunca existieron: se
+escribieron a mano como `tema-precio-mexico` y los generadores creaban los
+archivos como `precio-tema-mexico`. Borrar el sitemap (#14) fue lo correcto —
+dejar de anunciar un 404— pero **no cierra el informe de indexación de Search
+Console**: Google conserva las URLs que llegó a descubrir y las reintenta. La
+validación de «Not found (404)» sólo pasa cuando la URL deja de dar 404, así
+que pedirla sobre un 404 que se piensa conservar falla siempre.
+
+Los 18 llevan `permanent: true` a su artículo real. No rescatan autoridad
+—nunca sirvieron contenido— y ahí `301` y `404` dan lo mismo para ranking; lo
+que compran es cerrar la cola de rastreo de una vez y atender a quien teclee
+el slug viejo.
+
+`scripts/test-rutas.js` vigila los dos sentidos: que ningún redirect o rewrite
+apunte a un archivo que no existe, y que ningún `source` tape una página
+publicada. Es la cuarta lista a mano de este repo que se puede desincronizar
+del directorio, y las tres anteriores se desincronizaron.
+
+**Redirect no es sinónimo de arreglo.** Si una ruta muerta no tiene destino
+equivalente, el 404 es la respuesta honesta: mandarla a la home o a un artículo
+que no responde la búsqueda es un soft 404, y Google lo trata peor que el 404
+limpio.
+
 ## Logos
 
 ### El logo de la marca
@@ -315,7 +340,7 @@ que el archivo exista**, sin tocar código. Faltan: `polanco-logo.png` y
 
 ## Flujo de trabajo
 
-- `npm test` antes de cualquier cambio (5 suites).
+- `npm test` antes de cualquier cambio (8 suites).
 - Rama + PR, nunca commit directo a `main`.
 - Mergear a `main` dispara el despliegue a producción en Vercel.
 - Verificar en producción con `curl`, no dar por hecho que salió bien.

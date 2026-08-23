@@ -115,6 +115,96 @@
       "permanent": true
     },
     {
+      "source": "/blog/examen-de-glucosa-precio-mexico",
+      "destination": "/blog/precio-glucosa-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/colesterol-total-precio-mexico",
+      "destination": "/blog/precio-colesterol-total-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/perfil-tiroideo-precio-mexico",
+      "destination": "/blog/precio-perfil-tiroideo-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prueba-de-embarazo-en-sangre-precio-mexico",
+      "destination": "/blog/precio-prueba-embarazo-sangre-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/check-up-completo-precio-mexico",
+      "destination": "/blog/precio-check-up-completo-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/examen-general-de-orina-precio-mexico",
+      "destination": "/blog/precio-examen-general-orina-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/acido-urico-precio-mexico",
+      "destination": "/blog/precio-acido-urico-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creatinina-precio-mexico",
+      "destination": "/blog/precio-creatinina-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pruebas-de-funcion-hepatica-precio-mexico",
+      "destination": "/blog/precio-pruebas-funcion-hepatica-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/perfil-lipidico-precio-mexico",
+      "destination": "/blog/precio-perfil-lipidico-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/examen-de-insulina-precio-mexico",
+      "destination": "/blog/precio-insulina-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hemoglobina-glucosilada-precio-mexico",
+      "destination": "/blog/precio-hemoglobina-glucosilada-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/vitamina-d-precio-mexico",
+      "destination": "/blog/precio-vitamina-d-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/prueba-de-vih-precio-mexico",
+      "destination": "/blog/precio-prueba-vih-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/testosterona-precio-mexico",
+      "destination": "/blog/precio-testosterona-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/perfil-hormonal-femenino-precio-mexico",
+      "destination": "/blog/precio-perfil-hormonal-femenino-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/examen-de-sangre-completo-precio-mexico",
+      "destination": "/blog/precio-examen-sangre-completo-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cuanto-cuesta-un-check-up-en-mexico",
+      "destination": "/blog/cuanto-cuesta-check-up-mexico",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
