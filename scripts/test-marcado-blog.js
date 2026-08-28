@@ -21,6 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const { ROOT } = require('./lib/rutas');
 const { legible } = require('./lib/ancla');
+const { altDeTitulo } = require('./lib/alt-imagen');
 
 const BLOG = path.join(ROOT, 'blog');
 const fallos = [];
@@ -58,6 +59,7 @@ const tablaSuelta      = [];
 const headAbierto      = [];
 const enlaceMuerto     = [];
 const fuenteVieja      = [];
+const altDesalineado   = [];
 
 for (const archivo of archivos) {
   const html = fs.readFileSync(path.join(BLOG, archivo), 'utf8');
@@ -180,6 +182,19 @@ for (const archivo of archivos) {
   if (!og) sinOg.push(archivo);
   else revisarPng([og], pngFaltante);
 
+  // `og:image:alt` lo escriben dos lados —los generadores y
+  // poner-imagen-blog.js— y durante meses cada uno usó su propia fórmula: uno
+  // dejaba la marca en el texto y el otro se la quitaba. Ninguna corrida
+  // fallaba; simplemente cada una revertía 56 archivos de la anterior. Ahora
+  // los dos llaman a lib/alt-imagen.js, y esto lo verifica.
+  {
+    const titulo = (html.match(/<title>([^<]*)<\/title>/i) || [, ''])[1];
+    const alt = (html.match(/property=["']og:image:alt["'][^>]*content=["']([^"']*)["']/i) || [])[1];
+    if (titulo && alt != null && alt !== altDeTitulo(titulo)) {
+      altDesalineado.push(`${archivo}: alt="${alt.slice(0, 45)}"`);
+    }
+  }
+
   // El marcado de FAQPage se queda a propósito — ver «Rich snippets» en
   // CLAUDE.md. Google ya no lo renderiza, pero Bing y los crawlers de IA sí lo
   // leen, y borrarlo sería perder esa superficie sin ganar nada.
@@ -218,6 +233,9 @@ caso(tablaSuelta, 'archivo(s) con tabla sin .tabla-scroll', 'todas las tablas va
 caso(headAbierto, 'archivo(s) que no cierran el <head>', 'todos cierran el <head>');
 caso(enlaceMuerto, 'archivo(s) con un <a href="#"> muerto', 'ningún enlace muerto en el pie');
 caso(fuenteVieja, 'archivo(s) con la tipografía vieja (Sora / DM Sans)', 'toda la tipografía es Montserrat');
+caso(altDesalineado, 'archivo(s) donde og:image:alt no sale de lib/alt-imagen.js',
+  'el alt de la tarjeta usa una sola fórmula en todo el repo',
+  'los generadores y poner-imagen-blog.js se lo pisaban mutuamente');
 
 caso(sinLogo, 'Article sin publisher.logo', 'todos los Article declaran publisher.logo',
   'corre: node scripts/generar-logo.js --apply');

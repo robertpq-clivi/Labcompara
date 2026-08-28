@@ -8,7 +8,7 @@
  *
  * Diferencia de fondo con la vertical de laboratorio: ahí el problema es
  * *descubrir* qué estudio es cada nombre entre miles. Aquí el catálogo es
- * cerrado —16 presentaciones de 4 familias— y el problema es escoger la dosis
+ * cerrado —20 presentaciones de 5 familias— y el problema es escoger la dosis
  * correcta dentro de los resultados de búsqueda de una familia. Por eso el
  * emparejamiento va por tokens declarados (match_all / match_any / exclude) y
  * no por similitud difusa: con "Ozempic 0.25/0.5 mg" vs "Ozempic 1 mg" un

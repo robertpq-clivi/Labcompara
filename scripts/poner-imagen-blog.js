@@ -22,6 +22,9 @@
 
 const fs   = require('fs');
 const path = require('path');
+// La misma fórmula que usan los generadores: si se separan, cada corrida
+// deshace la de la otra sobre los mismos archivos.
+const { altDeTitulo } = require('./lib/alt-imagen');
 
 const ROOT    = path.join(__dirname, '..');
 const BLOG    = path.join(ROOT, 'blog');
@@ -148,8 +151,7 @@ function main() {
     const ruta = path.join(BLOG, archivo);
     let html = fs.readFileSync(ruta, 'utf8');
     const url = `${BASE}/images/blog/${slug}.png`;
-    const titulo = (html.match(/<title>([^<]*)<\/title>/i) || [, slug])[1]
-      .replace(/\s*\|\s*Medcompara\s*$/, '');
+    const titulo = altDeTitulo((html.match(/<title>([^<]*)<\/title>/i) || [, slug])[1]);
 
     const cambios = [];
 

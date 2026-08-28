@@ -616,6 +616,86 @@
       "Guadalajara": 3335,
       "SanPablo": 3148,
       "Revert": null
+    },
+    "Foundayz 0.8 mg (caja mensual)": {
+      "sources": {
+        "Clivi": {
+          "price": 3499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 2699,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 3499,
+      "Ahorro": null,
+      "Benavides": null,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 2699
+    },
+    "Foundayz 2.5 mg (caja mensual)": {
+      "sources": {
+        "Clivi": {
+          "price": 4199,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 3399,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 4199,
+      "Ahorro": null,
+      "Benavides": null,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 3399
+    },
+    "Foundayz 5.5 mg (caja mensual)": {
+      "sources": {
+        "Clivi": {
+          "price": 4999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 4099,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 4999,
+      "Ahorro": null,
+      "Benavides": null,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 4099
+    },
+    "Foundayz 9 mg (caja mensual)": {
+      "sources": {
+        "Clivi": {
+          "price": 5599,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
+        "Revert": {
+          "price": 4799,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
+        }
+      },
+      "Clivi": 5599,
+      "Ahorro": null,
+      "Benavides": null,
+      "Guadalajara": null,
+      "SanPablo": null,
+      "Revert": 4799
     }
   }
 }

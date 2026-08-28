@@ -19,6 +19,11 @@
     },
     "Rybelsus": {
       "query": "rybelsus"
+    },
+    "Foundayz": {
+      "query": "foundayz",
+      "scrape": false,
+      "nota": "Foundayz (orforglipron) es tableta oral diaria y llegó a México dentro de planes con seguimiento médico; no está confirmado que ninguna de las cuatro farmacias raspadas lo liste como SKU. Hasta que lo esté, va con scrape:false: una búsqueda que ninguna fuente puede responder no trae nada, y sí abre el peor error posible — la excepción de Benavides no exige la marca en el título, así que un resultado difuso con la dosis correcta se emparejaría como si fuera Foundayz. Mientras tanto los precios son curados: Clivi en farmacias-clivi.json, Revert en farmacias-overrides.json. Para empezar a rasparlo basta quitar scrape y verificar los tokens contra data/medicamentos/crudo.json."
     }
   },
   "products": [
@@ -175,6 +180,41 @@
       ],
       "exclude": [
         "10 tab"
+      ]
+    },
+    {
+      "name": "Foundayz 0.8 mg (caja mensual)",
+      "family": "Foundayz",
+      "match_all": [
+        "0.8 mg"
+      ]
+    },
+    {
+      "name": "Foundayz 2.5 mg (caja mensual)",
+      "family": "Foundayz",
+      "match_all": [
+        "2.5 mg"
+      ],
+      "exclude": [
+        "12.5"
+      ]
+    },
+    {
+      "name": "Foundayz 5.5 mg (caja mensual)",
+      "family": "Foundayz",
+      "match_all": [
+        "5.5 mg"
+      ]
+    },
+    {
+      "name": "Foundayz 9 mg (caja mensual)",
+      "family": "Foundayz",
+      "match_all": [
+        "9 mg"
+      ],
+      "exclude": [
+        "14.5",
+        "17.2"
       ]
     }
   ]

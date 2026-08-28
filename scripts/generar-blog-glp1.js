@@ -24,6 +24,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { anclas } = require('./lib/ancla');
+const { altDeTitulo } = require('./lib/alt-imagen');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
@@ -101,6 +102,48 @@ function tokensTodas(h, c, meta) {
   };
 }
 
+/**
+ * Rango de precio ya redactado. Con un solo plan no hay rango que enseñar, y
+ * «de $3,499 a $3,499» sería una comparación inventada: en ese caso devuelve
+ * la cifra sola y la frase del copy sigue leyéndose bien.
+ */
+const rango = (a, b) => (a === b ? mxn(a) : `entre ${mxn(a)} y ${mxn(b)}`);
+
+function tokensPlan(h, c, meta) {
+  return {
+    FAMILIA: h.familia, ACTIVO: h.activo, VIA: h.via, ENVASE: h.envase,
+    CORTO: c.corto,
+
+    MIN: mxn(h.min), MAX: mxn(h.max),
+    INICIAL: h.inicial.dosis, INICIAL_RANGO: rango(h.inicial.min, h.inicial.max),
+    INICIAL_BARATO: nom(h.inicial.barato),
+    ALTA: h.alta.dosis, ALTA_RANGO: rango(h.alta.min, h.alta.max),
+
+    N_PRES: h.nPresentaciones,
+    N_PLANES: h.nPlanes, PLANES: lista(h.planes.map(nom)),
+
+    FECHA: meta.fechaLarga, MES: meta.mes, MES_ANIO: meta.mesAnio, ANIO: meta.anio,
+  };
+}
+
+/**
+ * La escalera de dosis con el precio mensual de cada plan. Una columna por
+ * plan: son productos distintos —cada uno incluye lo suyo— y ponerlos en una
+ * sola columna de «desde» borraría justo eso.
+ */
+function tablaPlanDosis(h) {
+  const cols = h.planes.slice().sort();
+  return tabla(['Presentación', ...cols.map(p => `${esc(nom(p))} (al mes)`)], h.filas.map((f, i) =>
+    `    <tr><td><strong>${esc(h.familia)} ${esc(f.dosis)}</strong>${i === 0 ? ' <span class="badge-cheap">Dosis de inicio</span>' : ''}</td>`
+    + cols.map((p) => {
+        const x = f.planes.find(y => y.fuente === p);
+        if (!x) return '<td>—</td>';
+        const bajo = x.precio === f.min && f.planes.length > 1;
+        return `<td${bajo ? ' style="font-weight:700;color:#059669;"' : ''}>${mxn(x.precio)}</td>`;
+      }).join('')
+    + '</tr>'));
+}
+
 /** Cuánto cuesta empezar y cuánto mantener, familia por familia. */
 function tablaTodas(h) {
   return tabla(['Tratamiento', 'Activo', 'Empezar (al mes)', 'Mantenimiento (al mes)'], h.filas.map((f, i) =>
@@ -114,9 +157,13 @@ function tablaTodas(h) {
 
 const CAMPOS_SIN_CIFRAS = ['titulo', 'h1', 'metaDescription', 'intro', 'respuesta'];
 const CLINICO = /\d+(?:\.\d+)?(?:\s*(?:,|y|a|\/)\s*\d+(?:\.\d+)?)*\s*(?:mg|ml|semanas?|meses?|horas?)\b/gi;
-const ESTRUCTURA = ['slug', 'familia', 'corto', 'articulo'];
+const ESTRUCTURA = ['slug', 'familia', 'corto', 'articulo', 'tipo'];
 const OBLIGATORIOS = ['slug', 'familia', 'corto', 'articulo', 'titulo', 'h1', 'metaDescription',
                       'intro', 'respuesta', 'porQueVaria', 'queEs', 'receta', 'elegir', 'faqs'];
+// La página de un medicamento sólo-plan tiene dos secciones que las otras no:
+// por qué no está en el mostrador y qué entra en el precio. Sin ellas la
+// plantilla serviría un hueco.
+const OBLIGATORIOS_PLAN = OBLIGATORIOS.concat(['disponibilidad', 'queIncluye']);
 
 /** La página cruzada compara tratamientos, no dosis de uno: su esqueleto cambia. */
 function paginaTodas(h, c, todos, meta) {
@@ -125,6 +172,7 @@ function paginaTodas(h, c, todos, meta) {
 
   const head = HEAD
     .replace(/{{TITULO}}/g, esc(titulo))
+    .replace(/{{IMAGEN_ALT}}/g, esc(altDeTitulo(titulo)))
     .replace(/{{DESC}}/g, esc(c.metaDescription))
     .replace(/{{URL}}/g, url)
     .replace(/{{IMAGEN}}/g, tarjeta(c.slug))
@@ -228,6 +276,132 @@ ${bloqueFaqs(c.faqs)}
 `;
 }
 
+/**
+ * Página de un medicamento que todavía no se vende por caja en farmacia.
+ *
+ * No declara `Product` ni `AggregateOffer` a propósito: lo que aquí tiene
+ * precio es un plan con consulta y seguimiento incluidos, no la caja suelta.
+ * Marcar ese importe como la oferta del medicamento describiría a Google una
+ * oferta que nadie vende —la misma razón por la que el ranking y las guías
+ * tampoco lo declaran.
+ */
+function paginaPlan(h, c, todos, meta) {
+  const url    = `${BASE}/blog/${c.slug}`;
+  const titulo = `${c.titulo} | Medcompara`;
+
+  const head = HEAD
+    .replace(/{{TITULO}}/g, esc(titulo))
+    .replace(/{{IMAGEN_ALT}}/g, esc(altDeTitulo(titulo)))
+    .replace(/{{DESC}}/g, esc(c.metaDescription))
+    .replace(/{{URL}}/g, url)
+    .replace(/{{IMAGEN}}/g, tarjeta(c.slug))
+    .replace('</head>', ESTILO_EXTRA + '\n</head>');
+
+  const bullets = xs => xs.map(x => `    <li>${esc(x)}</li>`).join('\n');
+  const otros = todos.filter(o => o.slug !== c.slug).slice(0, 4)
+    .map(o => `<a class="related-link" href="/blog/${o.slug}">${esc(o.h1)}</a>`);
+
+  const schema = [
+    { '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: c.faqs.map(f => ({ '@type': 'Question', name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    { '@context': 'https://schema.org', '@type': 'Article',
+      headline: c.h1, image: [tarjeta(c.slug)], description: c.metaDescription, url,
+      datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
+      author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
+      publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
+      about: { '@type': 'Drug', name: h.familia, activeIngredient: h.activo } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: BASE + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog',   item: BASE + '/blog' },
+        { '@type': 'ListItem', position: 3, name: c.h1,     item: url },
+      ] },
+  ].map(x => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n');
+
+  const cabeza = head.replace('</head>', `${schema}\n</head>`);
+
+  return `${cabeza}
+<body>
+<nav>
+  <a href="/" class="nav-logo">Med<span>compara</span></a>
+  <a href="/glp1" class="nav-btn">Comparar precios</a>
+</nav>
+<div class="breadcrumb">
+  <a href="/">Inicio</a><span>›</span>
+  <a href="/blog">Blog</a><span>›</span>
+  ${esc(c.h1)}
+</div>
+<div class="article-wrap">
+  <div class="article-eyebrow">Medicamentos GLP-1 · Precio en México</div>
+  <h1>${esc(c.h1)}</h1>
+  <p class="article-intro">${esc(c.intro)}</p>
+
+  <div class="info-card">
+  <p>Precios verificados el ${meta.fechaLarga} en ${esc(lista(h.planes.map(nom)))}. Se revisan con cada scan semanal.</p>
+</div>
+
+  <h2>¿Cuánto cuesta ${esc(c.corto)} al mes en México?</h2>
+  <p>${esc(c.respuesta)}</p>
+${tablaPlanDosis(h)}
+  <p class="fuente-nota">Precio mensual del plan, en pesos mexicanos: incluye el medicamento y el acompañamiento médico de cada programa. No es el precio de la caja suelta. Confirma qué entra en el plan antes de contratar.</p>
+
+  <h2>¿Por qué no lo encuentras en el mostrador?</h2>
+  <p>${esc(c.disponibilidad)}</p>
+
+  <h2>¿Qué incluye ese precio?</h2>
+  <ul>
+${bullets(c.queIncluye)}
+  </ul>
+
+  <div class="cta-box">
+  <h3>Compara antes de contratar</h3>
+  <p>${esc(h.familia)}, dosis por dosis, junto al resto de los GLP-1 y con los precios revisados cada semana.</p>
+  <a href="/glp1" class="cta-btn">Comparar en Medcompara →</a>
+</div>
+
+  <h2>¿Por qué cambia el precio de un plan a otro?</h2>
+  <ul>
+${bullets(c.porQueVaria)}
+  </ul>
+
+  <h2>¿Necesita receta?</h2>
+  <div class="receta-pill">${esc(c.receta.estado)}</div>
+  <p>${esc(c.receta.texto)}</p>
+
+  <h2>Qué es y cómo funciona</h2>
+  <p>${esc(c.queEs)}</p>
+
+  <h3>Qué revisar antes de contratar</h3>
+  <ul>
+${bullets(c.elegir)}
+  </ul>
+
+  <div class="faq-section">
+  <h2>Preguntas frecuentes</h2>
+${bloqueFaqs(c.faqs)}
+</div>
+
+  <div class="info-card">
+  <p>Esta página compara precios; no sustituye una consulta médica. Los GLP-1 requieren prescripción y supervisión: la indicación, la dosis y el seguimiento los decide tu médico.</p>
+</div>
+
+  <div class="related-section">
+  <h3>📚 Otros precios de GLP-1</h3>
+  <div class="related-links">${otros.join('\n')}
+<a class="related-link" href="/glp1">Comparar todos los GLP-1 entre farmacias</a></div>
+</div>
+</div>
+<footer>
+  <div class="footer-brand">Medcompara</div>
+  <p style="margin-bottom:12px;">Compara precios de medicamentos, estudios de laboratorio y tratamientos en México.</p>
+  <div><a href="/">Inicio</a><a href="/glp1">GLP-1</a><a href="/blog">Blog</a><a href="/aviso-de-privacidad">Privacidad</a></div>
+  <p style="margin-top:16px;font-size:11px;opacity:.5;">Medcompara es un comparador de precios. No vendemos medicamentos ni damos consejo médico. Los precios son referenciales y pueden variar. © ${meta.anio} Medcompara.</p>
+</footer>
+</body></html>
+`;
+}
+
 function validarCopy(c, mapa) {
   const problemas = [];
   const conocidos = new Set(Object.keys(mapa));
@@ -255,7 +429,7 @@ function validarCopy(c, mapa) {
     if (/\d{2,}/.test(s)) problemas.push(`${campo}: cifra a mano fuera de una dosis`);
   }
 
-  const faltantes = OBLIGATORIOS.filter(k => !c[k]);
+  const faltantes = (c.tipo === 'plan' ? OBLIGATORIOS_PLAN : OBLIGATORIOS).filter(k => !c[k]);
   if (faltantes.length) problemas.push(`faltan campos: ${faltantes.join(', ')}`);
   if (c.faqs && (c.faqs.length < 4 || c.faqs.length > 6)) problemas.push(`${c.faqs.length} FAQs (van de 4 a 6)`);
 
@@ -373,6 +547,7 @@ function pagina(h, c, todos, meta) {
 
   const head = HEAD
     .replace(/{{TITULO}}/g, esc(titulo))
+    .replace(/{{IMAGEN_ALT}}/g, esc(altDeTitulo(titulo)))
     .replace(/{{DESC}}/g, esc(c.metaDescription))
     .replace(/{{URL}}/g, url)
     .replace(/{{IMAGEN}}/g, tarjeta(c.slug))
@@ -480,22 +655,36 @@ const meta  = {
 const problemas = [];
 const listos = [];
 
+// Se recorre TODO el copy aunque `--solo` escriba una sola página: la lista de
+// «otros precios de GLP-1» de cada artículo se arma con los demás, así que
+// filtrar antes de resolver dejaba la página generada con `--solo` sin ningún
+// enlace relacionado. No fallaba nada —salía una página muda, y el bloque
+// reaparecía sola en la corrida completa del domingo—, que es justo la clase de
+// error que nadie revisa. Sólo abortan la corrida los problemas de las páginas
+// que sí se van a escribir; que otra entrada esté rota no debe impedirte
+// regenerar la tuya.
 for (const c of COPY) {
-  if (SOLO && c.slug !== SOLO) continue;
+  const seEscribe = !SOLO || c.slug === SOLO;
+  const anotar = (p) => { if (seEscribe) problemas.push(p); };
   const cruzada = c.familia === 'todas';
-  const h = cruzada ? G.hechosTodas(datos) : G.hechos(c.familia, datos);
-  if (!h) { problemas.push(`${c.slug} → el scan no trae ${c.familia} con presentaciones comparables`); continue; }
+  const plan    = c.tipo === 'plan';
+  const h = cruzada ? G.hechosTodas(datos)
+          : plan    ? G.hechosPlan(c.familia, datos)
+          :           G.hechos(c.familia, datos);
+  if (!h) { anotar(`${c.slug} → el scan no trae ${c.familia} con presentaciones comparables`); continue; }
 
-  const mapa = cruzada ? tokensTodas(h, c, meta) : tokens(h, c, meta);
+  const mapa = cruzada ? tokensTodas(h, c, meta)
+             : plan    ? tokensPlan(h, c, meta)
+             :           tokens(h, c, meta);
   const errs = validarCopy(c, mapa);
-  if (errs.length) { problemas.push(...errs.map(p => `${c.slug} → ${p}`)); continue; }
+  if (errs.length) { errs.forEach(p => anotar(`${c.slug} → ${p}`)); continue; }
 
   const r = resolver(c, mapa);
-  if (r.metaDescription.length > 155) problemas.push(`${c.slug} → metaDescription de ${r.metaDescription.length} caracteres`);
-  if (r.h1.length > 60)               problemas.push(`${c.slug} → h1 de ${r.h1.length} caracteres`);
-  if (`${r.titulo} | Medcompara`.length > 75) problemas.push(`${c.slug} → title de ${`${r.titulo} | Medcompara`.length} caracteres`);
+  if (r.metaDescription.length > 155) anotar(`${c.slug} → metaDescription de ${r.metaDescription.length} caracteres`);
+  if (r.h1.length > 60)               anotar(`${c.slug} → h1 de ${r.h1.length} caracteres`);
+  if (`${r.titulo} | Medcompara`.length > 75) anotar(`${c.slug} → title de ${`${r.titulo} | Medcompara`.length} caracteres`);
 
-  listos.push({ c, h, r, cruzada });
+  listos.push({ c, h, r, cruzada, plan, seEscribe });
 }
 
 if (problemas.length) {
@@ -505,14 +694,20 @@ if (problemas.length) {
   process.exit(1);
 }
 
+// Los enlaces de «otros» salen de todo el copy resuelto, se escriba o no.
 const resueltos = listos.map(x => x.r);
 
-for (const { c, h, r, cruzada } of listos) {
-  const html = conIndice(conTablasScroll(cruzada ? paginaTodas(h, r, resueltos, meta) : pagina(h, r, resueltos, meta)));
+for (const { c, h, r, cruzada, plan, seEscribe } of listos) {
+  if (!seEscribe) continue;
+  const cuerpo = cruzada ? paginaTodas(h, r, resueltos, meta)
+               : plan    ? paginaPlan(h, r, resueltos, meta)
+               :           pagina(h, r, resueltos, meta);
+  const html = conIndice(conTablasScroll(cuerpo));
   if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);
   const detalle = cruzada ? `${h.nFamilias} tratamientos` : `${h.nPresentaciones} dosis`;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${c.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${detalle} · desde ${mxn(h.min)})`);
 }
 
-console.log(`\n${APPLY ? 'Escritos' : 'Se escribirían'} ${listos.length} artículos · scan del ${meta.fechaLarga}`);
+const escritos = listos.filter(x => x.seEscribe).length;
+console.log(`\n${APPLY ? 'Escritos' : 'Se escribirían'} ${escritos} artículos · scan del ${meta.fechaLarga}`);
 if (!APPLY) console.log('(dry-run — usa --apply)');

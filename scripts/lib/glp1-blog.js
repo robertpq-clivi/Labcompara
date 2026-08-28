@@ -41,7 +41,11 @@ const FAMILIAS = {
   Mounjaro: { activo: 'tirzepatida', via: 'inyección semanal', envase: 'pluma' },
   Wegovy:   { activo: 'semaglutida', via: 'inyección semanal', envase: 'caja mensual' },
   Rybelsus: { activo: 'semaglutida', via: 'tableta diaria',    envase: 'caja de 30 tabletas' },
+  Foundayz: { activo: 'orforglipron', via: 'tableta diaria',    envase: 'caja mensual' },
 };
+
+/** Familias que hoy sólo se surten dentro de un plan, sin caja en farmacia. */
+const SOLO_PLAN = ['Foundayz'];
 
 const pct = (bajo, alto) => (alto > 0 ? Math.round(((alto - bajo) / alto) * 100) : 0);
 
@@ -131,6 +135,67 @@ function hechos(familia, datos = cargar()) {
 }
 
 /**
+ * Hechos de una familia que no se vende por caja en farmacia: hoy sólo llega
+ * dentro de un plan con seguimiento médico incluido.
+ *
+ * Necesita su propia función porque `hechos()` exige dos precios de farmacia
+ * por presentación —sin eso no hay comparación de mostrador que publicar— y
+ * aquí no va a haber ninguno. Lo que sí hay es una escalera de dosis con
+ * precio mensual, que es la pregunta real de quien busca cuánto le va a costar.
+ *
+ * Devuelve null con menos de dos presentaciones con precio: una cifra suelta
+ * no sostiene una página de precio, y prefiere no publicar a publicar a medias.
+ */
+function hechosPlan(familia, datos = cargar()) {
+  const meta = FAMILIAS[familia];
+  if (!meta) return null;
+
+  const filas = Object.entries(datos.prices)
+    .filter(([nombre]) => nombre.startsWith(familia + ' '))
+    .map(([nombre, v]) => {
+      const fuentes = v.sources || {};
+      const enPlan = PLANES
+        .filter(f => fuentes[f] && fuentes[f].price > 0)
+        .map(f => ({ fuente: f, precio: fuentes[f].price }))
+        .sort((a, b) => a.precio - b.precio);
+      if (!enPlan.length) return null;
+
+      const precios = enPlan.map(x => x.precio);
+      const min = Math.min(...precios), max = Math.max(...precios);
+      return {
+        producto: nombre,
+        dosis: dosis(nombre),
+        planes: enPlan,
+        min, max,
+        barato: enPlan[0].fuente,
+        difPct: pct(min, max),
+      };
+    })
+    .filter(Boolean);
+
+  if (filas.length < 2) return null;
+
+  // La escalera va de menor a mayor precio: es el orden en que se recorre la
+  // titulación, y el que hace legible la tabla.
+  filas.sort((a, b) => a.min - b.min);
+
+  const planes = [...new Set(filas.flatMap(f => f.planes.map(x => x.fuente)))];
+  const inicial = filas[0];
+  const alta = filas[filas.length - 1];
+
+  return {
+    familia, ...meta,
+    filas,
+    inicial, alta,
+    nPresentaciones: filas.length,
+    planes, nPlanes: planes.length,
+    min: Math.min(...filas.map(f => f.min)),
+    max: Math.max(...filas.map(f => f.max)),
+    generado: datos.generated_at,
+  };
+}
+
+/**
  * Comparación cruzada de las cuatro familias: cuánto cuesta empezar y cuánto
  * mantener, al mes. Es la pregunta real de quien está decidiendo tratamiento y
  * no marca — y la única forma honesta de responderla es separar el precio de
@@ -166,4 +231,4 @@ function hechosTodas(datos = cargar()) {
   };
 }
 
-module.exports = { FARMACIAS, PLANES, NOMBRE, FAMILIAS, cargar, hechos, hechosTodas, dosis, pct, mediana };
+module.exports = { FARMACIAS, PLANES, NOMBRE, FAMILIAS, SOLO_PLAN, cargar, hechos, hechosPlan, hechosTodas, dosis, pct, mediana };

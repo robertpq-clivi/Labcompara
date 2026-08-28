@@ -57,10 +57,18 @@ const ctxPara = (ad) => {
 
 (async () => {
   const { catalogo, adaptadores, columnas, curados, urlFarmacia } = V;
-  const familias = Object.keys(catalogo.families);
+  // Una familia con `scrape: false` no se busca en ninguna farmacia: su precio
+  // es curado de punta a punta (Foundayz, que sólo se surte dentro de un plan).
+  // Buscarla igual no traería nada y sí abriría la puerta al peor error posible
+  // — la excepción de Benavides no exige la marca en el título, así que una
+  // búsqueda sin resultados propios puede emparejar otro medicamento que
+  // casualmente traiga la misma dosis.
+  const familias = Object.keys(catalogo.families).filter((f) => catalogo.families[f].scrape !== false);
+  const curadas = Object.keys(catalogo.families).length - familias.length;
 
   console.log('Medcompara · scan de medicamentos GLP-1');
-  console.log(`${catalogo.products.length} presentaciones · ${familias.length} familias · ${columnas.length} fuentes`);
+  console.log(`${catalogo.products.length} presentaciones · ${familias.length} familias · ${columnas.length} fuentes`
+    + (curadas ? ` (${curadas} familia${curadas > 1 ? 's' : ''} de precio curado, sin raspar)` : ''));
   if (!DRY) {
     const chk = await http.verificarProxy();
     console.log(chk.ok
