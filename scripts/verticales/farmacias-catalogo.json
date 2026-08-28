@@ -19,6 +19,10 @@
     },
     "Rybelsus": {
       "query": "rybelsus"
+    },
+    "Foundayz": {
+      "query": "foundayz",
+      "nota": "Foundayz (orforglipron) llegó a México en 2026 y ya se surte en farmacia además de dentro de planes médicos. San Pablo nombra sus cuatro SKU igual —«Foundayz 30 Tabletas Caja»— y la dosis sólo viene en additionalDescription («Orforglipron 0.8 MG»), así que el emparejamiento la lee de ahí: ver DETALLE_EMPAREJA en farmacias.js. Los tokens de 9 mg aceptan las dos escrituras porque la farmacia publica «9.0 MG»."
     }
   },
   "products": [
@@ -175,6 +179,43 @@
       ],
       "exclude": [
         "10 tab"
+      ]
+    },
+    {
+      "name": "Foundayz 0.8 mg (30 tabletas)",
+      "family": "Foundayz",
+      "match_all": [
+        "0.8 mg"
+      ]
+    },
+    {
+      "name": "Foundayz 2.5 mg (30 tabletas)",
+      "family": "Foundayz",
+      "match_all": [
+        "2.5 mg"
+      ],
+      "exclude": [
+        "12.5"
+      ]
+    },
+    {
+      "name": "Foundayz 5.5 mg (30 tabletas)",
+      "family": "Foundayz",
+      "match_all": [
+        "5.5 mg"
+      ]
+    },
+    {
+      "name": "Foundayz 9 mg (30 tabletas)",
+      "family": "Foundayz",
+      "match_any": [
+        "9 mg",
+        "9.0 mg"
+      ],
+      "exclude": [
+        "14.5",
+        "17.2",
+        "19"
       ]
     }
   ]

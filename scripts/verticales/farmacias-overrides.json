@@ -1,10 +1,9 @@
 {
-  "_comment": "Manual price fills, applied AFTER scraping and taking precedence. With Zyte live, Guadalajara & San Pablo auto-scrape; only the cells Zyte can't parse (missing SKU in results, or titles without a parseable dose) are kept here. Revert is never scraped (curated). Shape: source -> {canonical product name: price MXN}.",
+  "_comment": "Precios verificados a mano, aplicados DESPUÉS del scan y con precedencia sobre él. Sólo para celdas que el scraper no puede alcanzar: el SKU no sale en la búsqueda de esa fuente. Un override que la fuente sí publica congela el precio para siempre y nadie se entera — pasó con Ozempic 0.25/0.5 en San Pablo, que quedó clavado en el precio de Ahorro mientras la farmacia publicaba otro. Revert nunca se raspa: es curado. Forma: fuente -> {nombre canónico: precio MXN}.",
   "Guadalajara": {
     "Ozempic 1 mg (1 pluma)": 4280
   },
   "SanPablo": {
-    "Ozempic 0.25/0.5 mg (1 pluma)": 3096,
     "Ozempic 1 mg (1 pluma)": 4198,
     "Mounjaro 5 mg (1 pluma)": 5983,
     "Mounjaro 15 mg (1 pluma)": 8608,
@@ -23,6 +22,10 @@
     "Wegovy 0.5 mg (caja mensual)": 2899,
     "Wegovy 1 mg (caja mensual)": 3899,
     "Wegovy 1.7 mg (caja mensual)": 4599,
-    "Wegovy 2.4 mg (caja mensual)": 4899
+    "Wegovy 2.4 mg (caja mensual)": 4899,
+    "Foundayz 0.8 mg (30 tabletas)": 2699,
+    "Foundayz 2.5 mg (30 tabletas)": 3399,
+    "Foundayz 5.5 mg (30 tabletas)": 4099,
+    "Foundayz 9 mg (30 tabletas)": 4799
   }
 }

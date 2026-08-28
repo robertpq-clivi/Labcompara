@@ -111,7 +111,11 @@ const ctxPara = (ad) => {
       const hit = V.elegir(crudo[ad.id][prod.family] || [], prod, ad.id, catalogo.families[prod.family]);
       if (!hit) continue;
       fila[ad.id] = hit.precio;
-      fila.sources[ad.id] = { price: hit.precio, url: hit.url, title: hit.titulo };
+      // `detalle` se guarda aparte cuando existe: San Pablo llama igual a sus
+      // cuatro SKU de Foundayz y sin ese campo las cuatro filas del feed se
+      // verían idénticas para quien venga a afinar tokens.
+      fila.sources[ad.id] = { price: hit.precio, url: hit.url, title: hit.titulo,
+        ...(hit.detalle ? { detalle: hit.detalle } : {}) };
       emparejados++;
     }
 

@@ -8,7 +8,7 @@
  *
  * Diferencia de fondo con la vertical de laboratorio: ahí el problema es
  * *descubrir* qué estudio es cada nombre entre miles. Aquí el catálogo es
- * cerrado —16 presentaciones de 4 familias— y el problema es escoger la dosis
+ * cerrado —20 presentaciones de 5 familias— y el problema es escoger la dosis
  * correcta dentro de los resultados de búsqueda de una familia. Por eso el
  * emparejamiento va por tokens declarados (match_all / match_any / exclude) y
  * no por similitud difusa: con "Ozempic 0.25/0.5 mg" vs "Ozempic 1 mg" un
@@ -219,6 +219,8 @@ const sanpablo = {
       // venía en esta misma respuesta y se estaba descartando.
       out.push({
         titulo: p.name || '',
+        // Campo curado por la farmacia —"Orforglipron 5.5 MG"—, no un slug: es
+        // el único lugar donde viene la dosis cuando el nombre no la trae.
         detalle: p.additionalDescription || '',
         // La farmacia declara su marca y si el producto es genérico; no hace
         // falta deducirlo del texto.
@@ -281,6 +283,22 @@ function coincide(titulo, prod, familia) {
 }
 
 /**
+ * Fuentes cuyo `detalle` entra al emparejamiento junto con el título.
+ *
+ * San Pablo nombra algunos productos sin la dosis: los cuatro SKU de Foundayz
+ * se llaman igual —"Foundayz 30 Tabletas Caja"— y sólo se distinguen por
+ * `additionalDescription`: "Orforglipron 0.8 MG". Ese campo lo escribe la
+ * farmacia y trae activo y dosis, así que se puede emparejar contra él.
+ *
+ * Benavides queda fuera a propósito: su `detalle` es el slug de la URL, y el
+ * propio adaptador advierte que mezclarlo en el texto emparejado puede producir
+ * coincidencias falsas. Verificado contra las cuatro familias ya raspadas: en
+ * San Pablo, incluir el detalle sólo llena celdas que estaban vacías —ninguna
+ * elección cambió de un precio a otro.
+ */
+const DETALLE_EMPAREJA = new Set(['SanPablo']);
+
+/**
  * Escoge la presentación correcta entre los resultados de una farmacia.
  *
  * Exige que la marca aparezca en el título, para que una búsqueda difusa no
@@ -288,7 +306,10 @@ function coincide(titulo, prod, familia) {
  * Semaglutida" sin marca, pero su búsqueda ya viene acotada por familia.
  */
 function elegir(resultados, prod, fuente, familia) {
-  let cands = resultados.filter((r) => coincide(r.titulo, prod, familia));
+  // La marca se sigue exigiendo sólo en el título: el detalle nombra el activo,
+  // no la marca, y aceptarlo ahí aflojaría la regla de abajo.
+  const texto = (r) => (DETALLE_EMPAREJA.has(fuente) && r.detalle ? `${r.titulo} ${r.detalle}` : r.titulo);
+  let cands = resultados.filter((r) => coincide(texto(r), prod, familia));
   if (prod.min_price) cands = cands.filter((r) => r.precio >= prod.min_price);
 
   const fam = normalizar(prod.family || '');
@@ -310,6 +331,7 @@ module.exports = {
   urlFarmacia: URL_FARMACIA,
   coincide,
   elegir,
+  DETALLE_EMPAREJA,
   normalizar,
   vtexBuscar,
 };

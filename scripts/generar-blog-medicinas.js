@@ -23,6 +23,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { anclas } = require('./lib/ancla');
+const { altDeTitulo } = require('./lib/alt-imagen');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
@@ -390,6 +391,7 @@ function pagina(h, c, todos, meta) {
 
   const head = HEAD
     .replace(/{{TITULO}}/g, esc(titulo))
+    .replace(/{{IMAGEN_ALT}}/g, esc(altDeTitulo(titulo)))
     .replace(/{{DESC}}/g, esc(c.metaDescription))
     .replace(/{{URL}}/g, url)
     .replace(/{{IMAGEN}}/g, tarjeta(h.slug))

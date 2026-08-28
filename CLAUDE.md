@@ -5,7 +5,7 @@ Comparador de precios de salud en México, en **medcompara.com.mx**. Tres vertic
 | Ruta | Qué compara | Fuente de datos |
 |---|---|---|
 | `/laboratorio` | ~620 estudios entre 6 laboratorios | `data/precios.json` |
-| `/glp1` | 16 presentaciones de 4 tratamientos GLP-1 | `data/medicamentos/prices.json` |
+| `/glp1` | 20 presentaciones de 5 tratamientos GLP-1 | `data/medicamentos/prices.json` |
 | `/medicinas` | ~200 medicamentos de farmacia | `data/medicinas/prices.json` |
 
 Sitio estático: HTML plano, sin framework ni build. Vercel sirve el repo tal cual.

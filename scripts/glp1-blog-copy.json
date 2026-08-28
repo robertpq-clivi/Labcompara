@@ -248,5 +248,67 @@
         "a": "La evidencia disponible indica que buena parte del peso perdido tiende a recuperarse al suspenderlo. Por eso conviene planearlo como un gasto sostenido y hablarlo con tu médico antes de empezar."
       }
     ]
+  },
+  {
+    "slug": "foundayz-precio-mexico",
+    "familia": "Foundayz",
+    "tipo": "nuevo",
+    "corto": "Foundayz",
+    "articulo": "el",
+    "titulo": "Foundayz precio {{MES_ANIO}}: cuánto cuesta en México",
+    "h1": "Precio de Foundayz en México",
+    "metaDescription": "Foundayz (orforglipron): la caja de {{INICIAL}} cuesta {{INICIAL_FARMACIA}} en farmacia y {{INICIAL_PLAN}} dentro de un plan médico.",
+    "intro": "Foundayz es orforglipron, la pastilla GLP-1 que Cofepris aprobó para peso y para diabetes tipo 2. Se consigue por dos vías con precios muy distintos: la caja en el mostrador y la mensualidad de un plan con seguimiento médico. La dosis de inicio cuesta {{INICIAL_FARMACIA}} por caja y {{INICIAL_PLAN}} al mes en un plan.",
+    "respuesta": "La caja de {{INICIAL}}, la dosis con la que se empieza, cuesta {{INICIAL_FARMACIA}} en farmacia; el plan mensual que la incluye va {{INICIAL_PLAN}}. En la dosis más alta que hoy se surte ({{ALTA}}) la caja cuesta {{ALTA_FARMACIA}} y el plan {{ALTA_PLAN}}. Entre las {{N_PRES}} presentaciones el rango completo va de {{MIN}} a {{MAX}}, y {{COMPARACION}}.",
+    "disponibilidad": "Foundayz llegó a México hace poco, así que la cobertura todavía es despareja: de las cuatro cadenas que comparamos, por ahora aparece con precio en {{FARMACIAS}}, y las demás lo irán listando conforme les llegue. La otra vía son los programas médicos que ya lo incorporaron a su plan mensual ({{PLANES}}), que fue por donde entró antes de tocar el mostrador. Las columnas vacías de la tabla son eso: farmacias donde todavía no lo encontramos, no un precio que estemos escondiendo.",
+    "queIncluye": [
+      "La columna de farmacia es la caja y nada más: la consulta, los estudios y el seguimiento corren por tu cuenta.",
+      "La de un plan es una mensualidad que incluye el medicamento más acompañamiento médico, y cada programa arma ese paquete distinto.",
+      "Por eso no se comparan de frente. Si ya tienes médico y estudios, la caja puede ser lo tuyo; si empiezas de cero, el plan cubre cosas que de otro modo pagarías aparte.",
+      "Lo que sí es comparable es el desembolso mensual, y ahí {{COMPARACION}}."
+    ],
+    "porQueVaria": [
+      "La dosis sube durante la titulación y el gasto sube con ella, por las dos vías. Presupuesta la dosis de mantenimiento, no la de inicio.",
+      "Es un lanzamiento reciente: con pocas farmacias listándolo, todavía no hay la competencia que aplana el precio en los GLP-1 con años en el mercado.",
+      "Un plan negocia volumen y cobra por mes, no por caja, así que su número no se mueve por las mismas razones que el del mostrador.",
+      "El corte de esta tabla es del {{FECHA}} y se revisa cada semana."
+    ],
+    "receta": {
+      "estado": "Requiere receta médica",
+      "texto": "{{FAMILIA}} se vende con receta en México y su dosis sube por escalones, así que necesita valoración y seguimiento. Ni comprar la caja ni contratar un plan sustituyen esa consulta: la indicación la hace un médico."
+    },
+    "queEs": "{{FAMILIA}} es {{ACTIVO}}, un agonista del receptor GLP-1 que no es un péptido sino una molécula pequeña; por eso funciona en tableta y no hay que inyectarlo. Se toma una vez al día, a la hora que sea y sin condiciones de comida ni de agua, que es su diferencia práctica frente a la otra pastilla GLP-1 que ya se vende en México. Cofepris lo autorizó para obesidad, para sobrepeso con enfermedades asociadas y para diabetes tipo 2, las dos indicaciones a la vez.",
+    "elegir": [
+      "Confirma qué dosis te indicó el médico: el precio cambia con cada escalón, compres caja o contrates plan.",
+      "Si comparas contra un plan, suma lo que pagarías aparte —consulta, estudios, seguimiento— o la comparación se inclina sola.",
+      "Revisa a qué te compromete el plan: mensualidad, permanencia mínima y qué pasa si suspendes el tratamiento.",
+      "Si ya usas un inyectable, el cambio lo decide tu médico y no el precio: la equivalencia de dosis no es directa."
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuánto cuesta Foundayz en México?",
+        "a": "La caja de la dosis de inicio ({{INICIAL}}) cuesta {{INICIAL_FARMACIA}} en farmacia, y el plan mensual que la incluye va {{INICIAL_PLAN}}. De la dosis más baja a la más alta, el rango completo va de {{MIN}} a {{MAX}}. Se revisa cada semana en Medcompara."
+      },
+      {
+        "q": "¿Foundayz ya se vende en farmacias?",
+        "a": "Sí, aunque la cobertura todavía es despareja: de las cuatro cadenas que comparamos, hoy aparece con precio en {{FARMACIAS}}. Las demás lo irán listando conforme les llegue."
+      },
+      {
+        "q": "¿Sale más barato por caja o dentro de un plan?",
+        "a": "En el corte más reciente, {{COMPARACION}}. Aun así no son lo mismo: el plan incluye consulta y seguimiento, la caja no. Compara el desembolso mensual sumando lo que pagarías aparte."
+      },
+      {
+        "q": "¿Foundayz y Foundayo son el mismo medicamento?",
+        "a": "Sí. Es la misma molécula, orforglipron, con distinto nombre comercial según el país: Foundayo es el nombre en Estados Unidos y Foundayz el que se usa en México."
+      },
+      {
+        "q": "¿Foundayz sirve para bajar de peso o para diabetes?",
+        "a": "Cofepris lo aprobó para las dos cosas: obesidad y sobrepeso con enfermedades asociadas, y diabetes tipo 2. Cuál aplica en tu caso lo define tu médico."
+      },
+      {
+        "q": "¿Foundayz se toma en ayunas?",
+        "a": "No. Se toma una vez al día a la hora que te acomode, con o sin alimentos y sin esperar para tomar agua o desayunar, a diferencia de la otra pastilla GLP-1 disponible en México."
+      }
+    ]
   }
 ]
