@@ -57,18 +57,10 @@ const ctxPara = (ad) => {
 
 (async () => {
   const { catalogo, adaptadores, columnas, curados, urlFarmacia } = V;
-  // Una familia con `scrape: false` no se busca en ninguna farmacia: su precio
-  // es curado de punta a punta (Foundayz, que sólo se surte dentro de un plan).
-  // Buscarla igual no traería nada y sí abriría la puerta al peor error posible
-  // — la excepción de Benavides no exige la marca en el título, así que una
-  // búsqueda sin resultados propios puede emparejar otro medicamento que
-  // casualmente traiga la misma dosis.
-  const familias = Object.keys(catalogo.families).filter((f) => catalogo.families[f].scrape !== false);
-  const curadas = Object.keys(catalogo.families).length - familias.length;
+  const familias = Object.keys(catalogo.families);
 
   console.log('Medcompara · scan de medicamentos GLP-1');
-  console.log(`${catalogo.products.length} presentaciones · ${familias.length} familias · ${columnas.length} fuentes`
-    + (curadas ? ` (${curadas} familia${curadas > 1 ? 's' : ''} de precio curado, sin raspar)` : ''));
+  console.log(`${catalogo.products.length} presentaciones · ${familias.length} familias · ${columnas.length} fuentes`);
   if (!DRY) {
     const chk = await http.verificarProxy();
     console.log(chk.ok
@@ -119,7 +111,11 @@ const ctxPara = (ad) => {
       const hit = V.elegir(crudo[ad.id][prod.family] || [], prod, ad.id, catalogo.families[prod.family]);
       if (!hit) continue;
       fila[ad.id] = hit.precio;
-      fila.sources[ad.id] = { price: hit.precio, url: hit.url, title: hit.titulo };
+      // `detalle` se guarda aparte cuando existe: San Pablo llama igual a sus
+      // cuatro SKU de Foundayz y sin ese campo las cuatro filas del feed se
+      // verían idénticas para quien venga a afinar tokens.
+      fila.sources[ad.id] = { price: hit.precio, url: hit.url, title: hit.titulo,
+        ...(hit.detalle ? { detalle: hit.detalle } : {}) };
       emparejados++;
     }
 

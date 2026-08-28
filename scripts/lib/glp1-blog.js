@@ -41,11 +41,8 @@ const FAMILIAS = {
   Mounjaro: { activo: 'tirzepatida', via: 'inyección semanal', envase: 'pluma' },
   Wegovy:   { activo: 'semaglutida', via: 'inyección semanal', envase: 'caja mensual' },
   Rybelsus: { activo: 'semaglutida', via: 'tableta diaria',    envase: 'caja de 30 tabletas' },
-  Foundayz: { activo: 'orforglipron', via: 'tableta diaria',    envase: 'caja mensual' },
+  Foundayz: { activo: 'orforglipron', via: 'tableta diaria',    envase: 'caja de 30 tabletas' },
 };
-
-/** Familias que hoy sólo se surten dentro de un plan, sin caja en farmacia. */
-const SOLO_PLAN = ['Foundayz'];
 
 const pct = (bajo, alto) => (alto > 0 ? Math.round(((alto - bajo) / alto) * 100) : 0);
 
@@ -134,61 +131,84 @@ function hechos(familia, datos = cargar()) {
   };
 }
 
+/** "Foundayz 2.5 mg (30 tabletas)" → 2.5, para ordenar la escalera de dosis. */
+const dosisNum = (producto) => {
+  const m = dosis(producto).match(/[\d.]+/);
+  return m ? Number(m[0]) : 0;
+};
+
 /**
- * Hechos de una familia que no se vende por caja en farmacia: hoy sólo llega
- * dentro de un plan con seguimiento médico incluido.
+ * Hechos de una familia recién llegada, que todavía no da para una comparación
+ * entre farmacias.
  *
- * Necesita su propia función porque `hechos()` exige dos precios de farmacia
- * por presentación —sin eso no hay comparación de mostrador que publicar— y
- * aquí no va a haber ninguno. Lo que sí hay es una escalera de dosis con
- * precio mensual, que es la pregunta real de quien busca cuánto le va a costar.
+ * `hechos()` exige dos precios de farmacia por presentación: con menos no hay
+ * «de X a Y según dónde la compres» que publicar, sólo una cifra suelta. Un
+ * lanzamiento tarda meses en llegar a ese piso —Foundayz entró primero por los
+ * planes médicos y después a una sola cadena— y mientras tanto la pregunta de
+ * quien busca el precio sigue existiendo.
  *
- * Devuelve null con menos de dos presentaciones con precio: una cifra suelta
- * no sostiene una página de precio, y prefiere no publicar a publicar a medias.
+ * Lo que sí se puede comparar desde el día uno son las dos vías: la caja en el
+ * mostrador y la mensualidad de un plan que incluye consulta y seguimiento. No
+ * son el mismo producto y la página lo dice, pero son las dos formas reales de
+ * conseguirlo y el lector elige entre ellas.
+ *
+ * Devuelve null con menos de dos presentaciones con precio.
  */
-function hechosPlan(familia, datos = cargar()) {
+function hechosNuevo(familia, datos = cargar()) {
   const meta = FAMILIAS[familia];
   if (!meta) return null;
+
+  const conPrecio = (fuentes, lista) => lista
+    .filter(f => fuentes[f] && fuentes[f].price > 0)
+    .map(f => ({ fuente: f, precio: fuentes[f].price }))
+    .sort((a, b) => a.precio - b.precio);
 
   const filas = Object.entries(datos.prices)
     .filter(([nombre]) => nombre.startsWith(familia + ' '))
     .map(([nombre, v]) => {
       const fuentes = v.sources || {};
-      const enPlan = PLANES
-        .filter(f => fuentes[f] && fuentes[f].price > 0)
-        .map(f => ({ fuente: f, precio: fuentes[f].price }))
-        .sort((a, b) => a.precio - b.precio);
-      if (!enPlan.length) return null;
+      const enFarmacia = conPrecio(fuentes, FARMACIAS);
+      const enPlan = conPrecio(fuentes, PLANES);
+      if (!enFarmacia.length && !enPlan.length) return null;
 
-      const precios = enPlan.map(x => x.precio);
-      const min = Math.min(...precios), max = Math.max(...precios);
+      const todos = [...enFarmacia, ...enPlan].map(x => x.precio);
       return {
         producto: nombre,
         dosis: dosis(nombre),
+        farmacias: enFarmacia,
         planes: enPlan,
-        min, max,
-        barato: enPlan[0].fuente,
-        difPct: pct(min, max),
+        minFarmacia: enFarmacia.length ? enFarmacia[0].precio : null,
+        minPlan: enPlan.length ? enPlan[0].precio : null,
+        maxPlan: enPlan.length ? enPlan[enPlan.length - 1].precio : null,
+        min: Math.min(...todos),
+        max: Math.max(...todos),
       };
     })
     .filter(Boolean);
 
   if (filas.length < 2) return null;
 
-  // La escalera va de menor a mayor precio: es el orden en que se recorre la
-  // titulación, y el que hace legible la tabla.
-  filas.sort((a, b) => a.min - b.min);
+  // Se ordena por la dosis, no por el precio: es una escalera de titulación y
+  // se recorre de abajo hacia arriba, aunque un día los precios no lo respeten.
+  filas.sort((a, b) => dosisNum(a.producto) - dosisNum(b.producto));
 
-  const planes = [...new Set(filas.flatMap(f => f.planes.map(x => x.fuente)))];
-  const inicial = filas[0];
-  const alta = filas[filas.length - 1];
+  const farmacias = [...new Set(filas.flatMap(f => f.farmacias.map(x => x.fuente)))];
+  const planes    = [...new Set(filas.flatMap(f => f.planes.map(x => x.fuente)))];
+
+  // Cuál de las dos vías sale más barata no se escribe a mano en el copy: hoy
+  // el plan queda por debajo de la caja en todas las dosis, y eso puede
+  // invertirse en cualquier corrida sin que nadie vuelva a leer la frase.
+  const comparables = filas.filter(f => f.minFarmacia != null && f.minPlan != null);
+  const planGana = comparables.filter(f => f.minPlan < f.minFarmacia).length;
 
   return {
     familia, ...meta,
     filas,
-    inicial, alta,
+    inicial: filas[0], alta: filas[filas.length - 1],
     nPresentaciones: filas.length,
+    farmacias, nFarmacias: farmacias.length,
     planes, nPlanes: planes.length,
+    comparables: comparables.length, planGana,
     min: Math.min(...filas.map(f => f.min)),
     max: Math.max(...filas.map(f => f.max)),
     generado: datos.generated_at,
@@ -231,4 +251,4 @@ function hechosTodas(datos = cargar()) {
   };
 }
 
-module.exports = { FARMACIAS, PLANES, NOMBRE, FAMILIAS, SOLO_PLAN, cargar, hechos, hechosPlan, hechosTodas, dosis, pct, mediana };
+module.exports = { FARMACIAS, PLANES, NOMBRE, FAMILIAS, cargar, hechos, hechosNuevo, hechosTodas, dosis, dosisNum, pct, mediana };

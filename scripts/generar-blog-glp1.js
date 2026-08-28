@@ -109,36 +109,64 @@ function tokensTodas(h, c, meta) {
  */
 const rango = (a, b) => (a === b ? mxn(a) : `entre ${mxn(a)} y ${mxn(b)}`);
 
-function tokensPlan(h, c, meta) {
+/**
+ * Qué vía sale más barata, redactado desde los datos.
+ *
+ * Es el dato más útil de la página —hoy el plan con consulta incluida queda por
+ * debajo de la caja suelta en las cuatro dosis— y justo por eso no puede vivir
+ * en el copy: se invierte con una corrida y nadie vuelve a leer la frase.
+ */
+function comparacionVias(h) {
+  if (!h.comparables) return 'todavía no hay farmacia y plan con precio en una misma presentación';
+  const total = h.comparables === h.nPresentaciones
+    ? `las ${h.comparables} presentaciones`
+    : `${h.comparables} de las ${h.nPresentaciones} presentaciones`;
+  if (h.planGana === h.comparables) return `el plan mensual queda por debajo de la caja de farmacia en ${total}`;
+  if (h.planGana === 0) return `la caja de farmacia queda por debajo del plan mensual en ${total}`;
+  return `el plan mensual queda por debajo de la caja en ${h.planGana} de ${total}`;
+}
+
+function tokensNuevo(h, c, meta) {
+  const i = h.inicial, a = h.alta;
   return {
     FAMILIA: h.familia, ACTIVO: h.activo, VIA: h.via, ENVASE: h.envase,
     CORTO: c.corto,
 
     MIN: mxn(h.min), MAX: mxn(h.max),
-    INICIAL: h.inicial.dosis, INICIAL_RANGO: rango(h.inicial.min, h.inicial.max),
-    INICIAL_BARATO: nom(h.inicial.barato),
-    ALTA: h.alta.dosis, ALTA_RANGO: rango(h.alta.min, h.alta.max),
+
+    INICIAL: i.dosis,
+    INICIAL_FARMACIA: i.minFarmacia != null ? mxn(i.minFarmacia) : null,
+    INICIAL_PLAN: i.minPlan != null ? rango(i.minPlan, i.maxPlan) : null,
+    ALTA: a.dosis,
+    ALTA_FARMACIA: a.minFarmacia != null ? mxn(a.minFarmacia) : null,
+    ALTA_PLAN: a.minPlan != null ? rango(a.minPlan, a.maxPlan) : null,
 
     N_PRES: h.nPresentaciones,
-    N_PLANES: h.nPlanes, PLANES: lista(h.planes.map(nom)),
+    N_FARMACIAS: h.nFarmacias, FARMACIAS: h.nFarmacias ? lista(h.farmacias.map(nom)) : null,
+    N_PLANES: h.nPlanes, PLANES: h.nPlanes ? lista(h.planes.map(nom)) : null,
+    COMPARACION: comparacionVias(h),
 
     FECHA: meta.fechaLarga, MES: meta.mes, MES_ANIO: meta.mesAnio, ANIO: meta.anio,
   };
 }
 
 /**
- * La escalera de dosis con el precio mensual de cada plan. Una columna por
- * plan: son productos distintos —cada uno incluye lo suyo— y ponerlos en una
- * sola columna de «desde» borraría justo eso.
+ * La escalera de dosis con una columna por fuente: primero las farmacias, que
+ * venden la caja, y después los planes, que cobran una mensualidad con consulta
+ * incluida. Van en la misma tabla porque son las dos formas de conseguirlo,
+ * pero el encabezado dice cuál es cuál — el precio de una caja y el de un plan
+ * no se comparan de frente sin decirlo.
  */
-function tablaPlanDosis(h) {
-  const cols = h.planes.slice().sort();
-  return tabla(['Presentación', ...cols.map(p => `${esc(nom(p))} (al mes)`)], h.filas.map((f, i) =>
+function tablaNuevoDosis(h) {
+  const cols = [...h.farmacias.slice().sort().map(f => ({ f, plan: false })),
+                ...h.planes.slice().sort().map(f => ({ f, plan: true }))];
+  const enc = cols.map(c => `${esc(nom(c.f))}<br><span class="col-nota">${c.plan ? 'plan al mes' : 'caja'}</span>`);
+  return tabla(['Presentación', ...enc], h.filas.map((f, i) =>
     `    <tr><td><strong>${esc(h.familia)} ${esc(f.dosis)}</strong>${i === 0 ? ' <span class="badge-cheap">Dosis de inicio</span>' : ''}</td>`
-    + cols.map((p) => {
-        const x = f.planes.find(y => y.fuente === p);
+    + cols.map(({ f: fuente }) => {
+        const x = [...f.farmacias, ...f.planes].find(y => y.fuente === fuente);
         if (!x) return '<td>—</td>';
-        const bajo = x.precio === f.min && f.planes.length > 1;
+        const bajo = x.precio === f.min;
         return `<td${bajo ? ' style="font-weight:700;color:#059669;"' : ''}>${mxn(x.precio)}</td>`;
       }).join('')
     + '</tr>'));
@@ -160,10 +188,10 @@ const CLINICO = /\d+(?:\.\d+)?(?:\s*(?:,|y|a|\/)\s*\d+(?:\.\d+)?)*\s*(?:mg|ml|se
 const ESTRUCTURA = ['slug', 'familia', 'corto', 'articulo', 'tipo'];
 const OBLIGATORIOS = ['slug', 'familia', 'corto', 'articulo', 'titulo', 'h1', 'metaDescription',
                       'intro', 'respuesta', 'porQueVaria', 'queEs', 'receta', 'elegir', 'faqs'];
-// La página de un medicamento sólo-plan tiene dos secciones que las otras no:
-// por qué no está en el mostrador y qué entra en el precio. Sin ellas la
+// La página de un lanzamiento reciente tiene dos secciones que las otras no:
+// dónde se consigue hoy y qué distingue una caja de un plan. Sin ellas la
 // plantilla serviría un hueco.
-const OBLIGATORIOS_PLAN = OBLIGATORIOS.concat(['disponibilidad', 'queIncluye']);
+const OBLIGATORIOS_NUEVO = OBLIGATORIOS.concat(['disponibilidad', 'queIncluye']);
 
 /** La página cruzada compara tratamientos, no dosis de uno: su esqueleto cambia. */
 function paginaTodas(h, c, todos, meta) {
@@ -277,15 +305,16 @@ ${bloqueFaqs(c.faqs)}
 }
 
 /**
- * Página de un medicamento que todavía no se vende por caja en farmacia.
+ * Página de un medicamento recién llegado: ya se vende en farmacia, pero en
+ * muy pocas, y la otra vía de acceso son los planes con seguimiento incluido.
  *
- * No declara `Product` ni `AggregateOffer` a propósito: lo que aquí tiene
- * precio es un plan con consulta y seguimiento incluidos, no la caja suelta.
- * Marcar ese importe como la oferta del medicamento describiría a Google una
- * oferta que nadie vende —la misma razón por la que el ranking y las guías
- * tampoco lo declaran.
+ * No declara `Product` ni `AggregateOffer`. Con una sola farmacia no hay rango
+ * de oferta que declarar, y mezclar la mensualidad de un plan dentro de ese
+ * rango describiría a Google una oferta que nadie vende: el plan incluye
+ * consulta y seguimiento, no es la caja. Es la misma razón por la que el
+ * ranking y las guías tampoco lo declaran.
  */
-function paginaPlan(h, c, todos, meta) {
+function paginaNuevo(h, c, todos, meta) {
   const url    = `${BASE}/blog/${c.slug}`;
   const titulo = `${c.titulo} | Medcompara`;
 
@@ -338,18 +367,18 @@ function paginaPlan(h, c, todos, meta) {
   <p class="article-intro">${esc(c.intro)}</p>
 
   <div class="info-card">
-  <p>Precios verificados el ${meta.fechaLarga} en ${esc(lista(h.planes.map(nom)))}. Se revisan con cada scan semanal.</p>
+  <p>Precios verificados el ${meta.fechaLarga} en ${esc(lista([...h.farmacias, ...h.planes].map(nom)))}. Se revisan con cada scan semanal.</p>
 </div>
 
-  <h2>¿Cuánto cuesta ${esc(c.corto)} al mes en México?</h2>
+  <h2>¿Cuánto cuesta ${esc(c.corto)} en México?</h2>
   <p>${esc(c.respuesta)}</p>
-${tablaPlanDosis(h)}
-  <p class="fuente-nota">Precio mensual del plan, en pesos mexicanos: incluye el medicamento y el acompañamiento médico de cada programa. No es el precio de la caja suelta. Confirma qué entra en el plan antes de contratar.</p>
+${tablaNuevoDosis(h)}
+  <p class="fuente-nota">En pesos mexicanos. La columna de farmacia es el precio de la caja; la de un plan es la mensualidad, que además incluye consulta y seguimiento médico. Confirma el precio final y qué entra en el plan antes de comprar o contratar.</p>
 
-  <h2>¿Por qué no lo encuentras en el mostrador?</h2>
+  <h2>Dónde se consigue hoy</h2>
   <p>${esc(c.disponibilidad)}</p>
 
-  <h2>¿Qué incluye ese precio?</h2>
+  <h2>Caja de farmacia o plan: qué estás comparando</h2>
   <ul>
 ${bullets(c.queIncluye)}
   </ul>
@@ -429,7 +458,7 @@ function validarCopy(c, mapa) {
     if (/\d{2,}/.test(s)) problemas.push(`${campo}: cifra a mano fuera de una dosis`);
   }
 
-  const faltantes = (c.tipo === 'plan' ? OBLIGATORIOS_PLAN : OBLIGATORIOS).filter(k => !c[k]);
+  const faltantes = (c.tipo === 'nuevo' ? OBLIGATORIOS_NUEVO : OBLIGATORIOS).filter(k => !c[k]);
   if (faltantes.length) problemas.push(`faltan campos: ${faltantes.join(', ')}`);
   if (c.faqs && (c.faqs.length < 4 || c.faqs.length > 6)) problemas.push(`${c.faqs.length} FAQs (van de 4 a 6)`);
 
@@ -498,6 +527,7 @@ const ESTILO_EXTRA = `<style>
 .price-table td:first-child{white-space:normal;min-width:150px;}
 .receta-pill{display:inline-block;background:var(--gray-100);color:var(--navy);border-radius:999px;padding:6px 16px;font-weight:700;font-size:13px;margin-bottom:12px;}
 .fuente-nota{font-size:13px;color:var(--gray-400);margin-top:-8px;}
+.price-table th .col-nota{font-weight:400;font-size:11px;opacity:.75;text-transform:none;}
 </style>`;
 
 function schemas(h, c, url, meta) {
@@ -667,14 +697,22 @@ for (const c of COPY) {
   const seEscribe = !SOLO || c.slug === SOLO;
   const anotar = (p) => { if (seEscribe) problemas.push(p); };
   const cruzada = c.familia === 'todas';
-  const plan    = c.tipo === 'plan';
+  const nuevo   = c.tipo === 'nuevo';
   const h = cruzada ? G.hechosTodas(datos)
-          : plan    ? G.hechosPlan(c.familia, datos)
+          : nuevo   ? G.hechosNuevo(c.familia, datos)
           :           G.hechos(c.familia, datos);
   if (!h) { anotar(`${c.slug} → el scan no trae ${c.familia} con presentaciones comparables`); continue; }
 
+  // Cuando la familia junta dos farmacias con precio, la plantilla de
+  // lanzamiento se le queda chica: ya hay comparación de mostrador que
+  // publicar. No se cambia sola —el copy es otro— pero avisa, que es como se
+  // entera quien mira el resumen de la corrida del domingo.
+  if (nuevo && G.hechos(c.familia, datos)) {
+    console.log(`  ⚠ ${c.slug}: ${c.familia} ya tiene precio en varias farmacias — toca pasarlo a la plantilla estándar`);
+  }
+
   const mapa = cruzada ? tokensTodas(h, c, meta)
-             : plan    ? tokensPlan(h, c, meta)
+             : nuevo   ? tokensNuevo(h, c, meta)
              :           tokens(h, c, meta);
   const errs = validarCopy(c, mapa);
   if (errs.length) { errs.forEach(p => anotar(`${c.slug} → ${p}`)); continue; }
@@ -684,7 +722,7 @@ for (const c of COPY) {
   if (r.h1.length > 60)               anotar(`${c.slug} → h1 de ${r.h1.length} caracteres`);
   if (`${r.titulo} | Medcompara`.length > 75) anotar(`${c.slug} → title de ${`${r.titulo} | Medcompara`.length} caracteres`);
 
-  listos.push({ c, h, r, cruzada, plan, seEscribe });
+  listos.push({ c, h, r, cruzada, nuevo, seEscribe });
 }
 
 if (problemas.length) {
@@ -697,10 +735,10 @@ if (problemas.length) {
 // Los enlaces de «otros» salen de todo el copy resuelto, se escriba o no.
 const resueltos = listos.map(x => x.r);
 
-for (const { c, h, r, cruzada, plan, seEscribe } of listos) {
+for (const { c, h, r, cruzada, nuevo, seEscribe } of listos) {
   if (!seEscribe) continue;
   const cuerpo = cruzada ? paginaTodas(h, r, resueltos, meta)
-               : plan    ? paginaPlan(h, r, resueltos, meta)
+               : nuevo   ? paginaNuevo(h, r, resueltos, meta)
                :           pagina(h, r, resueltos, meta);
   const html = conIndice(conTablasScroll(cuerpo));
   if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);

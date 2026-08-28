@@ -22,8 +22,7 @@
     },
     "Foundayz": {
       "query": "foundayz",
-      "scrape": false,
-      "nota": "Foundayz (orforglipron) es tableta oral diaria y llegó a México dentro de planes con seguimiento médico; no está confirmado que ninguna de las cuatro farmacias raspadas lo liste como SKU. Hasta que lo esté, va con scrape:false: una búsqueda que ninguna fuente puede responder no trae nada, y sí abre el peor error posible — la excepción de Benavides no exige la marca en el título, así que un resultado difuso con la dosis correcta se emparejaría como si fuera Foundayz. Mientras tanto los precios son curados: Clivi en farmacias-clivi.json, Revert en farmacias-overrides.json. Para empezar a rasparlo basta quitar scrape y verificar los tokens contra data/medicamentos/crudo.json."
+      "nota": "Foundayz (orforglipron) llegó a México en 2026 y ya se surte en farmacia además de dentro de planes médicos. San Pablo nombra sus cuatro SKU igual —«Foundayz 30 Tabletas Caja»— y la dosis sólo viene en additionalDescription («Orforglipron 0.8 MG»), así que el emparejamiento la lee de ahí: ver DETALLE_EMPAREJA en farmacias.js. Los tokens de 9 mg aceptan las dos escrituras porque la farmacia publica «9.0 MG»."
     }
   },
   "products": [
@@ -183,14 +182,14 @@
       ]
     },
     {
-      "name": "Foundayz 0.8 mg (caja mensual)",
+      "name": "Foundayz 0.8 mg (30 tabletas)",
       "family": "Foundayz",
       "match_all": [
         "0.8 mg"
       ]
     },
     {
-      "name": "Foundayz 2.5 mg (caja mensual)",
+      "name": "Foundayz 2.5 mg (30 tabletas)",
       "family": "Foundayz",
       "match_all": [
         "2.5 mg"
@@ -200,21 +199,23 @@
       ]
     },
     {
-      "name": "Foundayz 5.5 mg (caja mensual)",
+      "name": "Foundayz 5.5 mg (30 tabletas)",
       "family": "Foundayz",
       "match_all": [
         "5.5 mg"
       ]
     },
     {
-      "name": "Foundayz 9 mg (caja mensual)",
+      "name": "Foundayz 9 mg (30 tabletas)",
       "family": "Foundayz",
-      "match_all": [
-        "9 mg"
+      "match_any": [
+        "9 mg",
+        "9.0 mg"
       ],
       "exclude": [
         "14.5",
-        "17.2"
+        "17.2",
+        "19"
       ]
     }
   ]

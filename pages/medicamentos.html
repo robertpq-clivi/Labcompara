@@ -765,10 +765,10 @@ const RAW_DATA = [
   // en cuanto carga. Escribir aquí el precio de Clivi o de Revert sería la única
   // cifra del comparador que el scan del domingo no puede refrescar. Si el feed no
   // carga, la presentación se queda sin precio en vez de mostrar uno inventado.
-  {name:"Foundayz 0.8 mg (caja mensual)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
-  {name:"Foundayz 2.5 mg (caja mensual)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
-  {name:"Foundayz 5.5 mg (caja mensual)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
-  {name:"Foundayz 9 mg (caja mensual)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Foundayz 0.8 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Foundayz 2.5 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Foundayz 5.5 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Foundayz 9 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
 ];
 
 const LABS = ['Clivi','Ahorro','Guadalajara','Benavides','SanPablo','Revert'];
@@ -907,10 +907,6 @@ const DRUGS = ['Ozempic','Mounjaro','Wegovy','Rybelsus','Foundayz'];
 // Los que se toman en tableta. Cambian el icono de la tarjeta y quedan fuera
 // del "desde" de la home: un mes de tableta y una pluma no son el mismo gasto.
 const ORALES = ['Rybelsus','Foundayz'];
-// Medicamentos que no se venden por caja en farmacia: sólo se surten dentro de
-// un plan con seguimiento médico. Sus columnas de farmacia no dicen "pendiente"
-// — no está pendiente, no se vende ahí.
-const SOLO_PLAN = ['Foundayz'];
 
 // Nombre corto para los encabezados de la tabla comparativa
 const SHORT = { Clivi:'Clivi', Ahorro:'Del Ahorro', Guadalajara:'F. Guadalajara', Benavides:'Benavides', SanPablo:'San Pablo', Revert:'Revert' };
@@ -1306,10 +1302,8 @@ function renderResults(){
   // Solo mostramos columnas con al menos un precio para lo seleccionado
   // (p. ej. Revert solo aparece en Wegovy, Mounjaro y Foundayz). Las farmacias
   // se quedan aunque falte el dato, para que la celda diga "pendiente" en vez
-  // de desaparecer — salvo en un medicamento sólo-plan, donde esa columna nunca
-  // va a llegar y "pendiente" prometería una llegada que nadie anunció.
-  const soloPlan=studies.length&&studies.every(s=>SOLO_PLAN.some(d=>s.name.startsWith(d)));
-  const cols=LABS.filter(l=>studies.some(s=>s[l])||(!soloPlan&&['Clivi','Ahorro','Guadalajara','Benavides','SanPablo'].includes(l)));
+  // de desaparecer.
+  const cols=LABS.filter(l=>['Clivi','Ahorro','Guadalajara','Benavides','SanPablo'].includes(l) || studies.some(s=>s[l]));
   $('results-sub').textContent=`${studies.length} presentaci${studies.length!==1?'ones':'ón'} · ${cols.length} farmacias · Precios en pesos mexicanos`;
   const ds=document.querySelector('.sort-btns'); if(ds) ds.style.display='none';
 

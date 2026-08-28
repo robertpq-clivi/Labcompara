@@ -617,8 +617,14 @@
       "SanPablo": 3148,
       "Revert": null
     },
-    "Foundayz 0.8 mg (caja mensual)": {
+    "Foundayz 0.8 mg (30 tabletas)": {
       "sources": {
+        "SanPablo": {
+          "price": 5225,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011227",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 0.8 MG"
+        },
         "Clivi": {
           "price": 3499,
           "url": "https://www.clivi.com.mx/",
@@ -634,11 +640,17 @@
       "Ahorro": null,
       "Benavides": null,
       "Guadalajara": null,
-      "SanPablo": null,
+      "SanPablo": 5225,
       "Revert": 2699
     },
-    "Foundayz 2.5 mg (caja mensual)": {
+    "Foundayz 2.5 mg (30 tabletas)": {
       "sources": {
+        "SanPablo": {
+          "price": 5725,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011228",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 2.5 MG"
+        },
         "Clivi": {
           "price": 4199,
           "url": "https://www.clivi.com.mx/",
@@ -654,11 +666,17 @@
       "Ahorro": null,
       "Benavides": null,
       "Guadalajara": null,
-      "SanPablo": null,
+      "SanPablo": 5725,
       "Revert": 3399
     },
-    "Foundayz 5.5 mg (caja mensual)": {
+    "Foundayz 5.5 mg (30 tabletas)": {
       "sources": {
+        "SanPablo": {
+          "price": 6035,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011229",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 5.5 MG"
+        },
         "Clivi": {
           "price": 4999,
           "url": "https://www.clivi.com.mx/",
@@ -674,11 +692,17 @@
       "Ahorro": null,
       "Benavides": null,
       "Guadalajara": null,
-      "SanPablo": null,
+      "SanPablo": 6035,
       "Revert": 4099
     },
-    "Foundayz 9 mg (caja mensual)": {
+    "Foundayz 9 mg (30 tabletas)": {
       "sources": {
+        "SanPablo": {
+          "price": 7065,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011226",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 9.0 MG"
+        },
         "Clivi": {
           "price": 5599,
           "url": "https://www.clivi.com.mx/",
@@ -694,7 +718,7 @@
       "Ahorro": null,
       "Benavides": null,
       "Guadalajara": null,
-      "SanPablo": null,
+      "SanPablo": 7065,
       "Revert": 4799
     }
   }
