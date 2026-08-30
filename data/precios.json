@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-13T17:33:43.537Z",
+  "generado": "2026-08-30T17:18:23.948Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -12,88 +12,88 @@
   "meta": {
     "Salud Digna": {
       "ok": true,
-      "estudios": 580,
+      "estudios": 581,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1,
+      "ms": 240,
       "verificado": true
     },
     "Polanco": {
       "ok": true,
-      "estudios": 1448,
+      "estudios": 1381,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1,
+      "ms": 10017,
       "verificado": true
     },
     "Labbe": {
       "ok": true,
-      "estudios": 1067,
+      "estudios": 1064,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1096,
+      "ms": 123512,
       "verificado": true
     },
     "Chopo": {
       "ok": true,
-      "estudios": 1601,
-      "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "estudios": 1605,
+      "errores": 12,
+      "urls": 1628,
+      "ms": 89547,
       "verificado": true
     },
     "LAPI": {
       "ok": true,
-      "estudios": 1492,
+      "estudios": 1494,
       "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "urls": 1494,
+      "ms": 79885,
       "verificado": true
     },
     "OLAB": {
       "ok": true,
-      "estudios": 2077,
-      "errores": 0,
-      "urls": 0,
-      "ms": 0,
+      "estudios": 2076,
+      "errores": 1000,
+      "urls": 6043,
+      "ms": 505832,
       "verificado": true
     }
   },
   "cobertura": {
     "Labbe": {
-      "emparejados": 480,
-      "arrastrados": 16,
-      "catalogo": 1067,
+      "emparejados": 478,
+      "arrastrados": 21,
+      "catalogo": 1064,
       "fuente": "scan"
     },
     "Polanco": {
-      "emparejados": 340,
-      "arrastrados": 33,
-      "catalogo": 1448,
+      "emparejados": 337,
+      "arrastrados": 36,
+      "catalogo": 1381,
       "fuente": "scan"
     },
     "Chopo": {
       "emparejados": 352,
       "arrastrados": 39,
-      "catalogo": 1601,
+      "catalogo": 1605,
       "fuente": "scan"
     },
     "Salud Digna": {
       "emparejados": 292,
       "arrastrados": 27,
-      "catalogo": 580,
+      "catalogo": 581,
       "fuente": "scan"
     },
     "LAPI": {
       "emparejados": 510,
-      "arrastrados": 34,
-      "catalogo": 1492,
+      "arrastrados": 35,
+      "catalogo": 1494,
       "fuente": "scan"
     },
     "OLAB": {
       "emparejados": 392,
       "arrastrados": 43,
-      "catalogo": 2077,
+      "catalogo": 2076,
       "fuente": "scan"
     }
   },
@@ -265,13 +265,13 @@
     },
     {
       "name": "Antígeno Prostático Específico (PSA Total)",
-      "Labbe": 418,
+      "Labbe": 443,
       "Polanco": 339.25,
       "Chopo": 327.61,
       "Salud Digna": 129,
       "LAPI": 281,
       "OLAB": 22657,
-      "avg": 4025,
+      "avg": 4029,
       "cheapest": "Salud Digna"
     },
     {
@@ -419,13 +419,13 @@
     },
     {
       "name": "Coprocultivo",
-      "Labbe": null,
+      "Labbe": 323,
       "Polanco": 948,
       "Chopo": 418.23,
       "Salud Digna": 285,
       "LAPI": 317,
       "OLAB": 453,
-      "avg": 484,
+      "avg": 457,
       "cheapest": "Salud Digna"
     },
     {
@@ -529,13 +529,13 @@
     },
     {
       "name": "Electrocardiograma en Reposo",
-      "Labbe": null,
+      "Labbe": 617,
       "Polanco": 460,
       "Chopo": 401.12,
       "Salud Digna": 125,
       "LAPI": 454,
       "OLAB": 429,
-      "avg": 374,
+      "avg": 414,
       "cheapest": "Salud Digna"
     },
     {
@@ -815,13 +815,13 @@
     },
     {
       "name": "Testosterona Total",
-      "Labbe": 466,
+      "Labbe": 469,
       "Polanco": 2668,
       "Chopo": 1075,
       "Salud Digna": 185,
       "LAPI": 380,
       "OLAB": 849,
-      "avg": 937,
+      "avg": 938,
       "cheapest": "Salud Digna"
     },
     {
@@ -1259,9 +1259,9 @@
       "Polanco": 12397,
       "Chopo": null,
       "Salud Digna": 1106,
-      "LAPI": 1790,
+      "LAPI": 1290,
       "OLAB": 4382,
-      "avg": 4201,
+      "avg": 4101,
       "cheapest": "Salud Digna"
     },
     {
@@ -1743,10 +1743,10 @@
       "Polanco": 2484,
       "Chopo": null,
       "Salud Digna": 1269,
-      "LAPI": 2153,
+      "LAPI": 1067,
       "OLAB": 1093,
-      "avg": 1839,
-      "cheapest": "OLAB"
+      "avg": 1622,
+      "cheapest": "LAPI"
     },
     {
       "name": "Ac. Anti - Chagas IgG (Trypanosoma cruzi)",
@@ -1776,10 +1776,10 @@
       "Polanco": 7038,
       "Chopo": null,
       "Salud Digna": 551,
-      "LAPI": 590,
+      "LAPI": 244,
       "OLAB": 1119,
-      "avg": 1980,
-      "cheapest": "Salud Digna"
+      "avg": 1911,
+      "cheapest": "LAPI"
     },
     {
       "name": "Ac. Anti - Chlamydia trachomatis IgG",
@@ -1787,10 +1787,10 @@
       "Polanco": null,
       "Chopo": null,
       "Salud Digna": 462,
-      "LAPI": 590,
+      "LAPI": 406,
       "OLAB": null,
-      "avg": 551,
-      "cheapest": "Salud Digna"
+      "avg": 490,
+      "cheapest": "LAPI"
     },
     {
       "name": "Ac. Anti - Chlamydia trachomatis IgM",
@@ -1798,9 +1798,9 @@
       "Polanco": null,
       "Chopo": null,
       "Salud Digna": 515,
-      "LAPI": 590,
+      "LAPI": 522,
       "OLAB": 577,
-      "avg": 571,
+      "avg": 554,
       "cheapest": "Salud Digna"
     },
     {
@@ -2029,9 +2029,9 @@
       "Polanco": null,
       "Chopo": null,
       "Salud Digna": 812,
-      "LAPI": 1070,
+      "LAPI": 870,
       "OLAB": null,
-      "avg": 991,
+      "avg": 924,
       "cheapest": "Salud Digna"
     },
     {
@@ -2502,9 +2502,9 @@
       "Polanco": 2493.2,
       "Chopo": null,
       "Salud Digna": 553,
-      "LAPI": 3133,
+      "LAPI": 870,
       "OLAB": 942,
-      "avg": 2063,
+      "avg": 1611,
       "cheapest": "Salud Digna"
     },
     {
@@ -2513,9 +2513,9 @@
       "Polanco": 5106,
       "Chopo": 2158.01,
       "Salud Digna": 554,
-      "LAPI": 1917,
+      "LAPI": 1102,
       "OLAB": 684,
-      "avg": 2062,
+      "avg": 1927,
       "cheapest": "Salud Digna"
     },
     {
@@ -2623,9 +2623,9 @@
       "Polanco": 1495,
       "Chopo": 630.49,
       "Salud Digna": null,
-      "LAPI": 821,
+      "LAPI": 638,
       "OLAB": 444,
-      "avg": 845,
+      "avg": 809,
       "cheapest": "OLAB"
     },
     {
@@ -2656,10 +2656,10 @@
       "Polanco": null,
       "Chopo": null,
       "Salud Digna": null,
-      "LAPI": 544,
+      "LAPI": 870,
       "OLAB": 1004,
-      "avg": 701,
-      "cheapest": "LAPI"
+      "avg": 810,
+      "cheapest": "Labbe"
     },
     {
       "name": "Adenosin deaminasa",
@@ -2667,9 +2667,9 @@
       "Polanco": 3783.5,
       "Chopo": null,
       "Salud Digna": 794,
-      "LAPI": 5314,
+      "LAPI": 1624,
       "OLAB": null,
-      "avg": 3828,
+      "avg": 2905,
       "cheapest": "Salud Digna"
     },
     {
@@ -2931,9 +2931,9 @@
       "Polanco": null,
       "Chopo": null,
       "Salud Digna": 656,
-      "LAPI": 3602,
+      "LAPI": 916,
       "OLAB": null,
-      "avg": 2644,
+      "avg": 1749,
       "cheapest": "Salud Digna"
     },
     {
@@ -3041,9 +3041,9 @@
       "Polanco": 5278.5,
       "Chopo": 2237.86,
       "Salud Digna": 454,
-      "LAPI": 985,
+      "LAPI": 2204,
       "OLAB": null,
-      "avg": 2239,
+      "avg": 2544,
       "cheapest": "Salud Digna"
     },
     {
@@ -3316,10 +3316,10 @@
       "Polanco": 4922,
       "Chopo": null,
       "Salud Digna": null,
-      "LAPI": 263,
+      "LAPI": 522,
       "OLAB": 355,
-      "avg": 1452,
-      "cheapest": "LAPI"
+      "avg": 1517,
+      "cheapest": "Labbe"
     },
     {
       "name": "Calcitonina",
@@ -3646,9 +3646,9 @@
       "Polanco": 1069.5,
       "Chopo": 393.72,
       "Salud Digna": 773,
-      "LAPI": 1026,
+      "LAPI": 754,
       "OLAB": 1119,
-      "avg": 905,
+      "avg": 859,
       "cheapest": "Chopo"
     },
     {
@@ -4592,9 +4592,9 @@
       "Polanco": null,
       "Chopo": 496.79,
       "Salud Digna": 1144,
-      "LAPI": 2859,
+      "LAPI": 1044,
       "OLAB": 8773,
-      "avg": 3238,
+      "avg": 2875,
       "cheapest": "Chopo"
     },
     {
@@ -4724,9 +4724,9 @@
       "Polanco": 2217.2,
       "Chopo": 495.85,
       "Salud Digna": 554,
-      "LAPI": 722,
+      "LAPI": 522,
       "OLAB": 1057,
-      "avg": 964,
+      "avg": 931,
       "cheapest": "Chopo"
     },
     {
@@ -5516,9 +5516,9 @@
       "Polanco": 3542,
       "Chopo": 1540.68,
       "Salud Digna": 468,
-      "LAPI": 1417,
+      "LAPI": 986,
       "OLAB": null,
-      "avg": 1683,
+      "avg": 1597,
       "cheapest": "Salud Digna"
     },
     {
@@ -5736,7 +5736,7 @@
       "Polanco": 3001.5,
       "Chopo": null,
       "Salud Digna": null,
-      "LAPI": 1124.01,
+      "LAPI": 1124,
       "OLAB": 1324,
       "avg": 1649,
       "cheapest": "LAPI"
@@ -6209,10 +6209,10 @@
       "Polanco": 10465,
       "Chopo": 4424.65,
       "Salud Digna": null,
-      "LAPI": null,
+      "LAPI": 2317,
       "OLAB": null,
-      "avg": 5751,
-      "cheapest": "Labbe"
+      "avg": 4892,
+      "cheapest": "LAPI"
     },
     {
       "name": "Rodilla 1 Proyección",
@@ -6315,13 +6315,13 @@
     },
     {
       "name": "Serie Osea Metastasica",
-      "Labbe": 2429,
+      "Labbe": 5010,
       "Polanco": null,
       "Chopo": 1197.29,
       "Salud Digna": null,
-      "LAPI": 9771,
+      "LAPI": 2548.03,
       "OLAB": 1626,
-      "avg": 3756,
+      "avg": 2595,
       "cheapest": "Chopo"
     },
     {
@@ -6525,13 +6525,13 @@
     {
       "name": "Tc Angiotomografia de Extremidades Inferiores",
       "Labbe": null,
-      "Polanco": 9304.65,
+      "Polanco": 4652.33,
       "Chopo": 4728.1,
       "Salud Digna": null,
       "LAPI": null,
       "OLAB": 5084,
-      "avg": 6372,
-      "cheapest": "Chopo"
+      "avg": 4821,
+      "cheapest": "Polanco"
     },
     {
       "name": "Telerradiografía de Torax",
@@ -6568,13 +6568,13 @@
     },
     {
       "name": "Testosterona libre",
-      "Labbe": null,
+      "Labbe": 324,
       "Polanco": 2748.5,
       "Chopo": 1207.88,
       "Salud Digna": 310,
       "LAPI": 351,
       "OLAB": 1022,
-      "avg": 1128,
+      "avg": 994,
       "cheapest": "Salud Digna"
     },
     {
@@ -6825,10 +6825,10 @@
       "Polanco": 3314.3,
       "Chopo": 1170,
       "Salud Digna": null,
-      "LAPI": 1436,
+      "LAPI": 1102,
       "OLAB": 1555,
-      "avg": 1788,
-      "cheapest": "Chopo"
+      "avg": 1721,
+      "cheapest": "LAPI"
     },
     {
       "name": "Vitamina B1 ( Thiamina )",
@@ -6869,9 +6869,9 @@
       "Polanco": 5244,
       "Chopo": null,
       "Salud Digna": 783,
-      "LAPI": 1668,
+      "LAPI": 1392,
       "OLAB": null,
-      "avg": 2349,
+      "avg": 2280,
       "cheapest": "Salud Digna"
     },
     {
@@ -6902,9 +6902,9 @@
       "Polanco": 2295.4,
       "Chopo": 211.71,
       "Salud Digna": null,
-      "LAPI": 1659,
+      "LAPI": 928,
       "OLAB": null,
-      "avg": 1465,
+      "avg": 1282,
       "cheapest": "Chopo"
     },
     {

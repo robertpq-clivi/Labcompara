@@ -1,37 +1,41 @@
-# Reporte de scan — 2026-08-13
+# Reporte de scan — 2026-08-30
 
-Catálogo total escaneado: **8,265 estudios** en 6 laboratorios.
+Catálogo total escaneado: **8,201 estudios** en 6 laboratorios.
 
 ## Cobertura por laboratorio
 
 | Lab | Modo | Catálogo | Confirmados | Arrastrados | Errores |
 |---|---|---:|---:|---:|---:|
-| Labbe | catalogo | 1067 | 480 | 16 | 0 |
-| Polanco | api | 1448 | 340 | 33 | 0 |
-| Chopo | catalogo | 1601 | 352 | 39 | 0 |
-| Salud Digna | api | 580 | 292 | 27 | 0 |
-| LAPI | catalogo | 1492 | 510 | 34 | 0 |
-| OLAB | catalogo | 2077 | 392 | 43 | 0 |
+| Labbe | catalogo | 1064 | 478 | 21 | 0 |
+| Polanco | api | 1381 | 337 | 36 | 0 |
+| Chopo | catalogo | 1605 | 352 | 39 | 12 |
+| Salud Digna | api | 581 | 292 | 27 | 0 |
+| LAPI | catalogo | 1494 | 510 | 35 | 0 |
+| OLAB | catalogo | 2076 | 392 | 43 | 1000 |
 
 _"Confirmados" son precios leídos del laboratorio esta corrida. "Arrastrados"
 son los que no se pudieron emparejar y conservan el valor anterior._
 
-## ⚠️ Cambios sospechosos: 2
+## ⚠️ Cambios sospechosos: 6
 
 _Saltos de más de 3× en cualquier dirección. Casi nunca son promociones:
 revisa el emparejamiento antes de publicar._
 
 | Estudio | Lab | Antes | Ahora | Δ |
 |---|---|---:|---:|---:|
+| Ac. Anti-Mitocondriales | LAPI | 3133 | 870 | -72.2% |
+| Adenosin deaminasa | LAPI | 5314 | 1624 | -69.4% |
+| Angiotensina | LAPI | 3602 | 916 | -74.6% |
 | Canabinoides en Orina | Polanco | 8606.6 | 1690.5 | -80.4% |
 | Factor V | OLAB | 3217 | 826 | -74.3% |
+| Serie Osea Metastasica | LAPI | 9771 | 2548.03 | -73.9% |
 
-## Emparejamientos por similitud: 470
+## Emparejamientos por similitud: 471
 
 _Los exactos y por alias son seguros. Estos son inferidos y conviene validarlos:
 lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 
-| Lab | Estudio de Labcompara | Encontrado en el lab | Score | Precio |
+| Lab | Estudio de Medcompara | Encontrado en el lab | Score | Precio |
 |---|---|---|---:|---:|
 | Labbe | Marcadores Tumorales Páncreas (CA 19-9) | CA 19-9 | 0.825 | 709 |
 | Labbe | Colesterol HDL | Colesterol de Alta Densidad (HDL) | 0.825 | 174 |
@@ -180,6 +184,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Ac. Anti-Endomisiales IgA | Ac. Anti - Endomisiales | 0.883 | 642 |
 | LAPI | Ac Anti-Smith (anti-Sm) | Ac. Anti - SM | 0.883 | 917 |
 | LAPI | Calcio en Orina | Calcio en Orina Ocasional | 0.883 | 135 |
+| LAPI | Cobre en Orina | Cobre en Orina (orina 24hrs) | 0.883 | 338 |
 | LAPI | Creatinina en Orina | Creatinina en Orina Ocasional | 0.883 | 137 |
 | LAPI | Glucosa en Orina | Glucosa en Orina Ocasional | 0.883 | 137 |
 | LAPI | Hormona de crecimiento | Hormona de Crecimiento ( HGH ) | 0.883 | 346 |
@@ -287,7 +292,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Salud Digna | Vitamina E (Alfa Tocoferol) | VITAMINA E (TOCOFEROL) | 0.912 | 783 |
 | LAPI | Ac. Anti - Echinococcus Granulosus | Ac. Anti - Echinococcus Granulosus IgG | 0.912 | 1992 |
 | LAPI | Ac Anti-gliadina IgG | Ac. Anti - Gliadina (IgG, IgA) | 0.912 | 850 |
-| LAPI | Ac. Anti-Músculo liso | Ac. Anti - Músculo Liso (SMA) | 0.912 | 1917 |
+| LAPI | Ac. Anti-Músculo liso | Ac. Anti - Músculo Liso (SMA) | 0.912 | 1102 |
 | LAPI | Alcohol etílico en orina | Alcohol Etílico en Orina Ocasional | 0.912 | 320 |
 | LAPI | Cultivo de Exudado Nasal | Cultivo de Exudado Nasal Bilateral | 0.912 | 741 |
 | LAPI | Química sanguínea de 4 elementos | Química Sanguínea (4) | 0.912 | 348 |
@@ -301,7 +306,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Hombro Bilateral AP | Rx Hombro Bilateral AP | 0.912 | 690 |
 | LAPI | Mano Bilateral Ap | Rx Mano Bilateral Ap | 0.912 | 472 |
 | LAPI | Rodilla 1 Proyección | Rx Rodilla 1 Proyección | 0.912 | 386 |
-| LAPI | Serie Osea Metastasica | Rx Serie Osea Metastasica | 0.912 | 9771 |
+| LAPI | Serie Osea Metastasica | Rx Serie Osea Metastasica | 0.912 | 2548.03 |
 | LAPI | Torax Pa y Oblicua | Rx Torax Pa y Oblicua | 0.912 | 654 |
 | OLAB | Ac. Anti-Endomisiales IgA | AC. ANTI-ENDOMISIALES IgG-IgA SUERO | 0.912 | 1510 |
 | OLAB | Dióxido de carbono (CO2) | DIOXIDO DE CARBONO (CO2) BICARBONATO | 0.912 | 293 |
@@ -391,6 +396,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | OLAB | Doppler Arterial Y Venoso Bilateral De Miembros Superiores | US DOPPLER ARTERIAL Y VENOSO BILATERAL DE MIEMBROS SUPERIORES | 0.95 | 4995 |
 | LAPI | Torax Oseo Proyeccion Adicional 1 Posicion AP | Rx Torax Oseo Proyeccion Adicional 1 Posicion AP | 0.956 | 371 |
 | Labbe | Prueba de Embarazo en Sangre (Beta-HCG) | Prueba de embarazo | 1 | 397 |
+| Labbe | Antígeno Prostático Específico (PSA Total) | Antígeno Prostático Específico | 1 | 443 |
 | Labbe | Proteína C Reactiva (PCR) | Proteina C. Reactiva | 1 | 851 |
 | Labbe | TSH (Hormona Estimulante de Tiroides) | Tsh (H. Estimulante de Tiroides) | 1 | 441 |
 | Labbe | Tiempo de Tromboplastina Parcial (TTP) | Tiempo de Tromboplastina Parcial | 1 | 203 |
@@ -398,7 +404,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Labbe | Ac. Anti - Sarampión IgG e IgM (detección en sangre) | Ac. Anti - Sarampión IgG e IgM | 1 | 587 |
 | Labbe | Ácido valproico (valproato) | Acido Valproico | 1 | 475 |
 | Labbe | CA-125 (Marcador Tumoral Ovario) | CA 125 | 1 | 583 |
-| Labbe | CA 15-3 (Marcador Tumoral Mama) | CA 15-3 | 1 | 583 |
 | Labbe | Cyfra 21.1 (Marcador Tumoral) | Cyfra 21.1 | 1 | 1329 |
 | Labbe | CA 72-4 (Colon) | CA 72-4 | 1 | 1329 |
 | Labbe | Deshidrogenasa Láctica (DHL) | Deshidrogenasa Láctica | 1 | 174 |
@@ -504,12 +509,17 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | OLAB | Examen Directo Hongos (KOH) | EXAMEN DIRECTO DE HONGOS | 1 | 693 |
 | OLAB | Peptido Cerebral Natriuretico (NT Pro-BNP) | PEPTIDO CEREBRAL NATRIURETICO | 1 | 1084 |
 
-## Cambios de precio detectados: 68
+## Cambios de precio detectados: 99
 
 | Estudio | Lab | Publicado | Escaneado | Δ |
 |---|---|---:|---:|---:|
+| Antígeno Prostático Específico (PSA Total) | Labbe | 418 | 443 | 6% |
 | CA-125 (Marcador Tumoral Ovario) | OLAB | 728 | 1288 | 76.9% |
+| Coprocultivo | Labbe | — | 323 | — |
+| Electrocardiograma en Reposo | Labbe | — | 617 | — |
+| Testosterona Total | Labbe | 466 | 469 | 0.6% |
 | Sangre Oculta en Heces | OLAB | 302 | 453 | 50% |
+| Hormona Antimulleriana | LAPI | 1790 | 1290 | -27.9% |
 | AC Anti-Cardiolipina | Salud Digna | — | 407 | — |
 | AC Anti-Citoplasma de Neutrofilos(pyc) | Salud Digna | — | 576 | — |
 | Ac Anti-Nucleares | Salud Digna | — | 419 | — |
@@ -519,29 +529,43 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Ac. Anti - Brucella ( Rosa de Bengala ) | OLAB | — | 479 | — |
 | Ac. Anti - Cardiolipinas IgA | Polanco | — | 1748 | — |
 | Ac. Anti - Cardiolipinas IgG | Polanco | — | 1651.4 | — |
+| Ac. Anti - Células Parietales | LAPI | 2153 | 1067 | -50.4% |
+| Ac. Anti - Chlamydia trachomatis IgA | LAPI | 590 | 244 | -58.6% |
+| Ac. Anti - Chlamydia trachomatis IgG | LAPI | 590 | 406 | -31.2% |
+| Ac. Anti - Chlamydia trachomatis IgM | LAPI | 590 | 522 | -11.5% |
 | Ac. Anti - Citomegalovirus IgM | OLAB | 1235 | 630 | -49% |
 | Ac. Anti - DNA de doble cadena (Nativo) | OLAB | — | 1039 | — |
 | Ac. Anti - DNA de Una Cadena | LAPI | 1025 | 524 | -48.9% |
 | Ac. Anti - Hepatitis D | Polanco | — | 10000.4 | — |
+| Ac. Anti - Islotes de Langerhans | LAPI | 1070 | 870 | -18.7% |
 | Ac. Anti - Receptor de Acetilcolina | Salud Digna | 3261 | 3096 | -5.1% |
 | Ac. Anti - Sarampión IgG | Polanco | 1909 | 1407.6 | -26.3% |
 | Ac. Anti - Varicela IgM | Polanco | — | 1403 | — |
 | Ac. Anti-Endomisiales IgA | LAPI | — | 642 | — |
 | Ac. Anti-Herpes I IgG | Polanco | 1794 | 1782.5 | -0.6% |
 | Ac. Anti-Herpes I IgG | LAPI | 536 | 534 | -0.4% |
+| Ac. Anti-Mitocondriales | LAPI | 3133 | 870 | -72.2% |
+| Ac. Anti-Músculo liso | LAPI | 1917 | 1102 | -42.5% |
 | Ac. Anti-Peroxidasa tiroidea | Labbe | 717 | 904 | 26.1% |
 | Acido Láctico | Salud Digna | — | 456 | — |
+| Acidos Grasos Libres | LAPI | 821 | 638 | -22.3% |
+| Actividad Triptica en Heces | LAPI | 544 | 870 | 59.9% |
 | Adenosin deaminasa | Salud Digna | — | 794 | — |
+| Adenosin deaminasa | LAPI | 5314 | 1624 | -69.4% |
+| Angiotensina | LAPI | 3602 | 916 | -74.6% |
 | Anticuerpos Heterofilos | Salud Digna | — | 278 | — |
 | Apolipoproteina B | Salud Digna | — | 454 | — |
+| Apolipoproteina B | LAPI | 985 | 2204 | 123.8% |
 | Baciloscopia (BAAR) 3 muestras | Chopo | — | 989.86 | — |
 | C-Telopéptidos | Salud Digna | — | 1257 | — |
 | C-Telopéptidos | OLAB | — | 1884 | — |
 | Calcio en Orina | Labbe | — | 138 | — |
 | Calcio en Orina | LAPI | — | 135 | — |
+| Calcio Ionico | LAPI | 263 | 522 | 98.5% |
 | Canabinoides en Orina | Polanco | 8606.6 | 1690.5 | -80.4% |
 | Carga Viral para Hepatitis C | Salud Digna | 2595 | 2000 | -22.9% |
 | Carotenos | OLAB | — | 4702 | — |
+| Cobre Sérico | LAPI | 1026 | 754 | -26.5% |
 | Complemento C4 | Salud Digna | — | 250 | — |
 | Complemento C5 | Salud Digna | — | 1806 | — |
 | Coombs Indirecto | Chopo | — | 727.08 | — |
@@ -553,7 +577,9 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Electroforesis de Hemoglobina | Salud Digna | — | 1324 | — |
 | Factor V | Salud Digna | — | 555 | — |
 | Factor V | OLAB | 3217 | 826 | -74.3% |
+| Factor VIII Antigénico | LAPI | 2859 | 1044 | -63.5% |
 | Factor X de Coagulación | Salud Digna | 555 | 345 | -37.8% |
+| Fructosamina | LAPI | 722 | 522 | -27.7% |
 | Genotipo Hepatitis C | OLAB | — | 11013 | — |
 | Glucosa en Orina | Labbe | — | 140 | — |
 | Glucosa en Orina | LAPI | — | 137 | — |
@@ -566,13 +592,23 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Inmunoglobulina A ( IgA ) | OLAB | — | 657 | — |
 | Linfocitos CD3 CD4 y CD8 | OLAB | — | 2364 | — |
 | Magnesio en Orina | Polanco | — | 570.4 | — |
+| Mioglobina | LAPI | 1417 | 986 | -30.4% |
 | Nicotina en Orina | Salud Digna | — | 510 | — |
 | Papanicolaou en Base Líquida | Polanco | — | 2254 | — |
 | Peptido Cerebral Natriuretico (NT Pro-BNP) | Polanco | — | 4427.5 | — |
 | Peptido Cerebral Natriuretico (NT Pro-BNP) | OLAB | — | 1084 | — |
+| Peptido Intestinal Vasoactivo | LAPI | 1124.01 | 1124 | 0% |
 | Proteina S de Coagulación (Antigénica) | Salud Digna | 1470 | 1138 | -22.6% |
 | Proteina S de Coagulación (Antigénica) | OLAB | — | 4559 | — |
 | Protoporfirina de Zinc | Chopo | — | 156.01 | — |
 | Química Sanguínea de 3 Elementos | Labbe | — | 353 | — |
 | Química Sanguínea de 3 Elementos | Polanco | — | 791.2 | — |
+| Risperidona | LAPI | — | 2317 | — |
+| Serie Osea Metastasica | Labbe | 2429 | 5010 | 106.3% |
+| Serie Osea Metastasica | LAPI | 9771 | 2548.03 | -73.9% |
 | Subclases de Inmunoglobulina IgG | Salud Digna | — | 242 | — |
+| Tc Angiotomografia de Extremidades Inferiores | Polanco | 9304.65 | 4652.33 | -50% |
+| Testosterona libre | Labbe | — | 324 | — |
+| Vitamina A | LAPI | 1436 | 1102 | -23.3% |
+| Vitamina E (Alfa Tocoferol) | LAPI | 1668 | 1392 | -16.5% |
+| Zinc en Orina | LAPI | 1659 | 928 | -44.1% |
