@@ -29,6 +29,10 @@ const ok = [];
 
 const LD = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 const TIPOS_ARTICULO = ['Article', 'BlogPosting', 'NewsArticle'];
+// Todo lo que hereda de Product en schema.org: Google les aplica las mismas
+// reglas que a un Product, aunque el nombre del tipo no lo sugiera.
+const SUBTIPOS_PRODUCT = ['Product', 'ProductModel', 'ProductGroup', 'IndividualProduct',
+  'SomeProducts', 'Drug', 'DietarySupplement', 'SoftwareApplication', 'Vehicle'];
 
 const archivos = fs.readdirSync(BLOG)
   .filter((f) => f.endsWith('.html') && f !== 'index.html')
@@ -36,6 +40,7 @@ const archivos = fs.readdirSync(BLOG)
 
 const sinImagenArticle = [];
 const sinImagenProduct = [];
+const productoSinOferta = [];
 const sinOg            = [];
 const roto             = [];
 const tokenSuelto      = [];
@@ -134,6 +139,25 @@ for (const archivo of archivos) {
     else revisarPng(product.image, pngFaltante);
   }
 
+  // Google valida como producto todo lo que herede de `Product`, y `Drug` es uno
+  // de esos subtipos. Un `about: {"@type":"Drug"}` colgado del Article —sin
+  // precio, porque es solo la señal de entidad— le parecía a Google un producto
+  // sin oferta, y con eso tumbaba el snippet de precio de la página entera:
+  // «Either "offers", "review", or "aggregateRating" should be specified».
+  // La búsqueda es en profundidad a propósito: el nodo culpable venía anidado.
+  {
+    const buscar = (o) => {
+      if (Array.isArray(o)) return o.forEach(buscar);
+      if (!o || typeof o !== 'object') return;
+      if (SUBTIPOS_PRODUCT.includes(o['@type']) &&
+          !o.offers && !o.review && !o.aggregateRating) {
+        productoSinOferta.push(`${archivo} → ${o['@type']} «${o.name || '?'}»`);
+      }
+      Object.values(o).forEach(buscar);
+    };
+    nodos.forEach(buscar);
+  }
+
   // Una tabla sin `.tabla-scroll` desborda su caja en móvil, que es el 77% del
   // tráfico. La regla la pone lib/tabla-movil.js.
   {
@@ -214,6 +238,9 @@ caso(sinImagenArticle, 'Article sin `image`', 'todos los Article declaran `image
   'corre: node scripts/generar-tarjetas-blog.js --apply && node scripts/poner-imagen-blog.js --apply');
 caso(sinImagenProduct, 'Product sin `image`', 'todos los Product declaran `image`',
   'Google no renderiza el snippet de precio sin imagen');
+caso(productoSinOferta, 'nodo(s) tipo-Product sin offers/review/aggregateRating',
+  'ningún nodo tipo-Product queda sin oferta',
+  'Google invalida la página entera; si es solo la entidad del artículo, usa @type Thing');
 caso(sinOg, 'archivo(s) sin og:image', `los ${archivos.length} artículos tienen og:image`);
 caso(pngFaltante, 'referencia(s) a una imagen que no existe en disco', 'todas las imágenes referenciadas existen');
 caso(sinFaq, 'archivo(s) que perdieron el marcado de FAQPage', `los ${archivos.length} conservan FAQPage`,

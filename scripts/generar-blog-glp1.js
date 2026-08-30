@@ -339,7 +339,10 @@ function paginaNuevo(h, c, todos, meta) {
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
       author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
       publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
-      about: { '@type': 'Drug', name: h.familia, activeIngredient: h.activo } },
+      // `Thing`, no `Drug`: en schema.org Drug es subtipo de Product, y Google
+      // lo valida como tal — le exige offers, review o aggregateRating. Este nodo
+      // solo dice de qué habla el artículo, y aquí no hay oferta que declarar.
+      about: { '@type': 'Thing', name: h.familia, alternateName: h.activo } },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Inicio', item: BASE + '/' },
@@ -545,7 +548,10 @@ function schemas(h, c, url, meta) {
       datePublished: meta.fecha, dateModified: meta.fecha, inLanguage: 'es-MX',
       author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
       publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
-      about: { '@type': 'Drug', name: h.familia, activeIngredient: h.activo },
+      // `Thing`, no `Drug`: en schema.org Drug es subtipo de Product, así que
+      // Google lo lee como un segundo producto sin precio y tumba el snippet de
+      // toda la página. El precio lo declara el Product de abajo, no este nodo.
+      about: { '@type': 'Thing', name: h.familia, alternateName: h.activo },
     },
     {
       '@context': 'https://schema.org', '@type': 'Product',
