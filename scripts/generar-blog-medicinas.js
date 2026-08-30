@@ -330,7 +330,10 @@ function schemas(h, c, url, titulo, meta) {
     inLanguage: 'es-MX',
     author:    { '@type': 'Organization', name: 'Medcompara', url: BASE },
     publisher: { '@type': 'Organization', name: 'Medcompara', url: BASE, logo: { '@type': 'ImageObject', url: BASE + '/images/logo-medcompara-512.png', width: 512, height: 512 } },
-    about: { '@type': 'Drug', name: h.medicamento, activeIngredient: h.medicamento },
+    // `Thing`, no `Drug`: en schema.org Drug es subtipo de Product, así que
+    // Google lo lee como un segundo producto sin precio y tumba el snippet de
+    // toda la página. El precio lo declara el Product de abajo, no este nodo.
+    about: { '@type': 'Thing', name: h.medicamento },
   };
 
   // Product + AggregateOffer es lo que hace que el rango de precio salga en el
