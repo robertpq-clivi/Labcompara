@@ -9,7 +9,13 @@
  *
  *   node scripts/scan-farmacias.js
  *   node scripts/scan-farmacias.js --fuentes=Benavides,Ahorro
+ *   node scripts/scan-farmacias.js --familias=Foundayz
  *   node scripts/scan-farmacias.js --dry     # no escribe nada
+ *
+ * --fuentes y --familias acotan la corrida. Lo que no se vuelve a mirar se
+ * conserva del prices.json anterior en vez de quedar en null: acotar sirve
+ * para rellenar un hueco puntual sin tirar el resto de la matriz ni gastar
+ * una pasada completa por las cinco farmacias.
  *
  * Escribe:
  *   data/medicamentos/prices.json         matriz consumida por el sitio
@@ -37,6 +43,7 @@ const arg = (n, d) => {
   return hit ? hit.slice(n.length + 3) : d;
 };
 const SOLO = (arg('fuentes', '') || '').split(',').map((s) => s.trim()).filter(Boolean);
+const SOLO_FAM = (arg('familias', '') || '').split(',').map((s) => s.trim()).filter(Boolean);
 const DRY = argv.includes('--dry');
 // --volcar guarda la respuesta cruda de cada fuente en data/medicamentos/debug/.
 // Sirve para arreglar un parser con el HTML real en vez de a ciegas: los sitios
@@ -57,10 +64,31 @@ const ctxPara = (ad) => {
 
 (async () => {
   const { catalogo, adaptadores, columnas, curados, urlFarmacia } = V;
-  const familias = Object.keys(catalogo.families);
+  const todasFamilias = Object.keys(catalogo.families);
+
+  // Un nombre mal escrito en --familias/--fuentes raspaba cero y, sin este
+  // aviso, el merge de abajo dejaba la matriz intacta: la corrida se veía
+  // exitosa sin haber mirado nada.
+  const desconocidas = SOLO_FAM.filter((f) => !todasFamilias.includes(f));
+  if (desconocidas.length) {
+    console.error(`familia desconocida: ${desconocidas.join(', ')}`);
+    console.error(`familias del catálogo: ${todasFamilias.join(', ')}`);
+    process.exit(1);
+  }
+  const idsFuentes = adaptadores.map((a) => a.id);
+  const fuentesRaras = SOLO.filter((f) => !idsFuentes.includes(f));
+  if (fuentesRaras.length) {
+    console.error(`fuente desconocida: ${fuentesRaras.join(', ')}`);
+    console.error(`fuentes raspables: ${idsFuentes.join(', ')}`);
+    process.exit(1);
+  }
+
+  const familias = todasFamilias.filter((f) => !SOLO_FAM.length || SOLO_FAM.includes(f));
 
   console.log('Medcompara · scan de medicamentos GLP-1');
   console.log(`${catalogo.products.length} presentaciones · ${familias.length} familias · ${columnas.length} fuentes`);
+  if (SOLO_FAM.length) console.log(`familias acotadas a: ${familias.join(', ')}`);
+  if (SOLO.length) console.log(`fuentes acotadas a: ${SOLO.join(', ')}`);
   if (!DRY) {
     const chk = await http.verificarProxy();
     console.log(chk.ok
@@ -71,6 +99,9 @@ const ctxPara = (ad) => {
   // ── raspar cada fuente, una vez por familia ────────────────────────────────
   const crudo = {};
   const meta = {};
+  // Un 403 puntual no debe vaciar una columna: los pares que fallaron se
+  // tratan como no raspados y conservan el precio de la corrida anterior.
+  const fallos = new Set();
   const objetivo = adaptadores.filter((a) => !SOLO.length || SOLO.includes(a.id));
 
   for (const ad of objetivo) {
@@ -90,6 +121,7 @@ const ctxPara = (ad) => {
         console.log(`  ${ad.id}/${fam}: ${items.length} productos`);
       } catch (e) {
         crudo[ad.id][fam] = [];
+        fallos.add(`${ad.id}|${fam}`);
         errores++;
         console.log(`  ${ad.id}/${fam}: ✗ ${String(e.message || e).slice(0, 70)}`);
       }
@@ -103,9 +135,37 @@ const ctxPara = (ad) => {
   const precios = {};
   let emparejados = 0;
 
+  // Corrida acotada: las celdas que --fuentes/--familias dejaron fuera no se
+  // volvieron a mirar, así que se arrastran del archivo anterior. Sin esto,
+  // `--familias=Foundayz` publicaría las otras 16 presentaciones en null.
+  const leerPrevio = (archivo, campo) => {
+    try { return JSON.parse(fs.readFileSync(path.join(OUT, archivo), 'utf8'))[campo] || {}; }
+    catch { return {}; }
+  };
+  const precioPrevio = leerPrevio('prices.json', 'prices');
+  const crudoPrevio = leerPrevio('crudo.json', 'crudo');
+  const raspada = (columna, familia) =>
+    familias.includes(familia) &&
+    objetivo.some((a) => a.id === columna) &&
+    !fallos.has(`${columna}|${familia}`);
+  const acotada = familias.length < todasFamilias.length ||
+    objetivo.length < adaptadores.length || fallos.size > 0;
+  let heredadas = 0;
+
   for (const prod of catalogo.products) {
     const fila = { sources: {} };
     for (const c of columnas) fila[c] = null;
+
+    const antes = precioPrevio[prod.name];
+    if (antes) {
+      for (const c of columnas) {
+        if (raspada(c, prod.family) || antes[c] == null) continue;
+        fila[c] = antes[c];
+        const fuente = (antes.sources || {})[c];
+        if (fuente) fila.sources[c] = fuente;
+        heredadas++;
+      }
+    }
 
     for (const ad of objetivo) {
       const hit = V.elegir(crudo[ad.id][prod.family] || [], prod, ad.id, catalogo.families[prod.family]);
@@ -146,6 +206,7 @@ const ctxPara = (ad) => {
   console.log('\n── Resumen ──');
   for (const c of columnas) console.log(`  ${c.padEnd(13)}${String(cobertura[c]).padStart(3)}/${n}`);
   console.log(`  emparejamientos: ${emparejados}`);
+  if (acotada) console.log(`  celdas conservadas de la corrida anterior: ${heredadas}`);
   const st = http.stats();
   console.log(`  requests: ${st.directo} directos · ${st.proxy} por ${http.proveedor}` +
     (st.escaladas ? ` (${st.escaladas} escalados)` : ''));
@@ -158,8 +219,14 @@ const ctxPara = (ad) => {
   // código que lleva meses funcionando, a cambio de nada.
   fs.writeFileSync(path.join(OUT, 'prices.json'),
     JSON.stringify({ generated_at: generado, currency: 'MXN', prices: precios }, null, 2));
+  // El crudo también se fusiona: sirve para afinar tokens, y una corrida
+  // acotada no debe borrar los resultados de las familias que no tocó.
+  const crudoFinal = { ...crudoPrevio };
+  for (const [fuente, fams] of Object.entries(crudo)) {
+    crudoFinal[fuente] = { ...(crudoPrevio[fuente] || {}), ...fams };
+  }
   fs.writeFileSync(path.join(OUT, 'crudo.json'),
-    JSON.stringify({ generado, crudo }, null, 2));
+    JSON.stringify({ generado, crudo: crudoFinal }, null, 2));
 
   // El historial comparte formato con el de laboratorio.
   const matriz = Object.entries(precios).map(([name, f]) => {
@@ -169,8 +236,13 @@ const ctxPara = (ad) => {
   });
   const hist = actualizarHistorial(path.join(OUT, 'price-history.json'), matriz, columnas, generado);
 
-  const lineas = [`# Medicamentos GLP-1 — ${generado.slice(0, 10)}`, '',
-    '| Fuente | Precios | Productos hallados | Errores |', '|---|---:|---:|---:|'];
+  const lineas = [`# Medicamentos GLP-1 — ${generado.slice(0, 10)}`, ''];
+  if (acotada) {
+    lineas.push(`Corrida acotada a ${familias.join(', ')}` +
+      (SOLO.length ? ` · fuentes ${SOLO.join(', ')}` : '') +
+      `. El resto de la matriz viene de la corrida anterior (${heredadas} celdas).`, '');
+  }
+  lineas.push('| Fuente | Precios | Productos hallados | Errores |', '|---|---:|---:|---:|');
   for (const c of columnas) {
     const m = meta[c] || {};
     lineas.push(`| ${c} | ${cobertura[c]}/${n} | ${m.total ?? '—'} | ${m.errores ?? '—'} |`);

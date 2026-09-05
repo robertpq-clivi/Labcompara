@@ -13,6 +13,10 @@ on:
         type: choice
         options: ["todas", "laboratorio", "medicamentos", "medicinas"]
         default: "todas"
+      familias:
+        description: "Sólo estas familias GLP-1, separadas por coma (ej. Foundayz). Vacío = todas"
+        type: string
+        default: ""
       dry_run:
         description: "Escanear y reportar sin commitear"
         type: boolean
@@ -57,7 +61,10 @@ jobs:
       - name: Escanear medicamentos GLP-1
         if: ${{ inputs.vertical == '' || inputs.vertical == 'todas' || inputs.vertical == 'medicamentos' }}
         continue-on-error: true
-        run: node scripts/scan-farmacias.js ${{ inputs.volcar && '--volcar' || '' }}
+        run: >-
+          node scripts/scan-farmacias.js
+          ${{ inputs.volcar && '--volcar' || '' }}
+          ${{ inputs.familias && format('--familias={0}', inputs.familias) || '' }}
         env:
           SCRAPER_API_KEY: ${{ secrets.SCRAPER_API_KEY }}
           SCRAPER_PROVIDER: zyte
