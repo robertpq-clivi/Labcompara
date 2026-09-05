@@ -204,7 +204,7 @@
     "familia": "todas",
     "corto": "tratamiento GLP-1",
     "articulo": "un",
-    "titulo": "Bajar de peso con GLP-1: cuánto cuesta al mes en {{MES_ANIO}}",
+    "titulo": "Cuánto cuesta bajar de peso con GLP-1 en {{MES_ANIO}}",
     "h1": "¿Cuánto cuesta bajar de peso con GLP-1?",
     "metaDescription": "Los {{N_FAMILIAS}} tratamientos GLP-1 comparados: de {{MIN}} a {{MAX}} al mes según cuál y qué dosis. Precios de farmacia actualizados cada semana.",
     "intro": "La respuesta honesta tiene dos números, no uno: lo que cuesta empezar y lo que cuesta mantener. Entre los {{N_FAMILIAS}} tratamientos disponibles en México, el rango va de {{MIN}} a {{MAX}} al mes.",
