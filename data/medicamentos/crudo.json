@@ -1,5 +1,5 @@
 {
-  "generado": "2026-08-30T17:19:27.747Z",
+  "generado": "2026-09-05T10:03:06.427Z",
   "crudo": {
     "Benavides": {
       "Ozempic": [
@@ -147,7 +147,36 @@
           "url": "https://www.benavides.com.mx/rybelsus-14-mg-semaglutida-30-tabletas"
         }
       ],
-      "Foundayz": []
+      "Foundayz": [
+        {
+          "titulo": "0.8 mg Orforglipron",
+          "detalle": "foundayz 0 8 mg orforglipron 30 tabletas",
+          "marca": "Foundayz",
+          "precio": 3800,
+          "url": "https://www.benavides.com.mx/foundayz-0-8-mg-orforglipron-30-tabletas"
+        },
+        {
+          "titulo": "5.5 mg Orforglipron",
+          "detalle": "5 5 mg orforglipron",
+          "marca": "Foundayz",
+          "precio": 4499,
+          "url": "https://www.benavides.com.mx/5-5-mg-orforglipron"
+        },
+        {
+          "titulo": "2.5 mg Orforglipron",
+          "detalle": "foundayz 2 5 mg orforglipron 30 tabletas",
+          "marca": "Foundayz",
+          "precio": 4200,
+          "url": "https://www.benavides.com.mx/foundayz-2-5-mg-orforglipron-30-tabletas"
+        },
+        {
+          "titulo": "9 mg Orforglipron",
+          "detalle": "9 mg orforglipron",
+          "marca": "Foundayz",
+          "precio": 5290,
+          "url": "https://www.benavides.com.mx/9-mg-orforglipron"
+        }
+      ]
     },
     "Ahorro": {
       "Ozempic": [
@@ -604,7 +633,18 @@
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-10mg-0.6ml-en-pluma-precargada-solucion-inyectable--2.4-ml.-1460730.html"
         }
       ],
-      "Foundayz": []
+      "Foundayz": [
+        {
+          "titulo": "Foundayz 2.5 mg, 30 Tabletas.",
+          "precio": 2750,
+          "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-2.5-mg--30-tabletas.-1486152.html"
+        },
+        {
+          "titulo": "Foundayz 0.8 mg, 30 Tabletas.",
+          "precio": 2100,
+          "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-0.8-mg--30-tabletas.-1486136.html"
+        }
+      ]
     },
     "SanPablo": {
       "Ozempic": [
@@ -823,14 +863,14 @@
           "titulo": "Foundayz 30 Tabletas Caja",
           "detalle": "Orforglipron 2.5 MG",
           "marca": "Foundayz",
-          "precio": 5725,
+          "precio": 4269,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011228"
         },
         {
           "titulo": "Foundayz 30 Tabletas Caja",
           "detalle": "Orforglipron 0.8 MG",
           "marca": "Foundayz",
-          "precio": 5225,
+          "precio": 3897,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011227"
         },
         {

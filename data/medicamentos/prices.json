@@ -1,19 +1,24 @@
 {
-  "generated_at": "2026-08-30T17:19:27.747Z",
+  "generated_at": "2026-09-05T10:03:06.427Z",
   "currency": "MXN",
   "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 4274,
-          "url": "https://www.benavides.com.mx/ozempic-134-mgml-semaglutida-solucion-inyectable-1-pluma-precargada",
-          "title": "1.34 mg/ml Semaglutida Solución Inyectable",
-          "detalle": "ozempic 134 mgml semaglutida solucion inyectable 1 pluma precargada"
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 3096,
           "url": "https://www.fahorro.com/ozempic-0-25mg-0-5-mg-w-nf-6-pz.html",
           "title": "Ozempic 0.25 mg - 0.5 mg/dosis 1 Pluma con 6 Agujas"
+        },
+        "Benavides": {
+          "price": 4274,
+          "url": "https://www.benavides.com.mx/ozempic-134-mgml-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "1.34 mg/ml Semaglutida Solución Inyectable",
+          "detalle": "ozempic 134 mgml semaglutida solucion inyectable 1 pluma precargada"
         },
         "Guadalajara": {
           "price": 3149,
@@ -25,11 +30,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/ozempic-1-solucion-pluma-prellenada/p/000000000006400002",
           "title": "Ozempic 1 Solución Pluma Prellenada",
           "detalle": "Semaglutida 1.34 MG"
-        },
-        "Clivi": {
-          "price": 5499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         }
       },
       "Clivi": 5499,
@@ -41,21 +41,21 @@
     },
     "Ozempic 1 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 5789,
-          "url": "https://www.benavides.com.mx/ozempic-1-mg-semaglutida-1-jeringa-prellenada",
-          "title": "1 mg Semaglutida",
-          "detalle": "ozempic 1 mg semaglutida 1 jeringa prellenada"
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 4198,
           "url": "https://www.fahorro.com/ozempic-1-mg-nf-4-pz.html",
           "title": "Ozempic 1 mg/dosis 1 Pluma con 4 Agujas"
         },
-        "Clivi": {
-          "price": 5499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        "Benavides": {
+          "price": 5789,
+          "url": "https://www.benavides.com.mx/ozempic-1-mg-semaglutida-1-jeringa-prellenada",
+          "title": "1 mg Semaglutida",
+          "detalle": "ozempic 1 mg semaglutida 1 jeringa prellenada"
         },
         "Guadalajara": {
           "price": 4280,
@@ -77,16 +77,21 @@
     },
     "Mounjaro 2.5 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 5867,
-          "url": "https://www.benavides.com.mx/mounjaro-2-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-          "title": "2.5 mg Tirzepatida/0.6 ml Solución",
-          "detalle": "mounjaro 2 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 6250,
           "url": "https://www.fahorro.com/mounjaro-kwikpen-2-5mg-0-6ml-3-ml.html",
           "title": "Mounjaro Kwikpen 2.5Mg/0.6Ml 3 ml"
+        },
+        "Benavides": {
+          "price": 5867,
+          "url": "https://www.benavides.com.mx/mounjaro-2-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+          "title": "2.5 mg Tirzepatida/0.6 ml Solución",
+          "detalle": "mounjaro 2 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
         },
         "Guadalajara": {
           "price": 3590,
@@ -98,11 +103,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-2-5-mg-2-4-ml-solucion-caja/p/000000000070009211",
           "title": "Mounjaro 2.5 MG 2.4 ML Solución Caja",
           "detalle": "Tirzepatida 2.5 MG"
-        },
-        "Clivi": {
-          "price": 5499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 3649,
@@ -119,26 +119,26 @@
     },
     "Mounjaro 5 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 5974,
-          "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-          "title": "5 mg Tirzepatida/0.6 ml Solución",
-          "detalle": "mounjaro 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
+        "Clivi": {
+          "price": 6499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 6500,
           "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
           "title": "Mounjaro Kwikpen 5Mg/0.6Ml 3 ml"
         },
+        "Benavides": {
+          "price": 5974,
+          "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+          "title": "5 mg Tirzepatida/0.6 ml Solución",
+          "detalle": "mounjaro 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
+        },
         "Guadalajara": {
           "price": 4775,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
           "title": "Mounjaro KwikPen 5mg/0.6ml Solución Inyectable Pluma Precargada, 2.4 ml."
-        },
-        "Clivi": {
-          "price": 6499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "SanPablo": {
           "price": 5983,
@@ -160,16 +160,21 @@
     },
     "Mounjaro 7.5 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 7821,
-          "url": "https://www.benavides.com.mx/mounjaro-7-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-          "title": "7.5 mg Tirzepatida/0.6 ml Solución",
-          "detalle": "mounjaro 7 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
+        "Clivi": {
+          "price": 7499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 8500,
           "url": "https://www.fahorro.com/mounjaro-kwikpen-7-5mg-0-6ml-3-ml.html",
           "title": "Mounjaro Kwikpen 7.5Mg/0.6Ml 3 ml"
+        },
+        "Benavides": {
+          "price": 7821,
+          "url": "https://www.benavides.com.mx/mounjaro-7-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+          "title": "7.5 mg Tirzepatida/0.6 ml Solución",
+          "detalle": "mounjaro 7 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
         },
         "Guadalajara": {
           "price": 6500,
@@ -181,11 +186,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-7-5-mg-2-4-ml-solucion-caja/p/000000000070009210",
           "title": "Mounjaro 7.5 MG 2.4 ML Solución Caja",
           "detalle": "Tirzepatida 7.5 MG"
-        },
-        "Clivi": {
-          "price": 7499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 6349,
@@ -202,16 +202,21 @@
     },
     "Mounjaro 10 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 7819,
-          "url": "https://www.benavides.com.mx/mounjaro-10-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
-          "title": "10 mg Tirzepatida/0.6 ml Solución Inyectable",
-          "detalle": "mounjaro 10 mg tirzepatida 0 6 ml solucion inyectable 1 jeringa prellenada"
+        "Clivi": {
+          "price": 7499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 8500,
           "url": "https://www.fahorro.com/mounjaro-kwikpen-10mg-0-6ml-3-ml.html",
           "title": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml"
+        },
+        "Benavides": {
+          "price": 7819,
+          "url": "https://www.benavides.com.mx/mounjaro-10-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
+          "title": "10 mg Tirzepatida/0.6 ml Solución Inyectable",
+          "detalle": "mounjaro 10 mg tirzepatida 0 6 ml solucion inyectable 1 jeringa prellenada"
         },
         "Guadalajara": {
           "price": 6255,
@@ -223,11 +228,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-10-mg-2-4-ml-solucion-caja/p/000000000070009212",
           "title": "Mounjaro 10 MG 2.4 ML Solución Caja",
           "detalle": "Tirzepatida 10.0 MG"
-        },
-        "Clivi": {
-          "price": 7499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 6349,
@@ -244,16 +244,21 @@
     },
     "Mounjaro 12.5 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 9688,
-          "url": "https://www.benavides.com.mx/mounjaro-12-5-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
-          "title": "12.5 mg Tirzepatida/0.6 ml Solución Inyectable",
-          "detalle": "mounjaro 12 5 mg tirzepatida 0 6 ml solucion inyectable 1 jeringa prellenada"
+        "Clivi": {
+          "price": 9999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 10500,
           "url": "https://www.fahorro.com/mounjaro-kwikpen-12-5mg-0-6ml-3-ml.html",
           "title": "Mounjaro Kwikpen 12.5Mg/0.6Ml 3 ml"
+        },
+        "Benavides": {
+          "price": 9688,
+          "url": "https://www.benavides.com.mx/mounjaro-12-5-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
+          "title": "12.5 mg Tirzepatida/0.6 ml Solución Inyectable",
+          "detalle": "mounjaro 12 5 mg tirzepatida 0 6 ml solucion inyectable 1 jeringa prellenada"
         },
         "Guadalajara": {
           "price": 7750,
@@ -265,11 +270,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-12-5-mg-2-4-ml-solucion-caja/p/000000000070009213",
           "title": "Mounjaro 12.5 MG 2.4 ML Solución Caja",
           "detalle": "Tirzepatida 12.5 MG"
-        },
-        "Clivi": {
-          "price": 9999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 8499,
@@ -286,26 +286,26 @@
     },
     "Mounjaro 15 mg (1 pluma)": {
       "sources": {
-        "Benavides": {
-          "price": 9688,
-          "url": "https://www.benavides.com.mx/mounjaro-15-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
-          "title": "15 mg Tirzepatida/0.6 ml Solución Inyectable",
-          "detalle": "mounjaro 15 mg tirzepatida 0 6 ml solucion inyectable 1 jeringa prellenada"
+        "Clivi": {
+          "price": 9999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 10500,
           "url": "https://www.fahorro.com/mounjaro-15mg-0-6ml.html",
           "title": "Mounjaro 15mg /0.6ml"
         },
+        "Benavides": {
+          "price": 9688,
+          "url": "https://www.benavides.com.mx/mounjaro-15-mg-tirzepatida-0-6-ml-solucion-inyectable-1-jeringa-prellenada",
+          "title": "15 mg Tirzepatida/0.6 ml Solución Inyectable",
+          "detalle": "mounjaro 15 mg tirzepatida 0 6 ml solucion inyectable 1 jeringa prellenada"
+        },
         "Guadalajara": {
           "price": 7750,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-15mg-0.6ml-en-pluma-precargada-solucion-inyectable--2.4-ml.-1460757.html",
           "title": "Mounjaro KwikPen 15mg/0.6ml en Pluma Precargada Solución Inyectable, 2.4 ml."
-        },
-        "Clivi": {
-          "price": 9999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "SanPablo": {
           "price": 8608,
@@ -327,16 +327,21 @@
     },
     "Wegovy 0.25 mg (caja mensual)": {
       "sources": {
-        "Benavides": {
-          "price": 3177,
-          "url": "https://www.benavides.com.mx/wegovy-0-25-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
-          "title": "0.25 mg Semaglutida Solución Inyectable",
-          "detalle": "wegovy 0 25 mg semaglutida solucion inyectable 1 pluma precargada"
+        "Clivi": {
+          "price": 4299,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 2384,
           "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-25mg-1-pluma.html",
           "title": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma"
+        },
+        "Benavides": {
+          "price": 3177,
+          "url": "https://www.benavides.com.mx/wegovy-0-25-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "0.25 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 0 25 mg semaglutida solucion inyectable 1 pluma precargada"
         },
         "Guadalajara": {
           "price": 2385,
@@ -348,11 +353,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-25-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008422",
           "title": "Wegovy 0.25 MG 1.5 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 0.25 MG"
-        },
-        "Clivi": {
-          "price": 4299,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 2299,
@@ -369,16 +369,21 @@
     },
     "Wegovy 0.5 mg (caja mensual)": {
       "sources": {
-        "Benavides": {
-          "price": 3864,
-          "url": "https://www.benavides.com.mx/wegovy-0-5-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
-          "title": "0.5 mg Semaglutida Solución Inyectable",
-          "detalle": "wegovy 0 5 mg semaglutida solucion inyectable 1 pluma precargada"
+        "Clivi": {
+          "price": 4999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 2900,
           "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-5mg-1-pluma.html",
           "title": "WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma"
+        },
+        "Benavides": {
+          "price": 3864,
+          "url": "https://www.benavides.com.mx/wegovy-0-5-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "0.5 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 0 5 mg semaglutida solucion inyectable 1 pluma precargada"
         },
         "Guadalajara": {
           "price": 2900,
@@ -390,11 +395,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-5-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008423",
           "title": "Wegovy 0.5 MG 1.5 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 0.5 MG"
-        },
-        "Clivi": {
-          "price": 4999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 2899,
@@ -411,16 +411,21 @@
     },
     "Wegovy 1 mg (caja mensual)": {
       "sources": {
-        "Benavides": {
-          "price": 5244,
-          "url": "https://www.benavides.com.mx/wegovy-1-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
-          "title": "1 mg Semaglutida Solución Inyectable",
-          "detalle": "wegovy 1 mg semaglutida solucion inyectable 1 pluma precargada"
+        "Clivi": {
+          "price": 5499,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 3934,
           "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-0mg-1-pluma.html",
           "title": "WEGOVY FlexTouch 3ml (1.0mg) 1 Pluma"
+        },
+        "Benavides": {
+          "price": 5244,
+          "url": "https://www.benavides.com.mx/wegovy-1-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "1 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 1 mg semaglutida solucion inyectable 1 pluma precargada"
         },
         "Guadalajara": {
           "price": 3940,
@@ -432,11 +437,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-0-mg-3-ml-solucion-pluma-prellenada/p/000000000070008424",
           "title": "Wegovy 1.0 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 1.0 MG"
-        },
-        "Clivi": {
-          "price": 5499,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 3899,
@@ -453,16 +453,21 @@
     },
     "Wegovy 1.7 mg (caja mensual)": {
       "sources": {
-        "Benavides": {
-          "price": 6643,
-          "url": "https://www.benavides.com.mx/wegovy-1-7-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
-          "title": "1.7 mg Semaglutida Solución Inyectable",
-          "detalle": "wegovy 1 7 mg semaglutida solucion inyectable 1 pluma precargada"
+        "Clivi": {
+          "price": 6999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 4650,
           "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-7mg-1-pluma.html",
           "title": "WEGOVY FlexTouch 3ml (1.7mg) 1 Pluma"
+        },
+        "Benavides": {
+          "price": 6643,
+          "url": "https://www.benavides.com.mx/wegovy-1-7-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "1.7 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 1 7 mg semaglutida solucion inyectable 1 pluma precargada"
         },
         "Guadalajara": {
           "price": 4650,
@@ -474,11 +479,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-7-mg-3-ml-solucion-pluma-prellenada/p/000000000070008426",
           "title": "Wegovy 1.7 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 1.7 MG"
-        },
-        "Clivi": {
-          "price": 6999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 4599,
@@ -495,16 +495,21 @@
     },
     "Wegovy 2.4 mg (caja mensual)": {
       "sources": {
-        "Benavides": {
-          "price": 8163,
-          "url": "https://www.benavides.com.mx/wegovy-2-4-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
-          "title": "2.4 mg Semaglutida Solución Inyectable",
-          "detalle": "wegovy 2 4 mg semaglutida solucion inyectable 1 pluma precargada"
+        "Clivi": {
+          "price": 6999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 4900,
           "url": "https://www.fahorro.com/wegovy-flextouch-3ml-2-4mg-1-pluma.html",
           "title": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma"
+        },
+        "Benavides": {
+          "price": 8163,
+          "url": "https://www.benavides.com.mx/wegovy-2-4-mg-semaglutida-solucion-inyectable-1-pluma-precargada",
+          "title": "2.4 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 2 4 mg semaglutida solucion inyectable 1 pluma precargada"
         },
         "Guadalajara": {
           "price": 4900,
@@ -516,11 +521,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-2-4-mg-3-ml-solucion-pluma-prellenada/p/000000000070008425",
           "title": "Wegovy 2.4 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 2.4 MG"
-        },
-        "Clivi": {
-          "price": 6999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Revert": {
           "price": 4899,
@@ -537,26 +537,26 @@
     },
     "Rybelsus 3 mg (30 tabletas)": {
       "sources": {
-        "Benavides": {
-          "price": 2351,
-          "url": "https://www.benavides.com.mx/rybelsus-3-mg-semaglutida-30-tabletas",
-          "title": "3 mg Semaglutida",
-          "detalle": "rybelsus 3 mg semaglutida 30 tabletas"
+        "Clivi": {
+          "price": 1999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 2403,
           "url": "https://www.fahorro.com/rybelsus-3-mg-30-tabletas.html",
           "title": "Rybelsus 3 mg 30 tabletas"
         },
+        "Benavides": {
+          "price": 2351,
+          "url": "https://www.benavides.com.mx/rybelsus-3-mg-semaglutida-30-tabletas",
+          "title": "3 mg Semaglutida",
+          "detalle": "rybelsus 3 mg semaglutida 30 tabletas"
+        },
         "Guadalajara": {
           "price": 2172,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/rybelsus-3-mg--30-tabletas.-1377663.html",
           "title": "Rybelsus 3 mg, 30 Tabletas."
-        },
-        "Clivi": {
-          "price": 1999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "SanPablo": {
           "price": 2153,
@@ -573,26 +573,26 @@
     },
     "Rybelsus 7 mg (30 tabletas)": {
       "sources": {
-        "Benavides": {
-          "price": 3906,
-          "url": "https://www.benavides.com.mx/rybelsus-7-mg-semaglutida-30-tabletas",
-          "title": "7 mg Semaglutida",
-          "detalle": "rybelsus 7 mg semaglutida 30 tabletas"
+        "Clivi": {
+          "price": 3999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 2993,
           "url": "https://www.fahorro.com/rybelsus-7-mg-30-tabletas.html",
           "title": "Rybelsus 7 mg 30 tabletas"
         },
+        "Benavides": {
+          "price": 3906,
+          "url": "https://www.benavides.com.mx/rybelsus-7-mg-semaglutida-30-tabletas",
+          "title": "7 mg Semaglutida",
+          "detalle": "rybelsus 7 mg semaglutida 30 tabletas"
+        },
         "Guadalajara": {
           "price": 2975,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/rybelsus-semaglutida-7-mg-30-tabletas.-1377655.html",
           "title": "Rybelsus Semaglutida 7 mg , 30 Tabletas."
-        },
-        "Clivi": {
-          "price": 3999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "SanPablo": {
           "price": 2808,
@@ -609,26 +609,26 @@
     },
     "Rybelsus 14 mg (30 tabletas)": {
       "sources": {
-        "Benavides": {
-          "price": 4379,
-          "url": "https://www.benavides.com.mx/rybelsus-14-mg-semaglutida-30-tabletas",
-          "title": "14 mg Semaglutida",
-          "detalle": "rybelsus 14 mg semaglutida 30 tabletas"
+        "Clivi": {
+          "price": 3999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "Ahorro": {
           "price": 3354,
           "url": "https://www.fahorro.com/rybelsus-14-mg-30-tabletas.html",
           "title": "Rybelsus 14 mg 30 Tabs"
         },
+        "Benavides": {
+          "price": 4379,
+          "url": "https://www.benavides.com.mx/rybelsus-14-mg-semaglutida-30-tabletas",
+          "title": "14 mg Semaglutida",
+          "detalle": "rybelsus 14 mg semaglutida 30 tabletas"
+        },
         "Guadalajara": {
           "price": 3335,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/rybelsus-14-mg--30-tabletas.-1388690.html",
           "title": "Rybelsus 14 mg, 30 Tabletas."
-        },
-        "Clivi": {
-          "price": 3999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
         "SanPablo": {
           "price": 3148,
@@ -645,12 +645,6 @@
     },
     "Foundayz 0.8 mg (30 tabletas)": {
       "sources": {
-        "SanPablo": {
-          "price": 5225,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011227",
-          "title": "Foundayz 30 Tabletas Caja",
-          "detalle": "Orforglipron 0.8 MG"
-        },
         "Clivi": {
           "price": 3499,
           "url": "https://www.clivi.com.mx/",
@@ -660,23 +654,34 @@
           "price": 2699,
           "url": "https://revert.com.mx/perdida-de-peso/",
           "title": "Precio verificado manualmente"
+        },
+        "Benavides": {
+          "price": 3800,
+          "url": "https://www.benavides.com.mx/foundayz-0-8-mg-orforglipron-30-tabletas",
+          "title": "0.8 mg Orforglipron",
+          "detalle": "foundayz 0 8 mg orforglipron 30 tabletas"
+        },
+        "Guadalajara": {
+          "price": 2100,
+          "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-0.8-mg--30-tabletas.-1486136.html",
+          "title": "Foundayz 0.8 mg, 30 Tabletas."
+        },
+        "SanPablo": {
+          "price": 3897,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011227",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 0.8 MG"
         }
       },
       "Clivi": 3499,
       "Ahorro": null,
-      "Benavides": null,
-      "Guadalajara": null,
-      "SanPablo": 5225,
+      "Benavides": 3800,
+      "Guadalajara": 2100,
+      "SanPablo": 3897,
       "Revert": 2699
     },
     "Foundayz 2.5 mg (30 tabletas)": {
       "sources": {
-        "SanPablo": {
-          "price": 5725,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011228",
-          "title": "Foundayz 30 Tabletas Caja",
-          "detalle": "Orforglipron 2.5 MG"
-        },
         "Clivi": {
           "price": 4199,
           "url": "https://www.clivi.com.mx/",
@@ -686,23 +691,34 @@
           "price": 3399,
           "url": "https://revert.com.mx/perdida-de-peso/",
           "title": "Precio verificado manualmente"
+        },
+        "Benavides": {
+          "price": 4200,
+          "url": "https://www.benavides.com.mx/foundayz-2-5-mg-orforglipron-30-tabletas",
+          "title": "2.5 mg Orforglipron",
+          "detalle": "foundayz 2 5 mg orforglipron 30 tabletas"
+        },
+        "Guadalajara": {
+          "price": 2750,
+          "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-2.5-mg--30-tabletas.-1486152.html",
+          "title": "Foundayz 2.5 mg, 30 Tabletas."
+        },
+        "SanPablo": {
+          "price": 4269,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011228",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 2.5 MG"
         }
       },
       "Clivi": 4199,
       "Ahorro": null,
-      "Benavides": null,
-      "Guadalajara": null,
-      "SanPablo": 5725,
+      "Benavides": 4200,
+      "Guadalajara": 2750,
+      "SanPablo": 4269,
       "Revert": 3399
     },
     "Foundayz 5.5 mg (30 tabletas)": {
       "sources": {
-        "SanPablo": {
-          "price": 6035,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011229",
-          "title": "Foundayz 30 Tabletas Caja",
-          "detalle": "Orforglipron 5.5 MG"
-        },
         "Clivi": {
           "price": 4999,
           "url": "https://www.clivi.com.mx/",
@@ -712,23 +728,29 @@
           "price": 4099,
           "url": "https://revert.com.mx/perdida-de-peso/",
           "title": "Precio verificado manualmente"
+        },
+        "Benavides": {
+          "price": 4499,
+          "url": "https://www.benavides.com.mx/5-5-mg-orforglipron",
+          "title": "5.5 mg Orforglipron",
+          "detalle": "5 5 mg orforglipron"
+        },
+        "SanPablo": {
+          "price": 6035,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011229",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 5.5 MG"
         }
       },
       "Clivi": 4999,
       "Ahorro": null,
-      "Benavides": null,
+      "Benavides": 4499,
       "Guadalajara": null,
       "SanPablo": 6035,
       "Revert": 4099
     },
     "Foundayz 9 mg (30 tabletas)": {
       "sources": {
-        "SanPablo": {
-          "price": 7065,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011226",
-          "title": "Foundayz 30 Tabletas Caja",
-          "detalle": "Orforglipron 9.0 MG"
-        },
         "Clivi": {
           "price": 5599,
           "url": "https://www.clivi.com.mx/",
@@ -738,11 +760,23 @@
           "price": 4799,
           "url": "https://revert.com.mx/perdida-de-peso/",
           "title": "Precio verificado manualmente"
+        },
+        "Benavides": {
+          "price": 5290,
+          "url": "https://www.benavides.com.mx/9-mg-orforglipron",
+          "title": "9 mg Orforglipron",
+          "detalle": "9 mg orforglipron"
+        },
+        "SanPablo": {
+          "price": 7065,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011226",
+          "title": "Foundayz 30 Tabletas Caja",
+          "detalle": "Orforglipron 9.0 MG"
         }
       },
       "Clivi": 5599,
       "Ahorro": null,
-      "Benavides": null,
+      "Benavides": 5290,
       "Guadalajara": null,
       "SanPablo": 7065,
       "Revert": 4799
