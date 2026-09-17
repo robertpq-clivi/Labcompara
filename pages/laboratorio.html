@@ -440,7 +440,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:44px 24px 30px
           <a href="#" class="footer-a">Contacto</a>
         </div>
       </div>
-      <div class="footer-disc">Medcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio cl&#xed;nico. Los precios son referenciales. &copy; 2024 Medcompara.</div>
+      <div class="footer-disc">Medcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio cl&#xed;nico. Los precios son referenciales. &copy; Medcompara.</div>
     </div>
   </footer>
 </section>
@@ -1319,7 +1319,7 @@ function marcarFrescura(){
   const el = document.querySelector('.footer-disc');
   if(!el) return;
   const f = preciosActualizados.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});
-  el.textContent = 'Medcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio clínico. Precios actualizados el '+f+'; son referenciales y pueden variar por sucursal. © 2024 Medcompara.';
+  el.textContent = 'Medcompara es un comparador de precios de estudios de laboratorio. No somos un laboratorio clínico. Precios actualizados el '+f+'; son referenciales y pueden variar por sucursal. © Medcompara.';
 }
 
 // ── SUPABASE ──────────────────────────────────────────────────────────────

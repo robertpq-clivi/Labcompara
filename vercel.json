@@ -95,6 +95,17 @@
     },
     {
       "source": "/pages/:slug",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?labcompara\\.com"
+        }
+      ],
+      "destination": "https://medcompara.com.mx/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/pages/:slug",
       "destination": "/:slug",
       "permanent": true
     },
@@ -111,7 +122,7 @@
           "value": "(www\\.)?labcompara\\.com"
         }
       ],
-      "destination": "https://medcompara.com.mx/laboratorio",
+      "destination": "https://medcompara.com.mx/",
       "permanent": true
     },
     {
