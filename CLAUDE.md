@@ -61,8 +61,23 @@ images/farmacias/   logos de farmacia
 images/laboratorios/ logos de laboratorio
 ```
 
-Las rutas limpias salen de `vercel.json` (`cleanUrls`, 14 rewrites, 6 redirects).
+Las rutas limpias salen de `vercel.json` (`cleanUrls`, 6 rewrites, 34 redirects).
 `pages/foo.html` se sirve como `/foo`.
+
+**Había nueve landings de laboratorio y quedan dos.** «Laboratorio clínico»,
+«laboratorio médico», «análisis clínicos», «estudios clínicos», «estudios de
+laboratorio», «pruebas de laboratorio», «exámenes de sangre» y «laboratorio de
+análisis clínicos» son la misma búsqueda en español de México: ocho puertas a la
+misma habitación, que es el patrón que Google llama doorway. Ahí el criterio es
+el propósito, no el texto — el suyo era distinto entre sí, 1% a 12% de
+solapamiento real de frases. Entre las ocho sumaban 134 impresiones y 1 clic en
+90 días. Redirigen a `/laboratorio`; sobrevive `/laboratorio-cerca-de-mi`, que
+responde dónde y no cuánto.
+
+Antes de cerrarlas hubo que mover lo que sostenían: `/laboratorio` no enlazaba
+un solo artículo del blog y Google descubría el artículo que más rinde a través
+de `/laboratorio-clinico`. De ahí el bloque de guías del comparador y el de la
+portada.
 
 ---
 
@@ -322,9 +337,12 @@ Los 18 llevan `permanent: true` a su artículo real. No rescatan autoridad
 que compran es cerrar la cola de rastreo de una vez y atender a quien teclee
 el slug viejo.
 
-`scripts/test-rutas.js` vigila los dos sentidos: que ningún redirect o rewrite
-apunte a un archivo que no existe, y que ningún `source` tape una página
-publicada. Es la cuarta lista a mano de este repo que se puede desincronizar
+`scripts/test-rutas.js` vigila tres sentidos: que ningún redirect o rewrite
+apunte a un archivo que no existe, que ningún `source` tape una página
+publicada, y que **ningún enlace interno pase por un redirect**. Esto último es
+el destino final, no «que llegue»: los 301 existen para el tráfico que ya no
+controlamos —la cola de rastreo, un enlace de fuera— y dentro del sitio se
+enlaza la página que responde 200, porque aquí sí se puede. Es la cuarta lista a mano de este repo que se puede desincronizar
 del directorio, y las tres anteriores se desincronizaron.
 
 **Redirect no es sinónimo de arreglo.** Si una ruta muerta no tiene destino
