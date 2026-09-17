@@ -23,6 +23,7 @@ const { execFileSync } = require('child_process');
 const { ROOT } = require('./lib/rutas');
 const { legible } = require('./lib/ancla');
 const { altDeTitulo } = require('./lib/alt-imagen');
+const { seVendeSinReceta } = require('./lib/oferta-publica');
 
 const BLOG = path.join(ROOT, 'blog');
 const fallos = [];
@@ -79,6 +80,7 @@ const sinAutor         = [];
 const sinFecha         = [];
 const fechaInvertida   = [];
 const fechaInflada     = [];
+const ofertaConReceta  = [];
 const ancaRota         = [];
 const tocSinCss        = [];
 const seccionSinId     = [];
@@ -181,6 +183,18 @@ for (const archivo of archivos) {
       Object.values(o).forEach(buscar);
     };
     nodos.forEach(buscar);
+  }
+
+  // Marcado de comercio sólo sobre lo que se compra de mostrador. Una caja que
+  // necesita receta no tiene oferta pública que declarar, y un `AggregateOffer`
+  // con `InStock` describiría una venta que este sitio no puede sostener.
+  // El estado de receta se lee del HTML visible, así que la regla también cubre
+  // las páginas escritas a mano. Ver lib/oferta-publica.js.
+  {
+    const pill = (html.match(/<div class="receta-pill">([^<]*)</) || [, ''])[1];
+    if (pill && !seVendeSinReceta(pill) && /"@type":"Product"/.test(html)) {
+      ofertaConReceta.push(`${archivo} (${pill.trim()})`);
+    }
   }
 
   // Una tabla sin `.tabla-scroll` desborda su caja en móvil, que es el 77% del
@@ -315,6 +329,9 @@ caso(sinAutor, 'Article sin author', 'todos los Article declaran author');
 caso(sinFecha, 'Article sin datePublished o dateModified', 'todos los Article traen las dos fechas');
 caso(fechaInvertida, 'Article con dateModified anterior a datePublished',
   'ningún Article se modificó antes de publicarse');
+caso(ofertaConReceta, 'página(s) con Product sobre una caja que necesita receta',
+  'el marcado de oferta sólo cubre lo que se vende de mostrador',
+  'un AggregateOffer con InStock describe una venta que este sitio no sostiene');
 caso(fechaInflada, 'Article que dice haberse publicado después de que el archivo existe',
   'ninguna fecha de publicación está inflada',
   'el scan las movía cada domingo — corre: node scripts/reparar-fechas-blog.js --apply');

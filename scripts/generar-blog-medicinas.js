@@ -28,6 +28,7 @@ const { altDeTitulo } = require('./lib/alt-imagen');
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
 const { conFechas } = require('./lib/fechas-articulo');
+const { ofertaPublica } = require('./lib/oferta-publica');
 const { conTablasScroll } = require('./lib/tabla-movil');
 const M    = require('./lib/medicinas-blog');
 
@@ -365,7 +366,11 @@ function schemas(h, c, url, titulo, meta) {
     ],
   };
 
-  return [faq, article, producto, breadcrumb]
+  // El Product sólo sale si la caja se compra de mostrador. Con receta de por
+  // medio, un `AggregateOffer` con `InStock` describe una venta que esta página
+  // no puede sostener; ver lib/oferta-publica.js.
+  return [faq, article, ofertaPublica(c.receta && c.receta.estado, producto), breadcrumb]
+    .filter(Boolean)
     .map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
     .join('\n');
 }
