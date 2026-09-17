@@ -95,6 +95,7 @@ estricta + `--apply` para escribir (sin la bandera es dry-run).
 | `npm run blog:glp1` | 5 de GLP-1 | `scripts/glp1-blog-copy.json` |
 | `npm run tarjetas` | las 178 tarjetas de 1200x630 + su marcado | — (título y rubro salen del HTML) |
 | `node scripts/completar-marcado-blog.js` | `Article`, `BreadcrumbList`, `author` y fechas que falten | — (fechas de git) |
+| `node scripts/reparar-fechas-blog.js` | las fechas que el scan había inflado — pasada de una sola vez | — (git, y `--origen <repo>`) |
 
 `npm run predeploy` corre los cuatro con `--apply` y regenera los sitemaps.
 
@@ -119,6 +120,13 @@ Sale de la **fecha del scan**, nunca de `new Date()`. Un título que dice «agos
   degradado `.fade` se estira sobre toda la página y la pinta de negro al bajar.
 - **`AggregateOffer` sólo donde hay un precio real.** El ranking y las guías no lo
   declaran: inventarles un rango sería describir una oferta que nadie vende.
+- **Y sólo sobre lo que se compra de mostrador.** `lib/oferta-publica.js` lee el
+  `receta.estado` del copy: con receta de por medio no hay oferta pública que
+  declarar, y un `AggregateOffer` con `InStock` describiría una venta que este
+  sitio no puede sostener. `precio-clonazepam-mexico` anunciaba así un
+  psicotrópico de receta especial retenida. Pierden el `Product` los seis GLP-1 y
+  seis de los diez medicamentos; lo conservan los cuatro de venta libre y los 25
+  estudios de laboratorio, que se contratan sin receta ni intermediario.
 - **Las tablas van en `.tabla-scroll`.** El 77% del tráfico es móvil y una tabla de
   seis columnas empuja el ancho de la página entera.
 - **Concordancia de género en los encabezados generados**: el copy trae `articulo`
@@ -261,13 +269,41 @@ costado de la lista. Se vio en un render, no en el código.
 
 ## Fechas del marcado
 
-`datePublished` y `dateModified` de los artículos a mano salen de **git** —el
-commit que dio de alta el archivo y el último anterior a la pasada de marcado—,
-nunca de `new Date()`.
+`datePublished` y `dateModified` salen de **git** y de lo ya publicado, nunca de
+`new Date()` ni de la fecha del scan.
 
-Y las que ya existían no se tocaron. Un `dateModified` de hoy sobre un texto que
-nadie reescribió es una promesa de frescura falsa, y así trata Google los
-cambios de fecha sin cambio de contenido.
+La regla vivía sólo en `completar-marcado-blog.js`, que toca los artículos a
+mano. Los generadores —que reescriben 56 páginas cada domingo— escribían las dos
+fechas con la fecha del scan, así que **cada corrida volvía a declarar esas 56
+páginas como publicadas ese día**. La del 30 de agosto de 2026 movió la fecha de
+alta de 56 artículos; en la mitad, el diff entero eran esas fechas. Las
+impresiones del sitio cayeron de 1,040 diarias a 60 entre el 29 y el 31.
+
+Ahora las resuelve `lib/fechas-articulo.js`, que envuelve el HTML ya armado como
+`conIndice` y `conTablasScroll`:
+
+- **`datePublished` no se mueve nunca.** La más antigua entre la que declara el
+  archivo y el commit que lo dio de alta. Tomar la más antigua no es un detalle:
+  una fecha inflada se corrige sola y el módulo no puede inventar frescura ni
+  queriendo.
+- **`dateModified` sólo avanza si el contenido cambió.** Se compara el HTML nuevo
+  contra el publicado después de neutralizar toda fecha — y hay que neutralizar
+  las tres: el JSON-LD, el «agosto 2026» del `<title>` y el «Precios verificados
+  el 30 de agosto de 2026» de la línea de fuente. Sin las dos últimas, ninguna
+  página sería nunca igual a la anterior y `dateModified` avanzaría siempre.
+
+Lo mismo en los sitemaps: cada URL declara cuándo cambió de verdad, y **si no se
+puede saber, no se declara**. Omitir `lastmod` es válido en el estándar; poner
+la fecha de hoy en las 196 URLs cada domingo es lo que enseña a Google a
+ignorarlo.
+
+Por eso el workflow hace checkout con `fetch-depth: 0`. Con el superficial que
+trae `actions/checkout@v4` por defecto, `git log` sólo ve un commit y todo
+parece creado hoy.
+
+`test-marcado-blog.js` vigila las dos direcciones: ningún `dateModified`
+anterior a su `datePublished`, y ninguna fecha de publicación posterior al alta
+del archivo en git.
 
 ---
 
