@@ -28,6 +28,7 @@ const { altDeTitulo } = require('./lib/alt-imagen');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
+const { conFechas } = require('./lib/fechas-articulo');
 const { conTablasScroll } = require('./lib/tabla-movil');
 const G    = require('./lib/glp1-blog');
 
@@ -746,8 +747,9 @@ for (const { c, h, r, cruzada, nuevo, seEscribe } of listos) {
   const cuerpo = cruzada ? paginaTodas(h, r, resueltos, meta)
                : nuevo   ? paginaNuevo(h, r, resueltos, meta)
                :           pagina(h, r, resueltos, meta);
-  const html = conIndice(conTablasScroll(cuerpo));
-  if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);
+  const destino = path.join(ROOT, 'blog', c.slug + '.html');
+  const html = conFechas(conIndice(conTablasScroll(cuerpo)), destino, meta.fecha);
+  if (APPLY) fs.writeFileSync(destino, html);
   const detalle = cruzada ? `${h.nFamilias} tratamientos` : `${h.nPresentaciones} dosis`;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${c.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${detalle} · desde ${mxn(h.min)})`);
 }

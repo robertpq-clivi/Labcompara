@@ -27,6 +27,7 @@ const { altDeTitulo } = require('./lib/alt-imagen');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
+const { conFechas } = require('./lib/fechas-articulo');
 const { conTablasScroll } = require('./lib/tabla-movil');
 const M    = require('./lib/medicinas-blog');
 
@@ -545,8 +546,9 @@ let escritos = 0;
 for (const h of todos) {
   if (SOLO && h.slugMed !== SOLO) continue;
   const c    = resolver(porMed.get(h.medicamento), tokens(h, meta));
-  const html = conIndice(conTablasScroll(pagina(h, c, todos, meta)));
-  if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', h.slug + '.html'), html);
+  const destino = path.join(ROOT, 'blog', h.slug + '.html');
+  const html = conFechas(conIndice(conTablasScroll(pagina(h, c, todos, meta))), destino, meta.fecha);
+  if (APPLY) fs.writeFileSync(destino, html);
   escritos++;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${h.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${h.presentaciones} presentaciones · desde ${mxn(h.min)})`);
 }
