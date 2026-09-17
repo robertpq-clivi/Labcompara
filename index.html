@@ -149,6 +149,11 @@ nav.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:
 .step .num{font-weight:800;font-size:40px;line-height:1;color:var(--teal);margin-bottom:20px;}
 .step h3{margin:0 0 12px;font-weight:700;font-size:22px;line-height:1.25;color:var(--navy);}
 .step p{margin:0;font-weight:400;font-size:16px;line-height:1.6;color:var(--ink-600);text-wrap:pretty;}
+.guia{text-decoration:none;transition:transform .18s ease,box-shadow .18s ease;}
+.guia:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(6,20,42,.12),0 1px 2px rgba(17,24,39,.04);}
+.guia h3{color:var(--navy);}
+.guia-mas{font-weight:700;font-size:16px;color:var(--navy);text-decoration:none;box-shadow:inset 0 -2px 0 var(--sky);}
+.guia-mas:hover{box-shadow:inset 0 -3px 0 var(--sky);}
 
 
 /* ── PREGUNTAS ──────────────────────────────────────────────────────────── */
@@ -377,6 +382,53 @@ footer{padding:44px 0 52px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12);}
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ══════════════════ GUÍAS ══════════════════ -->
+<!--
+  La portada enlazaba a los tres comparadores y a nada más: ni un solo artículo
+  del blog, que son las páginas que de verdad reciben clics. Las 182 colgaban de
+  /blog y de enlaces entre ellas, así que la autoridad de la portada no llegaba
+  a ninguna.
+
+  Las seis de aquí salen de Search Console, no del gusto: son las que tienen
+  clics o impresiones que sostener. Ninguna lleva cifras — un precio escrito a
+  mano en la portada envejece solo, y aquí no hay generador que lo refresque.
+-->
+<section id="guias" class="light">
+  <div class="wrap">
+    <div style="max-width:640px;">
+      <span class="sect-kicker">Guías</span>
+      <h2>Las preguntas que la gente hace antes de ir al laboratorio.</h2>
+    </div>
+    <div class="steps">
+      <a class="step guia" href="/blog/mejor-laboratorio-estudios-clinicos-mexico">
+        <h3>¿Qué laboratorio es mejor?</h3>
+        <p>Quién gana más veces en precio sobre los estudios que al menos tres laboratorios publican, recalculado cada semana.</p>
+      </a>
+      <a class="step guia" href="/blog/salud-digna-vs-chopo-precios">
+        <h3>Salud Digna o Chopo</h3>
+        <p>La comparación que más se busca, estudio por estudio y con el ahorro mediano entre los dos.</p>
+      </a>
+      <a class="step guia" href="/blog/laboratorio-mas-barato-cdmx">
+        <h3>El laboratorio más barato en CDMX</h3>
+        <p>Dónde salen más baratos los estudios en la Ciudad de México y en qué casos conviene cambiar de laboratorio.</p>
+      </a>
+      <a class="step guia" href="/blog/precio-glucosa-mexico">
+        <h3>Cuánto cuesta el examen de glucosa</h3>
+        <p>El estudio más buscado de México, comparado entre los laboratorios que publican su precio.</p>
+      </a>
+      <a class="step guia" href="/blog/estudios-laboratorio-precios-mexico">
+        <h3>Precios de estudios de laboratorio</h3>
+        <p>Qué cuestan los estudios más pedidos y por qué el mismo análisis cambia tanto de un laboratorio a otro.</p>
+      </a>
+      <a class="step guia" href="/blog/foundayz-precio-mexico">
+        <h3>Foundayz, el GLP-1 en pastilla</h3>
+        <p>El primer orforglipron aprobado en México: qué vías hay para conseguirlo y cuál sale menos.</p>
+      </a>
+    </div>
+    <p style="margin-top:28px;"><a class="guia-mas" href="/blog">Ver las 182 guías &rarr;</a></p>
   </div>
 </section>
 

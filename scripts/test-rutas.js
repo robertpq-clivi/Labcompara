@@ -81,6 +81,54 @@ if (rwRotos.length) {
   rwRotos.forEach((r) => fallos.push(`    ${r.source} → ${r.destination}`));
 } else ok.push(`los ${REWRITES.length} rewrites sirven un archivo real`);
 
+// 6 · ningún enlace del sitio apunta a una página que ya no se publica.
+//
+// Al consolidar las ocho landings de laboratorio en /laboratorio había 156
+// enlaces internos hacia ellas, repartidos entre el menú, el pie, los bloques
+// de «también te puede interesar» y el cuerpo de 28 artículos. Un enlace que
+// sobrevive a la página apunta a un 301: no rompe nada visible, gasta rastreo
+// y es invisible en review. Este caso lo hace visible.
+//
+// La regla es el destino final, no «que llegue»: apuntar al `source` de un
+// redirect propio también cuenta como enlace muerto. Los 301 existen para el
+// tráfico que ya no controlamos —la cola de rastreo de Google, un enlace de
+// fuera, alguien que teclea la URL vieja—; dentro del sitio se enlaza la página
+// que responde 200, porque aquí sí podemos.
+{
+  const sources = new Set(REDIRECTS
+    .filter((r) => !r.source.includes('(') && !r.source.includes(':'))
+    .map((r) => r.source));
+  const sirve = (ruta) => {
+    if (ruta === '/') return fs.existsSync(path.join(ROOT, 'index.html'));
+    if (ruta === '/blog') return fs.existsSync(path.join(ROOT, 'blog', 'index.html'));
+    if (sources.has(ruta)) return false;
+    return fs.existsSync(path.join(ROOT, archivoQueSirve(ruta)));
+  };
+  const ESTATICO = /^\/(images|favicon|data)|\.(png|svg|jpe?g|xml|json|ico|webp)$/i;
+
+  const paginas = [
+    ...fs.readdirSync(path.join(ROOT, 'blog')).filter((f) => f.endsWith('.html')).map((f) => `blog/${f}`),
+    ...fs.readdirSync(path.join(ROOT, 'pages')).filter((f) => f.endsWith('.html')).map((f) => `pages/${f}`),
+    'index.html',
+  ];
+  const muertos = new Map();
+  for (const rel of paginas) {
+    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    for (const m of html.matchAll(/href="(\/[^"#?]*)"/g)) {
+      const ruta = m[1];
+      if (ESTATICO.test(ruta) || sirve(ruta)) continue;
+      if (!muertos.has(ruta)) muertos.set(ruta, new Set());
+      muertos.get(ruta).add(rel);
+    }
+  }
+  if (muertos.size) {
+    fallos.push(`${muertos.size} destino(s) enlazados que redirigen o no existen:`);
+    for (const [ruta, desde] of muertos) {
+      fallos.push(`    ${ruta}  ← ${desde.size} archivo(s), p. ej. ${[...desde][0]}`);
+    }
+  } else ok.push(`ningún enlace interno pasa por un redirect`);
+}
+
 console.log('Rutas de vercel.json\n');
 ok.forEach((o) => console.log(`  ✓ ${o}`));
 fallos.forEach((f) => console.log(`  ✗ ${f}`));

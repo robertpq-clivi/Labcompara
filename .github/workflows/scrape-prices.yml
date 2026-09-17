@@ -38,7 +38,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     steps:
+      # Historia completa: los generadores y el sitemap sacan de git la fecha de
+      # alta y la última modificación real de cada página. Con el checkout
+      # superficial que trae v4 por defecto, `git log` sólo ve un commit y todo
+      # parecería creado hoy — que es la frescura falsa que esto vino a quitar.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:

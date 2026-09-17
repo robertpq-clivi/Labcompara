@@ -19,9 +19,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const { ROOT } = require('./lib/rutas');
 const { legible } = require('./lib/ancla');
 const { altDeTitulo } = require('./lib/alt-imagen');
+const { seVendeSinReceta } = require('./lib/oferta-publica');
 
 const BLOG = path.join(ROOT, 'blog');
 const fallos = [];
@@ -37,6 +39,28 @@ const SUBTIPOS_PRODUCT = ['Product', 'ProductModel', 'ProductGroup', 'Individual
 const archivos = fs.readdirSync(BLOG)
   .filter((f) => f.endsWith('.html') && f !== 'index.html')
   .sort();
+
+/**
+ * Fecha del commit que dio de alta cada archivo del blog, en una sola llamada a
+ * git: 182 llamadas sueltas tardarían más que el resto de la suite junta.
+ * Vacío si git no está disponible — el test no debe depender del entorno.
+ */
+const altas = (() => {
+  const mapa = new Map();
+  let salida;
+  try {
+    salida = execFileSync('git',
+      ['log', '--diff-filter=A', '--format=%as', '--name-only', '--', 'blog'],
+      { cwd: ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+  } catch { return mapa; }
+  let fecha = null;
+  for (const linea of salida.split('\n')) {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(linea)) { fecha = linea; continue; }
+    // git recorre de nuevo a viejo: la última que se ve es el alta real.
+    if (linea.startsWith('blog/') && fecha) mapa.set(linea.trim(), fecha);
+  }
+  return mapa;
+})();
 
 const sinImagenArticle = [];
 const sinImagenProduct = [];
@@ -54,6 +78,9 @@ const desincronizado   = [];
 const sinBreadcrumb    = [];
 const sinAutor         = [];
 const sinFecha         = [];
+const fechaInvertida   = [];
+const fechaInflada     = [];
+const ofertaConReceta  = [];
 const ancaRota         = [];
 const tocSinCss        = [];
 const seccionSinId     = [];
@@ -158,6 +185,18 @@ for (const archivo of archivos) {
     nodos.forEach(buscar);
   }
 
+  // Marcado de comercio sólo sobre lo que se compra de mostrador. Una caja que
+  // necesita receta no tiene oferta pública que declarar, y un `AggregateOffer`
+  // con `InStock` describiría una venta que este sitio no puede sostener.
+  // El estado de receta se lee del HTML visible, así que la regla también cubre
+  // las páginas escritas a mano. Ver lib/oferta-publica.js.
+  {
+    const pill = (html.match(/<div class="receta-pill">([^<]*)</) || [, ''])[1];
+    if (pill && !seVendeSinReceta(pill) && /"@type":"Product"/.test(html)) {
+      ofertaConReceta.push(`${archivo} (${pill.trim()})`);
+    }
+  }
+
   // Una tabla sin `.tabla-scroll` desborda su caja en móvil, que es el 77% del
   // tráfico. La regla la pone lib/tabla-movil.js.
   {
@@ -187,6 +226,21 @@ for (const archivo of archivos) {
   if (!nodos.some((n) => n && n['@type'] === 'BreadcrumbList')) sinBreadcrumb.push(archivo);
   if (article && !article.author) sinAutor.push(archivo);
   if (article && !(article.datePublished && article.dateModified)) sinFecha.push(archivo);
+
+  // Las dos fechas, en orden y sin inflar. El 30 de agosto de 2026 una corrida
+  // del scan declaró 56 artículos como publicados ese día —uno existía desde
+  // marzo— porque los generadores escribían `datePublished` con la fecha del
+  // scan. `lib/fechas-articulo.js` lo arregla; esto vigila que siga arreglado.
+  if (article && article.datePublished && article.dateModified
+      && article.dateModified < article.datePublished) {
+    fechaInvertida.push(`${archivo} (publicado ${article.datePublished}, modificado ${article.dateModified})`);
+  }
+  {
+    const alta = altas.get(`blog/${archivo}`);
+    if (article && article.datePublished && alta && article.datePublished > alta) {
+      fechaInflada.push(`${archivo} (dice ${article.datePublished}, el archivo existe desde ${alta})`);
+    }
+  }
 
   // El índice del artículo: sus enlaces tienen que aterrizar, sus secciones
   // tienen que tener ancla, y la hoja de estilo tiene que traer la regla.
@@ -273,6 +327,14 @@ caso(sinBreadcrumb, 'archivo(s) sin BreadcrumbList', `los ${archivos.length} dec
   'es el único rich result que este sitio gana hoy — corre: node scripts/completar-marcado-blog.js --apply');
 caso(sinAutor, 'Article sin author', 'todos los Article declaran author');
 caso(sinFecha, 'Article sin datePublished o dateModified', 'todos los Article traen las dos fechas');
+caso(fechaInvertida, 'Article con dateModified anterior a datePublished',
+  'ningún Article se modificó antes de publicarse');
+caso(ofertaConReceta, 'página(s) con Product sobre una caja que necesita receta',
+  'el marcado de oferta sólo cubre lo que se vende de mostrador',
+  'un AggregateOffer con InStock describe una venta que este sitio no sostiene');
+caso(fechaInflada, 'Article que dice haberse publicado después de que el archivo existe',
+  'ninguna fecha de publicación está inflada',
+  'el scan las movía cada domingo — corre: node scripts/reparar-fechas-blog.js --apply');
 caso(ancaRota, 'enlace(s) del índice que no aterrizan', 'todos los enlaces del índice aterrizan en una sección');
 caso(tocSinCss, 'archivo(s) con índice pero sin la regla .toc', 'todo índice trae su CSS');
 caso(seccionSinId, 'archivo(s) con índice y menos de 4 secciones con ancla', 'los índices cubren sus secciones');

@@ -28,6 +28,8 @@ const { altDeTitulo } = require('./lib/alt-imagen');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
+const { conFechas } = require('./lib/fechas-articulo');
+const { ofertaPublica } = require('./lib/oferta-publica');
 const { conTablasScroll } = require('./lib/tabla-movil');
 const G    = require('./lib/glp1-blog');
 
@@ -553,7 +555,10 @@ function schemas(h, c, url, meta) {
       // toda la página. El precio lo declara el Product de abajo, no este nodo.
       about: { '@type': 'Thing', name: h.familia, alternateName: h.activo },
     },
-    {
+    // Ningún GLP-1 se vende de mostrador en México: los seis copys declaran
+    // «Requiere receta médica». Un `AggregateOffer` con `InStock` describiría
+    // una venta que esta página no puede sostener; ver lib/oferta-publica.js.
+    ofertaPublica(c.receta && c.receta.estado, {
       '@context': 'https://schema.org', '@type': 'Product',
       name: `${h.familia} ${h.inicial.dosis} — precio en México`,
       image: [tarjeta(c.slug)],
@@ -564,7 +569,7 @@ function schemas(h, c, url, meta) {
         lowPrice: Math.round(h.inicial.min), highPrice: Math.round(h.inicial.max),
         offerCount: h.inicial.farmacias.length, availability: 'https://schema.org/InStock',
       },
-    },
+    }),
     {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
@@ -574,7 +579,7 @@ function schemas(h, c, url, meta) {
       ],
     },
   ];
-  return bloques.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n');
+  return bloques.filter(Boolean).map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n');
 }
 
 function pagina(h, c, todos, meta) {
@@ -746,8 +751,9 @@ for (const { c, h, r, cruzada, nuevo, seEscribe } of listos) {
   const cuerpo = cruzada ? paginaTodas(h, r, resueltos, meta)
                : nuevo   ? paginaNuevo(h, r, resueltos, meta)
                :           pagina(h, r, resueltos, meta);
-  const html = conIndice(conTablasScroll(cuerpo));
-  if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);
+  const destino = path.join(ROOT, 'blog', c.slug + '.html');
+  const html = conFechas(conIndice(conTablasScroll(cuerpo)), destino, meta.fecha);
+  if (APPLY) fs.writeFileSync(destino, html);
   const detalle = cruzada ? `${h.nFamilias} tratamientos` : `${h.nPresentaciones} dosis`;
   console.log(`  ${APPLY ? '✓' : '·'} blog/${c.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${detalle} · desde ${mxn(h.min)})`);
 }

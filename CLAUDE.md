@@ -61,8 +61,23 @@ images/farmacias/   logos de farmacia
 images/laboratorios/ logos de laboratorio
 ```
 
-Las rutas limpias salen de `vercel.json` (`cleanUrls`, 14 rewrites, 6 redirects).
+Las rutas limpias salen de `vercel.json` (`cleanUrls`, 6 rewrites, 34 redirects).
 `pages/foo.html` se sirve como `/foo`.
+
+**Había nueve landings de laboratorio y quedan dos.** «Laboratorio clínico»,
+«laboratorio médico», «análisis clínicos», «estudios clínicos», «estudios de
+laboratorio», «pruebas de laboratorio», «exámenes de sangre» y «laboratorio de
+análisis clínicos» son la misma búsqueda en español de México: ocho puertas a la
+misma habitación, que es el patrón que Google llama doorway. Ahí el criterio es
+el propósito, no el texto — el suyo era distinto entre sí, 1% a 12% de
+solapamiento real de frases. Entre las ocho sumaban 134 impresiones y 1 clic en
+90 días. Redirigen a `/laboratorio`; sobrevive `/laboratorio-cerca-de-mi`, que
+responde dónde y no cuánto.
+
+Antes de cerrarlas hubo que mover lo que sostenían: `/laboratorio` no enlazaba
+un solo artículo del blog y Google descubría el artículo que más rinde a través
+de `/laboratorio-clinico`. De ahí el bloque de guías del comparador y el de la
+portada.
 
 ---
 
@@ -95,6 +110,7 @@ estricta + `--apply` para escribir (sin la bandera es dry-run).
 | `npm run blog:glp1` | 5 de GLP-1 | `scripts/glp1-blog-copy.json` |
 | `npm run tarjetas` | las 178 tarjetas de 1200x630 + su marcado | — (título y rubro salen del HTML) |
 | `node scripts/completar-marcado-blog.js` | `Article`, `BreadcrumbList`, `author` y fechas que falten | — (fechas de git) |
+| `node scripts/reparar-fechas-blog.js` | las fechas que el scan había inflado — pasada de una sola vez | — (git, y `--origen <repo>`) |
 
 `npm run predeploy` corre los cuatro con `--apply` y regenera los sitemaps.
 
@@ -119,6 +135,13 @@ Sale de la **fecha del scan**, nunca de `new Date()`. Un título que dice «agos
   degradado `.fade` se estira sobre toda la página y la pinta de negro al bajar.
 - **`AggregateOffer` sólo donde hay un precio real.** El ranking y las guías no lo
   declaran: inventarles un rango sería describir una oferta que nadie vende.
+- **Y sólo sobre lo que se compra de mostrador.** `lib/oferta-publica.js` lee el
+  `receta.estado` del copy: con receta de por medio no hay oferta pública que
+  declarar, y un `AggregateOffer` con `InStock` describiría una venta que este
+  sitio no puede sostener. `precio-clonazepam-mexico` anunciaba así un
+  psicotrópico de receta especial retenida. Pierden el `Product` los seis GLP-1 y
+  seis de los diez medicamentos; lo conservan los cuatro de venta libre y los 25
+  estudios de laboratorio, que se contratan sin receta ni intermediario.
 - **Las tablas van en `.tabla-scroll`.** El 77% del tráfico es móvil y una tabla de
   seis columnas empuja el ancho de la página entera.
 - **Concordancia de género en los encabezados generados**: el copy trae `articulo`
@@ -261,13 +284,41 @@ costado de la lista. Se vio en un render, no en el código.
 
 ## Fechas del marcado
 
-`datePublished` y `dateModified` de los artículos a mano salen de **git** —el
-commit que dio de alta el archivo y el último anterior a la pasada de marcado—,
-nunca de `new Date()`.
+`datePublished` y `dateModified` salen de **git** y de lo ya publicado, nunca de
+`new Date()` ni de la fecha del scan.
 
-Y las que ya existían no se tocaron. Un `dateModified` de hoy sobre un texto que
-nadie reescribió es una promesa de frescura falsa, y así trata Google los
-cambios de fecha sin cambio de contenido.
+La regla vivía sólo en `completar-marcado-blog.js`, que toca los artículos a
+mano. Los generadores —que reescriben 56 páginas cada domingo— escribían las dos
+fechas con la fecha del scan, así que **cada corrida volvía a declarar esas 56
+páginas como publicadas ese día**. La del 30 de agosto de 2026 movió la fecha de
+alta de 56 artículos; en la mitad, el diff entero eran esas fechas. Las
+impresiones del sitio cayeron de 1,040 diarias a 60 entre el 29 y el 31.
+
+Ahora las resuelve `lib/fechas-articulo.js`, que envuelve el HTML ya armado como
+`conIndice` y `conTablasScroll`:
+
+- **`datePublished` no se mueve nunca.** La más antigua entre la que declara el
+  archivo y el commit que lo dio de alta. Tomar la más antigua no es un detalle:
+  una fecha inflada se corrige sola y el módulo no puede inventar frescura ni
+  queriendo.
+- **`dateModified` sólo avanza si el contenido cambió.** Se compara el HTML nuevo
+  contra el publicado después de neutralizar toda fecha — y hay que neutralizar
+  las tres: el JSON-LD, el «agosto 2026» del `<title>` y el «Precios verificados
+  el 30 de agosto de 2026» de la línea de fuente. Sin las dos últimas, ninguna
+  página sería nunca igual a la anterior y `dateModified` avanzaría siempre.
+
+Lo mismo en los sitemaps: cada URL declara cuándo cambió de verdad, y **si no se
+puede saber, no se declara**. Omitir `lastmod` es válido en el estándar; poner
+la fecha de hoy en las 196 URLs cada domingo es lo que enseña a Google a
+ignorarlo.
+
+Por eso el workflow hace checkout con `fetch-depth: 0`. Con el superficial que
+trae `actions/checkout@v4` por defecto, `git log` sólo ve un commit y todo
+parece creado hoy.
+
+`test-marcado-blog.js` vigila las dos direcciones: ningún `dateModified`
+anterior a su `datePublished`, y ninguna fecha de publicación posterior al alta
+del archivo en git.
 
 ---
 
@@ -286,9 +337,12 @@ Los 18 llevan `permanent: true` a su artículo real. No rescatan autoridad
 que compran es cerrar la cola de rastreo de una vez y atender a quien teclee
 el slug viejo.
 
-`scripts/test-rutas.js` vigila los dos sentidos: que ningún redirect o rewrite
-apunte a un archivo que no existe, y que ningún `source` tape una página
-publicada. Es la cuarta lista a mano de este repo que se puede desincronizar
+`scripts/test-rutas.js` vigila tres sentidos: que ningún redirect o rewrite
+apunte a un archivo que no existe, que ningún `source` tape una página
+publicada, y que **ningún enlace interno pase por un redirect**. Esto último es
+el destino final, no «que llegue»: los 301 existen para el tráfico que ya no
+controlamos —la cola de rastreo, un enlace de fuera— y dentro del sitio se
+enlaza la página que responde 200, porque aquí sí se puede. Es la cuarta lista a mano de este repo que se puede desincronizar
 del directorio, y las tres anteriores se desincronizaron.
 
 **Redirect no es sinónimo de arreglo.** Si una ruta muerta no tiene destino

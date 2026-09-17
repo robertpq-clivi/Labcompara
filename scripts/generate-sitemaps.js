@@ -15,10 +15,10 @@
 
 const fs   = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
 const BASE_URL  = 'https://medcompara.com.mx';
-const TODAY     = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 const PUBLIC_DIR = path.join(__dirname, '..'); // Sitemaps at repo root → served at domain root
 
 // ── CORE PAGES ────────────────────────────────────────────────────────────────
@@ -30,14 +30,6 @@ const CORE_PAGES = [
   { path: '/',                                  priority: '1.0', changefreq: 'weekly'  },
   { path: '/laboratorio',                       priority: '1.0', changefreq: 'weekly'  },
   { path: '/laboratorio-cerca-de-mi',           priority: '0.9', changefreq: 'weekly'  },
-  { path: '/laboratorio-clinico',               priority: '0.9', changefreq: 'weekly'  },
-  { path: '/estudios-de-laboratorio',           priority: '0.9', changefreq: 'weekly'  },
-  { path: '/laboratorio-medico',                priority: '0.9', changefreq: 'weekly'  },
-  { path: '/analisis-clinicos',                 priority: '0.9', changefreq: 'weekly'  },
-  { path: '/laboratorio-de-analisis-clinicos',  priority: '0.9', changefreq: 'weekly'  },
-  { path: '/examenes-de-sangre',                priority: '0.9', changefreq: 'weekly'  },
-  { path: '/pruebas-de-laboratorio',            priority: '0.9', changefreq: 'weekly'  },
-  { path: '/estudios-clinicos',                 priority: '0.9', changefreq: 'weekly'  },
 ];
 
 // Hubo un tercer sitemap, sitemap-estudios.xml, con 20 URLs escritas a mano bajo
@@ -93,12 +85,62 @@ function validar(nombre, pages) {
   process.exit(1);
 }
 
+// ── LASTMOD ───────────────────────────────────────────────────────────────────
+// Antes las 196 URLs salían con `lastmod` = hoy, y el sitemap se regenera cada
+// domingo: el archivo le juraba a Google que las 196 páginas habían cambiado esa
+// mañana, incluidas las nueve landings que no se tocan desde junio. Google sólo
+// hace caso del `lastmod` cuando lo encuentra consistente y verificable; un
+// sitemap que marca todo como nuevo cada semana es justo el que aprende a
+// ignorar, y de paso repite la señal de frescura falsa que ya traían las fechas
+// del blog (ver lib/fechas-articulo.js).
+//
+// Ahora cada URL declara cuándo cambió de verdad, y **si no se puede saber, no
+// se declara**: omitir `lastmod` es válido en el estándar y no le miente a nadie.
+
+/** `dateModified` del Article de una página, o null si no lo declara. */
+function fechaDelMarcado(archivo) {
+  const ruta = path.join(PUBLIC_DIR, archivo);
+  if (!fs.existsSync(ruta)) return null;
+  const m = fs.readFileSync(ruta, 'utf8')
+    .match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : null;
+}
+
+// En CI el checkout es superficial: `git log` sólo ve un commit y daría la fecha
+// de hoy para todo, que es exactamente la mentira que esto viene a quitar.
+const SUPERFICIAL = (() => {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'],
+      { cwd: PUBLIC_DIR, encoding: 'utf8' }).trim() === 'true';
+  } catch { return true; }
+})();
+
+/** Último commit que tocó el archivo, o null si no hay historia utilizable. */
+function fechaDelHistorial(archivo) {
+  if (SUPERFICIAL) return null;
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%as', '--', archivo],
+      { cwd: PUBLIC_DIR, encoding: 'utf8' }).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null;
+  } catch { return null; }
+}
+
+const lastmodCache = new Map();
+function lastmod(rutaPublica) {
+  if (lastmodCache.has(rutaPublica)) return lastmodCache.get(rutaPublica);
+  const archivo = archivoQueSirve(rutaPublica);
+  const v = fechaDelMarcado(archivo) || fechaDelHistorial(archivo) || null;
+  lastmodCache.set(rutaPublica, v);
+  return v;
+}
+
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function urlEntry({ path: p, priority, changefreq }) {
+  const fecha = lastmod(p);
   return [
     '  <url>',
     `    <loc>${BASE_URL}${p}</loc>`,
-    `    <lastmod>${TODAY}</lastmod>`,
+    ...(fecha ? [`    <lastmod>${fecha}</lastmod>`] : []),
     `    <changefreq>${changefreq}</changefreq>`,
     `    <priority>${priority}</priority>`,
     '  </url>',
@@ -114,12 +156,20 @@ function buildSitemap(pages) {
   ].join('\n');
 }
 
+/** La más reciente de las páginas que lista cada sitemap. */
+function masReciente(pages) {
+  const fechas = pages.map(p => lastmod(p.path)).filter(Boolean).sort();
+  return fechas.length ? fechas[fechas.length - 1] : null;
+}
+
 function buildSitemapIndex() {
-  const sitemaps = ['sitemap-core.xml', 'sitemap-blog.xml'];
-  const entries  = sitemaps.map(name => [
+  const entries = [
+    ['sitemap-core.xml', masReciente(CORE_PAGES)],
+    ['sitemap-blog.xml', masReciente(BLOG_PAGES)],
+  ].map(([name, fecha]) => [
     '  <sitemap>',
     `    <loc>${BASE_URL}/${name}</loc>`,
-    `    <lastmod>${TODAY}</lastmod>`,
+    ...(fecha ? [`    <lastmod>${fecha}</lastmod>`] : []),
     '  </sitemap>',
   ].join('\n'));
 
@@ -141,7 +191,7 @@ function write(filename, content) {
 // ── GENERATE ──────────────────────────────────────────────────────────────────
 console.log('\n🗺️  Medcompara Sitemap Generator');
 console.log(`   BASE_URL : ${BASE_URL}`);
-console.log(`   lastmod  : ${TODAY}`);
+console.log(`   lastmod  : por página${SUPERFICIAL ? ' (repo superficial: sólo el del marcado)' : ''}`);
 console.log(`   Output   : repo root/\n`);
 
 if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });

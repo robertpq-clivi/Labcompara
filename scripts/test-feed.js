@@ -179,6 +179,19 @@ function revisarCifras() {
     }
 
     const landing = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+
+    // El bloque de guías de la portada cierra con «Ver las N guías». Es una
+    // cifra a mano sobre un directorio que crece, igual que las tarjetas, y se
+    // mide contra el mismo directorio que lee generate-sitemaps.js.
+    {
+      const enDisco = fs.readdirSync(path.join(ROOT, 'blog'))
+        .filter((f) => f.endsWith('.html') && f !== 'index.html').length;
+      for (const g of landing.matchAll(/Ver las (\d{1,4}) gu[ií]as/g)) {
+        const n = Number(g[1]);
+        if (n > enDisco) malas.push(`index.html: dice "${n} guías" y hay ${enDisco} artículos`);
+      }
+    }
+
     for (const m of landing.matchAll(/<p class="card-mini">([^<]*)<\/p>/g)) {
       for (const c of m[1].matchAll(/(\d{1,4})\s+(estudios|laboratorios|presentaciones|tratamientos|medicamentos)/g)) {
         const n = Number(c[1]), real2 = reales[c[2]];

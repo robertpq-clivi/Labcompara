@@ -32,6 +32,7 @@ const { altDeTitulo } = require('./lib/alt-imagen');
 // El índice y las anclas de sección van sobre el HTML ya armado, con la misma
 // función que usó la pasada de los artículos escritos a mano.
 const { conIndice } = require('./lib/indice-articulo');
+const { conFechas } = require('./lib/fechas-articulo');
 const { conTablasScroll } = require('./lib/tabla-movil');
 const E    = require('./lib/estudios-blog');
 const { DESTACADOS } = require('./lib/comparativas');
@@ -633,8 +634,9 @@ if (problemas.length) {
 const resueltos = listos.map(x => x.r);
 
 for (const { c, d, r } of listos) {
-  const html = conIndice(conTablasScroll(armar(r, d, meta, datos, resueltos)));
-  if (APPLY) fs.writeFileSync(path.join(ROOT, 'blog', c.slug + '.html'), html);
+  const destino = path.join(ROOT, 'blog', c.slug + '.html');
+  const html = conFechas(conIndice(conTablasScroll(armar(r, d, meta, datos, resueltos))), destino, meta.fecha);
+  if (APPLY) fs.writeFileSync(destino, html);
   console.log(`  ${APPLY ? '✓' : '·'} blog/${c.slug}.html  (${(html.length / 1024).toFixed(1)} KB · ${c.tipo})`);
 }
 
