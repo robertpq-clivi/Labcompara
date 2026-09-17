@@ -24,40 +24,8 @@
       "destination": "/pages/medicinas"
     },
     {
-      "source": "/analisis-clinicos",
-      "destination": "/pages/analisis-clinicos"
-    },
-    {
-      "source": "/estudios-clinicos",
-      "destination": "/pages/estudios-clinicos"
-    },
-    {
-      "source": "/estudios-de-laboratorio",
-      "destination": "/pages/estudios-de-laboratorio"
-    },
-    {
-      "source": "/examenes-de-sangre",
-      "destination": "/pages/examenes-de-sangre"
-    },
-    {
       "source": "/laboratorio-cerca-de-mi",
       "destination": "/pages/laboratorio-cerca-de-mi"
-    },
-    {
-      "source": "/laboratorio-clinico",
-      "destination": "/pages/laboratorio-clinico"
-    },
-    {
-      "source": "/laboratorio-de-analisis-clinicos",
-      "destination": "/pages/laboratorio-de-analisis-clinicos"
-    },
-    {
-      "source": "/laboratorio-medico",
-      "destination": "/pages/laboratorio-medico"
-    },
-    {
-      "source": "/pruebas-de-laboratorio",
-      "destination": "/pages/pruebas-de-laboratorio"
     }
   ],
   "headers": [
@@ -213,6 +181,46 @@
     {
       "source": "/blog/cuanto-cuesta-un-check-up-en-mexico",
       "destination": "/blog/cuanto-cuesta-check-up-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/analisis-clinicos",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/estudios-clinicos",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/estudios-de-laboratorio",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/examenes-de-sangre",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/laboratorio-clinico",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/laboratorio-de-analisis-clinicos",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/laboratorio-medico",
+      "destination": "/laboratorio",
+      "permanent": true
+    },
+    {
+      "source": "/pruebas-de-laboratorio",
+      "destination": "/laboratorio",
       "permanent": true
     },
     {

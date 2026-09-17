@@ -30,14 +30,6 @@ const CORE_PAGES = [
   { path: '/',                                  priority: '1.0', changefreq: 'weekly'  },
   { path: '/laboratorio',                       priority: '1.0', changefreq: 'weekly'  },
   { path: '/laboratorio-cerca-de-mi',           priority: '0.9', changefreq: 'weekly'  },
-  { path: '/laboratorio-clinico',               priority: '0.9', changefreq: 'weekly'  },
-  { path: '/estudios-de-laboratorio',           priority: '0.9', changefreq: 'weekly'  },
-  { path: '/laboratorio-medico',                priority: '0.9', changefreq: 'weekly'  },
-  { path: '/analisis-clinicos',                 priority: '0.9', changefreq: 'weekly'  },
-  { path: '/laboratorio-de-analisis-clinicos',  priority: '0.9', changefreq: 'weekly'  },
-  { path: '/examenes-de-sangre',                priority: '0.9', changefreq: 'weekly'  },
-  { path: '/pruebas-de-laboratorio',            priority: '0.9', changefreq: 'weekly'  },
-  { path: '/estudios-clinicos',                 priority: '0.9', changefreq: 'weekly'  },
 ];
 
 // Hubo un tercer sitemap, sitemap-estudios.xml, con 20 URLs escritas a mano bajo
