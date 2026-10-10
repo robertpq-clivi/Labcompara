@@ -603,6 +603,13 @@ const meta  = {
   fechaLarga: scan.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }),
 };
 
+/** Tokens de fecha con el mes más largo en español, para validar longitudes. */
+const PEOR_MES = (anio) => ({
+  MES: 'septiembre',
+  MES_ANIO: `septiembre ${anio}`,
+  FECHA: `30 de septiembre de ${anio}`,
+});
+
 const problemas = [];
 const listos = [];
 
@@ -618,6 +625,14 @@ for (const c of COPY) {
 
   const r = resolver(c, mapa);
   const malos = validarResuelto(r, `${r.titulo} | Medcompara`);
+  // Y también con el mes más largo del año: un título que cabe en agosto y se
+  // pasa en septiembre tumbó la corrida entera dos veces (5706098 y el cron
+  // de septiembre-octubre de 2026), y con él el commit de los precios nuevos.
+  // Validar contra "septiembre" en cualquier mes lo detecta en el dry-run.
+  const rPeor = resolver(c, { ...mapa, ...PEOR_MES(meta.anio) });
+  for (const p of validarResuelto(rPeor, `${rPeor.titulo} | Medcompara`)) {
+    if (!malos.includes(p)) malos.push(`${p} con el mes más largo (septiembre)`);
+  }
   if (malos.length) { problemas.push(...malos.map(p => `${c.slug} → ${p}`)); continue; }
 
   listos.push({ c, d, r });

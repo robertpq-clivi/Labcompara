@@ -507,6 +507,12 @@ const scan  = new Date(datos.generated_at);
 // "agosto 2026" sobre precios de junio promete una frescura que la página no
 // tiene. Como el scan corre cada domingo, el mes se actualiza solo dentro de
 // la semana siguiente al cambio de mes.
+/** Tokens de fecha con el mes más largo en español, para validar longitudes. */
+const PEOR_MES = (anio) => ({
+  MES: 'septiembre',
+  MES_ANIO: `septiembre ${anio}`,
+  FECHA: `30 de septiembre de ${anio}`,
+});
 const mes   = scan.toLocaleDateString('es-MX', { month: 'long' });
 const meta  = {
   fecha: datos.generated_at.slice(0, 10),
@@ -537,7 +543,14 @@ const problemas = todos
     const errs = validarCopy(c, mapa);
     if (errs.length) return errs.map(p => `${h.slugMed} → ${p}`);
     const r = resolver(c, mapa);
-    return validarResuelto(r, `${r.titulo} | Medcompara`).map(p => `${h.slugMed} → ${p}`);
+    const malos = validarResuelto(r, `${r.titulo} | Medcompara`);
+    // También con el mes más largo del año, para que un título que cabe hoy no
+    // tumbe la corrida de septiembre (y con ella el commit de los precios).
+    const rPeor = resolver(c, { ...mapa, ...PEOR_MES(meta.anio) });
+    for (const p of validarResuelto(rPeor, `${rPeor.titulo} | Medcompara`)) {
+      if (!malos.includes(p)) malos.push(`${p} con el mes más largo (septiembre)`);
+    }
+    return malos.map(p => `${h.slugMed} → ${p}`);
   });
 
 if (problemas.length) {
