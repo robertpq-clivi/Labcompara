@@ -2,27 +2,33 @@
   "_comment": "Canonical catalog for GLPcompara. 'name' must match RAW_DATA names in index.html exactly. 'family' drives the search query per source; 'match' tokens (all must appear, case-insensitive) identify the right product variant within that family's results. Tune 'match' tokens against data/prices_raw.json as needed.",
   "families": {
     "Ozempic": {
-      "query": "ozempic"
+      "query": "ozempic",
+      "sustancia": "semaglutida"
     },
     "Mounjaro": {
       "query": "mounjaro",
       "exclude": [
+        "0.5 ml",
         "frasco",
         "vial",
         "ámpula",
         "ampula"
       ],
-      "nota": "Ahorro y Guadalajara venden el mismo mg en pluma KwikPen y en frasco ámpula. El frasco cuesta ~4x menos pero requiere jeringa aparte y no es la misma presentación: Benavides y San Pablo solo listan pluma. Comparar vial contra pluma hacía ver a esas dos farmacias como 4x más baratas en las dosis de inicio."
+      "nota": "Ahorro y Guadalajara venden el mismo mg en pluma KwikPen y en frasco ámpula. El frasco cuesta ~4x menos pero requiere jeringa aparte y no es la misma presentación: Benavides y San Pablo solo listan pluma. Comparar vial contra pluma hacía ver a esas dos farmacias como 4x más baratas en las dosis de inicio. Benavides sí lista el frasco, pero su título no dice «frasco»: «2.5 mg/0.5 ml Tirzepatida Solución Inyectable», de ahí el token «0.5 ml» (la pluma es 0.6 ml/dosis).",
+      "sustancia": "tirzepatida"
     },
     "Wegovy": {
-      "query": "wegovy"
+      "query": "wegovy",
+      "sustancia": "semaglutida"
     },
     "Rybelsus": {
-      "query": "rybelsus"
+      "query": "rybelsus",
+      "sustancia": "semaglutida"
     },
     "Foundayz": {
       "query": "foundayz",
-      "nota": "Foundayz (orforglipron) llegó a México en 2026 y ya se surte en farmacia además de dentro de planes médicos. San Pablo nombra sus cuatro SKU igual —«Foundayz 30 Tabletas Caja»— y la dosis sólo viene en additionalDescription («Orforglipron 0.8 MG»), así que el emparejamiento la lee de ahí: ver DETALLE_EMPAREJA en farmacias.js. Los tokens de 9 mg aceptan las dos escrituras porque la farmacia publica «9.0 MG»."
+      "nota": "Foundayz (orforglipron) llegó a México en 2026 y ya se surte en farmacia además de dentro de planes médicos. San Pablo nombra sus cuatro SKU igual —«Foundayz 30 Tabletas Caja»— y la dosis sólo viene en additionalDescription («Orforglipron 0.8 MG»), así que el emparejamiento la lee de ahí: ver DETALLE_EMPAREJA en farmacias.js. Los tokens de 9 mg aceptan las dos escrituras porque la farmacia publica «9.0 MG».",
+      "sustancia": "orforglipron"
     }
   },
   "products": [

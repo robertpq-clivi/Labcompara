@@ -104,6 +104,20 @@ check(conFam && conFam.precio === 6250, 'con la regla de familia elige la KwikPe
 const sinFam = V.elegir(mezcla, p25, 'Ahorro');
 check(sinFam && sinFam.precio === 1694, 'sin ella elegía el frasco — así se detectó el error');
 
+// Benavides lista el frasco sin decir "frasco" y, buscando "mounjaro", también
+// devuelve Foundayz (orforglipron). Ninguno de los dos debe ganarle a la pluma.
+const benavides = [
+  { titulo: '2.5 mg/0.5 ml Tirzepatida Solución Inyectable', precio: 1792, url: '', marca: 'Mounjaro', activos: 'Tirzepatida' },
+  { titulo: '2.5 mg Orforglipron', precio: 4200, url: '', marca: 'Foundayz', activos: 'Orforglipron' },
+  { titulo: '2.5 mg Tirzepatida/0.6 ml Solución', precio: 5867, url: '', marca: 'Mounjaro', activos: 'Tirzepatida' },
+];
+const ben = V.elegir(benavides, p25, 'Benavides', famM);
+check(ben && ben.precio === 5867, 'Benavides: ni el frasco (0.5 ml) ni el orforglipron le ganan a la pluma',
+  ben ? String(ben.precio) : 'sin match');
+const benSinGA = V.elegir(benavides.map(({ marca, activos, ...r }) => r), p25, 'Benavides', famM);
+check(benSinGA && benSinGA.precio === 5867, 'Benavides sin campos GA4: la sustancia en el título basta',
+  benSinGA ? String(benSinGA.precio) : 'sin match');
+
 // "2.5 mg" es subcadena de "12.5 mg"
 console.log('\nLa dosis no se confunde con otra que la contenga:');
 const doce = [{ titulo: 'Mounjaro KwikPen 12.5mg/0.6ml Pluma Precargada', precio: 14358, url: '' }];

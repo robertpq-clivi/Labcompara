@@ -264,7 +264,10 @@ const ADAPTADORES = [benavides, ahorro, guadalajara, sanpablo];
 
 /** "5mg" / "12.5Mg" → "5 mg" / "12.5 mg", para que los tokens comparen igual. */
 function normalizar(s) {
-  return String(s || '').toLowerCase().replace(/(\d)\s*mg/g, '$1 mg').replace(/\s+/g, ' ');
+  return String(s || '').toLowerCase()
+    .replace(/(\d)\s*mg/g, '$1 mg')
+    .replace(/(\d)\s*ml/g, '$1 ml')   // "0.5ml" → "0.5 ml": el frasco ámpula se distingue de la pluma por el volumen
+    .replace(/\s+/g, ' ');
 }
 
 /**
@@ -316,6 +319,20 @@ function elegir(resultados, prod, fuente, familia) {
   const conMarca = cands.filter((r) => fam && normalizar(r.titulo).includes(fam));
   if (conMarca.length) cands = conMarca;
   else if (fuente !== 'Benavides') return null;
+  else {
+    // Benavides no pone la marca en el título, y su búsqueda por "mounjaro"
+    // también devuelve "2.5 mg Orforglipron" (Foundayz), que ganaría por precio.
+    // Se exige la marca en el campo item_brand que la farmacia publica, o el
+    // principio activo de la familia en el título / Principio_activo.
+    // Sólo aplica cuando la familia declara su sustancia: sin ella se sigue
+    // confiando en la búsqueda acotada, como antes.
+    const sust = normalizar((familia && familia.sustancia) || '');
+    if (sust) {
+      cands = cands.filter((r) =>
+        normalizar(r.marca).includes(fam) ||
+        normalizar(r.titulo).includes(sust) || normalizar(r.activos).includes(sust));
+    }
+  }
 
   if (!cands.length) return null;
   return cands.reduce((a, b) => (b.precio < a.precio ? b : a));
