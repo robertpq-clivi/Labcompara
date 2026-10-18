@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T18:05:07.279Z",
+  "generated_at": "2026-10-18T16:31:18.948Z",
   "currency": "MXN",
   "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
@@ -549,7 +549,7 @@
           "detalle": "rybelsus 3 mg semaglutida 30 tabletas"
         },
         "Ahorro": {
-          "price": 1841,
+          "price": 1853,
           "url": "https://www.fahorro.com/rybelsus-3-mg-30-tabletas.html",
           "title": "Rybelsus 3 mg 30 tabletas"
         },
@@ -565,7 +565,7 @@
         }
       },
       "Clivi": 1999,
-      "Ahorro": 1841,
+      "Ahorro": 1853,
       "Benavides": 2332,
       "Guadalajara": 1610,
       "SanPablo": 2153,
@@ -621,7 +621,7 @@
           "detalle": "rybelsus 14 mg semaglutida 30 tabletas"
         },
         "Ahorro": {
-          "price": 3355,
+          "price": 3374,
           "url": "https://www.fahorro.com/rybelsus-14-mg-30-tabletas.html",
           "title": "Rybelsus 14 mg 30 Tabs"
         },
@@ -637,7 +637,7 @@
         }
       },
       "Clivi": 3999,
-      "Ahorro": 3355,
+      "Ahorro": 3374,
       "Benavides": 4339,
       "Guadalajara": 3335,
       "SanPablo": 3148,
@@ -662,7 +662,7 @@
           "detalle": "foundayz 0 8 mg orforglipron 30 tabletas"
         },
         "Ahorro": {
-          "price": 3670,
+          "price": 3695,
           "url": "https://www.fahorro.com/foundayz-0-8-mg-30-tabs.html",
           "title": "Foundayz 0.8 mg 30 Tabs"
         },
@@ -679,7 +679,7 @@
         }
       },
       "Clivi": 3499,
-      "Ahorro": 3670,
+      "Ahorro": 3695,
       "Benavides": 3500,
       "Guadalajara": 2100,
       "SanPablo": 3512,
@@ -704,7 +704,7 @@
           "detalle": "foundayz 2 5 mg orforglipron 30 tabletas"
         },
         "Ahorro": {
-          "price": 4050,
+          "price": 4075,
           "url": "https://www.fahorro.com/foundayz-2-5-mg-30-tabs.html",
           "title": "Foundayz 2.5 mg 30 Tabs"
         },
@@ -721,7 +721,7 @@
         }
       },
       "Clivi": 4199,
-      "Ahorro": 4050,
+      "Ahorro": 4075,
       "Benavides": 3928,
       "Guadalajara": 2750,
       "SanPablo": 3940,
@@ -740,18 +740,23 @@
           "title": "Precio verificado manualmente"
         },
         "Benavides": {
-          "price": 4499,
-          "url": "https://www.benavides.com.mx/5-5-mg-orforglipron",
+          "price": 4448,
+          "url": "https://www.benavides.com.mx/foundayz-5-5-mg-orforglipron-30-tabletas",
           "title": "5.5 mg Orforglipron",
-          "detalle": "5 5 mg orforglipron"
+          "detalle": "foundayz 5 5 mg orforglipron 30 tabletas"
         },
         "Ahorro": {
           "price": 4459,
           "url": "https://www.fahorro.com/foundayz-5-5-mg-30-tabs.html",
           "title": "Foundayz 5.5 mg 30 Tabs"
         },
+        "Guadalajara": {
+          "price": 3390,
+          "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-5.5-mg--30-tabletas-1486144.html",
+          "title": "Foundayz 5.5 mg, 30 Tabletas"
+        },
         "SanPablo": {
-          "price": 4449,
+          "price": 4238,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011229",
           "title": "Foundayz 30 Tabletas Caja",
           "detalle": "Orforglipron 5.5 MG"
@@ -759,9 +764,9 @@
       },
       "Clivi": 4999,
       "Ahorro": 4459,
-      "Benavides": 4499,
-      "Guadalajara": null,
-      "SanPablo": 4449,
+      "Benavides": 4448,
+      "Guadalajara": 3390,
+      "SanPablo": 4238,
       "Revert": 4099
     },
     "Foundayz 9 mg (30 tabletas)": {
@@ -777,18 +782,23 @@
           "title": "Precio verificado manualmente"
         },
         "Benavides": {
-          "price": 5290,
-          "url": "https://www.benavides.com.mx/9-mg-orforglipron",
+          "price": 5287,
+          "url": "https://www.benavides.com.mx/foundayz-9-mg-orforglipron-30-tabletas",
           "title": "9 mg Orforglipron",
-          "detalle": "9 mg orforglipron"
+          "detalle": "foundayz 9 mg orforglipron 30 tabletas"
         },
         "Ahorro": {
           "price": 5290,
           "url": "https://www.fahorro.com/foundayz-9-0-mg-30-tabs.html",
           "title": "Foundayz 9.0 mg 30 Tabs"
         },
+        "Guadalajara": {
+          "price": 3950,
+          "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-9-mg--30-tabletas.-1486160.html",
+          "title": "Foundayz 9 mg, 30 Tabletas."
+        },
         "SanPablo": {
-          "price": 5296,
+          "price": 4945,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/d---e---f/foundayz-30-tabletas-caja/p/000000000070011226",
           "title": "Foundayz 30 Tabletas Caja",
           "detalle": "Orforglipron 9.0 MG"
@@ -796,9 +806,9 @@
       },
       "Clivi": 5599,
       "Ahorro": 5290,
-      "Benavides": 5290,
-      "Guadalajara": null,
-      "SanPablo": 5296,
+      "Benavides": 5287,
+      "Guadalajara": 3950,
+      "SanPablo": 4945,
       "Revert": 4799
     }
   }

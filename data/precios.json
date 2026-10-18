@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-11T18:04:04.971Z",
+  "generado": "2026-10-18T16:30:16.123Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -12,10 +12,10 @@
   "meta": {
     "Salud Digna": {
       "ok": true,
-      "estudios": 578,
+      "estudios": 580,
       "errores": 0,
       "urls": 1,
-      "ms": 187,
+      "ms": 638,
       "verificado": true
     },
     "Polanco": {
@@ -23,7 +23,7 @@
       "estudios": 1382,
       "errores": 0,
       "urls": 1,
-      "ms": 11961,
+      "ms": 10416,
       "verificado": true
     },
     "Labbe": {
@@ -31,7 +31,7 @@
       "estudios": 1066,
       "errores": 0,
       "urls": 1095,
-      "ms": 124822,
+      "ms": 132262,
       "verificado": true
     },
     "Chopo": {
@@ -39,7 +39,7 @@
       "estudios": 1591,
       "errores": 13,
       "urls": 1615,
-      "ms": 81116,
+      "ms": 312981,
       "verificado": true
     },
     "LAPI": {
@@ -47,7 +47,7 @@
       "estudios": 1496,
       "errores": 0,
       "urls": 1500,
-      "ms": 80897,
+      "ms": 83138,
       "verificado": true
     },
     "OLAB": {
@@ -55,7 +55,7 @@
       "estudios": 2074,
       "errores": 1000,
       "urls": 6043,
-      "ms": 473827,
+      "ms": 450893,
       "verificado": true
     }
   },
@@ -81,7 +81,7 @@
     "Salud Digna": {
       "emparejados": 292,
       "arrastrados": 27,
-      "catalogo": 578,
+      "catalogo": 580,
       "fuente": "scan"
     },
     "LAPI": {
@@ -452,13 +452,13 @@
     },
     {
       "name": "Grupo Sanguíneo y Rh",
-      "Labbe": 164,
+      "Labbe": 199,
       "Polanco": 230,
       "Chopo": 144,
       "Salud Digna": 70,
       "LAPI": 141,
       "OLAB": 179,
-      "avg": 155,
+      "avg": 161,
       "cheapest": "Salud Digna"
     },
     {
