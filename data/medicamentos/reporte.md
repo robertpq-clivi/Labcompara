@@ -1,4 +1,4 @@
-# Medicamentos GLP-1 — 2026-10-18
+# Medicamentos GLP-1 — 2026-10-25
 
 | Fuente | Precios | Productos hallados | Errores |
 |---|---:|---:|---:|

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-18T16:31:18.948Z",
+  "generado": "2026-10-25T17:03:15.263Z",
   "crudo": {
     "Benavides": {
       "Ozempic": [
@@ -71,18 +71,18 @@
           "url": "https://www.benavides.com.mx/mounjaro-2-5-mg-0-5-ml-tirzepatida-solucion-inyectable-1-frasco-ampula"
         },
         {
-          "titulo": "5.5 mg Orforglipron",
-          "detalle": "foundayz 5 5 mg orforglipron 30 tabletas",
-          "marca": "Foundayz",
-          "precio": 4448,
-          "url": "https://www.benavides.com.mx/foundayz-5-5-mg-orforglipron-30-tabletas"
-        },
-        {
           "titulo": "9 mg Orforglipron",
           "detalle": "foundayz 9 mg orforglipron 30 tabletas",
           "marca": "Foundayz",
           "precio": 5287,
           "url": "https://www.benavides.com.mx/foundayz-9-mg-orforglipron-30-tabletas"
+        },
+        {
+          "titulo": "5.5 mg Orforglipron",
+          "detalle": "foundayz 5 5 mg orforglipron 30 tabletas",
+          "marca": "Foundayz",
+          "precio": 4448,
+          "url": "https://www.benavides.com.mx/foundayz-5-5-mg-orforglipron-30-tabletas"
         },
         {
           "titulo": "Aguja para Dispositivo de Inyección tipo Pluma 32G x 4mm",
@@ -219,12 +219,12 @@
       "Ozempic": [
         {
           "titulo": "Ozempic 1 mg/dosis 1 Pluma con 4 Agujas",
-          "precio": 4198,
+          "precio": 5597,
           "url": "https://www.fahorro.com/ozempic-1-mg-nf-4-pz.html"
         },
         {
           "titulo": "Ozempic 0.25 mg - 0.5 mg/dosis 1 Pluma con 6 Agujas",
-          "precio": 3096,
+          "precio": 4128,
           "url": "https://www.fahorro.com/ozempic-0-25mg-0-5-mg-w-nf-6-pz.html"
         }
       ],
@@ -305,12 +305,12 @@
         },
         {
           "titulo": "Rybelsus 14 mg 30 Tabs",
-          "precio": 3374,
+          "precio": 4498,
           "url": "https://www.fahorro.com/rybelsus-14-mg-30-tabletas.html"
         },
         {
           "titulo": "Rybelsus 7 mg 30 tabletas",
-          "precio": 2993,
+          "precio": 4016,
           "url": "https://www.fahorro.com/rybelsus-7-mg-30-tabletas.html"
         },
         {
@@ -375,11 +375,6 @@
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-2.4mg-dosis-3.2mg-ml-solucion-inyectable--1-pluma-precargada.-1448528.html"
         },
         {
-          "titulo": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada.",
-          "precio": 2385,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html"
-        },
-        {
           "titulo": "Wegovy 1mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada.",
           "precio": 3940,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447823.html"
@@ -388,6 +383,11 @@
           "titulo": "Wegovy 0.5mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada.",
           "precio": 2900,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.5mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447726.html"
+        },
+        {
+          "titulo": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada.",
+          "precio": 2385,
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html"
         },
         {
           "titulo": "Rybelsus 3 mg, 10 Tabletas.",
@@ -651,11 +651,6 @@
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-2.4mg-dosis-3.2mg-ml-solucion-inyectable--1-pluma-precargada.-1448528.html"
         },
         {
-          "titulo": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada.",
-          "precio": 2385,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html"
-        },
-        {
           "titulo": "Wegovy 1mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada.",
           "precio": 3940,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447823.html"
@@ -664,6 +659,11 @@
           "titulo": "Wegovy 0.5mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada.",
           "precio": 2900,
           "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.5mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447726.html"
+        },
+        {
+          "titulo": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada.",
+          "precio": 2385,
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html"
         },
         {
           "titulo": "Mounjaro 5mg/0.5ml Solución Inyectable, Frasco ámpula de dosis única.",
@@ -775,18 +775,18 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-10-mg-2-4-ml-solucion-caja/p/000000000070009212"
         },
         {
-          "titulo": "Mounjaro 2.5 MG 2.4 ML Solución Caja",
-          "detalle": "Tirzepatida 2.5 MG",
-          "marca": "Mounjaro",
-          "precio": 5862,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-2-5-mg-2-4-ml-solucion-caja/p/000000000070009211"
-        },
-        {
           "titulo": "Mounjaro 7.5 MG 2.4 ML Solución Caja",
           "detalle": "Tirzepatida 7.5 MG",
           "marca": "Mounjaro",
           "precio": 7876,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-7-5-mg-2-4-ml-solucion-caja/p/000000000070009210"
+        },
+        {
+          "titulo": "Mounjaro 2.5 MG 2.4 ML Solución Caja",
+          "detalle": "Tirzepatida 2.5 MG",
+          "marca": "Mounjaro",
+          "precio": 5862,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-2-5-mg-2-4-ml-solucion-caja/p/000000000070009211"
         },
         {
           "titulo": "Mounjaro 15.0 MG 2.4 ML Solución Caja",

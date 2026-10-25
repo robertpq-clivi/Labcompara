@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-18T16:30:16.123Z",
+  "generado": "2026-10-25T17:02:11.121Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -15,7 +15,7 @@
       "estudios": 580,
       "errores": 0,
       "urls": 1,
-      "ms": 638,
+      "ms": 546,
       "verificado": true
     },
     "Polanco": {
@@ -23,7 +23,7 @@
       "estudios": 1382,
       "errores": 0,
       "urls": 1,
-      "ms": 10416,
+      "ms": 12363,
       "verificado": true
     },
     "Labbe": {
@@ -31,7 +31,7 @@
       "estudios": 1066,
       "errores": 0,
       "urls": 1095,
-      "ms": 132262,
+      "ms": 142765,
       "verificado": true
     },
     "Chopo": {
@@ -39,24 +39,20 @@
       "estudios": 1591,
       "errores": 13,
       "urls": 1615,
-      "ms": 312981,
+      "ms": 176546,
       "verificado": true
     },
     "LAPI": {
       "ok": true,
-      "estudios": 1496,
+      "estudios": 1500,
       "errores": 0,
       "urls": 1500,
-      "ms": 83138,
+      "ms": 89584,
       "verificado": true
     },
     "OLAB": {
-      "ok": true,
-      "estudios": 2074,
-      "errores": 1000,
-      "urls": 6043,
-      "ms": 450893,
-      "verificado": true
+      "ok": false,
+      "error": "Zyte HTTP 520: {\"type\":\"/download/temporary-error\",\"title\":\"Website Ban\",\"status\":520,\"detail\":\"Zyte API could not get a ban-free response in a reasonable time. See https://docs.zyte.com/zyte-api/usage/errors.html#b"
     }
   },
   "cobertura": {
@@ -85,16 +81,14 @@
       "fuente": "scan"
     },
     "LAPI": {
-      "emparejados": 510,
+      "emparejados": 511,
       "arrastrados": 35,
-      "catalogo": 1496,
+      "catalogo": 1500,
       "fuente": "scan"
     },
     "OLAB": {
-      "emparejados": 392,
-      "arrastrados": 43,
-      "catalogo": 2074,
-      "fuente": "scan"
+      "emparejados": 0,
+      "fuente": "publicado"
     }
   },
   "estudios": [
@@ -2568,9 +2562,9 @@
       "Polanco": 1126.8,
       "Chopo": null,
       "Salud Digna": null,
-      "LAPI": 406,
+      "LAPI": 729,
       "OLAB": null,
-      "avg": 790,
+      "avg": 898,
       "cheapest": "LAPI"
     },
     {
@@ -4889,10 +4883,10 @@
       "Polanco": 5026.5,
       "Chopo": 1832.39,
       "Salud Digna": null,
-      "LAPI": null,
+      "LAPI": 1225,
       "OLAB": 1848,
-      "avg": 2755,
-      "cheapest": "Chopo"
+      "avg": 2449,
+      "cheapest": "LAPI"
     },
     {
       "name": "Hemoglobina Libre",

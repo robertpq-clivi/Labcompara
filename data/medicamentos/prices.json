@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:31:18.948Z",
+  "generated_at": "2026-10-25T17:03:15.263Z",
   "currency": "MXN",
   "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
@@ -16,7 +16,7 @@
           "detalle": "ozempic 134 mgml semaglutida solucion inyectable 1 pluma precargada"
         },
         "Ahorro": {
-          "price": 3096,
+          "price": 4128,
           "url": "https://www.fahorro.com/ozempic-0-25mg-0-5-mg-w-nf-6-pz.html",
           "title": "Ozempic 0.25 mg - 0.5 mg/dosis 1 Pluma con 6 Agujas"
         },
@@ -33,7 +33,7 @@
         }
       },
       "Clivi": 5499,
-      "Ahorro": 3096,
+      "Ahorro": 4128,
       "Benavides": 4004,
       "Guadalajara": 3149,
       "SanPablo": 4128,
@@ -53,7 +53,7 @@
           "detalle": "ozempic 1 mg semaglutida 1 jeringa prellenada"
         },
         "Ahorro": {
-          "price": 4198,
+          "price": 5597,
           "url": "https://www.fahorro.com/ozempic-1-mg-nf-4-pz.html",
           "title": "Ozempic 1 mg/dosis 1 Pluma con 4 Agujas"
         },
@@ -69,7 +69,7 @@
         }
       },
       "Clivi": 5499,
-      "Ahorro": 4198,
+      "Ahorro": 5597,
       "Benavides": 5485,
       "Guadalajara": 4280,
       "SanPablo": 4198,
@@ -585,7 +585,7 @@
           "detalle": "rybelsus 7 mg semaglutida 30 tabletas"
         },
         "Ahorro": {
-          "price": 2993,
+          "price": 4016,
           "url": "https://www.fahorro.com/rybelsus-7-mg-30-tabletas.html",
           "title": "Rybelsus 7 mg 30 tabletas"
         },
@@ -601,7 +601,7 @@
         }
       },
       "Clivi": 3999,
-      "Ahorro": 2993,
+      "Ahorro": 4016,
       "Benavides": 3871,
       "Guadalajara": 2975,
       "SanPablo": 2808,
@@ -621,7 +621,7 @@
           "detalle": "rybelsus 14 mg semaglutida 30 tabletas"
         },
         "Ahorro": {
-          "price": 3374,
+          "price": 4498,
           "url": "https://www.fahorro.com/rybelsus-14-mg-30-tabletas.html",
           "title": "Rybelsus 14 mg 30 Tabs"
         },
@@ -637,7 +637,7 @@
         }
       },
       "Clivi": 3999,
-      "Ahorro": 3374,
+      "Ahorro": 4498,
       "Benavides": 4339,
       "Guadalajara": 3335,
       "SanPablo": 3148,

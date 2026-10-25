@@ -1,6 +1,6 @@
-# Reporte de scan — 2026-10-18
+# Reporte de scan — 2026-10-25
 
-Catálogo total escaneado: **8,189 estudios** en 6 laboratorios.
+Catálogo total escaneado: **6,119 estudios** en 6 laboratorios.
 
 ## Cobertura por laboratorio
 
@@ -10,8 +10,8 @@ Catálogo total escaneado: **8,189 estudios** en 6 laboratorios.
 | Polanco | api | 1382 | 337 | 36 | 0 |
 | Chopo | catalogo | 1591 | 351 | 40 | 13 |
 | Salud Digna | api | 580 | 292 | 27 | 0 |
-| LAPI | catalogo | 1496 | 510 | 35 | 0 |
-| OLAB | catalogo | 2074 | 392 | 43 | 1000 |
+| LAPI | catalogo | 1500 | 511 | 35 | 0 |
+| OLAB | ✗ falló | — | 0 | — | — |
 
 _"Confirmados" son precios leídos del laboratorio esta corrida. "Arrastrados"
 son los que no se pudieron emparejar y conservan el valor anterior._
@@ -22,7 +22,7 @@ _Saltos de más de 3× en cualquier dirección. Casi nunca son promociones:
 revisa el emparejamiento antes de publicar._
 
 
-## Emparejamientos por similitud: 472
+## Emparejamientos por similitud: 348
 
 _Los exactos y por alias son seguros. Estos son inferidos y conviene validarlos:
 lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
@@ -50,18 +50,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Marcadores Tumorales Páncreas (CA 19-9) | CA 19-9 | 0.825 | 572 |
 | LAPI | Colesterol HDL | Colesterol de Alta Densidad (HDL) | 0.825 | 171 |
 | LAPI | Colesterol LDL | Colesterol de Baja Densidad (LDL) | 0.825 | 171 |
-| OLAB | Anticuerpos Heterofilos | AC. HETERÓFILOS (PAUL BUNNEL) | 0.825 | 1928 |
-| OLAB | Pelvis Ap y Rana | RX PELVIS AP NEUTRA Y POSICIÓN DE RANA | 0.825 | 666 |
-| OLAB | Cuello Ap y Lateral | RX CUELLO AP Y LATERAL PARA TEJIDOS BLANDOS | 0.825 | 749 |
-| OLAB | Torax ( Ap ) | RX TORAX OSEO AP | 0.825 | 409 |
-| OLAB | Antígeno Carcinoembrionario (CEA) | ANTÍGENO CARCINOEMBRIONARIO (MUESTRA BIOLOGICA) | 0.825 | 1430 |
-| OLAB | Marcadores Tumorales Páncreas (CA 19-9) | CA 19-9 | 0.825 | 1590 |
-| OLAB | Resistencia a la insulina | ÍNDICE DE RESISTENCIA A LA INSULINA (IRI) | 0.825 | 559 |
-| OLAB | Degranulación de basofilos | DEGRANULACION DE BASOFILOS (ANTÍGENO ADICIONAL) | 0.825 | 1830 |
-| OLAB | Humero Bilateral Ap y Lateral | RX BRAZO HUMERO AP Y LATERAL BILATERAL COMPARATIVO | 0.85 | 1626 |
-| OLAB | Cubito y Radio Bilateral (Antebrazo) | RX ANTEBRAZO RADIO Y CUBITO LATERAL BILATERAL COMPARATIVO | 0.85 | 550 |
-| OLAB | Femur Bilateral, Ap y Lateral | RX FEMUR MUSLO AP Y LATERAL BILATERAL COMPARATIVO | 0.85 | 719 |
-| OLAB | AC Anti-Citoplasma de Neutrofilos(pyc) | ANTICUERPOS ANTI CITOPLASMA DE NEUTRÓFILO PATRÓN PERINUCLEAR (P-ANCA) EN SUERO | 0.85 | 1499 |
 | Polanco | Papanicolaou en Base Líquida | COLPOSCOPIA - CITOLOGIA (PAPANICOLAOU) BASE LIQUIDA | 0.86 | 2253.6 |
 | Chopo | Carga Viral para Hepatitis C | CARGA VIRAL DE HEPATITIS C POR RT-PCR | 0.86 | 7881.31 |
 | Chopo | Rodilla 1 Proyección | RX DE RODILLA BILATERAL 1 PROYECCIÓN | 0.86 | 622.7 |
@@ -73,13 +61,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Salud Digna | CA 15-3 (Marcador Tumoral Mama) | ANTIGENO CA 15 3 --MAMA-- | 0.86 | 294 |
 | Salud Digna | CA 27-29 | ANTIGENO CA 27-29 --MAMA-- | 0.86 | 939 |
 | Salud Digna | Neisseria gonorrhoeae por PCR | NEISSERIA GONORRHOEAE POR PCR CUALITATIVA (HOMBRE) | 0.86 | 1333 |
-| OLAB | Cadera Ap. y Oblicua | RX PELVIS CADERA AP Y OBLICUA | 0.86 | 666 |
-| OLAB | Abdomen de Pie y Decubito | RX ABDOMEN AP DE PIE Y EN DECUBITO | 0.86 | 666 |
-| OLAB | Torax Pa y Oblicua | RX TELERRADIOGRAFIA DE TORAX PA Y OBLICUA | 0.86 | 666 |
-| OLAB | Hombro Bilateral AP | RX HOMBRO AP BILATERAL COMPARATIVO | 0.86 | 550 |
-| OLAB | Mano Bilateral Ap | RX MANO AP BILATERAL COMPARATIVO | 0.86 | 550 |
-| OLAB | Rx Cuello Lateral (Rino Faringe) | RX CUELLO LATERAL PARA TEJIDOS BLANDOS | 0.86 | 533 |
-| OLAB | Antígeno Prostático Específico (PSA Total) | ANTÍGENO PROSTÁTICO ESPECÍFICO COMPLEX (CPSA) | 0.86 | 22657 |
 | Labbe | Velocidad de Sedimentación Globular (VSG) | Sedimentación Globular | 0.883 | 138 |
 | Labbe | Ac Anti-Smith (anti-Sm) | Ac. Anti SM | 0.883 | 935 |
 | Labbe | Calcio en Orina | Calcio en Orina Ocasional | 0.883 | 138 |
@@ -193,45 +174,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Escafoides Mano | Rx Escafoides Mano | 0.883 | 697 |
 | LAPI | Torax ( Ap ) | Rx Torax ( Ap ) | 0.883 | 1076 |
 | LAPI | Tórax Lateral | Rx Tórax Lateral | 0.883 | 371 |
-| OLAB | Rx Medición de Miembros Inferiores | RX ESCANOMETRIA MEDICION RADIOLOGICA DE MIEMBROS INFERIORES | 0.883 | 666 |
-| OLAB | Ac. Anti - Bartonella henselae IgG e IgM | AC. ANTI BARTONELLA IGM E IGM | 0.883 | 3013 |
-| OLAB | Antitrombina III (Funcional) | ANTITROMBINA III ACTIVIDAD | 0.883 | 1430 |
-| OLAB | Sangre Oculta en Heces | SANGRE OCULTA EN HECES CUANTITATIVA | 0.883 | 453 |
-| OLAB | AC Anti-Cardiolipina | AC. ANTI CARDIOLIPINA IGM | 0.883 | 773 |
-| OLAB | CA-125 (Marcador Tumoral Ovario) | CA 125 (OVARIO) | 0.883 | 1288 |
-| OLAB | Cultivo de Secreción | CULTIVO DE SECRECIÓN VAGINAL | 0.883 | 417 |
-| OLAB | Factor V | FACTOR V DE LA COAGULACION | 0.883 | 826 |
-| OLAB | Inmunofijacion en Orina | INMUNOFIJACIÓN DE PROTEÍNAS EN ORINA | 0.883 | 2826 |
-| OLAB | Talio en Orina Ocasional | TALIO EN ORINA | 0.883 | 1013 |
-| OLAB | Calprotectina en heces | CALPROTECTINA CUANTITATIVA EN HECES | 0.883 | 1324 |
-| OLAB | Tórax Lateral | RX TORAX LATERAL | 0.883 | 533 |
-| OLAB | Grupo Sanguíneo y Rh | GRUPO SANGUÍNEO Y FACTOR RH | 0.883 | 179 |
-| OLAB | Herpes Tipo 6 (PCR) | DETECCIÓN DE HERPES VIRUS TIPO 6, PCR | 0.883 | 2835 |
-| OLAB | Factor Reumatoide | FACTOR REUMATOIDE NEFELOMÉTRICO | 0.883 | 1146 |
-| OLAB | LH (Hormona Luteinizante) | HORMONA LUTEINIZANTE | 0.883 | 390 |
-| OLAB | Factor VII | FACTOR DE LA COAGULACIÓN VII | 0.883 | 2266 |
-| OLAB | Chlamydia (Detección de Antígeno) | ANTÍGENO DE CHLAMYDIA | 0.883 | 1004 |
-| OLAB | Ac. Anti - Reticulina IgA | AC. ANTI RETICULINA | 0.883 | 710 |
-| OLAB | Cultivo de Punta de Cateter | CULTIVO DE CATÉTER | 0.883 | 2284 |
-| OLAB | Hormona Antimulleriana | HORMONA ANTI MULLERIANA (AMH) | 0.883 | 4382 |
-| OLAB | Complemento C5 | COMPLEMENTO FRACCIÓN C5 | 0.883 | 2462 |
-| OLAB | Complemento C2 | COMPLEMENTO FRACCIÓN C2 | 0.883 | 1582 |
-| OLAB | Ac. Anti - Fosfolípidos IgG | AC. ANTI FOSFOLÍPIDOS | 0.883 | 799 |
-| OLAB | Ac. Anti - Chagas IgG (Trypanosoma cruzi) | AC. ANTI CHAGAS | 0.883 | 1208 |
-| OLAB | Citología Nasal | CITOLOGÍA DE MOCO NASAL | 0.883 | 728 |
-| OLAB | Sodio en Orina | SODIO EN ORINA AL AZAR | 0.883 | 195 |
-| OLAB | Grasas en Heces | GRASAS EN HECES (CUALITATIVAS) | 0.883 | 1093 |
-| OLAB | Hemoglobina Glicosilada (HbA1c) | HEMOGLOBINA GLUCOSILADA FRACCIÓN A1C | 0.883 | 453 |
-| OLAB | 17-alfa-hidroxiprogesterona | HIDROXIPROGESTERONA 17 | 0.883 | 693 |
-| OLAB | Factor IX | FACTOR DE LA COAGULACIÓN IX | 0.883 | 1813 |
-| OLAB | Factor II | FACTOR DE LA COAGULACIÓN II | 0.883 | 2079 |
-| OLAB | Ac. Anti - Leptospira IgG | AC. ANTI LEPTOSPIRA | 0.883 | 799 |
-| OLAB | Ac. Anti SSB (Anti La) | AC. ANTI LA | 0.883 | 915 |
-| OLAB | Colesterol HDL | COLESTEROL NO - HDL | 0.883 | 1484 |
-| OLAB | Elastasa Pancreática Fecal | ELASTASA PANCREÁTICA | 0.883 | 3004 |
-| OLAB | Proteina S de Coagulación (Antigénica) | PROTEÍNA S | 0.883 | 4559 |
 | Salud Digna | Anticuerpos anti receptor NMDA (NR1 y NR2) | Ac. Anti-Receptor NMDA IgG NR1 y NR2 Anti Neuronal | 0.9 | 9700 |
-| OLAB | Vitamina D (1,25-dihidroxicolecalciferol) | VITAMINA D 1,25 DI-HIDROXI (CALCITRIOL) | 0.9 | 2079 |
 | Labbe | Química Sanguínea 6 Elementos | Química Sanguínea (6) | 0.912 | 619 |
 | Labbe | Química Sanguínea de 3 Elementos | Química Sanguínea (3) | 0.912 | 353 |
 | Labbe | Ac. Anti-Músculo liso | Ac. Anti - Músculo Liso (SMA) | 0.912 | 1955 |
@@ -301,34 +244,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Rodilla 1 Proyección | Rx Rodilla 1 Proyección | 0.912 | 386 |
 | LAPI | Serie Osea Metastasica | Rx Serie Osea Metastasica | 0.912 | 2548.03 |
 | LAPI | Torax Pa y Oblicua | Rx Torax Pa y Oblicua | 0.912 | 654 |
-| OLAB | Ac. Anti-Endomisiales IgA | AC. ANTI-ENDOMISIALES IgG-IgA SUERO | 0.912 | 1510 |
-| OLAB | Dióxido de carbono (CO2) | DIOXIDO DE CARBONO (CO2) BICARBONATO | 0.912 | 293 |
-| OLAB | Glucosa Post-Prandial 2h | GLUCOSA POST-PRANDIAL | 0.912 | 186 |
-| OLAB | Serie Osea Metastasica | RX SERIE OSEA METASTÁSICA | 0.912 | 1626 |
-| OLAB | Factor de Necrosis Tumoral Alfa | FACTOR DE NECROSIS TUMORAL | 0.912 | 2773 |
-| OLAB | DHEA-S (Sulfato de Dehidroepiandrosterona) | DEHIDROEPIANDROSTERONA SULFATO (DHEA SO4) | 0.912 | 942 |
-| OLAB | Pierna Ap. Lateral (Tibia y Perone) Bilateral | RX PIERNA TIBIA Y PERONE AP Y LATERAL BILATERAL COMPARATIVO | 0.912 | 844 |
-| OLAB | Cráneo Hirtz (Base de Craneo) | RX CRANEO HIRTZ PARA BASE DE CRANEO | 0.912 | 533 |
-| OLAB | FSH (Hormona Folículo Estimulante) | HORMONA ESTIMULANTE DEL FOLÍCULO | 0.912 | 390 |
-| OLAB | Helicobacter Pylori (PCR) | PCR DETECCIÓN DE HELICOBACTER PYLORI | 0.912 | 9830 |
-| OLAB | Factor V (Leiden) | FACTOR V LEIDEN (MUTACIÓN) | 0.912 | 3750 |
-| OLAB | Ac. Anti - Varicela IgG | AC. ANTI VARICELA ZOSTER IgG | 0.912 | 559 |
-| OLAB | Ac. Anti - Brucella IgG | AC. ANTI BRUCELLA (IgG, IgM) | 0.912 | 1946 |
-| OLAB | Isoenzimas Fosfatasa Alcalina | ISOENZIMAS DE LA FOSFATASA ALCALINA (ELECTROFORESIS) | 0.912 | 719 |
-| OLAB | CA 27-29 | CA 27-29 (MAMA) | 0.912 | 1137 |
-| OLAB | CA 15-3 (Marcador Tumoral Mama) | CA 15-3 (MAMA) | 0.912 | 862 |
-| OLAB | Ac. Anti-Peroxidasa tiroidea | AC. ANTI MICROSOMALES (AC. ANTI PEROXIDASA TIROIDEA) | 0.912 | 1297 |
-| OLAB | Ac. Anti - Citomegalovirus IgM | AC. ANTI CITOMEGALOVIRUS IGM (CUANTITATIVA) | 0.912 | 630 |
-| OLAB | Ac. Anti - Chlamydia trachomatis IgA | AC. ANTI CHLAMYDIA TRACHOMATIS | 0.912 | 1119 |
-| OLAB | Ac. Anti - Chlamydia trachomatis IgM | AC. ANTI CHLAMYDIA IGM | 0.912 | 577 |
-| OLAB | Química Sanguínea (5) | QUÍMICA SANGUÍNEA 5 ELEMENTOS | 0.912 | 470 |
-| OLAB | Enfermedad de Huntington, mutacion | PRUEBA GENETICA DE MUTACIÓN DE LA ENFERMEDAD DE HUNTINGTON | 0.912 | 7537 |
-| OLAB | Genotipo Hepatitis C | GENOTIPOS DE VIRUS DE LA HEPATITIS C | 0.912 | 11013 |
-| OLAB | Cuadruple Marcador con Interpretacion Genetista | CUÁDRUPLE MARCADOR CON INTERPRETACIÓN | 0.912 | 2959 |
-| OLAB | Tiroxina Unida a Globulina | TIROXINA UNIDA A LA GLOBULINA (TBG) | 0.912 | 3093 |
-| OLAB | D-Xilosa (En Orina 5hrs.) | D-XILOSA EN ORINA | 0.912 | 4026 |
-| OLAB | Linfocitos CD3 CD4 y CD8 | LINFOCITOS CD4 Y CD8 | 0.912 | 2364 |
-| OLAB | TGP (Transaminasa Glutámico Pirúvica) | TRANSAMINASA GLUTÁMICO PIRÚVICA | 0.912 | 284 |
 | Labbe | Ac. Anti - Fosfolipasa A2 (PLA2R) | Ac. Anti - Fosfolipasa A2 Receptor (PLA2R) | 0.93 | 5718 |
 | Polanco | Ac. Anti - Péptido Cíclico Citrulinado | Ac Anti-Péptido cíclico citrulinado (CCP) | 0.93 | 2599.2 |
 | Polanco | Curva de tolerancia 2 horas | CURVA DE TOLERANCIA A LA GLUCOSA 2 HORAS | 0.93 | 1460.7 |
@@ -368,26 +283,13 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Humero Bilateral Ap y Lateral | Rx Humero Bilateral Ap y Lateral | 0.93 | 1071 |
 | LAPI | Senos Paranasales 1 Proyección | Rx Senos Paranasales 1 Proyección | 0.93 | 386 |
 | LAPI | Senos Paranasales 2 Proyecciones | Rx Senos Paranasales 2 Proyecciones | 0.93 | 485 |
-| OLAB | Glucosa 6 Fosfato Deshidrogenasa | GLUCOSA 6 FOSFATO DESHIDROGENASA (CUALITATIVA) | 0.93 | 559 |
-| OLAB | Cadenas Kappa y Lambda (libres) en Suero | CADENAS LIGERAS KAPPA Y LAMBDA (LIBRES) EN SUERO | 0.93 | 2444 |
-| OLAB | Ac. Anti - Mycoplasma pneumoniae IgG, IgM | AC. ANTI MYCOPLASMA PNEUMONIAE IGM | 0.93 | 1359 |
-| OLAB | Carga Viral para Hepatitis B | CARGA VIRAL HEPATITIS B CON GENOTIPO | 0.93 | 9439 |
-| OLAB | Ac. Anti - Hepatitis E IgG e IgM | AC. ANTI HEPATITIS E IGM, IGM | 0.93 | 2470 |
-| OLAB | Ac. Anti - Candida IgG,IgA,IgM | AC. ANTI CÁNDIDA IGA, IGM, IGM | 0.93 | 2542 |
-| OLAB | Curva de tolerancia 5 horas | CURVA DE TOLERANCIA A LA GLUCOSA DE 5 HORAS | 0.93 | 604 |
-| OLAB | Curva de tolerancia 2 horas | CURVA DE TOLERANCIA A LA GLUCOSA DE 2 HORAS | 0.93 | 470 |
-| OLAB | Ac. Anti - Cardiolipinas IgG e IgM | ANTICUERPOS ANTI CARDIOLIPINAS IGM E IGM | 0.93 | 1697 |
 | Polanco | Ac. Anti - Cardiolipinas IgG e IgM | AC ANTI-CARDIOLIPINAS IGG E IGM (AC. ANTI-FOSFOLIPIDOS) | 0.942 | 2989.8 |
 | Polanco | Ac. Anti - Parotiditis IgG e IgM | AC ANTI-PAROTIDITIS IGG E IGM (MUMPS) | 0.942 | 2992.5 |
 | Chopo | Vitamina D (1,25-dihidroxicolecalciferol) | 1, 25 DIHIDROXI VITAMINA D (CALCITRIOL) | 0.942 | 3427.2 |
 | LAPI | Pie 2 Proy. (Ap y Lat.) | RX Pie 2 Proy. (Ap y Lat) | 0.942 | 473 |
 | LAPI | Pierna Ap Lateral (Tibia y Perone) | Rx Pierna Ap Lateral (Tibia y Perone) | 0.942 | 485 |
-| OLAB | Pierna Ap Lateral (Tibia y Perone) | RX PIERNA TIBIA Y PERONE AP Y LATERAL | 0.942 | 666 |
-| OLAB | Ac. Anti - Hepatitis B Core (IgM) | AC. ANTI-HEPATITIS B CORE IgM (Anti- HBc IgM) | 0.942 | 1208 |
 | LAPI | Pierna Ap. Lateral (Tibia y Perone) Bilateral | Rx Pierna Ap. Lateral (Tibia y Perone) Bilateral | 0.95 | 654 |
 | LAPI | Torax Oseo 2 Proyec. ( Ap y Oblicua ) | Rx Torax Oseo 2 Proyec. ( Ap y Oblicua ) | 0.95 | 718 |
-| OLAB | Doppler Arterial Y Venoso Bilateral De Miembros Inferiores | US DOPPLER ARTERIAL Y VENOSO BILATERAL DE MIEMBROS INFERIORES | 0.95 | 4995 |
-| OLAB | Doppler Arterial Y Venoso Bilateral De Miembros Superiores | US DOPPLER ARTERIAL Y VENOSO BILATERAL DE MIEMBROS SUPERIORES | 0.95 | 4995 |
 | LAPI | Torax Oseo Proyeccion Adicional 1 Posicion AP | Rx Torax Oseo Proyeccion Adicional 1 Posicion AP | 0.956 | 371 |
 | Labbe | Prueba de Embarazo en Sangre (Beta-HCG) | Prueba de embarazo | 1 | 397 |
 | Labbe | Antígeno Prostático Específico (PSA Total) | Antígeno Prostático Específico | 1 | 443 |
@@ -475,35 +377,10 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | TSH (Hormona Estimulante de Tiroides) | TSH (H. Estimulante de Tiroides) | 1 | 189 |
 | LAPI | Tiempo de Tromboplastina Parcial (TTP) | Tiempo de Tromboplastina Parcial | 1 | 199 |
 | LAPI | Velocidad de Sedimentación Globular (VSG) | Velocidad de Sedimentación Globular | 1 | 112 |
-| OLAB | Lísis de Euglobulina | LISIS DE EUGLOBULINAS | 1 | 533 |
-| OLAB | Haptoglobina | HAPTOGLOBINAS | 1 | 2266 |
-| OLAB | Carotenos | CAROTENO | 1 | 4702 |
-| OLAB | Ac Anti-Smith (anti-Sm) | AC. ANTI SMITH | 1 | 949 |
-| OLAB | Deshidrogenasa Láctica (DHL) | DESHIDROGENASA LÁCTICA | 1 | 390 |
-| OLAB | Ac. Anti - DNA de doble cadena (Nativo) | AC. ANTI-DNA DOBLE CADENA EN SUERO | 1 | 1039 |
-| OLAB | Ac. Anti - Receptor de TSH (Ac.TR) | AC. ANTI-RECEPTOR TSH | 1 | 1324 |
-| OLAB | Inmunoglobulina D ( IgD ) | INMUNOGLOBULINA (D) | 1 | 1190 |
-| OLAB | Ac. Anti-Herpes I IgG | AC. ANTI HERPES I IGM | 1 | 746 |
-| OLAB | Cultivo de Hongos ( Sabouraud ) | CULTIVO DE HONGOS | 1 | 613 |
-| OLAB | Cultivo de Herida | CULTIVO DE HERIDAS | 1 | 622 |
-| OLAB | Tiempo de Tromboplastina Parcial (TTP) | TIEMPO PARCIAL DE TROMBOPLASTINA | 1 | 435 |
-| OLAB | Actividad de Renina Plasmatica (APR) | ACTIVIDAD PLASMATICA DE RENINA | 1 | 1173 |
-| OLAB | CA 72-4 (Colon) | CA 72-4 | 1 | 2995 |
-| OLAB | Cyfra 21.1 (Marcador Tumoral) | CYFRA 21-1 | 1 | 2595 |
-| OLAB | Alfa - Feto Proteína | ALFA FETO PROTEÍNAS (SUERO) | 1 | 1039 |
-| OLAB | Ac. Anti-Ribonucleoproteína (RNP) | AC. ANTI RIBONÚCLEOPROTEÍNAS (RNP) | 1 | 1039 |
-| OLAB | C-Telopéptidos | C- TELOPÉPTIDO | 1 | 1884 |
-| OLAB | Velocidad de Sedimentación Globular (VSG) | VELOCIDAD DE SEDIMENTACIÓN GLOBULAR | 1 | 284 |
-| OLAB | Bilirrubina Total | BILIRRUBINAS TOTALES | 1 | 168 |
-| OLAB | Inmunoglobulina A ( IgA ) | INMUNOGLOBULINA (A) | 1 | 657 |
-| OLAB | Ac. Anti - Sarampión IgG e IgM (detección en sangre) | AC. ANTI-SARAMPIÓN IgG e IgM | 1 | 942 |
-| OLAB | Ac. Anti - Brucella ( Rosa de Bengala ) | AC. ANTI BRUCELLA | 1 | 479 |
-| OLAB | Ácido valproico (valproato) | ÁCIDO VALPRÓICO | 1 | 790 |
-| OLAB | Examen Directo Hongos (KOH) | EXAMEN DIRECTO DE HONGOS | 1 | 693 |
-| OLAB | Peptido Cerebral Natriuretico (NT Pro-BNP) | PEPTIDO CEREBRAL NATRIURETICO | 1 | 1084 |
 
-## Cambios de precio detectados: 1
+## Cambios de precio detectados: 2
 
 | Estudio | Lab | Publicado | Escaneado | Δ |
 |---|---|---:|---:|---:|
-| Grupo Sanguíneo y Rh | Labbe | 164 | 199 | 21.3% |
+| Acido Hipúrico | LAPI | 406 | 729 | 79.6% |
+| Helicobacter pylori en aliento | LAPI | — | 1225 | — |
