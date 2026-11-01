@@ -1,14 +1,14 @@
-# Reporte de scan — 2026-10-25
+# Reporte de scan — 2026-11-01
 
-Catálogo total escaneado: **6,119 estudios** en 6 laboratorios.
+Catálogo total escaneado: **5,011 estudios** en 6 laboratorios.
 
 ## Cobertura por laboratorio
 
 | Lab | Modo | Catálogo | Confirmados | Arrastrados | Errores |
 |---|---|---:|---:|---:|---:|
-| Labbe | catalogo | 1066 | 479 | 20 | 0 |
+| Labbe | catalogo | 1065 | 479 | 20 | 0 |
 | Polanco | api | 1382 | 337 | 36 | 0 |
-| Chopo | catalogo | 1591 | 351 | 40 | 13 |
+| Chopo | catalogo | 484 | 141 | 250 | 1161 |
 | Salud Digna | api | 580 | 292 | 27 | 0 |
 | LAPI | catalogo | 1500 | 511 | 35 | 0 |
 | OLAB | ✗ falló | — | 0 | — | — |
@@ -16,13 +16,16 @@ Catálogo total escaneado: **6,119 estudios** en 6 laboratorios.
 _"Confirmados" son precios leídos del laboratorio esta corrida. "Arrastrados"
 son los que no se pudieron emparejar y conservan el valor anterior._
 
-## ⚠️ Cambios sospechosos: 0
+## ⚠️ Cambios sospechosos: 1
 
 _Saltos de más de 3× en cualquier dirección. Casi nunca son promociones:
 revisa el emparejamiento antes de publicar._
 
+| Estudio | Lab | Antes | Ahora | Δ |
+|---|---|---:|---:|---:|
+| Helicobacter Pylori (PCR) | Chopo | 453.59 | 2651.4 | 484.5% |
 
-## Emparejamientos por similitud: 348
+## Emparejamientos por similitud: 290
 
 _Los exactos y por alias son seguros. Estos son inferidos y conviene validarlos:
 lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
@@ -36,11 +39,8 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Polanco | Marcadores Tumorales Páncreas (CA 19-9) | CA 19-9 | 0.825 | 5887.8 |
 | Polanco | Colesterol HDL | HDL colesterol de alta densidad | 0.825 | 200.1 |
 | Polanco | Helicobacter Pylori (PCR) | Antígeno fecal de Helicobacter pylori | 0.825 | 4968 |
-| Chopo | Helicobacter Pylori (PCR) | AC IgA HELICOBACTER PYLORI | 0.825 | 453.59 |
+| Chopo | Helicobacter Pylori (PCR) | AC IgG A HELICOBACTER PYLORI | 0.825 | 2651.4 |
 | Chopo | Coombs Indirecto | COOMBS INDIRECTO RASTREO DE ANTICUERPOS | 0.825 | 704.7 |
-| Chopo | Marcadores Tumorales Páncreas (CA 19-9) | CA 19-9 EN SUERO | 0.825 | 2340.9 |
-| Chopo | Cuadruple Marcador con Interpretacion Genetista | CUADRUPLE MARCADOR | 0.825 | 1687.5 |
-| Chopo | Ac. Anti - Brucella ( Rosa de Bengala ) | ROSA DE BENGALA | 0.825 | 249.3 |
 | Salud Digna | Anticuerpos Heterofilos | AC. HETEROFILOS (PAUL BUNNELL) | 0.825 | 278 |
 | Salud Digna | Adenosin deaminasa | ADENOSIN DEAMINASA (FLUIDOS BIOLOGICOS) | 0.825 | 794 |
 | Salud Digna | CA-125 (Marcador Tumoral Ovario) | ANTIGENO CA 125 --OVARIO-- | 0.825 | 250 |
@@ -52,11 +52,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Colesterol LDL | Colesterol de Baja Densidad (LDL) | 0.825 | 171 |
 | Polanco | Papanicolaou en Base Líquida | COLPOSCOPIA - CITOLOGIA (PAPANICOLAOU) BASE LIQUIDA | 0.86 | 2253.6 |
 | Chopo | Carga Viral para Hepatitis C | CARGA VIRAL DE HEPATITIS C POR RT-PCR | 0.86 | 7881.31 |
-| Chopo | Rodilla 1 Proyección | RX DE RODILLA BILATERAL 1 PROYECCIÓN | 0.86 | 622.7 |
-| Chopo | Mano 1 Proyección | RX DE MANO BILATERAL 1 PROYECCIÓN | 0.86 | 653.9 |
-| Chopo | Papanicolaou en Base Líquida | CITOLOGÍA CERVICAL EN BASE LÍQUIDA (PAPANICOLAOU BASE LÍQUIDA) | 0.86 | 370.5 |
-| Chopo | C1 Esterasa Inhibidor | INHIBIDOR DE C1 ESTERASA ACTIVIDAD FUNCIONAL | 0.86 | 1461.6 |
-| Chopo | Rx Edad Osea Cuatro Proyecciones | RX PARA EDAD ÓSEA | 0.86 | 1057.55 |
 | Salud Digna | Ac. Anti - Descarboxilasa Ac. Glutámico | AC. ANTI-DESCARBOXILASA DEL ACIDO GLUTAMICO (GAD) | 0.86 | 1138 |
 | Salud Digna | CA 15-3 (Marcador Tumoral Mama) | ANTIGENO CA 15 3 --MAMA-- | 0.86 | 294 |
 | Salud Digna | CA 27-29 | ANTIGENO CA 27-29 --MAMA-- | 0.86 | 939 |
@@ -103,24 +98,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Chopo | Grupo Sanguíneo y Rh | GRUPO SANGUÍNEO Y FACTOR Rh | 0.883 | 144 |
 | Chopo | Factor VIII Antigénico | FACTOR VIII EN PLASMA | 0.883 | 481.5 |
 | Chopo | Antitrombina III (Funcional) | ANTITROMBINA III (ACTIVIDAD) EN PLASMA | 0.883 | 692.1 |
-| Chopo | Ultrasonido Obstétrico | ULTRASONIDO DOPPLER OBSTETRICO | 0.883 | 1336.4 |
-| Chopo | Electrocardiograma en Reposo | ELECTROCARDIOGRAMA DIGITAL EN REPOSO | 0.883 | 434.2 |
-| Chopo | Tórax Lateral | RX DE TÓRAX LATERAL | 0.883 | 523.9 |
-| Chopo | Cráneo Hirtz (Base de Craneo) | RX DE CRÁNEO DE HIRTZ | 0.883 | 421.2 |
-| Chopo | Clavícula Bilateral | RX DE CLAVÍCULA BILATERAL | 0.883 | 529.75 |
-| Chopo | Calcaneo Bilateral | RX DE CALCÁNEO BILATERAL | 0.883 | 809.9 |
-| Chopo | Calcaneo Unilateral | RX DE CALCÁNEO UNILATERAL | 0.883 | 558.35 |
-| Chopo | Codo Bilateral | RX DE CODO BILATERAL | 0.883 | 426.4 |
-| Chopo | Citológia de Líquido | CITOLOGÍA DE LÍQUIDOS VARIOS | 0.883 | 458.1 |
-| Chopo | Hormona Antidiurética | HORMONA ANTIDIURÉTICA (VASOPRESINA) | 0.883 | 1602.9 |
-| Chopo | DHEA-S (Sulfato de Dehidroepiandrosterona) | DEHIDROEPIANDROSTERONA SULFATO EN SUERO | 0.883 | 1234.8 |
-| Chopo | Mioglobina en Orina Ocasional | MIOGLOBINA EN ORINA | 0.883 | 574.2 |
-| Chopo | LH (Hormona Luteinizante) | HORMONA LUTEINIZANTE | 0.883 | 385.2 |
-| Chopo | Talio en Orina Ocasional | TALIO EN ORINA | 0.883 | 673.21 |
-| Chopo | Reacciones Febriles | REACCIONES FEBRILES (TÍFICOS) | 0.883 | 90.9 |
-| Chopo | Ácido Fólico | ACIDO FÓLICO (FOLATOS) EN SUERO | 0.883 | 657 |
-| Chopo | Subclases de Inmunoglobulina IgA | IgA SUBCLASES | 0.883 | 3302.1 |
-| Chopo | Inmunofenotipo de Leucemias (Sangre) | LEUCEMIA/LINFOMA INMUNOFENOTIPO EN SANGRE | 0.883 | 8122.49 |
 | Salud Digna | Acido Láctico | ACIDO LACTICO EN PLASMA (LACTATO) | 0.883 | 456 |
 | Salud Digna | Actividad de Renina Plasmatica (APR) | ACTIVIDAD DE RENINA | 0.883 | 1830 |
 | Salud Digna | Alfa-Fetoproteína (marcador Prenatal) | ALFA FETOPROTEINA --AFP-- | 0.883 | 275 |
@@ -163,7 +140,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Hormona de crecimiento | Hormona de Crecimiento ( HGH ) | 0.883 | 346 |
 | LAPI | Inmunoglobulina G | Inmunoglobulina G ( IgG ) | 0.883 | 407 |
 | LAPI | Inmunoglobulina M | Inmunoglobulina M ( IgM ) | 0.883 | 407 |
-| LAPI | Telerradiografía de Torax | RX Telerradiografía de Tórax | 0.883 | 493 |
+| LAPI | Telerradiografía de Torax | RX Telerradiografía de Tórax | 0.883 | 553 |
 | LAPI | Atlas Axis | Rx Atlas Axis | 0.883 | 604 |
 | LAPI | Calcaneo Bilateral | Rx Calcaneo Bilateral | 0.883 | 630 |
 | LAPI | Calcaneo Unilateral | Rx Calcaneo Unilateral | 0.883 | 488 |
@@ -202,16 +179,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Chopo | Mycobacterium tuberculosis (PCR) | DETECCIÓN DE MYCOBACTERIUM TUBERCULOSIS POR PCR | 0.912 | 2491.2 |
 | Chopo | PCR Trypanosoma cruzi | DETECCIÓN DE TRYPANOSOMA CRUZI POR PCR | 0.912 | 6674.4 |
 | Chopo | Química Sanguínea (5) | QUÍMICA DE 5 ELEMENTOS | 0.912 | 317.7 |
-| Chopo | Abdomen de Pie y Decubito | RX DE ABDOMEN DE PIE Y DECÚBITO | 0.912 | 1114.1 |
-| Chopo | TSH (Hormona Estimulante de Tiroides) | HORMONA ESTIMULANTE DE TIROIDES EN SUERO | 0.912 | 374.4 |
-| Chopo | Serie Osea Metastasica | RX PARA SERIE ÓSEA METASTÁSICA | 0.912 | 1077.7 |
-| Chopo | Cubito y Radio Bilateral (Antebrazo) | RX DE CÚBITO Y RADIO BILATERAL | 0.912 | 715 |
-| Chopo | Ac. Anti-Escleroderma (Scl-70) | AC ScL-70 | 0.912 | 968.4 |
-| Chopo | FSH (Hormona Folículo Estimulante) | HORMONA FOLÍCULO ESTIMULANTE | 0.912 | 402.3 |
-| Chopo | Antígeno Prostático Libre | ANTIGENO PROSTÁTICO ESPECIFICO LIBRE EN SUERO | 0.912 | 643.5 |
-| Chopo | Complemento Hemolítico CH 50 % | COMPLEMENTO HEMOLITICO AL 50 % | 0.912 | 906.3 |
-| Chopo | Tc Angiotomografia de Extremidades Inferiores | ANGIOTOMOGRAFÍA DE LAS EXTREMIDADES INFERIORES | 0.912 | 4728.1 |
-| Chopo | Anticuerpos IgE específicos a trigo | AC IGE A TRIGO | 0.912 | 121.5 |
 | Salud Digna | Ac. Anti - Receptor de Acetilcolina | ANTICUERPOS ANTI RECEPTOR DE ACETILCOLINA (BLOQUEA | 0.912 | 3096 |
 | Salud Digna | 17 - Hidroxi - Esteroides | 17 HIDROXI CORTICO ESTEROIDES | 0.912 | 533 |
 | Salud Digna | AC Anti-Citoplasma de Neutrofilos(pyc) | ANTICUERPOS ANTI CITOPLASMA DE NEUTROFILO -ANCA- | 0.912 | 576 |
@@ -261,15 +228,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Chopo | Relación albumina/creatinina en orina aislada | RELACIÓN ALBÚMINA CREATININA EN ORINA | 0.93 | 1123.19 |
 | Chopo | Curva de tolerancia 2 horas | CURVA DE TOLERANCIA A LA GLUCOSA DE 2 HORAS | 0.93 | 621.4 |
 | Chopo | Química Sanguínea 35 Elementos | SUPER QUIMICA DE 35 ELEMENTOS EN SUERO | 0.93 | 982.8 |
-| Chopo | Senos Paranasales 3 Proyecciones | RX DE SENOS PARANASALES 3 PROYECCIONES | 0.93 | 641.55 |
-| Chopo | Antígeno Prostático Específico (PSA Total) | ANTÍGENO PROSTÁTICO ESPECÍFICO TOTAL EN SUERO | 0.93 | 324.35 |
-| Chopo | Senos Paranasales 1 Proyección | RX DE SENOS PARANASALES 1 PROYECCIÓN | 0.93 | 748.15 |
-| Chopo | Antígeno Superficie Hepatitis B | CONFIRMATORIA ANTIGENO DE SUPERFICIE HEPATITIS B | 0.93 | 800.1 |
-| Chopo | Antigeno e Virus Hepatitis B (HBeAg) | ANTÍGENO E DE HEPATITIS B EN SUERO | 0.93 | 384.3 |
-| Chopo | Proteína a Asociada a Embarazo (papp-A) | PROTEINA PLASMATICA ASOCIADA AL EMBARAZO (PAPP-A) | 0.93 | 657 |
-| Chopo | Factor de Necrosis Tumoral Alfa | FACTOR DE NECROSIS TUMORAL ALFA (TNF) | 0.93 | 1022.4 |
-| Chopo | AC Anti-Citoplasma de Neutrofilos(pyc) | ANTICUERPOS ANTI CITOPLASMA DE NEUTROFILOS (ANCA P) | 0.93 | 1638 |
-| Chopo | Cadenas Kappa y Lambda (libres) en Suero | CADENAS LIGERAS KAPPA Y LAMBDA LIBRES EN SUERO | 0.93 | 2276.09 |
 | Salud Digna | Ac. Anti - Brucella ( Rosa de Bengala ) | AC. ANTI-BRUCELLA SSP -ROSA DE BENGALA- | 0.93 | 187 |
 | Salud Digna | Ac. Anti-Escleroderma (Scl-70) | AC. ANTI-ESCLERODERMA (SCL-70) IGG | 0.93 | 374 |
 | Salud Digna | Ac. Anti - Mycoplasma pneumoniae IgG, IgM | ANTICUERPOS ANTI MYCOPLASMA PNEUMONIAE IGM | 0.93 | 553 |
@@ -285,7 +243,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Senos Paranasales 2 Proyecciones | Rx Senos Paranasales 2 Proyecciones | 0.93 | 485 |
 | Polanco | Ac. Anti - Cardiolipinas IgG e IgM | AC ANTI-CARDIOLIPINAS IGG E IGM (AC. ANTI-FOSFOLIPIDOS) | 0.942 | 2989.8 |
 | Polanco | Ac. Anti - Parotiditis IgG e IgM | AC ANTI-PAROTIDITIS IGG E IGM (MUMPS) | 0.942 | 2992.5 |
-| Chopo | Vitamina D (1,25-dihidroxicolecalciferol) | 1, 25 DIHIDROXI VITAMINA D (CALCITRIOL) | 0.942 | 3427.2 |
 | LAPI | Pie 2 Proy. (Ap y Lat.) | RX Pie 2 Proy. (Ap y Lat) | 0.942 | 473 |
 | LAPI | Pierna Ap Lateral (Tibia y Perone) | Rx Pierna Ap Lateral (Tibia y Perone) | 0.942 | 485 |
 | LAPI | Pierna Ap. Lateral (Tibia y Perone) Bilateral | Rx Pierna Ap. Lateral (Tibia y Perone) Bilateral | 0.95 | 654 |
@@ -328,18 +285,6 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | Chopo | Deshidrogenasa Láctica (DHL) | DESHIDROGENASA LÁCTICA EN SUERO | 1 | 238.51 |
 | Chopo | Esteres de Colesterol | ÉSTER DE COLESTEROL EN SUERO | 1 | 5409 |
 | Chopo | Lísis de Euglobulina | LISIS DE EUGLOBULINAS DEL PLASMA | 1 | 127.8 |
-| Chopo | Antígeno Carcinoembrionario (CEA) | ANTIGENO CARCINOEMBRIONARIO EN SUERO | 1 | 1258.19 |
-| Chopo | Rx Cuello Lateral (Rino Faringe) | RX DE CUELLO LATERAL | 1 | 703.3 |
-| Chopo | CA-125 (Marcador Tumoral Ovario) | CA 125 EN SUERO | 1 | 1293.3 |
-| Chopo | CA 15-3 (Marcador Tumoral Mama) | CA 15-3 EN SUERO | 1 | 1822.6 |
-| Chopo | Dehidroepiandrosterona (DHEA) | DEHIDROEPIANDROSTERONA | 1 | 908.11 |
-| Chopo | Alfa-Fetoproteína (marcador Prenatal) | ALFA-FETOPROTEINA EN SUERO | 1 | 1363.5 |
-| Chopo | Protoporfirina de Zinc | ZINC PROTOPORFIRINAS EN SANGRE | 1 | 158.4 |
-| Chopo | Ácido valproico (valproato) | ACIDO VALPROICO EN SUERO | 1 | 774.9 |
-| Chopo | Cyfra 21.1 (Marcador Tumoral) | CYFRA 21.1 | 1 | 1119.6 |
-| Chopo | Inmunoglobulina Estimulante de Tiroides | INMUNOGLOBULINAS ESTIMULANTE DE TIROIDES | 1 | 8783.1 |
-| Chopo | CA 72-4 (Colon) | CA 72-4 EN SUERO | 1 | 4005.9 |
-| Chopo | Antiestreptolisinas | ANTIESTREPTOLISINA EN SUERO | 1 | 238.51 |
 | Salud Digna | Ac. Anti - Receptor de TSH (Ac.TR) | AC. ANTI-RECEPTOR DE LA TSH | 1 | 1168 |
 | Salud Digna | Ácido valproico (valproato) | ACIDO VALPROICO | 1 | 337 |
 | Salud Digna | Antitrombina III (Funcional) | ANTI TROMBINA III | 1 | 628 |
@@ -369,7 +314,7 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Ac. Anti - Chagas IgG (Trypanosoma cruzi) | Ac. Anti - Chagas IgG | 1 | 2370 |
 | LAPI | Ac. Anti-Herpes I IgG | Ac. Anti - Herpes I IgM | 1 | 534 |
 | LAPI | Ácido valproico (valproato) | Acido Valproico | 1 | 466 |
-| LAPI | Antígeno Prostático Específico (PSA Total) | Antígeno Prostático Específico | 1 | 317 |
+| LAPI | Antígeno Prostático Específico (PSA Total) | Antígeno Prostático Específico | 1 | 281 |
 | LAPI | CA 72-4 (Colon) | CA 72-4 | 1 | 1303 |
 | LAPI | Deshidrogenasa Láctica (DHL) | Deshidrogenasa Láctica | 1 | 171 |
 | LAPI | LH (Hormona Luteinizante) | L. H. (Hormona Luteinizante) | 1 | 356 |
@@ -378,9 +323,16 @@ lo que esté mal se corrige agregando un alias en la hoja `Catalogo`._
 | LAPI | Tiempo de Tromboplastina Parcial (TTP) | Tiempo de Tromboplastina Parcial | 1 | 199 |
 | LAPI | Velocidad de Sedimentación Globular (VSG) | Velocidad de Sedimentación Globular | 1 | 112 |
 
-## Cambios de precio detectados: 2
+## Cambios de precio detectados: 9
 
 | Estudio | Lab | Publicado | Escaneado | Δ |
 |---|---|---:|---:|---:|
-| Acido Hipúrico | LAPI | 406 | 729 | 79.6% |
-| Helicobacter pylori en aliento | LAPI | — | 1225 | — |
+| Glucosa en Suero | LAPI | 96 | 83 | -13.5% |
+| Perfil Hormonal Femenino | LAPI | 3470 | 3599 | 3.7% |
+| Antígeno Prostático Específico (PSA Total) | LAPI | 317 | 281 | -11.4% |
+| Grupo Sanguíneo y Rh | LAPI | 141 | 180 | 27.7% |
+| Antígeno Prostático Libre | LAPI | 527 | 469 | -11% |
+| Helicobacter Pylori (PCR) | Chopo | 453.59 | 2651.4 | 484.5% |
+| Papanicolaou en Base Líquida | LAPI | 594 | 618 | 4% |
+| Telerradiografía de Torax | LAPI | 493 | 553 | 12.2% |
+| Ultrasonido Transrectal | LAPI | 605 | 539 | -10.9% |

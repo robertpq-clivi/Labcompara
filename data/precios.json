@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-25T17:02:11.121Z",
+  "generado": "2026-11-01T18:28:03.544Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -15,7 +15,7 @@
       "estudios": 580,
       "errores": 0,
       "urls": 1,
-      "ms": 546,
+      "ms": 168,
       "verificado": true
     },
     "Polanco": {
@@ -23,31 +23,32 @@
       "estudios": 1382,
       "errores": 0,
       "urls": 1,
-      "ms": 12363,
+      "ms": 10171,
       "verificado": true
     },
     "Labbe": {
       "ok": true,
-      "estudios": 1066,
+      "estudios": 1065,
       "errores": 0,
-      "urls": 1095,
-      "ms": 142765,
+      "urls": 1094,
+      "ms": 124663,
       "verificado": true
     },
     "Chopo": {
       "ok": true,
-      "estudios": 1591,
-      "errores": 13,
-      "urls": 1615,
-      "ms": 176546,
-      "verificado": true
+      "estudios": 484,
+      "errores": 1161,
+      "urls": 1646,
+      "ms": 750645,
+      "verificado": true,
+      "agotado": true
     },
     "LAPI": {
       "ok": true,
       "estudios": 1500,
       "errores": 0,
       "urls": 1500,
-      "ms": 89584,
+      "ms": 80190,
       "verificado": true
     },
     "OLAB": {
@@ -59,7 +60,7 @@
     "Labbe": {
       "emparejados": 479,
       "arrastrados": 20,
-      "catalogo": 1066,
+      "catalogo": 1065,
       "fuente": "scan"
     },
     "Polanco": {
@@ -69,9 +70,9 @@
       "fuente": "scan"
     },
     "Chopo": {
-      "emparejados": 351,
-      "arrastrados": 40,
-      "catalogo": 1591,
+      "emparejados": 141,
+      "arrastrados": 250,
+      "catalogo": 484,
       "fuente": "scan"
     },
     "Salud Digna": {
@@ -153,9 +154,9 @@
       "Polanco": 124.2,
       "Chopo": 91.65,
       "Salud Digna": 55,
-      "LAPI": 96,
+      "LAPI": 83,
       "OLAB": null,
-      "avg": 103,
+      "avg": 100,
       "cheapest": "Salud Digna"
     },
     {
@@ -219,9 +220,9 @@
       "Polanco": 3380,
       "Chopo": 2075,
       "Salud Digna": 350,
-      "LAPI": 3470,
+      "LAPI": 3599,
       "OLAB": 749,
-      "avg": 2283,
+      "avg": 2304,
       "cheapest": "Salud Digna"
     },
     {
@@ -263,9 +264,9 @@
       "Polanco": 339.25,
       "Chopo": 324.35,
       "Salud Digna": 195,
-      "LAPI": 317,
+      "LAPI": 281,
       "OLAB": 22657,
-      "avg": 4046,
+      "avg": 4040,
       "cheapest": "Salud Digna"
     },
     {
@@ -450,9 +451,9 @@
       "Polanco": 230,
       "Chopo": 144,
       "Salud Digna": 70,
-      "LAPI": 141,
+      "LAPI": 180,
       "OLAB": 179,
-      "avg": 161,
+      "avg": 167,
       "cheapest": "Salud Digna"
     },
     {
@@ -3013,10 +3014,10 @@
       "Polanco": null,
       "Chopo": 643.5,
       "Salud Digna": null,
-      "LAPI": 527,
+      "LAPI": 469,
       "OLAB": null,
-      "avg": 566,
-      "cheapest": "Labbe"
+      "avg": 547,
+      "cheapest": "LAPI"
     },
     {
       "name": "Antitrombina III (Funcional)",
@@ -4870,11 +4871,11 @@
       "name": "Helicobacter Pylori (PCR)",
       "Labbe": 4801,
       "Polanco": 4968,
-      "Chopo": 453.59,
+      "Chopo": 2651.4,
       "Salud Digna": null,
       "LAPI": 4707,
       "OLAB": 9830,
-      "avg": 4952,
+      "avg": 5391,
       "cheapest": "Chopo"
     },
     {
@@ -5664,9 +5665,9 @@
       "Polanco": 2253.6,
       "Chopo": 370.5,
       "Salud Digna": null,
-      "LAPI": 594,
+      "LAPI": 618,
       "OLAB": 693,
-      "avg": 978,
+      "avg": 984,
       "cheapest": "Chopo"
     },
     {
@@ -6533,10 +6534,10 @@
       "Polanco": null,
       "Chopo": null,
       "Salud Digna": null,
-      "LAPI": 493,
+      "LAPI": 553,
       "OLAB": 533,
-      "avg": 950,
-      "cheapest": "LAPI"
+      "avg": 970,
+      "cheapest": "OLAB"
     },
     {
       "name": "Teofilina",
@@ -6786,9 +6787,9 @@
       "Polanco": 3452.4,
       "Chopo": 1500.85,
       "Salud Digna": null,
-      "LAPI": 605,
+      "LAPI": 539,
       "OLAB": null,
-      "avg": 1853,
+      "avg": 1831,
       "cheapest": "LAPI"
     },
     {

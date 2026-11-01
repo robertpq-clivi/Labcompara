@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T17:03:15.263Z",
+  "generated_at": "2026-11-01T18:29:19.966Z",
   "currency": "MXN",
   "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
@@ -16,7 +16,7 @@
           "detalle": "ozempic 134 mgml semaglutida solucion inyectable 1 pluma precargada"
         },
         "Ahorro": {
-          "price": 4128,
+          "price": 3096,
           "url": "https://www.fahorro.com/ozempic-0-25mg-0-5-mg-w-nf-6-pz.html",
           "title": "Ozempic 0.25 mg - 0.5 mg/dosis 1 Pluma con 6 Agujas"
         },
@@ -33,7 +33,7 @@
         }
       },
       "Clivi": 5499,
-      "Ahorro": 4128,
+      "Ahorro": 3096,
       "Benavides": 4004,
       "Guadalajara": 3149,
       "SanPablo": 4128,
@@ -53,7 +53,7 @@
           "detalle": "ozempic 1 mg semaglutida 1 jeringa prellenada"
         },
         "Ahorro": {
-          "price": 5597,
+          "price": 4198,
           "url": "https://www.fahorro.com/ozempic-1-mg-nf-4-pz.html",
           "title": "Ozempic 1 mg/dosis 1 Pluma con 4 Agujas"
         },
@@ -69,7 +69,7 @@
         }
       },
       "Clivi": 5499,
-      "Ahorro": 5597,
+      "Ahorro": 4198,
       "Benavides": 5485,
       "Guadalajara": 4280,
       "SanPablo": 4198,
@@ -129,12 +129,6 @@
           "url": "https://revert.com.mx/perdida-de-peso/",
           "title": "Precio verificado manualmente"
         },
-        "Benavides": {
-          "price": 5974,
-          "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-          "title": "5 mg Tirzepatida/0.6 ml Solución",
-          "detalle": "mounjaro 5 mg tirzepatida 0 6 ml solucion 1 jeringa prellenada"
-        },
         "Ahorro": {
           "price": 6075,
           "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
@@ -153,7 +147,7 @@
       },
       "Clivi": 6499,
       "Ahorro": 6075,
-      "Benavides": 5974,
+      "Benavides": null,
       "Guadalajara": 4775,
       "SanPablo": 5983,
       "Revert": 4849
@@ -585,7 +579,7 @@
           "detalle": "rybelsus 7 mg semaglutida 30 tabletas"
         },
         "Ahorro": {
-          "price": 4016,
+          "price": 3012,
           "url": "https://www.fahorro.com/rybelsus-7-mg-30-tabletas.html",
           "title": "Rybelsus 7 mg 30 tabletas"
         },
@@ -601,7 +595,7 @@
         }
       },
       "Clivi": 3999,
-      "Ahorro": 4016,
+      "Ahorro": 3012,
       "Benavides": 3871,
       "Guadalajara": 2975,
       "SanPablo": 2808,
@@ -621,7 +615,7 @@
           "detalle": "rybelsus 14 mg semaglutida 30 tabletas"
         },
         "Ahorro": {
-          "price": 4498,
+          "price": 3374,
           "url": "https://www.fahorro.com/rybelsus-14-mg-30-tabletas.html",
           "title": "Rybelsus 14 mg 30 Tabs"
         },
@@ -637,7 +631,7 @@
         }
       },
       "Clivi": 3999,
-      "Ahorro": 4498,
+      "Ahorro": 3374,
       "Benavides": 4339,
       "Guadalajara": 3335,
       "SanPablo": 3148,
@@ -667,7 +661,7 @@
           "title": "Foundayz 0.8 mg 30 Tabs"
         },
         "Guadalajara": {
-          "price": 2100,
+          "price": 3720,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-0.8-mg--30-tabletas.-1486136.html",
           "title": "Foundayz 0.8 mg, 30 Tabletas."
         },
@@ -681,7 +675,7 @@
       "Clivi": 3499,
       "Ahorro": 3695,
       "Benavides": 3500,
-      "Guadalajara": 2100,
+      "Guadalajara": 3720,
       "SanPablo": 3512,
       "Revert": 2699
     },
@@ -709,7 +703,7 @@
           "title": "Foundayz 2.5 mg 30 Tabs"
         },
         "Guadalajara": {
-          "price": 2750,
+          "price": 4075,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-2.5-mg--30-tabletas.-1486152.html",
           "title": "Foundayz 2.5 mg, 30 Tabletas."
         },
@@ -723,7 +717,7 @@
       "Clivi": 4199,
       "Ahorro": 4075,
       "Benavides": 3928,
-      "Guadalajara": 2750,
+      "Guadalajara": 4075,
       "SanPablo": 3940,
       "Revert": 3399
     },
@@ -751,7 +745,7 @@
           "title": "Foundayz 5.5 mg 30 Tabs"
         },
         "Guadalajara": {
-          "price": 3390,
+          "price": 4526,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-5.5-mg--30-tabletas-1486144.html",
           "title": "Foundayz 5.5 mg, 30 Tabletas"
         },
@@ -765,7 +759,7 @@
       "Clivi": 4999,
       "Ahorro": 4459,
       "Benavides": 4448,
-      "Guadalajara": 3390,
+      "Guadalajara": 4526,
       "SanPablo": 4238,
       "Revert": 4099
     },
@@ -793,7 +787,7 @@
           "title": "Foundayz 9.0 mg 30 Tabs"
         },
         "Guadalajara": {
-          "price": 3950,
+          "price": 5299,
           "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/foundayz-9-mg--30-tabletas.-1486160.html",
           "title": "Foundayz 9 mg, 30 Tabletas."
         },
@@ -807,7 +801,7 @@
       "Clivi": 5599,
       "Ahorro": 5290,
       "Benavides": 5287,
-      "Guadalajara": 3950,
+      "Guadalajara": 5299,
       "SanPablo": 4945,
       "Revert": 4799
     }
