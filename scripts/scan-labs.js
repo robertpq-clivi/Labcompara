@@ -29,6 +29,7 @@ const { LABS } = require('./verticales/laboratorio');
 const { emparejar } = require('./lib/match');
 const { crearCliente } = require('./lib/http');
 const { actualizarHistorial } = require('./lib/history');
+const { urlsConRespaldo, guardarFichas } = require('./lib/fichas');
 const { COMPARADOR_LAB } = require('./lib/rutas');
 
 const ROOT = path.join(__dirname, '..');
@@ -124,9 +125,11 @@ async function escanear(lab) {
     return { filas, errores: 0, urls: 1, ms: Date.now() - t0 };
   }
 
-  let urls = await lab.urls(ctx);
-  log(`${urls.length} fichas en sitemap`);
-  if (LIMITE) urls = urls.slice(0, LIMITE);
+  // Si el sitemap se cae, se escanean las fichas de la última corrida completa
+  // (ver lib/fichas.js): las fichas suelen seguir vivas aunque el índice no.
+  const { urls: todas, respaldo } = await urlsConRespaldo(lab, ctx, { log });
+  log(`${todas.length} fichas ${respaldo ? 'del respaldo' : 'en sitemap'}`);
+  const urls = LIMITE ? todas.slice(0, LIMITE) : todas;
 
   // Sonda: si las primeras fichas fallan casi todas, el sitio está bloqueando o
   // el adaptador ya no encaja. Cortar aquí evita quemar el resto del catálogo.
@@ -140,7 +143,7 @@ async function escanear(lab) {
   if (exitos < MIN_EXITOS_INICIALES) {
     const causa = (sonda.find((r) => r && r.__error) || {}).__error || 'sin precio en la ficha';
     log(`✗ cortado tras ${sonda.length} fichas: solo ${exitos} con precio (${causa})`);
-    return { filas: [], errores: sonda.length - exitos, urls: urls.length, ms: Date.now() - t0, cortado: causa };
+    return { filas: [], errores: sonda.length - exitos, urls: urls.length, ms: Date.now() - t0, cortado: causa, respaldo };
   }
 
   const resto = await enParalelo(urls.slice(MUESTRA_INICIAL), CONCURRENCIA, async (u) => {
@@ -155,7 +158,12 @@ async function escanear(lab) {
   const agotado = Date.now() - t0 > tope;
   log(`${filas.length} con precio · ${errores} errores · ${((Date.now() - t0) / 1000).toFixed(1)}s` +
     (agotado ? ' · ⚠️ presupuesto de tiempo agotado, catálogo incompleto' : ''));
-  return { filas, errores, urls: urls.length, ms: Date.now() - t0, agotado };
+  // Solo una corrida completa y descubierta en el sitemap renueva el respaldo:
+  // una parcial lo encogería, y una hecha desde el respaldo no descubrió nada.
+  if (!agotado && !respaldo && !LIMITE && guardarFichas(lab.id, filas.map((f) => f.url))) {
+    log(`respaldo de fichas actualizado (${filas.length})`);
+  }
+  return { filas, errores, urls: urls.length, ms: Date.now() - t0, agotado, respaldo };
 }
 
 // ── lectura de los estudios publicados en el comparador ──────────────────────
@@ -222,6 +230,7 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
         verificado: lab.verificado !== false,
         ...(r.cortado ? { cortado: r.cortado } : {}),
         ...(r.agotado ? { agotado: true } : {}),
+        ...(r.respaldo ? { respaldo: r.respaldo } : {}),
       };
       if (!OFFLINE) fs.writeFileSync(archivoScan(lab.id), JSON.stringify(r.filas, null, 2));
     } catch (e) {
@@ -314,7 +323,9 @@ const LAB_IDS = ['Labbe', 'Polanco', 'Chopo', 'Salud Digna', 'LAPI', 'OLAB'];
   for (const id of LAB_IDS) {
     const m = meta[id] || {};
     const c = cobertura[id] || {};
-    lineas.push(`| ${id} | ${m.ok === false ? '✗ falló' : (LABS.find((l) => l.id === id) || {}).modo || '—'} | ${c.catalogo ?? '—'} | ${c.emparejados ?? 0} | ${c.arrastrados ?? '—'} | ${m.errores ?? '—'} |`);
+    const modo = m.ok === false ? '✗ falló'
+      : ((LABS.find((l) => l.id === id) || {}).modo || '—') + (m.respaldo ? ' · sitemap caído, fichas de respaldo' : '');
+    lineas.push(`| ${id} | ${modo} | ${c.catalogo ?? '—'} | ${c.emparejados ?? 0} | ${c.arrastrados ?? '—'} | ${m.errores ?? '—'} |`);
   }
   lineas.push('', '_"Confirmados" son precios leídos del laboratorio esta corrida. "Arrastrados"',
     'son los que no se pudieron emparejar y conservan el valor anterior._');

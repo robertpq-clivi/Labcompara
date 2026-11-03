@@ -209,6 +209,11 @@ const lapi = {
  * Sin `proxy: true` a propósito: responde directo, y forzar Zyte gastaría
  * ~9,000 requests de crédito por corrida. Si algún día empieza a bloquear, la
  * escalada automática de lib/http.js lo cubre sola.
+ *
+ * Desde el 25/10/2026 su sitemap.xml responde 503 a todos (robots.txt ya es el
+ * de nuxt-robots: `User-agent: * · Disallow:` vacío) mientras las fichas siguen
+ * en 200. No es un bloqueo hacia nosotros, así que escalar a Zyte no lo arregla:
+ * lo cubre el respaldo de fichas de lib/fichas.js.
  */
 const olab = {
   id: 'OLAB',
