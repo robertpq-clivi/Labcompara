@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-01T18:28:03.544Z",
+  "generado": "2026-11-08T18:28:38.058Z",
   "fuente": "scan-labs.js",
   "labs": [
     "Labbe",
@@ -12,10 +12,10 @@
   "meta": {
     "Salud Digna": {
       "ok": true,
-      "estudios": 580,
+      "estudios": 582,
       "errores": 0,
       "urls": 1,
-      "ms": 168,
+      "ms": 721,
       "verificado": true
     },
     "Polanco": {
@@ -23,44 +23,49 @@
       "estudios": 1382,
       "errores": 0,
       "urls": 1,
-      "ms": 10171,
+      "ms": 10933,
       "verificado": true
     },
     "Labbe": {
       "ok": true,
-      "estudios": 1065,
+      "estudios": 1066,
       "errores": 0,
-      "urls": 1094,
-      "ms": 124663,
+      "urls": 1095,
+      "ms": 139389,
       "verificado": true
     },
     "Chopo": {
       "ok": true,
-      "estudios": 484,
-      "errores": 1161,
-      "urls": 1646,
-      "ms": 750645,
+      "estudios": 934,
+      "errores": 696,
+      "urls": 1631,
+      "ms": 739402,
       "verificado": true,
       "agotado": true
     },
     "LAPI": {
       "ok": true,
-      "estudios": 1500,
+      "estudios": 1501,
       "errores": 0,
-      "urls": 1500,
-      "ms": 80190,
+      "urls": 1501,
+      "ms": 89795,
       "verificado": true
     },
     "OLAB": {
-      "ok": false,
-      "error": "Zyte HTTP 520: {\"type\":\"/download/temporary-error\",\"title\":\"Website Ban\",\"status\":520,\"detail\":\"Zyte API could not get a ban-free response in a reasonable time. See https://docs.zyte.com/zyte-api/usage/errors.html#b"
+      "ok": true,
+      "estudios": 2074,
+      "errores": 0,
+      "urls": 2077,
+      "ms": 160173,
+      "verificado": true,
+      "respaldo": "Zyte HTTP 520: {\"type\":\"/download/temporary-error\",\"title\":\"Website Ban\",\"status\":520,\"detail\":\"Zyte API could not get a ban-free response in a reasonable time. See https://docs.zyte.com/zyte-api/usage/errors.html#b"
     }
   },
   "cobertura": {
     "Labbe": {
       "emparejados": 479,
       "arrastrados": 20,
-      "catalogo": 1065,
+      "catalogo": 1066,
       "fuente": "scan"
     },
     "Polanco": {
@@ -70,26 +75,28 @@
       "fuente": "scan"
     },
     "Chopo": {
-      "emparejados": 141,
-      "arrastrados": 250,
-      "catalogo": 484,
+      "emparejados": 281,
+      "arrastrados": 110,
+      "catalogo": 934,
       "fuente": "scan"
     },
     "Salud Digna": {
-      "emparejados": 292,
-      "arrastrados": 27,
-      "catalogo": 580,
+      "emparejados": 291,
+      "arrastrados": 28,
+      "catalogo": 582,
       "fuente": "scan"
     },
     "LAPI": {
       "emparejados": 511,
       "arrastrados": 35,
-      "catalogo": 1500,
+      "catalogo": 1501,
       "fuente": "scan"
     },
     "OLAB": {
-      "emparejados": 0,
-      "fuente": "publicado"
+      "emparejados": 392,
+      "arrastrados": 43,
+      "catalogo": 2074,
+      "fuente": "scan"
     }
   },
   "estudios": [
@@ -166,8 +173,8 @@
       "Chopo": 505.05,
       "Salud Digna": 215,
       "LAPI": 300,
-      "OLAB": 453,
-      "avg": 406,
+      "OLAB": 259,
+      "avg": 373,
       "cheapest": "Salud Digna"
     },
     {
@@ -529,8 +536,8 @@
       "Chopo": 434.2,
       "Salud Digna": 125,
       "LAPI": 473,
-      "OLAB": 359,
-      "avg": 411,
+      "OLAB": 209,
+      "avg": 386,
       "cheapest": "Salud Digna"
     },
     {
@@ -1164,11 +1171,11 @@
       "name": "Antígeno Superficie Hepatitis B",
       "Labbe": null,
       "Polanco": null,
-      "Chopo": 800.1,
+      "Chopo": 1505.7,
       "Salud Digna": 315,
       "LAPI": 385,
       "OLAB": null,
-      "avg": 500,
+      "avg": 735,
       "cheapest": "Salud Digna"
     },
     {
@@ -5751,12 +5758,12 @@
       "name": "Perfil hepatitis A, B, C",
       "Labbe": 7385,
       "Polanco": 3352.25,
-      "Chopo": 2880,
+      "Chopo": 4140.9,
       "Salud Digna": null,
       "LAPI": 7241,
       "OLAB": null,
-      "avg": 5215,
-      "cheapest": "Chopo"
+      "avg": 5530,
+      "cheapest": "Polanco"
     },
     {
       "name": "Perfil Hepatitis B",
