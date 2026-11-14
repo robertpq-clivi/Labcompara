@@ -108,24 +108,32 @@ const ctxPara = (ad) => {
     crudo[ad.id] = {};
     const ctx = ctxPara(ad);
     let total = 0, errores = 0;
+    // Dos familias pueden compartir búsqueda: la pluma y la tableta de Wegovy
+    // salen de la misma consulta «wegovy». Se pide una vez por fuente y las dos
+    // familias emparejan contra el mismo resultado —si falla, fallan las dos,
+    // y las dos conservan su precio anterior—.
+    const busquedas = new Map();
     for (const fam of familias) {
+      const query = catalogo.families[fam].query;
+      const repetida = busquedas.has(query);
       try {
         const volcar = VOLCAR ? (nombre, cuerpo) => {
           const dir = path.join(OUT, 'debug');
           fs.mkdirSync(dir, { recursive: true });
           fs.writeFileSync(path.join(dir, `${nombre}.txt`), cuerpo);
         } : null;
-        const items = await ad.buscar(ctx, catalogo.families[fam].query, { volcar });
+        if (!repetida) busquedas.set(query, ad.buscar(ctx, query, { volcar }));
+        const items = await busquedas.get(query);
         crudo[ad.id][fam] = items;
-        total += items.length;
-        console.log(`  ${ad.id}/${fam}: ${items.length} productos`);
+        if (!repetida) total += items.length;
+        console.log(`  ${ad.id}/${fam}: ${items.length} productos${repetida ? ` (misma búsqueda «${query}»)` : ''}`);
       } catch (e) {
         crudo[ad.id][fam] = [];
         fallos.add(`${ad.id}|${fam}`);
-        errores++;
+        if (!repetida) errores++;
         console.log(`  ${ad.id}/${fam}: ✗ ${String(e.message || e).slice(0, 70)}`);
       }
-      await dormir(PAUSA_MS);
+      if (!repetida) await dormir(PAUSA_MS);
     }
     meta[ad.id] = { total, errores, proxy: !!ad.proxy };
   }

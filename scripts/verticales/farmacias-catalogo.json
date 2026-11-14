@@ -19,7 +19,18 @@
     },
     "Wegovy": {
       "query": "wegovy",
-      "sustancia": "semaglutida"
+      "sustancia": "semaglutida",
+      "exclude": [
+        " tab",
+        "tableta"
+      ],
+      "nota": "Desde noviembre de 2026 las farmacias venden también Wegovy en tableta, y la búsqueda «wegovy» devuelve las dos presentaciones juntas. Las dosis casi no chocan —la tableta es 1.5, 4, 9 y 25 mg—, pero «0.25 mg» vive dentro de «25 mg» y una caja de 30 tabletas no es una pluma: la familia inyectable excluye « tab» y «tableta». El espacio de « tab» no es un descuido: «tab» a secas está dentro de «inyectable» y vaciaba las cinco plumas."
+    },
+    "Wegovy tableta": {
+      "query": "wegovy",
+      "marca": "Wegovy",
+      "sustancia": "semaglutida",
+      "nota": "Semaglutida oral de Novo Nordisk para obesidad, en caja de 30 tabletas. Se busca con la misma consulta que la pluma —ninguna farmacia la nombra igual: Ahorro «Wegovy Tabletas 1.5 mg 30 Tabs», San Pablo «Wegovy 30 Tabletas Caja» con la dosis en additionalDescription, Benavides «1.5 MG 30 TAB» con la marca sólo en item_brand— y la búsqueda se hace una sola vez por fuente. «marca» va aparte porque el nombre de la familia no aparece en ningún título: se exige «wegovy», y cada dosis exige «30 tab», que además fija la caja de 30 (Ahorro «30 Tabs», San Pablo «30 Tabletas», Benavides «30 TAB»). San Pablo publica «4.0 MG», de ahí las dos escrituras."
     },
     "Rybelsus": {
       "query": "rybelsus",
@@ -152,6 +163,56 @@
       "family": "Wegovy",
       "match_all": [
         "2.4 mg"
+      ]
+    },
+    {
+      "name": "Wegovy tableta 1.5 mg (30 tabletas)",
+      "family": "Wegovy tableta",
+      "match_all": [
+        "1.5 mg",
+        "30 tab"
+      ]
+    },
+    {
+      "name": "Wegovy tableta 4 mg (30 tabletas)",
+      "family": "Wegovy tableta",
+      "match_all": [
+        "30 tab"
+      ],
+      "match_any": [
+        "4 mg",
+        "4.0 mg"
+      ],
+      "exclude": [
+        "14 mg",
+        "14.0",
+        "2.4"
+      ]
+    },
+    {
+      "name": "Wegovy tableta 9 mg (30 tabletas)",
+      "family": "Wegovy tableta",
+      "match_all": [
+        "30 tab"
+      ],
+      "match_any": [
+        "9 mg",
+        "9.0 mg"
+      ]
+    },
+    {
+      "name": "Wegovy tableta 25 mg (30 tabletas)",
+      "family": "Wegovy tableta",
+      "match_all": [
+        "30 tab"
+      ],
+      "match_any": [
+        "25 mg",
+        "25.0 mg"
+      ],
+      "exclude": [
+        "0.25",
+        "12.5"
       ]
     },
     {

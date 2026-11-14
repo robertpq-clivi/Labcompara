@@ -175,7 +175,11 @@ function revisarCifras() {
       const p = JSON.parse(fs.readFileSync(glpFeed, 'utf8')).prices;
       const claves = Object.keys(p);
       reales.presentaciones = claves.length;
-      reales.tratamientos = new Set(claves.map((k) => k.split(' ')[0])).size;
+      // Por familia del catálogo, no por la primera palabra: «Wegovy tableta»
+      // y «Wegovy» son dos tratamientos en el comparador, y contando palabras
+      // la tarjeta que lo dice parecería prometer de más.
+      const familiaDe = new Map(require('./verticales/farmacias-catalogo.json').products.map((x) => [x.name, x.family]));
+      reales.tratamientos = new Set(claves.map((k) => familiaDe.get(k) || k.split(' ')[0])).size;
     }
 
     const landing = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');

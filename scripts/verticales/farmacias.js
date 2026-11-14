@@ -8,7 +8,7 @@
  *
  * Diferencia de fondo con la vertical de laboratorio: ahí el problema es
  * *descubrir* qué estudio es cada nombre entre miles. Aquí el catálogo es
- * cerrado —20 presentaciones de 5 familias— y el problema es escoger la dosis
+ * cerrado —24 presentaciones de 6 familias— y el problema es escoger la dosis
  * correcta dentro de los resultados de búsqueda de una familia. Por eso el
  * emparejamiento va por tokens declarados (match_all / match_any / exclude) y
  * no por similitud difusa: con "Ozempic 0.25/0.5 mg" vs "Ozempic 1 mg" un
@@ -315,22 +315,30 @@ function elegir(resultados, prod, fuente, familia) {
   let cands = resultados.filter((r) => coincide(texto(r), prod, familia));
   if (prod.min_price) cands = cands.filter((r) => r.precio >= prod.min_price);
 
-  const fam = normalizar(prod.family || '');
+  // La marca que se exige es la de la familia, salvo que la familia declare
+  // otra: «Wegovy tableta» es una familia aparte en el comparador, pero ninguna
+  // farmacia escribe «wegovy tableta» —San Pablo la llama «Wegovy 30 Tabletas
+  // Caja»—, así que exigir el nombre de la familia la dejaría siempre vacía.
+  const fam = normalizar((familia && familia.marca) || prod.family || '');
   const conMarca = cands.filter((r) => fam && normalizar(r.titulo).includes(fam));
   if (conMarca.length) cands = conMarca;
   else if (fuente !== 'Benavides') return null;
   else {
     // Benavides no pone la marca en el título, y su búsqueda por "mounjaro"
     // también devuelve "2.5 mg Orforglipron" (Foundayz), que ganaría por precio.
-    // Se exige la marca en el campo item_brand que la farmacia publica, o el
-    // principio activo de la familia en el título / Principio_activo.
     // Sólo aplica cuando la familia declara su sustancia: sin ella se sigue
     // confiando en la búsqueda acotada, como antes.
+    //
+    // Si la farmacia publica la marca (item_brand), manda la marca. El principio
+    // activo ya no basta para distinguir: Wegovy en tableta y Rybelsus son los
+    // dos semaglutida oral en caja de 30 —el Rybelsus reformulado viene en
+    // 1.5, 4 y 9 mg, las mismas dosis que la tableta de Wegovy—. Sin marca
+    // publicada se cae al activo en el título / Principio_activo, como antes.
     const sust = normalizar((familia && familia.sustancia) || '');
     if (sust) {
-      cands = cands.filter((r) =>
-        normalizar(r.marca).includes(fam) ||
-        normalizar(r.titulo).includes(sust) || normalizar(r.activos).includes(sust));
+      cands = cands.filter((r) => (r.marca
+        ? normalizar(r.marca).includes(fam)
+        : normalizar(r.titulo).includes(sust) || normalizar(r.activos).includes(sust)));
     }
   }
 
