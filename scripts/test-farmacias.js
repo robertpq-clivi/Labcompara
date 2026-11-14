@@ -123,6 +123,54 @@ console.log('\nLa dosis no se confunde con otra que la contenga:');
 const doce = [{ titulo: 'Mounjaro KwikPen 12.5mg/0.6ml Pluma Precargada', precio: 14358, url: '' }];
 check(V.elegir(doce, p25, 'Ahorro', famM) === null, '"2.5 mg" no captura la de 12.5 mg');
 
+// ── Wegovy: pluma y tableta salen de la misma búsqueda ───────────────────────
+// Títulos reales del 13 de noviembre de 2026, buscando «wegovy». La tableta es
+// otra familia en el comparador, y ninguna de las dos debe colarse en la otra.
+console.log('\nWegovy en pluma y en tableta no se cruzan:');
+const famW = V.catalogo.families.Wegovy;
+const famWT = V.catalogo.families['Wegovy tableta'];
+const ahorroW = [
+  { titulo: 'WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma', precio: 2900, url: '' },
+  { titulo: 'Wegovy Tabletas 4 mg 30 Tabs', precio: 4100, url: '' },
+  { titulo: 'WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma', precio: 2384, url: '' },
+  { titulo: 'Wegovy Tabletas 1.5 mg 30 Tabs', precio: 3349, url: '' },
+];
+const sanPabloW = [
+  { titulo: 'Wegovy 0.25 MG 1.5 ML Solución Pluma Prellenada', detalle: 'Semaglutida 0.25 MG', precio: 3178, url: '' },
+  { titulo: 'Wegovy 30 Tabletas Caja', detalle: 'Semaglutida 4.0 MG MG', precio: 4100, url: '' },
+  { titulo: 'Wegovy 30 Tabletas Caja', detalle: 'Semaglutida 1.5 MG', precio: 3349, url: '' },
+];
+const benavidesW = [
+  { titulo: '0.25 mg Semaglutida Solución Inyectable', precio: 3177, url: '', marca: 'Wegovy', activos: 'Semaglutida' },
+  { titulo: '1.5 MG 30 TAB', precio: 3640, url: '', marca: 'Wegovy', activos: 'Semaglutida' },
+  // El Rybelsus reformulado trae las mismas dosis que la tableta de Wegovy.
+  { titulo: '1.5 mg Semaglutida 30 Tabletas', precio: 1900, url: '', marca: 'Rybelsus', activos: 'Semaglutida' },
+];
+const elige = (lista, nombre, fuente, fam) => (V.elegir(lista, prod(nombre), fuente, fam) || {}).precio || null;
+for (const [lista, fuente, nombre, fam, esperado] of [
+  [ahorroW, 'Ahorro', 'Wegovy tableta 1.5 mg (30 tabletas)', famWT, 3349],
+  [ahorroW, 'Ahorro', 'Wegovy tableta 4 mg (30 tabletas)', famWT, 4100],
+  [ahorroW, 'Ahorro', 'Wegovy 0.5 mg (caja mensual)', famW, 2900],
+  [sanPabloW, 'SanPablo', 'Wegovy tableta 1.5 mg (30 tabletas)', famWT, 3349],
+  [sanPabloW, 'SanPablo', 'Wegovy tableta 4 mg (30 tabletas)', famWT, 4100],
+  [sanPabloW, 'SanPablo', 'Wegovy 0.25 mg (caja mensual)', famW, 3178],
+  [benavidesW, 'Benavides', 'Wegovy tableta 1.5 mg (30 tabletas)', famWT, 3640],
+  [benavidesW, 'Benavides', 'Wegovy 0.25 mg (caja mensual)', famW, 3177],
+  [ahorroW, 'Ahorro', 'Wegovy tableta 9 mg (30 tabletas)', famWT, null],
+  [ahorroW, 'Ahorro', 'Wegovy tableta 25 mg (30 tabletas)', famWT, null],
+]) {
+  const got = elige(lista, nombre, fuente, fam);
+  check(got === esperado, `${fuente}: ${nombre} → ${esperado ?? 'sin precio'}`, String(got));
+}
+// «0.25 mg» vive dentro de «25 mg»: la pluma de inicio no es la tableta de 25.
+check(elige([{ titulo: 'Wegovy 25 mg 30 Tabletas', precio: 5999, url: '' }], 'Wegovy 0.25 mg (caja mensual)', 'Ahorro', famW) === null,
+  'la pluma de 0.25 mg no captura la tableta de 25 mg');
+check(elige([{ titulo: 'WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma', precio: 2384, url: '' }], 'Wegovy tableta 25 mg (30 tabletas)', 'Ahorro', famWT) === null,
+  'la tableta de 25 mg no captura la pluma de 0.25 mg');
+// «tab» a secas está dentro de «inyectable»: la exclusión lleva espacio.
+check(elige([{ titulo: 'Wegovy 1mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada.', precio: 3940, url: '' }], 'Wegovy 1 mg (caja mensual)', 'Guadalajara', famW) === 3940,
+  '«Solución Inyectable» no cuenta como tableta');
+
 // ── el catálogo está bien formado ────────────────────────────────────────────
 console.log('\nIntegridad del catálogo:');
 check(V.catalogo.products.every((p) => p.name && p.family), 'toda presentación tiene name y family');

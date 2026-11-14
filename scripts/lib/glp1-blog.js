@@ -20,6 +20,20 @@ const path = require('path');
 
 const ARCHIVO = path.join(__dirname, '..', '..', 'data', 'medicamentos', 'prices.json');
 
+/**
+ * A qué familia pertenece cada presentación, según el catálogo del scan.
+ *
+ * Se filtraba por prefijo —`nombre.startsWith('Wegovy ')`— y eso dejó de
+ * alcanzar cuando llegó la tableta: «Wegovy tableta 1.5 mg» empieza con
+ * «Wegovy » y se habría metido en la página de precio de la pluma, con una
+ * caja de 30 tabletas comparada contra plumas. El prefijo queda sólo para un
+ * nombre que el catálogo no conozca.
+ */
+const FAMILIA_DE = new Map(require('../verticales/farmacias-catalogo.json').products.map(p => [p.name, p.family]));
+const esDe = (nombre, familia) => (FAMILIA_DE.has(nombre)
+  ? FAMILIA_DE.get(nombre) === familia
+  : nombre.startsWith(familia + ' '));
+
 /** Cajas de farmacia: el precio es del producto y nada más. */
 const FARMACIAS = ['Ahorro', 'Guadalajara', 'Benavides', 'SanPablo'];
 
@@ -69,7 +83,7 @@ function hechos(familia, datos = cargar()) {
   if (!meta) return null;
 
   const filas = Object.entries(datos.prices)
-    .filter(([nombre]) => nombre.startsWith(familia + ' '))
+    .filter(([nombre]) => esDe(nombre, familia))
     .map(([nombre, v]) => {
       const fuentes = v.sources || {};
       const enFarmacia = FARMACIAS
@@ -164,7 +178,7 @@ function hechosNuevo(familia, datos = cargar()) {
     .sort((a, b) => a.precio - b.precio);
 
   const filas = Object.entries(datos.prices)
-    .filter(([nombre]) => nombre.startsWith(familia + ' '))
+    .filter(([nombre]) => esDe(nombre, familia))
     .map(([nombre, v]) => {
       const fuentes = v.sources || {};
       const enFarmacia = conPrecio(fuentes, FARMACIAS);
@@ -251,4 +265,4 @@ function hechosTodas(datos = cargar()) {
   };
 }
 
-module.exports = { FARMACIAS, PLANES, NOMBRE, FAMILIAS, cargar, hechos, hechosNuevo, hechosTodas, dosis, dosisNum, pct, mediana };
+module.exports = { FARMACIAS, PLANES, NOMBRE, FAMILIAS, esDe, cargar, hechos, hechosNuevo, hechosTodas, dosis, dosisNum, pct, mediana };

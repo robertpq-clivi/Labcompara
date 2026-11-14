@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-08T18:29:41.255Z",
+  "generado": "2026-11-14T01:03:16.628Z",
   "crudo": {
     "Benavides": {
       "Ozempic": [
@@ -148,6 +148,14 @@
           "url": "https://www.benavides.com.mx/wegovy-0-25-mg-semaglutida-solucion-inyectable-1-pluma-precargada"
         },
         {
+          "titulo": "1.5 MG 30 TAB",
+          "detalle": "1 5 mg 30 tab",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 3640,
+          "url": "https://www.benavides.com.mx/1-5-mg-30-tab"
+        },
+        {
           "titulo": "1 mg Semaglutida",
           "detalle": "ozempic 1 mg semaglutida 1 jeringa prellenada",
           "activos": "Semaglutida",
@@ -283,6 +291,72 @@
           "precio": 1792,
           "url": "https://www.benavides.com.mx/mounjaro-5-mg-0-5-ml-tirzepatida-solucion-inyectable-1-frasco-ampula"
         }
+      ],
+      "Wegovy tableta": [
+        {
+          "titulo": "1.7 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 1 7 mg semaglutida solucion inyectable 1 pluma precargada",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 6643,
+          "url": "https://www.benavides.com.mx/wegovy-1-7-mg-semaglutida-solucion-inyectable-1-pluma-precargada"
+        },
+        {
+          "titulo": "1 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 1 mg semaglutida solucion inyectable 1 pluma precargada",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 5244,
+          "url": "https://www.benavides.com.mx/wegovy-1-mg-semaglutida-solucion-inyectable-1-pluma-precargada"
+        },
+        {
+          "titulo": "2.4 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 2 4 mg semaglutida solucion inyectable 1 pluma precargada",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 8163,
+          "url": "https://www.benavides.com.mx/wegovy-2-4-mg-semaglutida-solucion-inyectable-1-pluma-precargada"
+        },
+        {
+          "titulo": "0.5 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 0 5 mg semaglutida solucion inyectable 1 pluma precargada",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 3864,
+          "url": "https://www.benavides.com.mx/wegovy-0-5-mg-semaglutida-solucion-inyectable-1-pluma-precargada"
+        },
+        {
+          "titulo": "0.25 mg Semaglutida Solución Inyectable",
+          "detalle": "wegovy 0 25 mg semaglutida solucion inyectable 1 pluma precargada",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 3177,
+          "url": "https://www.benavides.com.mx/wegovy-0-25-mg-semaglutida-solucion-inyectable-1-pluma-precargada"
+        },
+        {
+          "titulo": "1.5 MG 30 TAB",
+          "detalle": "1 5 mg 30 tab",
+          "activos": "Semaglutida",
+          "marca": "Wegovy",
+          "precio": 3640,
+          "url": "https://www.benavides.com.mx/1-5-mg-30-tab"
+        },
+        {
+          "titulo": "1 mg Semaglutida",
+          "detalle": "ozempic 1 mg semaglutida 1 jeringa prellenada",
+          "activos": "Semaglutida",
+          "marca": "Ozempic",
+          "precio": 5485,
+          "url": "https://www.benavides.com.mx/ozempic-1-mg-semaglutida-1-jeringa-prellenada"
+        },
+        {
+          "titulo": "1.34 mg/ml Semaglutida Solución Inyectable",
+          "detalle": "ozempic 134 mgml semaglutida solucion inyectable 1 pluma precargada",
+          "activos": "Semaglutida",
+          "marca": "Ozempic",
+          "precio": 4004,
+          "url": "https://www.benavides.com.mx/ozempic-134-mgml-semaglutida-solucion-inyectable-1-pluma-precargada"
+        }
       ]
     },
     "Ahorro": {
@@ -347,6 +421,11 @@
           "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-5mg-1-pluma.html"
         },
         {
+          "titulo": "Wegovy Tabletas 4 mg 30 Tabs",
+          "precio": 4100,
+          "url": "https://www.fahorro.com/wegovy-pill-4-mg-30-tabs.html"
+        },
+        {
           "titulo": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma",
           "precio": 4900,
           "url": "https://www.fahorro.com/wegovy-flextouch-3ml-2-4mg-1-pluma.html"
@@ -365,6 +444,11 @@
           "titulo": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma",
           "precio": 2384,
           "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-25mg-1-pluma.html"
+        },
+        {
+          "titulo": "Wegovy Tabletas 1.5 mg 30 Tabs",
+          "precio": 3349,
+          "url": "https://www.fahorro.com/wegovy-pill-1-5-mg-30-tabs.html"
         }
       ],
       "Rybelsus": [
@@ -409,6 +493,43 @@
           "titulo": "Foundayz 9.0 mg 30 Tabs",
           "precio": 5290,
           "url": "https://www.fahorro.com/foundayz-9-0-mg-30-tabs.html"
+        }
+      ],
+      "Wegovy tableta": [
+        {
+          "titulo": "WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma",
+          "precio": 2900,
+          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-5mg-1-pluma.html"
+        },
+        {
+          "titulo": "Wegovy Tabletas 4 mg 30 Tabs",
+          "precio": 4100,
+          "url": "https://www.fahorro.com/wegovy-pill-4-mg-30-tabs.html"
+        },
+        {
+          "titulo": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma",
+          "precio": 4900,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-2-4mg-1-pluma.html"
+        },
+        {
+          "titulo": "WEGOVY FlexTouch 3ml (1.7mg) 1 Pluma",
+          "precio": 4650,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-7mg-1-pluma.html"
+        },
+        {
+          "titulo": "WEGOVY FlexTouch 3ml (1.0mg) 1 Pluma",
+          "precio": 3934,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-0mg-1-pluma.html"
+        },
+        {
+          "titulo": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma",
+          "precio": 2384,
+          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-25mg-1-pluma.html"
+        },
+        {
+          "titulo": "Wegovy Tabletas 1.5 mg 30 Tabs",
+          "precio": 3349,
+          "url": "https://www.fahorro.com/wegovy-pill-1-5-mg-30-tabs.html"
         }
       ]
     },
@@ -917,18 +1038,18 @@
       ],
       "Wegovy": [
         {
-          "titulo": "Wegovy 2.4 MG 3 ML Solución Pluma Prellenada",
-          "detalle": "Semaglutida 2.4 MG",
-          "marca": "Wegovy",
-          "precio": 8164,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-2-4-mg-3-ml-solucion-pluma-prellenada/p/000000000070008425"
-        },
-        {
           "titulo": "Wegovy 1.0 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 1.0 MG",
           "marca": "Wegovy",
           "precio": 5244,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-0-mg-3-ml-solucion-pluma-prellenada/p/000000000070008424"
+        },
+        {
+          "titulo": "Wegovy 2.4 MG 3 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 2.4 MG",
+          "marca": "Wegovy",
+          "precio": 8164,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-2-4-mg-3-ml-solucion-pluma-prellenada/p/000000000070008425"
         },
         {
           "titulo": "Wegovy 0.5 MG 1.5 ML Solución Pluma Prellenada",
@@ -938,6 +1059,13 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-5-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008423"
         },
         {
+          "titulo": "Wegovy 1.7 MG 3 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 1.7 MG",
+          "marca": "Wegovy",
+          "precio": 6643,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-7-mg-3-ml-solucion-pluma-prellenada/p/000000000070008426"
+        },
+        {
           "titulo": "Wegovy 0.25 MG 1.5 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 0.25 MG",
           "marca": "Wegovy",
@@ -945,11 +1073,18 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-25-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008422"
         },
         {
-          "titulo": "Wegovy 1.7 MG 3 ML Solución Pluma Prellenada",
-          "detalle": "Semaglutida 1.7 MG",
+          "titulo": "Wegovy 30 Tabletas Caja",
+          "detalle": "Semaglutida 4.0 MG MG",
           "marca": "Wegovy",
-          "precio": 6643,
-          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-7-mg-3-ml-solucion-pluma-prellenada/p/000000000070008426"
+          "precio": 4100,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-30-tabletas-caja/p/000000000070011469"
+        },
+        {
+          "titulo": "Wegovy 30 Tabletas Caja",
+          "detalle": "Semaglutida 1.5 MG",
+          "marca": "Wegovy",
+          "precio": 3349,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-30-tabletas-caja/p/000000000070011468"
         }
       ],
       "Rybelsus": [
@@ -1066,6 +1201,57 @@
           "marca": "Mounjaro",
           "precio": 1672,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-1-solucion-frasco-ampula/p/000000000070008459"
+        }
+      ],
+      "Wegovy tableta": [
+        {
+          "titulo": "Wegovy 1.0 MG 3 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 1.0 MG",
+          "marca": "Wegovy",
+          "precio": 5244,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-0-mg-3-ml-solucion-pluma-prellenada/p/000000000070008424"
+        },
+        {
+          "titulo": "Wegovy 2.4 MG 3 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 2.4 MG",
+          "marca": "Wegovy",
+          "precio": 8164,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-2-4-mg-3-ml-solucion-pluma-prellenada/p/000000000070008425"
+        },
+        {
+          "titulo": "Wegovy 0.5 MG 1.5 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 0.5 MG",
+          "marca": "Wegovy",
+          "precio": 3864,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-5-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008423"
+        },
+        {
+          "titulo": "Wegovy 1.7 MG 3 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 1.7 MG",
+          "marca": "Wegovy",
+          "precio": 6643,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-7-mg-3-ml-solucion-pluma-prellenada/p/000000000070008426"
+        },
+        {
+          "titulo": "Wegovy 0.25 MG 1.5 ML Solución Pluma Prellenada",
+          "detalle": "Semaglutida 0.25 MG",
+          "marca": "Wegovy",
+          "precio": 3178,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-25-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008422"
+        },
+        {
+          "titulo": "Wegovy 30 Tabletas Caja",
+          "detalle": "Semaglutida 4.0 MG MG",
+          "marca": "Wegovy",
+          "precio": 4100,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-30-tabletas-caja/p/000000000070011469"
+        },
+        {
+          "titulo": "Wegovy 30 Tabletas Caja",
+          "detalle": "Semaglutida 1.5 MG",
+          "marca": "Wegovy",
+          "precio": 3349,
+          "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-30-tabletas-caja/p/000000000070011468"
         }
       ]
     }

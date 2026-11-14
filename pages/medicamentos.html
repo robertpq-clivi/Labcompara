@@ -17,10 +17,10 @@ ev.forEach(function(e){window.addEventListener(e,load,{passive:true,once:true});
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Medcompara &#x2013; Compara precios de Ozempic, Mounjaro, Wegovy y m&#xe1;s GLP-1 en M&#xe9;xico</title>
-<meta name="description" content="Compara el precio de Ozempic, Mounjaro, Wegovy, Rybelsus y Foundayz en México entre Clivi, Revert y las principales farmacias. Gratis."/>
+<meta name="description" content="Compara el precio de Ozempic, Mounjaro, Wegovy en pluma y en tableta, Rybelsus y Foundayz en México entre Clivi, Revert y las principales farmacias. Gratis."/>
 <link rel="canonical" href="https://medcompara.com.mx/glp1"/>
 <meta property="og:title" content="Medcompara &#x2013; Compara precios de medicamentos GLP-1 en M&#xe9;xico"/>
-<meta property="og:description" content="Compara precios de Ozempic, Mounjaro, Wegovy, Rybelsus y Foundayz entre las principales farmacias de M&#xe9;xico en segundos. Gratis, sin registro."/>
+<meta property="og:description" content="Compara precios de Ozempic, Mounjaro, Wegovy en pluma y en tableta, Rybelsus y Foundayz entre las principales farmacias de M&#xe9;xico en segundos. Gratis, sin registro."/>
 <meta property="og:url" content="https://medcompara.com.mx/glp1"/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://medcompara.com.mx/images/og-image.jpg"/>
@@ -39,7 +39,7 @@ ev.forEach(function(e){window.addEventListener(e,load,{passive:true,once:true});
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'"/>
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"/></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Medcompara","alternateName":["GLP compara","GLP Compara","Medcompara M&#xe9;xico"],"url":"https://medcompara.com.mx/","description":"Comparador de precios de medicamentos GLP-1 en M&#xe9;xico","inLanguage":"es-MX","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://medcompara.com.mx/blog/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Medcompara","alternateName":"GLP compara","url":"https://medcompara.com.mx/","logo":"https://medcompara.com.mx/favicon.png","areaServed":"M&#xe9;xico","description":"Comparador gratuito de precios de medicamentos GLP-1 (Ozempic, Mounjaro, Wegovy, Rybelsus, Foundayz) en M&#xe9;xico"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Medcompara","alternateName":"GLP compara","url":"https://medcompara.com.mx/","logo":"https://medcompara.com.mx/favicon.png","areaServed":"M&#xe9;xico","description":"Comparador gratuito de precios de medicamentos GLP-1 (Ozempic, Mounjaro, Wegovy, Wegovy en tableta, Rybelsus, Foundayz) en M&#xe9;xico"}</script>
 <script src="/assets/track.js" defer></script>
 <style>
 :root{--navy:#06142A;--navy-mid:#183f5e;--teal:#00547c;--teal-light:#79C5E2;--teal-dark:#003A56;--green:#10B981;--gray-50:#F8F7F4;--gray-100:#EFEEEA;--gray-200:#E5E7EB;--gray-400:#94A3B8;--gray-600:#4B5563;--gray-800:#242424;}
@@ -484,7 +484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-content">
     <div class="hero-text">
     <h1 class="hero-h1 anim" style="animation-delay:.1s">Encuentra tu medicamento GLP&#8209;1<br/><span>hasta 35% menos</span></h1>
-    <p class="hero-sub anim" style="animation-delay:.2s">Compara el precio de Ozempic, Mounjaro, Wegovy, Rybelsus y Foundayz entre las principales farmacias, elige el que m&#xe1;s te convenga y compra directamente.</p>
+    <p class="hero-sub anim" style="animation-delay:.2s">Compara el precio de Ozempic, Mounjaro, Wegovy en pluma y en tableta, Rybelsus y Foundayz entre las principales farmacias, elige el que m&#xe1;s te convenga y compra directamente.</p>
     <div style="margin-top:32px;" class="anim" style="animation-delay:.3s">
       <button class="btn-primary" id="hero-cta" style="font-size:17px;padding:16px 34px;">Comparar precios &#x2014; es gratis <span>&#x2192;</span></button>
     </div>
@@ -757,6 +757,13 @@ const RAW_DATA = [
   {name:"Wegovy 1 mg (caja mensual)",Clivi:5590,Ahorro:6400,Guadalajara:6290,Benavides:6450,SanPablo:6350,avg:6216,cheapest:"Clivi"},
   {name:"Wegovy 1.7 mg (caja mensual)",Clivi:5990,Ahorro:null,Guadalajara:6690,Benavides:6850,SanPablo:6750,avg:6570,cheapest:"Clivi"},
   {name:"Wegovy 2.4 mg (caja mensual)",Clivi:6490,Ahorro:7300,Guadalajara:7190,Benavides:7350,SanPablo:null,avg:7083,cheapest:"Clivi"},
+  // Wegovy en tableta, igual que Foundayz: sin precios de respaldo. Todo lo que
+  // muestra sale de data/medicamentos/prices.json (Clivi incluido), para que el
+  // scan del domingo sea lo único que lo refresca.
+  {name:"Wegovy tableta 1.5 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Wegovy tableta 4 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Wegovy tableta 9 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
+  {name:"Wegovy tableta 25 mg (30 tabletas)",Clivi:null,Ahorro:null,Guadalajara:null,Benavides:null,SanPablo:null,avg:null,cheapest:null},
   {name:"Rybelsus 3 mg (30 tabletas)",Clivi:2490,Ahorro:2950,Guadalajara:2890,Benavides:2980,SanPablo:2920,avg:2846,cheapest:"Clivi"},
   {name:"Rybelsus 7 mg (30 tabletas)",Clivi:2890,Ahorro:3400,Guadalajara:3290,Benavides:3450,SanPablo:3350,avg:3276,cheapest:"Clivi"},
   {name:"Rybelsus 14 mg (30 tabletas)",Clivi:2890,Ahorro:3400,Guadalajara:3350,Benavides:null,SanPablo:3380,avg:3255,cheapest:"Clivi"},
@@ -838,6 +845,7 @@ const STUDY_INFO = {
   "Ozempic": { desc:"Ozempic es un agonista del receptor GLP-1 de aplicación semanal indicado para la diabetes tipo 2 y usado también para el control de peso.", purpose:"Controlar la glucosa en diabetes tipo 2 y ayudar a reducir el apetito y el peso.", substance:"Semaglutida", maker:"Novo Nordisk", route:"Inyección subcutánea · 1 vez por semana", rx:true },
   "Mounjaro": { desc:"Mounjaro es un agonista dual GIP/GLP-1 de aplicación semanal, indicado para diabetes tipo 2 y con efecto destacado sobre el peso.", purpose:"Controlar la glucosa en diabetes tipo 2 y favorecer una mayor pérdida de peso.", substance:"Tirzepatida", maker:"Eli Lilly", route:"Inyección subcutánea · 1 vez por semana", rx:true },
   "Wegovy": { desc:"Wegovy contiene semaglutida en dosis indicada específicamente para el control crónico del peso en adultos con sobrepeso u obesidad.", purpose:"Tratamiento del sobrepeso y la obesidad junto con dieta y ejercicio.", substance:"Semaglutida", maker:"Novo Nordisk", route:"Inyección subcutánea · 1 vez por semana", rx:true },
+  "Wegovy tableta": { desc:"Wegovy en tableta es semaglutida oral de Novo Nordisk para el control crónico del peso: el mismo principio activo que la pluma, sin inyecciones.", purpose:"Tratamiento del sobrepeso y la obesidad junto con dieta y ejercicio, en tableta diaria.", substance:"Semaglutida (oral)", maker:"Novo Nordisk", route:"Tableta oral · 1 vez al día, en ayuno", rx:true },
   "Rybelsus": { desc:"Rybelsus es semaglutida en presentación oral (tableta), una opción sin inyecciones para la diabetes tipo 2.", purpose:"Controlar la glucosa en diabetes tipo 2 en presentación oral diaria.", substance:"Semaglutida (oral)", maker:"Novo Nordisk", route:"Tableta oral · 1 vez al día, en ayuno", rx:true },
   "Foundayz": { desc:"Foundayz es orforglipron, el primer agonista GLP-1 no peptídico en tableta: se toma a cualquier hora, con o sin alimentos.", purpose:"Control crónico del peso y de la glucosa, en tableta diaria y sin inyecciones.", substance:"Orforglipron", maker:"Eli Lilly", route:"Tableta oral · 1 vez al día, sin restricción de alimentos", rx:true },
   "default": { desc:"Medicamento agonista del receptor GLP-1 para el control de la diabetes tipo 2 y/o del peso.", purpose:"Apoya el control de la glucosa y del peso bajo supervisión médica.", substance:"Agonista GLP-1", maker:"—", route:"Según indicación médica", rx:true }
@@ -903,10 +911,14 @@ function loadBelowFold(){ if(belowFoldLoaded) return; belowFoldLoaded = true; en
 })();
 
 // Medicamentos GLP-1 disponibles (familias)
-const DRUGS = ['Ozempic','Mounjaro','Wegovy','Rybelsus','Foundayz'];
+const DRUGS = ['Ozempic','Mounjaro','Wegovy','Wegovy tableta','Rybelsus','Foundayz'];
 // Los que se toman en tableta. Cambian el icono de la tarjeta y quedan fuera
 // del "desde" de la home: un mes de tableta y una pluma no son el mismo gasto.
-const ORALES = ['Rybelsus','Foundayz'];
+const ORALES = ['Wegovy tableta','Rybelsus','Foundayz'];
+// A qué familia pertenece una presentación: el nombre más largo de DRUGS que la
+// encabeza. Se filtraba con `name.startsWith(d)`, y «Wegovy tableta 1.5 mg»
+// empieza con «Wegovy»: la tableta habría salido entre las plumas de Wegovy.
+const familiaDe = n => DRUGS.filter(d => n === d || n.startsWith(d + ' ')).sort((a,b) => b.length - a.length)[0] || '';
 
 // Nombre corto para los encabezados de la tabla comparativa
 const SHORT = { Clivi:'Clivi', Ahorro:'Del Ahorro', Guadalajara:'F. Guadalajara', Benavides:'Benavides', SanPablo:'San Pablo', Revert:'Revert' };
@@ -933,7 +945,7 @@ const PHARM_FEATURES = {
 // ── UTILS ─────────────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
 const fmtP = p => p ? new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(p) : null;
-const sInfo = n => { const k=Object.keys(STUDY_INFO).find(k=>k!=='default'&&n.startsWith(k)); return STUDY_INFO[k]||STUDY_INFO['default']; };
+const sInfo = n => STUDY_INFO[familiaDe(n)] || STUDY_INFO['default'];
 const minP = s => { const v=LABS.map(l=>s[l]).filter(v=>v); return v.length?Math.min(...v):null; };
 const stars = r => [1,2,3,4,5].map(i=>`<span style="color:${i<=Math.floor(r)?'#F59E0B':'#E5E7EB'};font-size:11px;">&#x2605;</span>`).join('');
 // Logos de farmacia en círculo (mismo estilo que la órbita). Respaldo al emoji si falta.
@@ -1047,7 +1059,7 @@ async function saveLead(l){
  * regulares— en cualquier tablero que quiera agrupar por ella.
  */
 function partirNombre(nombre){
-  const d = (typeof DRUGS !== 'undefined' ? DRUGS : []).find(x => nombre.startsWith(x)) || '';
+  const d = typeof familiaDe === 'function' ? familiaDe(nombre) : '';
   const resto = nombre.slice(d.length).trim();
   const m = resto.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
   const info = d && typeof STUDY_INFO !== 'undefined' ? STUDY_INFO[d] : null;
@@ -1099,9 +1111,9 @@ function renderDrugGrid(){
   const grid=$('drug-grid');
   grid.innerHTML=DRUGS.map(d=>{
     const info=STUDY_INFO[d];
-    const prices=RAW_DATA.filter(s=>s.name.startsWith(d)).map(s=>minP(s)).filter(v=>v);
+    const prices=RAW_DATA.filter(s=>familiaDe(s.name)===d).map(s=>minP(s)).filter(v=>v);
     const from=prices.length?Math.min(...prices):null;
-    const n=RAW_DATA.filter(s=>s.name.startsWith(d)).length;
+    const n=RAW_DATA.filter(s=>familiaDe(s.name)===d).length;
     return`<div class="study-item" data-drug="${d}" style="padding:14px 15px;"><div style="font-size:24px;">${ORALES.includes(d)?'&#x1F48A;':'&#x1F489;'}</div><div class="study-name"><div style="font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-weight:700;color:var(--navy);">${d}</div><div class="study-from">${info.substance} &middot; ${n} presentaci${n>1?'ones':'&oacute;n'}</div></div>${from?`<div style="text-align:right"><div class="study-from">desde</div><div class="study-price">${fmtP(from)}</div></div>`:''}<div style="color:var(--teal-dark);font-weight:800;font-size:18px;margin-left:8px;">&#x2192;</div></div>`;
   }).join('');
   grid.querySelectorAll('.study-item').forEach(el=>el.onclick=()=>selectDrug(el.dataset.drug));
@@ -1109,7 +1121,7 @@ function renderDrugGrid(){
 
 // ── SEARCH: paso B — elegir dosis / presentaci&#xf3;n ──────────────────────────
 function renderList(){
-  const fil=RAW_DATA.filter(s=>s.name.startsWith(selectedDrug));
+  const fil=RAW_DATA.filter(s=>familiaDe(s.name)===selectedDrug);
   const list=$('study-list');
   if(!fil.length){list.innerHTML='<div style="text-align:center;color:var(--gray-400);padding:24px;font-size:14px;">No hay presentaciones disponibles.</div>';return;}
   list.innerHTML=fil.map(s=>{
@@ -1230,12 +1242,12 @@ function renderHistory(){
 
 // ── LOS MEJORES TRATAMIENTOS (ranking en la home) ──────────────────────────
 function priceFrom(provider){
-  // Los orales (Rybelsus, Foundayz) no se cuentan en el "desde" de estas secciones.
-  const vals=RAW_DATA.filter(s=>!ORALES.some(o=>s.name.startsWith(o))).map(s=>s[provider]).filter(v=>typeof v==='number'&&v>0);
+  // Los orales (Wegovy tableta, Rybelsus, Foundayz) no se cuentan en el "desde" de estas secciones.
+  const vals=RAW_DATA.filter(s=>!ORALES.includes(familiaDe(s.name))).map(s=>s[provider]).filter(v=>typeof v==='number'&&v>0);
   return vals.length?Math.min(...vals):null;
 }
 function medFrom(prefix){
-  const vals=RAW_DATA.filter(s=>s.name.startsWith(prefix)).flatMap(s=>LABS.map(l=>s[l])).filter(v=>typeof v==='number'&&v>0);
+  const vals=RAW_DATA.filter(s=>familiaDe(s.name)===prefix).flatMap(s=>LABS.map(l=>s[l])).filter(v=>typeof v==='number'&&v>0);
   return vals.length?Math.min(...vals):null;
 }
 // Logos de farmacias (sube los archivos a images/farmacias/). Si falta uno,
