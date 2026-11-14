@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T01:03:16.628Z",
+  "generated_at": "2026-11-14T15:45:41.549Z",
   "currency": "MXN",
   "prices": {
     "Ozempic 0.25/0.5 mg (1 pluma)": {
@@ -332,15 +332,10 @@
           "url": "https://www.clivi.com.mx/",
           "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
-        "Guadalajara": {
-          "price": 2385,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html",
-          "title": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada."
-        },
-        "Revert": {
-          "price": 2299,
-          "url": "https://revert.com.mx/perdida-de-peso/",
-          "title": "Precio verificado manualmente"
+        "Ahorro": {
+          "price": 2384,
+          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-25mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma"
         },
         "Benavides": {
           "price": 3177,
@@ -348,16 +343,21 @@
           "title": "0.25 mg Semaglutida Solución Inyectable",
           "detalle": "wegovy 0 25 mg semaglutida solucion inyectable 1 pluma precargada"
         },
-        "Ahorro": {
-          "price": 2384,
-          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-25mg-1-pluma.html",
-          "title": "WEGOVY FlexTouch 1.5ml (0.25mg) 1 Pluma"
+        "Guadalajara": {
+          "price": 2385,
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.25-mg-dosis-0.68mg-ml-solucion-inyectable--1-pluma-precargada.-1447300.html",
+          "title": "Wegovy 0.25 mg/Dosis 0.68mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
         "SanPablo": {
           "price": 3178,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-25-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008422",
           "title": "Wegovy 0.25 MG 1.5 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 0.25 MG"
+        },
+        "Revert": {
+          "price": 2299,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
         }
       },
       "Clivi": 4299,
@@ -374,15 +374,10 @@
           "url": "https://www.clivi.com.mx/",
           "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
-        "Guadalajara": {
+        "Ahorro": {
           "price": 2900,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.5mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447726.html",
-          "title": "Wegovy 0.5mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada."
-        },
-        "Revert": {
-          "price": 2899,
-          "url": "https://revert.com.mx/perdida-de-peso/",
-          "title": "Precio verificado manualmente"
+          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-5mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma"
         },
         "Benavides": {
           "price": 3864,
@@ -390,16 +385,21 @@
           "title": "0.5 mg Semaglutida Solución Inyectable",
           "detalle": "wegovy 0 5 mg semaglutida solucion inyectable 1 pluma precargada"
         },
-        "Ahorro": {
+        "Guadalajara": {
           "price": 2900,
-          "url": "https://www.fahorro.com/wegovy-flextouch-1-5ml-0-5mg-1-pluma.html",
-          "title": "WEGOVY FlexTouch 1.5ml (0.5mg) 1 Pluma"
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-0.5mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447726.html",
+          "title": "Wegovy 0.5mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
         "SanPablo": {
           "price": 3864,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-0-5-mg-1-5-ml-solucion-pluma-prellenada/p/000000000070008423",
           "title": "Wegovy 0.5 MG 1.5 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 0.5 MG"
+        },
+        "Revert": {
+          "price": 2899,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
         }
       },
       "Clivi": 4999,
@@ -416,15 +416,10 @@
           "url": "https://www.clivi.com.mx/",
           "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
-        "Guadalajara": {
-          "price": 3940,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447823.html",
-          "title": "Wegovy 1mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada."
-        },
-        "Revert": {
-          "price": 3899,
-          "url": "https://revert.com.mx/perdida-de-peso/",
-          "title": "Precio verificado manualmente"
+        "Ahorro": {
+          "price": 3934,
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-0mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 3ml (1.0mg) 1 Pluma"
         },
         "Benavides": {
           "price": 5244,
@@ -432,16 +427,21 @@
           "title": "1 mg Semaglutida Solución Inyectable",
           "detalle": "wegovy 1 mg semaglutida solucion inyectable 1 pluma precargada"
         },
-        "Ahorro": {
-          "price": 3934,
-          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-0mg-1-pluma.html",
-          "title": "WEGOVY FlexTouch 3ml (1.0mg) 1 Pluma"
+        "Guadalajara": {
+          "price": 3940,
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1mg-dosis-1.34mg-ml-solucion-inyectable--1-pluma-precargada.-1447823.html",
+          "title": "Wegovy 1mg/dosis 1.34mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
         "SanPablo": {
           "price": 5244,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-0-mg-3-ml-solucion-pluma-prellenada/p/000000000070008424",
           "title": "Wegovy 1.0 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 1.0 MG"
+        },
+        "Revert": {
+          "price": 3899,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
         }
       },
       "Clivi": 5499,
@@ -458,15 +458,10 @@
           "url": "https://www.clivi.com.mx/",
           "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
-        "Guadalajara": {
+        "Ahorro": {
           "price": 4650,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1.7mg-dosis-2.27mg-ml-solucion-inyectable--1-pluma-precargada.-1448510.html",
-          "title": "Wegovy 1.7mg/Dosis 2.27mg/ml Solución Inyectable, 1 Pluma Precargada."
-        },
-        "Revert": {
-          "price": 4599,
-          "url": "https://revert.com.mx/perdida-de-peso/",
-          "title": "Precio verificado manualmente"
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-7mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 3ml (1.7mg) 1 Pluma"
         },
         "Benavides": {
           "price": 6643,
@@ -474,16 +469,21 @@
           "title": "1.7 mg Semaglutida Solución Inyectable",
           "detalle": "wegovy 1 7 mg semaglutida solucion inyectable 1 pluma precargada"
         },
-        "Ahorro": {
+        "Guadalajara": {
           "price": 4650,
-          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-1-7mg-1-pluma.html",
-          "title": "WEGOVY FlexTouch 3ml (1.7mg) 1 Pluma"
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-1.7mg-dosis-2.27mg-ml-solucion-inyectable--1-pluma-precargada.-1448510.html",
+          "title": "Wegovy 1.7mg/Dosis 2.27mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
         "SanPablo": {
           "price": 6643,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-1-7-mg-3-ml-solucion-pluma-prellenada/p/000000000070008426",
           "title": "Wegovy 1.7 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 1.7 MG"
+        },
+        "Revert": {
+          "price": 4599,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
         }
       },
       "Clivi": 6999,
@@ -500,15 +500,10 @@
           "url": "https://www.clivi.com.mx/",
           "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         },
-        "Guadalajara": {
+        "Ahorro": {
           "price": 4900,
-          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-2.4mg-dosis-3.2mg-ml-solucion-inyectable--1-pluma-precargada.-1448528.html",
-          "title": "Wegovy 2.4mg/Dosis 3.2mg/ml Solución Inyectable, 1 Pluma Precargada."
-        },
-        "Revert": {
-          "price": 4899,
-          "url": "https://revert.com.mx/perdida-de-peso/",
-          "title": "Precio verificado manualmente"
+          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-2-4mg-1-pluma.html",
+          "title": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma"
         },
         "Benavides": {
           "price": 8163,
@@ -516,16 +511,21 @@
           "title": "2.4 mg Semaglutida Solución Inyectable",
           "detalle": "wegovy 2 4 mg semaglutida solucion inyectable 1 pluma precargada"
         },
-        "Ahorro": {
+        "Guadalajara": {
           "price": 4900,
-          "url": "https://www.fahorro.com/wegovy-flextouch-3ml-2-4mg-1-pluma.html",
-          "title": "WEGOVY FlexTouch 3ml (2.4mg) 1 Pluma"
+          "url": "https://www.farmaciasguadalajara.com/obesidad/antiobesidad/wegovy-2.4mg-dosis-3.2mg-ml-solucion-inyectable--1-pluma-precargada.-1448528.html",
+          "title": "Wegovy 2.4mg/Dosis 3.2mg/ml Solución Inyectable, 1 Pluma Precargada."
         },
         "SanPablo": {
           "price": 8164,
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-2-4-mg-3-ml-solucion-pluma-prellenada/p/000000000070008425",
           "title": "Wegovy 2.4 MG 3 ML Solución Pluma Prellenada",
           "detalle": "Semaglutida 2.4 MG"
+        },
+        "Revert": {
+          "price": 4899,
+          "url": "https://revert.com.mx/perdida-de-peso/",
+          "title": "Precio verificado manualmente"
         }
       },
       "Clivi": 6999,
@@ -537,6 +537,11 @@
     },
     "Wegovy tableta 1.5 mg (30 tabletas)": {
       "sources": {
+        "Clivi": {
+          "price": 2999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
         "Benavides": {
           "price": 3640,
           "url": "https://www.benavides.com.mx/1-5-mg-30-tab",
@@ -553,11 +558,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-30-tabletas-caja/p/000000000070011468",
           "title": "Wegovy 30 Tabletas Caja",
           "detalle": "Semaglutida 1.5 MG"
-        },
-        "Clivi": {
-          "price": 2999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         }
       },
       "Clivi": 2999,
@@ -569,6 +569,11 @@
     },
     "Wegovy tableta 4 mg (30 tabletas)": {
       "sources": {
+        "Clivi": {
+          "price": 2999,
+          "url": "https://www.clivi.com.mx/",
+          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
+        },
         "Ahorro": {
           "price": 4100,
           "url": "https://www.fahorro.com/wegovy-pill-4-mg-30-tabs.html",
@@ -579,11 +584,6 @@
           "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/v---w--x/wegovy-30-tabletas-caja/p/000000000070011469",
           "title": "Wegovy 30 Tabletas Caja",
           "detalle": "Semaglutida 4.0 MG MG"
-        },
-        "Clivi": {
-          "price": 2999,
-          "url": "https://www.clivi.com.mx/",
-          "title": "Plan Clivi — incluye seguimiento médico, consulta, estudios de laboratorio y plan de alimentación"
         }
       },
       "Clivi": 2999,
